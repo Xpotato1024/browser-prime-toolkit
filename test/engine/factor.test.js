@@ -115,3 +115,10 @@ test('seeded runs reproduce factors and work counts', () => {
   assert.deepEqual(a.factors, b.factors);
   assert.equal(a.operations, b.operations);
 });
+
+test('a forged mr64 composite cannot become proven prime', () => {
+  const forged = { input: '121', factors: [{ value: '121', certainty: 'proven', method: 'mr64' }],
+    remaining: '1', operations: 0, elapsedMs: 0, status: 'complete', reason: null,
+    primality: 'proven-prime', algorithm: 'brent', seed: 1 };
+  assert.throws(() => verifyFactorResult(forged, '121'));
+});
