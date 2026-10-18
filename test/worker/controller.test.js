@@ -157,3 +157,18 @@ test('bundled worker URL is released on normal ownership cleanup or construction
   assert.throws(() => makeBundledWorker({ WorkerCtor: class { constructor() { throw Error('no'); } }, URLApi }));
   assert.deepEqual(revoked, ['blob:fixed', 'blob:fixed']);
 });
+
+test('timer dependencies are called without a controller receiver', () => {
+  let key = 0;
+  const worker = { postMessage() {}, terminate() {}, releaseSource() {} };
+  const controller = new FactorWorkerController({
+    createWorker: () => worker,
+    schedule: function () { assert.equal(this, undefined); return ++key; },
+    unschedule: function () { assert.equal(this, undefined); },
+  });
+  assert.equal(controller.phase, 'loading');
+  worker.onmessage({ data: ready });
+  controller.start('12');
+  controller.cancel();
+  controller.dispose();
+});
