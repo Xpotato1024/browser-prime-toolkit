@@ -45,3 +45,8 @@ ready後の操作区間ではmainとWorker双方のrequest/socket、navigation�
 
 取消の基礎APIは[Worker.terminate](https://developer.mozilla.org/en-US/docs/Web/API/Worker/terminate)です。
 終了時にWorker側cleanupの完遂を前提にせず、host側で所有資源とjob状態を破棄します。
+
+初回コアはsiteへ取り込めるreleaseではありません。入力の文字数とmanifestのbyte数は別々に制限します。
+現行v1のmaxInputBytesは65536、maxOutputBytesは262144以下です。因数集約コアの最大出力はこの範囲に収まりません。
+アダプターはmanifestの入力・出力・進捗message上限を計算前と描画前に検証し、超過を明示します。
+上限を無言で切捨てたり、コアの受付桁数をサイトでの分解保証として表示したりしません。
