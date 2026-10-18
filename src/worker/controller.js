@@ -7,7 +7,7 @@ export class FactorWorkerController {
   constructor({ createWorker = makeBundledWorker, onEvent = () => {},
     schedule = setTimeout, unschedule = clearTimeout } = {}) {
     this.createWorker = createWorker; this.onEvent = onEvent;
-    this.schedule = schedule; this.unschedule = unschedule;
+    this.schedule = (fn, delay) => schedule(fn, delay); this.unschedule = key => unschedule(key);
     this.worker = null; this.active = null; this.nextJobId = 0; this.loadTimer = null;
     this.phase = 'loading'; this.boot();
   }
