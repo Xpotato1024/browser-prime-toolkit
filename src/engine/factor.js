@@ -9,7 +9,7 @@ export function factorInteger(input, options = {}, { now = () => performance.now
   const factors = [];
   let remaining = input, composite = false;
   const snapshot = () => ({ input: input.toString(),
-    factors: factors.slice().sort((a, b) => BigInt(a.value) < BigInt(b.value) ? -1 : 1),
+    factors: factors.slice().sort((a, b) => BigInt(a.value) < BigInt(b.value) ? -1 : BigInt(a.value) > BigInt(b.value) ? 1 : 0),
     remaining: remaining.toString(), operations: budget.operations, elapsedMs: budget.elapsed() });
   const budget = new Budget(config, now, () => {
     if (remaining > 1n) onProgress(verifySnapshot(snapshot(), input.toString()));
@@ -52,8 +52,9 @@ export function factorInteger(input, options = {}, { now = () => performance.now
       status = 'incomplete'; reason = error.reason;
     }
   }
-  const result = { ...snapshot(), status, reason, algorithm: config.algorithm, seed: config.seed,
+  const current = snapshot();
+  const result = { ...current, status, reason, algorithm: config.algorithm, seed: config.seed,
     primality: status === 'neither' ? 'neither' : status === 'incomplete' ?
-      (composite ? 'composite' : 'unknown') : resolvedPrimality(snapshot()) };
+      (composite ? 'composite' : 'unknown') : resolvedPrimality(current) };
   return verifyFactorResult(result, input.toString());
 }

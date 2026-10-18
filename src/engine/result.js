@@ -1,4 +1,5 @@
 import { SMALL_PRIMES, UINT64_CEILING } from './options.js';
+import { assessPrime } from './arithmetic.js';
 
 function integer(text) {
   if (typeof text !== 'string' || text.length > 1024 || !/^(0|[1-9][0-9]*)$/.test(text)) {
@@ -16,13 +17,20 @@ export function verifySnapshot(snapshot, expectedInput) {
   const remaining = integer(snapshot.remaining);
   if (input < 2n && (snapshot.factors.length || remaining !== input)) fail();
   let quotient = input, previous = 1n;
+  const checkedPrimes = new Set();
   const factors = snapshot.factors.map(factor => {
     if (!factor || typeof factor !== 'object') fail();
     const value = integer(factor.value);
     if (value < 2n || value < previous || value > quotient || quotient % value !== 0n) fail();
     if (factor.certainty === 'proven') {
       if (factor.method === 'small-prime') { if (!SMALL_PRIMES.includes(value)) fail(); }
-      else if (factor.method !== 'mr64' || value >= UINT64_CEILING) fail();
+      else {
+        if (factor.method !== 'mr64' || value >= UINT64_CEILING) fail();
+        if (!checkedPrimes.has(value)) {
+          if (assessPrime(value, { tick() {} }) !== 'proven') fail();
+          checkedPrimes.add(value);
+        }
+      }
     } else if (factor.certainty !== 'probable' || factor.method !== 'mr-fixed7' || value < UINT64_CEILING) fail();
     quotient /= value; previous = value;
     return { value: factor.value, certainty: factor.certainty, method: factor.method };
