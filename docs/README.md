@@ -8,6 +8,8 @@ doc/ は作成せず docs/ に統一します。
 - [整数入力・累乗表示の契約](contracts/numeric-input.md)
 - [構成と段階](architecture/overview.md)
 - [ライブラリ評価](architecture/library-evaluation.md)
+- [半素数分解の性能評価計画](architecture/performance-plan.md)
+- [既存サイト形式に対する受入仕様案](contracts/site-adapter.md)
 - [BigInt 採用判断](adr/0001-native-bigint-first.md)
 - [旧 ZIP の静的評価](legacy/static-assessment.md)
 - [開発手順](operations/development.md)

@@ -13,6 +13,8 @@ WASM の要否は素数判定・分解の代表ケースで速度、起動時間
 他用途のベンチマークから分解性能を推定しません。
 採用時は原本ソース、release/commit、hash、licenseと必要な配布物、build再現性を記録します。
 現時点では性能比較もライブラリ採用も行っていません。
+大きな半素数の高速分解を中核目標とし、native BigIntに最終engineを固定しません。
+[性能評価計画](performance-plan.md)に従い、WASM・多倍長library・方式を比較します。
 
 一次資料:
 - [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)

@@ -2,6 +2,8 @@
 
 src/core は副作用のない ESM とし、Node の標準テストで検証します。
 初回は入力パーサーと因数集約のみです。ブラウザと Node の両方で BigInt を使えます。
+計算engineの最終選定は別で、[半素数の性能評価](performance-plan.md) を行います。
+コア・Worker controller・React adapterは[既存サイト形式](../contracts/site-adapter.md)に沿って分離します。
 
 次段階は計算アルゴリズム、その後に Worker プロトコル、最後に React の表示層とデモを分離して追加します。
 Worker は一度に1件とし、要求・応答に job ID と提出時入力を保持します。

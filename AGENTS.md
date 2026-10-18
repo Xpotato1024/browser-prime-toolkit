@@ -1,7 +1,8 @@
 # Repository instructions
 
 ## Scope and working rules
-- This private repository builds a browser-only primality and integer-factorization toolkit.
+- This private repository targets fast browser-only factorization of large semiprimes, with explicit measured limits.
+- BigInt is the initial input/display choice, not a final computation-engine restriction. Evaluate WASM and algorithms before selection.
 - Read docs/README.md and relevant contracts before changes. Keep canonical documents under docs/.
 - Design contracts before implementation. Use small behavior-level TDD red → green → refactor units; record actual results.
 - Work on a branch. Push and Draft PR are authorized; implementation merge, publication, deployment and site integration require separate authorization.
