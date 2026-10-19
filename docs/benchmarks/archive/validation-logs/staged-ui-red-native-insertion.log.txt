@@ -1,0 +1,19 @@
+{"fatal":[],"badEvents":[],"requests":[],"attached":[{"sessionId":"F905DEADC38DE2802E55059DC5432F56","type":"page","url":"about:blank"}],"pending":[]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Native insertion must never silently truncate an integer
+
+4096 !== 4098
+
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/scripts/verify-private-ui.mjs:142:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 4096,
+  expected: 4098,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

@@ -11,7 +11,7 @@ export function mountFactorApp(root,{run,writeClipboard=text=>navigator.clipboar
  const form=el('form'),fieldset=el('fieldset'),legend=el('legend',{text:'整数を分解する'});
  form.noValidate=true;
  const label=el('label',{for:'integer-input',text:'整数'});
- const input=el('input',{id:'integer-input',name:'integer',type:'text',inputmode:'decimal',size:'28',maxlength:'4096',
+ const input=el('input',{id:'integer-input',name:'integer',type:'text',inputmode:'decimal',size:'28',
   autocomplete:'off',autocapitalize:'off',spellcheck:'false',enterkeyhint:'go','aria-describedby':'input-help input-error'});
  input.required=true;
  const help=el('p',{id:'input-help',text:'0以上の十進整数。例: 32、3.2e1。対応範囲は'});

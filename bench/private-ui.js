@@ -1,4 +1,5 @@
-import {app} from '../app/main.js';
+import {app,page} from '../app/main.js';
+import {createPageLifecycle} from '../src/ui/page-lifecycle.js';
 import {mountFactorApp} from '../src/ui/mount.js';
 import {runSelectedStagedRequest} from '../src/worker/staged-selected.js';
 import {makeStagedWorker} from '../src/worker/staged-factory.js';
@@ -78,6 +79,20 @@ const cases=[
    const state=await settled();assert(state.view.status==='cancelled','Cancelled result');assert(live===0,'Owner retired');
   }
  }],
+ ['persisted page lifecycle retires a running owner and restores a usable draft',async()=>{
+  current.dispose();const target=new EventTarget();
+  const lifecycle=createPageLifecycle(root,{target,mount:node=>mountFactorApp(node,{run:realRun})});
+  current=lifecycle.getApp();
+  try{
+   const input='3894222643488354664636594044948941';
+   q('#integer-input').value=input;q('form').requestSubmit();
+   target.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}));await tick(0);
+   assert(live===0&&root.childElementCount===0,'Hidden owner retired');
+   target.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));current=lifecycle.getApp();
+   assert(q('#integer-input').value===input&&current.getState().phase==='idle','Draft restored without automatic calculation');
+   await submit('32');assert(current.getState().view.equation==='32 = 2^5','Restored UI computes');
+  }finally{lifecycle.dispose();}
+ }],
  ['fatal UI recovers on a new explicit request',async()=>{
   let count=0;setup(async input=>{if(++count===1)throw Error('trap');return finished(input);});
   await submit('32');assert(current.getState().phase==='error'&&q('#copy-result').disabled,'Fatal blocks copy');
@@ -86,6 +101,7 @@ const cases=[
 ];
 globalThis.evaluationHarness={
  async run(){
+  page.dispose();
   const tests=[];for(const[name,fn]of cases){try{await fn();tests.push({name,pass:true});}catch(e){tests.push({name,pass:false,error:e.message});}finally{current.dispose();await tick(0);}}
   setup();return{tests,created,maxLive};
  },

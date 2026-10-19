@@ -4,7 +4,7 @@
 native BigInt と限定 MPQS/WASMに加え、別の評価用bundleでGMP低位Brent・ECMを実装しています。
 予算・取消付きWorkerと比較harnessを持ち、従来Rhoは1/2/4本、64MiB候補は128MiB枠内の1/2本を評価します。
 公開する最終エンジンは未確定です。[採否と本人判断点](docs/architecture/engine-selection-closeout.md)を整理し、設計探索を区切ります。
-React の製品画面、サイト用アダプター、公開配布は未実装です。
+[非公開standalone UI](docs/operations/private-ui.md)は全桁・指数表示とコピーを備えます。React の製品画面、サイト用アダプター、公開配布は後続です。
 
 ## 開発
 Node.js 24.19.0 / npm 11.19.0 を使用します。

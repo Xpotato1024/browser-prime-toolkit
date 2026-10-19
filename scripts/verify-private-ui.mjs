@@ -137,6 +137,12 @@ try {
   // Stop the asset server before all timed calculations; Blob sources are already local.
   await networkOffline(true);server.closeAllConnections();
   await new Promise(r=>server.close(r));
+  await evaluate('document.getElementById("integer-input").value="";document.getElementById("integer-input").focus()');
+  await send('Input.insertText',{text:'0'.repeat(4095)+'123'},pageSession);
+  assert.equal(await evaluate('document.getElementById("integer-input").value.length'),4098,'Native insertion must never silently truncate an integer');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'},pageSession);
+  await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13},pageSession);
+  assert.equal(await evaluate('evaluationHarness.state().phase'),'invalid','Overlong input is rejected in full');
   const checks=await evaluate('evaluationHarness.run()');console.log(JSON.stringify(checks));
   assert.ok(checks.tests.every(t=>t.pass),JSON.stringify(checks.tests.filter(t=>!t.pass)));
   const expected=await evaluate('evaluationHarness.restore()');
@@ -155,9 +161,11 @@ try {
   const ax=await send('Accessibility.getFullAXTree',{},pageSession);
   assert.ok(ax.nodes.some(n=>n.role?.value==='textbox'&&n.name?.value==='整数'));
   assert.ok(ax.nodes.some(n=>n.role?.value==='math'&&n.name?.value==='32 は 2の5乗'));
+  if(process.env.PRIME_UI_SCREENSHOTS){const png=await send('Page.captureScreenshot',{captureBeyondViewport:true},pageSession);await writeFile(process.env.PRIME_UI_SCREENSHOTS+'-desktop.png',Buffer.from(png.data,'base64'));}
   await send('Emulation.setDeviceMetricsOverride',{width:320,height:812,deviceScaleFactor:1,mobile:true},pageSession);
   assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'320px has no horizontal overflow');
-  records.push({checks:checks.tests,clipboardRoundtrip:true,keyboard:true,mathAccessibleName:true,mobile320:true});const lifecycle=null;
+  if(process.env.PRIME_UI_SCREENSHOTS){const png=await send('Page.captureScreenshot',{captureBeyondViewport:true},pageSession);await writeFile(process.env.PRIME_UI_SCREENSHOTS+'-mobile.png',Buffer.from(png.data,'base64'));}
+  records.push({checks:checks.tests,clipboardRoundtrip:true,keyboard:true,mathAccessibleName:true,mobile320:true,nativeOverlongRejected:true});const lifecycle=null;
   const ownership=await evaluate('evaluationHarness.ownership()');assert.equal(ownership.live,0);assert.ok(ownership.maxLive<=1);
   assert.deepEqual(await evaluate('evaluationHarness.violations'),[]);
   assert.deepEqual(await evaluate('evaluationHarness.errors'),[]);

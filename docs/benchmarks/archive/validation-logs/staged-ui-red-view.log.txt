@@ -1,0 +1,73 @@
+✖ exact decimals survive Number boundaries and large prime values (7.442795ms)
+✖ perfect powers and duplicate factors have one structured exponent (2.110899ms)
+✖ probable factors stay unproven in visible and copied descriptions (0.7199ms)
+✖ partial and cancelled residuals never become prime factors (0.2166ms)
+✖ zero/one retain neither and the submitted identity is checked (0.2089ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.126894
+
+✖ failing tests:
+
+test at test/ui/result-view.test.js:6:1
+✖ exact decimals survive Number boundaries and large prime values (7.442795ms)
+  Error: Not implemented
+      at makeResultView (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/result-view.js:1:40)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/result-view.test.js:8:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at test/ui/result-view.test.js:12:1
+✖ perfect powers and duplicate factors have one structured exponent (2.110899ms)
+  Error: Not implemented
+      at makeResultView (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/result-view.js:1:40)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/result-view.test.js:13:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/ui/result-view.test.js:18:1
+✖ probable factors stay unproven in visible and copied descriptions (0.7199ms)
+  Error: Not implemented
+      at makeResultView (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/result-view.js:1:40)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/result-view.test.js:19:30)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/ui/result-view.test.js:22:1
+✖ partial and cancelled residuals never become prime factors (0.2166ms)
+  Error: Not implemented
+      at makeResultView (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/result-view.js:1:40)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/result-view.test.js:26:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/ui/result-view.test.js:31:1
+✖ zero/one retain neither and the submitted identity is checked (0.2089ms)
+  Error: Not implemented
+      at makeResultView (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/result-view.js:1:40)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/result-view.test.js:32:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

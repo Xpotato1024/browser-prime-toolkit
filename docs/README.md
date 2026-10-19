@@ -44,3 +44,5 @@ PR7は[ADR0007](adr/0007-siqs-parallel-supplement.md)に従い、早すぎた探
 PR8は[ADR0008](adr/0008-counted-siqs-lanczos.md)のclock/callback分離と有界Lanczosを比較します。[固定実測](benchmarks/llm01-counted.md)、[原本・上限](architecture/counted-lanczos-review.md)、[TDD](operations/stage8-tdd-evidence.md)を分け、公開用scheduler/UI/site判断は後続へ戻します。
 
 PR9は[ADR0009](adr/0009-staged-selector.md)に従い、一般群90反復で暫定方針を固定してから、未使用holdout120反復を確認します。[反復比較](benchmarks/llm01-staged.md)、[TDD](operations/stage9-tdd-evidence.md)、[公開前判断](architecture/staged-publication-decisions.md)を分けます。比較した全方式・旧raw・原本pin・再現情報は[保全目録](benchmarks/comparison-catalog.md)にまとめ、未採用でも削除しません。
+
+PR10は[ADR0010](adr/0010-private-exact-ui.md)の非公開全桁UIを実装します。[利用・検証](operations/private-ui.md)、[TDD](operations/stage10-tdd-evidence.md)、[RSA30秒指標の後続計画](architecture/rsa-30s-plan.md)を分け、既存比較証跡と公開判断の境界を保ちます。
