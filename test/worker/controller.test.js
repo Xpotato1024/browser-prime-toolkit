@@ -172,3 +172,12 @@ test('timer dependencies are called without a controller receiver', () => {
   controller.cancel();
   controller.dispose();
 });
+
+test('a CSP audit from the current worker fails even when no job is active', () => {
+  const s = setup(); s.workers[0].deliver(ready);
+  s.workers[0].deliver({ protocolVersion: 1, type: 'audit-csp' });
+  assert.equal(s.controller.phase, 'error');
+  assert.equal(s.events.at(-1).code, 'worker-csp-violation');
+  assert.equal(s.workers[0].terminated, true);
+  s.controller.dispose();
+});
