@@ -45,7 +45,7 @@ const cases=[
  }],
  ['loading and running cancellation retire the exact 617-digit request',async()=>{
   for(const phase of ['loading','running']){
-   posted=false;const e=createRsaEvaluator({createWorker:real});const p=e.run(rsa2048.input);
+   posted=false;const e=createRsaEvaluator({createWorker:real});const p=e.run(rsa2048.input,{budgetMs:600000});
    if(phase==='running'){for(let i=0;i<1000&&!posted;i++)await tick(1);assert(posted,'Run packet posted');await tick(20);}
    e.cancel();const r=await p;assert(r.kind==='cancelled'&&r.input===rsa2048.input&&r.snapshot.input===rsa2048.input,'Cancelled full modulus');
    assert(r.allWorkersDisposed&&live===0,'Retired cancelled owner');e.dispose();
@@ -53,9 +53,9 @@ const cases=[
  }],
  ['accelerated host clock controls timeout without becoming a performance sample',async()=>{
   let shift=0;
-  const r=await withRun(rsa100.input,{},{
+  const r=await withRun(rsa100.input,{budgetMs:600000},{
    now:()=>performance.now()+shift,
-   schedule(fn,delay){return setTimeout(()=>{if(delay>20000)shift+=30000;fn();},delay>20000?60:delay);}
+   schedule(fn,delay){return setTimeout(()=>{if(delay>20000)shift+=600000;fn();},delay>20000?60:delay);}
   });
   assert(r.kind==='timeout'&&r.reason==='host-timeout'&&r.input===rsa100.input&&r.allWorkersDisposed,'One total deadline');
  }],
