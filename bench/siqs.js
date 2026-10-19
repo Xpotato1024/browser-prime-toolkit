@@ -23,9 +23,9 @@ async function ready() {
     await new Promise(r=>setTimeout(r,5));
   }
 }
-async function select(mode) {
+async function select(mode, renew=false) {
   const start=performance.now();
-  if (mode !== kind) {
+  if (mode !== kind || renew) {
     controller?.dispose(); kind=mode;
     controller=new FactorWorkerController({createWorker:()=>factory(kind),onEvent:e=>{
       if (e.type==='terminal' || e.type==='error') { const resolve=resolveJob;resolveJob=null;resolve?.(e); }
@@ -33,12 +33,12 @@ async function select(mode) {
   }
   await ready(); return performance.now()-start;
 }
-async function run(input,options={}) {
-  const initializationMs=await select(options.algorithm==='siqs'?'siqs':'candidate');
+async function run(input,options={},renew=false) {
+  const initializationMs=await select(options.algorithm==='siqs'?'siqs':'candidate',renew);
   audit=null; const start=performance.now();
   const event=await new Promise(resolve=>{resolveJob=resolve;controller.start(input,options);});
   if(event.type==='error') {errors.push(event);throw Error(event.code);}
-  return {...event.result,wallMs:performance.now()-start,initializationMs,audit};
+  return {...event.result,wallMs:performance.now()-start,initializationMs,freshPerTrial:renew,audit};
 }
 async function cancelRun(input,algorithm='brent',delayMs=30) {
   await select(algorithm==='siqs'?'siqs':'candidate');

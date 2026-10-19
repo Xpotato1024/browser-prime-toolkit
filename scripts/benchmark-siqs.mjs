@@ -142,7 +142,8 @@ try {
       for (const algorithm of (++order % 2 ? ['siqs', 'gmp-ecm'] : ['gmp-ecm', 'siqs'])) {
         const options = { algorithm, seed, timeBudgetMs, operationBudget: 50000000 };
         const memoryMark = memory.mark(); await memory.sample();
-        const result = await evaluate('factorHarness.run(' + JSON.stringify(testCase.input) + ',' + JSON.stringify(options) + ')');
+        const result = await evaluate('factorHarness.run(' + JSON.stringify(testCase.input) + ',' + JSON.stringify(options) + ',true)');
+        assert.equal(result.freshPerTrial, true);
         await memory.sample();
         verifySnapshot(result, testCase.input);
         if (['complete', 'probable'].includes(result.status)) assert.deepEqual(result.factors.map(f => f.value), testCase.factors);
