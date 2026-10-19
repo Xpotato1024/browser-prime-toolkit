@@ -35,4 +35,5 @@ doc/ は作らず docs/ に統一します。
 PR1は整数入力・累乗集約、依存するPR2は予算付き計算・Worker・browser検証です。
 依存PR3は限定MPQS/WASMと並列比較、PR4は低位GMP Brent/ECMの非公開評価と真SIQSのobject-only確認です。PR5は有界SIQSの最小実行とECM stage2停止・fatal退役、Chrome RAM計測を評価します。最終engine、製品UI、サイト統合、公開は後続段階です。
 
-PR6はnative/ECMの候補、純粋selector、新6問holdout、公開前の本人判断点を整理して設計探索を区切ります。公開用scheduler・UI・site profile・配布は承認後の別段階です。
+PR6はnative/ECMの暫定候補、純粋selector、新6問holdout、公開前の本人判断点を整理しました。
+PR7は[ADR0007](adr/0007-siqs-parallel-supplement.md)に従い、早すぎた探索終了判断を訂正してSIQS/並列/補助方式を有限再評価します。公開用scheduler・UI・site profile・配布は別段階です。

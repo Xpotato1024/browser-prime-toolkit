@@ -8,7 +8,7 @@
 | GMP/ECM | 大きい入力の第一候補 | PR5のfresh比較で13桁8/8・96bit4/4、112bitは2/4。32曲線/B1=2000/B2=200000の有限探索 |
 | 限定MPQS | 明示選択の補助候補 | PR3の11〜13桁群は速いが10桁群は20多項式上限で6/12。48〜85bit残余限定、balanced性は入力から判定不能 |
 | GMP Brent | 自動選択から除外 | PR4でnativeより改善せず、WASM初期化と混在licenseの負担を追加する根拠がない |
-| 有界SIQS | 今回の性能採用を見送る | PR5で一般半素数の1秒完了0。安全な最小実行は成立したが上流Lanczos全体の性能限界とは扱わない |
+| 有界SIQS | 継続評価中・製品採用は未決 | PR5の一般半素数は1秒完了0だが10秒smokeは成功。現実装は独自dense GF(2)で上流Lanczosを使わず、方式全体の性能判断には不足 |
 | GNFS/CADO | 短期採用を見送る | 多段relation/matrix・再開・資源・browser portを要し、今回の根拠がない。browser不可能という判断ではない |
 
 [MPQS/並列](../benchmarks/llm01-wasm-mpqs.md)、[Brent/ECM](../benchmarks/llm01-gmp-ecm.md)、
@@ -90,7 +90,10 @@ sourceを一部だけ置けば十分とは扱わず、結合物のlicense選択�
 
 本人に残す決定は、ECMを含む公開条件、公開受付範囲と許容待ち時間/RAM、
 probableを許す表示か素数証明を必須とするか、2本実験を続ける必要性です。
-これらが未決の間はprivate Draftで止めます。無制限な方式portや追加benchmark探索は続けません。
+公開判断が未決の間はprivate Draftを維持します。PR6で設計探索を区切った表現は早計でした。
+親から再評価が明示承認され、[ADR0007](../adr/0007-siqs-parallel-supplement.md)の有限実験を続けます。
+PR4では2 Worker ECMのready後中央値52.70→32.70msの改善も測定済みです。
+初期化込み総待ち時間・fresh比較・Chrome全体RAMを追加し、SIQS/並列全体を除外しません。
 承認後も実装可能範囲は既存core・選定済みWorker・別審査のsite adapter/profileまでで、
 任意桁の高速分解・prime certificate・厳密全体RAM/リアルタイム保証は含めません。
 
