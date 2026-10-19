@@ -1,0 +1,62 @@
+[
+  {
+    "id": "staged-holdout-balanced-64",
+    "input": "9259378278344346109",
+    "factors": [
+      "2856984007",
+      "3240962587"
+    ],
+    "bits": 64,
+    "group": "holdout"
+  },
+  {
+    "id": "staged-holdout-balanced-76",
+    "input": "40705642216671686531723",
+    "factors": [
+      "167980534411",
+      "242323566593"
+    ],
+    "bits": 76,
+    "group": "holdout"
+  },
+  {
+    "id": "staged-holdout-balanced-100",
+    "input": "867777075075898723352490207683",
+    "factors": [
+      "927478051710647",
+      "935630846978389"
+    ],
+    "bits": 100,
+    "group": "holdout"
+  },
+  {
+    "id": "staged-holdout-balanced-124",
+    "input": "17499617839551948907149862172881338149",
+    "factors": [
+      "4087384525711141243",
+      "4281373022154622943"
+    ],
+    "bits": 124,
+    "group": "holdout"
+  },
+  {
+    "id": "staged-holdout-unbalanced-81",
+    "input": "1828236052558270736623321",
+    "factors": [
+      "792871",
+      "2305843009213693951"
+    ],
+    "bits": 81,
+    "group": "holdout"
+  },
+  {
+    "id": "staged-holdout-probable-127",
+    "input": "127373070858890551114725833805635807531",
+    "factors": [
+      "127373070858890551114725833805635807531"
+    ],
+    "bits": 127,
+    "group": "holdout",
+    "expectedStatus": "probable"
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "balanced-10-0",
+    "kind": "balanced-semiprime",
+    "input": "10189224821914436983",
+    "factors": [
+      "1372994653",
+      "7421168611"
+    ],
+    "digits": 20,
+    "bits": 64,
+    "factorDigits": [
+      10,
+      10
+    ],
+    "factorBits": [
+      31,
+      33
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false,
+    "group": "general"
+  },
+  {
+    "id": "holdout-balanced-80",
+    "input": "908228588958112076066773",
+    "factors": [
+      "909536624993",
+      "998561865461"
+    ],
+    "bits": 80,
+    "factorBits": [
+      40,
+      40
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial",
+    "group": "general"
+  },
+  {
+    "id": "balanced-13-0",
+    "kind": "balanced-semiprime",
+    "input": "3012048473684349413080363",
+    "factors": [
+      "1002800426933",
+      "3003637007711"
+    ],
+    "digits": 25,
+    "bits": 82,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      42
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": true,
+    "group": "general"
+  },
+  {
+    "id": "balanced-96bit-0",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "59421120273299600154862853921",
+    "factors": [
+      "211106232545339",
+      "281474969056339"
+    ],
+    "factorBits": [
+      48,
+      48
+    ],
+    "bits": 96,
+    "factorDigits": [
+      15,
+      15
+    ],
+    "pool": false,
+    "group": "general"
+  },
+  {
+    "id": "balanced-112bit-0",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "3894222643488354664636594044948941",
+    "factors": [
+      "54043195528458347",
+      "72057594030273703"
+    ],
+    "factorBits": [
+      56,
+      56
+    ],
+    "bits": 112,
+    "factorDigits": [
+      17,
+      17
+    ],
+    "pool": false,
+    "group": "general"
+  },
+  {
+    "id": "general-unbalanced-m89",
+    "input": "624540749819474348686608169999",
+    "factors": [
+      "1009",
+      "618970019642690137449562111"
+    ],
+    "bits": 99,
+    "group": "general",
+    "factorProof": "1009 MR64; M89 runtime probable only"
+  }
+]
