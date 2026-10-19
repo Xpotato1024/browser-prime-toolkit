@@ -15,7 +15,7 @@ red は module 不在ではなく、export済みスタブの not implemented に
 因数単独: node --test --test-reporter=tap test/core/factor-powers.test.js。
 
 ローカルの詳細logは受領ZIPと同じ非公開調査領域に保管し、リポジトリには取り込みません。
-ブラウザ、Worker、素数判定・分解アルゴリズムは未実装のため、実行検証も行っていません。
+PR1時点ではブラウザ、Worker、素数判定・分解アルゴリズムは未実装で、実行検証も行っていませんでした。後続段階の実装と検証は以下に記録します。
 
 ## 計算・Workerの縦切り
 - c7f3eb3で候補比較・契約を先にcommit。
