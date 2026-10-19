@@ -10,6 +10,19 @@ static int limit = 10000;
 int budget_tick(void) { return ++checkpoints < limit; }
 
 int main(int argc, char **argv) {
+    tiny_fb reused_roots[MAX_FB_SIZE_TINY];
+    mp_t divisible_by_67;
+    int found67 = 0;
+    memset(reused_roots, 0xa5, sizeof(reused_roots));
+    mp_str2mp("67", &divisible_by_67, 10);
+    uint32 root_count = init_one_fb_tiny(MAX_FB_SIZE_TINY, &divisible_by_67, reused_roots);
+    for (uint32 i = MIN_FB_OFFSET; i < root_count; i++) {
+        if (reused_roots[i].prime == 67) {
+            assert(reused_roots[i].modsqrt == 0);
+            found67 = 1;
+        }
+    }
+    assert(found67);
     tiny_qs_params *params = calloc(1, sizeof(*params));
     mp_t a, b, c;
     tiny_relation sentinel;
