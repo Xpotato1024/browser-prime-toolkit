@@ -1,0 +1,26 @@
+✔ one request deadline includes loading and never boots a replacement (13.835394ms)
+✔ loading and running cancellation retire exactly one owner (2.617699ms)
+✔ invalid ready profile and fatal error retire; a new request recovers (12.402395ms)
+✔ initialization is charged before granting core time and bounds fail before allocation (12.096795ms)
+✔ zero/one are neither without workers (0.6468ms)
+✔ result proof time stays inside the request deadline (5.189397ms)
+✔ initialization keeps its five-second cap inside a longer total deadline (0.8157ms)
+✔ source-release failure still terminates the single Worker owner (9.996296ms)
+✖ every host and Worker outcome has an explicit validated trace contract (1.104099ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 272.540087
+
+✖ failing tests:
+
+test at test/worker/staged-controller.test.js:71:1
+✖ every host and Worker outcome has an explicit validated trace contract (1.104099ms)
+  TypeError: verifyStagedOutcome is not a function
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/worker/staged-controller.test.js:76:63)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

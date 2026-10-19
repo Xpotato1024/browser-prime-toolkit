@@ -1,0 +1,38 @@
+✔ one request deadline includes loading and never boots a replacement (13.059992ms)
+✔ loading and running cancellation retire exactly one owner (1.5415ms)
+✔ invalid ready profile and fatal error retire; a new request recovers (9.929594ms)
+✔ initialization is charged before granting core time and bounds fail before allocation (11.935693ms)
+✔ zero/one are neither without workers (0.509799ms)
+✔ result proof time stays inside the request deadline (5.027297ms)
+✖ initialization keeps its five-second cap inside a longer total deadline (6.903696ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225.674768
+
+✖ failing tests:
+
+test at test/worker/staged-controller.test.js:53:1
+✖ initialization keeps its five-second cap inside a longer total deadline (6.903696ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(load)
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/worker/staged-controller.test.js:59:52)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,61 @@
+{
+  "commit": "4854656a050f280397d7908efa42fca8114c8297",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/LICENSE",
+      "bytes": 35815,
+      "gitBlob": "c65825e32a4dc25f04dd46dbd4b2e5f28ef85821",
+      "sha256": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad"
+    },
+    {
+      "path": "siqs.c",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/siqs.c",
+      "bytes": 135068,
+      "gitBlob": "aa5eec6e9e806a95bc305dc658fd20fb96fa9352",
+      "sha256": "011c0f7519743dae016891e503960c17651a302bb5cb51c772086677a40ac2fd"
+    },
+    {
+      "path": "siqsLA.c",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/siqsLA.c",
+      "bytes": 34956,
+      "gitBlob": "1a7630e037e92abb7c9d93de356973caebce67f2",
+      "sha256": "81fbb9014a54782bc5b901d68fdc844c0b0140aebc6eb84f473cead715ac19b6"
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/.github/workflows/build.yml",
+      "bytes": 2933,
+      "gitBlob": "4bfa49a38cc99646fc632ca626f809efed802ceb",
+      "sha256": "ef5de713a434135ab23d2b6aa93a348e7d6f3c237dfb7d4d4946cb4845a9b389"
+    },
+    {
+      "path": "ecm.c",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/ecm.c",
+      "bytes": 33395,
+      "gitBlob": "89b8cc26052785e6892640230bf59c2c43efe68f",
+      "sha256": "7c4e1aaff71964bbb5967dbd5cf2aa2258b8044d56cd651d6b40631cc3e97d34"
+    },
+    {
+      "path": "factor.c",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/factor.c",
+      "bytes": 79909,
+      "gitBlob": "8b5a4c90280656f20c80be16d96501c1d0f25aab",
+      "sha256": "63781b1443a0a9acffa17a96d365b4d6885334dbfcd4a48ccd49c057ebf980bb"
+    },
+    {
+      "path": "expression.c",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/expression.c",
+      "bytes": 48939,
+      "gitBlob": "4b5f7b45dc65af32140b3e246f7a8cdbda1d96a2",
+      "sha256": "9b387d19a6453fe21cfbb0e7d6727faf52694e250190de681f541aeb0318a076"
+    },
+    {
+      "path": "bignbr.h",
+      "url": "https://raw.githubusercontent.com/alpertron/calculators/4854656a050f280397d7908efa42fca8114c8297/bignbr.h",
+      "bytes": 14846,
+      "gitBlob": "3fcf1b2b36ed9533acfe6c941ceab1b2d293f326",
+      "sha256": "2d245f5f093c1dc433e91b478241dc61e757ced18ecb398561c4cc1ab9cce136"
+    }
+  ]
+}

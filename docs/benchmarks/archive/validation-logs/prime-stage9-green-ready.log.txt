@@ -1,0 +1,24 @@
+✔ stage grants share global operations across calls and retain budget identity (1.792765ms)
+✔ stage clock spending does not reset; root expiry remains distinguishable (4.495916ms)
+✔ finite plans reject larger inputs and account for all backend memories (0.86518ms)
+✔ prefix exhaustion advances with one global operation total and stable ECM curve-budget identity (20.225168ms)
+✔ probable, global exhaustion and SIQS resource exhaustion retain their meanings (2.537035ms)
+✔ fatal backend failure is never hidden by another method (13.42294ms)
+✔ one request deadline includes loading and never boots a replacement (12.153523ms)
+✔ loading and running cancellation retire exactly one owner (1.937579ms)
+✔ invalid ready profile and fatal error retire; a new request recovers (9.342363ms)
+✔ initialization is charged before granting core time and bounds fail before allocation (11.68508ms)
+✔ zero/one are neither without workers (0.457942ms)
+✔ result proof time stays inside the request deadline (3.768748ms)
+✔ initialization keeps its five-second cap inside a longer total deadline (0.665461ms)
+✔ source-release failure still terminates the single Worker owner (10.010325ms)
+✔ every host and Worker outcome has an explicit validated trace contract (4.741638ms)
+✔ late ready cannot race past the initialization cap before its timer dispatches (0.400737ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 263.840974

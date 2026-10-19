@@ -1,0 +1,11 @@
+✔ prefix exhaustion advances with one global operation total and stable ECM curve-budget identity (20.351189ms)
+✔ probable, global exhaustion and SIQS resource exhaustion retain their meanings (3.949598ms)
+✔ fatal backend failure is never hidden by another method (15.198792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 179.312806

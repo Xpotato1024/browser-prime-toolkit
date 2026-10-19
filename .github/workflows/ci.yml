@@ -99,3 +99,25 @@ jobs:
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
+  staged-selection-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: node scripts/check-staged.mjs
+      - run: node scripts/report-staged.mjs --check
+      - run: |
+          for mode in brent ecm siqs p64; do
+            node scripts/benchmark-staged.mjs --mode lifecycle --variant "$mode" --out "$RUNNER_TEMP/staged-$mode.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
