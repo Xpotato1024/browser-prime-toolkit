@@ -30,3 +30,17 @@ test('counted dense and Lanczos consume identical matrix-relevant factor offsets
   assert.equal(hashes[0].paritySha256,hashes[1].paritySha256);
   assert.ok(hashes[0].descriptorBytes>0);
 });
+
+test('a trapped counted instance retires permanently while a fresh instance recovers',async()=>{
+  const instantiate=WebAssembly.instantiate;
+  WebAssembly.instantiate=async(...args)=>{
+    const instance=await instantiate(...args);
+    return {exports:{...instance.exports,siqs_split:()=>{throw new WebAssembly.RuntimeError('injected entry trap');}}};
+  };
+  let split;
+  try{split=await createCountedSiqsSplit('lanczos');}finally{WebAssembly.instantiate=instantiate;}
+  assert.throws(()=>split(n,budget(),{seed:1}),WebAssembly.RuntimeError);
+  assert.equal(split.stats().poisoned,true);
+  assert.throws(()=>split(n,budget(),{seed:1}),/retired/);
+  const fresh=await createCountedSiqsSplit('lanczos');assert.equal(n%fresh(n,budget(),{seed:1}),0n);
+});

@@ -92,7 +92,10 @@ jobs:
       - run: node scripts/build-siqs-v2.mjs --lanczos --native
       - run: npm test
       - run: node scripts/check-counted.mjs
-      - run: node scripts/run-counted-matrix.mjs --lifecycle
+      - run: |
+          for variant in legacy clock-gated dense lanczos; do
+            node scripts/benchmark-counted.mjs --mode lifecycle --variant "$variant" --out "$RUNNER_TEMP/counted-$variant.json"
+          done
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check

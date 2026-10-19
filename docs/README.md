@@ -40,3 +40,5 @@ PR1は整数入力・累乗集約、依存するPR2は予算付き計算・Worke
 
 PR6はnative/ECMの暫定候補、純粋selector、新6問holdout、公開前の本人判断点を整理しました。
 PR7は[ADR0007](adr/0007-siqs-parallel-supplement.md)に従い、早すぎた探索終了判断を訂正してSIQS/並列/補助方式を有限再評価します。公開用scheduler・UI・site profile・配布は別段階です。
+
+PR8は[ADR0008](adr/0008-counted-siqs-lanczos.md)のclock/callback分離と有界Lanczosを比較します。[固定実測](benchmarks/llm01-counted.md)、[原本・上限](architecture/counted-lanczos-review.md)、[TDD](operations/stage8-tdd-evidence.md)を分け、公開用scheduler/UI/site判断は後続へ戻します。

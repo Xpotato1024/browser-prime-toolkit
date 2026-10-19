@@ -120,3 +120,6 @@ ADR0007を3137fcfで先に固定しました。実logはrepo外prime-stage7/で�
 - p−1全18件を独立Python builtin lcm/pow/gcdで照合。M127のbase2 gcd=n/base3 proper factorを含む。
 - 固定full msieveはnative generic QS/Lanczosを3問実行しproper divisorを検算。browser速度比やLanczos単独比較ではない。
 - 最終HEADのtests/check・独立review・CIはDraft PRへ記録し、UI/公開採用・merge/deployとは区別する。
+
+## PR8: 時計・callbackと有界Lanczos
+[Stage8の実際のRED/GREEN・native全割当失敗・回帰検査](stage8-tdd-evidence.md)と[40主計測・20診断・4lifecycle](../benchmarks/llm01-counted.md)を保持します。旧artifactと旧測定は変更しません。

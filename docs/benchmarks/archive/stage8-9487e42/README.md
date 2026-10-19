@@ -1,0 +1,6 @@
+# Stage8予備測定
+
+code head 9487e42e80acdf4a84ab455c00974c61babc2387 の40主計測・20診断・4lifecycleを保存する。
+非同期audit中のbusy guardを修正する前の数値で、最終採否にはcanonicalの再計測を使う。
+sourceFilesはこのcommitのsourceに結び付く。現worktreeのsourceと同一という主張ではない。
+Markdownの数値は維持し、相対linkだけarchive位置へ合わせた。
