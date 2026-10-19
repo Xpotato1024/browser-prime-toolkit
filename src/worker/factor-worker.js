@@ -1,8 +1,10 @@
 import { factorInteger } from '../engine/factor.js';
+import { createTinyQs } from '../engine/tinyqs.js';
 
 let lastJobId = 0;
 self.addEventListener('securitypolicyviolation', () =>
   self.postMessage({ protocolVersion: 1, type: 'audit-csp' }));
+createTinyQs().then(splitAdvanced => {
 self.onmessage = ({ data }) => {
   const jobId = data?.jobId;
   try {
@@ -12,6 +14,7 @@ self.onmessage = ({ data }) => {
         !/^(0|[1-9][0-9]*)$/.test(data.input)) throw new TypeError('Invalid request');
     lastJobId = jobId;
     const result = factorInteger(BigInt(data.input), data.options, {
+      splitAdvanced,
       onProgress: snapshot => self.postMessage({ protocolVersion: 1, type: 'progress', jobId, snapshot }),
     });
     self.postMessage({ protocolVersion: 1, type: 'result', jobId, result });
@@ -20,3 +23,5 @@ self.onmessage = ({ data }) => {
   }
 };
 self.postMessage({ protocolVersion: 1, type: 'ready' });
+
+}).catch(() => self.postMessage({ protocolVersion: 1, type: 'error', jobId: null, code: 'initialization-error' }));

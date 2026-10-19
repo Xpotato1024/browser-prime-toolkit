@@ -2,7 +2,7 @@ import { Budget, BudgetExceeded, INPUT_CEILING, SMALL_PRIMES, normalizeOptions }
 import { assessPrime, findDivisor, seededRandom, squareRoot } from './arithmetic.js';
 import { resolvedPrimality, verifyFactorResult, verifySnapshot } from './result.js';
 
-export function factorInteger(input, options = {}, { now = () => performance.now(), onProgress = () => {} } = {}) {
+export function factorInteger(input, options = {}, { now = () => performance.now(), onProgress = () => {}, splitAdvanced } = {}) {
   if (typeof input !== 'bigint') throw new TypeError('Expected bigint input');
   if (input < 0n || input >= INPUT_CEILING) throw new RangeError('Input out of range');
   const config = normalizeOptions(options);
@@ -43,7 +43,19 @@ export function factorInteger(input, options = {}, { now = () => performance.now
         }
         composite = true;
         const root = squareRoot(value, budget);
-        const divisor = root * root === value ? root : findDivisor(value, config.algorithm, random, budget);
+        let divisor;
+        if (root * root === value) divisor = root;
+        else if (config.algorithm === 'tinyqs' && value >= (1n << 47n)) {
+          if (value >= (1n << 85n)) throw new BudgetExceeded('algorithm-range');
+          if (typeof splitAdvanced !== 'function') throw new TypeError('MPQS is not initialized');
+          budget.tick();
+          divisor = splitAdvanced(value, budget);
+          budget.tick();
+          if (divisor === null) throw new BudgetExceeded('algorithm-exhausted');
+        } else divisor = findDivisor(value, config.algorithm === 'tinyqs' ? 'brent' : config.algorithm, random, budget);
+        if (typeof divisor !== 'bigint' || divisor <= 1n || divisor >= value || value % divisor !== 0n) {
+          throw new TypeError('Invalid divisor');
+        }
         pending.push(divisor, value / divisor);
       }
       if (factors.some(factor => factor.certainty === 'probable')) status = 'probable';

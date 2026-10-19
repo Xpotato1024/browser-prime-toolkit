@@ -5,7 +5,7 @@ import { Script } from 'node:vm';
 const root = resolve(import.meta.dirname, '..');
 // Explicit ordered source list, not a general JavaScript bundler.
 const paths = ['src/engine/options.js', 'src/engine/arithmetic.js', 'src/engine/result.js',
-  'src/engine/factor.js', 'src/worker/factor-worker.js'];
+  'src/engine/factor.js', 'src/engine/tinyqs-bytes.js', 'src/engine/tinyqs.js', 'src/worker/factor-worker.js'];
 const chunks = paths.map(path => {
   let source = readFileSync(resolve(root, path), 'utf8');
   source = source.replace(/^import \{[A-Za-z0-9_, ]+\} from '\.\.?\/[A-Za-z0-9_./-]+\.js';\n/gm, '');
