@@ -40,7 +40,8 @@ Do not interpret MPQS seed repetitions as independent random trials.
 
 ## Build and browser
 Pin Emscripten 4.0.15 Docker image by SHA-256, compile without network, 2 CPUs,
-2GiB memory, one scratch output mount and read-only repository input.
+2GiB memory and explicit reviewed source files streamed as tar on stdin.
+No host mounts are used; src/build/work use bounded container tmpfs.
 Build twice into fresh directories; compare exact WASM bytes.
 Keep source patches minimal and reproducible: compatibility header replaces
 GMP-bearing common.h; add budget checkpoints and array/initialization guards, with patches retained.

@@ -22,3 +22,12 @@ assert.deepEqual(WebAssembly.Module.imports(module), receipt.imports);
 assert.deepEqual(WebAssembly.Module.exports(module), receipt.exports);
 assert.equal(receipt.cleanBuilds, 2);
 console.log('Verified WASM source pins, artifact hash, imports and exports');
+
+const historical = JSON.parse(readFileSync(resolve(root, 'native/tinyqs/build-bind-baseline.json')));
+const measured = JSON.parse(readFileSync(resolve(root, 'docs/benchmarks/llm01-wasm-mpqs.json')));
+assert.deepEqual(measured.wasmBuild, historical);
+for (const key of ['sha256', 'bytes', 'image', 'command']) assert.deepEqual(receipt[key], historical[key]);
+for (const [path, expected] of Object.entries(historical.sourceHashes).filter(([path]) => !path.startsWith('scripts/'))) {
+  assert.equal(receipt.sourceHashes[path], expected, 'Measured C source changed: ' + path);
+}
+console.log('Historical measurement and portable builder reproduce the identical WASM');

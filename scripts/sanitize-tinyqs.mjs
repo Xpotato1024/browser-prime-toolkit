@@ -1,20 +1,22 @@
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { tmpdir } from 'node:os';
-import { spawnSync } from 'node:child_process';
+import { compileInContainer } from './container-compile.mjs';
 import { makeAdvancedCorpus } from '../bench/advanced-corpus.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const image = JSON.parse(readFileSync(join(root, 'native/tinyqs/build.json'))).image;
-const directory = mkdtempSync(join(process.env.WASM_BUILD_TMP || tmpdir(), 'prime-sanitize-'));
-try {
+{
   let source = readFileSync(join(root, 'vendor/msieve/common/smallfact/tinyqs.c'), 'utf8');
   for (const patch of JSON.parse(readFileSync(join(root, 'native/tinyqs/patches.json')))) {
     assert.equal(source.split(patch.old).length - 1, patch.count);
     source = source.replaceAll(patch.old, patch.new);
   }
-  writeFileSync(join(directory, 'tinyqs.c'), source);
+  const files = { 'build/tinyqs.c': source };
+  const provenance = JSON.parse(readFileSync(join(root,'vendor/msieve/provenance.json')));
+  for (const path of ['native/tinyqs/bridge.c','native/tinyqs/common.h','native/tinyqs/sanitize.c','native/tinyqs/portable-check.h',...provenance.files.map(f=>'vendor/msieve/'+f.path)]) {
+    files['src/' + path] = readFileSync(join(root,path));
+  }
   const corpus = makeAdvancedCorpus(false).map(c => c.input);
   for (let i = 0; i < 100; i++) corpus.push(((101n + 2n * BigInt(i)) * 7000000000057n).toString());
   corpus.push(((1n << 85n) - 1n).toString(), (101n * (((1n << 47n) / 101n) | 1n)).toString());
@@ -24,15 +26,10 @@ try {
     '/src/native/tinyqs/sanitize.c', '/src/native/tinyqs/bridge.c',
     '/src/vendor/msieve/common/mp.c', '/src/vendor/msieve/common/prime_delta.c',
     '-lm', '-o', '/work/sanitize'];
-  const shell = '"$@" && /work/sanitize ' + corpus.map(n => "'" + n + "'").join(' ');
-  const result = spawnSync('docker', ['run', '--rm', '--network=none', '--cpus=2', '--memory=2g',
-    '--pids-limit=128', '--cap-drop=ALL', '--security-opt=no-new-privileges',
-    '--tmpfs', '/work:rw,exec,size=128m', '--mount', 'type=bind,src=' + root + ',dst=/src,readonly',
-    '--mount', 'type=bind,src=' + directory + ',dst=/build,readonly',
-    '-e', 'ASAN_OPTIONS=detect_leaks=1:abort_on_error=1', image, 'sh', '-c', shell, 'sanitize', ...compile],
-  { encoding: 'utf8', timeout: 120000, maxBuffer: 4 * 1024 * 1024 });
-  assert.equal(result.status, 0, result.stderr || String(result.error));
-  const lines = result.stdout.trim().split('\n');
+  assert.ok(corpus.every(n => /^[0-9]{1,26}$/.test(n)));
+  const after = 'ASAN_OPTIONS=detect_leaks=1:abort_on_error=1 /work/sanitize ' + corpus.map(n => "'" + n + "'").join(' ');
+  const stdout = compileInContainer(image, files, compile, after, 120000);
+  const lines = stdout.toString('utf8').trim().split('\n');
   assert.equal(lines.length, corpus.length);
   for (let i = 0; i < corpus.length; i++) {
     const [input, status, divisor] = lines[i].split(' ');
@@ -45,7 +42,4 @@ try {
   }
   console.log('Native portable C ASan/UBSan: ' + corpus.length +
     ' MPQS jobs plus synthetic 2-adic relation-boundary guard passed');
-} finally {
-  // Only this exact owned fresh directory is removed.
-  rmSync(directory, { recursive: true, force: true });
 }

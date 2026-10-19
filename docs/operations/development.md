@@ -15,4 +15,4 @@ npm run check はWASM source/artifact hash、構文、UTF-8/BOM/改行、ロー�
 CIは単体・実browserのtestとcheckのみです。push / PRからdeploy、release、公開を行うworkflowはありません。
 実装PRのmerge、Ready化、公開、既存サイト組込、資格情報・権限変更は別途承認が必要です。
 
-Docker daemonがdefault /tmpを参照できない環境ではWASM_BUILD_TMPを共有workspace内へ明示します。CIもgithub.workspace内のfresh一時領域を使い、各build終了時に自身の領域だけを削除します。固定image、network=none、source hash、2回一致の条件は維持します。
+CIではhost bind inputが参照できないため、必要な固定sourceだけをtar化してDocker標準入力へ渡します。host mountはなく、network=none・固定image・資源上限・2回一致を維持します。tarはownerを復元せず、余分なcapabilityを付与しません。WASM_BUILD_TMPはNode側の自身の一時領域だけを指定します。

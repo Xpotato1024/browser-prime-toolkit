@@ -69,3 +69,5 @@ Cの協調中断・解放はnative portable CのASan/UBSanで200回の中断、1
 [生データ](llm01-wasm-mpqs.json)、[方式・旧API・資源の採否](../architecture/advanced-factorization-candidates.md)、[ADR](../adr/0003-bounded-wasm-mpqs.md)を参照してください。
 
 資源計数の補足: pool測定中も比較用の待機Workerが1本残ります。poolの1/2/4本と別にWASM線形メモリ16MiBがあり、browser全体のpeak RAMは未測定です。
+
+Build輸送の補足: 測定時のbind版builder記録はnative/tinyqs/build-bind-baseline.jsonへ保存しました。CI対応でstdin tarへ変更した現在のbuilderも、同じC source・compiler image・flagsから完全に同じWASM bytes/hashを2回生成します。生receiptは書き換えず、checkで両記録とartifactの同一性を検証します。runtimeは変わらないため性能値は上記の測定を保持します。

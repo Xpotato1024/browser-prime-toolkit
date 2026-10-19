@@ -1,8 +1,7 @@
-import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
-import { resolve, join, dirname } from 'node:path';
-import { tmpdir } from 'node:os';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
-import { spawnSync } from 'node:child_process';
+import { compileInContainer } from './container-compile.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const image = 'emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8';
@@ -14,37 +13,28 @@ for (const file of provenance.files) {
 }
 const patches = JSON.parse(readFileSync(join(root, 'native/tinyqs/patches.json')));
 const inputFiles = ['native/tinyqs/bridge.c', 'native/tinyqs/common.h', 'native/tinyqs/patches.json',
-  'scripts/build-wasm.mjs', ...provenance.files.map(f => 'vendor/msieve/' + f.path)];
+  'scripts/build-wasm.mjs', 'scripts/container-compile.mjs', ...provenance.files.map(f => 'vendor/msieve/' + f.path)];
 const sourceHashes = Object.fromEntries(inputFiles.map(p => [p, sha(readFileSync(join(root, p)))]));
 const outputs = [];
 for (let pass = 0; pass < 2; pass++) {
-  const directory = mkdtempSync(join(process.env.WASM_BUILD_TMP || tmpdir(), 'prime-wasm-'));
-  try {
+
     let source = readFileSync(join(root, 'vendor/msieve/common/smallfact/tinyqs.c'), 'utf8');
     for (const patch of patches) {
       if (source.split(patch.old).length - 1 !== patch.count) throw Error('Patch occurrence count');
       source = source.replaceAll(patch.old, patch.new);
     }
-    writeFileSync(join(directory, 'tinyqs.c'), source);
+    const files = { 'build/tinyqs.c': source };
+    for (const path of ['native/tinyqs/bridge.c','native/tinyqs/common.h', ...provenance.files.map(f=>'vendor/msieve/'+f.path)]) {
+      files['src/' + path] = readFileSync(join(root,path));
+    }
     const command = ['emcc', '-O3', '-DCPU_GENERIC', '-I/src/native/tinyqs', '-I/src/vendor/msieve/include',
       '/build/tinyqs.c', '/src/native/tinyqs/bridge.c', '/src/vendor/msieve/common/mp.c',
       '/src/vendor/msieve/common/prime_delta.c', '--no-entry', '-sSTANDALONE_WASM=1',
       '-sFILESYSTEM=0', '-sALLOW_MEMORY_GROWTH=0', '-sINITIAL_MEMORY=16777216',
       '-sSTACK_SIZE=1048576', '-sMALLOC=emmalloc', '-sSUPPORT_LONGJMP=0',
       '-sEXPORTED_FUNCTIONS=["_input_ptr","_factor_ptr","_split"]', '-o', '/work/tinyqs.wasm'];
-    const args = ['run', '--rm', '--network=none', '--cpus=2', '--memory=2g',
-      '--pids-limit=128', '--tmpfs', '/work:rw,size=128m', '--cap-drop=ALL', '--security-opt=no-new-privileges',
-      '--mount', 'type=bind,src=' + root + ',dst=/src,readonly',
-      '--mount', 'type=bind,src=' + directory + ',dst=/build',
-      '-w', '/work', image, 'sh', '-c', '"$@" && cp /work/tinyqs.wasm /build/tinyqs.wasm', 'build', ...command];
-    const result = spawnSync('docker', args, { encoding: 'utf8', timeout: 180000 });
-    if (result.status !== 0) throw Error(result.stderr || result.error || 'Compiler failed');
-    const bytes = readFileSync(join(directory, 'tinyqs.wasm'));
+    const bytes = compileInContainer(image, files, command, 'cat /work/tinyqs.wasm');
     outputs.push({ bytes, command });
-  } finally {
-    // Only the exact freshly-created owned temporary directory is removed.
-    rmSync(directory, { recursive: true, force: true });
-  }
 }
 if (!outputs[0].bytes.equals(outputs[1].bytes)) throw Error('Clean builds differ');
 const { bytes, command } = outputs[0];
