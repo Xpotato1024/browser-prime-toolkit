@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "provisional": true,
+  "mode": "p64",
+  "trainingPath": "docs/benchmarks/llm01-staged-training.json",
+  "trainingSha256": "d20db62c72dbdc09b0a7ce5cfe628be870cb460e4141b1bb4a37cde46eb86e94",
+  "trainingHead": "e7f764398c3181eb713b5ae0858f8621c43220d7",
+  "criterion": "maximum resolved outcomes, then median over all trials including incomplete, then smaller bit cutoff",
+  "candidates": [
+    {
+      "mode": "p64",
+      "trials": 18,
+      "success": 18,
+      "allTrialMedianMs": 150.84999999776483
+    },
+    {
+      "mode": "p80",
+      "trials": 18,
+      "success": 18,
+      "allTrialMedianMs": 172.9499999973923
+    }
+  ],
+  "holdoutSha256": "6d8e4910fd1ecd336be1baa70d3262161eec731b7002dd65f3eaee0dce2a04ce",
+  "limits": {
+    "input": "0 <= n < 2^128",
+    "requestMs": 1000,
+    "operations": 50000000,
+    "workers": 1,
+    "brentPrefix": {
+      "ms": 20,
+      "operations": 50000
+    },
+    "ecmPrefix": {
+      "ms": 80,
+      "operations": 500000
+    }
+  }
+}
