@@ -1,0 +1,69 @@
+✖ all 53 primary-source moduli retain decimal identity and fit the independent input profile (2.102999ms)
+✖ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.779999ms)
+✖ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.1394ms)
+✖ public profile rejects altered budgets, arbitrary backends and noncanonical integers (0.3912ms)
+✖ the previous 128-bit staged profile is unchanged (10.138393ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.655511
+
+✖ failing tests:
+
+test at test/rsa/profile.test.js:6:1
+✖ all 53 primary-source moduli retain decimal identity and fit the independent input profile (2.102999ms)
+  Error: Not implemented
+      at selectRsaPlan (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/profile.js:1:39)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/profile.test.js:11:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at test/rsa/profile.test.js:16:1
+✖ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.779999ms)
+  Error: Not implemented
+      at selectRsaPlan (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/profile.js:1:39)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/profile.test.js:18:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/rsa/profile.test.js:23:1
+✖ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.1394ms)
+  Error: Not implemented
+      at selectRsaPlan (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/profile.js:1:39)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/profile.test.js:25:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/profile.test.js:31:1
+✖ public profile rejects altered budgets, arbitrary backends and noncanonical integers (0.3912ms)
+  Error: Not implemented
+      at selectRsaPlan (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/profile.js:1:39)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/profile.test.js:38:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/profile.test.js:40:1
+✖ the previous 128-bit staged profile is unchanged (10.138393ms)
+  Error: Not implemented
+      at selectRsaPlan (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/profile.js:1:39)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/profile.test.js:43:15)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

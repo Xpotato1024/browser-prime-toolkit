@@ -141,3 +141,25 @@ jobs:
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
+
+  rsa-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run build:rsa-worker -- --check
+      - run: npm run check:rsa-profile
+      - name: RSA native profile contracts and offline Worker lifecycle
+        run: npm run verify:rsa-profile -- --out "$RUNNER_TEMP/rsa-profile.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check

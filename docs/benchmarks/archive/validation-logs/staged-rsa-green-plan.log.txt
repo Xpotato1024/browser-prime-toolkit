@@ -1,0 +1,13 @@
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (4.162797ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.3058ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.2017ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (1.455399ms)
+✔ the previous 128-bit staged profile is unchanged (11.664492ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.017999

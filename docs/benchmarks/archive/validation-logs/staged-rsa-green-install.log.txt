@@ -1,0 +1,30 @@
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (4.717497ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (0.5634ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (1.232699ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.4886ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (0.769999ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.8388ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.189299ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.262ms)
+✔ source release time is still inside the five-second initialization cap (0.312699ms)
+✔ Worker announces the exact bounded native profile and factors a full 2048-bit input (13.760192ms)
+✔ Worker rejects out-of-profile inputs and changed algorithm, budget or packet contract (1.2553ms)
+✔ Worker is one-shot and emits an explicit CSP audit signal (2.158598ms)
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (3.598198ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.2653ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.241299ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (1.5207ms)
+✔ the previous 128-bit staged profile is unchanged (9.152394ms)
+✔ large perfect powers retain their full input and proven factorization (10.993894ms)
+✔ probable remains unproven after an independent host check (4.349798ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.737499ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.7691ms)
+✔ partial progress cannot retain a forged probable composite factor (0.2343ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 174.359397

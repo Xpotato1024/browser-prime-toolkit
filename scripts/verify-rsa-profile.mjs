@@ -146,7 +146,7 @@ try {
     records.push(record);console.log(JSON.stringify({id:caseId,seed,kind:value.kind,reason:value.reason,requestWallMs:value.requestWallMs}));
   }else{
     const checks=await evaluate('evaluationHarness.run()');console.log(JSON.stringify(checks));assert.equal(checks.tests.length,8);assert.ok(checks.tests.every(t=>t.pass),JSON.stringify(checks.tests.filter(t=>!t.pass)));
-    assert.equal(checks.acceleratedClockIsPerformanceMeasurement,false);records.push(checks);console.log(JSON.stringify(checks));
+    assert.equal(checks.acceleratedClockIsPerformanceMeasurement,false);records.push(checks);
   }
   const lifecycle=null;
   const ownership=await evaluate('evaluationHarness.ownership()');assert.equal(ownership.live,0);assert.ok(ownership.maxLive<=1);

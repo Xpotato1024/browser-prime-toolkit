@@ -1,0 +1,39 @@
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (6.597201ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (1.3696ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.531001ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.4653ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (0.8925ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.9041ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (0.8914ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.2651ms)
+✔ source release time is still inside the five-second initialization cap (0.2775ms)
+✖ terminal cleanup cannot turn a result delivered after the total deadline into a success (1.2103ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.62543
+
+✖ failing tests:
+
+test at test/rsa/evaluator.test.js:77:1
+✖ terminal cleanup cannot turn a result delivered after the total deadline into a success (1.2103ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'timeout'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:81:25)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'timeout',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

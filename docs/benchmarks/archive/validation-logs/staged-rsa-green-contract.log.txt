@@ -1,0 +1,25 @@
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (4.691297ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (0.5748ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.634399ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.443ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (1.480799ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (1.086899ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.390099ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.313ms)
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (4.323198ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.2903ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.2246ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (1.537499ms)
+✔ the previous 128-bit staged profile is unchanged (8.051395ms)
+✔ large perfect powers retain their full input and proven factorization (11.311294ms)
+✔ probable remains unproven after an independent host check (5.010597ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.6987ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.810399ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173.044595
