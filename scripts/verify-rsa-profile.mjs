@@ -156,13 +156,13 @@ try {
   assert.equal(requests.length,0);assert.equal(http.length,0);assert.deepEqual(badEvents,[]);assert.deepEqual(fatal,[]);
   await memory.stop();
   const sourceFiles={};
-  for(const path of ['scripts/verify-rsa-profile.mjs','scripts/browser-memory.mjs','bench/staged-rsa/catalog.json','bench/staged-rsa/provenance.json',...initialAssets.map(a=>a.path.slice(1))])
+  for(const path of ['scripts/verify-rsa-profile.mjs','scripts/browser-memory.mjs','scripts/build-rsa-worker.mjs','scripts/check-rsa-core.mjs','src/rsa/factor.js','src/rsa/options.js','src/rsa/install.js','bench/staged-rsa/catalog.json','bench/staged-rsa/provenance.json',...initialAssets.map(a=>a.path.slice(1))])
     sourceFiles[path]=createHash('sha256').update(await readFile(join(root,path))).digest('hex');
   const receipt={mode,variant,caseId,group,seed,budgetMs,lifecycle,measuredHead:process.env.PRIME_MEASURED_HEAD??null,measuredAt:new Date().toISOString(),browser,browserDevice,
     host:{platform:platform(),release:release(),cpu:cpus()[0]?.model,logicalCpus:cpus().length,memoryBytes:totalmem(),headless:true},
     coldReadyMs,initialAssets,sourceFiles,records,ownership,sampledRam:memory.summary(),
     quiet:{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true},
-    limits:{operationBudget:50000000,wholeRam:'sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak',
+    limits:{operationBudget:200000000,wholeRam:'sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak',
       workerAudit:'fixed native BigInt only; no WASM; unsupported GMP/SIQS never allocates a Worker',profile:'request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null'}};
   // Positive audit controls after quiet counters were asserted.
   await networkOffline(false);await new Promise(r=>server.listen(port,'127.0.0.1',r));

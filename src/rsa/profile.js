@@ -1,6 +1,6 @@
 import {parseIntegerInput} from '../core/integer-input.js';
-export const RSA_PROFILE=Object.freeze({id:'rsa-native-brent-v1',maxBits:2048,maxDigits:617,timeBudgetMs:30000,
- initializationDeadlineMs:5000,operationBudget:50000000,workers:1,wasmBytes:0,packetBytes:262144,deliveryGraceMs:25});
+export const RSA_PROFILE=Object.freeze({id:'rsa-native-brent-v2',maxBits:2048,maxDigits:617,timeBudgetMs:30000,
+ initializationDeadlineMs:5000,operationBudget:200000000,workers:1,wasmBytes:0,packetBytes:262144,deliveryGraceMs:25});
 const capabilities=Object.freeze({
  brent:Object.freeze({maxBits:2048,minBits:0,odd:false,enabled:true,wasmBytes:0}),
  'gmp-brent':Object.freeze({maxBits:256,minBits:3,odd:true,enabled:false,wasmBytes:67108864}),

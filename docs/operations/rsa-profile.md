@@ -7,6 +7,6 @@
 
 計測は入力検査前から、Worker生成・compile/初期化・計算・delivery・hostの積/確度検証・退役を含みます。初回asset取得とChromeプロセス起動時間は別欄です。初期化は同じ30秒内で5秒上限、Worker計算枠は残時間から25ms控除します。event loop遅延によるtimeout応答の超過は実測値を残し、30秒内成功に数えません。
 
-1 Worker、30000ms、5千万algorithm checkpointを固定します。checkpointはCPU命令数ではありません。operation-budgetの早期停止はincomplete、時間切れはtimeout、方式範囲外はunsupportedです。prime/probable/factorizedを区別し、probable因数だけの完了は分解成功へ数えません。単位0/1はneitherです。取消/fatal後のWorkerを再利用せず、同一evaluatorの並行要求を拒否します。全JS heap hard capはありません。WASMは0 bytes、RAMはChrome process tree RSS/PSSの標本であり瞬間peakや上限ではありません。
+1 Worker、30000ms、2億algorithm checkpointを固定します。checkpointはCPU命令数ではありません。operation-budgetの早期停止はincomplete、時間切れはtimeout、方式範囲外はunsupportedです。prime/probable/factorizedを区別し、probable因数だけの完了は分解成功へ数えません。単位0/1はneitherです。取消/fatal後のWorkerを再利用せず、同一evaluatorの並行要求を拒否します。全JS heap hard capはありません。WASMは0 bytes、RAMはChrome process tree RSS/PSSの標本であり瞬間peakや上限ではありません。
 
 性能は同一head/source hash・host・Chrome・Worker数・固定seed群で反復し、全試行の結果、成功率、初期化込み時間の中央値/範囲、積一致と素数確度を併記します。最大値は「この条件で測った公式問題のうち観測された最大」に限定し、未測定の問題や普遍的上限を推定しません。成功0なら最大成功値は未成立です。契約試験と実時間の性能試行は別receiptにします。

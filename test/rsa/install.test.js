@@ -7,7 +7,7 @@ function fixture(fn){
  try{installRsaWorker();return fn({out,events,send:data=>self.onmessage({data})});}finally{globalThis.self=saved;}
 }
 const packet=input=>({protocolVersion:3,profile:RSA_PROFILE.id,type:'run',jobId:1,input,
- options:{algorithm:'brent',seed:1,timeBudgetMs:1000,operationBudget:50000000}});
+ options:{algorithm:'brent',seed:1,timeBudgetMs:1000,operationBudget:200000000}});
 test('Worker announces the exact bounded native profile and factors a full 2048-bit input',()=>fixture(({out,send})=>{
  assert.deepEqual(out.shift(),{protocolVersion:3,profile:RSA_PROFILE.id,type:'ready',backend:'brent',maxBits:2048,wasmBytes:0});
  const n=(1n<<2047n).toString();send(packet(n));const r=out.find(v=>v.type==='result');

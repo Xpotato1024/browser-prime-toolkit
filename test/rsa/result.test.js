@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {factorInteger} from '../../src/engine/factor.js';
+import {factorRsaInteger as factorInteger} from '../../src/rsa/factor.js';
 import {verifyRsaWorkerResult,verifyRsaSnapshot,classifyRsaResult} from '../../src/rsa/result.js';
 const result=n=>factorInteger(n,{algorithm:'brent',timeBudgetMs:30000,operationBudget:50000000});
 test('large perfect powers retain their full input and proven factorization',()=>{

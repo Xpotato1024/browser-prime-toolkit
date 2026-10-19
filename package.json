@@ -11,7 +11,7 @@
   "packageManager": "npm@11.19.0",
   "scripts": {
     "test": "node --test",
-    "check": "node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && node scripts/check-rsa-profile.mjs && node scripts/check.mjs",
+    "check": "node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && npm run check:rsa-profile && node scripts/check.mjs",
     "build:worker": "node scripts/build-worker.mjs",
     "verify:browser": "node scripts/benchmark-browser.mjs --quick --advanced",
     "benchmark:browser": "node scripts/benchmark-browser.mjs --advanced",
@@ -39,6 +39,7 @@
     "check:private-ui": "node scripts/check-private-ui.mjs",
     "build:rsa-worker": "node scripts/build-rsa-worker.mjs",
     "verify:rsa-profile": "node scripts/verify-rsa-profile.mjs",
-    "check:rsa-profile": "node scripts/check-rsa-profile.mjs"
+    "check:rsa-profile": "node scripts/check-rsa-core.mjs && node scripts/check-rsa-profile.mjs && node scripts/report-rsa.mjs --check",
+    "report:rsa": "node scripts/report-rsa.mjs"
   }
 }

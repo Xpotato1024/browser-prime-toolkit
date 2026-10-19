@@ -1,8 +1,8 @@
 import {readFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {writeGenerated} from './generated-file.mjs';
-const paths=['src/core/integer-input.js','src/engine/options.js','src/engine/arithmetic.js','src/engine/result.js',
- 'src/engine/factor.js','src/rsa/profile.js','src/rsa/install.js'];
+const paths=['src/core/integer-input.js','src/engine/options.js','src/engine/arithmetic.js','src/rsa/core-result.js',
+ 'src/rsa/options.js','src/rsa/factor.js','src/rsa/profile.js','src/rsa/install.js'];
 const chunks=paths.map(path=>{
  let code=readFileSync(new URL('../'+path,import.meta.url),'utf8');
  code=code.replace(/^import .+ from '[^']+';\n/gm,'').replace(/^export (?=(?:async )?(const|class|function) )/gm,'');

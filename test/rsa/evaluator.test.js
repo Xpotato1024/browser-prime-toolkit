@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRsaEvaluator} from '../../src/rsa/evaluator.js';
 import {RSA_PROFILE} from '../../src/rsa/profile.js';
-import {factorInteger} from '../../src/engine/factor.js';
+import {factorRsaInteger as factorInteger} from '../../src/rsa/factor.js';
 import {verifyRsaWorkerResult} from '../../src/rsa/result.js';
 function fixture({auto=false,finish=false,badReady=false,fatal=false,releaseThrows=false,terminateThrows=false}={}){
  let time=0,live=0,maxLive=0;const made=[],timers=[],sent=[];
@@ -19,7 +19,7 @@ function fixture({auto=false,finish=false,badReady=false,fatal=false,releaseThro
 test('fixed 30-second deadline charges loading before the core grant and retires its owner',async()=>{
  const f=fixture({finish:true}),e=createRsaEvaluator(f.deps),p=e.run('10403');f.setTime(250);f.ready(f.made[0]);const r=await p;
  assert.equal(r.kind,'factorized');assert.equal(r.input,'10403');assert.equal(f.sent[0].options.timeBudgetMs,29725);
- assert.equal(f.sent[0].options.operationBudget,50000000);assert.equal(r.allWorkersDisposed,true);assert.equal(r.workers,1);assert.equal(r.wasmBytes,0);
+ assert.equal(f.sent[0].options.operationBudget,200000000);assert.equal(r.allWorkersDisposed,true);assert.equal(r.workers,1);assert.equal(r.wasmBytes,0);
  assert.deepEqual(f.counts(),{live:0,maxLive:1});assert.ok(f.timers.every(t=>t.dead));e.dispose();
 });
 test('unsupported and neither results allocate nothing and keep the exact input',async()=>{

@@ -9,7 +9,7 @@ test('all 53 primary-source moduli retain decimal identity and fit the independe
   assert.deepEqual(Object.keys(c).sort(),['bits','digits','id','input','source']);
   const n=BigInt(c.input);assert.equal(n.toString(),c.input);assert.equal(c.input.length,c.digits);assert.equal(n.toString(2).length,c.bits);
   const p=selectRsaPlan(c.input);assert.equal(p.supported,true);assert.equal(p.input,c.input);assert.equal(p.bits,c.bits);
-  assert.equal(p.options.timeBudgetMs,30000);assert.equal(p.options.operationBudget,50000000);assert.equal(p.workers,1);assert.equal(p.wasmBytes,0);
+  assert.equal(p.options.timeBudgetMs,30000);assert.equal(p.options.operationBudget,200000000);assert.equal(p.workers,1);assert.equal(p.wasmBytes,0);
  }
  assert.deepEqual(cases.slice(0,3).map(c=>[c.id,c.digits,c.bits]),[['RSA-100',100,330],['RSA-110',110,364],['RSA-120',120,397]]);
 });

@@ -6,7 +6,7 @@ const r=JSON.parse(await readFile('docs/benchmarks/llm01-staged-rsa-contract.jso
 assert.match(r.measuredHead,/^[a-f0-9]{40}$/);assert.equal(r.mode,'rsa-contracts');assert.equal(r.budgetMs,30000);
 assert.equal(r.records.length,1);const c=r.records[0];assert.equal(c.tests.length,8);assert.ok(c.tests.every(t=>t.pass));
 assert.equal(c.acceleratedClockIsPerformanceMeasurement,false);assert.deepEqual(r.ownership,{live:0,maxLive:1});
-assert.equal(r.limits.operationBudget,50000000);assert.equal(r.quiet.networkRequests,0);assert.equal(r.quiet.httpRequests,0);
+assert.equal(r.limits.operationBudget,200000000);assert.equal(r.quiet.networkRequests,0);assert.equal(r.quiet.httpRequests,0);
 assert.equal(r.quiet.badEvents,0);assert.equal(r.quiet.assetServerStopped,true);assert.equal(r.quiet.cacheDisabled,true);
 assert.deepEqual(r.detectorSelfTest,{blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true});
 for(const path of ['bench/rsa-profile.js','src/rsa/evaluator.js','src/rsa/factory.js','src/rsa/worker-source.js','scripts/verify-rsa-profile.mjs','bench/staged-rsa/catalog.json','bench/staged-rsa/provenance.json'])

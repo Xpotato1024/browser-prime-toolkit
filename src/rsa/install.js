@@ -1,4 +1,4 @@
-import {factorInteger} from '../engine/factor.js';
+import {factorRsaInteger} from './factor.js';
 import {RSA_PROFILE,selectRsaPlan} from './profile.js';
 function readRequest(data){
  if(!data||typeof data!=='object'||Array.isArray(data)||Object.keys(data).some(k=>!['protocolVersion','profile','type','jobId','input','options'].includes(k))||
@@ -7,10 +7,10 @@ function readRequest(data){
  const options=data.options;
  if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(k=>!['algorithm','seed','timeBudgetMs','operationBudget'].includes(k))||
   options.algorithm!=='brent'||!Number.isSafeInteger(options.timeBudgetMs)||options.timeBudgetMs<0||options.timeBudgetMs>30000||
-  options.operationBudget!==50000000)throw TypeError('RSA delegated options');
+  options.operationBudget!==RSA_PROFILE.operationBudget)throw TypeError('RSA delegated options');
  const plan=selectRsaPlan(data.input,{seed:options.seed});
  if(!plan.supported)throw TypeError('RSA unsupported input');
- return{input:plan.input,options:{algorithm:'brent',seed:plan.options.seed,timeBudgetMs:options.timeBudgetMs,operationBudget:50000000}};
+ return{input:plan.input,options:{algorithm:'brent',seed:plan.options.seed,timeBudgetMs:options.timeBudgetMs,operationBudget:RSA_PROFILE.operationBudget}};
 }
 export function installRsaWorker(){
  let used=false;
@@ -25,7 +25,7 @@ export function installRsaWorker(){
   try{
    if(used||new TextEncoder().encode(JSON.stringify(data)).length>RSA_PROFILE.packetBytes)throw TypeError('RSA one-shot packet');
    used=true;const request=readRequest(data);
-   const result=factorInteger(BigInt(request.input),request.options,{onProgress:snapshot=>post({type:'progress',jobId:1,snapshot})});
+   const result=factorRsaInteger(BigInt(request.input),request.options,{onProgress:snapshot=>post({type:'progress',jobId:1,snapshot})});
    post({type:'result',jobId:1,result});
   }catch{post({type:'error',jobId,code:'invalid-rsa-request'});}
  };

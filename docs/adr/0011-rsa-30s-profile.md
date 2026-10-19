@@ -1,7 +1,7 @@
 # ADR0011: RSA向け30秒評価の独立profile
 状態: private Draft。Stage10後の直接依頼に基づく設計・TDD。旧profileと教育用比較データを変更しない。
 
-公式RSA challengeの値をそのまま入力できる範囲と、方式が実際に扱える範囲を分ける。新profileは最大2048bit・617十進桁、初期化込み30000ms、1 request/1 Worker、5千万計算checkpoint。入力・結果・引用元の全桁は文字列/BigIntだけで扱う。新しい整数型・remote code・保存は導入しない。
+公式RSA challengeの値をそのまま入力できる範囲と、方式が実際に扱える範囲を分ける。新profileは最大2048bit・617十進桁、初期化込み30000ms、1 request/1 Worker、2億計算checkpoint。入力・結果・引用元の全桁は文字列/BigIntだけで扱う。新しい整数型・remote code・保存は導入しない。
 
 最初の実行backendは既存のnative BigInt Brentを固定利用する。旧staged128bit選択やGMP256bit・SIQS128bitのC/WASM上限を緩めない。RSA向けprofileで未導入のGMP/SIQS指定、あるいは実際の対応範囲外は、Workerを作らず未対応とする。これはRSAを30秒で解ける方式を選定したという判断ではない。
 
@@ -16,3 +16,5 @@
 [一次資料の53入力](../../bench/staged-rsa/catalog.json)には既知因数を一切含めない。RSA-129は参照した公式一覧に含まれず、別の原出典を得るまで未収録とする。旧名称の十進桁と新名称のbitを別欄で保持する。
 
 TDDはcatalog/plan→結果契約→Worker/hostの期限・取消・不正packet→実browser。既存engine/Worker/raw/UIを保全する。最後に同一HEADのtests/check/CIとread-only独立レビューを揃え、別の非公開Draftにする。RSA性能指標はprofileが検証で固定された後の測定だけを実績とする。
+
+追加判断: 旧engineの5千万上限を流用した予備5試行は17秒台でoperation-budgetとなったため、30秒能力評価の完了とは扱わず[原記録を保全](../benchmarks/archive/staged-rsa50m/README.md)する。RSA専用v2は有限2億上限を持ち、shared Budget/arithmeticを変更しない。driverとverifierはimports/normalizer/operation上限だけを分離し、check-rsa-coreで旧版からの許可差分を機械照合する。每checkpointの時計確認・取消terminate・host deadline・入力/factor/packet制限を維持する。2億でも早期停止すれば再び未完了として評価境界を返す。

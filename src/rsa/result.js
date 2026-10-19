@@ -1,4 +1,4 @@
-import {verifyFactorResult,verifySnapshot} from '../engine/result.js';
+import {verifyFactorResult,verifySnapshot} from './core-result.js';
 import {assessPrime} from '../engine/arithmetic.js';
 import {SMALL_PRIMES} from '../engine/options.js';
 import {selectRsaPlan,RSA_PROFILE} from './profile.js';
