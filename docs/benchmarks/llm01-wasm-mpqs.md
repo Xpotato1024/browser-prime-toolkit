@@ -67,3 +67,5 @@ Cの協調中断・解放はnative portable CのASan/UBSanで200回の中断、1
 
 再実行: npm run benchmark:browser -- --out /tmp/prime-browser.json。
 [生データ](llm01-wasm-mpqs.json)、[方式・旧API・資源の採否](../architecture/advanced-factorization-candidates.md)、[ADR](../adr/0003-bounded-wasm-mpqs.md)を参照してください。
+
+資源計数の補足: pool測定中も比較用の待機Workerが1本残ります。poolの1/2/4本と別にWASM線形メモリ16MiBがあり、browser全体のpeak RAMは未測定です。

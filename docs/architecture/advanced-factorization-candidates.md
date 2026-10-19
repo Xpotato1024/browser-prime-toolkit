@@ -84,3 +84,5 @@ JS heap等のpeakは未測定です。初期化時間はwarm計算と別に記�
 - [FLINT](https://github.com/flintlib/flint)
 
 調査した条文: [GMP-ECM COPYING](https://github.com/sethtroisi/gmp-ecm/blob/master/COPYING)、[COPYING.LIB](https://github.com/sethtroisi/gmp-ecm/blob/master/COPYING.LIB)、[CADO COPYING](https://github.com/cado-nfs/cado-nfs/blob/master/COPYING)。未採用部品の最終配布条件を確定したものではありません。
+
+資源計数の補足: pool測定中も比較用の待機Workerが1本残ります。poolの1/2/4本と別にWASM線形メモリ16MiBがあり、browser全体のpeak RAMは未測定です。
