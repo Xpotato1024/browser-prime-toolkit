@@ -4,7 +4,7 @@
   "upstreams": [
     {
       "file": "gmp-6.3.0.tar.xz",
-      "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+      "url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
       "bytes": 2094196,
       "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
     },
@@ -49,7 +49,7 @@
     "native/gmp/bridge.c": "a1e9fece20dfb0e9488bdba71ae395d4ef01236213c0062ca1728421ec154236",
     "native/gmp/build.sh": "19c5c9bfd065766c85338ba7ae20abd0e88eff63ca15bd748113f2185f5e2a6a",
     "native/gmp/sanitize.c": "4fcb7302d1563776429ac19fd663120cc17971399925ad53d92d361c0937e05a",
-    "native/gmp/upstreams.json": "4c92e7bd3876e25d5a589348dba86b623716f6e497fa4d647498e6fdabff9581",
+    "native/gmp/upstreams.json": "0e48bf3af751c11e8f1b92da23ae60900daea8f59313de81251c1e3b0e61e6ca",
     "scripts/build-gmp.mjs": "a82a5cf6da727a5420ef5c77e2d95378e81af098c7a1fc1c640aff5cf81a3266",
     "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
     "vendor/msieve-siqs/provenance.json": "d793ca71f7c60281d9c97d0ad020bcac49383afe5cffa0aacd5447b94ca17fde",

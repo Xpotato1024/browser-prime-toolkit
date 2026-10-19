@@ -14,6 +14,9 @@ GMP の公式公表指紋 343C2FF0FBEE5EC2EDBEF399F3599FF828C67298 と照合し�
 鍵は2025-01-15に期限切れで、現在は EXPKEYSIG も返します。
 個人の keyring/trust 設定は変更せず、評価用の隔離 keyring を使いました。
 取得物の版・bytes・SHA は [manifest](../../native/gmp/upstreams.json) に固定しています。
+CIからgmplib.orgへの接続がtimeoutしたため、[GMP公式が案内するGNU配布先](https://gmplib.org/#DOWNLOAD)
+のftp.gnu.org HTTPS URLを固定取得先に選びました。元取得物と同じ2,094,196 bytes・SHAです。
+自動fallbackは追加せず、URLとmanifest hashだけをreceiptへ反映し、生成WASMは変更していません。
 
 ECM の既定 libecm 集合35 Cソースと宣言されたヘッダー等の hash／先頭の条文表記を
 [原本目録](../../vendor/gmp-ecm/provenance.json) に記録しています。
