@@ -7,6 +7,7 @@ const currentHash=async path=>{if(!hashes.has(path))hashes.set(path,createHash('
 export async function verifyLongReceipt(r,{expected,baseline,oracle,sourceOverrides={}}={}){
  assert.match(r.measuredHead,/^[a-f0-9]{40}$/);assert.ok([3000,30000,180000,600000].includes(r.budgetMs));
  assert.equal(r.variant,'native-brent');assert.equal(r.limits.operationBudget,10000000000);
+ for(const path of ['scripts/verify-long-rsa.mjs','src/long-rsa/worker-source.js','src/long-rsa/evaluator.js','src/long-rsa/profile.js','src/long-rsa/core-result.js','bench/staged-practical/cases.js','bench/staged-practical/manifest.json','bench/staged-practical/oracle.json','scripts/generate-practical.py'])assert.ok(r.sourceFiles[path],path);
  assert.deepEqual(r.ownership,{live:0,maxLive:1});
  assert.deepEqual(r.quiet,{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true});
  assert.deepEqual(r.detectorSelfTest,{blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true});
