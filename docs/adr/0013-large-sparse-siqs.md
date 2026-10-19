@@ -1,16 +1,20 @@
-# ADR0013: 大整数向けの独立sparse SIQS
-状態: private Draftの実装段階。本人の「大整数でもSIQSなどを使えるようさらなる改良」を最優先とし、Brentの追加長時間試験を停止した。先行原記録と旧profile/source/artifactを変更しない。
+# ADR0013: 大整数向けの独立full SIQS
+状態: private Draftの実装・検証段階。本人の大整数SIQS改善を優先し、Brentの追加RSA-100長時間試験を停止した。旧profile、原記録、source/artifactは変更しない。
 
-初期対象は奇数64〜332bit・100十進桁までとする。RSA-100は100桁/330bitで含む。2048bit SIQS対応を主張せず、RSA-110等の範囲外はunsupportedとする。msieve固定commit c8727d91305bdbe0972d160ef0ce61dd02ce9193の原本とpublic-domain noticeを保持し、元のmp_tを利用する。MAX_MP_WORDS30=960bitに対し、332bit入力とmultiplier後の中間積を監査し、上限だけを広げない。
+専用profileは0〜332bit・100十進桁までとする。0/1はWorkerなし、前処理後64bit未満は既存native Brent、64〜332bitの奇数compositeはfull SIQSへ渡す。332bitと100桁はAND条件で、333bitになる上側の100桁入力を拒否する。RSA-100は330bitで対象内。2048bit SIQS対応を主張しない。
 
-新native/siqs-largeと専用Worker/ABIを設ける。上流poly/sieve/relation filter/sqrtと既存の上流Lanczosを利用する。旧1024行のdense snapshotを廃し、relation cycleから疎なodd row listを作る。返却dependency64本は元relationから行ごとのuint64 XORで独立再検算し、X²≡Y²と非自明な約数も検査する。行数100000・列数150000を有限上限とし、列を黙って切り詰めない。
+CrypTool msieve-wasmのcommit 2e46b2683be8f425e4fbb947d195d786cc4f866aのbuild構成を調査し、固定archiveのmsieve1.53を採用する。提供dist、式parser、時刻seed、暗黙rho/ECM/NFS dispatchを使用しない。canonical decimalと明示seedからfactor_mpqsへ直接入り、nontrivial divisorだけを返す。GMP6.1.2は元recipeとの再build材料として保全する。主要msieveはpublic domainだが、APR-CL/GMP等のlicenseは別記し、実link mapと原本の採用範囲を区別する。
 
-factor base最大100000、prime list200100を原本のsegmented sieveで生成する。relation/save・多項式・sieve blockも明示上限へ分離し、全加算/積のoverflowを格納前に検査する。線形探索だった割当追跡を有限hash ledger/free listへ変え、pointer所有権・二重free・OOM・realloc・cleanupを試験する。savefileはmemory bufferだけで、filesystem/storage/networkへ出さない。
+旧1.46のmp_t30 words/960bitに対し、1.53原本は32 words/1024bitである。最大multiplier73後のNは339bit未満。sqrtのA/B実bit長を各384以下へ検査し、offset31bitを含む再構成平方は832bit未満とする。mp_mul/単語乗算も格納容量を先に検査する。旧poly・factor append・line/token/parser・X²≡Y² guardをstrict counted patchで再利用する。
 
-WASMはinitial=max512MiB、growth/pthreads無効、stack4MiB、managed heap384MiB、save128MiBを含む。全Chrome RAMは別に標本観測し、JS全体hard capとは区別する。1 request/1 Worker、3/30/180/600秒のhost deadline、初期化5秒、cleanup/proof込みとする。Cは有限100億のuint64 checkpointを持ち、1024ステップごと・phase境界で時計を確認する。hostは独立にterminateでき、自動再起動しない。短いunflushed tailも請求する。
+relation filter、double-large-prime、post-processing、packed/unpacked block Lanczosを原本から保持する。旧1024列のdense snapshotは使わない。行100000、列150000、初期nnz16000000、cycle8192、原relation検算256000000項を有限上限とし、黙って切り詰めない。返却dependency64本を原relationのfactor-offsetから行ごとのuint64 XORで同時再検算する。Lanczos disk dump/restartは除去し、独立poll/stopと原cleanupを維持する。
 
-先にnative ASan/UBSanで100桁ABI境界、64bit counter、巨大rowのsparse parity/dependency、各phase停止、割当失敗/overflowと回復をTDDで確立する。固定Emscripten imageのoffline clean build2回を一致させ、原本/patch/recipe/artifact/imports/memory hashを保存する。unknown trapはfatalとしてWorkerを退役し、資源上限・時間切れ・素数未証明を分離する。
+WASM initial=max512MiB、growth/pthreads無効、stack4MiB、C内save128MiBを含む。旧案の独自384MiB割当台帳を採用せず、固定線形memoryで封じ、MEMFSを使用しない。全Chrome RAMの標本RSS/PSSは別に記録する。OOM/unknown trap/中断後の同instance再利用を禁止し、単発Workerを退役させる。
 
-RSA-100と事前固定した均衡半素数を同一端末/Chrome/seed/予算/1 Workerで再評価する。既知因数を投入せず、生成oracleは計算後だけに照合する。旧native Brent、旧128bit SIQS、ECMと段階選択の対応範囲/上限を隠さず、ECMを100桁均衡半素数の主要解法とは決めない。probableはprovenへ変換せず、積と素数確度を別記する。
+1 request/1 Worker、3/30/180/600秒の初期化込みhost deadline、初期化5秒、proof/cleanup余裕250msを置く。Cはuint64の有限1兆checkpoint、1024ステップとphase境界で時計確認する。細粒度C loopをBrentの100億へ機械的に揃えず、時間上限より早い停止もreasonと実countで報告する。hostは独立terminateし、自動再起動しない。tailも請求する。
 
-Alpertronの固定原本も候補として保持するが、GPL-3.0-or-later・依存一式・finite Lanczos/UBSan・純計算入口の監査が必要で、静的確認だけで採用/速度除外しない。今回の第一実装は既存pinと再現buildを使えるmsieve sparse経路とする。公開/CSP/配布/license採否/Ready/merge/deployは含めない。
+native ASan/UBSanで100桁/333bit/unterminated、2³²超counter、10万行のparityと偽dependency、各phase停止、通常cleanup/新規要求での回復を確認する。固定imageのnetworkなしclean build2回を一致させ、原本/patch/recipe/artifact/imports/memoryを保存する。非公開auditで実OOM/trap退役も検証する。
+
+40〜100桁の均衡半素数を2桁刻み・各2入力で先に固定し、hostだけにMR64/Pocklington証明付きoracleを保管する。runtimeへはNのみ配る。構成法による標本偏りと小標本を明記し、RSA-100も既知因数を与えず測る。toolのprobableはprovenへ変換せず、積と素数確度を分ける。
+
+Alpertronは95桁自動切替をhard capと解釈せず、10¹¹⁰想定の別候補として原本を保持する。今回のfull msieve実装を先に検証し、未計測の候補を速度で除外しない。公開/配布license採否/Ready/merge/deploy/site統合は含めない。

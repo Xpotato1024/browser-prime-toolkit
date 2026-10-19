@@ -1,4 +1,5 @@
-# 分単位・小桁評価の操作
+# 分単位・小桁評価の途中記録
+このstage12計画は途中停止しました。以下のscheduler/report用npm commandは登録・運用していません。44件のpartial rawとRSA100の600秒timeoutを保存し、追加Brent測定を停止しました。26/30/36桁と34桁の1組は未測定です。現在の作業は[full SIQS](full-siqs.md)です。
 [ADR0012](../adr/0012-bounded-minute-evaluation.md)のprivate評価用profileです。製品UIと既存30秒profileを変更しません。方式はnative BigInt Brentで、GMP/ECM/SIQSはこの経路に未導入です。
 
 `npm run verify:long-rsa -- --case RSA-100 --seed 1 --budget-ms 600000 --out /tmp/rsa100-10min.json`で公式Nの上限10分試行を行います。時間は3000/30000/180000/600000msだけを選べ、操作予算は有限100億、1 Worker、2048bit/617桁、WASM0です。每checkpointの時計とhost deadlineを併用し、初期化・proof・退役を課金します。time-budgetとoperation-budgetを区別し、未完了から成功時間を推定しません。

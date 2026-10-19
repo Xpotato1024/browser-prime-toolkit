@@ -48,3 +48,5 @@ PR9は[ADR0009](adr/0009-staged-selector.md)に従い、一般群90反復で暫�
 PR10は[ADR0010](adr/0010-private-exact-ui.md)の非公開全桁UIを実装します。[利用・検証](operations/private-ui.md)、[TDD](operations/stage10-tdd-evidence.md)、[RSA30秒指標の後続計画](architecture/rsa-30s-plan.md)を分け、既存比較証跡と公開判断の境界を保ちます。
 
 PR11は[ADR0011](adr/0011-rsa-30s-profile.md)の独立RSA30秒profileを設計・試験します。[backend実上限とSIQS拡張設計](architecture/rsa-backend-limits.md)を分け、現行profile・UI・比較証跡を保全します。[実測と限界](benchmarks/llm01-staged-rsa.md)、[実行・測定契約](operations/rsa-profile.md)と[TDD](operations/stage11-tdd-evidence.md)を分けます。
+
+Stage13は[ADR0013](adr/0013-large-sparse-siqs.md)に従い、[full SIQS原本と境界](architecture/full-siqs-source-review.md)、[操作](operations/full-siqs.md)、[TDD](operations/stage13-tdd-evidence.md)を追加します。Stage12のBrent長枠は[途中記録](operations/minute-evaluation.md)へ保全しています。

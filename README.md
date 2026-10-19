@@ -27,3 +27,5 @@ npmの追加runtime依存はありません。msieveの公開ドメインsubset�
 [有界SIQS・ECM stage2/RAM評価](docs/benchmarks/llm01-bounded-siqs.md)ではSIQSの1秒打切りと、ECMのfatal Worker退役・実Chrome process treeの標本RAMを記録します。
 
 PR6は[保守的selectorと新6問holdout](docs/benchmarks/llm01-selection-holdout.md)を追加します。selectorは実行計画の提案で、公開用schedulerや最適方式の保証ではありません。
+
+[Full SIQSの独立private評価](docs/architecture/full-siqs-source-review.md)はmsieve1.53の大行列Lanczosを使います。既存UI/profile・公開配布は変更しません。[操作](docs/operations/full-siqs.md)と[検証記録](docs/operations/stage13-tdd-evidence.md)を参照してください。
