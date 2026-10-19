@@ -28,8 +28,10 @@ export function createRsaEvaluator({
       try{worker.terminate();disposed=true;}catch{cleanupFailed=true;}
      }
      if(cleanupFailed){permanentlyClosed=true;kind='fatal';reason='worker-disposal-failed';result=null;}
+     const finishedAt=now();
+     if(!cleanupFailed&&['factorized','prime','probable'].includes(kind)&&finishedAt>=deadline){kind='timeout';reason='host-timeout';result=null;}
      resolve({...base,kind,reason,result,snapshot:result?snapshotOf(result):snapshot,workers:worker?1:0,allWorkersDisposed:disposed,
-      requestWallMs:Math.max(0,now()-began),initializationMs,computeWallMs:computeStarted===null?null:Math.max(0,now()-computeStarted),proofTicks});
+      requestWallMs:Math.max(0,finishedAt-began),initializationMs,computeWallMs:computeStarted===null?null:Math.max(0,finishedAt-computeStarted),proofTicks});
     };
     const fail=reason=>finish('fatal',reason),timeout=()=>finish('timeout','host-timeout');
     cancelJob=reason=>finish('cancelled',reason);

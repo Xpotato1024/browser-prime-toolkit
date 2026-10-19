@@ -74,3 +74,9 @@ test('source release time is still inside the five-second initialization cap',as
  if(f.sent.length)e.cancel();
  const r=await p;assert.equal(r.kind,'fatal');assert.equal(r.reason,'initialization-timeout');assert.equal(f.sent.length,0);e.dispose();
 });
+test('terminal cleanup cannot turn a result delivered after the total deadline into a success',async()=>{
+ const f=fixture(),e=createRsaEvaluator(f.deps),p=e.run('32');f.ready(f.made[0]);f.setTime(29999);
+ const terminate=f.made[0].terminate.bind(f.made[0]);f.made[0].terminate=()=>{terminate();f.setTime(30001);};
+ f.emit(f.made[0],{type:'result',jobId:1,result:factorInteger(32n)});
+ const r=await p;assert.equal(r.kind,'timeout');assert.equal(r.allWorkersDisposed,true);assert.equal(r.requestWallMs,30001);e.dispose();
+});
