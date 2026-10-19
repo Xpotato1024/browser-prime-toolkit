@@ -28,3 +28,5 @@
 検証ログは[目録](comparison-preservation.json)のvalidationLogsに元task相対pathと保存SHAを載せています。保存済みのnative/TDDログのみで、存在しない過去ログは再構成しません。Stage9のred-controllerはimport path誤りだったため、TDD根拠には含めません。
 
 Alpertron実行、GNFS/FLINT移植性能、p+1単独、standalone SQUFOF、旧gmp-wasm 1.3.2の性能測定は未実施です。測定値のないものを比較結果にしません。
+
+原本検証ログの末尾空白・EOF空行もbytes/SHAの一部として維持します。.gitattributesの例外はarchive/validation-logs/*.log.txtだけに限定し、通常コードの空白検査は維持します。
