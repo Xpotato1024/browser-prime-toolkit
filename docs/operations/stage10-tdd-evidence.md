@@ -1,5 +1,5 @@
 # Stage10のTDD記録
-非公開UIをview、session、DOM、preview、復帰・入力境界の順に小さく実装した。初期失敗と成功の出力はarchive/validation-logsのstaged-ui-*へ保存する。実行環境はLLM-01、Node24.19.0/npm11.19.0、Chrome142系（正確な版は固定receipt）である。
+非公開UIをview、session、DOM、preview、復帰・入力境界の順に小さく実装した。初期失敗と成功の出力はarchive/validation-logsのstaged-ui-*へ保存する。実行環境はLLM-01、Node24.19.0/npm11.19.0、Chrome155.0.8059.39（固定receiptにも記録）である。
 
 | 境界 | 実際のRED | GREEN |
 | --- | --- | --- |
