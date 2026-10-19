@@ -11,5 +11,5 @@ AGENTS.md と関係する契約を読み、文書・テスト・実装の責務�
 5. 数値境界の独立レビュー、最終headのCIを確認してDraft PRで返します。
 
 npm run check は構文、UTF-8/BOM/改行、ローカルMarkdownリンクを検証します。
-CIはtestとcheckのみです。push / PRからdeploy、release、公開を行うworkflowはありません。
+CIは単体・実browserのtestとcheckのみです。push / PRからdeploy、release、公開を行うworkflowはありません。
 実装PRのmerge、Ready化、公開、既存サイト組込、資格情報・権限変更は別途承認が必要です。

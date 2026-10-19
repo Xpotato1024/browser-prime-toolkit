@@ -12,7 +12,7 @@
 WASM の要否は素数判定・分解の代表ケースで速度、起動時間、メモリ、bundle、取消を測定して判断します。
 他用途のベンチマークから分解性能を推定しません。
 採用時は原本ソース、release/commit、hash、licenseと必要な配布物、build再現性を記録します。
-現時点では性能比較もライブラリ採用も行っていません。
+native方式の[初回比較](../benchmarks/llm01-baseline.md)を実施しました。第三者libraryは未採用です。
 大きな半素数の高速分解を中核目標とし、native BigIntに最終engineを固定しません。
 [性能評価計画](performance-plan.md)に従い、WASM・多倍長library・方式を比較します。
 

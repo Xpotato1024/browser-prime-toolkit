@@ -50,3 +50,7 @@ ready後の操作区間ではmainとWorker双方のrequest/socket、navigation�
 現行v1のmaxInputBytesは65536、maxOutputBytesは262144以下です。因数集約コアの最大出力はこの範囲に収まりません。
 アダプターはmanifestの入力・出力・進捗message上限を計算前と描画前に検証し、超過を明示します。
 上限を無言で切捨てたり、コアの受付桁数をサイトでの分解保証として表示したりしません。
+
+基準Workerは固定sourceを同梱したBlob URLを使い、取消後もHTTP取得なしで再生成します。
+site採用には、固定source/hashとBlob所有寿命の検証、限定worker-src blob:の別審査が必要です。
+現在のsiteのWorker禁止・CSPは変更していません。

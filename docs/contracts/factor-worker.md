@@ -19,9 +19,15 @@ certainty=provenのmethodはsmall-primeまたはmr64、probableはmr-fixed7で�
 MR基底は2,325,9375,28178,450775,9780504,1795265022で、mr64の範囲はn<2^64です。
 それ以上の通過結果に誤り確率上限を付けません。seedはRhoの再現用で暗号乱数ではありません。
 因子/残余を順次割る形で積一致を検証し、検算用に巨大な積を新規構築しません。
+mr64/provenは受信側でも有限64bit範囲でMRを再検証し、cacheは検証呼出し内だけに置きます。
+probableのscreening実施はレビュー済みWorkerの自己申告であり、hostの積検算と区別します。
+長大なprobable値のMRをmain threadで再実行しません。素数証明・確率上限は主張しません。
+計算予算はcheckpoint対象であり、結果の構造/有限proof検証・配送の費用は別です。
 
 ## Workerとcontroller
-module Workerは固定local URLと静的importだけを使い、ロード完了時にprotocolVersion=1/type=readyを送ります。
+Workerは明示source listを決定的に組み立てた固定文字列を初期JS assetへ同梱し、Blob URLから起動します。
+実行時import/fetchやユーザー入力のcode連結はありません。ready/error/terminateでURLをrevokeします。
+準備後の取消・再起動もHTTP取得なしで動かします。ロード完了時にprotocolVersion=1/type=readyを送ります。
 run要求はprotocolVersion、type、jobId、input、optionsを持ちます。inputは提出時に確定したcanonical値です。
 progress/result/errorは同じjobIdを返します。progressは検証可能なsnapshotで、100ms未満の頻発を抑えます。
 controllerはloading/ready/running/error/disposedを管理し、同時1job、初期化前/実行中のstartを拒否します。
@@ -40,3 +46,7 @@ coreは既知因数・小範囲の独立trial oracle・MR境界/擬素数・予�
 controllerはfake Worker/timerでcancel/timeout/race/errorを決定的に試験し、実module Workerでも確認します。
 benchmark harnessでbrowser/端末・corpus・因子サイズ・seed・budget・打切りを記録します。
 WASM比較、ECM/SIQS/NFS、素数証明書、React/site adapter、公開配布は今回の対象外です。
+
+Worker内のsecuritypolicyviolationはaudit-cspとしてhostへ通知し、当該Workerをerror/terminateします。
+active jobがない時も処理し、別世代の通知は無視します。mainのCSP event監視、CDP/HTTP観測とは別経路です。
+この通知はレビュー済みsourceの監査補助であり、任意の敵対的JSを封じるsandboxではありません。

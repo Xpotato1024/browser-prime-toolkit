@@ -1,20 +1,24 @@
 # 文書の役割と実装段階
 
-現行の契約は contracts、製品要件は product、実装構成は architecture、作業手順は operations に置きます。
-adr は判断の履歴、legacy は受領物の静的評価です。現行仕様の代わりにはしません。
-doc/ は作成せず docs/ に統一します。
+現行契約は contracts、要件は product、構成は architecture、作業手順は operations に置きます。
+adr は判断履歴、legacy は受領物の静的評価、benchmarks は測定条件と証跡です。
+doc/ は作らず docs/ に統一します。
 
 - [要件](product/requirements.md)
-- [整数入力・累乗表示の契約](contracts/numeric-input.md)
-- [構成と段階](architecture/overview.md)
+- [整数入力・累乗表示](contracts/numeric-input.md)
+- [計算・Worker契約](contracts/factor-worker.md)
+- [構成](architecture/overview.md)
 - [ライブラリ評価](architecture/library-evaluation.md)
-- [半素数分解の性能評価計画](architecture/performance-plan.md)
-- [既存サイト形式に対する受入仕様案](contracts/site-adapter.md)
-- [BigInt 採用判断](adr/0001-native-bigint-first.md)
-- [旧 ZIP の静的評価](legacy/static-assessment.md)
+- [半素数の性能評価計画](architecture/performance-plan.md)
+- [既存サイト形式との差分](contracts/site-adapter.md)
+- [初回BigInt判断](adr/0001-native-bigint-first.md)
+- [計算候補比較と基準実装](adr/0002-budgeted-worker-baseline.md)
+- [旧ZIP評価](legacy/static-assessment.md)
 - [開発手順](operations/development.md)
+- [browser検証手順](operations/browser-verification.md)
 - [受入条件](operations/acceptance.md)
-- [TDD 実行記録](operations/tdd-evidence.md)
+- [TDD記録](operations/tdd-evidence.md)
+- [LLM-01の比較実測と限界](benchmarks/llm01-baseline.md)
 
-初回 PR の対象は正確な入力解釈と、与えられた因数の累乗集約です。
-素数判定・素因数分解そのもの、Worker、ブラウザ UI、サイト連携は後続段階です。
+PR1は整数入力・累乗集約、依存するPR2は予算付き計算・Worker・browser検証です。
+WASM/高度方式の選定、製品UI、サイト統合、公開は後続段階です。

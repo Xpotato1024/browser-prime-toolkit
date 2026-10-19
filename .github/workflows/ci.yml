@@ -21,3 +21,7 @@ jobs:
       - run: npm test
       - run: npm run check
       - run: git diff --check
+      - name: Verify real browser worker, cancellation and quiet runtime
+        run: npm run verify:browser -- --out "$RUNNER_TEMP/prime-browser.json"
+        env:
+          CHROME_BIN: google-chrome

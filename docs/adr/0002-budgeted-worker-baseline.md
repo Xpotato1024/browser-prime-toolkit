@@ -29,3 +29,7 @@ WASMを採用する前に固定source・全license/NOTICE・再現build・同梱
 - [bigint-crypto-utils](https://github.com/juanelas/bigint-crypto-utils)
 - [FLINT分解API](https://github.com/flintlib/flint/blob/main/doc/source/fmpz_factor.rst)、[FLINT概要](https://github.com/flintlib/flint/blob/main/README.md)
 - [msieve README](https://github.com/radii/msieve/blob/master/Readme)
+
+取消後のoffline再起動のため、固定sourceを単一のWorker文字列へ決定的に組み立てます。
+入力をcodeに連結せず、初期JSに同梱したbytesだけをBlob URLで実行します。URLは所有者が破棄します。
+siteのworker-src blob:対応は別の限定profile審査事項であり、現サイトのCSPは変更しません。

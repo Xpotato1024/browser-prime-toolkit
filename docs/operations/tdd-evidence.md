@@ -16,3 +16,19 @@ red は module 不在ではなく、export済みスタブの not implemented に
 
 ローカルの詳細logは受領ZIPと同じ非公開調査領域に保管し、リポジトリには取り込みません。
 ブラウザ、Worker、素数判定・分解アルゴリズムは未実装のため、実行検証も行っていません。
+
+## 計算・Workerの縦切り
+- c7f3eb3で候補比較・契約を先にcommit。
+- f4b8e95: engineの13挙動テストをスタブで全失敗、exit 1。
+- 0fc5261: 13件成功。2..2500の独立trial oracle、Brent/Floyd、擬素数・予算・残余を含む。
+- eab3161: forged mr64の新テストが失敗（14件中13成功）。7ad26c2で再検証し14件成功。
+- 1697c79: controllerの9件をスタブで全失敗。8e73777でengineと合計23件成功。
+- edb6269: browser timer receiverの回帰テストが失敗（10件中9成功）。d780bd0で10件成功。
+- af317ce: job cleanupを共通化し、実Worker sourceの隔離実行も加えて合計82件成功。
+- browserは実Chromeで検証し、[全72試行と限界](../benchmarks/llm01-baseline.md)に記録。
+
+詳細logはリポジトリ外のLLM-01調査領域 prime-stage2/ に保管しています。
+probableの長大値はWorker自己申告のscreeningとし、hostの積検算・有限mr64再検証とは区別しています。
+
+- 95fc213: Worker CSP auditの新テストが失敗（11件中10成功）。a71d857で修正し合計83件成功。
+- audit修正後、実Chromeでblocked Worker fetchの通知、取消/offline再起動、全72試行を再確認しました。

@@ -1,8 +1,9 @@
 # browser-prime-toolkit
 
-大きな半素数をブラウザ内で高速に分解することを目標に新規開発する非公開リポジトリです。
-WASM・多倍長ライブラリ・アルゴリズムを評価し、端末と時間予算ごとの実測限界を示します。
-現在は設計と整数入力・因数累乗表示のコアのみです。計算アルゴリズム、Worker、画面は未実装です。
+大きな半素数をブラウザ内で高速に分解することを目標に開発する非公開リポジトリです。
+現在は native BigInt の比較基準エンジン、予算・取消付き Worker、ローカル検証 harness を実装しています。
+最終エンジンは未選定です。WASM・多倍長ライブラリ・高度な方式の比較を続けます。
+React の製品画面、サイト用アダプター、公開配布は未実装です。
 
 ## 開発
 Node.js 24.19.0 / npm 11.19.0 を使用します。
@@ -11,7 +12,10 @@ Node.js 24.19.0 / npm 11.19.0 を使用します。
 npm ci
 npm test
 npm run check
+CHROME_BIN=google-chrome npm run verify:browser
+CHROME_BIN=google-chrome npm run benchmark:browser -- --out /tmp/prime-browser.json
 ```
 
 第三者依存はありません。公開ライセンスは未選定です。
-[文書一覧・実装段階](docs/README.md) と [開発手順](docs/operations/development.md) を参照してください。
+[文書一覧](docs/README.md)、[計算・Worker契約](docs/contracts/factor-worker.md)、
+[実測と限界](docs/benchmarks/llm01-baseline.md)を参照してください。
