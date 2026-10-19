@@ -1,11 +1,12 @@
 # 構成と実装段階
 
 src/coreとsrc/engineはbrowser非依存のESM、src/workerはcontrollerと同梱sourceを扱います。
-初回は入力パーサーと因数集約のみです。ブラウザと Node の両方で BigInt を使えます。
+PR1は入力パーサーと因数集約のみでした。ブラウザと Node の両方で BigInt を使えます。
 計算engineの最終選定は別で、[半素数の性能評価](performance-plan.md) を行います。
 コア・Worker controller・React adapterは[既存サイト形式](../contracts/site-adapter.md)に沿って分離します。
 
-native比較基準の計算とWorker protocolを実装しました。高度方式/WASMとReact表示層・site adapterは後続です。
+PR2のnative比較基準とWorker protocolに加え、PR3で限定MPQS/WASMを比較します。React表示層・site adapterは後続です。
+[採否](advanced-factorization-candidates.md)と[WASM実測](../benchmarks/llm01-wasm-mpqs.md)を参照してください。
 [計算契約](../contracts/factor-worker.md)と[実測](../benchmarks/llm01-baseline.md)を参照してください。
 Worker は一度に1件とし、要求・応答に job ID と提出時入力を保持します。
 取消・期限超過は Worker の terminate と再生成で停止します。再生成後の初期化完了まで投入しません。

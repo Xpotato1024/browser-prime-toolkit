@@ -1,5 +1,5 @@
 # 半素数分解の性能評価計画
-状態: native基準の初回実測を[記録](../benchmarks/llm01-baseline.md)済み。最終engine・数値目標は未確定です。
+状態: native基準の[初回実測](../benchmarks/llm01-baseline.md)と[限定MPQS/WASM・並列比較](../benchmarks/llm01-wasm-mpqs.md)を記録済み。最終engine・数値目標は未確定です。
 
 中核目標は、backend通信なしのブラウザで、可能な限り多い桁の半素数を高速に分解することです。
 native BigIntだけを最終engineに固定せず、WASM・多倍長library・アルゴリズムを比較します。

@@ -10,6 +10,9 @@ doc/ は作らず docs/ に統一します。
 - [構成](architecture/overview.md)
 - [ライブラリ評価](architecture/library-evaluation.md)
 - [半素数の性能評価計画](architecture/performance-plan.md)
+- [高度方式・旧GMP API・GNFS・並列の採否](architecture/advanced-factorization-candidates.md)
+- [限定WASM MPQS判断](adr/0003-bounded-wasm-mpqs.md)
+- [WASMと並列の実測](benchmarks/llm01-wasm-mpqs.md)
 - [既存サイト形式との差分](contracts/site-adapter.md)
 - [初回BigInt判断](adr/0001-native-bigint-first.md)
 - [計算候補比較と基準実装](adr/0002-budgeted-worker-baseline.md)
@@ -21,4 +24,4 @@ doc/ は作らず docs/ に統一します。
 - [LLM-01の比較実測と限界](benchmarks/llm01-baseline.md)
 
 PR1は整数入力・累乗集約、依存するPR2は予算付き計算・Worker・browser検証です。
-WASM/高度方式の選定、製品UI、サイト統合、公開は後続段階です。
+依存PR3は限定MPQS/WASMと並列比較です。最終engine、ECM/SIQS等の実装、製品UI、サイト統合、公開は後続段階です。

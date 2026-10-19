@@ -3,16 +3,16 @@
 
 ## コア
 factorInteger(value, options, runtime)は非負1024桁以下のBigIntを受け取ります。
-optionsはalgorithm=brent/floyd、seed=1..4294967295、timeBudgetMs=0..60000、
+optionsはalgorithm=brent/floyd/tinyqs、seed=1..4294967295、timeBudgetMs=0..60000、
 operationBudget=0..50000000のみ。既定はbrent/1/1000ms/1000000です。
-runtimeのnow/onProgressはテストとWorker内用の注入点で、message経由で受け取りません。
+runtimeのnow/onProgress/splitAdvancedはテストとWorker内用の注入点で、message経由で受け取りません。
 時間は単調clock、operationはループ内の明示checkpoint回数です。CPU instruction数ではありません。
 単一BigInt演算の途中では中断できないため、hostも専用Workerをterminateする期限を持ちます。
 JS heapの厳密なhard memory上限は提供しません。最大入力/因子数/操作数を制限します。
 
 結果はinput、factors[{value,certainty,method}]、remaining、operations、elapsedMs、
 status、reason、primality、algorithm、seedを持つplain dataです。整数値はcanonical decimal文字列です。
-statusはcomplete/probable/incomplete/neither。incompleteのreasonはtime-budget/operation-budgetです。
+statusはcomplete/probable/incomplete/neither。incompleteのreasonはtime-budget/operation-budgetです。tinyqsに限りalgorithm-range/algorithm-exhaustedも使います。
 0/1はneither。完全分解はremaining=1、completeは全因子proven、probableはprobable因子を含みます。
 未完了のremainingは未解決余因子で、素数と推定しません。入力受付と分解完了は別です。
 certainty=provenのmethodはsmall-primeまたはmr64、probableはmr-fixed7です。
@@ -45,8 +45,23 @@ callbackへ渡すdataはcontroller保有snapshotと分離します。consumer ca
 coreは既知因数・小範囲の独立trial oracle・MR境界/擬素数・予算途中の再構成で検証します。
 controllerはfake Worker/timerでcancel/timeout/race/errorを決定的に試験し、実module Workerでも確認します。
 benchmark harnessでbrowser/端末・corpus・因子サイズ・seed・budget・打切りを記録します。
-WASM比較、ECM/SIQS/NFS、素数証明書、React/site adapter、公開配布は今回の対象外です。
+限定MPQS/WASMと測定用Rho portfolioを比較します。ECM/SIQS/NFS、素数証明書、React/site adapter、公開配布は未実装です。
 
 Worker内のsecuritypolicyviolationはaudit-cspとしてhostへ通知し、当該Workerをerror/terminateします。
 active jobがない時も処理し、別世代の通知は無視します。mainのCSP event監視、CDP/HTTP観測とは別経路です。
 この通知はレビュー済みsourceの監査補助であり、任意の敵対的JSを封じるsandboxではありません。
+
+## 限定MPQS/WASM
+tinyqsは明示選択の比較モードです。小因子・MR・平方を処理した後、
+48〜85bitの残余をMPQSへ渡し、小さい残余はBrentを使います。
+85bit超はalgorithm-range、20多項式以内に因子がなければalgorithm-exhaustedです。
+MPQSのseedは固定で、protocolのseed指定を探索の独立性とは扱いません。
+splitAdvancedはWorker内部の信頼された関数注入で、wire入力ではありません。
+CとJSで非自明な除数と積を確認し、因子の素数性は既存MR方針で判定します。
+WASMのメモリは固定16MiB、stackは1MiBで、growth/pthreads/filesystemはありません。
+WASM bytesを初期Worker sourceへ同梱し、compile/instantiate完了後にreadyとします。
+現在の実験bundleではBrent/Floydも同じWASM初期化を行います。起動・メモリ費用を隠しません。
+WASM不可のbrowserのnative fallbackや製品上の方式自動選択は未実装です。
+Cは多項式／ふるいblockのcheckpointで予算確認します。中断要求をCへ戻して解放後にJSで再throwします。
+checkpoint間の厳密なwall上限は保証せず、hostのterminate経路も維持します。
+測定用portfolioは単一controllerの契約を変更せず、独立controllerを最大4本まで所有します。
