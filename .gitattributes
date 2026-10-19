@@ -7,3 +7,5 @@ vendor/gmp/COPYING* whitespace=-blank-at-eol,-blank-at-eof
 vendor/gmp-ecm/COPYING* whitespace=-blank-at-eol,-blank-at-eof
 vendor/gmp-ecm/AUTHORS whitespace=-blank-at-eol,-blank-at-eof
 vendor/build-tools/*.copyright whitespace=-blank-at-eol,-blank-at-eof
+vendor/msieve-lanczos/**/*.c whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/msieve-lanczos/**/*.h whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab

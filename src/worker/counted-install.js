@@ -4,8 +4,9 @@ export function installCountedWorker(split) {
   self.addEventListener('securitypolicyviolation',()=>self.postMessage({protocolVersion:1,type:'audit-csp'}));
   self.onmessage=async({data})=>{
     const jobId=data?.jobId;
+    if(busy){self.postMessage({protocolVersion:1,type:'error',jobId,code:'computation-error'});return;}
     try {
-      if(busy||!data||data.protocolVersion!==1||data.type!=='run'||!Number.isSafeInteger(jobId)||jobId<=lastJobId||
+      if(!data||data.protocolVersion!==1||data.type!=='run'||!Number.isSafeInteger(jobId)||jobId<=lastJobId||
         typeof data.input!=='string'||data.input.length>1024||!/^(0|[1-9][0-9]*)$/.test(data.input)||data.options?.algorithm!=='siqs')throw TypeError('Invalid request');
       busy=true;lastJobId=jobId;
       const result=factorInteger(BigInt(data.input),data.options,{splitAdvanced:split,
