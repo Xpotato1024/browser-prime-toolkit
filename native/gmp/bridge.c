@@ -2,6 +2,7 @@
 #include <string.h>
 #include <gmp.h>
 #include <ecm.h>
+#include "stage-probe.h"
 #ifdef __EMSCRIPTEN__
 __attribute__((import_module("env"), import_name("budget_tick")))
 #endif
@@ -35,6 +36,7 @@ static int emit_factor(const mpz_t f, const mpz_t n) {
 #define STEP(v) do { CHECK(); mpz_mul(v, v, v); mpz_add(v, v, c); mpz_mod(v, v, n); } while (0)
 
 int brent_split(uint32_t seed) {
+    prime_ecm_begin();
     int status = -1;
     mpz_t n,y,c,g,x,saved,q,tmp,bound;
     mpz_inits(n,y,c,g,x,saved,q,tmp,bound,NULL);
@@ -82,10 +84,12 @@ done:
 
 static int stop_curve(void) {
     if (stopped) return 1;
+    if (prime_ecm_stop_requested()) { stopped=1; return 1; }
     if (!budget_tick()) stopped=1;
     return stopped;
 }
 int ecm_split(uint32_t seed) {
+    prime_ecm_begin();
     int status=-1;
     mpz_t n,f,work;
     mpz_inits(n,f,work,NULL);
@@ -104,7 +108,9 @@ int ecm_split(uint32_t seed) {
         gmp_randseed_ui(p->rng,seed);
         mpz_set(work,n);
         int found=ecm_factor(f,work,2000,p);
+        prime_ecm_probe(12);
         ecm_clear(p);
+        prime_ecm_probe(13);
         if (stopped) break;
         if (found<0) { status=-1; break; }
         if (found>0 && mpz_cmp(f,n)!=0) { status=emit_factor(f,n); break; }

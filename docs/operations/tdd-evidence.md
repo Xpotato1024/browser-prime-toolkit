@@ -69,3 +69,22 @@ raw ABIの空値・不正文字・非canonical・偶数・上限超過・未終�
 最終の件数・browser検証・独立レビュー・CIはPRの最終headで確認して記録します。
 
 PR4実測コード5be4db3の119 tests/check成功後、Chromeで204単体+32poolを実測しました。HTTP/CDP/CSP/例外0、offline計算・取消・再初期化を確認しました。[rawと導出表](../benchmarks/llm01-gmp-ecm.md)は報告scriptで検算します。実WASMのmemory.grow拒否もcheckに含めています。最終CIと最終独立レビューのリンクはDraft PRに記録します。
+
+## PR5: 有界 SIQS と実 stage2 検証
+ADR0005 を236abddで先にcommitしました。実ログは repo 外の prime-stage5/ に保管します。
+
+| 単位 | 実際の red | green |
+| --- | --- | --- |
+| SIQS binding | module未生成でfile失敗、prototypeの出力scratch誤用も検出 | 正しいmp_sprintf容量と戻りpointer、exact factor、解放・再利用 |
+| 共通SIQS dispatch | Unknown algorithmで失敗 | complete/range/resource未完了と積の検証 |
+| savefile EOF | nativeの3行再読assert失敗 | 有効最終行を保持、hex headerを検証 |
+| 出力直前の予算 | 実Worker内でlongjmp再入ループ、1.5秒deadline失敗 | C解放・active解除後の有界文字列化、元例外と回復 |
+| 64bit多項式選択 | 実browser computation-error、回帰testでfatal -5 | 既知の選択不可branchだけ容量終了、後続exact回復 |
+| ECM stage2 fault | 4件失敗（stats未実装、faultなし） | 実stage2取消、trap、GMP/ECM割当失敗でpoisonと新instance回復 |
+| RAM process tree | fixture注入未対応で実proc参照が失敗（集計不備自体は独立レビューで発見） | 全task集約、PID重複排除、RSS/PSS計数 |
+
+SIQS native ASan/UBSanは6段階停止、代表成功jobの全2528割当地点の失敗、
+13境界probe、ABI拒否と後続exact recoveryを確認しました。
+ECM native は10候補中9地点の実stage2停止、出口・ecm_clear後、次jobの回復を確認しました。
+未到達point3を検証済みとは扱いません。以前の400 cutoff停止も通過しています。
+GMP OOMへlongjmp回復は行いません。実browserではfatal時のWorker破棄と明示再初期化を検証します。

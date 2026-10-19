@@ -15,7 +15,7 @@ for (const entry of upstreams) {
   if (bytes.length !== entry.bytes || sha(bytes) !== entry.sha256) throw Error('Upstream hash mismatch: ' + entry.file);
   files['build/' + entry.file] = bytes;
 }
-const inputs = ['native/gmp/bridge.c', 'native/gmp/build.sh', 'native/gmp/sanitize.c',
+const inputs = ['native/gmp/bridge.c', 'native/gmp/stage-probe.c', 'native/gmp/stage-probe.h', 'native/gmp/patch-stage2.py', 'vendor/gmp-ecm/provenance.json', 'native/gmp/build.sh', 'native/gmp/sanitize.c',
   'native/gmp/upstreams.json', 'scripts/build-gmp.mjs', 'scripts/container-compile.mjs',
   'vendor/msieve-siqs/provenance.json', ...provenance.files.map(f => 'vendor/msieve-siqs/' + f.path)];
 for (const file of provenance.files) {

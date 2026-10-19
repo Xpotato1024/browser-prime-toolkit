@@ -1,5 +1,5 @@
 # 0005: 有界 SIQS 実行の評価境界
-日付: 2026-10-19。状態: 実装前の評価契約。
+日付: 2026-10-19。状態: 実装前に固定した評価契約（実装範囲と結果は後続文書へ記録）。
 
 固定msieve commitのself-initializing polynomialによるsieve/poly/relation/sqrtを使います。
 最小リンクのmatrix解法は1024行・1024列までのGF(2)消去adapterとし、

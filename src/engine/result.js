@@ -47,7 +47,7 @@ export function resolvedPrimality(snapshot) {
 }
 export function verifyFactorResult(result, expectedInput) {
   const snapshot = verifySnapshot(result, expectedInput);
-  if (!['brent', 'floyd', 'tinyqs', 'gmp-brent', 'gmp-ecm'].includes(result.algorithm) || !Number.isSafeInteger(result.seed) ||
+  if (!['brent', 'floyd', 'tinyqs', 'gmp-brent', 'gmp-ecm', 'siqs'].includes(result.algorithm) || !Number.isSafeInteger(result.seed) ||
       result.seed < 1 || result.seed > 4294967295) fail();
   if (result.status === 'neither') {
     if (BigInt(expectedInput) >= 2n || result.primality !== 'neither' || result.reason !== null) fail();
@@ -57,11 +57,12 @@ export function verifyFactorResult(result, expectedInput) {
     const probable = snapshot.factors.some(f => f.certainty === 'probable');
     if ((result.status === 'probable') !== probable) fail();
   } else if (result.status === 'incomplete') {
-    if (BigInt(snapshot.remaining) < 2n || !['time-budget', 'operation-budget', 'algorithm-range', 'algorithm-exhausted'].includes(result.reason) ||
+    if (BigInt(snapshot.remaining) < 2n || !['time-budget', 'operation-budget', 'algorithm-range', 'algorithm-exhausted', 'algorithm-resource'].includes(result.reason) ||
         !['unknown', 'composite'].includes(result.primality)) fail();
     if (snapshot.factors.length && result.primality !== 'composite') fail();
+    if (result.reason==='algorithm-resource' && result.algorithm!=='siqs') fail();
     if (result.reason.startsWith('algorithm-') &&
-        (!['tinyqs', 'gmp-brent', 'gmp-ecm'].includes(result.algorithm) || result.primality !== 'composite')) fail();
+        (!['tinyqs', 'gmp-brent', 'gmp-ecm', 'siqs'].includes(result.algorithm) || result.primality !== 'composite')) fail();
   } else fail();
   return { ...snapshot, status: result.status, reason: result.reason, primality: result.primality,
     algorithm: result.algorithm, seed: result.seed };

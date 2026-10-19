@@ -8,6 +8,7 @@ tar --no-same-owner --no-same-permissions -xJf /build/gmp-6.3.0.tar.xz -C /work
 tar --no-same-owner --no-same-permissions -xzf /build/gmp-ecm.tar.gz -C /work
 ECM=/work/gmp-ecm-8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e
 cd "$ECM"
+python3 /src/native/gmp/patch-stage2.py "$ECM/stage2.c"
 cp /work/gmp-6.3.0/configfsf.guess config.guess
 cp /work/gmp-6.3.0/configfsf.sub config.sub
 autoreconf -fi >&2
@@ -39,8 +40,8 @@ if test "$mode" = wasm; then
     done
     sha256sum /work/siqs-objects/*.o > /work/siqs.txt
     cd "$ECM"
-    emcc -O3 /src/native/gmp/bridge.c -I. -I/work/gmp-build .libs/libecm.a /work/gmp-build/.libs/libgmp.a --no-entry -sSTANDALONE_WASM=1 -sFILESYSTEM=0 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=67108864 -sSTACK_SIZE=1048576 -sMALLOC=emmalloc -sSUPPORT_LONGJMP=0 '-sEXPORTED_FUNCTIONS=["_input_ptr","_factor_ptr","_brent_split","_ecm_split"]' -o /work/candidate.wasm
+    emcc -O3 /src/native/gmp/bridge.c /src/native/gmp/stage-probe.c -I/src/native/gmp -I. -I/work/gmp-build .libs/libecm.a /work/gmp-build/.libs/libgmp.a -Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc --no-entry -sSTANDALONE_WASM=1 -sFILESYSTEM=0 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=67108864 -sSTACK_SIZE=1048576 -sMALLOC=emmalloc -sSUPPORT_LONGJMP=0 '-sEXPORTED_FUNCTIONS=["_input_ptr","_factor_ptr","_brent_split","_ecm_split","_configure_ecm_audit","_ecm_audit_mask","_ecm_audit_point","_ecm_audit_injected","_ecm_audit_gmp_allocations","_ecm_audit_direct_allocations","_ecm_audit_df","_ecm_audit_k","_ecm_audit_s","_ecm_audit_repr","_ecm_audit_ntt"]' -o /work/candidate.wasm
 else
-    cc $CFLAGS /src/native/gmp/bridge.c /src/native/gmp/sanitize.c -I. -I/work/gmp-build .libs/libecm.a /work/gmp-build/.libs/libgmp.a -lm -fsanitize=address,undefined -o /work/sanitize
+    cc $CFLAGS /src/native/gmp/bridge.c /src/native/gmp/stage-probe.c -I/src/native/gmp /src/native/gmp/sanitize.c -I. -I/work/gmp-build .libs/libecm.a /work/gmp-build/.libs/libgmp.a -lm -Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc -fsanitize=address,undefined -o /work/sanitize
     ASAN_OPTIONS=detect_leaks=1:abort_on_error=1 UBSAN_OPTIONS=halt_on_error=1 /work/sanitize
 fi

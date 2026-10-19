@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <gmp.h>
+#include "stage-probe.h"
 extern char *input_ptr(void), *factor_ptr(void);
 extern int brent_split(uint32_t), ecm_split(uint32_t);
 static unsigned calls, limit;
@@ -27,4 +28,20 @@ static void check(int (*split)(uint32_t)) {
     memset(input_ptr(),'1',80); assert(split(1)==-1);
     load("10403"); assert(split(0)==-1);
 }
-int main(void) { check(brent_split); check(ecm_split); puts("GMP/ECM native sanitizer: 400 interrupts, exact recovery and raw ABI bounds PASS"); }
+static void check_stage2(void) {
+    unsigned reached=0,unreached=0;
+    for(unsigned point=1;point<=10;point++) {
+        configure_ecm_audit(point,0,0,0);
+        load("392318858461667547569595655490009919272404068553904357377");limit=50000000;
+        int status=ecm_split(1);unsigned mask=ecm_audit_mask();
+        if(mask&(1U<<point)) {
+            assert(status==0);assert(mask&(1U<<1));assert(mask&(1U<<11));
+            assert(mask&(1U<<12));assert(mask&(1U<<13));
+            assert(ecm_audit_df()>0&&ecm_audit_k()>0&&!ecm_audit_ntt());reached++;
+        } else unreached|=1U<<point;
+        configure_ecm_audit(0,0,0,0);load("10403");limit=50000000;assert(ecm_split(17)==1);
+    }
+    assert(reached>=7);
+    printf("ECM actual-stage2 sanitizer: %u reached stops; unreached mask %u; lib/params cleanup and reuse PASS\n",reached,unreached);
+}
+int main(void) { check(brent_split); check(ecm_split); check_stage2(); puts("GMP/ECM native sanitizer: 400 interrupts, exact recovery and raw ABI bounds PASS"); }

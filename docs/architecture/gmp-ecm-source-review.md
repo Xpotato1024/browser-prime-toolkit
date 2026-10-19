@@ -46,7 +46,9 @@ ECMのconfig.guess/subは同じ固定GMP archiveのconfigfsf.guess/subを使用�
 source archive、deb、native executableはrepoへcommitしません。
 [build recipe](../../native/gmp/build.sh)と[検証receipt](../../native/gmp/build.json)を参照してください。
 
-## 実行と未検証
+## PR4時点の実行と未検証
+以下はPR4の判断履歴です。PR5の有界SIQS実行・実stage2停止とfatal退役の追加は
+[後続評価](bounded-siqs-source-review.md)を参照してください。
 GMP Brentは固定scratchとmpz_mod/mpz_gcdを使い、旧ZIPを実行・流用していません。
 ECMはSuyama・B1=2000・B2=200000・最大32曲線です。batchは停止callbackを無視するため除外します。
 maxmem=16MiBはstage2の目安です。WASM線形メモリ64MiB、stack1MiBでgrowthを禁止します。

@@ -45,8 +45,8 @@ export function factorInteger(input, options = {}, { now = () => performance.now
         const root = squareRoot(value, budget);
         let divisor;
         if (root * root === value) divisor = root;
-        else if (['gmp-brent', 'gmp-ecm'].includes(config.algorithm) || config.algorithm === 'tinyqs' && value >= (1n << 47n)) {
-          if (value >= (1n << (config.algorithm === 'tinyqs' ? 85n : 256n))) throw new BudgetExceeded('algorithm-range');
+        else if (['gmp-brent', 'gmp-ecm', 'siqs'].includes(config.algorithm) || config.algorithm === 'tinyqs' && value >= (1n << 47n)) {
+          if (value >= (1n << (config.algorithm === 'tinyqs' ? 85n : config.algorithm === 'siqs' ? 128n : 256n)) || config.algorithm === 'siqs' && value < (1n << 63n)) throw new BudgetExceeded('algorithm-range');
           if (typeof splitAdvanced !== 'function') throw new TypeError('Advanced splitter is not initialized');
           budget.tick();
           divisor = splitAdvanced(value, budget, config);

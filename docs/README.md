@@ -13,6 +13,8 @@ doc/ は作らず docs/ に統一します。
 - [高度方式・旧GMP API・GNFS・並列の採否](architecture/advanced-factorization-candidates.md)
 - [限定WASM MPQS判断](adr/0003-bounded-wasm-mpqs.md)
 - [GMP/ECM評価判断](adr/0004-gmp-ecm-evaluation.md)
+- [有界SIQSの判断](adr/0005-bounded-siqs-runtime.md)
+- [有界SIQSの原本・実行・安全性](architecture/bounded-siqs-source-review.md)
 - [GMP/ECM原本・再現ビルド・配布境界](architecture/gmp-ecm-source-review.md)
 - [WASMと並列の実測](benchmarks/llm01-wasm-mpqs.md)
 - [低位GMP・ECMと1/2 Workerの実測](benchmarks/llm01-gmp-ecm.md)
@@ -27,4 +29,4 @@ doc/ は作らず docs/ に統一します。
 - [LLM-01の比較実測と限界](benchmarks/llm01-baseline.md)
 
 PR1は整数入力・累乗集約、依存するPR2は予算付き計算・Worker・browser検証です。
-依存PR3は限定MPQS/WASMと並列比較、PR4は低位GMP Brent/ECMの非公開評価と真SIQSのobject-only確認です。最終engine、真SIQSの実行対応、製品UI、サイト統合、公開は後続段階です。
+依存PR3は限定MPQS/WASMと並列比較、PR4は低位GMP Brent/ECMの非公開評価と真SIQSのobject-only確認です。PR5は有界SIQSの最小実行とECM stage2停止・fatal退役、Chrome RAM計測を評価します。最終engine、製品UI、サイト統合、公開は後続段階です。

@@ -11,6 +11,8 @@ for(const r of [...d.records,...d.poolRecords]) {
   if(r.reason==='host-timeout') verifySnapshot(r,c.input); else verifyFactorResult(r,c.input);
   if(success(r)) assert.deepEqual(r.factors.map(f=>f.value),c.factors);
 }
+const baseline=JSON.parse(readFileSync(join(root,'native/gmp/build-stage4-baseline.json')));
+assert.equal(d.wasmBuild.sha256,baseline.sha256,'Historical Stage4 artifact binding');
 assert.equal(d.records.length,204); assert.equal(d.poolRecords.length,32);
 assert.deepEqual([d.quiet.networkRequests,d.quiet.httpRequests,d.quiet.badEvents],[0,0,0]);
 assert.ok(d.poolRecords.every(r=>r.allLanesDisposed&&r.idleControllerDisposedDuringPool&&r.ownedLinearMemoryBytes<=134217728));

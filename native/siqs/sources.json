@@ -1,0 +1,98 @@
+[
+  {
+    "source": "vendor/msieve-siqs/include/common.h",
+    "destination": "include/common.h",
+    "sha256": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/include/msieve.h",
+    "destination": "include/msieve.h",
+    "sha256": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/include/util.h",
+    "destination": "include/util.h",
+    "sha256": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/include/mp.h",
+    "destination": "include/mp.h",
+    "sha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/include/gmp_xface.h",
+    "destination": "include/gmp_xface.h",
+    "sha256": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/mpqs.h",
+    "destination": "mpqs/mpqs.h",
+    "sha256": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/mpqs.c",
+    "destination": "mpqs/mpqs.c",
+    "sha256": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/poly.c",
+    "destination": "mpqs/poly.c",
+    "sha256": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/relation.c",
+    "destination": "mpqs/relation.c",
+    "sha256": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/sieve.c",
+    "destination": "mpqs/sieve.c",
+    "sha256": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/sieve_core.c",
+    "destination": "mpqs/sieve_core.c",
+    "sha256": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/mpqs/sqrt.c",
+    "destination": "mpqs/sqrt.c",
+    "sha256": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/common/prime_sieve.c",
+    "destination": "common/prime_sieve.c",
+    "sha256": "a3d680f8a9a08c2a9050a4ca7d2ce1aa6233a9fc71df26c4d8aeb0112ae794f7",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve-siqs/common/smallfact/squfof.c",
+    "destination": "common/squfof.c",
+    "sha256": "40602e5b8cc61cf8f1e0a82c471ba60dfafaff93c595fbb0cebeffdab2abc492",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve/common/mp.c",
+    "destination": "common/mp.c",
+    "sha256": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  },
+  {
+    "source": "vendor/msieve/common/prime_delta.c",
+    "destination": "common/prime_delta.c",
+    "sha256": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+  }
+]

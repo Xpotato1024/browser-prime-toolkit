@@ -46,11 +46,15 @@
     }
   ],
   "sourceHashes": {
-    "native/gmp/bridge.c": "a1e9fece20dfb0e9488bdba71ae395d4ef01236213c0062ca1728421ec154236",
-    "native/gmp/build.sh": "19c5c9bfd065766c85338ba7ae20abd0e88eff63ca15bd748113f2185f5e2a6a",
-    "native/gmp/sanitize.c": "4fcb7302d1563776429ac19fd663120cc17971399925ad53d92d361c0937e05a",
+    "native/gmp/bridge.c": "eee0ab739d13698e39bdd6acf48e2f176da3e0a855d5fc05f55d02dd2c12867d",
+    "native/gmp/stage-probe.c": "26ddde8eda6d415b40748f506368fa4d5a1780811b66d9a01686605a7835c72a",
+    "native/gmp/stage-probe.h": "1f7f41cb7e88476a776261a879a4692a24c937f7e099d451559f000af9754cee",
+    "native/gmp/patch-stage2.py": "b2bfe73af7319f6d8da53dfb147149014a32a5632ac06753ee3ffe5cd390b1d8",
+    "vendor/gmp-ecm/provenance.json": "ee465564a264b95214d9cf5b8c65f1a5461630c3a2cac2741f66096ae9b0871b",
+    "native/gmp/build.sh": "b4b6bb630bd92e1b650623eee75726f6493dff8e5d8c53c1a4fdece41d916508",
+    "native/gmp/sanitize.c": "9a7398055e361787f0ebfa90273a5ae510924f9a3cf39a95b38515faf77bfecf",
     "native/gmp/upstreams.json": "0e48bf3af751c11e8f1b92da23ae60900daea8f59313de81251c1e3b0e61e6ca",
-    "scripts/build-gmp.mjs": "a82a5cf6da727a5420ef5c77e2d95378e81af098c7a1fc1c640aff5cf81a3266",
+    "scripts/build-gmp.mjs": "af608078503d89cfe5aadfe9e584b75d92258cae532ac271ad909aa135f27fa4",
     "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
     "vendor/msieve-siqs/provenance.json": "d793ca71f7c60281d9c97d0ad020bcac49383afe5cffa0aacd5447b94ca17fde",
     "vendor/msieve-siqs/mpqs/gf2.c": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3",
@@ -68,8 +72,8 @@
     "vendor/msieve-siqs/include/mp.h": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
   },
   "cleanBuilds": 2,
-  "sha256": "f2a31a887ccb7bc39da55acfdcdbfdc8b676630e799f895e063e0ee112b7a130",
-  "bytes": 454508,
+  "sha256": "9a5627be7e9882a6b757a720258877fe13adc6b50dead671f9ff74bad6a0605b",
+  "bytes": 455847,
   "imports": [
     {
       "module": "env",
@@ -136,6 +140,50 @@
     {
       "name": "__indirect_function_table",
       "kind": "table"
+    },
+    {
+      "name": "configure_ecm_audit",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_mask",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_point",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_injected",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_gmp_allocations",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_direct_allocations",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_df",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_k",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_s",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_repr",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_audit_ntt",
+      "kind": "function"
     },
     {
       "name": "_initialize",

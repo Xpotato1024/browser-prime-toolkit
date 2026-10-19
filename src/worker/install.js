@@ -3,7 +3,7 @@ import { factorInteger } from '../engine/factor.js';
 self.addEventListener('securitypolicyviolation', () =>
   self.postMessage({ protocolVersion: 1, type: 'audit-csp' }));
 
-export function installFactorWorker(splitAdvanced, algorithms) {
+export function installFactorWorker(splitAdvanced, algorithms, inspectState) {
   let lastJobId = 0;
   self.onmessage = ({ data }) => {
     const jobId = data?.jobId;
@@ -18,9 +18,11 @@ export function installFactorWorker(splitAdvanced, algorithms) {
         splitAdvanced,
         onProgress: snapshot => self.postMessage({ protocolVersion: 1, type: 'progress', jobId, snapshot }),
       });
-      self.postMessage({ protocolVersion: 1, type: 'result', jobId, result });
+      self.postMessage({ protocolVersion: 1, type: 'result', jobId, result,
+        ...(inspectState ? { audit: inspectState() } : {}) });
     } catch {
-      self.postMessage({ protocolVersion: 1, type: 'error', jobId, code: 'computation-error' });
+      self.postMessage({ protocolVersion: 1, type: 'error', jobId, code: 'computation-error',
+        ...(inspectState ? { audit: inspectState() } : {}) });
     }
   };
   self.postMessage({ protocolVersion: 1, type: 'ready' });
