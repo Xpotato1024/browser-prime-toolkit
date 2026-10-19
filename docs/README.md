@@ -15,6 +15,7 @@ doc/ は作らず docs/ に統一します。
 - [GMP/ECM評価判断](adr/0004-gmp-ecm-evaluation.md)
 - [GMP/ECM原本・再現ビルド・配布境界](architecture/gmp-ecm-source-review.md)
 - [WASMと並列の実測](benchmarks/llm01-wasm-mpqs.md)
+- [低位GMP・ECMと1/2 Workerの実測](benchmarks/llm01-gmp-ecm.md)
 - [既存サイト形式との差分](contracts/site-adapter.md)
 - [初回BigInt判断](adr/0001-native-bigint-first.md)
 - [計算候補比較と基準実装](adr/0002-budgeted-worker-baseline.md)

@@ -67,3 +67,5 @@ native ASan/UBSanはGMP BrentとECMのcutoff各0〜199、計400停止と次job�
 raw ABIの空値・不正文字・非canonical・偶数・上限超過・未終端・seed0を確認しました。
 停止phaseは計装しておらず、stage2専用の中断解放検証とは扱いません。
 最終の件数・browser検証・独立レビュー・CIはPRの最終headで確認して記録します。
+
+PR4実測コード5be4db3の119 tests/check成功後、Chromeで204単体+32poolを実測しました。HTTP/CDP/CSP/例外0、offline計算・取消・再初期化を確認しました。[rawと導出表](../benchmarks/llm01-gmp-ecm.md)は報告scriptで検算します。実WASMのmemory.grow拒否もcheckに含めています。最終CIと最終独立レビューのリンクはDraft PRに記録します。

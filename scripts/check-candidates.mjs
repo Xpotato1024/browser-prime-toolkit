@@ -33,3 +33,13 @@ for (const name of ['gmp', 'gmp-ecm']) {
   const archive = receipt.upstreams.find(entry => entry.file === (name === 'gmp' ? 'gmp-6.3.0.tar.xz' : 'gmp-ecm.tar.gz'));
   assert.equal(metadata.sha256 ?? metadata.archiveSha256, archive.sha256);
 }
+
+const deniedImports = {};
+for (const entry of receipt.imports) {
+  deniedImports[entry.module] ??= {};
+  deniedImports[entry.module][entry.name] = () => { throw Error('Unexpected artifact probe call'); };
+}
+const probe = new WebAssembly.Instance(module, deniedImports);
+assert.equal(probe.exports.memory.buffer.byteLength, 67108864);
+assert.throws(() => probe.exports.memory.grow(1), RangeError, 'WASM hard maximum must reject growth');
+console.log('Verified actual 64MiB WASM hard maximum');

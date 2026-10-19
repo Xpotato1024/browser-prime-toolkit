@@ -8,8 +8,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      PRIME_UPSTREAM_DIR: ${{ runner.temp }}/prime-upstreams
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -22,6 +20,8 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Rebuild reviewed WASM twice without network
         run: npm run build:wasm -- --check
+      - name: Set isolated candidate source cache
+        run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
       - name: Fetch and verify fixed candidate source and build tools
         run: npm run fetch:candidates
       - name: Rebuild GMP and ECM twice offline; compile true SIQS objects

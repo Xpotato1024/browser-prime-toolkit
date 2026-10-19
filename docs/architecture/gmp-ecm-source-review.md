@@ -28,7 +28,7 @@ GMPのAUTHORSと全通知は原文を保持しています。
 ## 再現手順
 Node/npm は既存固定版を使い、PRIME_UPSTREAM_DIR を repo 外の保存先に指定します。
 npm run fetch:candidates は固定 HTTPS URL のみを取得し、bytes/hash を検証します。
-通信途中切断だけを最大2回再試行し、不一致cacheや不一致hashを別原本で回避しません。
+取得失敗を同じ固定URLへ最大2回再試行し、不一致cacheや不一致hashを別原本で回避しません。
 npm run build:candidates -- --check は新規 container 2回で同じWASMとSIQS objectを検証します。
 npm run verify:candidate-native は同じ原本のnative ASan/UBSan試験です。
 npm run verify:candidate-primes は新balanced因数8個を独立uint64総当たりで証明します。
