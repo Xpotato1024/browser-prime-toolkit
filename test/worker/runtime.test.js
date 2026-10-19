@@ -7,7 +7,7 @@ import { verifyFactorResult } from '../../src/engine/result.js';
 
 test('the actual bundled source runs jobs, budgets and invalid requests in an isolated worker', { timeout: 10000 }, async () => {
   const worker = new Worker("const {parentPort}=require('node:worker_threads');" +
-    "globalThis.self={postMessage:data=>parentPort.postMessage(data)};" +
+    "globalThis.self={addEventListener(){},postMessage:data=>parentPort.postMessage(data)};" +
     "parentPort.on('message',data=>self.onmessage({data}));\n" + WORKER_SOURCE, { eval: true });
   try {
     const [ready] = await once(worker, 'message');

@@ -39,6 +39,9 @@ export class FactorWorkerController {
   }
   receive(data) {
     if (this.phase === 'disposed') return;
+    if (data?.type === 'audit-csp') {
+      this.fail(data.protocolVersion === 1 ? 'worker-csp-violation' : 'invalid-worker-result'); return;
+    }
     if (data?.type !== 'ready' && (!this.active || data?.jobId !== this.active.jobId)) return;
     try {
       if (data?.protocolVersion !== 1) throw new TypeError('Protocol');

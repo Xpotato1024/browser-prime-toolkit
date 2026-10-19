@@ -1,6 +1,8 @@
 import { factorInteger } from '../engine/factor.js';
 
 let lastJobId = 0;
+self.addEventListener('securitypolicyviolation', () =>
+  self.postMessage({ protocolVersion: 1, type: 'audit-csp' }));
 self.onmessage = ({ data }) => {
   const jobId = data?.jobId;
   try {
