@@ -56,7 +56,7 @@ winning laneのoperationsを総CPU操作数とは表示しません。総allocat
 2回のclean buildが一致したWASMは67418 bytes、SHA256 62b8f95551d8ace1cbb5faf08191a89947ccadd6cef0f572da061101ddc3b57c。
 Worker JS assetは105704 bytes、SHA256 764c77932b3fd645c0afb34181ce5be5b53fb32f5132b3a22338209fefb9f895。
 fresh pageから最初のreadyは104.06ms。全初期asset取得・module初期化を含み、warm計算時間とは別です。
-WASMはmsieve tinyqs MPQSで、SIQSではありません。48〜85bitだけに適用し、より小さい残余はBrent、範囲超過はalgorithm-rangeです。
+WASMはmsieve tinyqs MPQSで、SIQSではありません。前処理後の未解決cofactorが48〜85bitの場合だけ適用し、より小さい残余はBrent、範囲超過はalgorithm-rangeです。
 全結果の因子と残余を元入力に結びつけて検算し、完了因子はMR64で証明済みです。未完了は素数扱いしません。
 ready後のCDP request/HTTP request/例外/CSP違反はいずれも0、配信server停止・Page offline状態のWASM同一因子と再生成も確認しました。
 Worker targetのoffline emulation成功は主張しません。CDPとserver観測を併用し、最後に検出器の正検出を試験します。

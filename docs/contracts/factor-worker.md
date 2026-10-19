@@ -54,7 +54,7 @@ active jobがない時も処理し、別世代の通知は無視します。main
 ## 限定MPQS/WASM
 tinyqsは明示選択の比較モードです。小因子・MR・平方を処理した後、
 48〜85bitの残余をMPQSへ渡し、小さい残余はBrentを使います。
-85bit超はalgorithm-range、20多項式以内に因子がなければalgorithm-exhaustedです。
+MPQSへ渡す必要がある残余が85bit超ならalgorithm-range、20多項式以内に因子がなければalgorithm-exhaustedです。
 MPQSのseedは固定で、protocolのseed指定を探索の独立性とは扱いません。
 splitAdvancedはWorker内部の信頼された関数注入で、wire入力ではありません。
 CとJSで非自明な除数と積を確認し、因子の素数性は既存MR方針で判定します。
