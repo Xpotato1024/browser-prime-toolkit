@@ -13,3 +13,5 @@ Stage11の218件を保全し、新しい有限時間枠・oracle配信境界・�
 600秒RSA-100は固定8a63892…で実施した原記録を[歴史source/raw](../benchmarks/archive/staged-long-router-v1/README.md)へ保存します。router修正時に進行中sourceを変えず、終了後に保全しました。独立レビューが27 source hash・14実配信asset・原bytesを照合し、計算中部分が不変のため10分rawの再実行は不要と確認しています。
 
 小桁matrixは修正後CLI/contractに統一し、input×seedを分母に再試行を重複計上せず、成功時間へtimeoutを混入しません。全rawを集計から落とさない検査、生成MR64と別実装での素数cross-check、積/余因子、source/host/Chrome/予算、oracleの退役後照合を再検算します。未計測の桁や別方式を断定しません。
+
+状態追記: Stage12の計測は途中停止です。227件は当時の予定であり、最終合格件数ではありません。44件のpartial matrixとRSA100の600秒timeoutを保存し、全matrix完了とは主張しません。

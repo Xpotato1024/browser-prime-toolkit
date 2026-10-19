@@ -1,0 +1,1043 @@
+{
+  "mode": "full-siqs-measurement",
+  "variant": "full-siqs",
+  "caseId": "full-balanced-72-2",
+  "group": "rsa",
+  "seed": 11,
+  "budgetMs": 30000,
+  "lifecycle": null,
+  "measuredHead": "a07f66faca240af443548e5ae8fc71cf3cb4c244",
+  "measuredAt": "2026-10-19T16:00:24.266Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 138.79504900000006,
+  "initialAssets": [
+    {
+      "path": "/bench/full-siqs.html",
+      "bytes": 135,
+      "sha256": "719249549334adc02653d2630e632a54f0d49adb151a188744865f749880d43a"
+    },
+    {
+      "path": "/bench/full-siqs.js",
+      "bytes": 6602,
+      "sha256": "2f0250f9b4299fbe4169a27dda36995a5ffbd23a37176de234b6f5ccf5e7fee3"
+    },
+    {
+      "path": "/src/full-siqs/worker-source.js",
+      "bytes": 217806,
+      "sha256": "faaaa772133c34e36f6a0c88452917f14d09513b44fc2a814dfac12f15657678"
+    },
+    {
+      "path": "/src/full-siqs/evaluator.js",
+      "bytes": 7090,
+      "sha256": "6a7d6a1dd204895a112aa6f1dad746c53174be8fa0fe0e94e2b334e31da8d144"
+    },
+    {
+      "path": "/src/full-siqs/factory.js",
+      "bytes": 201,
+      "sha256": "dd8fc673125d1ebe02868699e0f031f7e47cb01f7cf69dfb1162c52edab2c067"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/full-siqs/profile.js",
+      "bytes": 1460,
+      "sha256": "3bec3f51067c1736b2269a775f0bc5391cd519d57079cff05292e912a01a875a"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-practical/cases.js",
+      "bytes": 2121,
+      "sha256": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/full-siqs/result.js",
+      "bytes": 1932,
+      "sha256": "4294a1afde05f1a21921b9415db8b711298d78f3d616c405c516dfacb22cb2a0"
+    },
+    {
+      "path": "/src/full-siqs/core-result.js",
+      "bytes": 4012,
+      "sha256": "b7e3e684a425926f68453a4346f3d3a36df2438966ecb177efcfdfe2ff229dc3"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-full-siqs.mjs": "4dc0d4a440b857ef2ec059a9d466918a254fae48a70deb97c64d3c245fbb029d",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/full-siqs-asset-route.mjs": "d2fad7b01562c637a9fa27782e97e4e70226d7127536bce6b9b5714b083b7082",
+    "scripts/build-full-siqs-worker.mjs": "22e0f039ae02cbfdf48d5aeb147f55aba503369ed377858e7cd4a856d78c18f8",
+    "src/full-siqs/factor.js": "a81567a604c19fb8325d3f1f2597c5090f9399f884374021e82c086d6fa985f5",
+    "src/full-siqs/options.js": "6abcb7ec347471f21f48be1881c8be574cf3c186f49a6c484d2d2719aa2fdf35",
+    "src/full-siqs/install.js": "016168376193a4e86e732afb069671451e622fab9bdb40be9c4afbb761e5d0ce",
+    "src/full-siqs/kernel.js": "a7140c414cd9ae878defbaea77ef05059559aad1d2aad1a45df67b7310e1160e",
+    "native/siqs-full/staged-build.json": "866f43383d17c0e4911a2fd8e4664de3fc975580f262492e2c4d791cbda82c37",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-practical/catalog.json": "e4d60ccc0be824b826de46a2a5cfc0a3e3961bd3298fbb6e2bcd62cbd4fdefbc",
+    "bench/staged-practical/oracle.json": "c96b12103072b10bac8f7c39fc130f98939302bdae3ddf42ecd9db9a77ec419d",
+    "bench/staged-practical/manifest.json": "e6ec2cd3cff3b031311d124e34c741250d313ea958ba0bcf824c110b178ef42c",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "scripts/generate-full-practical.py": "08a4e6c077e72a4ed4237051e7349382f6e916423d2a8499167af870a6dfdd1d",
+    "scripts/check-full-practical.mjs": "e1617fa7af1f33e9177829ec486e31704407b1bba0edaa9e7fea94352eceb36b",
+    "bench/full-siqs.html": "719249549334adc02653d2630e632a54f0d49adb151a188744865f749880d43a",
+    "bench/full-siqs.js": "2f0250f9b4299fbe4169a27dda36995a5ffbd23a37176de234b6f5ccf5e7fee3",
+    "src/full-siqs/worker-source.js": "faaaa772133c34e36f6a0c88452917f14d09513b44fc2a814dfac12f15657678",
+    "src/full-siqs/evaluator.js": "6a7d6a1dd204895a112aa6f1dad746c53174be8fa0fe0e94e2b334e31da8d144",
+    "src/full-siqs/factory.js": "dd8fc673125d1ebe02868699e0f031f7e47cb01f7cf69dfb1162c52edab2c067",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/full-siqs/profile.js": "3bec3f51067c1736b2269a775f0bc5391cd519d57079cff05292e912a01a875a",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-practical/cases.js": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/full-siqs/result.js": "4294a1afde05f1a21921b9415db8b711298d78f3d616c405c516dfacb22cb2a0",
+    "src/full-siqs/core-result.js": "b7e3e684a425926f68453a4346f3d3a36df2438966ecb177efcfdfe2ff229dc3",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "id": "full-balanced-72-2",
+      "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+      "digits": 72,
+      "bits": 239,
+      "seed": 11,
+      "outcome": {
+        "profile": "full-siqs-153-v1",
+        "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+        "backend": "full-siqs",
+        "bits": 239,
+        "wasmBytes": 536870912,
+        "limits": {
+          "id": "full-siqs-153-v1",
+          "maxBits": 332,
+          "maxDigits": 100,
+          "timeBudgetMs": 30000,
+          "initializationDeadlineMs": 5000,
+          "operationBudget": 1000000000000,
+          "workers": 1,
+          "wasmBytes": 536870912,
+          "packetBytes": 262144,
+          "deliveryGraceMs": 250
+        },
+        "kind": "timeout",
+        "reason": "time-budget",
+        "result": {
+          "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+          "factors": [],
+          "remaining": "696258294646279590588057784548290143012311988827791188390884343103806813",
+          "operations": 5295119634,
+          "elapsedMs": 29702.39999999851,
+          "status": "incomplete",
+          "reason": "time-budget",
+          "primality": "composite",
+          "algorithm": "full-siqs",
+          "seed": 11
+        },
+        "snapshot": {
+          "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+          "factors": [],
+          "remaining": "696258294646279590588057784548290143012311988827791188390884343103806813",
+          "operations": 5295119634,
+          "elapsedMs": 29702.39999999851
+        },
+        "workers": 1,
+        "allWorkersDisposed": true,
+        "requestWallMs": 29753.10000000149,
+        "initializationMs": 48.5,
+        "computeWallMs": 29704.60000000149,
+        "proofTicks": 0,
+        "telemetry": [
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 2598912,
+            "relations": null
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4233900032,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4248366080,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4260123648,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4269409280,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4280617984,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4291532800,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4304734208,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4316565504,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4328701952,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4342571008,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4353888256,
+            "relations": {
+              "total": 2958,
+              "full": 2298,
+              "combined": 660,
+              "partial": 25003,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4364242944,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4376521728,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4393040896,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4410725376,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4428311552,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4437606400,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4452013056,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4468830208,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4485828608,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4502397952,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 2,
+            "work": 4516599808,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4535154688,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4553414656,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4572269568,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4590999552,
+            "relations": {
+              "total": 3161,
+              "full": 2425,
+              "combined": 736,
+              "partial": 26464,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4609092608,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4628179968,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4647277568,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4665602048,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4683759616,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4702735360,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4721943552,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4740575232,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 2,
+            "work": 4758758400,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4777641984,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4796522496,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4815009792,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4833627136,
+            "relations": {
+              "total": 3379,
+              "full": 2552,
+              "combined": 827,
+              "partial": 27908,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4851781632,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4870532096,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4889970688,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4909357056,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4927591424,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4946980864,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4966365184,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 4985686016,
+            "relations": {
+              "total": 3593,
+              "full": 2664,
+              "combined": 929,
+              "partial": 29398,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5003811840,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5023152128,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5041912832,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5061199872,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5080318976,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5098650624,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5118036992,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5137411072,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5156678656,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5175090176,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5194513408,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5213819904,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5233188864,
+            "relations": {
+              "total": 3761,
+              "full": 2772,
+              "combined": 989,
+              "partial": 30396,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5251434496,
+            "relations": {
+              "total": 3983,
+              "full": 2898,
+              "combined": 1085,
+              "partial": 31889,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5270551552,
+            "relations": {
+              "total": 3983,
+              "full": 2898,
+              "combined": 1085,
+              "partial": 31889,
+              "target": 16471
+            }
+          },
+          {
+            "input": "696258294646279590588057784548290143012311988827791188390884343103806813",
+            "phase": 3,
+            "work": 5289711616,
+            "relations": {
+              "total": 3983,
+              "full": 2898,
+              "combined": 1085,
+              "partial": 31889,
+              "target": 16471
+            }
+          }
+        ],
+        "diagnostics": {
+          "abortReason": null,
+          "phase": 3,
+          "work": 5295119360,
+          "relations": {
+            "total": 3983,
+            "full": 2898,
+            "combined": 1085,
+            "partial": 31889,
+            "target": 16471
+          },
+          "poisoned": true,
+          "saveBytes": 2331227,
+          "nnz": 0,
+          "reason": 0,
+          "line": 0,
+          "logs": []
+        }
+      },
+      "knownFactorsUsed": false,
+      "oracleCheckedAfterRetirement": true
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 373,
+    "first": {
+      "atMs": 139.509549,
+      "rssBytes": 385024,
+      "pssBytes": 166912,
+      "processes": 1
+    },
+    "peakRssBytes": 1331490816,
+    "peakPssBytes": 464210944,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 1000000000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "one full SIQS Worker; fixed 512MiB WASM; unsupported input never allocates a Worker",
+    "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

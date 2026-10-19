@@ -46,6 +46,7 @@
     "verify:full-siqs-native": "node scripts/build-full-siqs.mjs --native",
     "build:full-siqs-worker": "node scripts/build-full-siqs-worker.mjs",
     "verify:full-siqs": "node scripts/verify-full-siqs.mjs",
-    "check:full-siqs": "node scripts/check-full-siqs.mjs && node scripts/check-full-practical.mjs && node scripts/build-full-siqs-worker.mjs --check"
+    "check:full-siqs": "node scripts/check-full-siqs.mjs && node scripts/check-full-practical.mjs && node scripts/build-full-siqs-worker.mjs --check && node scripts/report-full-siqs.mjs --check",
+    "report:full-siqs": "node scripts/report-full-siqs.mjs"
   }
 }

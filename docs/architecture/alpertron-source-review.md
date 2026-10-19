@@ -22,3 +22,5 @@ LICENSE、siqs.c、siqsLA.c、ecm.c、factor.c、expression.c、bignbr.h、.gith
 最初のscratch原本readは自動承認レビューに対象外として拒否されました。
 人間の比較調査依頼の引用と対象pathが追加共有され、同じreadを1回だけ再試行して成功しました。
 別path/URLでの迂回はしていません。独立静的確認のread阻害は解消しています。
+
+後続の閾値確認: 95桁は上流の自動SIQS切替の境界で、入力hard capではありません。原本は110桁を想定します。今回の[full msieve経路](full-siqs-source-review.md)とは別候補として保存し、未測定の速さを理由に採用・除外しません。

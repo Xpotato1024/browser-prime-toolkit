@@ -50,3 +50,7 @@ PR10は[ADR0010](adr/0010-private-exact-ui.md)の非公開全桁UIを実装し�
 PR11は[ADR0011](adr/0011-rsa-30s-profile.md)の独立RSA30秒profileを設計・試験します。[backend実上限とSIQS拡張設計](architecture/rsa-backend-limits.md)を分け、現行profile・UI・比較証跡を保全します。[実測と限界](benchmarks/llm01-staged-rsa.md)、[実行・測定契約](operations/rsa-profile.md)と[TDD](operations/stage11-tdd-evidence.md)を分けます。
 
 Stage13は[ADR0013](adr/0013-large-sparse-siqs.md)に従い、[full SIQS原本と境界](architecture/full-siqs-source-review.md)、[操作](operations/full-siqs.md)、[TDD](operations/stage13-tdd-evidence.md)を追加します。Stage12のBrent長枠は[途中記録](operations/minute-evaluation.md)へ保全しています。
+
+Full SIQSの[桁数別・RSA100の実測と限界](benchmarks/llm01-staged-full.md)は、固定4組・全raw・source結合を検査する生成報告です。未記載の中間桁は未測定です。
+
+[次段階のfull SIQS profile候補](architecture/full-siqs-profiling-next.md)はsource由来の事実と未測定の改善仮説を分けています。

@@ -26,3 +26,6 @@ factor base規模をそのまま正方のparity配列へ拡張すると二乗で
 新しいnative上限は別versionのC runtime/artifactへ置く。既存rawのhashや比較条件を改変しない。入力境界とbufferのASan/UBSan、各割当失敗・各phase取消・trap退役、行列の元列での依存検算、初期化込みhost期限、実browserの停止後回復を揃える。source/license/pinと再現buildも必要で、公開/CSP/配布の判断は含めない。
 
 今段階は全桁入力と30秒制御をnative BigInt基準経路で検証し、未対応のSIQSを評価結果から隠さない。新SIQSのメモリ規模・大規模adapter・中間算術の変更案が具体化した時点で、必要な判断を本人へ戻す。RSAの最大成功例は実測前には提示しない。
+
+## Stage13 の後続実装
+上の表・見積りはStage11時点の履歴です。独立した[full SIQS](full-siqs-source-review.md)をmsieve1.53から追加しました。100桁かつ332bit、固定512MiB、10万FB、元の大行列Lanczosを扱い、旧tableのguardを変更していません。入力受理と制限時間内の成功を引き続き区別します。

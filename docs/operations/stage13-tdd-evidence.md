@@ -12,3 +12,5 @@ Full SIQSは[ADR0013](../adr/0013-large-sparse-siqs.md)に従うprivate評価で
 - post/packed fixtureは上流の前提に合うものを使い、全64bitを元relationの行XORで独立検算。検算をmaskやtruncateで弱めない。
 
 最終headの件数・CI・独立レビュー・性能値はhandoffと測定報告を正とします。途中のREDは既知の不具合再現であり、成功結果として扱いません。
+
+[実RED/GREEN・core固定時ログ目録](../benchmarks/archive/validation-logs/staged-full-manifest.json)は元bytes/hashを保存します。最終headでは改めてnpm test/checkとCIを確認し、core時点の件数と区別します。
