@@ -12,7 +12,7 @@ for(const [path,hash] of Object.entries(d.sourceFiles)) assert.equal(sha(readFil
 assert.deepEqual(d.siqsBuild,JSON.parse(readFileSync(join(root,'native/siqs/build.json'))));
 assert.deepEqual(d.wasmBuild,JSON.parse(readFileSync(join(root,'native/gmp/build.json'))));
 for(const r of d.records) {
-  const c=cases.get(r.case);assert.ok(c);
+  const c=cases.get(r.case);assert.ok(c);assert.equal(r.freshPerTrial,true,'Every comparison trial creates a fresh Worker');
   if(r.reason==='host-timeout') verifySnapshot(r,c.input);else verifyFactorResult(r,c.input);
   if(ok(r)) assert.deepEqual(r.factors.map(f=>f.value),c.factors);
   assert.ok(r.sampledRam.samples>0&&r.sampledRam.peakRssBytes>0&&r.sampledRam.peakPssBytes>0);
@@ -43,7 +43,7 @@ for(const [name,predicate] of [['61〜63bit（3問）',c=>c.id.startsWith('balan
  ['10/13桁×M127（2問）',c=>c.id.endsWith('digit-m127')]])text+='| '+name+' | '+['siqs','gmp-ecm'].map(a=>stat(rows(predicate,1000,a))).join(' | ')+' |\n';
 text+='\n61〜63bit・101 control・M127のSIQSはalgorithm-rangeです。平方は共通前処理で解け、SIQS本体の成功には数えません。M127を含む完了はprobableで、素数証明や確率上限を付けません。\n\n';
 text+='[PR4のnative/GMP Brent比較](llm01-gmp-ecm.md)と[PR3の限定MPQS](llm01-wasm-mpqs.md)は固定済み履歴を再利用し、今回と同時測定とは扱いません。旧342+72試行を再実行していません。\n\n';
-text+='## 初期化・資源の実測\n\n方式順を試行ごとに交互にし、切替時は旧Workerをdisposeします。同時所有の最大は'+d.ownership.maxLive+' Workerです。各試行のready後時間は生成・compile/instantiateを含まず、初期化は別欄です。新しいWorkerを使うため、長期間反復したJIT warm測定ではありません。\n\n';
+text+='## 初期化・資源の実測\n\n方式順を試行ごとに交互にし、全136比較で毎回旧Workerをdisposeして新しいWorkerを生成します。同時所有の最大は'+d.ownership.maxLive+' Workerです。各試行のready後時間は生成・compile/instantiateを含まず、初期化は別欄です。rawの全比較行でfreshPerTrial=trueを検証します。再利用時のほぼ0msを初期化中央値へ混ぜません。長期間反復したJIT warm測定ではなく、交互順は無作為化でもありません。\n\n';
 text+='| 方式 | 初期化中央値ms | 試行標本の最大RSS MiB | 最大PSS MiB |\n| --- | ---: | ---: | ---: |\n';
 for(const alg of ['siqs','gmp-ecm']) {const rr=d.records.filter(r=>r.algorithm===alg);text+='| '+alg+' | '+median(rr.map(r=>r.initializationMs))+' | '+mib(Math.max(...rr.map(r=>r.sampledRam.peakRssBytes)))+' | '+mib(Math.max(...rr.map(r=>r.sampledRam.peakPssBytes)))+' |\n';}
 text+='\n初回localhost取得からSIQS readyまで '+d.coldReadyMs.toFixed(2)+'ms、取得した全source assetの実bytes合計 '+d.initialAssets.reduce((n,a)=>n+a.bytes,0)+' bytesです。圧縮/HTTP headerを含むnetwork wire量ではありません。通常Worker依存・両候補・診断bundleも初期取得に含み、rawで一覧化しています。\n\n';

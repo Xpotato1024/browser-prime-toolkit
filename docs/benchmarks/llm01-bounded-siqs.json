@@ -8,8 +8,8 @@
     },
     {
       "path": "/bench/siqs.js",
-      "bytes": 4658,
-      "sha256": "5ea28835970450d9b38b23f406f746619a771d4d1693026f42463d22f2b7cf18"
+      "bytes": 4718,
+      "sha256": "d43cb62ecb7f20714dc55fc14f4b79811c884405a38499d8d3fc9bac43d66ebc"
     },
     {
       "path": "/src/worker/controller.js",
@@ -42,6 +42,11 @@
       "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
     },
     {
+      "path": "/src/worker/candidate-worker-source.js",
+      "bytes": 627256,
+      "sha256": "f3cf474d730ab32ecb195dbce0f805c0889aebdfdf24f29711d75a177ecd0652"
+    },
+    {
       "path": "/src/core/integer-input.js",
       "bytes": 1753,
       "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
@@ -60,11 +65,6 @@
       "path": "/src/worker/factory.js",
       "bytes": 225,
       "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
-    },
-    {
-      "path": "/src/worker/candidate-worker-source.js",
-      "bytes": 627256,
-      "sha256": "f3cf474d730ab32ecb195dbce0f805c0889aebdfdf24f29711d75a177ecd0652"
     },
     {
       "path": "/src/worker/ecm-audit-worker-source.js",
@@ -92,7 +92,7 @@
         "factors": [],
         "remaining": "392318858461667547569595655490009919272404068553904357377",
         "operations": 600,
-        "elapsedMs": 13.899999998509884,
+        "elapsedMs": 13.600000001490116,
         "status": "incomplete",
         "reason": "algorithm-exhausted",
         "primality": "composite",
@@ -165,14 +165,15 @@
         ],
         "remaining": "1",
         "operations": 255,
-        "elapsedMs": 81.5,
+        "elapsedMs": 81.29999999888241,
         "status": "complete",
         "reason": null,
         "primality": "composite",
         "algorithm": "gmp-ecm",
         "seed": 17,
-        "wallMs": 82.59999999962747,
+        "wallMs": 82.30000000074506,
         "initializationMs": 0,
+        "freshPerTrial": false,
         "audit": {
           "mask": 12288,
           "point": 13,
@@ -232,14 +233,15 @@
         ],
         "remaining": "1",
         "operations": 255,
-        "elapsedMs": 93.5,
+        "elapsedMs": 95.09999999962747,
         "status": "complete",
         "reason": null,
         "primality": "composite",
         "algorithm": "gmp-ecm",
         "seed": 17,
-        "wallMs": 94.59999999962747,
+        "wallMs": 96.29999999888241,
         "initializationMs": 0,
+        "freshPerTrial": false,
         "audit": {
           "mask": 12288,
           "point": 13,
@@ -299,14 +301,15 @@
         ],
         "remaining": "1",
         "operations": 255,
-        "elapsedMs": 93.70000000111759,
+        "elapsedMs": 93.5,
         "status": "complete",
         "reason": null,
         "primality": "composite",
         "algorithm": "gmp-ecm",
         "seed": 17,
-        "wallMs": 94.70000000111759,
+        "wallMs": 94.5,
         "initializationMs": 0,
+        "freshPerTrial": false,
         "audit": {
           "mask": 12288,
           "point": 13,
@@ -366,14 +369,15 @@
         ],
         "remaining": "1",
         "operations": 255,
-        "elapsedMs": 93.09999999962747,
+        "elapsedMs": 93.89999999850988,
         "status": "complete",
         "reason": null,
         "primality": "composite",
         "algorithm": "gmp-ecm",
         "seed": 17,
-        "wallMs": 94.09999999962747,
+        "wallMs": 95,
         "initializationMs": 0,
+        "freshPerTrial": false,
         "audit": {
           "mask": 12288,
           "point": 13,
@@ -433,14 +437,15 @@
         ],
         "remaining": "1",
         "operations": 255,
-        "elapsedMs": 93.5,
+        "elapsedMs": 93.79999999888241,
         "status": "complete",
         "reason": null,
         "primality": "composite",
         "algorithm": "gmp-ecm",
         "seed": 17,
-        "wallMs": 94.5,
+        "wallMs": 94.80000000074506,
         "initializationMs": 0,
+        "freshPerTrial": false,
         "audit": {
           "mask": 12288,
           "point": 13,
@@ -456,18 +461,18 @@
   "ownership": {
     "live": 1,
     "maxLive": 1,
-    "retired": 84
+    "retired": 152
   },
   "sampledRam": {
-    "samples": 916,
+    "samples": 956,
     "first": {
-      "atMs": 268.192096,
+      "atMs": 267.337952,
       "rssBytes": 372736,
-      "pssBytes": 163840,
+      "pssBytes": 155648,
       "processes": 1
     },
-    "peakRssBytes": 1395167232,
-    "peakPssBytes": 522873856,
+    "peakRssBytes": 1412714496,
+    "peakPssBytes": 542971904,
     "maxProcesses": 13
   },
   "siqsBuild": {
@@ -878,7 +883,7 @@
     "stackBytes": 1048576,
     "managedHeapBytes": 33554432
   },
-  "measuredHead": "8baa7b9c81d404d18800199bc8bbae488a54552e",
+  "measuredHead": "8e865d74252bfd17ba1d9b245184656161336f3b",
   "advanced": false,
   "candidates": true,
   "wasmBuild": {
@@ -1122,15 +1127,15 @@
     "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
     "src/worker/candidate-worker-source.js": "f3cf474d730ab32ecb195dbce0f805c0889aebdfdf24f29711d75a177ecd0652",
     "src/worker/ecm-audit-worker-source.js": "75077906b3a38bd41d219d20d346d486e3d1dfa6d863f24e5f92e98fc4a58c99",
-    "bench/siqs.js": "5ea28835970450d9b38b23f406f746619a771d4d1693026f42463d22f2b7cf18",
+    "bench/siqs.js": "d43cb62ecb7f20714dc55fc14f4b79811c884405a38499d8d3fc9bac43d66ebc",
     "bench/siqs.html": "93dbc94a0f73c3ac78e7a4764faa53c9f7c8cec5707f7fafe3fd37f2a22ba0d6",
     "bench/candidate-corpus.mjs": "f972539aefc61c58762c1f3845193d172381e8cf026ea9e134e15fd658207560",
     "bench/candidate-corpus.json": "adef29cd8830c9387d4c4e8943f23c951ccc1d1971331dfe440abc6143c74aec",
     "bench/candidate-prime-proof.json": "84a38ed63dda9da19f45f5da42bf5e1e23dbc3cc86b1a59c5f9aa63f7c945c72",
-    "scripts/benchmark-siqs.mjs": "42533f363f0d7a9e4dbdad2acc3b22bc24afc12b21dc6582ae569835491264e8",
+    "scripts/benchmark-siqs.mjs": "cfd2369b9c15b4cfb393d0ce1e61f6b27548e7e713fbfde338d46c1ff47aba96",
     "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b"
   },
-  "measuredAt": "2026-10-19T04:52:57.221Z",
+  "measuredAt": "2026-10-19T05:03:35.119Z",
   "quick": false,
   "browser": {
     "protocolVersion": "1.3",
@@ -1157,7 +1162,7 @@
     "wasm": true,
     "wasmMemoryPerWorkerBytes": 67108864
   },
-  "coldReadyMs": 165.43073600000002,
+  "coldReadyMs": 190.88196599999992,
   "artifact": {
     "bytes": 139519,
     "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
@@ -1539,12 +1544,13 @@
       "factors": [],
       "remaining": "10189224821914436983",
       "operations": 74684,
-      "elapsedMs": 31.899999998509884,
+      "elapsedMs": 28.59999999962747,
       "status": "incomplete",
       "reason": "algorithm-resource",
       "primality": "composite",
-      "wallMs": 34.30000000074506,
-      "initializationMs": 0,
+      "wallMs": 30.90000000037253,
+      "initializationMs": 22.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 38484,
@@ -1557,13 +1563,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 1572.428492,
-          "rssBytes": 1227153408,
-          "pssBytes": 423030784,
+          "atMs": 1632.636438,
+          "rssBytes": 1228156928,
+          "pssBytes": 426229760,
           "processes": 12
         },
-        "peakRssBytes": 1233240064,
-        "peakPssBytes": 428137472,
+        "peakRssBytes": 1229688832,
+        "peakPssBytes": 426968064,
         "maxProcesses": 12
       }
     },
@@ -1589,12 +1595,13 @@
       ],
       "remaining": "1",
       "operations": 917,
-      "elapsedMs": 16.300000000745058,
+      "elapsedMs": 19.399999998509884,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 18,
-      "initializationMs": 60.30000000074506,
+      "wallMs": 20.899999998509884,
+      "initializationMs": 53.600000001490116,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -1607,13 +1614,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 1742.555326,
-          "rssBytes": 1233305600,
-          "pssBytes": 428146688,
+          "atMs": 1791.708127,
+          "rssBytes": 1229688832,
+          "pssBytes": 426968064,
           "processes": 12
         },
-        "peakRssBytes": 1261047808,
-        "peakPssBytes": 455312384,
+        "peakRssBytes": 1254002688,
+        "peakPssBytes": 451018752,
         "maxProcesses": 12
       }
     },
@@ -1639,12 +1646,13 @@
       ],
       "remaining": "1",
       "operations": 1589,
-      "elapsedMs": 33.30000000074506,
+      "elapsedMs": 43.70000000111759,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 34,
-      "initializationMs": 0,
+      "wallMs": 45,
+      "initializationMs": 48.30000000074506,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -1661,15 +1669,15 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 1960.681642,
-          "rssBytes": 1246339072,
-          "pssBytes": 440602624,
+          "atMs": 2004.544378,
+          "rssBytes": 1241608192,
+          "pssBytes": 438624256,
           "processes": 12
         },
-        "peakRssBytes": 1248354304,
-        "peakPssBytes": 442422272,
+        "peakRssBytes": 1256636416,
+        "peakPssBytes": 453599232,
         "maxProcesses": 12
       }
     },
@@ -1679,190 +1687,6 @@
       "algorithm": "siqs",
       "seed": 11,
       "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "10189224821914436983",
-      "factors": [],
-      "remaining": "10189224821914436983",
-      "operations": 74684,
-      "elapsedMs": 20.399999998509884,
-      "status": "incomplete",
-      "reason": "algorithm-resource",
-      "primality": "composite",
-      "wallMs": 21.40000000037253,
-      "initializationMs": 22.5,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 38484,
-        "phaseMask": 2,
-        "allocations": 6,
-        "reason": 3,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 2054.631206,
-          "rssBytes": 1248354304,
-          "pssBytes": 442422272,
-          "processes": 12
-        },
-        "peakRssBytes": 1248354304,
-        "peakPssBytes": 442422272,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-0",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "10189224821914436983",
-      "factors": [],
-      "remaining": "10189224821914436983",
-      "operations": 74684,
-      "elapsedMs": 16.5,
-      "status": "incomplete",
-      "reason": "algorithm-resource",
-      "primality": "composite",
-      "wallMs": 17,
-      "initializationMs": 0,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 38484,
-        "phaseMask": 2,
-        "allocations": 6,
-        "reason": 3,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 2207.259848,
-          "rssBytes": 1240481792,
-          "pssBytes": 434488320,
-          "processes": 12
-        },
-        "peakRssBytes": 1251205120,
-        "peakPssBytes": 445211648,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-0",
-      "trial": 1,
-      "algorithm": "gmp-ecm",
-      "seed": 1,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "10189224821914436983",
-      "factors": [
-        {
-          "value": "1372994653",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "7421168611",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 917,
-      "elapsedMs": 16.199999999254942,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 17.59999999962747,
-      "initializationMs": 54.30000000074506,
-      "audit": {
-        "mask": 12288,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 2362.859588,
-          "rssBytes": 1240862720,
-          "pssBytes": 434869248,
-          "processes": 12
-        },
-        "peakRssBytes": 1264300032,
-        "peakPssBytes": 458285056,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-0",
-      "trial": 11,
-      "algorithm": "gmp-ecm",
-      "seed": 11,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "10189224821914436983",
-      "factors": [
-        {
-          "value": "1372994653",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "7421168611",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 1589,
-      "elapsedMs": 36.40000000037253,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 36.899999998509884,
-      "initializationMs": 0,
-      "audit": {
-        "mask": 16374,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 6801,
-        "directAllocations": 216,
-        "parameters": {
-          "dF": 120,
-          "k": 2,
-          "S": 1,
-          "repr": 3,
-          "ntt": 0
-        }
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 2517.304629,
-          "rssBytes": 1246941184,
-          "pssBytes": 440667136,
-          "processes": 12
-        },
-        "peakRssBytes": 1247383552,
-        "peakPssBytes": 441081856,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-0",
-      "trial": 11,
-      "algorithm": "siqs",
-      "seed": 11,
-      "timeBudgetMs": 1000,
       "operationBudget": 50000000,
       "input": "10189224821914436983",
       "factors": [],
@@ -1872,649 +1696,100 @@
       "status": "incomplete",
       "reason": "algorithm-resource",
       "primality": "composite",
-      "wallMs": 21.59999999962747,
-      "initializationMs": 22.09999999962747,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 38484,
-        "phaseMask": 2,
-        "allocations": 6,
-        "reason": 3,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 2673.41597,
-          "rssBytes": 1247383552,
-          "pssBytes": 441081856,
-          "processes": 12
-        },
-        "peakRssBytes": 1247383552,
-        "peakPssBytes": 441081856,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [],
-      "remaining": "2289188565159910529",
-      "operations": 99,
-      "elapsedMs": 0.19999999925494194,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 0.3999999985098839,
-      "initializationMs": 0,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 38484,
-        "phaseMask": 2,
-        "allocations": 6,
-        "reason": 3,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 2831.145409,
-          "rssBytes": 1242292224,
-          "pssBytes": 435990528,
-          "processes": 12
-        },
-        "peakRssBytes": 1242316800,
-        "peakPssBytes": 436015104,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 1,
-      "algorithm": "gmp-ecm",
-      "seed": 1,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [
-        {
-          "value": "1115973611",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "2051292739",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 1249,
-      "elapsedMs": 33,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 34.19999999925494,
-      "initializationMs": 53.40000000037253,
-      "audit": {
-        "mask": 16374,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 4511,
-        "directAllocations": 144,
-        "parameters": {
-          "dF": 120,
-          "k": 2,
-          "S": 1,
-          "repr": 3,
-          "ntt": 0
-        }
-      },
-      "sampledRam": {
-        "samples": 5,
-        "first": {
-          "atMs": 2910.695579,
-          "rssBytes": 1242316800,
-          "pssBytes": 436015104,
-          "processes": 12
-        },
-        "peakRssBytes": 1266298880,
-        "peakPssBytes": 459997184,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 11,
-      "algorithm": "gmp-ecm",
-      "seed": 11,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [
-        {
-          "value": "1115973611",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "2051292739",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 907,
-      "elapsedMs": 5.600000001490116,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 6,
-      "initializationMs": 0,
-      "audit": {
-        "mask": 12288,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 3133.859694,
-          "rssBytes": 1253060608,
-          "pssBytes": 446758912,
-          "processes": 12
-        },
-        "peakRssBytes": 1253093376,
-        "peakPssBytes": 446791680,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 11,
-      "algorithm": "siqs",
-      "seed": 11,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [],
-      "remaining": "2289188565159910529",
-      "operations": 99,
-      "elapsedMs": 0.40000000037252903,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 1.3999999985098839,
-      "initializationMs": 22.200000001117587,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 3222.843461,
-          "rssBytes": 1253093376,
-          "pssBytes": 446791680,
-          "processes": 12
-        },
-        "peakRssBytes": 1253093376,
-        "peakPssBytes": 446791680,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [],
-      "remaining": "2289188565159910529",
-      "operations": 99,
-      "elapsedMs": 0.09999999962747097,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 0.3999999985098839,
-      "initializationMs": 0,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 3365.656206,
-          "rssBytes": 1244385280,
-          "pssBytes": 438083584,
-          "processes": 12
-        },
-        "peakRssBytes": 1244385280,
-        "peakPssBytes": 438083584,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 1,
-      "algorithm": "gmp-ecm",
-      "seed": 1,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [
-        {
-          "value": "1115973611",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "2051292739",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 1249,
-      "elapsedMs": 32.59999999962747,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 33.90000000037253,
-      "initializationMs": 53.09999999962747,
-      "audit": {
-        "mask": 16374,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 4511,
-        "directAllocations": 144,
-        "parameters": {
-          "dF": 120,
-          "k": 2,
-          "S": 1,
-          "repr": 3,
-          "ntt": 0
-        }
-      },
-      "sampledRam": {
-        "samples": 5,
-        "first": {
-          "atMs": 3454.676473,
-          "rssBytes": 1244385280,
-          "pssBytes": 438083584,
-          "processes": 12
-        },
-        "peakRssBytes": 1268154368,
-        "peakPssBytes": 461812736,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 11,
-      "algorithm": "gmp-ecm",
-      "seed": 11,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [
-        {
-          "value": "1115973611",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "2051292739",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 907,
-      "elapsedMs": 5.599999999627471,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 6.099999999627471,
-      "initializationMs": 0,
-      "audit": {
-        "mask": 12288,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 3660.747796,
-          "rssBytes": 1254469632,
-          "pssBytes": 448128000,
-          "processes": 12
-        },
-        "peakRssBytes": 1254481920,
-        "peakPssBytes": 448140288,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-1",
-      "trial": 11,
-      "algorithm": "siqs",
-      "seed": 11,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "2289188565159910529",
-      "factors": [],
-      "remaining": "2289188565159910529",
-      "operations": 99,
-      "elapsedMs": 0.40000000037252903,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 1.299999998882413,
-      "initializationMs": 21.90000000037253,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 3760.378459,
-          "rssBytes": 1254481920,
-          "pssBytes": 448140288,
-          "processes": 12
-        },
-        "peakRssBytes": 1254481920,
-        "peakPssBytes": 448140288,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-2",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "3942659309005228261",
-      "factors": [],
-      "remaining": "3942659309005228261",
-      "operations": 94,
-      "elapsedMs": 0.09999999962747097,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 0.40000000037252903,
-      "initializationMs": 0,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 3890.768811,
-          "rssBytes": 1250496512,
-          "pssBytes": 444154880,
-          "processes": 12
-        },
-        "peakRssBytes": 1250504704,
-        "peakPssBytes": 444163072,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-2",
-      "trial": 1,
-      "algorithm": "gmp-ecm",
-      "seed": 1,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "3942659309005228261",
-      "factors": [
-        {
-          "value": "1307811689",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "3014699549",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 904,
-      "elapsedMs": 14.300000000745058,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 15.200000001117587,
-      "initializationMs": 47.90000000037253,
-      "audit": {
-        "mask": 12288,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 3989.700274,
-          "rssBytes": 1250504704,
-          "pssBytes": 444163072,
-          "processes": 12
-        },
-        "peakRssBytes": 1269518336,
-        "peakPssBytes": 458346496,
-        "maxProcesses": 12
-      }
-    },
-    {
-      "case": "balanced-10-2",
-      "trial": 11,
-      "algorithm": "gmp-ecm",
-      "seed": 11,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "3942659309005228261",
-      "factors": [
-        {
-          "value": "1307811689",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "3014699549",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 916,
-      "elapsedMs": 13.5,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 14.099999999627471,
-      "initializationMs": 0,
-      "audit": {
-        "mask": 16374,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 2255,
-        "directAllocations": 72,
-        "parameters": {
-          "dF": 120,
-          "k": 2,
-          "S": 1,
-          "repr": 3,
-          "ntt": 0
-        }
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 4156.313913,
-          "rssBytes": 1329582080,
-          "pssBytes": 456751104,
-          "processes": 13
-        },
-        "peakRssBytes": 1332576256,
-        "peakPssBytes": 459661312,
-        "maxProcesses": 13
-      }
-    },
-    {
-      "case": "balanced-10-2",
-      "trial": 11,
-      "algorithm": "siqs",
-      "seed": 11,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "3942659309005228261",
-      "factors": [],
-      "remaining": "3942659309005228261",
-      "operations": 94,
-      "elapsedMs": 0.40000000037252903,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 1.200000001117587,
+      "wallMs": 21.700000001117587,
       "initializationMs": 22.299999998882413,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 3,
-        "first": {
-          "atMs": 4305.731957,
-          "rssBytes": 1332973568,
-          "pssBytes": 459894784,
-          "processes": 13
-        },
-        "peakRssBytes": 1333252096,
-        "peakPssBytes": 459998208,
-        "maxProcesses": 13
-      }
-    },
-    {
-      "case": "balanced-10-2",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 1000,
-      "operationBudget": 50000000,
-      "input": "3942659309005228261",
-      "factors": [],
-      "remaining": "3942659309005228261",
-      "operations": 94,
-      "elapsedMs": 0.10000000149011612,
-      "status": "incomplete",
-      "reason": "algorithm-range",
-      "primality": "composite",
-      "wallMs": 0.30000000074505806,
-      "initializationMs": 0,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
+        "peakBytes": 38484,
+        "phaseMask": 2,
+        "allocations": 6,
+        "reason": 3,
         "line": 0,
         "poisoned": false
       },
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 4404.762621,
-          "rssBytes": 1328902144,
-          "pssBytes": 455644160,
-          "processes": 13
+          "atMs": 2183.724253,
+          "rssBytes": 1243713536,
+          "pssBytes": 440599552,
+          "processes": 12
         },
-        "peakRssBytes": 1328906240,
-        "peakPssBytes": 455648256,
-        "maxProcesses": 13
+        "peakRssBytes": 1243713536,
+        "peakPssBytes": 440599552,
+        "maxProcesses": 12
       }
     },
     {
-      "case": "balanced-10-2",
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [],
+      "remaining": "10189224821914436983",
+      "operations": 74684,
+      "elapsedMs": 19.90000000037253,
+      "status": "incomplete",
+      "reason": "algorithm-resource",
+      "primality": "composite",
+      "wallMs": 21,
+      "initializationMs": 21.899999998509884,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 38484,
+        "phaseMask": 2,
+        "allocations": 6,
+        "reason": 3,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2340.772543,
+          "rssBytes": 1235881984,
+          "pssBytes": 432768000,
+          "processes": 12
+        },
+        "peakRssBytes": 1236705280,
+        "peakPssBytes": 433619968,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-0",
       "trial": 1,
       "algorithm": "gmp-ecm",
       "seed": 1,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
-      "input": "3942659309005228261",
+      "input": "10189224821914436983",
       "factors": [
         {
-          "value": "1307811689",
+          "value": "1372994653",
           "certainty": "proven",
           "method": "mr64"
         },
         {
-          "value": "3014699549",
+          "value": "7421168611",
           "certainty": "proven",
           "method": "mr64"
         }
       ],
       "remaining": "1",
-      "operations": 904,
-      "elapsedMs": 14.200000001117587,
+      "operations": 917,
+      "elapsedMs": 15.800000000745058,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 15.400000000372529,
-      "initializationMs": 48.90000000037253,
+      "wallMs": 17.09999999962747,
+      "initializationMs": 48.30000000074506,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -2527,51 +1802,52 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 4549.901367,
-          "rssBytes": 1328906240,
-          "pssBytes": 455648256,
-          "processes": 13
+          "atMs": 2495.741735,
+          "rssBytes": 1236705280,
+          "pssBytes": 433619968,
+          "processes": 12
         },
-        "peakRssBytes": 1347239936,
-        "peakPssBytes": 473986048,
-        "maxProcesses": 13
+        "peakRssBytes": 1259872256,
+        "peakPssBytes": 456683520,
+        "maxProcesses": 12
       }
     },
     {
-      "case": "balanced-10-2",
+      "case": "balanced-10-0",
       "trial": 11,
       "algorithm": "gmp-ecm",
       "seed": 11,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
-      "input": "3942659309005228261",
+      "input": "10189224821914436983",
       "factors": [
         {
-          "value": "1307811689",
+          "value": "1372994653",
           "certainty": "proven",
           "method": "mr64"
         },
         {
-          "value": "3014699549",
+          "value": "7421168611",
           "certainty": "proven",
           "method": "mr64"
         }
       ],
       "remaining": "1",
-      "operations": 916,
-      "elapsedMs": 12.599999999627471,
+      "operations": 1589,
+      "elapsedMs": 44.80000000074506,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 13.099999999627471,
-      "initializationMs": 0,
+      "wallMs": 46.19999999925494,
+      "initializationMs": 49,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 2255,
-        "directAllocations": 72,
+        "gmpAllocations": 6801,
+        "directAllocations": 216,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -2581,35 +1857,76 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 5,
         "first": {
-          "atMs": 4726.236802,
-          "rssBytes": 1333641216,
-          "pssBytes": 460387328,
-          "processes": 13
+          "atMs": 2652.082626,
+          "rssBytes": 1245155328,
+          "pssBytes": 441966592,
+          "processes": 12
         },
-        "peakRssBytes": 1335934976,
-        "peakPssBytes": 462681088,
-        "maxProcesses": 13
+        "peakRssBytes": 1262411776,
+        "peakPssBytes": 459223040,
+        "maxProcesses": 12
       }
     },
     {
-      "case": "balanced-10-2",
+      "case": "balanced-10-0",
       "trial": 11,
       "algorithm": "siqs",
       "seed": 11,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
-      "input": "3942659309005228261",
+      "input": "10189224821914436983",
       "factors": [],
-      "remaining": "3942659309005228261",
-      "operations": 94,
+      "remaining": "10189224821914436983",
+      "operations": 74684,
+      "elapsedMs": 19.09999999962747,
+      "status": "incomplete",
+      "reason": "algorithm-resource",
+      "primality": "composite",
+      "wallMs": 20.600000001490116,
+      "initializationMs": 16.699999999254942,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 38484,
+        "phaseMask": 2,
+        "allocations": 6,
+        "reason": 3,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 3,
+        "first": {
+          "atMs": 2873.964371,
+          "rssBytes": 1249189888,
+          "pssBytes": 446001152,
+          "processes": 12
+        },
+        "peakRssBytes": 1249189888,
+        "peakPssBytes": 446001152,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [],
+      "remaining": "2289188565159910529",
+      "operations": 99,
       "elapsedMs": 0.5,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
       "wallMs": 1.400000000372529,
-      "initializationMs": 22.09999999962747,
+      "initializationMs": 22.199999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -2622,33 +1939,142 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 4808.159071,
-          "rssBytes": 1335934976,
-          "pssBytes": 462681088,
-          "processes": 13
+          "atMs": 2969.515404,
+          "rssBytes": 1245450240,
+          "pssBytes": 442261504,
+          "processes": 12
         },
-        "peakRssBytes": 1335934976,
-        "peakPssBytes": 462681088,
-        "maxProcesses": 13
+        "peakRssBytes": 1245450240,
+        "peakPssBytes": 442261504,
+        "maxProcesses": 12
       }
     },
     {
-      "case": "balanced-10-3",
+      "case": "balanced-10-1",
       "trial": 1,
-      "algorithm": "siqs",
+      "algorithm": "gmp-ecm",
       "seed": 1,
       "timeBudgetMs": 100,
       "operationBudget": 50000000,
-      "input": "6143490588876274441",
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1249,
+      "elapsedMs": 32.20000000111759,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 33.59999999962747,
+      "initializationMs": 48.19999999925494,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 16374,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 4511,
+        "directAllocations": 144,
+        "parameters": {
+          "dF": 120,
+          "k": 2,
+          "S": 1,
+          "repr": 3,
+          "ntt": 0
+        }
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 3123.736396,
+          "rssBytes": 1244430336,
+          "pssBytes": 441241600,
+          "processes": 12
+        },
+        "peakRssBytes": 1257037824,
+        "peakPssBytes": 453849088,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 907,
+      "elapsedMs": 14.100000001490116,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 15.200000001117587,
+      "initializationMs": 48.29999999888241,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 12288,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3324.744356,
+          "rssBytes": 1251303424,
+          "pssBytes": 448114688,
+          "processes": 12
+        },
+        "peakRssBytes": 1264377856,
+        "peakPssBytes": 461189120,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "siqs",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
       "factors": [],
-      "remaining": "6143490588876274441",
-      "operations": 98,
-      "elapsedMs": 0.09999999962747097,
+      "remaining": "2289188565159910529",
+      "operations": 99,
+      "elapsedMs": 0.5,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.19999999925494194,
-      "initializationMs": 0,
+      "wallMs": 1.5,
+      "initializationMs": 22.300000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -2661,50 +2087,330 @@
       "sampledRam": {
         "samples": 3,
         "first": {
-          "atMs": 4968.371213,
-          "rssBytes": 1329373184,
-          "pssBytes": 456119296,
-          "processes": 13
+          "atMs": 3495.505737,
+          "rssBytes": 1251299328,
+          "pssBytes": 448110592,
+          "processes": 12
         },
-        "peakRssBytes": 1329373184,
-        "peakPssBytes": 456119296,
-        "maxProcesses": 13
+        "peakRssBytes": 1251299328,
+        "peakPssBytes": 448110592,
+        "maxProcesses": 12
       }
     },
     {
-      "case": "balanced-10-3",
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [],
+      "remaining": "2289188565159910529",
+      "operations": 99,
+      "elapsedMs": 0.5,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.400000000372529,
+      "initializationMs": 22.399999998509884,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3594.676468,
+          "rssBytes": 1247469568,
+          "pssBytes": 444224512,
+          "processes": 12
+        },
+        "peakRssBytes": 1247469568,
+        "peakPssBytes": 444224512,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
       "trial": 1,
       "algorithm": "gmp-ecm",
       "seed": 1,
-      "timeBudgetMs": 100,
+      "timeBudgetMs": 1000,
       "operationBudget": 50000000,
-      "input": "6143490588876274441",
+      "input": "2289188565159910529",
       "factors": [
         {
-          "value": "1191117251",
+          "value": "1115973611",
           "certainty": "proven",
           "method": "mr64"
         },
         {
-          "value": "5157754691",
+          "value": "2051292739",
           "certainty": "proven",
           "method": "mr64"
         }
       ],
       "remaining": "1",
-      "operations": 932,
-      "elapsedMs": 21.199999999254942,
+      "operations": 1249,
+      "elapsedMs": 31.199999999254942,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 22.40000000037253,
-      "initializationMs": 48.40000000037253,
+      "wallMs": 32.40000000037253,
+      "initializationMs": 48.69999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 2260,
+        "gmpAllocations": 4511,
+        "directAllocations": 144,
+        "parameters": {
+          "dF": 120,
+          "k": 2,
+          "S": 1,
+          "repr": 3,
+          "ntt": 0
+        }
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3756.691355,
+          "rssBytes": 1246916608,
+          "pssBytes": 443671552,
+          "processes": 12
+        },
+        "peakRssBytes": 1266679808,
+        "peakPssBytes": 463434752,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 907,
+      "elapsedMs": 14.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 15.599999999627471,
+      "initializationMs": 53.5,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 12288,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 3906.30235,
+          "rssBytes": 1267093504,
+          "pssBytes": 463848448,
+          "processes": 12
+        },
+        "peakRssBytes": 1267093504,
+        "peakPssBytes": 463848448,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "siqs",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [],
+      "remaining": "2289188565159910529",
+      "operations": 99,
+      "elapsedMs": 0.40000000037252903,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.5,
+      "initializationMs": 29.40000000037253,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 3,
+        "first": {
+          "atMs": 4145.012784,
+          "rssBytes": 1316904960,
+          "pssBytes": 456152064,
+          "processes": 13
+        },
+        "peakRssBytes": 1328648192,
+        "peakPssBytes": 458285056,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [],
+      "remaining": "3942659309005228261",
+      "operations": 94,
+      "elapsedMs": 0.5,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.5,
+      "initializationMs": 29.09999999962747,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4264.5378,
+          "rssBytes": 1325649920,
+          "pssBytes": 455234560,
+          "processes": 13
+        },
+        "peakRssBytes": 1325715456,
+        "peakPssBytes": 455234560,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 904,
+      "elapsedMs": 14.399999998509884,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 15.700000001117587,
+      "initializationMs": 53.59999999962747,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 12288,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4452.797769,
+          "rssBytes": 1326116864,
+          "pssBytes": 455141376,
+          "processes": 13
+        },
+        "peakRssBytes": 1345159168,
+        "peakPssBytes": 474230784,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 916,
+      "elapsedMs": 21.600000001490116,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 22.700000001117587,
+      "initializationMs": 53.5,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 16374,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 2255,
         "directAllocations": 72,
         "parameters": {
           "dF": 120,
@@ -2717,89 +2423,34 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 5047.874983,
-          "rssBytes": 1329373184,
-          "pssBytes": 456119296,
+          "atMs": 4618.094454,
+          "rssBytes": 1346727936,
+          "pssBytes": 475799552,
           "processes": 13
         },
-        "peakRssBytes": 1346650112,
-        "peakPssBytes": 473334784,
+        "peakRssBytes": 1354997760,
+        "peakPssBytes": 484069376,
         "maxProcesses": 13
       }
     },
     {
-      "case": "balanced-10-3",
-      "trial": 11,
-      "algorithm": "gmp-ecm",
-      "seed": 11,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "6143490588876274441",
-      "factors": [
-        {
-          "value": "1191117251",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "5157754691",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 2502,
-      "elapsedMs": 51.19999999925494,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 51.600000001490116,
-      "initializationMs": 0,
-      "audit": {
-        "mask": 16374,
-        "point": 13,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 11323,
-        "directAllocations": 360,
-        "parameters": {
-          "dF": 120,
-          "k": 2,
-          "S": 1,
-          "repr": 3,
-          "ntt": 0
-        }
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 5212.851223,
-          "rssBytes": 1346650112,
-          "pssBytes": 473334784,
-          "processes": 13
-        },
-        "peakRssBytes": 1346650112,
-        "peakPssBytes": 473334784,
-        "maxProcesses": 13
-      }
-    },
-    {
-      "case": "balanced-10-3",
+      "case": "balanced-10-2",
       "trial": 11,
       "algorithm": "siqs",
       "seed": 11,
       "timeBudgetMs": 100,
       "operationBudget": 50000000,
-      "input": "6143490588876274441",
+      "input": "3942659309005228261",
       "factors": [],
-      "remaining": "6143490588876274441",
-      "operations": 98,
-      "elapsedMs": 0.5,
+      "remaining": "3942659309005228261",
+      "operations": 94,
+      "elapsedMs": 0.40000000037252903,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.6000000014901161,
-      "initializationMs": 22.199999999254942,
+      "wallMs": 1.400000000372529,
+      "initializationMs": 22.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -2812,13 +2463,201 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 5372.079964,
-          "rssBytes": 1334083584,
-          "pssBytes": 460762112,
+          "atMs": 4785.726537,
+          "rssBytes": 1346433024,
+          "pssBytes": 475504640,
           "processes": 13
         },
-        "peakRssBytes": 1334083584,
-        "peakPssBytes": 460762112,
+        "peakRssBytes": 1347235840,
+        "peakPssBytes": 476307456,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [],
+      "remaining": "3942659309005228261",
+      "operations": 94,
+      "elapsedMs": 0.40000000037252903,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.699999999254942,
+      "initializationMs": 17,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4956.138818,
+          "rssBytes": 1342881792,
+          "pssBytes": 471953408,
+          "processes": 13
+        },
+        "peakRssBytes": 1342881792,
+        "peakPssBytes": 471953408,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 904,
+      "elapsedMs": 14.199999999254942,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 15.699999999254942,
+      "initializationMs": 48.20000000111759,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 12288,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 5096.57412,
+          "rssBytes": 1342312448,
+          "pssBytes": 471384064,
+          "processes": 13
+        },
+        "peakRssBytes": 1356386304,
+        "peakPssBytes": 485408768,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 916,
+      "elapsedMs": 23.90000000037253,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 25.09999999962747,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 16374,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 2255,
+        "directAllocations": 72,
+        "parameters": {
+          "dF": 120,
+          "k": 2,
+          "S": 1,
+          "repr": 3,
+          "ntt": 0
+        }
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 5272.729398,
+          "rssBytes": 1357467648,
+          "pssBytes": 486473728,
+          "processes": 13
+        },
+        "peakRssBytes": 1357467648,
+        "peakPssBytes": 486473728,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "siqs",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [],
+      "remaining": "3942659309005228261",
+      "operations": 94,
+      "elapsedMs": 0.30000000074505806,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.299999998882413,
+      "initializationMs": 22,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 5441.09868,
+          "rssBytes": 1358831616,
+          "pssBytes": 487837696,
+          "processes": 13
+        },
+        "peakRssBytes": 1358831616,
+        "peakPssBytes": 487837696,
         "maxProcesses": 13
       }
     },
@@ -2827,18 +2666,19 @@
       "trial": 1,
       "algorithm": "siqs",
       "seed": 1,
-      "timeBudgetMs": 1000,
+      "timeBudgetMs": 100,
       "operationBudget": 50000000,
       "input": "6143490588876274441",
       "factors": [],
       "remaining": "6143490588876274441",
       "operations": 98,
-      "elapsedMs": 0,
+      "elapsedMs": 0.30000000074505806,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.40000000037252903,
-      "initializationMs": 0,
+      "wallMs": 1.199999999254942,
+      "initializationMs": 22,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -2851,13 +2691,13 @@
       "sampledRam": {
         "samples": 3,
         "first": {
-          "atMs": 5539.158403,
-          "rssBytes": 1329860608,
-          "pssBytes": 456539136,
+          "atMs": 5584.77518,
+          "rssBytes": 1353744384,
+          "pssBytes": 482750464,
           "processes": 13
         },
-        "peakRssBytes": 1329868800,
-        "peakPssBytes": 456547328,
+        "peakRssBytes": 1353744384,
+        "peakPssBytes": 482750464,
         "maxProcesses": 13
       }
     },
@@ -2866,7 +2706,7 @@
       "trial": 1,
       "algorithm": "gmp-ecm",
       "seed": 1,
-      "timeBudgetMs": 1000,
+      "timeBudgetMs": 100,
       "operationBudget": 50000000,
       "input": "6143490588876274441",
       "factors": [
@@ -2883,12 +2723,13 @@
       ],
       "remaining": "1",
       "operations": 932,
-      "elapsedMs": 21.09999999962747,
+      "elapsedMs": 23.200000001117587,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 22.199999999254942,
-      "initializationMs": 48.19999999925494,
+      "wallMs": 24.200000001117587,
+      "initializationMs": 48.69999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -2907,13 +2748,207 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 5620.178473,
-          "rssBytes": 1329868800,
-          "pssBytes": 456547328,
+          "atMs": 5682.317012,
+          "rssBytes": 1353170944,
+          "pssBytes": 482177024,
           "processes": 13
         },
-        "peakRssBytes": 1349054464,
-        "peakPssBytes": 475732992,
+        "peakRssBytes": 1363099648,
+        "peakPssBytes": 492105728,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2502,
+      "elapsedMs": 66.80000000074506,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 68.19999999925494,
+      "initializationMs": 53.80000000074506,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 16374,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 11323,
+        "directAllocations": 360,
+        "parameters": {
+          "dF": 120,
+          "k": 2,
+          "S": 1,
+          "repr": 3,
+          "ntt": 0
+        }
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 5896.614963,
+          "rssBytes": 1361596416,
+          "pssBytes": 490602496,
+          "processes": 13
+        },
+        "peakRssBytes": 1362706432,
+        "peakPssBytes": 491712512,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "siqs",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [],
+      "remaining": "6143490588876274441",
+      "operations": 98,
+      "elapsedMs": 0.40000000037252903,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.400000000372529,
+      "initializationMs": 22,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6083.550833,
+          "rssBytes": 1362706432,
+          "pssBytes": 491712512,
+          "processes": 13
+        },
+        "peakRssBytes": 1362706432,
+        "peakPssBytes": 491712512,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "siqs",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [],
+      "remaining": "6143490588876274441",
+      "operations": 98,
+      "elapsedMs": 0.40000000037252903,
+      "status": "incomplete",
+      "reason": "algorithm-range",
+      "primality": "composite",
+      "wallMs": 1.700000001117587,
+      "initializationMs": 16.899999998509884,
+      "freshPerTrial": true,
+      "audit": {
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6250.133717,
+          "rssBytes": 1357721600,
+          "pssBytes": 486727680,
+          "processes": 13
+        },
+        "peakRssBytes": 1357721600,
+        "peakPssBytes": 486727680,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 932,
+      "elapsedMs": 21.200000001117587,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 22.200000001117587,
+      "initializationMs": 47.899999998509884,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 16374,
+        "point": 13,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 2260,
+        "directAllocations": 72,
+        "parameters": {
+          "dF": 120,
+          "k": 2,
+          "S": 1,
+          "repr": 3,
+          "ntt": 0
+        }
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6389.67322,
+          "rssBytes": 1357164544,
+          "pssBytes": 486230016,
+          "processes": 13
+        },
+        "peakRssBytes": 1365278720,
+        "peakPssBytes": 494983168,
         "maxProcesses": 13
       }
     },
@@ -2939,12 +2974,13 @@
       ],
       "remaining": "1",
       "operations": 2502,
-      "elapsedMs": 50.90000000037253,
+      "elapsedMs": 66.70000000111759,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 51.19999999925494,
-      "initializationMs": 0.09999999962747097,
+      "wallMs": 68.09999999962747,
+      "initializationMs": 47.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -2961,15 +2997,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 5856.722187,
-          "rssBytes": 1349685248,
-          "pssBytes": 476363776,
+          "atMs": 6569.463295,
+          "rssBytes": 1363861504,
+          "pssBytes": 493979648,
           "processes": 13
         },
-        "peakRssBytes": 1349804032,
-        "peakPssBytes": 476482560,
+        "peakRssBytes": 1364013056,
+        "peakPssBytes": 494224384,
         "maxProcesses": 13
       }
     },
@@ -2984,12 +3020,13 @@
       "factors": [],
       "remaining": "6143490588876274441",
       "operations": 98,
-      "elapsedMs": 0.3999999985098839,
+      "elapsedMs": 0.5,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
       "wallMs": 1.199999999254942,
-      "initializationMs": 22.200000001117587,
+      "initializationMs": 21.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -3002,13 +3039,13 @@
       "sampledRam": {
         "samples": 3,
         "first": {
-          "atMs": 6016.872428,
-          "rssBytes": 1349804032,
-          "pssBytes": 476482560,
+          "atMs": 6790.594741,
+          "rssBytes": 1363484672,
+          "pssBytes": 494185472,
           "processes": 13
         },
-        "peakRssBytes": 1349804032,
-        "peakPssBytes": 476482560,
+        "peakRssBytes": 1363484672,
+        "peakPssBytes": 494185472,
         "maxProcesses": 13
       }
     },
@@ -3022,13 +3059,14 @@
       "input": "3012048473684349413080363",
       "factors": [],
       "remaining": "3012048473684349413080363",
-      "operations": 406723,
-      "elapsedMs": 101.19999999925494,
+      "operations": 432305,
+      "elapsedMs": 101.30000000074506,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.60000000149012,
-      "initializationMs": 0,
+      "wallMs": 102.29999999888241,
+      "initializationMs": 21.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -3041,13 +3079,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 6105.819896,
-          "rssBytes": 1324892160,
-          "pssBytes": 451570688,
+          "atMs": 6891.647871,
+          "rssBytes": 1358012416,
+          "pssBytes": 488793088,
           "processes": 13
         },
-        "peakRssBytes": 1347461120,
-        "peakPssBytes": 474139648,
+        "peakRssBytes": 1375072256,
+        "peakPssBytes": 505852928,
         "maxProcesses": 13
       }
     },
@@ -3073,12 +3111,13 @@
       ],
       "remaining": "1",
       "operations": 2061,
-      "elapsedMs": 56.79999999888241,
+      "elapsedMs": 59.600000001490116,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 58.19999999925494,
-      "initializationMs": 53.80000000074506,
+      "wallMs": 60.90000000037253,
+      "initializationMs": 53.69999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3097,13 +3136,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 6338.576411,
-          "rssBytes": 1347461120,
-          "pssBytes": 474139648,
+          "atMs": 7122.471611,
+          "rssBytes": 1375072256,
+          "pssBytes": 505852928,
           "processes": 13
         },
-        "peakRssBytes": 1349898240,
-        "peakPssBytes": 477189120,
+        "peakRssBytes": 1375072256,
+        "peakPssBytes": 505852928,
         "maxProcesses": 13
       }
     },
@@ -3129,12 +3168,13 @@
       ],
       "remaining": "1",
       "operations": 1731,
-      "elapsedMs": 30.600000001490116,
+      "elapsedMs": 46.20000000111759,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 31.09999999962747,
-      "initializationMs": 0,
+      "wallMs": 47.5,
+      "initializationMs": 48,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3153,13 +3193,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 6577.393824,
-          "rssBytes": 1349152768,
-          "pssBytes": 476738560,
+          "atMs": 7367.63104,
+          "rssBytes": 1366568960,
+          "pssBytes": 497349632,
           "processes": 13
         },
-        "peakRssBytes": 1349152768,
-        "peakPssBytes": 476822528,
+        "peakRssBytes": 1366568960,
+        "peakPssBytes": 497349632,
         "maxProcesses": 13
       }
     },
@@ -3173,13 +3213,14 @@
       "input": "3012048473684349413080363",
       "factors": [],
       "remaining": "3012048473684349413080363",
-      "operations": 404183,
+      "operations": 432011,
       "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.90000000037253,
-      "initializationMs": 22.299999998882413,
+      "wallMs": 102.09999999962747,
+      "initializationMs": 21.800000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -3190,15 +3231,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 6721.252772,
-          "rssBytes": 1348321280,
-          "pssBytes": 476406784,
+          "atMs": 7531.028927,
+          "rssBytes": 1364705280,
+          "pssBytes": 495485952,
           "processes": 13
         },
-        "peakRssBytes": 1362120704,
-        "peakPssBytes": 490388480,
+        "peakRssBytes": 1376813056,
+        "peakPssBytes": 507593728,
         "maxProcesses": 13
       }
     },
@@ -3212,13 +3253,14 @@
       "input": "3012048473684349413080363",
       "factors": [],
       "remaining": "3012048473684349413080363",
-      "operations": 4733851,
-      "elapsedMs": 1000.0999999996275,
+      "operations": 4685904,
+      "elapsedMs": 1001.0999999996275,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.5999999996275,
-      "initializationMs": 0,
+      "wallMs": 1002.1999999992549,
+      "initializationMs": 21.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22614900,
@@ -3229,15 +3271,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 17,
+        "samples": 18,
         "first": {
-          "atMs": 6905.031005,
-          "rssBytes": 1362120704,
-          "pssBytes": 490388480,
+          "atMs": 7763.432265,
+          "rssBytes": 1376813056,
+          "pssBytes": 507593728,
           "processes": 13
         },
-        "peakRssBytes": 1362120704,
-        "peakPssBytes": 490388480,
+        "peakRssBytes": 1377472512,
+        "peakPssBytes": 508298240,
         "maxProcesses": 13
       }
     },
@@ -3263,12 +3305,13 @@
       ],
       "remaining": "1",
       "operations": 2061,
-      "elapsedMs": 57.399999998509884,
+      "elapsedMs": 58.90000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 58.80000000074506,
-      "initializationMs": 48.399999998509884,
+      "wallMs": 60.100000001490116,
+      "initializationMs": 49,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3287,13 +3330,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 8068.595585,
-          "rssBytes": 1357885440,
-          "pssBytes": 486087680,
+          "atMs": 8944.023353,
+          "rssBytes": 1377472512,
+          "pssBytes": 508298240,
           "processes": 13
         },
-        "peakRssBytes": 1357885440,
-        "peakPssBytes": 486087680,
+        "peakRssBytes": 1377472512,
+        "peakPssBytes": 508298240,
         "maxProcesses": 13
       }
     },
@@ -3319,12 +3362,13 @@
       ],
       "remaining": "1",
       "operations": 1731,
-      "elapsedMs": 30.799999998882413,
+      "elapsedMs": 45.5,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 31.300000000745058,
-      "initializationMs": 0,
+      "wallMs": 46.80000000074506,
+      "initializationMs": 47.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3341,15 +3385,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 8238.634724,
-          "rssBytes": 1347932160,
-          "pssBytes": 476134400,
+          "atMs": 9134.871558,
+          "rssBytes": 1368043520,
+          "pssBytes": 498869248,
           "processes": 13
         },
-        "peakRssBytes": 1347960832,
-        "peakPssBytes": 476163072,
+        "peakRssBytes": 1370824704,
+        "peakPssBytes": 501650432,
         "maxProcesses": 13
       }
     },
@@ -3363,13 +3407,14 @@
       "input": "3012048473684349413080363",
       "factors": [],
       "remaining": "3012048473684349413080363",
-      "operations": 4710716,
-      "elapsedMs": 1001.0999999996275,
+      "operations": 4676146,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1002,
-      "initializationMs": 22.399999998509884,
+      "wallMs": 1002.2999999988824,
+      "initializationMs": 17,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22618244,
@@ -3380,15 +3425,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 17,
+        "samples": 16,
         "first": {
-          "atMs": 8399.248766,
-          "rssBytes": 1347960832,
-          "pssBytes": 476163072,
+          "atMs": 9365.128275,
+          "rssBytes": 1368125440,
+          "pssBytes": 498951168,
           "processes": 13
         },
-        "peakRssBytes": 1367977984,
-        "peakPssBytes": 496180224,
+        "peakRssBytes": 1381142528,
+        "peakPssBytes": 511906816,
         "maxProcesses": 13
       }
     },
@@ -3402,13 +3447,14 @@
       "input": "2007147835949070207153161",
       "factors": [],
       "remaining": "2007147835949070207153161",
-      "operations": 470280,
-      "elapsedMs": 100.19999999925494,
+      "operations": 417902,
+      "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 101.90000000037253,
+      "initializationMs": 22.200000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21175812,
@@ -3421,13 +3467,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 9558.229552,
-          "rssBytes": 1367977984,
-          "pssBytes": 496180224,
+          "atMs": 10452.209692,
+          "rssBytes": 1381142528,
+          "pssBytes": 511906816,
           "processes": 13
         },
-        "peakRssBytes": 1368010752,
-        "peakPssBytes": 496212992,
+        "peakRssBytes": 1381142528,
+        "peakPssBytes": 511906816,
         "maxProcesses": 13
       }
     },
@@ -3453,12 +3499,13 @@
       ],
       "remaining": "1",
       "operations": 1720,
-      "elapsedMs": 47.69999999925494,
+      "elapsedMs": 45.30000000074506,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 49,
-      "initializationMs": 48.20000000111759,
+      "wallMs": 46.69999999925494,
+      "initializationMs": 48.30000000074506,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3475,15 +3522,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 9777.513074,
-          "rssBytes": 1368010752,
-          "pssBytes": 496212992,
+          "atMs": 10687.795231,
+          "rssBytes": 1380188160,
+          "pssBytes": 510952448,
           "processes": 13
         },
-        "peakRssBytes": 1368010752,
-        "peakPssBytes": 496212992,
+        "peakRssBytes": 1380200448,
+        "peakPssBytes": 510964736,
         "maxProcesses": 13
       }
     },
@@ -3509,12 +3556,13 @@
       ],
       "remaining": "1",
       "operations": 1390,
-      "elapsedMs": 21.200000001117587,
+      "elapsedMs": 38.70000000111759,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 21.59999999962747,
-      "initializationMs": 0,
+      "wallMs": 40,
+      "initializationMs": 48,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3533,13 +3581,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 9956.975411,
-          "rssBytes": 1348923392,
-          "pssBytes": 477125632,
+          "atMs": 10925.329469,
+          "rssBytes": 1371246592,
+          "pssBytes": 501932032,
           "processes": 13
         },
-        "peakRssBytes": 1348952064,
-        "peakPssBytes": 477154304,
+        "peakRssBytes": 1371275264,
+        "peakPssBytes": 501932032,
         "maxProcesses": 13
       }
     },
@@ -3553,13 +3601,14 @@
       "input": "2007147835949070207153161",
       "factors": [],
       "remaining": "2007147835949070207153161",
-      "operations": 437811,
+      "operations": 428641,
       "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.30000000074506,
-      "initializationMs": 16.899999998509884,
+      "wallMs": 102.19999999925494,
+      "initializationMs": 22.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21175812,
@@ -3572,13 +3621,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 10114.655955,
-          "rssBytes": 1348952064,
-          "pssBytes": 477154304,
+          "atMs": 11089.537927,
+          "rssBytes": 1371279360,
+          "pssBytes": 501909504,
           "processes": 13
         },
-        "peakRssBytes": 1363103744,
-        "peakPssBytes": 491244544,
+        "peakRssBytes": 1383350272,
+        "peakPssBytes": 513968128,
         "maxProcesses": 13
       }
     },
@@ -3592,13 +3641,14 @@
       "input": "2007147835949070207153161",
       "factors": [],
       "remaining": "2007147835949070207153161",
-      "operations": 4818683,
-      "elapsedMs": 1000.1999999992549,
+      "operations": 4733815,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.6000000014901,
-      "initializationMs": 0,
+      "wallMs": 1002.3000000007451,
+      "initializationMs": 16.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22554288,
@@ -3609,15 +3659,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 16,
+        "samples": 17,
         "first": {
-          "atMs": 10341.601475,
-          "rssBytes": 1363103744,
-          "pssBytes": 491244544,
+          "atMs": 11329.473865,
+          "rssBytes": 1383350272,
+          "pssBytes": 513966080,
           "processes": 13
         },
-        "peakRssBytes": 1369432064,
-        "peakPssBytes": 497422336,
+        "peakRssBytes": 1383350272,
+        "peakPssBytes": 513966080,
         "maxProcesses": 13
       }
     },
@@ -3643,12 +3693,13 @@
       ],
       "remaining": "1",
       "operations": 1720,
-      "elapsedMs": 47.5,
+      "elapsedMs": 45.100000001490116,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 48.90000000037253,
-      "initializationMs": 48.5,
+      "wallMs": 47.69999999925494,
+      "initializationMs": 48.600000001490116,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3667,13 +3718,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 11426.818293,
-          "rssBytes": 1369432064,
-          "pssBytes": 497422336,
+          "atMs": 12471.750169,
+          "rssBytes": 1383268352,
+          "pssBytes": 513813504,
           "processes": 13
         },
-        "peakRssBytes": 1369432064,
-        "peakPssBytes": 497422336,
+        "peakRssBytes": 1383268352,
+        "peakPssBytes": 513813504,
         "maxProcesses": 13
       }
     },
@@ -3699,12 +3750,13 @@
       ],
       "remaining": "1",
       "operations": 1390,
-      "elapsedMs": 21.40000000037253,
+      "elapsedMs": 34.30000000074506,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 21.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 35.69999999925494,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3721,15 +3773,15 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 11657.963213,
-          "rssBytes": 1361285120,
-          "pssBytes": 489275392,
+          "atMs": 12697.224211,
+          "rssBytes": 1373601792,
+          "pssBytes": 504141824,
           "processes": 13
         },
-        "peakRssBytes": 1361330176,
-        "peakPssBytes": 489320448,
+        "peakRssBytes": 1373679616,
+        "peakPssBytes": 504192000,
         "maxProcesses": 13
       }
     },
@@ -3743,13 +3795,14 @@
       "input": "2007147835949070207153161",
       "factors": [],
       "remaining": "2007147835949070207153161",
-      "operations": 4720044,
-      "elapsedMs": 1001.0999999996275,
+      "operations": 4706298,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1002.0999999996275,
-      "initializationMs": 22.40000000037253,
+      "wallMs": 1001.9000000003725,
+      "initializationMs": 16.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22552772,
@@ -3762,13 +3815,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 11750.537481,
-          "rssBytes": 1361330176,
-          "pssBytes": 489320448,
+          "atMs": 12876.341165,
+          "rssBytes": 1373642752,
+          "pssBytes": 504155136,
           "processes": 13
         },
-        "peakRssBytes": 1374683136,
-        "peakPssBytes": 502668288,
+        "peakRssBytes": 1385877504,
+        "peakPssBytes": 516389888,
         "maxProcesses": 13
       }
     },
@@ -3782,13 +3835,14 @@
       "input": "4013595421370156128863971",
       "factors": [],
       "remaining": "4013595421370156128863971",
-      "operations": 459549,
-      "elapsedMs": 100.09999999962747,
+      "operations": 435076,
+      "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 102.5,
+      "initializationMs": 16.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -3801,13 +3855,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 12903.394685,
-          "rssBytes": 1374683136,
-          "pssBytes": 502668288,
+          "atMs": 14010.258273,
+          "rssBytes": 1381818368,
+          "pssBytes": 512330752,
           "processes": 13
         },
-        "peakRssBytes": 1374814208,
-        "peakPssBytes": 502799360,
+        "peakRssBytes": 1381851136,
+        "peakPssBytes": 512359424,
         "maxProcesses": 13
       }
     },
@@ -3839,6 +3893,7 @@
       "primality": "composite",
       "wallMs": 24.09999999962747,
       "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3857,13 +3912,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 13142.833903,
-          "rssBytes": 1374756864,
-          "pssBytes": 502742016,
+          "atMs": 14241.672614,
+          "rssBytes": 1381851136,
+          "pssBytes": 512359424,
           "processes": 13
         },
-        "peakRssBytes": 1374756864,
-        "peakPssBytes": 502742016,
+        "peakRssBytes": 1381851136,
+        "peakPssBytes": 512359424,
         "maxProcesses": 13
       }
     },
@@ -3889,12 +3944,13 @@
       ],
       "remaining": "1",
       "operations": 1397,
-      "elapsedMs": 21.300000000745058,
+      "elapsedMs": 36.90000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 21.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 38.30000000074506,
+      "initializationMs": 48,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -3911,15 +3967,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 13302.661648,
-          "rssBytes": 1364242432,
-          "pssBytes": 492227584,
+          "atMs": 14403.724172,
+          "rssBytes": 1375064064,
+          "pssBytes": 505572352,
           "processes": 13
         },
-        "peakRssBytes": 1364267008,
-        "peakPssBytes": 492252160,
+        "peakRssBytes": 1378848768,
+        "peakPssBytes": 509357056,
         "maxProcesses": 13
       }
     },
@@ -3933,13 +3989,14 @@
       "input": "4013595421370156128863971",
       "factors": [],
       "remaining": "4013595421370156128863971",
-      "operations": 431689,
-      "elapsedMs": 100.90000000037253,
+      "operations": 435217,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.90000000037253,
-      "initializationMs": 21.800000000745058,
+      "wallMs": 102.5,
+      "initializationMs": 17.699999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -3950,15 +4007,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 5,
+        "samples": 4,
         "first": {
-          "atMs": 13453.007497,
-          "rssBytes": 1364267008,
-          "pssBytes": 492252160,
+          "atMs": 14617.341718,
+          "rssBytes": 1372426240,
+          "pssBytes": 502934528,
           "processes": 13
         },
-        "peakRssBytes": 1372110848,
-        "peakPssBytes": 500096000,
+        "peakRssBytes": 1383489536,
+        "peakPssBytes": 513997824,
         "maxProcesses": 13
       }
     },
@@ -3972,13 +4029,14 @@
       "input": "4013595421370156128863971",
       "factors": [],
       "remaining": "4013595421370156128863971",
-      "operations": 4684240,
-      "elapsedMs": 1000.0999999996275,
+      "operations": 4805094,
+      "elapsedMs": 1001.0999999996275,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.5,
-      "initializationMs": 0,
+      "wallMs": 1002.0999999996275,
+      "initializationMs": 22.100000001490116,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22557848,
@@ -3989,15 +4047,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 16,
+        "samples": 17,
         "first": {
-          "atMs": 13691.534216,
-          "rssBytes": 1372110848,
-          "pssBytes": 500096000,
+          "atMs": 14797.326471,
+          "rssBytes": 1383489536,
+          "pssBytes": 513997824,
           "processes": 13
         },
-        "peakRssBytes": 1373179904,
-        "peakPssBytes": 501160960,
+        "peakRssBytes": 1384747008,
+        "peakPssBytes": 515255296,
         "maxProcesses": 13
       }
     },
@@ -4023,12 +4081,13 @@
       ],
       "remaining": "1",
       "operations": 1067,
-      "elapsedMs": 22.59999999962747,
+      "elapsedMs": 31.5,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 26.699999999254942,
-      "initializationMs": 48.90000000037253,
+      "wallMs": 34.59999999962747,
+      "initializationMs": 61,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4045,15 +4104,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 14799.53714,
-          "rssBytes": 1373179904,
-          "pssBytes": 501160960,
+          "atMs": 15945.966578,
+          "rssBytes": 1384747008,
+          "pssBytes": 515255296,
           "processes": 13
         },
-        "peakRssBytes": 1373179904,
-        "peakPssBytes": 501160960,
+        "peakRssBytes": 1384747008,
+        "peakPssBytes": 515255296,
         "maxProcesses": 13
       }
     },
@@ -4079,12 +4138,13 @@
       ],
       "remaining": "1",
       "operations": 1397,
-      "elapsedMs": 21.40000000037253,
+      "elapsedMs": 35.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 22,
-      "initializationMs": 0,
+      "wallMs": 36.59999999962747,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4103,13 +4163,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 14961.884586,
-          "rssBytes": 1364598784,
-          "pssBytes": 492579840,
+          "atMs": 16241.941502,
+          "rssBytes": 1375346688,
+          "pssBytes": 505832448,
           "processes": 13
         },
-        "peakRssBytes": 1364680704,
-        "peakPssBytes": 492661760,
+        "peakRssBytes": 1376833536,
+        "peakPssBytes": 507253760,
         "maxProcesses": 13
       }
     },
@@ -4123,13 +4183,14 @@
       "input": "4013595421370156128863971",
       "factors": [],
       "remaining": "4013595421370156128863971",
-      "operations": 4706071,
+      "operations": 4741892,
       "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
       "wallMs": 1001.9000000003725,
-      "initializationMs": 22,
+      "initializationMs": 21.699999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22549176,
@@ -4140,15 +4201,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 16,
+        "samples": 17,
         "first": {
-          "atMs": 15111.876335,
-          "rssBytes": 1364680704,
-          "pssBytes": 492661760,
+          "atMs": 16414.820458,
+          "rssBytes": 1376837632,
+          "pssBytes": 507257856,
           "processes": 13
         },
-        "peakRssBytes": 1377382400,
-        "peakPssBytes": 505363456,
+        "peakRssBytes": 1388687360,
+        "peakPssBytes": 519107584,
         "maxProcesses": 13
       }
     },
@@ -4162,13 +4223,14 @@
       "input": "4018438122708272368009417",
       "factors": [],
       "remaining": "4018438122708272368009417",
-      "operations": 473274,
-      "elapsedMs": 100.09999999962747,
+      "operations": 412655,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 102.09999999962747,
+      "initializationMs": 21.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -4181,13 +4243,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 16198.446072,
-          "rssBytes": 1377382400,
-          "pssBytes": 505363456,
+          "atMs": 17563.235066,
+          "rssBytes": 1388687360,
+          "pssBytes": 519107584,
           "processes": 13
         },
-        "peakRssBytes": 1377497088,
-        "peakPssBytes": 505478144,
+        "peakRssBytes": 1389088768,
+        "peakPssBytes": 519508992,
         "maxProcesses": 13
       }
     },
@@ -4213,12 +4275,13 @@
       ],
       "remaining": "1",
       "operations": 1071,
-      "elapsedMs": 22.799999998882413,
+      "elapsedMs": 23.800000000745058,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 24.300000000745058,
-      "initializationMs": 48.29999999888241,
+      "wallMs": 25.299999998882413,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4237,13 +4300,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 16431.621994,
-          "rssBytes": 1377439744,
-          "pssBytes": 505420800,
+          "atMs": 17802.138955,
+          "rssBytes": 1389088768,
+          "pssBytes": 519508992,
           "processes": 13
         },
-        "peakRssBytes": 1377439744,
-        "peakPssBytes": 505420800,
+        "peakRssBytes": 1389088768,
+        "peakPssBytes": 519508992,
         "maxProcesses": 13
       }
     },
@@ -4269,12 +4332,13 @@
       ],
       "remaining": "1",
       "operations": 2721,
-      "elapsedMs": 64.90000000037253,
+      "elapsedMs": 76.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 65.40000000037253,
-      "initializationMs": 0,
+      "wallMs": 77.59999999962747,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4291,15 +4355,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 16590.219841,
-          "rssBytes": 1366540288,
-          "pssBytes": 494521344,
+          "atMs": 17972.182175,
+          "rssBytes": 1379143680,
+          "pssBytes": 509563904,
           "processes": 13
         },
-        "peakRssBytes": 1366663168,
-        "peakPssBytes": 494644224,
+        "peakRssBytes": 1382731776,
+        "peakPssBytes": 513152000,
         "maxProcesses": 13
       }
     },
@@ -4313,13 +4377,14 @@
       "input": "4018438122708272368009417",
       "factors": [],
       "remaining": "4018438122708272368009417",
-      "operations": 429821,
-      "elapsedMs": 101,
+      "operations": 432244,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.80000000074506,
-      "initializationMs": 22.40000000037253,
+      "wallMs": 102.20000000111759,
+      "initializationMs": 17,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21176032,
@@ -4332,13 +4397,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 16754.080086,
-          "rssBytes": 1366663168,
-          "pssBytes": 494644224,
+          "atMs": 18207.498366,
+          "rssBytes": 1380352000,
+          "pssBytes": 510772224,
           "processes": 13
         },
-        "peakRssBytes": 1378758656,
-        "peakPssBytes": 506739712,
+        "peakRssBytes": 1390997504,
+        "peakPssBytes": 521417728,
         "maxProcesses": 13
       }
     },
@@ -4352,13 +4417,14 @@
       "input": "4018438122708272368009417",
       "factors": [],
       "remaining": "4018438122708272368009417",
-      "operations": 4669064,
-      "elapsedMs": 1000.0999999996275,
+      "operations": 4759294,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.5,
-      "initializationMs": 0,
+      "wallMs": 1002,
+      "initializationMs": 16.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22568112,
@@ -4371,13 +4437,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 16991.582808,
-          "rssBytes": 1378758656,
-          "pssBytes": 506739712,
+          "atMs": 18440.006658,
+          "rssBytes": 1390997504,
+          "pssBytes": 521417728,
           "processes": 13
         },
-        "peakRssBytes": 1379172352,
-        "peakPssBytes": 507153408,
+        "peakRssBytes": 1392062464,
+        "peakPssBytes": 522493952,
         "maxProcesses": 13
       }
     },
@@ -4403,12 +4469,13 @@
       ],
       "remaining": "1",
       "operations": 1071,
-      "elapsedMs": 25.399999998509884,
+      "elapsedMs": 23.09999999962747,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 26.699999999254942,
-      "initializationMs": 48.30000000074506,
+      "wallMs": 24.399999998509884,
+      "initializationMs": 48.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4425,15 +4492,15 @@
         }
       },
       "sampledRam": {
-        "samples": 5,
+        "samples": 4,
         "first": {
-          "atMs": 18108.27354,
-          "rssBytes": 1379172352,
-          "pssBytes": 507153408,
+          "atMs": 19574.96613,
+          "rssBytes": 1392062464,
+          "pssBytes": 522493952,
           "processes": 13
         },
-        "peakRssBytes": 1379172352,
-        "peakPssBytes": 507153408,
+        "peakRssBytes": 1392062464,
+        "peakPssBytes": 522493952,
         "maxProcesses": 13
       }
     },
@@ -4459,12 +4526,13 @@
       ],
       "remaining": "1",
       "operations": 2721,
-      "elapsedMs": 62.40000000037253,
+      "elapsedMs": 78.90000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 62.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 80.19999999925494,
+      "initializationMs": 48.30000000074506,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -4481,15 +4549,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 18332.088766,
-          "rssBytes": 1362694144,
-          "pssBytes": 490675200,
+          "atMs": 19736.818254,
+          "rssBytes": 1381638144,
+          "pssBytes": 512005120,
           "processes": 13
         },
-        "peakRssBytes": 1362812928,
-        "peakPssBytes": 490793984,
+        "peakRssBytes": 1385287680,
+        "peakPssBytes": 515654656,
         "maxProcesses": 13
       }
     },
@@ -4503,13 +4571,14 @@
       "input": "4018438122708272368009417",
       "factors": [],
       "remaining": "4018438122708272368009417",
-      "operations": 4741704,
-      "elapsedMs": 1001,
+      "operations": 4745650,
+      "elapsedMs": 1000.9000000003725,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1001.8999999985099,
-      "initializationMs": 16.700000001117587,
+      "wallMs": 1001.8000000007451,
+      "initializationMs": 22.199999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22560528,
@@ -4522,13 +4591,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 18503.40531,
-          "rssBytes": 1362812928,
-          "pssBytes": 490793984,
+          "atMs": 19980.685641,
+          "rssBytes": 1382531072,
+          "pssBytes": 512898048,
           "processes": 13
         },
-        "peakRssBytes": 1376247808,
-        "peakPssBytes": 504228864,
+        "peakRssBytes": 1393758208,
+        "peakPssBytes": 524125184,
         "maxProcesses": 13
       }
     },
@@ -4543,31 +4612,32 @@
       "factors": [],
       "remaining": "101000000016463",
       "operations": 79,
-      "elapsedMs": 0.10000000149011612,
+      "elapsedMs": 0.40000000037252903,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.40000000037252903,
-      "initializationMs": 0,
+      "wallMs": 1.199999999254942,
+      "initializationMs": 22.300000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
-        "peakBytes": 22560528,
-        "phaseMask": 30,
-        "allocations": 1328,
-        "reason": 2,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
         "line": 0,
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 19629.844338,
-          "rssBytes": 1376247808,
-          "pssBytes": 504228864,
+          "atMs": 21100.013522,
+          "rssBytes": 1393758208,
+          "pssBytes": 524125184,
           "processes": 13
         },
-        "peakRssBytes": 1376256000,
-        "peakPssBytes": 504237056,
+        "peakRssBytes": 1393758208,
+        "peakPssBytes": 524125184,
         "maxProcesses": 13
       }
     },
@@ -4593,12 +4663,13 @@
       ],
       "remaining": "1",
       "operations": 779,
-      "elapsedMs": 14.199999999254942,
+      "elapsedMs": 14.300000000745058,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 15.399999998509884,
-      "initializationMs": 48.40000000037253,
+      "wallMs": 16.200000001117587,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -4611,13 +4682,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 19712.151709,
-          "rssBytes": 1376256000,
-          "pssBytes": 504237056,
+          "atMs": 21263.296746,
+          "rssBytes": 1376763904,
+          "pssBytes": 507130880,
           "processes": 13
         },
-        "peakRssBytes": 1376256000,
-        "peakPssBytes": 504237056,
+        "peakRssBytes": 1386618880,
+        "peakPssBytes": 516985856,
         "maxProcesses": 13
       }
     },
@@ -4643,12 +4714,13 @@
       ],
       "remaining": "1",
       "operations": 779,
-      "elapsedMs": 5.700000001117587,
+      "elapsedMs": 14.099999999627471,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 6.299999998882413,
-      "initializationMs": 0,
+      "wallMs": 15.5,
+      "initializationMs": 48.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -4661,13 +4733,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 19872.208553,
-          "rssBytes": 1365995520,
-          "pssBytes": 493976576,
+          "atMs": 21423.969572,
+          "rssBytes": 1384685568,
+          "pssBytes": 514751488,
           "processes": 13
         },
-        "peakRssBytes": 1366020096,
-        "peakPssBytes": 494001152,
+        "peakRssBytes": 1389133824,
+        "peakPssBytes": 519027712,
         "maxProcesses": 13
       }
     },
@@ -4686,8 +4758,9 @@
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.5,
-      "initializationMs": 16.90000000037253,
+      "wallMs": 1.400000000372529,
+      "initializationMs": 21.800000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -4698,15 +4771,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 20023.5364,
-          "rssBytes": 1366020096,
-          "pssBytes": 494001152,
+          "atMs": 21584.957797,
+          "rssBytes": 1386254336,
+          "pssBytes": 516113408,
           "processes": 13
         },
-        "peakRssBytes": 1366020096,
-        "peakPssBytes": 494001152,
+        "peakRssBytes": 1386254336,
+        "peakPssBytes": 516113408,
         "maxProcesses": 13
       }
     },
@@ -4721,12 +4794,13 @@
       "factors": [],
       "remaining": "101000000016463",
       "operations": 79,
-      "elapsedMs": 0.09999999962747097,
+      "elapsedMs": 0.40000000037252903,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.2999999988824129,
-      "initializationMs": 0,
+      "wallMs": 1.3999999985098839,
+      "initializationMs": 17.200000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -4739,13 +4813,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 20112.660369,
-          "rssBytes": 1361059840,
-          "pssBytes": 489040896,
+          "atMs": 21746.077922,
+          "rssBytes": 1379446784,
+          "pssBytes": 509305856,
           "processes": 13
         },
-        "peakRssBytes": 1361059840,
-        "peakPssBytes": 489040896,
+        "peakRssBytes": 1380085760,
+        "peakPssBytes": 509944832,
         "maxProcesses": 13
       }
     },
@@ -4771,12 +4845,13 @@
       ],
       "remaining": "1",
       "operations": 779,
-      "elapsedMs": 14.299999998882413,
+      "elapsedMs": 14.300000000745058,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 15.5,
-      "initializationMs": 47.80000000074506,
+      "wallMs": 15.400000000372529,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -4789,13 +4864,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 20258.383518,
-          "rssBytes": 1361059840,
-          "pssBytes": 489040896,
+          "atMs": 21879.272061,
+          "rssBytes": 1380085760,
+          "pssBytes": 509944832,
           "processes": 13
         },
-        "peakRssBytes": 1367425024,
-        "peakPssBytes": 495406080,
+        "peakRssBytes": 1387847680,
+        "peakPssBytes": 517706752,
         "maxProcesses": 13
       }
     },
@@ -4821,12 +4896,13 @@
       ],
       "remaining": "1",
       "operations": 779,
-      "elapsedMs": 5.699999999254942,
+      "elapsedMs": 14.100000001490116,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 6.200000001117587,
-      "initializationMs": 0.09999999962747097,
+      "wallMs": 15.300000000745058,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 12288,
         "point": 13,
@@ -4837,15 +4913,15 @@
         "parameters": null
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 20437.919756,
-          "rssBytes": 1367408640,
-          "pssBytes": 495389696,
+          "atMs": 22051.774381,
+          "rssBytes": 1387831296,
+          "pssBytes": 517690368,
           "processes": 13
         },
-        "peakRssBytes": 1367433216,
-        "peakPssBytes": 495414272,
+        "peakRssBytes": 1389199360,
+        "peakPssBytes": 519058432,
         "maxProcesses": 13
       }
     },
@@ -4860,62 +4936,13 @@
       "factors": [],
       "remaining": "101000000016463",
       "operations": 79,
-      "elapsedMs": 0.2999999988824129,
+      "elapsedMs": 0.40000000037252903,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.300000000745058,
-      "initializationMs": 22.299999998882413,
-      "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
-      },
-      "sampledRam": {
-        "samples": 4,
-        "first": {
-          "atMs": 20521.504527,
-          "rssBytes": 1367433216,
-          "pssBytes": 495414272,
-          "processes": 13
-        },
-        "peakRssBytes": 1367433216,
-        "peakPssBytes": 495414272,
-        "maxProcesses": 13
-      }
-    },
-    {
-      "case": "square-13",
-      "trial": 1,
-      "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 100,
-      "operationBudget": 50000000,
-      "input": "1000000000078000000001521",
-      "factors": [
-        {
-          "value": "1000000000039",
-          "certainty": "proven",
-          "method": "mr64"
-        },
-        {
-          "value": "1000000000039",
-          "certainty": "proven",
-          "method": "mr64"
-        }
-      ],
-      "remaining": "1",
-      "operations": 729,
-      "elapsedMs": 0.599999999627471,
-      "status": "complete",
-      "reason": null,
-      "primality": "composite",
-      "wallMs": 1.099999999627471,
-      "initializationMs": 0,
+      "wallMs": 1.599999999627471,
+      "initializationMs": 16.800000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -4928,20 +4955,20 @@
       "sampledRam": {
         "samples": 3,
         "first": {
-          "atMs": 20686.139669,
-          "rssBytes": 1362677760,
-          "pssBytes": 490658816,
+          "atMs": 22226.6213,
+          "rssBytes": 1388400640,
+          "pssBytes": 518259712,
           "processes": 13
         },
-        "peakRssBytes": 1362714624,
-        "peakPssBytes": 490695680,
+        "peakRssBytes": 1388400640,
+        "peakPssBytes": 518259712,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
       "trial": 1,
-      "algorithm": "gmp-ecm",
+      "algorithm": "siqs",
       "seed": 1,
       "timeBudgetMs": 100,
       "operationBudget": 50000000,
@@ -4965,34 +4992,35 @@
       "reason": null,
       "primality": "composite",
       "wallMs": 1.900000000372529,
-      "initializationMs": 49.5,
+      "initializationMs": 22.5,
+      "freshPerTrial": true,
       "audit": {
-        "mask": 0,
-        "point": 0,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
       },
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 20765.349342,
-          "rssBytes": 1362714624,
-          "pssBytes": 490695680,
+          "atMs": 22308.175762,
+          "rssBytes": 1382825984,
+          "pssBytes": 512685056,
           "processes": 13
         },
-        "peakRssBytes": 1372475392,
-        "peakPssBytes": 500456448,
+        "peakRssBytes": 1382825984,
+        "peakPssBytes": 512685056,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
-      "trial": 11,
+      "trial": 1,
       "algorithm": "gmp-ecm",
-      "seed": 11,
+      "seed": 1,
       "timeBudgetMs": 100,
       "operationBudget": 50000000,
       "input": "1000000000078000000001521",
@@ -5010,12 +5038,13 @@
       ],
       "remaining": "1",
       "operations": 729,
-      "elapsedMs": 0.2999999988824129,
+      "elapsedMs": 0.6000000014901161,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 0.8000000007450581,
-      "initializationMs": 0,
+      "wallMs": 2.099999999627471,
+      "initializationMs": 53.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 0,
         "point": 0,
@@ -5028,20 +5057,20 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 20927.123686,
-          "rssBytes": 1368178688,
-          "pssBytes": 496159744,
+          "atMs": 22476.085785,
+          "rssBytes": 1382268928,
+          "pssBytes": 512172032,
           "processes": 13
         },
-        "peakRssBytes": 1368182784,
-        "peakPssBytes": 496163840,
+        "peakRssBytes": 1393291264,
+        "peakPssBytes": 523194368,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
       "trial": 11,
-      "algorithm": "siqs",
+      "algorithm": "gmp-ecm",
       "seed": 11,
       "timeBudgetMs": 100,
       "operationBudget": 50000000,
@@ -5064,36 +5093,37 @@
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 1.8999999985098839,
-      "initializationMs": 22.200000001117587,
+      "wallMs": 1.699999999254942,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
-        "liveBytes": 0,
-        "peakBytes": 0,
-        "phaseMask": 0,
-        "allocations": 0,
-        "reason": 0,
-        "line": 0,
-        "poisoned": false
+        "mask": 0,
+        "point": 0,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 21064.060738,
-          "rssBytes": 1368182784,
-          "pssBytes": 496163840,
+          "atMs": 22644.331007,
+          "rssBytes": 1389445120,
+          "pssBytes": 519348224,
           "processes": 13
         },
-        "peakRssBytes": 1368182784,
-        "peakPssBytes": 496163840,
+        "peakRssBytes": 1393782784,
+        "peakPssBytes": 523685888,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
-      "trial": 1,
+      "trial": 11,
       "algorithm": "siqs",
-      "seed": 1,
-      "timeBudgetMs": 1000,
+      "seed": 11,
+      "timeBudgetMs": 100,
       "operationBudget": 50000000,
       "input": "1000000000078000000001521",
       "factors": [
@@ -5110,12 +5140,13 @@
       ],
       "remaining": "1",
       "operations": 729,
-      "elapsedMs": 0.40000000037252903,
+      "elapsedMs": 0.7000000011175871,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 0.6999999992549419,
-      "initializationMs": 0,
+      "wallMs": 1.700000001117587,
+      "initializationMs": 17,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -5128,20 +5159,20 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 21166.857003,
-          "rssBytes": 1363775488,
-          "pssBytes": 491756544,
+          "atMs": 22804.834433,
+          "rssBytes": 1389965312,
+          "pssBytes": 519868416,
           "processes": 13
         },
-        "peakRssBytes": 1363787776,
-        "peakPssBytes": 491768832,
+        "peakRssBytes": 1389969408,
+        "peakPssBytes": 519872512,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
       "trial": 1,
-      "algorithm": "gmp-ecm",
+      "algorithm": "siqs",
       "seed": 1,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
@@ -5165,34 +5196,35 @@
       "reason": null,
       "primality": "composite",
       "wallMs": 2,
-      "initializationMs": 48.29999999888241,
+      "initializationMs": 22.09999999962747,
+      "freshPerTrial": true,
       "audit": {
-        "mask": 0,
-        "point": 0,
-        "injected": false,
-        "poisoned": false,
-        "gmpAllocations": 0,
-        "directAllocations": 0,
-        "parameters": null
+        "liveBytes": 0,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
+        "line": 0,
+        "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 3,
         "first": {
-          "atMs": 21304.238455,
-          "rssBytes": 1363791872,
-          "pssBytes": 491772928,
+          "atMs": 22945.529668,
+          "rssBytes": 1384910848,
+          "pssBytes": 514813952,
           "processes": 13
         },
-        "peakRssBytes": 1370365952,
-        "peakPssBytes": 498041856,
+        "peakRssBytes": 1384910848,
+        "peakPssBytes": 514813952,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
-      "trial": 11,
+      "trial": 1,
       "algorithm": "gmp-ecm",
-      "seed": 11,
+      "seed": 1,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
       "input": "1000000000078000000001521",
@@ -5210,12 +5242,13 @@
       ],
       "remaining": "1",
       "operations": 729,
-      "elapsedMs": 0.30000000074505806,
+      "elapsedMs": 0.6999999992549419,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 0.7999999988824129,
-      "initializationMs": 0,
+      "wallMs": 1.8999999985098839,
+      "initializationMs": 54,
+      "freshPerTrial": true,
       "audit": {
         "mask": 0,
         "point": 0,
@@ -5226,22 +5259,22 @@
         "parameters": null
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 21465.6415,
-          "rssBytes": 1370726400,
-          "pssBytes": 498277376,
+          "atMs": 23041.790423,
+          "rssBytes": 1384333312,
+          "pssBytes": 514236416,
           "processes": 13
         },
-        "peakRssBytes": 1371021312,
-        "peakPssBytes": 498482176,
+        "peakRssBytes": 1394192384,
+        "peakPssBytes": 524095488,
         "maxProcesses": 13
       }
     },
     {
       "case": "square-13",
       "trial": 11,
-      "algorithm": "siqs",
+      "algorithm": "gmp-ecm",
       "seed": 11,
       "timeBudgetMs": 1000,
       "operationBudget": 50000000,
@@ -5264,8 +5297,60 @@
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 1.900000000372529,
-      "initializationMs": 16.90000000037253,
+      "wallMs": 1.800000000745058,
+      "initializationMs": 48.69999999925494,
+      "freshPerTrial": true,
+      "audit": {
+        "mask": 0,
+        "point": 0,
+        "injected": false,
+        "poisoned": false,
+        "gmpAllocations": 0,
+        "directAllocations": 0,
+        "parameters": null
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 23209.559446,
+          "rssBytes": 1391513600,
+          "pssBytes": 521416704,
+          "processes": 13
+        },
+        "peakRssBytes": 1392791552,
+        "peakPssBytes": 522694656,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "siqs",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.599999999627471,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2,
+      "initializationMs": 16.800000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -5276,15 +5361,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 21571.936763,
-          "rssBytes": 1371131904,
-          "pssBytes": 498592768,
+          "atMs": 23373.49377,
+          "rssBytes": 1392001024,
+          "pssBytes": 521904128,
           "processes": 13
         },
-        "peakRssBytes": 1371131904,
-        "peakPssBytes": 498592768,
+        "peakRssBytes": 1392001024,
+        "peakPssBytes": 521904128,
         "maxProcesses": 13
       }
     },
@@ -5298,13 +5383,14 @@
       "input": "1000000000202000000006357",
       "factors": [],
       "remaining": "1000000000202000000006357",
-      "operations": 421781,
+      "operations": 427174,
       "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.39999999850988,
-      "initializationMs": 0,
+      "wallMs": 102.09999999962747,
+      "initializationMs": 22.200000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21175592,
@@ -5317,13 +5403,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 21654.248234,
-          "rssBytes": 1366896640,
-          "pssBytes": 494357504,
+          "atMs": 23536.149995,
+          "rssBytes": 1386946560,
+          "pssBytes": 516849664,
           "processes": 13
         },
-        "peakRssBytes": 1384271872,
-        "peakPssBytes": 511732736,
+        "peakRssBytes": 1403678720,
+        "peakPssBytes": 533581824,
         "maxProcesses": 13
       }
     },
@@ -5349,12 +5435,13 @@
       ],
       "remaining": "1",
       "operations": 1059,
-      "elapsedMs": 22.799999998882413,
+      "elapsedMs": 23,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 24.100000001490116,
-      "initializationMs": 48.5,
+      "wallMs": 24.09999999962747,
+      "initializationMs": 53.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5373,13 +5460,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 21893.402452,
-          "rssBytes": 1384271872,
-          "pssBytes": 511732736,
+          "atMs": 23769.184987,
+          "rssBytes": 1403678720,
+          "pssBytes": 533581824,
           "processes": 13
         },
-        "peakRssBytes": 1384271872,
-        "peakPssBytes": 511732736,
+        "peakRssBytes": 1403678720,
+        "peakPssBytes": 533581824,
         "maxProcesses": 13
       }
     },
@@ -5405,12 +5492,13 @@
       ],
       "remaining": "1",
       "operations": 1389,
-      "elapsedMs": 21.5,
+      "elapsedMs": 34.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 21.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 35.600000001490116,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5427,15 +5515,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 22057.742996,
-          "rssBytes": 1374728192,
-          "pssBytes": 502189056,
+          "atMs": 23935.39611,
+          "rssBytes": 1394475008,
+          "pssBytes": 524378112,
           "processes": 13
         },
-        "peakRssBytes": 1374760960,
-        "peakPssBytes": 502221824,
+        "peakRssBytes": 1398038528,
+        "peakPssBytes": 527941632,
         "maxProcesses": 13
       }
     },
@@ -5449,13 +5537,14 @@
       "input": "1000000000202000000006357",
       "factors": [],
       "remaining": "1000000000202000000006357",
-      "operations": 430591,
+      "operations": 438130,
       "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.40000000037253,
-      "initializationMs": 17,
+      "wallMs": 101.90000000037253,
+      "initializationMs": 22.199999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21175592,
@@ -5468,13 +5557,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 22214.578142,
-          "rssBytes": 1374760960,
-          "pssBytes": 502221824,
+          "atMs": 24147.886512,
+          "rssBytes": 1395081216,
+          "pssBytes": 524984320,
           "processes": 13
         },
-        "peakRssBytes": 1386872832,
-        "peakPssBytes": 514329600,
+        "peakRssBytes": 1406562304,
+        "peakPssBytes": 536465408,
         "maxProcesses": 13
       }
     },
@@ -5488,13 +5577,14 @@
       "input": "1000000000202000000006357",
       "factors": [],
       "remaining": "1000000000202000000006357",
-      "operations": 4689516,
-      "elapsedMs": 1000.1999999992549,
+      "operations": 4778440,
+      "elapsedMs": 1000.9000000003725,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.5999999996275,
-      "initializationMs": 0,
+      "wallMs": 1001.7999999988824,
+      "initializationMs": 21.800000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22585160,
@@ -5507,13 +5597,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 22451.448261,
-          "rssBytes": 1386872832,
-          "pssBytes": 514329600,
+          "atMs": 24381.953705,
+          "rssBytes": 1406562304,
+          "pssBytes": 536465408,
           "processes": 13
         },
-        "peakRssBytes": 1387753472,
-        "peakPssBytes": 515210240,
+        "peakRssBytes": 1406562304,
+        "peakPssBytes": 536465408,
         "maxProcesses": 13
       }
     },
@@ -5539,12 +5629,13 @@
       ],
       "remaining": "1",
       "operations": 1059,
-      "elapsedMs": 22.699999999254942,
+      "elapsedMs": 23.09999999962747,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 23.899999998509884,
-      "initializationMs": 48.5,
+      "wallMs": 24.399999998509884,
+      "initializationMs": 48.600000001490116,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5563,13 +5654,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 23567.03498,
-          "rssBytes": 1387753472,
-          "pssBytes": 515210240,
+          "atMs": 25514.124884,
+          "rssBytes": 1406443520,
+          "pssBytes": 536346624,
           "processes": 13
         },
-        "peakRssBytes": 1387753472,
-        "peakPssBytes": 515210240,
+        "peakRssBytes": 1406443520,
+        "peakPssBytes": 536346624,
         "maxProcesses": 13
       }
     },
@@ -5595,12 +5686,13 @@
       ],
       "remaining": "1",
       "operations": 1389,
-      "elapsedMs": 21.5,
+      "elapsedMs": 34.70000000111759,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 21.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 35.90000000037253,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5617,15 +5709,15 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 23752.904717,
-          "rssBytes": 1377861632,
-          "pssBytes": 505318400,
+          "atMs": 25696.894601,
+          "rssBytes": 1395896320,
+          "pssBytes": 525799424,
           "processes": 13
         },
-        "peakRssBytes": 1377890304,
-        "peakPssBytes": 505347072,
+        "peakRssBytes": 1398472704,
+        "peakPssBytes": 528361472,
         "maxProcesses": 13
       }
     },
@@ -5639,13 +5731,14 @@
       "input": "1000000000202000000006357",
       "factors": [],
       "remaining": "1000000000202000000006357",
-      "operations": 4751748,
+      "operations": 4757858,
       "elapsedMs": 1001.0999999996275,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1002,
-      "initializationMs": 21.699999999254942,
+      "wallMs": 1002.0999999996275,
+      "initializationMs": 16.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22578560,
@@ -5658,13 +5751,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 23832.54149,
-          "rssBytes": 1377890304,
-          "pssBytes": 505347072,
+          "atMs": 25863.284125,
+          "rssBytes": 1396756480,
+          "pssBytes": 526645248,
           "processes": 13
         },
-        "peakRssBytes": 1388556288,
-        "peakPssBytes": 516013056,
+        "peakRssBytes": 1408192512,
+        "peakPssBytes": 538224640,
         "maxProcesses": 13
       }
     },
@@ -5678,13 +5771,14 @@
       "input": "59421120273299600154862853921",
       "factors": [],
       "remaining": "59421120273299600154862853921",
-      "operations": 476106,
-      "elapsedMs": 100.19999999925494,
+      "operations": 439089,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 102.09999999962747,
+      "initializationMs": 17.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21179420,
@@ -5697,13 +5791,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 24986.904201,
-          "rssBytes": 1388556288,
-          "pssBytes": 516013056,
+          "atMs": 27006.565405,
+          "rssBytes": 1407848448,
+          "pssBytes": 538224640,
           "processes": 13
         },
-        "peakRssBytes": 1388642304,
-        "peakPssBytes": 516099072,
+        "peakRssBytes": 1407848448,
+        "peakPssBytes": 538224640,
         "maxProcesses": 13
       }
     },
@@ -5729,12 +5823,13 @@
       ],
       "remaining": "1",
       "operations": 2498,
-      "elapsedMs": 67.29999999888241,
+      "elapsedMs": 73.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 68.5,
-      "initializationMs": 48,
+      "wallMs": 74.80000000074506,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5753,13 +5848,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 25219.282223,
-          "rssBytes": 1388580864,
-          "pssBytes": 516037632,
+          "atMs": 27243.172797,
+          "rssBytes": 1406885888,
+          "pssBytes": 537231360,
           "processes": 13
         },
-        "peakRssBytes": 1388580864,
-        "peakPssBytes": 516037632,
+        "peakRssBytes": 1406885888,
+        "peakPssBytes": 537231360,
         "maxProcesses": 13
       }
     },
@@ -5785,12 +5880,13 @@
       ],
       "remaining": "1",
       "operations": 1520,
-      "elapsedMs": 22.699999999254942,
+      "elapsedMs": 39.09999999962747,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 23.200000001117587,
-      "initializationMs": 0,
+      "wallMs": 40.59999999962747,
+      "initializationMs": 48.20000000111759,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5807,15 +5903,15 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 25462.926041,
-          "rssBytes": 1380122624,
-          "pssBytes": 507579392,
+          "atMs": 27487.483686,
+          "rssBytes": 1397334016,
+          "pssBytes": 527679488,
           "processes": 13
         },
-        "peakRssBytes": 1380143104,
-        "peakPssBytes": 507599872,
+        "peakRssBytes": 1399857152,
+        "peakPssBytes": 530202624,
         "maxProcesses": 13
       }
     },
@@ -5829,13 +5925,14 @@
       "input": "59421120273299600154862853921",
       "factors": [],
       "remaining": "59421120273299600154862853921",
-      "operations": 427725,
-      "elapsedMs": 101.09999999962747,
+      "operations": 379809,
+      "elapsedMs": 101.30000000074506,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.19999999925494,
-      "initializationMs": 22,
+      "wallMs": 102.69999999925494,
+      "initializationMs": 27.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21179420,
@@ -5848,13 +5945,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 25553.816911,
-          "rssBytes": 1380143104,
-          "pssBytes": 507599872,
+          "atMs": 27693.499093,
+          "rssBytes": 1398063104,
+          "pssBytes": 528408576,
           "processes": 13
         },
-        "peakRssBytes": 1388232704,
-        "peakPssBytes": 515689472,
+        "peakRssBytes": 1409499136,
+        "peakPssBytes": 539844608,
         "maxProcesses": 13
       }
     },
@@ -5868,13 +5965,14 @@
       "input": "59421120273299600154862853921",
       "factors": [],
       "remaining": "59421120273299600154862853921",
-      "operations": 4773705,
-      "elapsedMs": 1000,
+      "operations": 4691301,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.4000000003725,
-      "initializationMs": 0,
+      "wallMs": 1001.9000000003725,
+      "initializationMs": 22.199999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22564832,
@@ -5887,13 +5985,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 25796.34913,
-          "rssBytes": 1388232704,
-          "pssBytes": 515689472,
+          "atMs": 27947.079078,
+          "rssBytes": 1409499136,
+          "pssBytes": 539844608,
           "processes": 13
         },
-        "peakRssBytes": 1388380160,
-        "peakPssBytes": 515986432,
+        "peakRssBytes": 1409499136,
+        "peakPssBytes": 539844608,
         "maxProcesses": 13
       }
     },
@@ -5919,12 +6017,13 @@
       ],
       "remaining": "1",
       "operations": 2498,
-      "elapsedMs": 67.40000000037253,
+      "elapsedMs": 67.09999999962747,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 68.80000000074506,
-      "initializationMs": 48.59999999962747,
+      "wallMs": 68.59999999962747,
+      "initializationMs": 48.70000000111759,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5943,13 +6042,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 26941.85875,
-          "rssBytes": 1387831296,
-          "pssBytes": 515783680,
+          "atMs": 29093.382158,
+          "rssBytes": 1409372160,
+          "pssBytes": 539717632,
           "processes": 13
         },
-        "peakRssBytes": 1387831296,
-        "peakPssBytes": 515783680,
+        "peakRssBytes": 1409372160,
+        "peakPssBytes": 539717632,
         "maxProcesses": 13
       }
     },
@@ -5975,12 +6074,13 @@
       ],
       "remaining": "1",
       "operations": 1520,
-      "elapsedMs": 22.40000000037253,
+      "elapsedMs": 36.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 23,
-      "initializationMs": 0,
+      "wallMs": 37.70000000111759,
+      "initializationMs": 48.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -5997,15 +6097,15 @@
         }
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 27177.366972,
-          "rssBytes": 1380204544,
-          "pssBytes": 508156928,
+          "atMs": 29326.688852,
+          "rssBytes": 1400016896,
+          "pssBytes": 530362368,
           "processes": 13
         },
-        "peakRssBytes": 1380220928,
-        "peakPssBytes": 508173312,
+        "peakRssBytes": 1402195968,
+        "peakPssBytes": 532541440,
         "maxProcesses": 13
       }
     },
@@ -6019,13 +6119,14 @@
       "input": "59421120273299600154862853921",
       "factors": [],
       "remaining": "59421120273299600154862853921",
-      "operations": 4712166,
-      "elapsedMs": 1001,
+      "operations": 4639868,
+      "elapsedMs": 1001.1999999992549,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1002.0999999996275,
+      "wallMs": 1002.1000000014901,
       "initializationMs": 22.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22563012,
@@ -6038,13 +6139,13 @@
       "sampledRam": {
         "samples": 17,
         "first": {
-          "atMs": 27266.223143,
-          "rssBytes": 1380220928,
-          "pssBytes": 508173312,
+          "atMs": 29492.138978,
+          "rssBytes": 1400639488,
+          "pssBytes": 530984960,
           "processes": 13
         },
-        "peakRssBytes": 1390084096,
-        "peakPssBytes": 518036480,
+        "peakRssBytes": 1412714496,
+        "peakPssBytes": 542971904,
         "maxProcesses": 13
       }
     },
@@ -6058,13 +6159,14 @@
       "input": "59421120412303754922170451409",
       "factors": [],
       "remaining": "59421120412303754922170451409",
-      "operations": 471406,
-      "elapsedMs": 100.20000000111759,
+      "operations": 437828,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 102,
+      "initializationMs": 16.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21179420,
@@ -6077,13 +6179,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 28426.401188,
-          "rssBytes": 1390084096,
-          "pssBytes": 518036480,
+          "atMs": 30654.864552,
+          "rssBytes": 1412714496,
+          "pssBytes": 542971904,
           "processes": 13
         },
-        "peakRssBytes": 1390104576,
-        "peakPssBytes": 518056960,
+        "peakRssBytes": 1412714496,
+        "peakPssBytes": 542971904,
         "maxProcesses": 13
       }
     },
@@ -6097,20 +6199,21 @@
       "input": "59421120412303754922170451409",
       "factors": [],
       "remaining": "59421120412303754922170451409",
-      "operations": 2763,
-      "elapsedMs": 100.90000000037253,
+      "operations": 2536,
+      "elapsedMs": 102.90000000037253,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.80000000074506,
+      "wallMs": 104.10000000149012,
       "initializationMs": 48.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 17875,
-        "directAllocations": 553,
+        "gmpAllocations": 15993,
+        "directAllocations": 504,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -6122,13 +6225,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 28660.878972,
-          "rssBytes": 1390104576,
-          "pssBytes": 518056960,
+          "atMs": 30880.99145,
+          "rssBytes": 1411780608,
+          "pssBytes": 542035968,
           "processes": 13
         },
-        "peakRssBytes": 1390104576,
-        "peakPssBytes": 518056960,
+        "peakRssBytes": 1411780608,
+        "peakPssBytes": 542035968,
         "maxProcesses": 13
       }
     },
@@ -6154,12 +6257,13 @@
       ],
       "remaining": "1",
       "operations": 1519,
-      "elapsedMs": 23.200000001117587,
+      "elapsedMs": 38.100000001490116,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 23.699999999254942,
-      "initializationMs": 0,
+      "wallMs": 39.59999999962747,
+      "initializationMs": 48.19999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -6178,13 +6282,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 28910.531448,
-          "rssBytes": 1381355520,
-          "pssBytes": 509307904,
+          "atMs": 31138.000434,
+          "rssBytes": 1402810368,
+          "pssBytes": 533046272,
           "processes": 13
         },
-        "peakRssBytes": 1381453824,
-        "peakPssBytes": 509406208,
+        "peakRssBytes": 1403203584,
+        "peakPssBytes": 533432320,
         "maxProcesses": 13
       }
     },
@@ -6198,13 +6302,14 @@
       "input": "59421120412303754922170451409",
       "factors": [],
       "remaining": "59421120412303754922170451409",
-      "operations": 425557,
-      "elapsedMs": 101.09999999962747,
+      "operations": 436491,
+      "elapsedMs": 101.19999999925494,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.09999999962747,
-      "initializationMs": 21.90000000037253,
+      "wallMs": 102,
+      "initializationMs": 22.600000001490116,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21179420,
@@ -6215,15 +6320,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 29050.734778,
-          "rssBytes": 1381453824,
-          "pssBytes": 509406208,
+          "atMs": 31305.637058,
+          "rssBytes": 1404157952,
+          "pssBytes": 534356992,
           "processes": 13
         },
-        "peakRssBytes": 1390473216,
-        "peakPssBytes": 518425600,
+        "peakRssBytes": 1404461056,
+        "peakPssBytes": 534568960,
         "maxProcesses": 13
       }
     },
@@ -6237,13 +6342,14 @@
       "input": "59421120412303754922170451409",
       "factors": [],
       "remaining": "59421120412303754922170451409",
-      "operations": 4793527,
-      "elapsedMs": 1000.1000000014901,
+      "operations": 4772157,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.5,
-      "initializationMs": 0,
+      "wallMs": 1002,
+      "initializationMs": 16.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22554740,
@@ -6254,16 +6360,16 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 17,
+        "samples": 18,
         "first": {
-          "atMs": 29237.599386,
-          "rssBytes": 1390473216,
-          "pssBytes": 518425600,
-          "processes": 13
+          "atMs": 31534.873154,
+          "rssBytes": 1227939840,
+          "pssBytes": 510088192,
+          "processes": 11
         },
-        "peakRssBytes": 1390862336,
-        "peakPssBytes": 518814720,
-        "maxProcesses": 13
+        "peakRssBytes": 1227939840,
+        "peakPssBytes": 510088192,
+        "maxProcesses": 11
       }
     },
     {
@@ -6288,12 +6394,13 @@
       ],
       "remaining": "1",
       "operations": 8779,
-      "elapsedMs": 279.6000000014901,
+      "elapsedMs": 278.90000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 280.90000000037253,
-      "initializationMs": 48.79999999888241,
+      "wallMs": 280.1000000014901,
+      "initializationMs": 48.69999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -6310,16 +6417,16 @@
         }
       },
       "sampledRam": {
-        "samples": 7,
+        "samples": 8,
         "first": {
-          "atMs": 30405.558409,
-          "rssBytes": 1390862336,
-          "pssBytes": 518814720,
-          "processes": 13
+          "atMs": 32646.302654,
+          "rssBytes": 1181442048,
+          "pssBytes": 463010816,
+          "processes": 11
         },
-        "peakRssBytes": 1390862336,
-        "peakPssBytes": 518814720,
-        "maxProcesses": 13
+        "peakRssBytes": 1181442048,
+        "peakPssBytes": 463010816,
+        "maxProcesses": 11
       }
     },
     {
@@ -6344,12 +6451,13 @@
       ],
       "remaining": "1",
       "operations": 1519,
-      "elapsedMs": 22,
+      "elapsedMs": 36.40000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 22.59999999962747,
-      "initializationMs": 0,
+      "wallMs": 37.70000000111759,
+      "initializationMs": 48.19999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -6366,16 +6474,16 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 30802.242713,
-          "rssBytes": 1382998016,
-          "pssBytes": 510853120,
-          "processes": 13
+          "atMs": 33059.920967,
+          "rssBytes": 1171521536,
+          "pssBytes": 453090304,
+          "processes": 11
         },
-        "peakRssBytes": 1383116800,
-        "peakPssBytes": 510888960,
-        "maxProcesses": 13
+        "peakRssBytes": 1171521536,
+        "peakPssBytes": 453090304,
+        "maxProcesses": 11
       }
     },
     {
@@ -6388,13 +6496,14 @@
       "input": "59421120412303754922170451409",
       "factors": [],
       "remaining": "59421120412303754922170451409",
-      "operations": 4706220,
+      "operations": 4809630,
       "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1002.2999999988824,
-      "initializationMs": 16.700000001117587,
+      "wallMs": 1002.0999999996275,
+      "initializationMs": 16.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 22549264,
@@ -6407,14 +6516,14 @@
       "sampledRam": {
         "samples": 18,
         "first": {
-          "atMs": 30959.247336,
-          "rssBytes": 1383124992,
-          "pssBytes": 510897152,
-          "processes": 13
+          "atMs": 33279.356269,
+          "rssBytes": 1171148800,
+          "pssBytes": 452717568,
+          "processes": 11
         },
-        "peakRssBytes": 1395167232,
-        "peakPssBytes": 522873856,
-        "maxProcesses": 13
+        "peakRssBytes": 1182212096,
+        "peakPssBytes": 463780864,
+        "maxProcesses": 11
       }
     },
     {
@@ -6427,13 +6536,14 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 472831,
-      "elapsedMs": 100.10000000149012,
+      "operations": 440720,
+      "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.59999999962747,
-      "initializationMs": 0,
+      "wallMs": 102.10000000149012,
+      "initializationMs": 16.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6444,15 +6554,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 32089.882883,
-          "rssBytes": 1177677824,
-          "pssBytes": 457627648,
+          "atMs": 34390.502721,
+          "rssBytes": 1182212096,
+          "pssBytes": 463780864,
           "processes": 11
         },
-        "peakRssBytes": 1177780224,
-        "peakPssBytes": 457730048,
+        "peakRssBytes": 1182212096,
+        "peakPssBytes": 463780864,
         "maxProcesses": 11
       }
     },
@@ -6466,20 +6576,21 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 2453,
-      "elapsedMs": 100.69999999925494,
+      "operations": 2454,
+      "elapsedMs": 100.90000000037253,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.59999999962747,
-      "initializationMs": 51.09999999962747,
+      "wallMs": 102,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 15548,
-        "directAllocations": 497,
+        "gmpAllocations": 15674,
+        "directAllocations": 503,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -6489,15 +6600,15 @@
         }
       },
       "sampledRam": {
-        "samples": 6,
+        "samples": 5,
         "first": {
-          "atMs": 32253.152903,
-          "rssBytes": 1177296896,
-          "pssBytes": 457246720,
+          "atMs": 34602.191736,
+          "rssBytes": 1181478912,
+          "pssBytes": 463047680,
           "processes": 11
         },
-        "peakRssBytes": 1177296896,
-        "peakPssBytes": 457246720,
+        "peakRssBytes": 1181478912,
+        "peakPssBytes": 463047680,
         "maxProcesses": 11
       }
     },
@@ -6511,20 +6622,21 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 2787,
-      "elapsedMs": 105.09999999962747,
+      "operations": 2447,
+      "elapsedMs": 100.90000000037253,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 105.5,
-      "initializationMs": 0,
+      "wallMs": 102.09999999962747,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 17913,
-        "directAllocations": 576,
+        "gmpAllocations": 15304,
+        "directAllocations": 481,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -6534,15 +6646,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 6,
         "first": {
-          "atMs": 32527.44907,
-          "rssBytes": 1168375808,
-          "pssBytes": 448325632,
+          "atMs": 34812.196851,
+          "rssBytes": 1172217856,
+          "pssBytes": 453786624,
           "processes": 11
         },
-        "peakRssBytes": 1168433152,
-        "peakPssBytes": 448382976,
+        "peakRssBytes": 1172217856,
+        "peakPssBytes": 453786624,
         "maxProcesses": 11
       }
     },
@@ -6556,13 +6668,14 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 432641,
-      "elapsedMs": 101.19999999925494,
+      "operations": 433726,
+      "elapsedMs": 100.90000000037253,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.20000000111759,
-      "initializationMs": 22.09999999962747,
+      "wallMs": 101.79999999888241,
+      "initializationMs": 21.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6573,15 +6686,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 6,
+        "samples": 5,
         "first": {
-          "atMs": 32683.197494,
-          "rssBytes": 1168433152,
-          "pssBytes": 448382976,
+          "atMs": 35091.902439,
+          "rssBytes": 1172201472,
+          "pssBytes": 453770240,
           "processes": 11
         },
-        "peakRssBytes": 1178963968,
-        "peakPssBytes": 458913792,
+        "peakRssBytes": 1183084544,
+        "peakPssBytes": 464653312,
         "maxProcesses": 11
       }
     },
@@ -6595,13 +6708,14 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 4808941,
-      "elapsedMs": 1000.0999999996275,
+      "operations": 4647767,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.4000000003725,
-      "initializationMs": 0,
+      "wallMs": 1002.1999999992549,
+      "initializationMs": 16.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6614,13 +6728,13 @@
       "sampledRam": {
         "samples": 18,
         "first": {
-          "atMs": 32952.697163,
-          "rssBytes": 1178963968,
-          "pssBytes": 458913792,
+          "atMs": 35308.825552,
+          "rssBytes": 1183084544,
+          "pssBytes": 464653312,
           "processes": 11
         },
-        "peakRssBytes": 1179111424,
-        "peakPssBytes": 459061248,
+        "peakRssBytes": 1183141888,
+        "peakPssBytes": 464710656,
         "maxProcesses": 11
       }
     },
@@ -6635,12 +6749,13 @@
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
       "operations": 10707,
-      "elapsedMs": 440.59999999962747,
+      "elapsedMs": 407.19999999925494,
       "status": "incomplete",
       "reason": "algorithm-exhausted",
       "primality": "composite",
-      "wallMs": 448.30000000074506,
-      "initializationMs": 79.5,
+      "wallMs": 408.30000000074506,
+      "initializationMs": 49.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -6659,13 +6774,13 @@
       "sampledRam": {
         "samples": 10,
         "first": {
-          "atMs": 34045.004034,
-          "rssBytes": 1179111424,
-          "pssBytes": 459061248,
+          "atMs": 36415.273407,
+          "rssBytes": 1183141888,
+          "pssBytes": 464710656,
           "processes": 11
         },
-        "peakRssBytes": 1179111424,
-        "peakPssBytes": 459061248,
+        "peakRssBytes": 1183141888,
+        "peakPssBytes": 464710656,
         "maxProcesses": 11
       }
     },
@@ -6680,12 +6795,13 @@
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
       "operations": 10707,
-      "elapsedMs": 386.40000000037253,
+      "elapsedMs": 409.7999999988824,
       "status": "incomplete",
       "reason": "algorithm-exhausted",
       "primality": "composite",
-      "wallMs": 386.8999999985099,
-      "initializationMs": 0,
+      "wallMs": 410.7000000011176,
+      "initializationMs": 48.59999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -6702,15 +6818,15 @@
         }
       },
       "sampledRam": {
-        "samples": 9,
+        "samples": 10,
         "first": {
-          "atMs": 34648.892962,
-          "rssBytes": 1168392192,
-          "pssBytes": 448218112,
+          "atMs": 36964.023087,
+          "rssBytes": 1173987328,
+          "pssBytes": 455556096,
           "processes": 11
         },
-        "peakRssBytes": 1168433152,
-        "peakPssBytes": 448259072,
+        "peakRssBytes": 1174405120,
+        "peakPssBytes": 455973888,
         "maxProcesses": 11
       }
     },
@@ -6724,13 +6840,14 @@
       "input": "3894222643488354664636594044948941",
       "factors": [],
       "remaining": "3894222643488354664636594044948941",
-      "operations": 4644367,
-      "elapsedMs": 1001,
+      "operations": 4751554,
+      "elapsedMs": 1001.0999999996275,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1001.8000000007451,
+      "wallMs": 1002,
       "initializationMs": 22.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6743,13 +6860,13 @@
       "sampledRam": {
         "samples": 18,
         "first": {
-          "atMs": 35129.610915,
-          "rssBytes": 1168433152,
-          "pssBytes": 448259072,
+          "atMs": 37516.659065,
+          "rssBytes": 1174405120,
+          "pssBytes": 455973888,
           "processes": 11
         },
-        "peakRssBytes": 1179045888,
-        "peakPssBytes": 458871808,
+        "peakRssBytes": 1185153024,
+        "peakPssBytes": 466721792,
         "maxProcesses": 11
       }
     },
@@ -6763,13 +6880,14 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 470384,
-      "elapsedMs": 100.09999999962747,
+      "operations": 415191,
+      "elapsedMs": 101.20000000111759,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.5,
-      "initializationMs": 0,
+      "wallMs": 102.30000000074506,
+      "initializationMs": 22,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6782,13 +6900,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 36254.704083,
-          "rssBytes": 1179045888,
-          "pssBytes": 458871808,
+          "atMs": 38641.429815,
+          "rssBytes": 1185153024,
+          "pssBytes": 466721792,
           "processes": 11
         },
-        "peakRssBytes": 1179058176,
-        "peakPssBytes": 458884096,
+        "peakRssBytes": 1185153024,
+        "peakPssBytes": 466721792,
         "maxProcesses": 11
       }
     },
@@ -6802,20 +6920,21 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 2452,
-      "elapsedMs": 100.70000000111759,
+      "operations": 2446,
+      "elapsedMs": 101,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 101.70000000111759,
-      "initializationMs": 48.59999999962747,
+      "wallMs": 102,
+      "initializationMs": 48.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 15548,
-        "directAllocations": 497,
+        "gmpAllocations": 15304,
+        "directAllocations": 481,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -6827,13 +6946,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 36451.853707,
-          "rssBytes": 1179058176,
-          "pssBytes": 458884096,
+          "atMs": 38863.387426,
+          "rssBytes": 1184518144,
+          "pssBytes": 466086912,
           "processes": 11
         },
-        "peakRssBytes": 1179058176,
-        "peakPssBytes": 458884096,
+        "peakRssBytes": 1184518144,
+        "peakPssBytes": 466086912,
         "maxProcesses": 11
       }
     },
@@ -6847,20 +6966,21 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 2783,
-      "elapsedMs": 100.5,
+      "operations": 2446,
+      "elapsedMs": 101.20000000111759,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 100.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 102.40000000037253,
+      "initializationMs": 47.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
         "injected": false,
         "poisoned": false,
-        "gmpAllocations": 17913,
-        "directAllocations": 575,
+        "gmpAllocations": 15304,
+        "directAllocations": 481,
         "parameters": {
           "dF": 120,
           "k": 2,
@@ -6870,15 +6990,15 @@
         }
       },
       "sampledRam": {
-        "samples": 5,
+        "samples": 6,
         "first": {
-          "atMs": 36684.2198,
-          "rssBytes": 1169465344,
-          "pssBytes": 449291264,
+          "atMs": 39088.770436,
+          "rssBytes": 1175486464,
+          "pssBytes": 457055232,
           "processes": 11
         },
-        "peakRssBytes": 1169555456,
-        "peakPssBytes": 449381376,
+        "peakRssBytes": 1178890240,
+        "peakPssBytes": 460459008,
         "maxProcesses": 11
       }
     },
@@ -6892,13 +7012,14 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 437002,
+      "operations": 438526,
       "elapsedMs": 101.09999999962747,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 102.29999999888241,
+      "wallMs": 102.10000000149012,
       "initializationMs": 22,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6911,13 +7032,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 36896.215512,
-          "rssBytes": 1169555456,
-          "pssBytes": 449381376,
+          "atMs": 39349.045132,
+          "rssBytes": 1176027136,
+          "pssBytes": 457595904,
           "processes": 11
         },
-        "peakRssBytes": 1180028928,
-        "peakPssBytes": 459854848,
+        "peakRssBytes": 1186877440,
+        "peakPssBytes": 468446208,
         "maxProcesses": 11
       }
     },
@@ -6931,13 +7052,14 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 4761021,
-      "elapsedMs": 1000.1999999992549,
+      "operations": 4768590,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1000.4000000003725,
-      "initializationMs": 0,
+      "wallMs": 1002.3999999985099,
+      "initializationMs": 16.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -6950,13 +7072,13 @@
       "sampledRam": {
         "samples": 18,
         "first": {
-          "atMs": 37113.023919,
-          "rssBytes": 1179934720,
-          "pssBytes": 459760640,
+          "atMs": 39567.542345,
+          "rssBytes": 1186783232,
+          "pssBytes": 468352000,
           "processes": 11
         },
-        "peakRssBytes": 1180090368,
-        "peakPssBytes": 459916288,
+        "peakRssBytes": 1186783232,
+        "peakPssBytes": 468352000,
         "maxProcesses": 11
       }
     },
@@ -6982,12 +7104,13 @@
       ],
       "remaining": "1",
       "operations": 5597,
-      "elapsedMs": 189,
+      "elapsedMs": 189.2000000011176,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 190.19999999925494,
-      "initializationMs": 48.30000000074506,
+      "wallMs": 190.5,
+      "initializationMs": 48.5,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7006,13 +7129,13 @@
       "sampledRam": {
         "samples": 6,
         "first": {
-          "atMs": 38208.851347,
-          "rssBytes": 1180090368,
-          "pssBytes": 459916288,
+          "atMs": 40678.107402,
+          "rssBytes": 1181556736,
+          "pssBytes": 463125504,
           "processes": 11
         },
-        "peakRssBytes": 1180090368,
-        "peakPssBytes": 459916288,
+        "peakRssBytes": 1181556736,
+        "peakPssBytes": 463125504,
         "maxProcesses": 11
       }
     },
@@ -7038,12 +7161,13 @@
       ],
       "remaining": "1",
       "operations": 11537,
-      "elapsedMs": 387.59999999962747,
+      "elapsedMs": 410.90000000037253,
       "status": "complete",
       "reason": null,
       "primality": "composite",
-      "wallMs": 388.09999999962747,
-      "initializationMs": 0,
+      "wallMs": 412.2999999988824,
+      "initializationMs": 53.80000000074506,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7060,15 +7184,15 @@
         }
       },
       "sampledRam": {
-        "samples": 9,
+        "samples": 10,
         "first": {
-          "atMs": 38500.850088,
-          "rssBytes": 1169104896,
-          "pssBytes": 448918528,
+          "atMs": 40966.429188,
+          "rssBytes": 1172860928,
+          "pssBytes": 454420480,
           "processes": 11
         },
-        "peakRssBytes": 1169608704,
-        "peakPssBytes": 449364992,
+        "peakRssBytes": 1173467136,
+        "peakPssBytes": 454962176,
         "maxProcesses": 11
       }
     },
@@ -7082,13 +7206,14 @@
       "input": "3894222643523935227381163886950903",
       "factors": [],
       "remaining": "3894222643523935227381163886950903",
-      "operations": 4799875,
-      "elapsedMs": 1001.0999999996275,
+      "operations": 4759907,
+      "elapsedMs": 1001,
       "status": "incomplete",
       "reason": "time-budget",
       "primality": "composite",
-      "wallMs": 1001.9000000003725,
-      "initializationMs": 22.199999999254942,
+      "wallMs": 1002.4000000003725,
+      "initializationMs": 16.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 21185260,
@@ -7099,15 +7224,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 19,
+        "samples": 18,
         "first": {
-          "atMs": 38976.292468,
-          "rssBytes": 1169608704,
-          "pssBytes": 449364992,
+          "atMs": 41536.993351,
+          "rssBytes": 1173467136,
+          "pssBytes": 454962176,
           "processes": 11
         },
-        "peakRssBytes": 1180397568,
-        "peakPssBytes": 460153856,
+        "peakRssBytes": 1183944704,
+        "peakPssBytes": 465439744,
         "maxProcesses": 11
       }
     },
@@ -7122,31 +7247,32 @@
       "factors": [],
       "remaining": "170141184651457515954971925837695231738188740089",
       "operations": 193,
-      "elapsedMs": 0.2000000011175871,
+      "elapsedMs": 0.5,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.5,
-      "initializationMs": 0,
+      "wallMs": 1.599999999627471,
+      "initializationMs": 21.700000001117587,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
-        "peakBytes": 21185260,
-        "phaseMask": 14,
-        "allocations": 12,
-        "reason": 2,
+        "peakBytes": 0,
+        "phaseMask": 0,
+        "allocations": 0,
+        "reason": 0,
         "line": 0,
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 40137.722642,
-          "rssBytes": 1180397568,
-          "pssBytes": 460153856,
+          "atMs": 42635.341576,
+          "rssBytes": 1183944704,
+          "pssBytes": 465439744,
           "processes": 11
         },
-        "peakRssBytes": 1180413952,
-        "peakPssBytes": 460170240,
+        "peakRssBytes": 1183944704,
+        "peakPssBytes": 465439744,
         "maxProcesses": 11
       }
     },
@@ -7172,12 +7298,13 @@
       ],
       "remaining": "1",
       "operations": 1678,
-      "elapsedMs": 29.300000000745058,
+      "elapsedMs": 29,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 30.40000000037253,
-      "initializationMs": 48.90000000037253,
+      "wallMs": 30.200000001117587,
+      "initializationMs": 48.19999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7196,13 +7323,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 40216.754916,
-          "rssBytes": 1180413952,
-          "pssBytes": 460170240,
+          "atMs": 42777.559514,
+          "rssBytes": 1165836288,
+          "pssBytes": 447331328,
           "processes": 11
         },
-        "peakRssBytes": 1180413952,
-        "peakPssBytes": 460170240,
+        "peakRssBytes": 1176354816,
+        "peakPssBytes": 457849856,
         "maxProcesses": 11
       }
     },
@@ -7228,12 +7355,13 @@
       ],
       "remaining": "1",
       "operations": 2326,
-      "elapsedMs": 42.19999999925494,
+      "elapsedMs": 55.40000000037253,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 42.80000000074506,
-      "initializationMs": 0,
+      "wallMs": 56.40000000037253,
+      "initializationMs": 48,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7250,15 +7378,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 40363.769568,
-          "rssBytes": 1171275776,
-          "pssBytes": 451032064,
+          "atMs": 42919.520453,
+          "rssBytes": 1173512192,
+          "pssBytes": 455007232,
           "processes": 11
         },
-        "peakRssBytes": 1171337216,
-        "peakPssBytes": 451093504,
+        "peakRssBytes": 1173573632,
+        "peakPssBytes": 455068672,
         "maxProcesses": 11
       }
     },
@@ -7277,8 +7405,9 @@
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.300000000745058,
-      "initializationMs": 22.299999998882413,
+      "wallMs": 1.599999999627471,
+      "initializationMs": 16.699999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7291,13 +7420,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 40515.670519,
-          "rssBytes": 1171337216,
-          "pssBytes": 451093504,
+          "atMs": 43133.62306,
+          "rssBytes": 1173573632,
+          "pssBytes": 455068672,
           "processes": 11
         },
-        "peakRssBytes": 1171337216,
-        "peakPssBytes": 451093504,
+        "peakRssBytes": 1173573632,
+        "peakPssBytes": 455068672,
         "maxProcesses": 11
       }
     },
@@ -7312,12 +7441,13 @@
       "factors": [],
       "remaining": "170141184651457515954971925837695231738188740089",
       "operations": 193,
-      "elapsedMs": 0.09999999962747097,
+      "elapsedMs": 0.3999999985098839,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.5,
-      "initializationMs": 0,
+      "wallMs": 1.299999998882413,
+      "initializationMs": 22.300000000745058,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7330,13 +7460,13 @@
       "sampledRam": {
         "samples": 3,
         "first": {
-          "atMs": 40668.193969,
-          "rssBytes": 1164738560,
-          "pssBytes": 444494848,
+          "atMs": 43268.401102,
+          "rssBytes": 1166786560,
+          "pssBytes": 448281600,
           "processes": 11
         },
-        "peakRssBytes": 1164742656,
-        "peakPssBytes": 444498944,
+        "peakRssBytes": 1166786560,
+        "peakPssBytes": 448281600,
         "maxProcesses": 11
       }
     },
@@ -7362,12 +7492,13 @@
       ],
       "remaining": "1",
       "operations": 1678,
-      "elapsedMs": 29.799999998882413,
+      "elapsedMs": 29.199999999254942,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 30.799999998882413,
-      "initializationMs": 79.80000000074506,
+      "wallMs": 30.09999999962747,
+      "initializationMs": 48.20000000111759,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7386,13 +7517,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 40742.106345,
-          "rssBytes": 1164742656,
-          "pssBytes": 444498944,
+          "atMs": 43349.802067,
+          "rssBytes": 1166159872,
+          "pssBytes": 447654912,
           "processes": 11
         },
-        "peakRssBytes": 1171906560,
-        "peakPssBytes": 451662848,
+        "peakRssBytes": 1174474752,
+        "peakPssBytes": 455969792,
         "maxProcesses": 11
       }
     },
@@ -7418,12 +7549,13 @@
       ],
       "remaining": "1",
       "operations": 2326,
-      "elapsedMs": 41.69999999925494,
+      "elapsedMs": 56.90000000037253,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 42.09999999962747,
-      "initializationMs": 0,
+      "wallMs": 58,
+      "initializationMs": 48.09999999962747,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7442,13 +7574,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 40968.426172,
-          "rssBytes": 1171644416,
-          "pssBytes": 451400704,
+          "atMs": 43560.136076,
+          "rssBytes": 1174425600,
+          "pssBytes": 455920640,
           "processes": 11
         },
-        "peakRssBytes": 1171697664,
-        "peakPssBytes": 451453952,
+        "peakRssBytes": 1176743936,
+        "peakPssBytes": 458238976,
         "maxProcesses": 11
       }
     },
@@ -7463,12 +7595,13 @@
       "factors": [],
       "remaining": "170141184651457515954971925837695231738188740089",
       "operations": 193,
-      "elapsedMs": 0.599999999627471,
+      "elapsedMs": 0.40000000037252903,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.699999999254942,
-      "initializationMs": 16.90000000037253,
+      "wallMs": 1.800000000745058,
+      "initializationMs": 21.90000000037253,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7481,13 +7614,13 @@
       "sampledRam": {
         "samples": 4,
         "first": {
-          "atMs": 41110.143827,
-          "rssBytes": 1171697664,
-          "pssBytes": 451453952,
+          "atMs": 43720.795706,
+          "rssBytes": 1175179264,
+          "pssBytes": 456674304,
           "processes": 11
         },
-        "peakRssBytes": 1171697664,
-        "peakPssBytes": 451453952,
+        "peakRssBytes": 1175179264,
+        "peakPssBytes": 456674304,
         "maxProcesses": 11
       }
     },
@@ -7502,12 +7635,13 @@
       "factors": [],
       "remaining": "170141183467104737886645603753419910571919480123353",
       "operations": 203,
-      "elapsedMs": 0.2000000011175871,
+      "elapsedMs": 0.3999999985098839,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.40000000037252903,
-      "initializationMs": 0,
+      "wallMs": 1.400000000372529,
+      "initializationMs": 16.799999998882413,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7518,15 +7652,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 41228.515288,
-          "rssBytes": 1165058048,
-          "pssBytes": 444814336,
+          "atMs": 43865.857744,
+          "rssBytes": 1168429056,
+          "pssBytes": 449883136,
           "processes": 11
         },
-        "peakRssBytes": 1165062144,
-        "peakPssBytes": 444818432,
+        "peakRssBytes": 1168429056,
+        "peakPssBytes": 449883136,
         "maxProcesses": 11
       }
     },
@@ -7552,12 +7686,13 @@
       ],
       "remaining": "1",
       "operations": 2748,
-      "elapsedMs": 91.40000000037253,
+      "elapsedMs": 93.90000000037253,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 92.69999999925494,
-      "initializationMs": 48.40000000037253,
+      "wallMs": 95.09999999962747,
+      "initializationMs": 48.19999999925494,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7576,13 +7711,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 41325.160357,
-          "rssBytes": 1165062144,
-          "pssBytes": 444818432,
+          "atMs": 43983.326293,
+          "rssBytes": 1167937536,
+          "pssBytes": 449391616,
           "processes": 11
         },
-        "peakRssBytes": 1173729280,
-        "peakPssBytes": 453485568,
+        "peakRssBytes": 1168084992,
+        "peakPssBytes": 449539072,
         "maxProcesses": 11
       }
     },
@@ -7608,12 +7743,13 @@
       ],
       "remaining": "1",
       "operations": 2088,
-      "elapsedMs": 37.399999998509884,
+      "elapsedMs": 52,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 37.90000000037253,
-      "initializationMs": 0,
+      "wallMs": 53.29999999888241,
+      "initializationMs": 48.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7630,15 +7766,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 41536.197989,
-          "rssBytes": 1173729280,
-          "pssBytes": 453485568,
+          "atMs": 44218.375392,
+          "rssBytes": 1168084992,
+          "pssBytes": 449539072,
           "processes": 11
         },
-        "peakRssBytes": 1173770240,
-        "peakPssBytes": 453526528,
+        "peakRssBytes": 1170284544,
+        "peakPssBytes": 451738624,
         "maxProcesses": 11
       }
     },
@@ -7658,7 +7794,8 @@
       "reason": "algorithm-range",
       "primality": "composite",
       "wallMs": 1.5,
-      "initializationMs": 16.699999999254942,
+      "initializationMs": 22.699999999254942,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7669,15 +7806,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 3,
         "first": {
-          "atMs": 41675.270344,
-          "rssBytes": 1173770240,
-          "pssBytes": 453526528,
+          "atMs": 44412.342808,
+          "rssBytes": 1170284544,
+          "pssBytes": 451738624,
           "processes": 11
         },
-        "peakRssBytes": 1173770240,
-        "peakPssBytes": 453526528,
+        "peakRssBytes": 1170284544,
+        "peakPssBytes": 451738624,
         "maxProcesses": 11
       }
     },
@@ -7692,12 +7829,13 @@
       "factors": [],
       "remaining": "170141183467104737886645603753419910571919480123353",
       "operations": 203,
-      "elapsedMs": 0.09999999962747097,
+      "elapsedMs": 0.5,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 0.40000000037252903,
-      "initializationMs": 0,
+      "wallMs": 1.800000000745058,
+      "initializationMs": 16.799999998882413,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7708,15 +7846,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 3,
+        "samples": 4,
         "first": {
-          "atMs": 41806.551902,
-          "rssBytes": 1166962688,
-          "pssBytes": 446718976,
+          "atMs": 44506.289268,
+          "rssBytes": 1163624448,
+          "pssBytes": 445078528,
           "processes": 11
         },
-        "peakRssBytes": 1166966784,
-        "peakPssBytes": 446723072,
+        "peakRssBytes": 1163624448,
+        "peakPssBytes": 445078528,
         "maxProcesses": 11
       }
     },
@@ -7742,12 +7880,13 @@
       ],
       "remaining": "1",
       "operations": 2748,
-      "elapsedMs": 102.30000000074506,
+      "elapsedMs": 91.90000000037253,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 104.5,
-      "initializationMs": 58.79999999888241,
+      "wallMs": 93.29999999888241,
+      "initializationMs": 48,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7766,13 +7905,13 @@
       "sampledRam": {
         "samples": 5,
         "first": {
-          "atMs": 41906.04267,
-          "rssBytes": 1166966784,
-          "pssBytes": 446723072,
+          "atMs": 44635.728112,
+          "rssBytes": 1163145216,
+          "pssBytes": 444599296,
           "processes": 11
         },
-        "peakRssBytes": 1176821760,
-        "peakPssBytes": 456578048,
+        "peakRssBytes": 1172901888,
+        "peakPssBytes": 454355968,
         "maxProcesses": 11
       }
     },
@@ -7798,12 +7937,13 @@
       ],
       "remaining": "1",
       "operations": 2088,
-      "elapsedMs": 37.59999999962747,
+      "elapsedMs": 52.29999999888241,
       "status": "probable",
       "reason": null,
       "primality": "composite",
-      "wallMs": 38,
-      "initializationMs": 0,
+      "wallMs": 53.59999999962747,
+      "initializationMs": 48.40000000037253,
+      "freshPerTrial": true,
       "audit": {
         "mask": 16374,
         "point": 13,
@@ -7820,15 +7960,15 @@
         }
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 5,
         "first": {
-          "atMs": 42142.934795,
-          "rssBytes": 1173991424,
-          "pssBytes": 453747712,
+          "atMs": 44868.269712,
+          "rssBytes": 1172197376,
+          "pssBytes": 453651456,
           "processes": 11
         },
-        "peakRssBytes": 1173999616,
-        "peakPssBytes": 453755904,
+        "peakRssBytes": 1172934656,
+        "peakPssBytes": 454388736,
         "maxProcesses": 11
       }
     },
@@ -7843,12 +7983,13 @@
       "factors": [],
       "remaining": "170141183467104737886645603753419910571919480123353",
       "operations": 203,
-      "elapsedMs": 0.5,
+      "elapsedMs": 0.599999999627471,
       "status": "incomplete",
       "reason": "algorithm-range",
       "primality": "composite",
-      "wallMs": 1.700000001117587,
-      "initializationMs": 16.699999999254942,
+      "wallMs": 1.400000000372529,
+      "initializationMs": 21.799999998882413,
+      "freshPerTrial": true,
       "audit": {
         "liveBytes": 0,
         "peakBytes": 0,
@@ -7859,15 +8000,15 @@
         "poisoned": false
       },
       "sampledRam": {
-        "samples": 4,
+        "samples": 3,
         "first": {
-          "atMs": 42282.23125,
-          "rssBytes": 1173999616,
-          "pssBytes": 453755904,
+          "atMs": 45067.239426,
+          "rssBytes": 1172934656,
+          "pssBytes": 454388736,
           "processes": 11
         },
-        "peakRssBytes": 1173999616,
-        "peakPssBytes": 453755904,
+        "peakRssBytes": 1172934656,
+        "peakPssBytes": 454388736,
         "maxProcesses": 11
       }
     }
@@ -7877,8 +8018,8 @@
     "networkRequests": 0,
     "httpRequests": 0,
     "badEvents": 0,
-    "localBlobEvents": 84,
-    "observedWorkerSessions": 85,
+    "localBlobEvents": 152,
+    "observedWorkerSessions": 153,
     "workerOfflineEmulation": "unsupported by Worker target; page offline plus stopped asset server",
     "assetServerStoppedDuringOffline": true,
     "cacheDisabled": true,
@@ -7889,9 +8030,9 @@
     "cancelledAndRestartedOffline": true
   },
   "cancelled": {
-    "wallMs": 33.59999999962747,
-    "cancelMs": 55,
-    "heartbeat": 17,
+    "wallMs": 32.40000000037253,
+    "cancelMs": 54.09999999962747,
+    "heartbeat": 16,
     "remaining": "3894222643488354664636594044948941"
   },
   "detectorSelfTest": {

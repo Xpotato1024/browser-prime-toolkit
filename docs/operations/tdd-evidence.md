@@ -88,3 +88,7 @@ SIQS native ASan/UBSanは6段階停止、代表成功jobの全2528割当地点�
 ECM native は10候補中9地点の実stage2停止、出口・ecm_clear後、次jobの回復を確認しました。
 未到達point3を検証済みとは扱いません。以前の400 cutoff停止も通過しています。
 GMP OOMへlongjmp回復は行いません。実browserではfatal時のWorker破棄と明示再初期化を検証します。
+
+最終レビューで初期化集計に再利用時のほぼ0msが34/68件ずつ混ざる問題を検出しました。
+比較だけは各試行の旧Workerを必ずdisposeしてfresh生成する契約へ修正し、136試行を再測定しました。
+報告checkは全比較行のfreshPerTrial=trueを要求し、初期化の過少計上とseed別の生成状態の混在を解消します。
