@@ -11,6 +11,6 @@ RSA-100未満に公式challengeはない。12/16/20/24/28/32桁から始め、�
 
 入力生成はPythonの独立処理で行い、p/qは64bit未満のdeterministic MR証明可能な素数、互いに異なり、bit長差1以内・比率2以内の均衡半素数とする。積の十進桁を固定し、同じ素数の再利用を避ける。生成因数/証明/生成seedはoracleだけへ保存し、browserへ渡すcatalog/JSにはid/input/digits/bitsだけを載せる。engine/Workerはoracleをimport/fetchせず、asset取得後server停止/offline、source検査とネットワーク監査で分離を確かめる。RSA公式値は加工せず別source identityを保持する。
 
-生成時の素数証明、engineのproven/probable/partial、積/余因子検算を独立に区別する。終了後CLIだけがoracleと照合し、既知因数を探索へ注入しない。方式・端末・Chrome・Worker・初期化込み時間・全試行/停止理由・成功率・中央値/範囲・source/raw hashを保存する。異なる桁の一つの易しい入力だけで実用域を宣言しない。小標本の実測範囲として報告し、公式RSAの能力と混同しない。
+生成時の素数証明、engineのproven/probable/partial、積/余因子検算を独立に区別する。終了後CLIだけがoracleと照合し、既知因数を探索へ注入しない。方式・端末・Chrome・Worker・初期化込み時間・全試行/停止理由・成功率・中央値/範囲・source/raw hashを保存する。初回計測前にcatalog/oracle/generatorのhashを固定し、成績による入力差替えを禁止する。成功率は固定input×seed組を分母に予算別集計し、retry行を独立標本として混ぜない。成功時間の中央値/範囲にtimeoutを含めない。異なる桁の一つの易しい入力だけで実用域を宣言しない。小標本の実測範囲として報告し、公式RSAの能力と混同しない。
 
 新profileのTDD・最終head検証・read-only独立レビュー・同head CIを揃え、別のprivate Draftへ返す。公開、Ready、merge、deploy、site統合、資格情報/権限変更は含まない。

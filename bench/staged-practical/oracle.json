@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "notRuntimeAsset": true,
+  "cases": [
+    {
+      "id": "balanced-12-1",
+      "p": "597539",
+      "q": "642937",
+      "generatorSeed": "private-practical-20261019-v1/12/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-12-2",
+      "p": "622399",
+      "q": "760939",
+      "generatorSeed": "private-practical-20261019-v1/12/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-14-1",
+      "p": "6798607",
+      "q": "7433219",
+      "generatorSeed": "private-practical-20261019-v1/14/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-14-2",
+      "p": "4555631",
+      "q": "4594657",
+      "generatorSeed": "private-practical-20261019-v1/14/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-16-1",
+      "p": "69299117",
+      "q": "97776233",
+      "generatorSeed": "private-practical-20261019-v1/16/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-16-2",
+      "p": "47174377",
+      "q": "48359789",
+      "generatorSeed": "private-practical-20261019-v1/16/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-18-1",
+      "p": "421222871",
+      "q": "716312953",
+      "generatorSeed": "private-practical-20261019-v1/18/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-18-2",
+      "p": "578805701",
+      "q": "905121223",
+      "generatorSeed": "private-practical-20261019-v1/18/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-20-1",
+      "p": "7784007701",
+      "q": "9915425683",
+      "generatorSeed": "private-practical-20261019-v1/20/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-20-2",
+      "p": "4749704287",
+      "q": "5995470913",
+      "generatorSeed": "private-practical-20261019-v1/20/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-22-1",
+      "p": "58495936441",
+      "q": "61470065311",
+      "generatorSeed": "private-practical-20261019-v1/22/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-22-2",
+      "p": "56726667479",
+      "q": "81492868943",
+      "generatorSeed": "private-practical-20261019-v1/22/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-24-1",
+      "p": "687461958923",
+      "q": "767229128311",
+      "generatorSeed": "private-practical-20261019-v1/24/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-24-2",
+      "p": "403767694963",
+      "q": "783762775343",
+      "generatorSeed": "private-practical-20261019-v1/24/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-26-1",
+      "p": "6463186602709",
+      "q": "7489246317433",
+      "generatorSeed": "private-practical-20261019-v1/26/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-26-2",
+      "p": "4202216648243",
+      "q": "7619070135121",
+      "generatorSeed": "private-practical-20261019-v1/26/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-28-1",
+      "p": "68950632335687",
+      "q": "77966261697067",
+      "generatorSeed": "private-practical-20261019-v1/28/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-28-2",
+      "p": "90715583167507",
+      "q": "92526498484957",
+      "generatorSeed": "private-practical-20261019-v1/28/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-30-1",
+      "p": "369468064756669",
+      "q": "597781262839091",
+      "generatorSeed": "private-practical-20261019-v1/30/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-30-2",
+      "p": "867416977041841",
+      "q": "966745822561847",
+      "generatorSeed": "private-practical-20261019-v1/30/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-32-1",
+      "p": "5197428279793291",
+      "q": "6844078266056593",
+      "generatorSeed": "private-practical-20261019-v1/32/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-32-2",
+      "p": "3190183960752977",
+      "q": "4410836776531879",
+      "generatorSeed": "private-practical-20261019-v1/32/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-34-1",
+      "p": "42345718125757909",
+      "q": "80599206957010337",
+      "generatorSeed": "private-practical-20261019-v1/34/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-34-2",
+      "p": "60505064958285349",
+      "q": "83388562511852327",
+      "generatorSeed": "private-practical-20261019-v1/34/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-36-1",
+      "p": "422550916899084601",
+      "q": "638707187364541927",
+      "generatorSeed": "private-practical-20261019-v1/36/1",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    },
+    {
+      "id": "balanced-36-2",
+      "p": "880374316163551969",
+      "q": "890088812122033313",
+      "generatorSeed": "private-practical-20261019-v1/36/2",
+      "proof": {
+        "type": "deterministic-MR64",
+        "bases": [
+          2,
+          325,
+          9375,
+          28178,
+          450775,
+          9780504,
+          1795265022
+        ],
+        "maximumExclusive": "18446744073709551616"
+      }
+    }
+  ]
+}
