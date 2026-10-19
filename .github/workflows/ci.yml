@@ -74,3 +74,25 @@ jobs:
       - run: node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"
         env:
           CHROME_BIN: google-chrome
+  counted-siqs-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/build-siqs-v2.mjs --check
+      - run: node scripts/build-siqs-v2.mjs --lanczos --check
+      - run: node scripts/build-siqs-v2.mjs --native
+      - run: node scripts/build-siqs-v2.mjs --lanczos --native
+      - run: npm test
+      - run: node scripts/check-counted.mjs
+      - run: node scripts/run-counted-matrix.mjs --lifecycle
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check

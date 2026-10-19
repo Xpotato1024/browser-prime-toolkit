@@ -30,3 +30,10 @@ seed1（holdout23）、計算枠1000/10000ms、総50M、4variantを各1回（40�
 取消・host期限・0/小操作枠・phase停止・fatal回復とASan/UBSanをTDDで確認する。
 最終headの全tests/check・CI・独立reviewを終え、新Draft PRで返す。
 公開licenseは未回答。UI/site/CSP/公開配布/Ready/merge/deployは変更しない。
+
+実装時の明確化: 試行2回は初回込み、反復4096回は余因子splitを含む同一Budgetのjob全体で共有する。
+C/Dは短いphase末尾importでも時計を確認し、次の64件に未確認分を持ち越さない。
+診断hashは全relation recordではなく、num_factors/fb_offsets・cycle index順序とparity列を対象にする。
+sieve_offset/poly_idx/large_primeやfactor-base prime値自体の同一性はこのhashだけでは立証しない。
+診断descriptor用のstatic 5,000,000 bytesとparity 131,072 bytesも固定64MiB内に収める。
+診断captureと追加時計samplingは主40計算から分離し、固定5入力×4variantの20診断、4variantの取消・回復検査を追加する。
