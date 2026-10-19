@@ -36,6 +36,8 @@ const summary={
  largestObservedSuccess:successes.length?official.id:null,
  requestWallMs:{median:times[2],min:times[0],max:times.at(-1)},
  successfulRequestWallMs:successes.length?successes.map(v=>v.requestWallMs):null,stopCounts,
+ checkpoints:{min:Math.min(...values.map(v=>v.snapshot?.operations??0)),max:Math.max(...values.map(v=>v.snapshot?.operations??0)),allPastLegacyCap:values.every(v=>(v.snapshot?.operations??0)>50000000)},
+ factorsFound:values.reduce((n,v)=>n+(v.snapshot?.factors.length??0),0),
  integrity:{knownFactorsUsed:false,allProductsReconstructed:values.every(v=>!!(v.result||v.snapshot)),allWorkersDisposed:true,postAssetNetworkRequests:0,
   factorCertainties:[...new Set(values.flatMap(v=>(v.result?.factors??v.snapshot?.factors??[]).map(f=>f.certainty)))]},
  sampledRam:{peakRssBytes:Math.max(...raws.map(r=>r.sampledRam.peakRssBytes)),peakPssBytes:Math.max(...raws.map(r=>r.sampledRam.peakPssBytes)),
