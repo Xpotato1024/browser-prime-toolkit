@@ -32,3 +32,16 @@ CHROME_BIN=google-chrome npm run benchmark:candidates -- --out /tmp/prime-candid
 詳しい原本・条文・隔離build・再リンクの配布境界は[原本評価](../architecture/gmp-ecm-source-review.md)を参照してください。
 通常bundleと候補bundleは共通protocol・controllerを使い、候補の追加をwireから受け付けません。
 CIの原本取得後のコンパイルは通信禁止です。CIの権限はcontents:readのみを維持しています。
+
+有界SIQSの評価用build/browser検証は以下です。RAM標本化はLinuxのprocを使います。
+
+```sh
+npm run build:siqs -- --check
+npm run verify:siqs-native
+CHROME_BIN=google-chrome npm run verify:siqs-browser -- --out /tmp/prime-siqs.json
+CHROME_BIN=google-chrome npm run benchmark:siqs -- --out /tmp/prime-siqs-full.json
+node scripts/report-siqs.mjs --check
+```
+
+比較用100/1000ms枠と、正常なSIQS分解のoffline smoke用10秒枠は別です。
+報告scriptは保存したrawと測定source/build hashを照合し、変更後の再測定なしに表だけ更新しません。

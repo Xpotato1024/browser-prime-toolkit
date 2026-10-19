@@ -20,3 +20,6 @@ Worker は一度に1件とし、要求・応答に job ID と提出時入力を�
 既存 xpotato-site の現行ツールプロファイルは Worker / WASM / clipboard を許可していません。
 この独立ツールを組み込むには、別途 capability / CSP の設計審査が必要です。
 本リポジトリの作業で既存サイトの設定や PR110 は変更しません。
+
+PR5は[有界SIQSの最小実行](bounded-siqs-source-review.md)とECM actual-stage2停止・fatal退役を別bundleで評価します。
+[比較結果](../benchmarks/llm01-bounded-siqs.md)ではSIQSの性能上の未完了と、線形上限とは別のChrome全体RAMを記録します。

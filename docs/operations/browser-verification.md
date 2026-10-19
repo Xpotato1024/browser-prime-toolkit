@@ -27,3 +27,15 @@ C内部の協調中断・解放はnative ASan/UBSanで200回の中断と次job�
 WorkerのCSP eventも固定source内のaudit通知でhostへ送り、計算を停止します。
 測定後はproduction Worker sourceに試験用blocked fetchだけを追記した別Workerでauditを正検出します。
 同じcontrollerの監査経路は単体テストでも確認します。CSPで阻止されたfetchがCDP Networkに出ない場合も検出対象です。
+
+## PR5 の有界SIQSとECM追加検証
+verify:siqs-browser は別harnessで両候補を切り替え、同時所有Workerを1つに制限します。
+実stage2の正常停止に加え、固定factoryからtrap/GMP OOM/ECM直接OOMを注入し、
+poison、controller error、terminate、古い世代の無視、明示restart後のexact分解を確認します。
+このtrusted診断modeはwire optionsに含めません。
+
+benchmark:siqs は固定17問・2方式・100/1000ms・seed1/11の136試行を交互順に測定します。
+初期化を別記録し、範囲外・共通平方前処理とSIQS本体の成功を区別します。
+Linuxでは専用Chromeの全taskのchildrenからprocess treeを標本化し、RSS/PSSを合計します。
+目標25msの標本は瞬間peakの保証ではありません。RSS共有重複、PSS、GC待ち、
+WASM hard cap、管理heapとその実測peakを分けます。詳細は[実測](../benchmarks/llm01-bounded-siqs.md)を参照してください。
