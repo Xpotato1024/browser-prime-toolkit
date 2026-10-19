@@ -1,5 +1,5 @@
 # Engine候補を絞る判断と公開前の境界
-状態: PR6の非公開設計候補。根拠はPR3〜5の固定測定で、公開承認ではありません。
+状態: PR7で追補した非公開設計候補。PR3〜7の固定測定に基づき、公開採用は未承認です。
 
 ## 候補と採否
 | 方式 | 提案 | 根拠・制約 |
@@ -8,12 +8,12 @@
 | GMP/ECM | 大きい入力の第一候補 | PR5のfresh比較で13桁8/8・96bit4/4、112bitは2/4。32曲線/B1=2000/B2=200000の有限探索 |
 | 限定MPQS | 明示選択の補助候補 | PR3の11〜13桁群は速いが10桁群は20多項式上限で6/12。48〜85bit残余限定、balanced性は入力から判定不能 |
 | GMP Brent | 自動選択から除外 | PR4でnativeより改善せず、WASM初期化と混在licenseの負担を追加する根拠がない |
-| 有界SIQS | 継続評価中・製品採用は未決 | PR5の一般半素数は1秒完了0だが10秒smokeは成功。現実装は独自dense GF(2)で上流Lanczosを使わず、方式全体の性能判断には不足 |
+| 有界SIQS | 継続評価中・製品採用は未決 | PR7の固定一般/holdout5問は10秒枠で全完了、request約1.57〜2.55秒。独自dense GF(2)で上流Lanczosは未使用。1秒失敗だけでの見送りを訂正 |
 | GNFS/CADO | 短期採用を見送る | 多段relation/matrix・再開・資源・browser portを要し、今回の根拠がない。browser不可能という判断ではない |
 
 [MPQS/並列](../benchmarks/llm01-wasm-mpqs.md)、[Brent/ECM](../benchmarks/llm01-gmp-ecm.md)、
 [SIQS/fatal/RAM](../benchmarks/llm01-bounded-siqs.md)を履歴として参照します。
-異なるrunの中央値を同時比較のspeedupへ変換しません。既知入力を再測定して結論を強めません。
+異なるrunの中央値を同時比較のspeedupへ変換しません。条件を変えた再測定はADR0007に明示し、少数固定問を新たな一般性能保証へ外挿しません。
 
 ## 小さなselectorの意味
 [ADR0006](../adr/0006-conservative-engine-selection.md)を先に固定しました。
@@ -39,7 +39,8 @@ selectEnginePlanは正規化した入力全体が2^64未満（64bit以下）な�
   nativeのJS heap/browser RAMが0という意味ではなく、JS heapのhard上限は提供しません。
 - 2 Workerは既存の明示的portfolio実験だけです。ECMの線形合計128MiB、総操作枠分配と全lane破棄が必要です。
   PR4では一部で計算時間が短くなりましたが、初期化・待機再生成・全体RAMを含む製品上の優位は未証明です。
-  2本の実測peak RAM/mobileがないため、hardwareConcurrencyで自動的に2本へ増やしません。
+  PR7はfresh Chromeで2本のPSS/RSSも測定しました。成功数は両構成7/10で、2本が一律に速い結果ではありません。
+  mobileは未測定で、自動的に2本へ増やす製品判断はしていません。
 - PR5の1本所有でもChrome process-tree標本PSS517.82MiB（ready後初期406.48MiB）でした。
   shared RSS重複、終了済みWorkerのGCを含みます。線形64MiBをアプリ全体RAM保証にはしません。
 

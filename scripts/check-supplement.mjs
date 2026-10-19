@@ -16,4 +16,12 @@ for(const name of ['prepare-supplement','prepare-supplement-binding','prepare-si
  const p=spawnSync(process.execPath,['scripts/'+name+'.mjs','--check'],{cwd:root,encoding:'utf8'});
  assert.equal(p.status,0,p.stderr);
 }
-console.log('Verified supplementary source pins, artifact and read-only generated checks');
+const denied=()=>{throw Error('Unexpected verification I/O');};
+const instance=await WebAssembly.instantiate(module,{
+ env:{budget_tick:()=>0,__syscall_unlinkat:denied},
+ wasi_snapshot_preview1:{fd_write:denied,fd_close:denied,fd_seek:denied,fd_read:denied,proc_exit:denied,clock_time_get:()=>28}
+});
+instance.exports._initialize?.();
+assert.equal(instance.exports.memory.buffer.byteLength,67108864);
+assert.throws(()=>instance.exports.memory.grow(1),RangeError);
+console.log('Verified supplementary source pins, artifact, actual 64MiB hard maximum and read-only generated checks');

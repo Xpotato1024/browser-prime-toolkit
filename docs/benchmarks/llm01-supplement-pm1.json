@@ -1,0 +1,2070 @@
+{
+  "mode": "pm1",
+  "measuredHead": "a021c0590dfb77a425f61773f7d57960221b94e7",
+  "measuredAt": "2026-10-19T07:10:44.354Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "coldReadyMs": 123.74547600000005,
+  "initialAssets": [
+    {
+      "path": "/bench/evaluation.html",
+      "bytes": 147,
+      "sha256": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4"
+    },
+    {
+      "path": "/bench/evaluation.js",
+      "bytes": 1180,
+      "sha256": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388"
+    },
+    {
+      "path": "/src/worker/evaluation-factory.js",
+      "bytes": 1079,
+      "sha256": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3"
+    },
+    {
+      "path": "/src/worker/siqs-factory.js",
+      "bytes": 227,
+      "sha256": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9"
+    },
+    {
+      "path": "/bench/evaluation-runner.js",
+      "bytes": 4703,
+      "sha256": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288"
+    },
+    {
+      "path": "/src/worker/siqs-worker-source.js",
+      "bytes": 139519,
+      "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/worker/supplement-source.js",
+      "bytes": 628674,
+      "sha256": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e"
+    },
+    {
+      "path": "/src/worker/siqs-profile-source.js",
+      "bytes": 139905,
+      "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+    },
+    {
+      "path": "/src/worker/controller.js",
+      "bytes": 5433,
+      "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/worker/factory.js",
+      "bytes": 225,
+      "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/worker/worker-source.js",
+      "bytes": 106532,
+      "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/benchmark-supplement.mjs": "118d0e639fa6a9906631b23271e775f0f06620ff544d85e67f6531eb7117abf9",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "native/gmp/supplement-build.json": "0c0a09fa5d6a2f70141fbf7bf711de51d1e607a5e42d3f595f3d982d1123d035",
+    "bench/evaluation.html": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4",
+    "bench/evaluation.js": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388",
+    "src/worker/evaluation-factory.js": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3",
+    "src/worker/siqs-factory.js": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9",
+    "bench/evaluation-runner.js": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288",
+    "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/worker/supplement-source.js": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e",
+    "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+  },
+  "records": [
+    {
+      "case": "pm1-favorable",
+      "input": "1009003027",
+      "expectedFactors": [
+        "1009",
+        "1000003"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1009003027",
+        "factors": [
+          {
+            "value": "1009",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "1000003",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 323,
+        "elapsedMs": 8.800000000745058,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 81.30000000074506,
+        "initializationMs": 67.70000000298023,
+        "computeWallMs": 13.599999997764826,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 1623.288463,
+          "rssBytes": 1202798592,
+          "pssBytes": 410115072,
+          "processes": 12
+        },
+        "peakRssBytes": 1231147008,
+        "peakPssBytes": 433648640,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-favorable",
+      "input": "1009003027",
+      "expectedFactors": [
+        "1009",
+        "1000003"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1009003027",
+        "factors": [
+          {
+            "value": "1009",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "1000003",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 323,
+        "elapsedMs": 6.600000001490116,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 56.899999998509884,
+        "initializationMs": 49,
+        "computeWallMs": 7.899999998509884,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 1796.343849,
+          "rssBytes": 1223544832,
+          "pssBytes": 424195072,
+          "processes": 12
+        },
+        "peakRssBytes": 1233625088,
+        "peakPssBytes": 434275328,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-both-orders",
+      "input": "1022117",
+      "expectedFactors": [
+        "1009",
+        "1013"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1022117",
+        "factors": [],
+        "remaining": "1022117",
+        "operations": 56,
+        "elapsedMs": 6,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 61,
+        "initializationMs": 53.5,
+        "computeWallMs": 7.5,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 1958.523754,
+          "rssBytes": 1226440704,
+          "pssBytes": 426850304,
+          "processes": 12
+        },
+        "peakRssBytes": 1231323136,
+        "peakPssBytes": 431732736,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-both-orders",
+      "input": "1022117",
+      "expectedFactors": [
+        "1009",
+        "1013"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1022117",
+        "factors": [],
+        "remaining": "1022117",
+        "operations": 56,
+        "elapsedMs": 6,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 63.19999999925494,
+        "initializationMs": 56.19999999925494,
+        "computeWallMs": 7,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2172.863065,
+          "rssBytes": 1228087296,
+          "pssBytes": 428496896,
+          "processes": 12
+        },
+        "peakRssBytes": 1229283328,
+        "peakPssBytes": 429696000,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-nonsmooth",
+      "input": "1000042000117",
+      "expectedFactors": [
+        "1000003",
+        "1000039"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1000042000117",
+        "factors": [],
+        "remaining": "1000042000117",
+        "operations": 77,
+        "elapsedMs": 7.300000000745058,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 56.600000001490116,
+        "initializationMs": 48.100000001490116,
+        "computeWallMs": 8.5,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2340.68626,
+          "rssBytes": 1229283328,
+          "pssBytes": 429696000,
+          "processes": 12
+        },
+        "peakRssBytes": 1231101952,
+        "peakPssBytes": 431514624,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-nonsmooth",
+      "input": "1000042000117",
+      "expectedFactors": [
+        "1000003",
+        "1000039"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1000042000117",
+        "factors": [],
+        "remaining": "1000042000117",
+        "operations": 77,
+        "elapsedMs": 6.399999998509884,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 58.30000000074506,
+        "initializationMs": 50.70000000298023,
+        "computeWallMs": 7.599999997764826,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2505.181161,
+          "rssBytes": 1231106048,
+          "pssBytes": 431514624,
+          "processes": 12
+        },
+        "peakRssBytes": 1234010112,
+        "peakPssBytes": 432796672,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-13-0",
+      "input": "3012048473684349413080363",
+      "expectedFactors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "3012048473684349413080363",
+        "factors": [],
+        "remaining": "3012048473684349413080363",
+        "operations": 119,
+        "elapsedMs": 7,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 56.100000001490116,
+        "initializationMs": 48,
+        "computeWallMs": 8.100000001490116,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2670.631961,
+          "rssBytes": 1234010112,
+          "pssBytes": 432796672,
+          "processes": 12
+        },
+        "peakRssBytes": 1234845696,
+        "peakPssBytes": 433632256,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-13-0",
+      "input": "3012048473684349413080363",
+      "expectedFactors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "3012048473684349413080363",
+        "factors": [],
+        "remaining": "3012048473684349413080363",
+        "operations": 119,
+        "elapsedMs": 7.100000001490116,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 55.600000001490116,
+        "initializationMs": 47.5,
+        "computeWallMs": 8.100000001490116,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2826.462278,
+          "rssBytes": 1234849792,
+          "pssBytes": 433636352,
+          "processes": 12
+        },
+        "peakRssBytes": 1246294016,
+        "peakPssBytes": 445080576,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-96bit-0",
+      "input": "59421120273299600154862853921",
+      "expectedFactors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "59421120273299600154862853921",
+        "factors": [],
+        "remaining": "59421120273299600154862853921",
+        "operations": 137,
+        "elapsedMs": 6.900000002235174,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 56.80000000074506,
+        "initializationMs": 48.80000000074506,
+        "computeWallMs": 8,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2980.603398,
+          "rssBytes": 1236246528,
+          "pssBytes": 435033088,
+          "processes": 12
+        },
+        "peakRssBytes": 1247305728,
+        "peakPssBytes": 446092288,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-96bit-0",
+      "input": "59421120273299600154862853921",
+      "expectedFactors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "59421120273299600154862853921",
+        "factors": [],
+        "remaining": "59421120273299600154862853921",
+        "operations": 137,
+        "elapsedMs": 7.199999999254942,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 64.89999999850988,
+        "initializationMs": 56.69999999925494,
+        "computeWallMs": 8.199999999254942,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3132.684922,
+          "rssBytes": 1237381120,
+          "pssBytes": 436167680,
+          "processes": 12
+        },
+        "peakRssBytes": 1250910208,
+        "peakPssBytes": 449696768,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-112bit-0",
+      "input": "3894222643488354664636594044948941",
+      "expectedFactors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "3894222643488354664636594044948941",
+        "factors": [],
+        "remaining": "3894222643488354664636594044948941",
+        "operations": 150,
+        "elapsedMs": 7.199999999254942,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 60.400000002235174,
+        "initializationMs": 52.100000001490116,
+        "computeWallMs": 8.300000000745058,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3292.604319,
+          "rssBytes": 1239044096,
+          "pssBytes": 437830656,
+          "processes": 12
+        },
+        "peakRssBytes": 1253040128,
+        "peakPssBytes": 451824640,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-112bit-0",
+      "input": "3894222643488354664636594044948941",
+      "expectedFactors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "3894222643488354664636594044948941",
+        "factors": [],
+        "remaining": "3894222643488354664636594044948941",
+        "operations": 150,
+        "elapsedMs": 7.399999998509884,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 61,
+        "initializationMs": 52.69999999925494,
+        "computeWallMs": 8.300000000745058,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 3452.763824,
+          "rssBytes": 1240399872,
+          "pssBytes": 439178240,
+          "processes": 12
+        },
+        "peakRssBytes": 1249202176,
+        "peakPssBytes": 447976448,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "expectedFactors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "908228588958112076066773",
+        "factors": [],
+        "remaining": "908228588958112076066773",
+        "operations": 118,
+        "elapsedMs": 7.400000002235174,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 57.100000001490116,
+        "initializationMs": 48.5,
+        "computeWallMs": 8.600000001490116,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3655.322103,
+          "rssBytes": 1242951680,
+          "pssBytes": 441622528,
+          "processes": 12
+        },
+        "peakRssBytes": 1247207424,
+        "peakPssBytes": 445878272,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "expectedFactors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "908228588958112076066773",
+        "factors": [],
+        "remaining": "908228588958112076066773",
+        "operations": 118,
+        "elapsedMs": 7.400000002235174,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 56.80000000074506,
+        "initializationMs": 48.100000001490116,
+        "computeWallMs": 8.699999999254942,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3818.458406,
+          "rssBytes": 1247207424,
+          "pssBytes": 445878272,
+          "processes": 12
+        },
+        "peakRssBytes": 1248784384,
+        "peakPssBytes": 447455232,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "expectedFactors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "2720469325557637940256367847086393",
+        "factors": [],
+        "remaining": "2720469325557637940256367847086393",
+        "operations": 152,
+        "elapsedMs": 8.800000000745058,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 58.600000001490116,
+        "initializationMs": 48.80000000074506,
+        "computeWallMs": 9.800000000745058,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3981.694809,
+          "rssBytes": 1248784384,
+          "pssBytes": 447455232,
+          "processes": 12
+        },
+        "peakRssBytes": 1250357248,
+        "peakPssBytes": 449028096,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "expectedFactors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "2720469325557637940256367847086393",
+        "factors": [],
+        "remaining": "2720469325557637940256367847086393",
+        "operations": 152,
+        "elapsedMs": 7.5,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 66.10000000149012,
+        "initializationMs": 57.399999998509884,
+        "computeWallMs": 8.700000002980232,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4152.143707,
+          "rssBytes": 1250652160,
+          "pssBytes": 444800000,
+          "processes": 12
+        },
+        "peakRssBytes": 1326927872,
+        "peakPssBytes": 458527744,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "input": "132557166175235038911389310012349022656011427",
+      "expectedFactors": [
+        "779101",
+        "170141183460469231731687303715884105727"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "132557166175235038911389310012349022656011427",
+        "factors": [],
+        "remaining": "132557166175235038911389310012349022656011427",
+        "operations": 186,
+        "elapsedMs": 7.699999999254942,
+        "status": "incomplete",
+        "reason": "algorithm-exhausted",
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 60.899999998509884,
+        "initializationMs": 52.19999999925494,
+        "computeWallMs": 8.699999999254942,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4331.371401,
+          "rssBytes": 1327308800,
+          "pssBytes": 458742784,
+          "processes": 13
+        },
+        "peakRssBytes": 1329328128,
+        "peakPssBytes": 460591104,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "input": "132557166175235038911389310012349022656011427",
+      "expectedFactors": [
+        "779101",
+        "170141183460469231731687303715884105727"
+      ],
+      "options": {
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "132557166175235038911389310012349022656011427",
+        "factors": [
+          {
+            "value": "779101",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "170141183460469231731687303715884105727",
+            "certainty": "probable",
+            "method": "mr-fixed7"
+          }
+        ],
+        "remaining": "1",
+        "operations": 1266,
+        "elapsedMs": 8.5,
+        "status": "probable",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 58,
+        "initializationMs": 48.099999997764826,
+        "computeWallMs": 9.900000002235174,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 3,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 3,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4501.475499,
+          "rssBytes": 1329328128,
+          "pssBytes": 460591104,
+          "processes": 13
+        },
+        "peakRssBytes": 1336782848,
+        "peakPssBytes": 468025344,
+        "maxProcesses": 13
+      }
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 104,
+    "first": {
+      "atMs": 310.506249,
+      "rssBytes": 376832,
+      "pssBytes": 159744,
+      "processes": 1
+    },
+    "peakRssBytes": 1336782848,
+    "peakPssBytes": 468025344,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 50000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "terminal/progress observations only; terminated loser may have unreported final curve",
+    "profile": "last split approximate callback interval wall including JS/import/budget/output validation; additional phase clock sampling, not primary timing"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

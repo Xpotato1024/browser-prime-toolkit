@@ -10,7 +10,7 @@ test('p−1 bounded base finds favorable factor and reports no proper gcd=n fact
   assert.equal(yes.status,'complete');assert.deepEqual(yes.factors.map(f=>f.value),['1009','1000003']);
   const no=factorInteger(1009n*1013n,options,{splitAdvanced:split});
   assert.equal(no.status,'incomplete');assert.equal(no.reason,'algorithm-exhausted');
-  assert.equal(split.stats().poisoned,false);
+  assert.equal(split.stats().poisoned,false);assert.equal(split.stats().mask&2,0,'ECM stage2 is never entered by p−1');
 });
 test('same 32 sigma schedule partitions without overlap and rejects bad lanes',async()=>{
   const one=await createSupplementSplit(),a=await createSupplementSplit({lane:0,workers:2}),b=await createSupplementSplit({lane:1,workers:2});

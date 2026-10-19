@@ -6,6 +6,9 @@ const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),
 const path='docs/benchmarks/',names=['long','pm1','pool'];
 const [long,pm1,pool]=names.map(n=>JSON.parse(read(path+'llm01-supplement-'+n+'.json')));
 const reference=JSON.parse(read(path+'llm01-msieve-reference.json'));
+const order=JSON.parse(read('bench/pm1-order-evidence.json'));assert.equal(order.rows.length,18);
+assert.equal(order.B1,2000);
+for(let i=0;i<18;i++)assert.equal(order.rows[i].proper,['complete','probable'].includes(pm1.records[i].result.status));
 assert.equal(long.records.length,16);assert.equal(pm1.records.length,18);assert.equal(pool.trials.length,20);
 assert.equal(pool.freshChromePerTrial,true);
 assert.equal(pool.runnerSha256,sha(read('scripts/run-supplement-matrix.mjs')));
@@ -58,6 +61,7 @@ out.push('','各trialはfresh Chrome/fresh Worker、初期化込み総1000ms・�
  '## p−1 stage1-only','| 入力 | base | status/reason | request ms |','| --- | ---: | --- | ---: |');
 for(const r of pm1.records)out.push('| '+[r.case,r.options.base,r.result.status+'/'+(r.result.reason??'—'),ms(r.result.requestWallMs)].join(' | ')+' |');
 out.push('','B1=2000、B2=1<B2min=2000。合同式の対照は[固定controls](../../bench/pm1-controls.json)。',
+ '全18件の[独立合同式](../../bench/pm1-order-evidence.json)も照合しました。M127 controlではbase2が両因子で1となりgcd=n、base3はproper factorです。',
  '有利な位数・gcd=n・非適合例を分けます。一般入力に効く保証はなく、p+1/SQUFOF等は未測定です。','',
  '## 固定full msieveのnative参考','| 入力 | elapsed ms | exit/timeout | 観測因子 |','| --- | ---: | --- | --- |');
 for(const r of reference.records){
@@ -69,7 +73,7 @@ out.push('','固定原本のQSを直接実行し、CPU dispatchをgeneric C siev
  '512MiB address space・30秒host timeout・1thread。browserの同条件速度比でもLanczos単独比較でもありません。',
  '同一relation/cycleを使ったdense対Lanczos比較・browser portは残ります。','',
  '全54 browser計算で初回asset取得後はserver停止・cache無効・通信0、全lane破棄を確認しました。',
- '主計測前後の検証と取消は別のquick検証です。Alpertron独立review/buildは自動承認レビュー拒否のため保留です。',
+ '主計測前後の検証と取消は別のquick検証です。Alpertronは追加許可根拠による同一read再試行後、選択8原本の独立静的reviewが完了しました。WASM build/性能は未測定です。',
  '[設計境界と一次資料](../architecture/supplementary-evaluation.md)を参照してください。','');
 const destination=new URL(path+'llm01-supplement.md',root),text=out.join('\n');
 if(process.argv.includes('--check'))assert.equal(readFileSync(destination,'utf8'),text);else writeFileSync(destination,text);

@@ -105,3 +105,18 @@ ADR0006を6eb97ebで固定後に実施しました。repo外prime-stage6/に実�
 - 中間135 tests/check成功。最小holdout18計算と最終headの検証は測定文書・PRへ記録します。
 
 PR6実測code9b44327でholdout18計算、最大1 Worker所有、通信/例外/CSP0、offline/取消/再初期化を確認。閾値/seedは変更せず、135 tests/checkと導出表のsource/proof/全試行照合が成功しました。
+
+## PR7: 長予算SIQS・曲線分配・p−1の追補
+ADR0007を3137fcfで先に固定しました。実logはrepo外prime-stage7/です。
+
+- p−1/partition bindingはmodule未生成でRED。固定base対照、gcd=n、全32曲線の分離、zero予算とfatal退役でGREEN。
+- 同じBudgetで連続splitすると曲線数2に対してused bit1となりRED。呼出前のindex予約で余因子間も再使用せずGREEN。
+- 内側controller期限で2本が4本生成される回帰がRED。評価専用のno-reboot停止で2本だけ、全破棄となりGREEN。
+- total65000msからの計算枠を60000ms以下へclampし、loading込み期限/取消/errorも全lane退役を確認。
+- 2回のclean WASMが一致、ASan/UBSanはpartition・p−1対照・100割込みを通過。実memory.grow拒否も検証。
+- 144 tests/check成功後の測定codeはa021c05。54計算で通信0・全lane破棄、別quickでoffline/取消/再実行を確認。
+- 5問×10/30秒枠のSIQSは全完了。phase profileは追加計装した最後のsplit概算で、主時間とは分離する。
+- fresh ChromeのECM1/2本は共通32σ・合計50M・初期化込み1000ms。成功数同数、時間とPSS/RSSを併記。
+- p−1全18件を独立Python builtin lcm/pow/gcdで照合。M127のbase2 gcd=n/base3 proper factorを含む。
+- 固定full msieveはnative generic QS/Lanczosを3問実行しproper divisorを検算。browser速度比やLanczos単独比較ではない。
+- 最終HEADのtests/check・独立review・CIはDraft PRへ記録し、UI/公開採用・merge/deployとは区別する。

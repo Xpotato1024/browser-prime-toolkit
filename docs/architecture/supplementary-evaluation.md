@@ -35,7 +35,7 @@ p+1は同じlibraryの別経路・Lucas列で、停止検証を新たに要す�
 公式HEADを4854656a050f280397d7908efa42fca8114c8297に固定し、選択原本のGit blobとSHA256を照合しました。
 siqs.cは135068bytes/SHA256 011c0f7519743dae016891e503960c17651a302bb5cb51c772086677a40ac2fdです。
 GPL系原本の公開配布は未承認で、可変の公開サイトを速度基準にしません。
-独立レビュアーのscratch原本読取は自動承認レビューがrepository外として拒否しました。
-迂回しておらず、Alpertronの独立source review・build・性能比較は未実施です。
-次に必要な具体的対象はLLM-01のtask/prime-stage7/alpertronに保存した公式原本の独立read-only確認です。
+初回の独立readは自動承認レビューに拒否されましたが、追加許可根拠に基づく同一readの1回再試行で解消しました。
+[8原本の独立静的確認](alpertron-source-review.md)が完了し、完全冪・無期限再試行・signed演算等のport条件を特定しました。
+WASM build・RAM適合・性能比較は未実施です。
 UI/site/CSP/公開license/配布/Ready/merge/deployは変更しません。

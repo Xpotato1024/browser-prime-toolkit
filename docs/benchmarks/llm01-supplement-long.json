@@ -1,0 +1,1475 @@
+{
+  "mode": "long",
+  "measuredHead": "a021c0590dfb77a425f61773f7d57960221b94e7",
+  "measuredAt": "2026-10-19T07:10:39.413Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "coldReadyMs": 133.4470389999999,
+  "initialAssets": [
+    {
+      "path": "/bench/evaluation.html",
+      "bytes": 147,
+      "sha256": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4"
+    },
+    {
+      "path": "/bench/evaluation.js",
+      "bytes": 1180,
+      "sha256": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388"
+    },
+    {
+      "path": "/src/worker/evaluation-factory.js",
+      "bytes": 1079,
+      "sha256": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3"
+    },
+    {
+      "path": "/src/worker/siqs-factory.js",
+      "bytes": 227,
+      "sha256": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9"
+    },
+    {
+      "path": "/bench/evaluation-runner.js",
+      "bytes": 4703,
+      "sha256": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288"
+    },
+    {
+      "path": "/src/worker/supplement-source.js",
+      "bytes": 628674,
+      "sha256": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e"
+    },
+    {
+      "path": "/src/worker/siqs-profile-source.js",
+      "bytes": 139905,
+      "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/worker/siqs-worker-source.js",
+      "bytes": 139519,
+      "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+    },
+    {
+      "path": "/src/worker/controller.js",
+      "bytes": 5433,
+      "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/worker/factory.js",
+      "bytes": 225,
+      "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/worker/worker-source.js",
+      "bytes": 106532,
+      "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/benchmark-supplement.mjs": "118d0e639fa6a9906631b23271e775f0f06620ff544d85e67f6531eb7117abf9",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "native/gmp/supplement-build.json": "0c0a09fa5d6a2f70141fbf7bf711de51d1e607a5e42d3f595f3d982d1123d035",
+    "bench/evaluation.html": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4",
+    "bench/evaluation.js": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388",
+    "src/worker/evaluation-factory.js": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3",
+    "src/worker/siqs-factory.js": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9",
+    "bench/evaluation-runner.js": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288",
+    "src/worker/supplement-source.js": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e",
+    "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+  },
+  "records": [
+    {
+      "case": "siqs-smoke",
+      "input": "1000000000100000000002379",
+      "expectedFactors": [
+        "1000000000039",
+        "1000000000061"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "1000000000100000000002379",
+        "factors": [
+          {
+            "value": "1000000000039",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "1000000000061",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 6471694,
+        "elapsedMs": 1402.4000000022352,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1451.8999999985099,
+        "initializationMs": 43.5,
+        "computeWallMs": 1408.300000000745,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22568492,
+            "phaseMask": 126,
+            "allocations": 2528,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 23,
+        "first": {
+          "atMs": 1559.140086,
+          "rssBytes": 1203453952,
+          "pssBytes": 409420800,
+          "processes": 12
+        },
+        "peakRssBytes": 1246134272,
+        "peakPssBytes": 443265024,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "balanced-13-0",
+      "input": "3012048473684349413080363",
+      "expectedFactors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3012048473684349413080363",
+        "factors": [
+          {
+            "value": "1002800426933",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "3003637007711",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 7289076,
+        "elapsedMs": 1547.2000000029802,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1571,
+        "initializationMs": 22.300000000745058,
+        "computeWallMs": 1548.699999999255,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22614900,
+            "phaseMask": 126,
+            "allocations": 3263,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 23,
+        "first": {
+          "atMs": 3128.04057,
+          "rssBytes": 1226440704,
+          "pssBytes": 423020544,
+          "processes": 12
+        },
+        "peakRssBytes": 1324158976,
+        "peakPssBytes": 452520960,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-13-0",
+      "input": "3012048473684349413080363",
+      "expectedFactors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 30000,
+        "totalMs": 35100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3012048473684349413080363",
+        "factors": [
+          {
+            "value": "1002800426933",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "3003637007711",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 7289076,
+        "elapsedMs": 1586.5999999977648,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1606.199999999255,
+        "initializationMs": 18.300000000745058,
+        "computeWallMs": 1587.8999999985099,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 35100,
+        "computeMs": 30000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22614900,
+            "phaseMask": 126,
+            "allocations": 3263,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 24,
+        "first": {
+          "atMs": 4774.028947,
+          "rssBytes": 1303244800,
+          "pssBytes": 431606784,
+          "processes": 13
+        },
+        "peakRssBytes": 1327443968,
+        "peakPssBytes": 455681024,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-96bit-0",
+      "input": "59421120273299600154862853921",
+      "expectedFactors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "59421120273299600154862853921",
+        "factors": [
+          {
+            "value": "211106232545339",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "281474969056339",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8006951,
+        "elapsedMs": 1688.7000000029802,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1712.7999999970198,
+        "initializationMs": 22.599999997764826,
+        "computeWallMs": 1690.199999999255,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22564832,
+            "phaseMask": 126,
+            "allocations": 2093,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 25,
+        "first": {
+          "atMs": 6496.143575,
+          "rssBytes": 1301012480,
+          "pssBytes": 430220288,
+          "processes": 13
+        },
+        "peakRssBytes": 1321975808,
+        "peakPssBytes": 451699712,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-96bit-0",
+      "input": "59421120273299600154862853921",
+      "expectedFactors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 30000,
+        "totalMs": 35100,
+        "seed": 1
+      },
+      "result": {
+        "input": "59421120273299600154862853921",
+        "factors": [
+          {
+            "value": "211106232545339",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "281474969056339",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8006951,
+        "elapsedMs": 1703.1000000014901,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1726.800000000745,
+        "initializationMs": 22.199999999254942,
+        "computeWallMs": 1704.6000000014901,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 35100,
+        "computeMs": 30000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22564832,
+            "phaseMask": 126,
+            "allocations": 2093,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 26,
+        "first": {
+          "atMs": 8311.497426,
+          "rssBytes": 1300447232,
+          "pssBytes": 430429184,
+          "processes": 13
+        },
+        "peakRssBytes": 1326694400,
+        "peakPssBytes": 456676352,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-112bit-0",
+      "input": "3894222643488354664636594044948941",
+      "expectedFactors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3894222643488354664636594044948941",
+        "factors": [
+          {
+            "value": "54043195528458347",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "72057594030273703",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 11879607,
+        "elapsedMs": 2530.599999997765,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 2550.300000000745,
+        "initializationMs": 18.5,
+        "computeWallMs": 2531.7000000029802,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22540356,
+            "phaseMask": 126,
+            "allocations": 1339,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 35,
+        "first": {
+          "atMs": 10197.114048,
+          "rssBytes": 1302482944,
+          "pssBytes": 432464896,
+          "processes": 13
+        },
+        "peakRssBytes": 1330610176,
+        "peakPssBytes": 460592128,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-112bit-0",
+      "input": "3894222643488354664636594044948941",
+      "expectedFactors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 30000,
+        "totalMs": 35100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3894222643488354664636594044948941",
+        "factors": [
+          {
+            "value": "54043195528458347",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "72057594030273703",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 11879607,
+        "elapsedMs": 2532.39999999851,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 2551.7000000029802,
+        "initializationMs": 18,
+        "computeWallMs": 2533.7000000029802,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 35100,
+        "computeMs": 30000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22540356,
+            "phaseMask": 126,
+            "allocations": 1339,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 36,
+        "first": {
+          "atMs": 12847.658907,
+          "rssBytes": 1304272896,
+          "pssBytes": 434101248,
+          "processes": 13
+        },
+        "peakRssBytes": 1324007424,
+        "peakPssBytes": 453835776,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "expectedFactors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 23
+      },
+      "result": {
+        "input": "908228588958112076066773",
+        "factors": [
+          {
+            "value": "909536624993",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "998561865461",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8801015,
+        "elapsedMs": 1901.2999999970198,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 1920.6000000014901,
+        "initializationMs": 18.100000001490116,
+        "computeWallMs": 1902.5,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22744496,
+            "phaseMask": 126,
+            "allocations": 6777,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 28,
+        "first": {
+          "atMs": 15524.809872,
+          "rssBytes": 1302880256,
+          "pssBytes": 432704512,
+          "processes": 13
+        },
+        "peakRssBytes": 1331105792,
+        "peakPssBytes": 460930048,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "expectedFactors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 30000,
+        "totalMs": 35100,
+        "seed": 23
+      },
+      "result": {
+        "input": "908228588958112076066773",
+        "factors": [
+          {
+            "value": "909536624993",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "998561865461",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8801015,
+        "elapsedMs": 1886.7999999970198,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 1906.1000000014901,
+        "initializationMs": 18,
+        "computeWallMs": 1888.1000000014901,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 35100,
+        "computeMs": 30000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22744496,
+            "phaseMask": 126,
+            "allocations": 6777,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 27,
+        "first": {
+          "atMs": 17567.172983,
+          "rssBytes": 1303531520,
+          "pssBytes": 433355776,
+          "processes": 13
+        },
+        "peakRssBytes": 1333329920,
+        "peakPssBytes": 463150080,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "expectedFactors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 23
+      },
+      "result": {
+        "input": "2720469325557637940256367847086393",
+        "factors": [
+          {
+            "value": "50751572209658171",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "53603646293344283",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 9912439,
+        "elapsedMs": 2107.39999999851,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 2126.800000000745,
+        "initializationMs": 18,
+        "computeWallMs": 2108.800000000745,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22558484,
+            "phaseMask": 126,
+            "allocations": 1734,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 30,
+        "first": {
+          "atMs": 19567.611589,
+          "rssBytes": 1312759808,
+          "pssBytes": 442579968,
+          "processes": 13
+        },
+        "peakRssBytes": 1335865344,
+        "peakPssBytes": 465095680,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "expectedFactors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "options": {
+        "kind": "siqs",
+        "computeMs": 30000,
+        "totalMs": 35100,
+        "seed": 23
+      },
+      "result": {
+        "input": "2720469325557637940256367847086393",
+        "factors": [
+          {
+            "value": "50751572209658171",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "53603646293344283",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 9912439,
+        "elapsedMs": 2092,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 2111.7000000029802,
+        "initializationMs": 18.100000001490116,
+        "computeWallMs": 2093.60000000149,
+        "workers": 1,
+        "kind": "siqs",
+        "base": 2,
+        "totalMs": 35100,
+        "computeMs": 30000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "liveBytes": 0,
+            "peakBytes": 22558484,
+            "phaseMask": 126,
+            "allocations": 1734,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 30,
+        "first": {
+          "atMs": 21836.912326,
+          "rssBytes": 1316130816,
+          "pssBytes": 445361152,
+          "processes": 13
+        },
+        "peakRssBytes": 1337847808,
+        "peakPssBytes": 467078144,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-13-0",
+      "input": "3012048473684349413080363",
+      "expectedFactors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3012048473684349413080363",
+        "factors": [
+          {
+            "value": "1002800426933",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "3003637007711",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 7289076,
+        "elapsedMs": 1594.199999999255,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1613.8999999985099,
+        "initializationMs": 18.5,
+        "computeWallMs": 1595.3999999985099,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                120903,
+                44686,
+                2507442,
+                4417402,
+                142745,
+                55157
+              ],
+              "wallMs": [
+                1.300000000745058,
+                33.399999998509884,
+                10,
+                548.1000000014901,
+                948.0999999977648,
+                37.100000001490116,
+                15.399999998509884
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (25-digit input)\nusing multiplier of 43\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 2633 (198 primes)\nusing large prime bound of 105320 (16 bits)\npolynomial 'A' values have 3 factors\n1337 relations (455 full + 882 combined from 2643 partial), need 294\nbegin with 3098 relations\nreduce to 1898 relations in 2 passes\nattempting to read 1898 relations\nrecovered 1898 relations\nrecovered 4 polynomials\nattempting to build 1337 cycles\nfound 1337 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 455\n   length 2 : 882\nlargest cycle: 2 relations\ngcd=129156391331573\n",
+            "liveBytes": 0,
+            "peakBytes": 22614900,
+            "phaseMask": 126,
+            "allocations": 3263,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 23,
+        "first": {
+          "atMs": 24071.090293,
+          "rssBytes": 1315545088,
+          "pssBytes": 444775424,
+          "processes": 13
+        },
+        "peakRssBytes": 1338101760,
+        "peakPssBytes": 467332096,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-96bit-0",
+      "input": "59421120273299600154862853921",
+      "expectedFactors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "59421120273299600154862853921",
+        "factors": [
+          {
+            "value": "211106232545339",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "281474969056339",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8006951,
+        "elapsedMs": 1717.699999999255,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1739.1000000014901,
+        "initializationMs": 18.300000000745058,
+        "computeWallMs": 1720.800000000745,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                122770,
+                93705,
+                3243774,
+                4350675,
+                136185,
+                58982
+              ],
+              "wallMs": [
+                0.9000000022351742,
+                32.69999999925494,
+                20.100000001490116,
+                690.6999999992549,
+                922.7999999970198,
+                34.20000000298023,
+                15.399999998509884
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (29-digit input)\nusing multiplier of 41\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 3697 (275 primes)\nusing large prime bound of 147880 (17 bits)\npolynomial 'A' values have 3 factors\n849 relations (345 full + 504 combined from 2127 partial), need 371\nbegin with 2472 relations\nreduce to 1216 relations in 2 passes\nattempting to read 1216 relations\nrecovered 1216 relations\nrecovered 8 polynomials\nattempting to build 849 cycles\nfound 849 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 345\n   length 2 : 504\nlargest cycle: 2 relations\ngcd=8655355534358899\n",
+            "liveBytes": 0,
+            "peakBytes": 22564832,
+            "phaseMask": 126,
+            "allocations": 2093,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 26,
+        "first": {
+          "atMs": 25755.199694,
+          "rssBytes": 1315160064,
+          "pssBytes": 444328960,
+          "processes": 13
+        },
+        "peakRssBytes": 1342025728,
+        "peakPssBytes": 471667712,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "balanced-112bit-0",
+      "input": "3894222643488354664636594044948941",
+      "expectedFactors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 1
+      },
+      "result": {
+        "input": "3894222643488354664636594044948941",
+        "factors": [
+          {
+            "value": "54043195528458347",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "72057594030273703",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 11879607,
+        "elapsedMs": 2668,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 2687.199999999255,
+        "initializationMs": 17.800000000745058,
+        "computeWallMs": 2669.39999999851,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                125702,
+                152084,
+                7066131,
+                4308455,
+                83931,
+                142319
+              ],
+              "wallMs": [
+                1.1000000014901161,
+                34.399999998509884,
+                34.20000000670552,
+                1599.9999999925494,
+                942.5,
+                21.200000002980232,
+                33.599999997764826
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (34-digit input)\nusing multiplier of 5\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 5639 (363 primes)\nusing large prime bound of 225560 (17 bits)\npolynomial 'A' values have 4 factors\n525 relations (218 full + 307 combined from 1965 partial), need 459\nbegin with 2183 relations\nreduce to 786 relations in 2 passes\nattempting to read 786 relations\nrecovered 786 relations\nrecovered 32 polynomials\nattempting to build 525 cycles\nfound 525 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 218\n   length 2 : 307\nlargest cycle: 2 relations\ngcd=19471113217441773323182970224744705\ngcd=5\ngcd=270215977642291735\n",
+            "liveBytes": 0,
+            "peakBytes": 22540356,
+            "phaseMask": 126,
+            "allocations": 1339,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 37,
+        "first": {
+          "atMs": 27655.531219,
+          "rssBytes": 1321254912,
+          "pssBytes": 450952192,
+          "processes": 13
+        },
+        "peakRssBytes": 1342509056,
+        "peakPssBytes": 472206336,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "expectedFactors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 23
+      },
+      "result": {
+        "input": "908228588958112076066773",
+        "factors": [
+          {
+            "value": "909536624993",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "998561865461",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 8801015,
+        "elapsedMs": 1965.800000000745,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 1985.5999999977648,
+        "initializationMs": 18.199999999254942,
+        "computeWallMs": 1967.3999999985099,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                120285,
+                42101,
+                3884715,
+                4584856,
+                136609,
+                31728
+              ],
+              "wallMs": [
+                1.1000000014901161,
+                32.600000001490116,
+                9.399999998509884,
+                859.1000000014901,
+                1011.1999999992549,
+                38.5,
+                13.199999999254942
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (24-digit input)\nusing multiplier of 1\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 2393 (188 primes)\nusing large prime bound of 95720 (16 bits)\npolynomial 'A' values have 3 factors\n2826 relations (696 full + 2130 combined from 4507 partial), need 284\nbegin with 5203 relations\nreduce to 3923 relations in 2 passes\nattempting to read 3923 relations\nrecovered 3923 relations\nrecovered 4 polynomials\nattempting to build 2826 cycles\nfound 2826 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 696\n   length 2 : 2130\nlargest cycle: 2 relations\ngcd=998561865461\n",
+            "liveBytes": 0,
+            "peakBytes": 22744496,
+            "phaseMask": 126,
+            "allocations": 6777,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 30,
+        "first": {
+          "atMs": 30440.852402,
+          "rssBytes": 1317212160,
+          "pssBytes": 446901248,
+          "processes": 13
+        },
+        "peakRssBytes": 1339092992,
+        "peakPssBytes": 468753408,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "expectedFactors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100,
+        "seed": 23
+      },
+      "result": {
+        "input": "2720469325557637940256367847086393",
+        "factors": [
+          {
+            "value": "50751572209658171",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "53603646293344283",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 9912439,
+        "elapsedMs": 2287.5,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 23,
+        "winningLane": 0,
+        "requestWallMs": 2307.2000000029802,
+        "initializationMs": 18.200000002980232,
+        "computeWallMs": 2289,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                125549,
+                89021,
+                5197172,
+                4338662,
+                116678,
+                44370
+              ],
+              "wallMs": [
+                1.1000000014901161,
+                34.19999999925494,
+                20.00000000372529,
+                1140.0999999940395,
+                1042.6000000014901,
+                32.80000000074506,
+                15.899999998509884
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (34-digit input)\nusing multiplier of 1\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 5407 (363 primes)\nusing large prime bound of 216280 (17 bits)\npolynomial 'A' values have 4 factors\n694 relations (293 full + 401 combined from 2108 partial), need 459\nbegin with 2401 relations\nreduce to 1012 relations in 2 passes\nattempting to read 1012 relations\nrecovered 1012 relations\nrecovered 16 polynomials\nattempting to build 694 cycles\nfound 694 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 293\n   length 2 : 401\nlargest cycle: 2 relations\ngcd=53603646293344283\n",
+            "liveBytes": 0,
+            "peakBytes": 22558484,
+            "phaseMask": 126,
+            "allocations": 1734,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 35,
+        "first": {
+          "atMs": 32539.631663,
+          "rssBytes": 1127419904,
+          "pssBytes": 409562112,
+          "processes": 11
+        },
+        "peakRssBytes": 1150988288,
+        "peakPssBytes": 433130496,
+        "maxProcesses": 11
+      }
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 487,
+    "first": {
+      "atMs": 269.043477,
+      "rssBytes": 372736,
+      "pssBytes": 155648,
+      "processes": 1
+    },
+    "peakRssBytes": 1342509056,
+    "peakPssBytes": 472206336,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 50000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "terminal/progress observations only; terminated loser may have unreported final curve",
+    "profile": "last split approximate callback interval wall including JS/import/budget/output validation; additional phase clock sampling, not primary timing"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

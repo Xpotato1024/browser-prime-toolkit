@@ -1,0 +1,206 @@
+{
+  "B1": 2000,
+  "exponentBits": 2878,
+  "exponentSha256": "5ba0cbd7280f32e07d8473b3ea8d07623b1260da81afb0dfe790f0a3aa5d3570",
+  "rows": [
+    {
+      "case": "pm1-favorable",
+      "base": 2,
+      "input": "1009003027",
+      "factorResidues": [
+        "1",
+        "740228"
+      ],
+      "gcd": "1009",
+      "proper": true
+    },
+    {
+      "case": "pm1-favorable",
+      "base": 3,
+      "input": "1009003027",
+      "factorResidues": [
+        "1",
+        "923643"
+      ],
+      "gcd": "1009",
+      "proper": true
+    },
+    {
+      "case": "pm1-both-orders",
+      "base": 2,
+      "input": "1022117",
+      "factorResidues": [
+        "1",
+        "1"
+      ],
+      "gcd": "1022117",
+      "proper": false
+    },
+    {
+      "case": "pm1-both-orders",
+      "base": 3,
+      "input": "1022117",
+      "factorResidues": [
+        "1",
+        "1"
+      ],
+      "gcd": "1022117",
+      "proper": false
+    },
+    {
+      "case": "pm1-nonsmooth",
+      "base": 2,
+      "input": "1000042000117",
+      "factorResidues": [
+        "740228",
+        "455546"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "pm1-nonsmooth",
+      "base": 3,
+      "input": "1000042000117",
+      "factorResidues": [
+        "923643",
+        "722796"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-13-0",
+      "base": 2,
+      "input": "3012048473684349413080363",
+      "factorResidues": [
+        "633270327220",
+        "899640449289"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-13-0",
+      "base": 3,
+      "input": "3012048473684349413080363",
+      "factorResidues": [
+        "163735051507",
+        "1862201413364"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-96bit-0",
+      "base": 2,
+      "input": "59421120273299600154862853921",
+      "factorResidues": [
+        "88215506503516",
+        "75042811573448"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-96bit-0",
+      "base": 3,
+      "input": "59421120273299600154862853921",
+      "factorResidues": [
+        "56721968524569",
+        "92008320943072"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-112bit-0",
+      "base": 2,
+      "input": "3894222643488354664636594044948941",
+      "factorResidues": [
+        "10657135109159448",
+        "43416711550668562"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "balanced-112bit-0",
+      "base": 3,
+      "input": "3894222643488354664636594044948941",
+      "factorResidues": [
+        "17928076461032630",
+        "4056288841408890"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "holdout-balanced-80",
+      "base": 2,
+      "input": "908228588958112076066773",
+      "factorResidues": [
+        "461159199619",
+        "542333555298"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "holdout-balanced-80",
+      "base": 3,
+      "input": "908228588958112076066773",
+      "factorResidues": [
+        "399164348456",
+        "421434463616"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "holdout-balanced-112",
+      "base": 2,
+      "input": "2720469325557637940256367847086393",
+      "factorResidues": [
+        "37183256437893900",
+        "47594498574091536"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "holdout-balanced-112",
+      "base": 3,
+      "input": "2720469325557637940256367847086393",
+      "factorResidues": [
+        "19415061513552993",
+        "38066528152871591"
+      ],
+      "gcd": "1",
+      "proper": false
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "base": 2,
+      "input": "132557166175235038911389310012349022656011427",
+      "factorResidues": [
+        "1",
+        "1"
+      ],
+      "gcd": "132557166175235038911389310012349022656011427",
+      "proper": false
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "base": 3,
+      "input": "132557166175235038911389310012349022656011427",
+      "factorResidues": [
+        "1",
+        "48008664878016583919009399456802347219"
+      ],
+      "gcd": "779101",
+      "proper": true
+    }
+  ],
+  "method": "Python builtin lcm/pow/gcd, exact congruences outside timing; not a primality certificate"
+}
