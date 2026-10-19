@@ -1,0 +1,85 @@
+{
+  "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+  "emscripten": "4.0.15",
+  "sourceHashes": {
+    "native/tinyqs/bridge.c": "640151241f81b9c5407c70f07d5f823710ae8a86cf8a8f0e91dd765365fa1d53",
+    "native/tinyqs/common.h": "36ce5991b07e553cca1ce3c4723170bacb76d937b46d7ac800a3d4fd29fe7aed",
+    "native/tinyqs/patches.json": "7d1084de6b94bf77c53bafbc47f9b233e785944a629ec558cc381e39a1083eeb",
+    "scripts/build-wasm.mjs": "d889a2d697028d2f1aa847d6c35e2b53bf510ae2253a2787e02ab498eee17a1b",
+    "vendor/msieve/common/smallfact/tinyqs.c": "3be8db8d7f969385fd46b043e6fe3ebd6ccd0bfd637ed89de8ce46ad11a7ecdc",
+    "vendor/msieve/common/mp.c": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b",
+    "vendor/msieve/common/prime_delta.c": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7",
+    "vendor/msieve/include/mp.h": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+    "vendor/msieve/include/util.h": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778"
+  },
+  "command": [
+    "emcc",
+    "-O3",
+    "-DCPU_GENERIC",
+    "-I/src/native/tinyqs",
+    "-I/src/vendor/msieve/include",
+    "/build/tinyqs.c",
+    "/src/native/tinyqs/bridge.c",
+    "/src/vendor/msieve/common/mp.c",
+    "/src/vendor/msieve/common/prime_delta.c",
+    "--no-entry",
+    "-sSTANDALONE_WASM=1",
+    "-sFILESYSTEM=0",
+    "-sALLOW_MEMORY_GROWTH=0",
+    "-sINITIAL_MEMORY=16777216",
+    "-sSTACK_SIZE=1048576",
+    "-sMALLOC=emmalloc",
+    "-sSUPPORT_LONGJMP=0",
+    "-sEXPORTED_FUNCTIONS=[\"_input_ptr\",\"_factor_ptr\",\"_split\"]",
+    "-o",
+    "/work/tinyqs.wasm"
+  ],
+  "cleanBuilds": 2,
+  "bytes": 67226,
+  "sha256": "f3db88b33aeb1c3b7cbb3a7c8b2bae688106fbf622a090d193eb74ad93105f2f",
+  "imports": [
+    {
+      "module": "env",
+      "name": "budget_tick",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "proc_exit",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_write",
+      "kind": "function"
+    }
+  ],
+  "exports": [
+    {
+      "name": "memory",
+      "kind": "memory"
+    },
+    {
+      "name": "input_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "factor_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "split",
+      "kind": "function"
+    },
+    {
+      "name": "_initialize",
+      "kind": "function"
+    },
+    {
+      "name": "__indirect_function_table",
+      "kind": "table"
+    }
+  ],
+  "memoryLimitBytes": 16777216,
+  "stackBytes": 1048576
+}

@@ -9,7 +9,8 @@ Pin radii/msieve at c8727d91305bdbe0972d160ef0ce61dd02ce9193.
 Its tinyqs.c states a practical upper limit of 85 bits and describes itself as
 old and inefficient. It is not the main SIQS algorithm.
 Import only reviewed public-domain tinyqs.c, mp.c, prime_delta.c, mp.h and util.h.
-Retain each original notice and exact bytes with SHA-256 provenance.
+Retain original notices and SHA-256 for both original and imported bytes.
+Normalize only the 10 CRLF lines of util.h; all imported files must be UTF-8/LF.
 The upstream mp_t is implementation detail; external integers remain BigInt.
 No new integer implementation, GMP, ECM, NFS, SIMD or threads are introduced.
 
@@ -42,7 +43,7 @@ Pin Emscripten 4.0.15 Docker image by SHA-256, compile without network, 2 CPUs,
 2GiB memory, one scratch output mount and read-only repository input.
 Build twice into fresh directories; compare exact WASM bytes.
 Keep source patches minimal and reproducible: compatibility header replaces
-GMP-bearing common.h; add budget checkpoints, with patch retained.
+GMP-bearing common.h; add budget checkpoints and array/initialization guards, with patches retained.
 Use fixed 16MiB WASM memory, 1MiB stack and no growth/filesystem/pthreads.
 Embed reviewed WASM base64 in the static Worker bundle, instantiate before ready.
 No fetch, remote script, storage, PWA, iframe or runtime updates.
