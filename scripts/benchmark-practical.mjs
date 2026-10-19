@@ -1,3 +1,4 @@
+import {refinementTiers} from './practical-plan.mjs';
 import assert from 'node:assert/strict';
 import {readFile,writeFile,access} from 'node:fs/promises';
 import {spawn} from 'node:child_process';
@@ -22,7 +23,8 @@ async function tier(digits){
  for(const c of selected)for(const seed of manifest.seeds){
   for(const budgetMs of budgets)if(await trial(c,seed,budgetMs)){solved++;break;}
  }
- tiers.push({digits,pairs:4,solvedWithin180s:solved});return solved;
+ const solvedByBudget=budgets.map(b=>({budgetMs:b,solved:new Set(evidence.filter(e=>selected.some(c=>c.id===e.id)&&e.kind==='factorized'&&e.budgetMs<=b).map(e=>e.id+'/'+e.seed)).size}));
+ tiers.push({digits,pairs:4,solvedWithin180s:solved,solvedByBudget});return solved;
 }
 let previous=null,boundary=null;
 for(const digits of initial){
@@ -31,7 +33,8 @@ for(const digits of initial){
 }
 if(boundary!==null&&previous!==null)for(let d=previous+2;d<boundary;d+=2)await tier(d);
 if(boundary===null)for(const d of [34,36]){if(await tier(d)===0){boundary=d;break;}}
-const result={schema:1,measuredHead,frozenManifest:manifest,initialTiers:initial,executedTiers:tiers,boundaryAllFourUnsolvedAt180s:boundary,
+for(const d of refinementTiers(tiers))if(!tiers.some(t=>t.digits===d))await tier(d);
+const result={schema:2,refinementPolicy:'two-digits-at-each-budget-transition',measuredHead,frozenManifest:manifest,initialTiers:initial,executedTiers:tiers,boundaryAllFourUnsolvedAt180s:boundary,
  stopReason:boundary===null?'initial-36-digit-ceiling':'first-tier-with-no-180s-success',evidence};
 await writeFile(root+'llm01-staged-practical-schedule.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({complete:true,tiers,firstAllUnsolved:boundary,rawTrials:evidence.length}));

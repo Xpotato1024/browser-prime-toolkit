@@ -14,3 +14,5 @@ RSA-100未満に公式challengeはない。12/16/20/24/28/32桁から始め、�
 生成時の素数証明、engineのproven/probable/partial、積/余因子検算を独立に区別する。終了後CLIだけがoracleと照合し、既知因数を探索へ注入しない。方式・端末・Chrome・Worker・初期化込み時間・全試行/停止理由・成功率・中央値/範囲・source/raw hashを保存する。初回計測前にcatalog/oracle/generatorのhashを固定し、成績による入力差替えを禁止する。成功率は固定input×seed組を分母に予算別集計し、retry行を独立標本として混ぜない。成功時間の中央値/範囲にtimeoutを含めない。異なる桁の一つの易しい入力だけで実用域を宣言しない。小標本の実測範囲として報告し、公式RSAの能力と混同しない。
 
 新profileのTDD・最終head検証・read-only独立レビュー・同head CIを揃え、別のprivate Draftへ返す。公開、Ready、merge、deploy、site統合、資格情報/権限変更は含まない。
+
+境界詳細化は180秒の拡大停止点だけでなく、3秒/30秒/180秒の各4組全成功から一部未完了へ変わる区間へ適用し、事前生成済み入力の2桁刻みを補う。入力のhashや組数は変更しない。
