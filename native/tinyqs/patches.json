@@ -18,5 +18,10 @@
     "old": "for (bits += i * LOGPRIME_SCALE_TINY; i; i--)\n\t\tfb_offsets[num_factors++] = MIN_FB_OFFSET;",
     "new": "for (bits += i * LOGPRIME_SCALE_TINY; i; i--) {\n\t\tif (num_factors >= MAX_FACTORS_TINY) return;\n\t\tfb_offsets[num_factors++] = MIN_FB_OFFSET;\n\t}",
     "count": 1
+  },
+  {
+    "old": "if (nmodp == 0) {",
+    "new": "if (nmodp == 0) {\n\t\t\tfbptr->modsqrt = 0;",
+    "count": 1
   }
 ]

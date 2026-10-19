@@ -4,7 +4,7 @@
   "sourceHashes": {
     "native/tinyqs/bridge.c": "52af07955d375f3a15a85674a0581428fe3d9e5f3243419468cdf505a55847c6",
     "native/tinyqs/common.h": "36ce5991b07e553cca1ce3c4723170bacb76d937b46d7ac800a3d4fd29fe7aed",
-    "native/tinyqs/patches.json": "7d1084de6b94bf77c53bafbc47f9b233e785944a629ec558cc381e39a1083eeb",
+    "native/tinyqs/patches.json": "c3753e40b4c4a55241e7f894ce675b4ab08b143eb3af3ae1c1a494997bf7256c",
     "scripts/build-wasm.mjs": "d889a2d697028d2f1aa847d6c35e2b53bf510ae2253a2787e02ab498eee17a1b",
     "vendor/msieve/common/smallfact/tinyqs.c": "3be8db8d7f969385fd46b043e6fe3ebd6ccd0bfd637ed89de8ce46ad11a7ecdc",
     "vendor/msieve/common/mp.c": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b",
@@ -35,8 +35,8 @@
     "/work/tinyqs.wasm"
   ],
   "cleanBuilds": 2,
-  "bytes": 67397,
-  "sha256": "4938cff54013783ee4103965c561b017ab40e93508f0f721604fb3713c2fef93",
+  "bytes": 67418,
+  "sha256": "62b8f95551d8ace1cbb5faf08191a89947ccadd6cef0f572da061101ddc3b57c",
   "imports": [
     {
       "module": "env",
