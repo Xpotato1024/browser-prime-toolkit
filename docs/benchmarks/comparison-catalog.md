@@ -1,12 +1,12 @@
 # 比較した方式とデータの保全
 2026-10-19の「各方式は教育的価値があるので保全する」という依頼に基づく目録です。採否で削除せず、古い観測の訂正は別の証跡として保存します。公開教材への加工・公開は行いません。
 
-[固定目録](comparison-preservation.json)は過去208ファイル（実装、原本pin、build条件、raw、入力、再現script）と21検証ログのbytes/SHA256を保存します。歴史的基準は82f1c3e4215bf990da142e82e8bc33fa55846b07です。新しいStage9のrawは別途report/checkへ結び付けます。
+[固定目録](comparison-preservation.json)は計208ファイル（実装、原本pin、build条件、raw、入力、再現script。うち21件は元検証ログ）のbytes/SHA256を保存します。歴史的基準は82f1c3e4215bf990da142e82e8bc33fa55846b07です。新しいStage9のrawは別途report/checkへ結び付けます。
 
 | 方式・比較 | 保存した証拠と再現入口 | 測定headの扱い |
 | --- | --- | --- |
-| native BigInt Brent/Floyd | [72試行](llm01-baseline.json)、bench/corpus.mjs、scripts/benchmark-browser.mjs | rawにheadなし。source一致／最初の保存commitは11ef13ec109383310d5d5fcd045f1c2f71743877 |
-| 限定MPQS/WASM | [342単独・72pool](llm01-wasm-mpqs.json)、native/tinyqs、vendor/msieve、scripts/build-wasm.mjs | source一致／最初の保存commitは57d913c6e10edc80d1766d8c874348a98f602921。測定時HEADと推定同一視しない |
+| native BigInt Brent/Floyd | [72試行](llm01-baseline.json)、bench/corpus.mjs、scripts/benchmark-browser.mjs | 測定時HEADは未記録。source一致commitは11ef13ec109383310d5d5fcd045f1c2f71743877 |
+| 限定MPQS/WASM | [342単独・72pool](llm01-wasm-mpqs.json)、native/tinyqs、vendor/msieve、scripts/build-wasm.mjs | source一致commitは57d913c6e10edc80d1766d8c874348a98f602921。測定時HEADは未記録 |
 | Brent 1/2/4 Worker | 同MPQS rawのpoolRecords、bench/portfolio.js。全体5千万操作、当時の待機WASMも保持 | 同上。現行1 Worker選択と混ぜない |
 | 低位GMP Brent／ECM | [204単独・32pool](llm01-gmp-ecm.json)、native/gmp、scripts/build-gmp.mjs | 5be4db3baf59d4ce9ae8f9d56cc6c3a281ea158f |
 | 有界SIQS／ECM stage2 | [136試行・5fatal](llm01-bounded-siqs.json)、native/siqs、scripts/build-siqs.mjs | 8e865d74252bfd17ba1d9b245184656161336f3b |
