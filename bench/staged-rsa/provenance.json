@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-10-19T11:40:23.496781+00:00",
+  "coverage": "53 moduli: 45 from the official administrator mail and 8 from official RSA Labs pages; RSA-129 omitted pending its separate original source",
+  "catalogSha256": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+  "knownFactorsIncluded": false,
+  "sources": [
+    {
+      "file": "rsa-2001.html",
+      "url": "https://web.archive.org/web/20010805210445/http://www.rsa.com/rsalabs/challenges/factoring/numbers.html",
+      "resolved": "https://web.archive.org/web/20010805210445/http://www.rsa.com/rsalabs/challenges/factoring/numbers.html",
+      "bytes": 39234,
+      "sha256": "9e28bf4fed2b657b2ab83c981113c7de177640ec8fcc30d4b40c1bb91ff819cb",
+      "id": "rsa-2001",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-2001.html"
+    },
+    {
+      "file": "rsa-2013.html",
+      "url": "https://web.archive.org/web/20130921041734/http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm",
+      "resolved": "https://web.archive.org/web/20130921041734/http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm",
+      "bytes": 148294,
+      "sha256": "334940c773774c40f5d424497aea61a7f16c5e3969867ac401abdb26285dfc4b",
+      "id": "rsa-2013",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-2013.html"
+    },
+    {
+      "url": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+      "resolved": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+      "bytes": 18744,
+      "sha256": "b95abde40f0995490ceef092c47b6ad472e306f5a3eb04fd018991ce0352a2dc",
+      "id": "rsa-admin-1997",
+      "author": "RSA Factoring Challenge Administrator <challenge-administrator@RSA.COM>",
+      "publication": "original automatic reply dated 1997-10-12, mirrored with mail headers by recipient Ray Ontko",
+      "file": "rsa-admin-1997.html",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-admin-1997.html"
+    }
+  ]
+}
