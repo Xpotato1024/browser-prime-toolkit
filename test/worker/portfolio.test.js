@@ -48,3 +48,30 @@ test('individual host deadlines remain incomplete and preserve the submitted pro
   assert.equal(r.status, 'incomplete'); assert.equal(r.remaining, r.input);
   assert.ok(factory.lanes.every(l => l.disposed));
 });
+
+for (const algorithm of ['gmp-brent', 'gmp-ecm']) {
+  test(algorithm + ': candidate lanes keep identity, seeds and total work cap', async () => {
+    const factory = fakeFactory((lane, emit, input, options) => queueMicrotask(() =>
+      emit({ type: 'terminal', result: factorInteger(BigInt(input), options, {
+        now: () => 0, splitAdvanced: () => 101n,
+      }) })));
+    const r = await runPortfolio('10403', { algorithm, seed: 4294967295, operationBudget: 10001 }, 2, factory);
+    assert.equal(r.algorithm, algorithm); assert.equal(r.status, 'complete');
+    assert.deepEqual(factory.lanes.map(l => l.config.seed), [4294967295, 1]);
+    assert.ok(factory.lanes.every(l => l.disposed));
+    assert.ok(r.allocatedOperationBudget <= 10001);
+  });
+  test(algorithm + ': 4 lanes fail the linear-memory cap before allocating workers', async () => {
+    const factory = fakeFactory(() => {});
+    await assert.rejects(runPortfolio('10403', { algorithm }, 4, factory), /128 MiB/);
+    assert.equal(factory.lanes.length, 0);
+  });
+}
+
+test('trusted candidate factory memory profile limits native Brent too, before allocation', async () => {
+  const factory = fakeFactory((lane, emit, input, options) => queueMicrotask(() =>
+    emit({ type: 'terminal', result: factorInteger(BigInt(input), options) })));
+  await assert.rejects(runPortfolio('12', { algorithm: 'brent' }, 4,
+    { ...factory, memoryPerWorkerBytes: 67108864 }), /128 MiB/);
+  assert.equal(factory.lanes.length, 0);
+});

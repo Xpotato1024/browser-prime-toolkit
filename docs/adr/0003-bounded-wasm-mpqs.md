@@ -18,7 +18,8 @@ No new integer implementation, GMP, ECM, NFS, SIMD or threads are introduced.
 Rho and ECM depend strongly on the smaller factor; QS depends on input size.
 Use multiple independently generated balanced pairs per size and unbalanced,
 square and close-factor controls. Measure distributions, failures and deadlines.
-Full msieve SIQS needs GMP and a much larger port; Alpertron is GPL-3.0,
+The default msieve build links GMP; the minimal SIQS subset's runtime GMP dependency is unverified.
+A much larger bounded port is needed; Alpertron is GPL-3.0,
 FLINT LGPL-3.0-or-later with GMP/MPFR. They remain candidates for later review.
 Do not present this limited MPQS experiment as a solution for arbitrary sizes.
 No license for our private application is selected; third-party notices remain.

@@ -12,9 +12,9 @@
 | --- | --- | --- |
 | native BigInt + Brent/Floyd | 小さい因子を見つける比較基準。大きい balanced 入力では試行数が増える | 同じ corpus と壁時計予算で測定 |
 | msieve tinyqs MPQS | 公開ドメイン。元実装は実用上85ビットまで、最大20多項式。SIQSではない | 固定ソースをWASM化し測定 |
-| GMP低位API + Brent | 旧版の一時値生成・手製剰余合成を避ける算術改善候補。方式自体はRho | APIの存在を静的確認。未実装・未測定 |
-| ECM / GMP-ECM | 因子サイズに依存し、unbalanced入力の前処理として有望。曲線とstage boundsが必要 | 原本mirrorにはGPLv3/LGPLv3条文が同梱。採用ファイル・GMP依存・配布条件の選定が次段階 |
-| full msieve SIQS | balanced大入力の次候補。GMP、relation収集、matrix、取消境界が必要 | tinyqsの上限を広げる代用にせず、別portとして保留 |
+| GMP低位API + Brent | 旧版の一時値生成・手製剰余合成を避ける算術改善候補。方式自体はRho | PR4の別評価bundleで実装。最終採用は比較後に判断 |
+| ECM / GMP-ECM | 因子サイズに依存し、unbalanced入力の前処理として有望。曲線とstage boundsが必要 | PR4の固定libraryを非公開評価。混在する個別条文と未確定の公開配布方針を別記 |
+| full msieve SIQS | balanced大入力の次候補。GMP、relation収集、matrix、取消境界が必要 | PR4で固定13ファイルから8objectを生成。未リンク・未実行、有界relation/matrix adapterが残る |
 | Alpertron ECM/SIQS | C→JS/WASMのbrowser実例。GPL-3.0、任意式・保存・任意server補助等の分離が必要 | source/build/license/機能の縮小審査前に取り込まない |
 | FLINT factor / QS / ECM | LGPL-3.0-or-later、GMP/MPFR依存。大きい移植・配布範囲 | 原本選定とサイズ・起動・取消評価が必要 |
 | GNFS / CADO-NFS | root COPYINGはLGPL-2.1。多段処理・個別部品監査・browser移植は別規模 | このPRでは実装しない。短期採用を見送る理由を下記に記録 |
@@ -22,7 +22,8 @@
 
 GMPやGPL系を公開配布する際のsource提供・再リンク等の具体的な条件は、選ぶ原本と
 配布形態で確認します。現在のサイトv1の許可license/capabilityとは別です。
-このPRはGMP、ECM、SIQS、GNFSのコードを取り込まず、公開licenseも変更しません。
+PR3はGMP、ECM、SIQS、GNFSのコードを取り込まず、公開licenseも変更していません。
+PR4の非公開GMP/ECM評価とSIQSコンパイル成立性は[原本・境界](gmp-ecm-source-review.md)に記録します。
 ライセンス判断を「WASMだから安全／危険」と置き換えません。
 
 ## 旧ZIP・既存公開版・今回の基準
@@ -35,8 +36,8 @@ factor_worker.js SHA256: 956b4d8a13abbc75b056773ad917e5ea3f52318367827b80474e921
 
 旧bundleの低位bindingは mpz_mod、mpz_fdiv_r、mpz_tdiv_r、mpz_powm を公開しています。
 高位Integerにmodがないことは、GMP本体または低位APIに剰余がないことを意味しません。
-次の比較は低位APIの固定scratch再利用、必要exportだけの再現可能なGMP binding、
-別libraryのどれが有利かを同一入力で測定します。手製剰余の継承は前提にしません。
+PR4は低位APIの固定scratch再利用、必要exportだけの再現可能なGMP bindingを評価します。
+共通のnative BigInt Brentと同じ入力で比較し、手製剰余は継承しません。
 [GMPの剰余仕様](https://gmplib.org/manual/Integer-Division)と
 [gmp-wasm原本](https://github.com/Daninet/gmp-wasm)を参照してください。
 旧ZIPの独自部のroot license/build pinが未確認なので、旧bundleそのものを走らせて

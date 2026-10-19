@@ -7,7 +7,9 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    env:
+      PRIME_UPSTREAM_DIR: ${{ runner.temp }}/prime-upstreams
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -20,11 +22,21 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Rebuild reviewed WASM twice without network
         run: npm run build:wasm -- --check
+      - name: Fetch and verify fixed candidate source and build tools
+        run: npm run fetch:candidates
+      - name: Rebuild GMP and ECM twice offline; compile true SIQS objects
+        run: npm run build:candidates -- --check
+      - run: npm run verify:candidate-native
+      - run: npm run verify:candidate-primes
       - run: npm run verify:native
       - run: npm test
       - run: npm run check
       - run: git diff --check
       - name: Verify real browser worker, cancellation and quiet runtime
         run: npm run verify:browser -- --out "$RUNNER_TEMP/prime-browser.json"
+        env:
+          CHROME_BIN: google-chrome
+      - name: Verify candidate browser worker and quiet offline runtime
+        run: npm run verify:candidate-browser -- --out "$RUNNER_TEMP/prime-candidates.json"
         env:
           CHROME_BIN: google-chrome

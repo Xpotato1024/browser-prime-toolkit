@@ -45,11 +45,11 @@ export function factorInteger(input, options = {}, { now = () => performance.now
         const root = squareRoot(value, budget);
         let divisor;
         if (root * root === value) divisor = root;
-        else if (config.algorithm === 'tinyqs' && value >= (1n << 47n)) {
-          if (value >= (1n << 85n)) throw new BudgetExceeded('algorithm-range');
-          if (typeof splitAdvanced !== 'function') throw new TypeError('MPQS is not initialized');
+        else if (['gmp-brent', 'gmp-ecm'].includes(config.algorithm) || config.algorithm === 'tinyqs' && value >= (1n << 47n)) {
+          if (value >= (1n << (config.algorithm === 'tinyqs' ? 85n : 256n))) throw new BudgetExceeded('algorithm-range');
+          if (typeof splitAdvanced !== 'function') throw new TypeError('Advanced splitter is not initialized');
           budget.tick();
-          divisor = splitAdvanced(value, budget);
+          divisor = splitAdvanced(value, budget, config);
           budget.tick();
           if (divisor === null) throw new BudgetExceeded('algorithm-exhausted');
         } else divisor = findDivisor(value, config.algorithm === 'tinyqs' ? 'brent' : config.algorithm, random, budget);

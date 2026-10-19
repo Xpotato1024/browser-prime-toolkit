@@ -16,3 +16,19 @@ CIは単体・実browserのtestとcheckのみです。push / PRからdeploy、re
 実装PRのmerge、Ready化、公開、既存サイト組込、資格情報・権限変更は別途承認が必要です。
 
 CIではhost bind inputが参照できないため、必要な固定sourceだけをtar化してDocker標準入力へ渡します。host mountはなく、network=none・固定image・資源上限・2回一致を維持します。tarはownerを復元せず、余分なcapabilityを付与しません。WASM_BUILD_TMPはNode側の自身の一時領域だけを指定します。
+
+GMP/ECM評価用の原本とbuild toolは、repo外の明示保存先へ取得します。
+
+```sh
+export PRIME_UPSTREAM_DIR=/tmp/prime-upstreams
+npm run fetch:candidates
+npm run build:candidates -- --check
+npm run verify:candidate-native
+npm run verify:candidate-primes
+CHROME_BIN=google-chrome npm run verify:candidate-browser
+CHROME_BIN=google-chrome npm run benchmark:candidates -- --out /tmp/prime-candidates.json
+```
+
+詳しい原本・条文・隔離build・再リンクの配布境界は[原本評価](../architecture/gmp-ecm-source-review.md)を参照してください。
+通常bundleと候補bundleは共通protocol・controllerを使い、候補の追加をwireから受け付けません。
+CIの原本取得後のコンパイルは通信禁止です。CIの権限はcontents:readのみを維持しています。

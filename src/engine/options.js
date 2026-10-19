@@ -9,7 +9,7 @@ export function normalizeOptions(options = {}) {
   const allowed = ['algorithm', 'seed', 'timeBudgetMs', 'operationBudget'];
   if (Object.keys(options).some(key => !allowed.includes(key))) throw new TypeError('Unknown option');
   const out = { algorithm: 'brent', seed: 1, timeBudgetMs: 1000, operationBudget: 1000000, ...options };
-  if (!['brent', 'floyd', 'tinyqs'].includes(out.algorithm)) throw new RangeError('Unknown algorithm');
+  if (!['brent', 'floyd', 'tinyqs', 'gmp-brent', 'gmp-ecm'].includes(out.algorithm)) throw new RangeError('Unknown algorithm');
   for (const [key, minimum, maximum] of [
     ['seed', 1, 4294967295], ['timeBudgetMs', 0, 60000], ['operationBudget', 0, 50000000],
   ]) {

@@ -1,7 +1,8 @@
 # browser-prime-toolkit
 
 大きな半素数をブラウザ内で高速に分解することを目標に開発する非公開リポジトリです。
-native BigInt と限定 MPQS/WASM、予算・取消付き Worker、1/2/4 Worker比較 harness を実装しています。
+native BigInt と限定 MPQS/WASMに加え、別の評価用bundleでGMP低位Brent・ECMを実装しています。
+予算・取消付きWorkerと比較harnessを持ち、従来Rhoは1/2/4本、64MiB候補は128MiB枠内の1/2本を評価します。
 最終エンジンは未選定です。WASM・多倍長ライブラリ・高度な方式の比較を続けます。
 React の製品画面、サイト用アダプター、公開配布は未実装です。
 
@@ -18,6 +19,6 @@ CHROME_BIN=google-chrome npm run verify:browser
 CHROME_BIN=google-chrome npm run benchmark:browser -- --out /tmp/prime-browser.json
 ```
 
-npmの追加runtime依存はありません。msieveの公開ドメインsubsetとEmscripten runtimeを固定同梱し、原本hash・変更・NOTICEを記録しています。アプリの公開ライセンスは未選定です。
-[文書一覧](docs/README.md)、[計算・Worker契約](docs/contracts/factor-worker.md)、
+npmの追加runtime依存はありません。msieveの公開ドメインsubset、GMP/ECMの固定原本と再現build、Emscripten runtimeの原本hash・変更・通知を記録しています。真のSIQSはobject-only確認で未実行です。アプリの公開ライセンスは未選定です。
+[GMP/ECM原本・配布境界](docs/architecture/gmp-ecm-source-review.md)、[文書一覧](docs/README.md)、[計算・Worker契約](docs/contracts/factor-worker.md)、
 [初回実測](docs/benchmarks/llm01-baseline.md)、[WASM・並列比較](docs/benchmarks/llm01-wasm-mpqs.md)、[候補とAPI調査](docs/architecture/advanced-factorization-candidates.md)を参照してください。

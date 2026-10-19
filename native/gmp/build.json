@@ -1,0 +1,172 @@
+{
+  "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+  "emscripten": "4.0.15",
+  "upstreams": [
+    {
+      "file": "gmp-6.3.0.tar.xz",
+      "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+      "bytes": 2094196,
+      "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+    },
+    {
+      "file": "gmp-ecm.tar.gz",
+      "url": "https://codeload.github.com/sethtroisi/gmp-ecm/tar.gz/8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e",
+      "bytes": 721052,
+      "sha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494"
+    },
+    {
+      "file": "autoconf_2.71-2_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/autoconf/autoconf_2.71-2_all.deb",
+      "bytes": 337608,
+      "sha256": "96b528889794c4134015a63c75050f93d8aecdf5e3f2a20993c1433f4c61b80e"
+    },
+    {
+      "file": "automake_1.16.5-1.3_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.16/automake_1.16.5-1.3_all.deb",
+      "bytes": 557936,
+      "sha256": "59e3890fc8407bcf8ccc9f709d6513156346d5c942e8c624dc90435e58f6f978"
+    },
+    {
+      "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+      "bytes": 198836,
+      "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+    },
+    {
+      "file": "libtool_2.4.6-15build2_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.6-15build2_all.deb",
+      "bytes": 163940,
+      "sha256": "fb994bc0152f4e77a791b51bc54fd5e38963aa6473e60c45369ef373b6119124"
+    },
+    {
+      "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "bytes": 14612,
+      "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+    }
+  ],
+  "sourceHashes": {
+    "native/gmp/bridge.c": "a1e9fece20dfb0e9488bdba71ae395d4ef01236213c0062ca1728421ec154236",
+    "native/gmp/build.sh": "19c5c9bfd065766c85338ba7ae20abd0e88eff63ca15bd748113f2185f5e2a6a",
+    "native/gmp/sanitize.c": "4fcb7302d1563776429ac19fd663120cc17971399925ad53d92d361c0937e05a",
+    "native/gmp/upstreams.json": "4c92e7bd3876e25d5a589348dba86b623716f6e497fa4d647498e6fdabff9581",
+    "scripts/build-gmp.mjs": "a82a5cf6da727a5420ef5c77e2d95378e81af098c7a1fc1c640aff5cf81a3266",
+    "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+    "vendor/msieve-siqs/provenance.json": "d793ca71f7c60281d9c97d0ad020bcac49383afe5cffa0aacd5447b94ca17fde",
+    "vendor/msieve-siqs/mpqs/gf2.c": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3",
+    "vendor/msieve-siqs/mpqs/mpqs.c": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+    "vendor/msieve-siqs/mpqs/poly.c": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+    "vendor/msieve-siqs/mpqs/relation.c": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+    "vendor/msieve-siqs/mpqs/sieve.c": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+    "vendor/msieve-siqs/mpqs/sieve_core.c": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+    "vendor/msieve-siqs/mpqs/sqrt.c": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+    "vendor/msieve-siqs/mpqs/mpqs.h": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+    "vendor/msieve-siqs/include/common.h": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+    "vendor/msieve-siqs/include/msieve.h": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+    "vendor/msieve-siqs/include/gmp_xface.h": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+    "vendor/msieve-siqs/include/util.h": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778",
+    "vendor/msieve-siqs/include/mp.h": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
+  },
+  "cleanBuilds": 2,
+  "sha256": "f2a31a887ccb7bc39da55acfdcdbfdc8b676630e799f895e063e0ee112b7a130",
+  "bytes": 454508,
+  "imports": [
+    {
+      "module": "env",
+      "name": "budget_tick",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "proc_exit",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "clock_time_get",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_write",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_read",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_close",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_seek",
+      "kind": "function"
+    },
+    {
+      "module": "env",
+      "name": "__syscall_unlinkat",
+      "kind": "function"
+    }
+  ],
+  "exports": [
+    {
+      "name": "memory",
+      "kind": "memory"
+    },
+    {
+      "name": "input_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "factor_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "brent_split",
+      "kind": "function"
+    },
+    {
+      "name": "ecm_split",
+      "kind": "function"
+    },
+    {
+      "name": "__indirect_function_table",
+      "kind": "table"
+    },
+    {
+      "name": "_initialize",
+      "kind": "function"
+    }
+  ],
+  "memoryLimitBytes": 67108864,
+  "stackBytes": 1048576,
+  "siqsObjects": [
+    "23213275465090c0b5dcf1037fe4344bb9e1d3a6d1351a9d8a6b4498d44026f9  /work/siqs-objects/gf2.o",
+    "7266e4499883657281743268efca98880a2942f9b0c089d164e6d40358f99da9  /work/siqs-objects/mpqs.o",
+    "52286d74a3c87005d34fca68b1c4b19b5089d5a73c27951a5059abf1e3aea22d  /work/siqs-objects/poly.o",
+    "da80f2fc3c7008eee4b952c5b2803d2562495d146d852ee94a1645824d12208d  /work/siqs-objects/relation.o",
+    "00114f98b029a116f59653ca7711617300780bd59b81fa31c55683ad993be59e  /work/siqs-objects/sieve.o",
+    "237e310c2b572c6d3d85e353e9fcfed2299634870638f5be35afc94f0303d6b5  /work/siqs-objects/sieve_core_32.o",
+    "2353bd0061db489a5a49e8a62d6b7dbb45a640bea02b305b0f20e0521ddc9bf8  /work/siqs-objects/sieve_core_64.o",
+    "3e5e69ed9507c34ccc178197c2193f9959e73cc51fe26e4a02658d1dc4ae96fd  /work/siqs-objects/sqrt.o"
+  ],
+  "ecm": {
+    "parametrization": "Suyama",
+    "B1": 2000,
+    "B2": 200000,
+    "curves": 32,
+    "stage2MemoryBytes": 16777216
+  },
+  "container": {
+    "network": "none",
+    "cpus": 2,
+    "memory": "2g",
+    "workTmpfs": "512m",
+    "pids": 128,
+    "capabilities": "none"
+  }
+}

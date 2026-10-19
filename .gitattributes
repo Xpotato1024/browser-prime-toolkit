@@ -1,3 +1,9 @@
 # Preserve reviewed upstream source whitespace; our code keeps normal checks.
 vendor/msieve/**/*.c whitespace=-blank-at-eol,-blank-at-eof
 vendor/msieve/**/*.h whitespace=-blank-at-eol,-blank-at-eof
+vendor/msieve-siqs/**/*.c whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/msieve-siqs/**/*.h whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/gmp/COPYING* whitespace=-blank-at-eol,-blank-at-eof
+vendor/gmp-ecm/COPYING* whitespace=-blank-at-eol,-blank-at-eof
+vendor/gmp-ecm/AUTHORS whitespace=-blank-at-eol,-blank-at-eof
+vendor/build-tools/*.copyright whitespace=-blank-at-eol,-blank-at-eof

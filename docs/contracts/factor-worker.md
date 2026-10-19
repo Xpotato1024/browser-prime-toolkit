@@ -3,7 +3,7 @@
 
 ## コア
 factorInteger(value, options, runtime)は非負1024桁以下のBigIntを受け取ります。
-optionsはalgorithm=brent/floyd/tinyqs、seed=1..4294967295、timeBudgetMs=0..60000、
+optionsはalgorithm=brent/floyd/tinyqs/gmp-brent/gmp-ecm、seed=1..4294967295、timeBudgetMs=0..60000、
 operationBudget=0..50000000のみ。既定はbrent/1/1000ms/1000000です。
 runtimeのnow/onProgress/splitAdvancedはテストとWorker内用の注入点で、message経由で受け取りません。
 時間は単調clock、operationはループ内の明示checkpoint回数です。CPU instruction数ではありません。
@@ -12,7 +12,7 @@ JS heapの厳密なhard memory上限は提供しません。最大入力/因子�
 
 結果はinput、factors[{value,certainty,method}]、remaining、operations、elapsedMs、
 status、reason、primality、algorithm、seedを持つplain dataです。整数値はcanonical decimal文字列です。
-statusはcomplete/probable/incomplete/neither。incompleteのreasonはtime-budget/operation-budgetです。tinyqsに限りalgorithm-range/algorithm-exhaustedも使います。
+statusはcomplete/probable/incomplete/neither。incompleteのreasonはtime-budget/operation-budgetです。tinyqsとGMP評価候補はalgorithm-range/algorithm-exhaustedも使います。
 0/1はneither。完全分解はremaining=1、completeは全因子proven、probableはprobable因子を含みます。
 未完了のremainingは未解決余因子で、素数と推定しません。入力受付と分解完了は別です。
 certainty=provenのmethodはsmall-primeまたはmr64、probableはmr-fixed7です。
@@ -45,7 +45,7 @@ callbackへ渡すdataはcontroller保有snapshotと分離します。consumer ca
 coreは既知因数・小範囲の独立trial oracle・MR境界/擬素数・予算途中の再構成で検証します。
 controllerはfake Worker/timerでcancel/timeout/race/errorを決定的に試験し、実module Workerでも確認します。
 benchmark harnessでbrowser/端末・corpus・因子サイズ・seed・budget・打切りを記録します。
-限定MPQS/WASMと測定用Rho portfolioを比較します。ECM/SIQS/NFS、素数証明書、React/site adapter、公開配布は未実装です。
+限定MPQS/WASMと測定用Rho portfolioに加え、別bundleでGMP Brent/ECMを評価します。真のSIQSはobject-only確認、NFS・素数証明書・React/site adapter・公開配布は未実装です。
 
 Worker内のsecuritypolicyviolationはaudit-cspとしてhostへ通知し、当該Workerをerror/terminateします。
 active jobがない時も処理し、別世代の通知は無視します。mainのCSP event監視、CDP/HTTP観測とは別経路です。
@@ -65,3 +65,22 @@ WASM不可のbrowserのnative fallbackや製品上の方式自動選択は未実
 Cは多項式／ふるいblockのcheckpointで予算確認します。中断要求をCへ戻して解放後にJSで再throwします。
 checkpoint間の厳密なwall上限は保証せず、hostのterminate経路も維持します。
 測定用portfolioは単一controllerの契約を変更せず、独立controllerを最大4本まで所有します。
+
+## GMP/ECM 評価用 Worker
+通常 bundle は brent/floyd/tinyqs のみを実行します。別の固定 bundle は
+brent/floyd/gmp-brent/gmp-ecm を受け、GMP/ECM WASM 初期化後に ready を送ります。
+方式や WASM URL、コードを wire から追加することはできません。
+共通の前処理・MR・平方・因子検算後、GMP 候補が必要な残余は 5 以上 256bit 以下に限定します。
+範囲外は algorithm-range、32 曲線等で見つからなければ algorithm-exhausted です。
+ECM は Suyama、B1=2000/B2=200000、最大32曲線、stage2 maxmem=16MiBです。
+maxmem は stage2 の目安で全体 RAM 上限ではありません。WASM 線形メモリの hard cap は64MiB、
+stackは1MiB、growth/pthreadsは無効です。OOM/trapを必ずincompleteに変換できるとは主張しません。
+保存用 filename は NULL、filesystem は無効、残る fd/path syscall imports は拒否する host stub です。
+ECM内部の informational clock は壁時計を供給し、CPU時間の測定とは扱いません。
+native callbackは停止を保持し、全変数を解放してから元のJS予算例外を返します。
+ECM stage2 の callback がない区間は host deadline/terminate が補完します。
+seed は各残余の split ごとに初期化します。最初の Brent split の開始値は同じ xorshift32 です。
+GMP gcd の内部操作は checkpoint 一回であり、native BigInt のEuclid反復数とは等価ではありません。
+true SIQS は別source集合の object-only 確認で、WASMへリンク・実行していません。
+
+portfolioの128MiB枠は所有する実行中Workerの線形メモリ合計です。factoryの信頼された16/64MiB profileで上限を検査し、方式名で回避できません。pool中は単体比較用Workerをdisposeし、全lane終了後に再生成します。再生成時間はidleRecoveryMsとして別記録します。JS heap、browser自体、終了済みWorkerのGC待ちはpeak RAM測定なしに合計上限とは主張しません。

@@ -6,10 +6,15 @@ import { verifyFactorResult, verifySnapshot } from '../src/engine/result.js';
 // Measurement-only independent Rho lanes. No product UI or automatic parallelism.
 export async function runPortfolio(text, options = {}, count = 1, {
   createController = configuration => new FactorWorkerController(configuration),
+  memoryPerWorkerBytes = null,
 } = {}) {
   if (![1, 2, 4].includes(count)) throw new RangeError('Worker count');
   const config = normalizeOptions(options), input = parseIntegerInput(text).canonical;
-  if (config.algorithm !== 'brent') throw new RangeError('Only independent Brent trials');
+  if (!['brent', 'gmp-brent', 'gmp-ecm'].includes(config.algorithm)) throw new RangeError('Only independent Rho or ECM trials');
+  const laneMemory = memoryPerWorkerBytes ?? (config.algorithm === 'brent' ? 16777216 : 67108864);
+  if (![16777216, 67108864].includes(laneMemory) || count * laneMemory > 134217728) {
+    throw new RangeError('Portfolio linear memory limit: 128 MiB');
+  }
   const controllers = [], snapshots = [], results = [];
   const coldStarted = performance.now();
   let timer, closed = false, accept, reject, started;
@@ -20,7 +25,7 @@ export async function runPortfolio(text, options = {}, count = 1, {
     const snapshot = snapshots.filter(Boolean).sort((a, b) =>
       BigInt(a.remaining) < BigInt(b.remaining) ? -1 : BigInt(a.remaining) > BigInt(b.remaining) ? 1 : 0)[0] ??
       { input, factors: [], remaining: input, operations: 0, elapsedMs: performance.now() - started };
-    return { ...snapshot, algorithm: 'brent', seed: config.seed, status: 'incomplete', reason: 'host-timeout',
+    return { ...snapshot, algorithm: config.algorithm, seed: config.seed, status: 'incomplete', reason: 'host-timeout',
       primality: snapshot.factors.length ? 'composite' : 'unknown' };
   };
   try {
@@ -31,7 +36,7 @@ export async function runPortfolio(text, options = {}, count = 1, {
           if (event.type === 'error') throw Error('Portfolio worker failed');
           if (event.type === 'progress') snapshots[lane] = verifySnapshot(event.snapshot, input);
           if (event.type !== 'terminal') return;
-          if (event.result.algorithm !== 'brent' || event.result.seed !== ((config.seed - 1 + lane) % 4294967295) + 1) {
+          if (event.result.algorithm !== config.algorithm || event.result.seed !== ((config.seed - 1 + lane) % 4294967295) + 1) {
             throw Error('Portfolio lane identity');
           }
           if (event.result.status === 'incomplete' && event.result.reason === 'host-timeout') {
@@ -63,7 +68,7 @@ export async function runPortfolio(text, options = {}, count = 1, {
     for (let lane = 0; lane < count && !closed; lane++) controllers[lane].start(input, laneOptions[lane]);
     const result = await terminal;
     return { ...result, wallMs: performance.now() - started, initializationMs, workers: count,
-      laneSeeds: laneOptions.map(o => o.seed), allocatedOperationBudget: laneOptions.reduce((sum, o) => sum + o.operationBudget, 0),
+      laneSeeds: laneOptions.map(o => o.seed), ownedLinearMemoryBytes: count * laneMemory, allocatedOperationBudget: laneOptions.reduce((sum, o) => sum + o.operationBudget, 0),
       allLanesDisposed: controllers.every(c => c.phase === 'disposed') };
   } finally { stop(); }
 }

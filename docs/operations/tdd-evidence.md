@@ -46,3 +46,24 @@ probableの長大値はWorker自己申告のscreeningとし、hostの積検算�
 - 修正artifactを2回clean buildし一致。94 Node tests、source/artifact hash、UTF-8/LF、diff-checkが成功しました。
 - stale-root修正後の実Chromeで単独342試行＋並列72試行、通信監査・offline・WASM job取消/再生成を取り直しました。
 - ローカル詳細logはrepo外のprime-stage3/、公開可能な測定receiptはdocs/benchmarks/に保存します。
+
+## PR4: 低位GMP/ECM評価と資源所有権
+2026-10-19、LLM-01、固定Node24.19.0/npm11.19.0で実施しました。
+
+| 単位 | 実際のred | green |
+| --- | --- | --- |
+| GMP/ECM共通pipeline | 新algorithmがUnknown algorithm、6失敗 | 因子積・proof・明示exhaustion・不正除数拒否6成功 |
+| GMP binding境界 | 新artifact未生成のmodule load失敗1件 | 実WASMのexact divisor・境界・停止後再利用・不正bytes拒否5成功 |
+| factory別メモリ上限 | candidate factoryのnative Brent4本が拒否されず1失敗 | 生成前に128MiB超を拒否、portfolio9成功 |
+| async admission | pool/poolが両方開始、run/poolが実行中jobを取消、2失敗 | 3競合の排他を確認 |
+| cancel helper所有権 | cancel/pool等で意図しない受付・遅延rejectionを再現 | run/pool/cancel/auditの同期owner、7競合成功 |
+
+GMP/ECMは完全に新規の通信禁止container2回で同じ454508byte WASMを生成しました。
+SHA256は f2a31a887ccb7bc39da55acfdcdbfdc8b676630e799f895e063e0ee112b7a130 です。
+SIQSは固定13ファイルの7Cソースから8objectを作り、2回のhashが一致しました。
+SIQSはリンク・instantiate・数値実行していません。
+
+native ASan/UBSanはGMP BrentとECMのcutoff各0〜199、計400停止と次jobのexact recovery、
+raw ABIの空値・不正文字・非canonical・偶数・上限超過・未終端・seed0を確認しました。
+停止phaseは計装しておらず、stage2専用の中断解放検証とは扱いません。
+最終の件数・browser検証・独立レビュー・CIはPRの最終headで確認して記録します。
