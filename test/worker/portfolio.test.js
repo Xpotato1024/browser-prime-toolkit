@@ -38,3 +38,13 @@ test('fixed-seed MPQS duplication and excessive worker counts are rejected', asy
   await assert.rejects(runPortfolio('12', { algorithm: 'tinyqs' }, 2));
   for (const count of [0, 3, 5, 100]) await assert.rejects(runPortfolio('12', {}, count));
 });
+
+test('individual host deadlines remain incomplete and preserve the submitted product', async () => {
+  const factory = fakeFactory((lane, emit, input, options) => queueMicrotask(() => {
+    const result = factorInteger(BigInt(input), { ...options, timeBudgetMs: 0 });
+    emit({ type: 'terminal', result: { ...result, reason: 'host-timeout' } });
+  }));
+  const r = await runPortfolio('1000036000099', { timeBudgetMs: 1000 }, 2, factory);
+  assert.equal(r.status, 'incomplete'); assert.equal(r.remaining, r.input);
+  assert.ok(factory.lanes.every(l => l.disposed));
+});
