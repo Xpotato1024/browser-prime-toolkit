@@ -31,6 +31,7 @@ jobs:
       - run: npm run verify:siqs-native
       - run: npm run verify:candidate-native
       - run: npm run verify:candidate-primes
+      - run: npm run verify:selection-primes
       - run: npm run verify:native
       - run: npm test
       - run: npm run check
@@ -41,6 +42,10 @@ jobs:
           CHROME_BIN: google-chrome
       - name: Verify bounded SIQS and fatal ECM Worker retirement offline
         run: npm run verify:siqs-browser -- --out "$RUNNER_TEMP/prime-siqs.json"
+        env:
+          CHROME_BIN: google-chrome
+      - name: Verify conservative selector and native-only Worker offline
+        run: npm run verify:selection-browser -- --out "$RUNNER_TEMP/prime-selection.json"
         env:
           CHROME_BIN: google-chrome
       - name: Verify candidate browser worker and quiet offline runtime

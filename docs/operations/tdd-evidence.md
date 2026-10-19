@@ -92,3 +92,14 @@ GMP OOMへlongjmp回復は行いません。実browserではfatal時のWorker破
 最終レビューで初期化集計に再利用時のほぼ0msが34/68件ずつ混ざる問題を検出しました。
 比較だけは各試行の旧Workerを必ずdisposeしてfresh生成する契約へ修正し、136試行を再測定しました。
 報告checkは全比較行のfreshPerTrial=trueを要求し、初期化の過少計上とseed別の生成状態の混在を解消します。
+
+## PR6: 保守的selectorとnative-only Worker
+ADR0006を6eb97ebで固定後に実施しました。repo外prime-stage6/に実行logを保管します。
+
+- selectorの境界/正規化/予算/不正指定テストはmodule不在でfile失敗（exit1）、実装後2挙動成功。
+- WASMを無効にした旧bundleはready要求にinitialization-errorを返して回帰テスト失敗（exit1）。
+  新native-only bundleは同じ条件でready/exact factor/非対応algorithm拒否に成功。
+- 共通factor/proof/options/C/WASM runtimeは変更せず、selectorは既存の方式名と同一Budgetを使います。
+- 新6入力はpolicy固定後に既存測定との非重複を確認し、small因子11個を独立uint64総当たりで証明。
+  M127はruntime probable controlを維持し、証明・確率上限を追加しません。
+- 中間135 tests/check成功。最小holdout18計算と最終headの検証は測定文書・PRへ記録します。

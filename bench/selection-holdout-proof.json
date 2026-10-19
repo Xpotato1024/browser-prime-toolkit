@@ -1,0 +1,19 @@
+{
+  "method": "independent exhaustive odd uint64 trial division through floor(sqrt(n)); n/d avoids overflow",
+  "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+  "sourceSha256": "c05d6ee392c7f1f2128712d7e168214ddb8ea6e8fd5d32589d9df64ff560cbfe",
+  "inputSha256": "bac295f094bf22dce705bf59729f42753f9cf7ff760c20cebedd5785f1d2d3ae",
+  "results": [
+    "48593:109",
+    "55001:116",
+    "1907613529:21837",
+    "3809591273:30860",
+    "3283320961:28649",
+    "3576492233:29901",
+    "909536624993:476847",
+    "998561865461:499639",
+    "50751572209658171:112640547",
+    "53603646293344283:115762305",
+    "779101:440"
+  ]
+}
