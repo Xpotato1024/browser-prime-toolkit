@@ -6,6 +6,7 @@ import { tmpdir, cpus, totalmem, platform, release } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { BrowserMemorySampler } from './browser-memory.mjs';
+import {longAsset} from './long-asset-route.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const arg=(key,fallback)=>process.argv.includes(key)?process.argv[process.argv.indexOf(key)+1]:fallback;
@@ -53,9 +54,8 @@ try {
     try {
       const url = new URL(req.url, 'http://localhost');
       if (url.pathname === '/probe') { res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end('detector probe'); return; }
-      if (!url.pathname.startsWith('/src/') && !url.pathname.startsWith('/bench/') && !url.pathname.startsWith('/app/')) throw Error('Not an asset');
-      if(url.pathname.includes('oracle')||url.pathname.includes('manifest'))throw Error('Not a runtime asset');
-      const path = resolve(root, '.' + decodeURIComponent(url.pathname));
+      const relative=longAsset(url.pathname);if(relative===null)throw Error('Not a runtime asset');
+      const path = resolve(root, relative);
       if (!path.startsWith(root + sep)) throw Error('Path escape');
       res.writeHead(200, { 'Content-Type': mime[extname(path)] ?? 'application/octet-stream', 'Cache-Control': 'no-store',
         'Content-Security-Policy': "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src blob:; connect-src 'none'; img-src data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'" });
@@ -65,6 +65,10 @@ try {
   await new Promise(resolveListen => server.listen(0, '127.0.0.1', resolveListen));
   const port = server.address().port;
   const origin = 'http://127.0.0.1:' + port;
+  const assetBoundarySelfTest=[];
+  for(const path of ['/bench/staged-practical/%6fracle.json','/bench/staged-practical/%256fracle.json','/bench/staged-practical/%6danifest.json','/src/%2e%2e/bench/staged-practical/oracle.json']){
+    const response=await fetch(origin+path);assert.equal(response.status,404);assert.equal(await response.text(),'');assetBoundarySelfTest.push({path,status:404});
+  }
   chrome = spawn(process.env.CHROME_BIN || 'google-chrome', ['--headless=new', '--no-sandbox', '--disable-dev-shm-usage',
     '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-first-run',
     '--disable-background-timer-throttling', '--remote-debugging-port=0', '--user-data-dir=' + temporary, 'about:blank'],
@@ -168,11 +172,11 @@ try {
   assert.equal(requests.length,0);assert.equal(http.length,0);assert.deepEqual(badEvents,[]);assert.deepEqual(fatal,[]);
   await memory.stop();
   const sourceFiles={};
-  for(const path of ['scripts/verify-long-rsa.mjs','scripts/browser-memory.mjs','scripts/build-long-rsa-worker.mjs','scripts/check-long-rsa-core.mjs','src/long-rsa/factor.js','src/long-rsa/options.js','src/long-rsa/install.js','bench/staged-rsa/catalog.json','bench/staged-rsa/provenance.json','bench/staged-practical/catalog.json','bench/staged-practical/oracle.json','bench/staged-practical/manifest.json','scripts/generate-practical.py',...initialAssets.map(a=>a.path.slice(1))])
+  for(const path of ['scripts/verify-long-rsa.mjs','scripts/browser-memory.mjs','scripts/long-asset-route.mjs','scripts/build-long-rsa-worker.mjs','scripts/check-long-rsa-core.mjs','src/long-rsa/factor.js','src/long-rsa/options.js','src/long-rsa/install.js','bench/staged-rsa/catalog.json','bench/staged-rsa/provenance.json','bench/staged-practical/catalog.json','bench/staged-practical/oracle.json','bench/staged-practical/manifest.json','scripts/generate-practical.py',...initialAssets.map(a=>a.path.slice(1))])
     sourceFiles[path]=createHash('sha256').update(await readFile(join(root,path))).digest('hex');
   const receipt={mode,variant,caseId,group,seed,budgetMs,lifecycle,measuredHead:process.env.PRIME_MEASURED_HEAD??null,measuredAt:new Date().toISOString(),browser,browserDevice,
     host:{platform:platform(),release:release(),cpu:cpus()[0]?.model,logicalCpus:cpus().length,memoryBytes:totalmem(),headless:true},
-    coldReadyMs,initialAssets,sourceFiles,records,ownership,sampledRam:memory.summary(),
+    assetBoundarySelfTest,coldReadyMs,initialAssets,sourceFiles,records,ownership,sampledRam:memory.summary(),
     quiet:{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true},
     limits:{operationBudget:10000000000,wholeRam:'sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak',
       workerAudit:'fixed native BigInt only; no WASM; unsupported GMP/SIQS never allocates a Worker',profile:'request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null'}};
