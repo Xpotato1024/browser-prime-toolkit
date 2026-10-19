@@ -12,6 +12,12 @@ export class FactorWorkerController {
     this.phase = 'loading'; this.boot();
   }
   emit(event) { this.onEvent(structuredClone(event)); }
+  clearJob() {
+    const job = this.active;
+    if (job) this.unschedule(job.timer);
+    this.active = null;
+    return job;
+  }
   retire() {
     if (this.loadTimer !== null) this.unschedule(this.loadTimer);
     this.loadTimer = null;
@@ -51,7 +57,7 @@ export class FactorWorkerController {
         const result = verifyFactorResult(data.result, job.input);
         this.checkWork(result, job);
         if (result.algorithm !== job.options.algorithm || result.seed !== job.options.seed) throw new TypeError('Identity');
-        this.unschedule(job.timer); this.active = null; this.phase = 'ready';
+        this.clearJob(); this.phase = 'ready';
         this.emit({ type: 'terminal', jobId: job.jobId, submittedInput: job.submittedInput, result });
       } else if (data.type === 'error') this.fail('computation-error');
       else throw new TypeError('Message');
@@ -78,7 +84,7 @@ export class FactorWorkerController {
   interrupt(reason, reboot) {
     const job = this.active;
     if (!job) return false;
-    this.unschedule(job.timer); this.active = null; this.retire();
+    this.clearJob(); this.retire();
     this.phase = reboot ? 'loading' : 'disposed';
     const result = { ...job.snapshot, status: reason === 'host-timeout' ? 'incomplete' : 'cancelled',
       reason, algorithm: job.options.algorithm, seed: job.options.seed,
@@ -89,9 +95,8 @@ export class FactorWorkerController {
   }
   cancel() { return this.interrupt('cancelled', true); }
   fail(code) {
-    const job = this.active;
-    if (job) this.unschedule(job.timer);
-    this.active = null; this.retire(); this.phase = 'error';
+    const job = this.clearJob();
+    this.retire(); this.phase = 'error';
     this.emit({ type: 'error', code, jobId: job?.jobId ?? null, snapshot: job?.snapshot ?? null });
   }
   restart() {
