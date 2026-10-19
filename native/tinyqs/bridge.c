@@ -26,6 +26,9 @@ int split(void) {
     mp_clear(&a);
     mp_clear(&b);
     if (!tinyqs(&n, &a, &b)) return 0;
+    if (mp_is_zero(&a) || mp_is_one(&a) || mp_cmp(&a, &n) >= 0) return 0;
+    mp_mod(&n, &a, &b);
+    if (!mp_is_zero(&b)) return 0;
     char scratch[32 * MAX_MP_WORDS + 1];
     char *digits = mp_sprintf(&a, 10, scratch);
     if (strlen(digits) >= sizeof(output)) return -1;

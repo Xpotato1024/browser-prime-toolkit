@@ -6,13 +6,15 @@ import { tmpdir, cpus, totalmem, platform, release } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { makeCorpus } from '../bench/corpus.mjs';
+import { makeAdvancedCorpus } from '../bench/advanced-corpus.mjs';
 import { verifySnapshot } from '../src/engine/result.js';
 
 const root = resolve(import.meta.dirname, '..');
 const quick = process.argv.includes('--quick');
 const outIndex = process.argv.indexOf('--out');
 const output = outIndex >= 0 ? resolve(process.argv[outIndex + 1]) : join(tmpdir(), 'prime-browser-receipt.json');
-const corpus = makeCorpus(quick);
+const advanced = process.argv.includes('--advanced');
+const corpus = advanced ? makeAdvancedCorpus(quick) : makeCorpus(quick);
 const temporary = await mkdtemp(join(tmpdir(), 'prime-browser-'));
 const http = [], requests = [], badEvents = [], localBlobs = [], sessions = new Set(), fatal = [];
 let chrome, socket, server, pageSession, sequence = 0;
@@ -53,7 +55,7 @@ try {
       const path = resolve(root, '.' + decodeURIComponent(url.pathname));
       if (!path.startsWith(root + sep)) throw Error('Path escape');
       res.writeHead(200, { 'Content-Type': mime[extname(path)] ?? 'application/octet-stream', 'Cache-Control': 'no-store',
-        'Content-Security-Policy': "default-src 'none'; script-src 'self'; worker-src blob:; connect-src 'none'; img-src data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'" });
+        'Content-Security-Policy': "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src blob:; connect-src 'none'; img-src data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'" });
       res.end(await readFile(path));
     } catch { res.writeHead(404); res.end(); }
   });
@@ -124,17 +126,36 @@ try {
   assert.equal(fatal.length, 0);
   requests.length = 0; http.length = 0; badEvents.length = 0; localBlobs.length = 0;
   const records = [];
-  for (const algorithm of ['brent', 'floyd']) for (const testCase of corpus) {
+  for (const algorithm of advanced ? ['brent', 'floyd', 'tinyqs'] : ['brent', 'floyd']) for (const testCase of corpus) {
     for (const timeBudgetMs of quick ? [50] : [100, 1000]) for (const seed of quick ? [1] : [1, 2, 3]) {
-      const options = { algorithm, seed, timeBudgetMs, operationBudget: 50000000 };
+      const options = { algorithm, seed: algorithm === 'tinyqs' ? 1 : seed, timeBudgetMs, operationBudget: 50000000 };
       const result = await evaluate('factorHarness.run(' + JSON.stringify(testCase.input) + ',' + JSON.stringify(options) + ')');
       verifySnapshot(result, testCase.input);
       if (result.status === 'complete') assert.deepEqual(result.factors.map(f => f.value), testCase.factors);
       else assert.equal(result.status, 'incomplete');
-      records.push({ case: testCase.id, ...options, ...result });
+      records.push({ case: testCase.id, trial: seed, ...options, ...result });
     }
     console.log('Measured ' + algorithm + ' ' + testCase.id);
   }
+  const poolRecords = [];
+  if (advanced) for (const workers of [1, 2, 4]) for (const testCase of corpus.filter(c =>
+    c.kind === 'balanced-semiprime' && (quick ? c.id.endsWith('-0') :
+      [10, 12, 13].includes(c.factorDigits[0]) && /-[01]$/.test(c.id)))) {
+    for (const timeBudgetMs of quick ? [50] : [100, 1000]) for (const seed of quick ? [1] : [1, 11]) {
+      const options = { algorithm: 'brent', seed, timeBudgetMs, operationBudget: 50000000 };
+      const result = await evaluate('factorHarness.poolRun(' + JSON.stringify(testCase.input) + ',' + JSON.stringify(options) + ',' + workers + ')');
+      verifySnapshot(result, testCase.input);
+      assert.equal(result.allLanesDisposed, true);
+      assert.ok(result.allocatedOperationBudget <= options.operationBudget);
+      if (result.status === 'complete') assert.deepEqual(result.factors.map(f => f.value), testCase.factors);
+      else assert.equal(result.status, 'incomplete');
+      poolRecords.push({ case: testCase.id, requestedSeed: seed, ...options, ...result });
+    }
+    console.log('Measured portfolio ' + workers + ' ' + testCase.id);
+  }
+  const wasmInput = '7000000000330000000002223';
+  const wasmOnline = await evaluate('factorHarness.run("' + wasmInput + '",{algorithm:"tinyqs",timeBudgetMs:1000})');
+  assert.equal(wasmOnline.status, 'complete');
   const online = await evaluate('factorHarness.run("1000036000099",{timeBudgetMs:1000})');
   console.log('Offline: apply page emulation');
   await networkOffline(true);
@@ -142,6 +163,12 @@ try {
   await new Promise(resolveClose => server.close(resolveClose));
   console.log('Offline: asset server stopped');
   const offlineResult = await evaluate('factorHarness.run("1000036000099",{timeBudgetMs:1000})');
+  const wasmOffline = await evaluate('factorHarness.run("' + wasmInput + '",{algorithm:"tinyqs",timeBudgetMs:1000})');
+  assert.deepEqual(wasmOffline.factors, wasmOnline.factors);
+  const wasmCancelled = await evaluate('factorHarness.cancelRun("' + wasmInput + '","tinyqs",0)');
+  assert.equal(wasmCancelled.cancelled, true); assert.equal(wasmCancelled.result.status, 'cancelled');
+  const wasmRestart = await evaluate('factorHarness.run("' + wasmInput + '",{algorithm:"tinyqs",timeBudgetMs:1000})');
+  assert.deepEqual(wasmRestart.factors, wasmOnline.factors);
   assert.deepEqual(offlineResult.factors, online.factors);
   assert.equal(offlineResult.status, online.status);
   const hard = ((2n ** 127n - 1n) * (2n ** 107n - 1n)).toString();
@@ -161,7 +188,7 @@ try {
   const quiet = { networkRequests: requests.length, httpRequests: http.length, badEvents: badEvents.length,
     localBlobEvents: localBlobs.length, observedWorkerSessions: attached.filter(t=>t.type==='worker').length,
     workerOfflineEmulation: 'unsupported by Worker target; page offline plus stopped asset server', assetServerStoppedDuringOffline: true, cacheDisabled: true,
-    offlineSameFactors: true, cancelledAndRestartedOffline: true };
+    offlineSameFactors: true, wasmOfflineSameFactors: true, wasmCancelledAndRestartedOffline: true, cancelledAndRestartedOffline: true };
   console.log('Detector self-test');
   await networkOffline(false); console.log('Detector: page online');
   await new Promise(resolveListen => server.listen(port,'127.0.0.1',resolveListen)); console.log('Detector: server online');
@@ -180,15 +207,15 @@ try {
   const sourceFiles = {};
   for (const path of ['src/core/integer-input.js','src/engine/options.js','src/engine/arithmetic.js',
     'src/engine/result.js','src/engine/factor.js','src/worker/controller.js','src/worker/factory.js',
-    'bench/corpus.mjs','bench/harness.js','scripts/benchmark-browser.mjs']) {
+    'bench/corpus.mjs','bench/advanced-corpus.mjs','src/engine/tinyqs.js','src/engine/tinyqs-bytes.js','bench/portfolio.js','bench/harness.js','scripts/benchmark-browser.mjs']) {
     sourceFiles[path] = createHash('sha256').update(await readFile(join(root,path))).digest('hex');
   }
-  const receipt = { sourceFiles, measuredAt: new Date().toISOString(), quick, browser, browserDevice,
+  const receipt = { advanced, wasmBuild: JSON.parse(await readFile(join(root,'native/tinyqs/build.json'))), sourceFiles, measuredAt: new Date().toISOString(), quick, browser, browserDevice,
     host: { platform: platform(), release: release(), cpu: cpus()[0]?.model, logicalCpus: cpus().length,
-      memoryBytes: totalmem(), powerState: 'not measured', peakWorkerHeapBytes: null, headless: true, nativeThreads: 1, wasm: false },
+      memoryBytes: totalmem(), powerState: 'not measured', peakWorkerHeapBytes: null, headless: true, nativeThreads: 1, wasm: true, wasmMemoryPerWorkerBytes: 16777216 },
     coldReadyMs, artifact: { bytes: artifact.length, sha256: createHash('sha256').update(artifact).digest('hex') },
-    generation: 'bench/corpus.mjs fixed offsets; independent trial division; outside timed region',
-    corpus, records, quiet, cancelled: { wallMs: cancelled.result.wallMs, cancelMs: cancelled.cancelMs,
+    generation: advanced ? 'xorshift32 0x531f9a27, MR candidate filter, independent exhaustive trial division, outside timed region' : 'bench/corpus.mjs fixed offsets; independent trial division; outside timed region',
+    corpus, records, poolRecords, quiet, cancelled: { wallMs: cancelled.result.wallMs, cancelMs: cancelled.cancelMs,
       heartbeat: cancelled.heartbeat, remaining: cancelled.result.remaining },
     detectorSelfTest: { blockedFetchCspObserved: true, workerCspAuditObserved: true, navigationCdpAndHttpObserved: true, workerCdpAndHttpObserved: true } };
   await writeFile(output, JSON.stringify(receipt, null, 2) + '\n');

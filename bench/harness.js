@@ -1,3 +1,4 @@
+import { runPortfolio } from './portfolio.js';
 import { WORKER_SOURCE } from '../src/worker/worker-source.js';
 import { FactorWorkerController } from '../src/worker/controller.js';
 
@@ -31,13 +32,13 @@ async function run(input, options = {}) {
   });
   return { ...event.result, wallMs: performance.now() - started, progressCount };
 }
-async function cancelRun(input) {
+async function cancelRun(input, algorithm = 'brent', delayMs = 30) {
   await ready();
   let heartbeat = 0;
   const ticker = setInterval(() => heartbeat++, 5);
   try {
-    const pending = run(input, { timeBudgetMs: 10000, operationBudget: 50000000 });
-    await new Promise(resolve => setTimeout(resolve, 30));
+    const pending = run(input, { algorithm, timeBudgetMs: 10000, operationBudget: 50000000 });
+    await new Promise(resolve => setTimeout(resolve, delayMs));
     const started = performance.now(), cancelled = controller.cancel();
     const result = await pending;
     const cancelMs = performance.now() - started;
@@ -56,4 +57,4 @@ function verifyCspAudit() {
     worker.onerror = event => {cleanup();reject(Error(event.message));};
   });
 }
-globalThis.factorHarness = { controller, ready, run, cancelRun, verifyCspAudit, violations, rejections, errors };
+globalThis.factorHarness = { controller, ready, run, poolRun: runPortfolio, cancelRun, verifyCspAudit, violations, rejections, errors };

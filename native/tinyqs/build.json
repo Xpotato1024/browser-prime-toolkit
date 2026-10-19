@@ -2,7 +2,7 @@
   "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
   "emscripten": "4.0.15",
   "sourceHashes": {
-    "native/tinyqs/bridge.c": "640151241f81b9c5407c70f07d5f823710ae8a86cf8a8f0e91dd765365fa1d53",
+    "native/tinyqs/bridge.c": "52af07955d375f3a15a85674a0581428fe3d9e5f3243419468cdf505a55847c6",
     "native/tinyqs/common.h": "36ce5991b07e553cca1ce3c4723170bacb76d937b46d7ac800a3d4fd29fe7aed",
     "native/tinyqs/patches.json": "7d1084de6b94bf77c53bafbc47f9b233e785944a629ec558cc381e39a1083eeb",
     "scripts/build-wasm.mjs": "d889a2d697028d2f1aa847d6c35e2b53bf510ae2253a2787e02ab498eee17a1b",
@@ -35,8 +35,8 @@
     "/work/tinyqs.wasm"
   ],
   "cleanBuilds": 2,
-  "bytes": 67226,
-  "sha256": "f3db88b33aeb1c3b7cbb3a7c8b2bae688106fbf622a090d193eb74ad93105f2f",
+  "bytes": 67397,
+  "sha256": "4938cff54013783ee4103965c561b017ab40e93508f0f721604fb3713c2fef93",
   "imports": [
     {
       "module": "env",

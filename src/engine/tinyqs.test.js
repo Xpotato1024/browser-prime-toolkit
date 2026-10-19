@@ -23,7 +23,7 @@ test('WASM bridge rejects out of bound, even and malformed values', async () => 
 test('checkpoint exhaustion cleans up and allows the next WASM job', async () => {
   const split = await createTinyQs();
   const n = 1000000000039n * 7000000000057n;
-  assert.throws(() => split(n, budget(0)), BudgetExceeded);
+  assert.throws(() => split(n, budget(165)), BudgetExceeded);
   const d = split(n, budget());
   assert.equal(n % d, 0n);
 });
