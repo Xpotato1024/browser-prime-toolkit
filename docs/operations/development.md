@@ -45,3 +45,16 @@ node scripts/report-siqs.mjs --check
 
 比較用100/1000ms枠と、正常なSIQS分解のoffline smoke用10秒枠は別です。
 報告scriptは保存したrawと測定source/build hashを照合し、変更後の再測定なしに表だけ更新しません。
+
+設計探索の区切りとselectorの根拠は[採否文書](../architecture/engine-selection-closeout.md)を参照してください。
+selectorは純粋な実行計画で、公開site schedulerではありません。
+
+```sh
+npm run build:native-worker
+npm run verify:selection-primes
+CHROME_BIN=google-chrome npm run verify:selection-browser -- --out /tmp/prime-selection.json
+CHROME_BIN=google-chrome npm run benchmark:selection-holdout -- --out /tmp/prime-selection-full.json
+node scripts/report-selection.mjs --check
+```
+
+holdoutは方針固定後の6入力・18計算で終了します。結果で閾値/seedを調整したり、新方式portを続けたりしません。

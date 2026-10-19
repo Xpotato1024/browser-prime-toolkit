@@ -97,3 +97,7 @@ probableを許す表示か素数証明を必須とするか、2本実験を続�
 selectorはbrowser capabilityを判定する公開loaderではありません。
 WASM未対応時のECM初期化はerrorとし、黙ってnativeへ切り替える契約は追加していません。
 native-onlyのWASM不要は独立Worker試験で確認しますが、他browser/低性能端末の対応保証ではありません。
+
+selector自身は実行schedulerではなく、workers/RAM/deadlineは計画値です。
+このprivate harnessは最大1 Worker所有を実測確認します。公開hostの総instance admissionや
+submitからの新しい一括deadlineの実装まで完了したとは扱いません。

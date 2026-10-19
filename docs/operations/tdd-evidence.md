@@ -103,3 +103,5 @@ ADR0006を6eb97ebで固定後に実施しました。repo外prime-stage6/に実�
 - 新6入力はpolicy固定後に既存測定との非重複を確認し、small因子11個を独立uint64総当たりで証明。
   M127はruntime probable controlを維持し、証明・確率上限を追加しません。
 - 中間135 tests/check成功。最小holdout18計算と最終headの検証は測定文書・PRへ記録します。
+
+PR6実測code9b44327でholdout18計算、最大1 Worker所有、通信/例外/CSP0、offline/取消/再初期化を確認。閾値/seedは変更せず、135 tests/checkと導出表のsource/proof/全試行照合が成功しました。

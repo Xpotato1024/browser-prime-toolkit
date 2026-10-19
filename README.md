@@ -3,7 +3,7 @@
 大きな半素数をブラウザ内で高速に分解することを目標に開発する非公開リポジトリです。
 native BigInt と限定 MPQS/WASMに加え、別の評価用bundleでGMP低位Brent・ECMを実装しています。
 予算・取消付きWorkerと比較harnessを持ち、従来Rhoは1/2/4本、64MiB候補は128MiB枠内の1/2本を評価します。
-最終エンジンは未選定です。WASM・多倍長ライブラリ・高度な方式の比較を続けます。
+公開する最終エンジンは未確定です。[採否と本人判断点](docs/architecture/engine-selection-closeout.md)を整理し、設計探索を区切ります。
 React の製品画面、サイト用アダプター、公開配布は未実装です。
 
 ## 開発
@@ -25,3 +25,5 @@ npmの追加runtime依存はありません。msieveの公開ドメインsubset�
 
 [低位GMP/ECMの実測](docs/benchmarks/llm01-gmp-ecm.md)ではnative Brentを対照とし、GMP Brentの非改善とECMの成功・失敗をともに記録しています。
 [有界SIQS・ECM stage2/RAM評価](docs/benchmarks/llm01-bounded-siqs.md)ではSIQSの1秒打切りと、ECMのfatal Worker退役・実Chrome process treeの標本RAMを記録します。
+
+PR6は[保守的selectorと新6問holdout](docs/benchmarks/llm01-selection-holdout.md)を追加します。selectorは実行計画の提案で、公開用schedulerや最適方式の保証ではありません。

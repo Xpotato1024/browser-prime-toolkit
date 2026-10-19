@@ -1,0 +1,1608 @@
+{
+  "selectionPolicy": "conservative-v1",
+  "initialAssets": [
+    {
+      "path": "/bench/selection.html",
+      "bytes": 261,
+      "sha256": "6642610fefb47fe7bcfd5ebc4134da4074bb2a3350e9497e0071512ad8eda9da"
+    },
+    {
+      "path": "/bench/selection.js",
+      "bytes": 4315,
+      "sha256": "e30104d908c309d254b010ba10916ce04e80fb8d1794a8afab374ba7c936d95c"
+    },
+    {
+      "path": "/src/worker/controller.js",
+      "bytes": 5433,
+      "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+    },
+    {
+      "path": "/src/engine/selection.js",
+      "bytes": 1033,
+      "sha256": "71548ffd1adc4ad0c4778ac3799030621f7118899413640e3bde79eb124b2304"
+    },
+    {
+      "path": "/src/worker/native-factory.js",
+      "bytes": 229,
+      "sha256": "e727eb62df1363c47ba4db384b2e43a0344dfcf3709eb1e5e59167e3fa8a788d"
+    },
+    {
+      "path": "/src/worker/candidate-factory.js",
+      "bytes": 237,
+      "sha256": "ce2cd2ed6bf23f85e8beb8051ea5ac98bf82b2f21f7ba4b1917293826ffca0be"
+    },
+    {
+      "path": "/src/worker/native-worker-source.js",
+      "bytes": 13570,
+      "sha256": "f94f17de4db43d92b819db00fdb159cd7fdc91226c54dad2f3fe6de38eb89b4a"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/worker/factory.js",
+      "bytes": 225,
+      "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+    },
+    {
+      "path": "/src/worker/candidate-worker-source.js",
+      "bytes": 627256,
+      "sha256": "f3cf474d730ab32ecb195dbce0f805c0889aebdfdf24f29711d75a177ecd0652"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/worker/worker-source.js",
+      "bytes": 106532,
+      "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+    }
+  ],
+  "ownership": {
+    "live": 1,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 142,
+    "first": {
+      "atMs": 255.497663,
+      "rssBytes": 364544,
+      "pssBytes": 147456,
+      "processes": 1
+    },
+    "peakRssBytes": 1369812992,
+    "peakPssBytes": 497977344,
+    "maxProcesses": 13
+  },
+  "holdoutProof": {
+    "method": "independent exhaustive odd uint64 trial division through floor(sqrt(n)); n/d avoids overflow",
+    "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+    "sourceSha256": "c05d6ee392c7f1f2128712d7e168214ddb8ea6e8fd5d32589d9df64ff560cbfe",
+    "inputSha256": "bac295f094bf22dce705bf59729f42753f9cf7ff760c20cebedd5785f1d2d3ae",
+    "results": [
+      "48593:109",
+      "55001:116",
+      "1907613529:21837",
+      "3809591273:30860",
+      "3283320961:28649",
+      "3576492233:29901",
+      "909536624993:476847",
+      "998561865461:499639",
+      "50751572209658171:112640547",
+      "53603646293344283:115762305",
+      "779101:440"
+    ]
+  },
+  "measuredHead": "9b44327b1caa2152e71876d2f7ba36ddc751bf51",
+  "wasmBuild": {
+    "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+    "emscripten": "4.0.15",
+    "upstreams": [
+      {
+        "file": "gmp-6.3.0.tar.xz",
+        "url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+        "bytes": 2094196,
+        "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+      },
+      {
+        "file": "gmp-ecm.tar.gz",
+        "url": "https://codeload.github.com/sethtroisi/gmp-ecm/tar.gz/8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e",
+        "bytes": 721052,
+        "sha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494"
+      },
+      {
+        "file": "autoconf_2.71-2_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/autoconf/autoconf_2.71-2_all.deb",
+        "bytes": 337608,
+        "sha256": "96b528889794c4134015a63c75050f93d8aecdf5e3f2a20993c1433f4c61b80e"
+      },
+      {
+        "file": "automake_1.16.5-1.3_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.16/automake_1.16.5-1.3_all.deb",
+        "bytes": 557936,
+        "sha256": "59e3890fc8407bcf8ccc9f709d6513156346d5c942e8c624dc90435e58f6f978"
+      },
+      {
+        "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+        "bytes": 198836,
+        "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+      },
+      {
+        "file": "libtool_2.4.6-15build2_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.6-15build2_all.deb",
+        "bytes": 163940,
+        "sha256": "fb994bc0152f4e77a791b51bc54fd5e38963aa6473e60c45369ef373b6119124"
+      },
+      {
+        "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+        "bytes": 14612,
+        "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+      }
+    ],
+    "sourceHashes": {
+      "native/gmp/bridge.c": "eee0ab739d13698e39bdd6acf48e2f176da3e0a855d5fc05f55d02dd2c12867d",
+      "native/gmp/stage-probe.c": "26ddde8eda6d415b40748f506368fa4d5a1780811b66d9a01686605a7835c72a",
+      "native/gmp/stage-probe.h": "1f7f41cb7e88476a776261a879a4692a24c937f7e099d451559f000af9754cee",
+      "native/gmp/patch-stage2.py": "b2bfe73af7319f6d8da53dfb147149014a32a5632ac06753ee3ffe5cd390b1d8",
+      "vendor/gmp-ecm/provenance.json": "ee465564a264b95214d9cf5b8c65f1a5461630c3a2cac2741f66096ae9b0871b",
+      "native/gmp/build.sh": "b4b6bb630bd92e1b650623eee75726f6493dff8e5d8c53c1a4fdece41d916508",
+      "native/gmp/sanitize.c": "9a7398055e361787f0ebfa90273a5ae510924f9a3cf39a95b38515faf77bfecf",
+      "native/gmp/upstreams.json": "0e48bf3af751c11e8f1b92da23ae60900daea8f59313de81251c1e3b0e61e6ca",
+      "scripts/build-gmp.mjs": "af608078503d89cfe5aadfe9e584b75d92258cae532ac271ad909aa135f27fa4",
+      "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+      "vendor/msieve-siqs/provenance.json": "d793ca71f7c60281d9c97d0ad020bcac49383afe5cffa0aacd5447b94ca17fde",
+      "vendor/msieve-siqs/mpqs/gf2.c": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3",
+      "vendor/msieve-siqs/mpqs/mpqs.c": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+      "vendor/msieve-siqs/mpqs/poly.c": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+      "vendor/msieve-siqs/mpqs/relation.c": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+      "vendor/msieve-siqs/mpqs/sieve.c": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+      "vendor/msieve-siqs/mpqs/sieve_core.c": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+      "vendor/msieve-siqs/mpqs/sqrt.c": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+      "vendor/msieve-siqs/mpqs/mpqs.h": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+      "vendor/msieve-siqs/include/common.h": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+      "vendor/msieve-siqs/include/msieve.h": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+      "vendor/msieve-siqs/include/gmp_xface.h": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+      "vendor/msieve-siqs/include/util.h": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778",
+      "vendor/msieve-siqs/include/mp.h": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
+    },
+    "cleanBuilds": 2,
+    "sha256": "9a5627be7e9882a6b757a720258877fe13adc6b50dead671f9ff74bad6a0605b",
+    "bytes": 455847,
+    "imports": [
+      {
+        "module": "env",
+        "name": "budget_tick",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "proc_exit",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "clock_time_get",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_write",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_read",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_close",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_seek",
+        "kind": "function"
+      },
+      {
+        "module": "env",
+        "name": "__syscall_unlinkat",
+        "kind": "function"
+      }
+    ],
+    "exports": [
+      {
+        "name": "memory",
+        "kind": "memory"
+      },
+      {
+        "name": "input_ptr",
+        "kind": "function"
+      },
+      {
+        "name": "factor_ptr",
+        "kind": "function"
+      },
+      {
+        "name": "brent_split",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_split",
+        "kind": "function"
+      },
+      {
+        "name": "__indirect_function_table",
+        "kind": "table"
+      },
+      {
+        "name": "configure_ecm_audit",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_mask",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_point",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_injected",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_gmp_allocations",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_direct_allocations",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_df",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_k",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_s",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_repr",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_audit_ntt",
+        "kind": "function"
+      },
+      {
+        "name": "_initialize",
+        "kind": "function"
+      }
+    ],
+    "memoryLimitBytes": 67108864,
+    "stackBytes": 1048576,
+    "siqsObjects": [
+      "23213275465090c0b5dcf1037fe4344bb9e1d3a6d1351a9d8a6b4498d44026f9  /work/siqs-objects/gf2.o",
+      "7266e4499883657281743268efca98880a2942f9b0c089d164e6d40358f99da9  /work/siqs-objects/mpqs.o",
+      "52286d74a3c87005d34fca68b1c4b19b5089d5a73c27951a5059abf1e3aea22d  /work/siqs-objects/poly.o",
+      "da80f2fc3c7008eee4b952c5b2803d2562495d146d852ee94a1645824d12208d  /work/siqs-objects/relation.o",
+      "00114f98b029a116f59653ca7711617300780bd59b81fa31c55683ad993be59e  /work/siqs-objects/sieve.o",
+      "237e310c2b572c6d3d85e353e9fcfed2299634870638f5be35afc94f0303d6b5  /work/siqs-objects/sieve_core_32.o",
+      "2353bd0061db489a5a49e8a62d6b7dbb45a640bea02b305b0f20e0521ddc9bf8  /work/siqs-objects/sieve_core_64.o",
+      "3e5e69ed9507c34ccc178197c2193f9959e73cc51fe26e4a02658d1dc4ae96fd  /work/siqs-objects/sqrt.o"
+    ],
+    "ecm": {
+      "parametrization": "Suyama",
+      "B1": 2000,
+      "B2": 200000,
+      "curves": 32,
+      "stage2MemoryBytes": 16777216
+    },
+    "container": {
+      "network": "none",
+      "cpus": 2,
+      "memory": "2g",
+      "workTmpfs": "512m",
+      "pids": 128,
+      "capabilities": "none"
+    }
+  },
+  "sourceFiles": {
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/selection.js": "71548ffd1adc4ad0c4778ac3799030621f7118899413640e3bde79eb124b2304",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/factor.js": "80a5927dd80db0c78c12f2bb04c9bdfffe292d81621bf3ac2f25b52b56f4874a",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/engine/gmp.js": "08e8074a805c1507b1ee4c2b591c2415692c1c76e6ca48d44b3e3df0b623ebaf",
+    "src/engine/gmp-bytes.js": "0ef0418ae37b949eecc51df347436bf7331677686b236372fb6a714878f3ad25",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/worker/install.js": "1e61c53de566d743fdb04b394760e85d8647e37af64f9b231966a3ee2803119b",
+    "src/worker/native-worker.js": "e9c50bc14910cff0150e786ad0030f6b27e1d22dbe7a8aaec96f9ef03f3c4eca",
+    "src/worker/native-factory.js": "e727eb62df1363c47ba4db384b2e43a0344dfcf3709eb1e5e59167e3fa8a788d",
+    "src/worker/native-worker-source.js": "f94f17de4db43d92b819db00fdb159cd7fdc91226c54dad2f3fe6de38eb89b4a",
+    "src/worker/candidate-worker.js": "00980025e22327e7f4f4596f64c4b51fd1e7034424e0e974d68b198d4b555350",
+    "src/worker/candidate-factory.js": "ce2cd2ed6bf23f85e8beb8051ea5ac98bf82b2f21f7ba4b1917293826ffca0be",
+    "src/worker/candidate-worker-source.js": "f3cf474d730ab32ecb195dbce0f805c0889aebdfdf24f29711d75a177ecd0652",
+    "bench/selection.js": "e30104d908c309d254b010ba10916ce04e80fb8d1794a8afab374ba7c936d95c",
+    "bench/selection.html": "6642610fefb47fe7bcfd5ebc4134da4074bb2a3350e9497e0071512ad8eda9da",
+    "bench/selection-holdout.json": "12d5d732746b8aa148a712d2fbf56def7b497d767fb2d05828dec81bdbb064b4",
+    "bench/selection-holdout-proof.json": "a173486a0867324dd5050b231f667a16f940e18b137fbd5d22c36a335454a984",
+    "scripts/generate-selection-holdout.py": "4aa9ecad30f4e123f59423d23614dc79560808a12d2e4dc4332b4d37eeeadf93",
+    "scripts/certify-selection-holdout.mjs": "47c6e9f891cf6def0d6152d187f319ba53d990f926401484bc3ff8fece0a953e",
+    "scripts/benchmark-selection.mjs": "6c8eebd1ffe3cd4804c545bbc19f6fbfc522e1caf5257e56c2c8e11b82014be9",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b"
+  },
+  "measuredAt": "2026-10-19T05:40:03.089Z",
+  "quick": false,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "powerState": "not measured",
+    "peakWorkerHeapBytes": null,
+    "headless": true,
+    "nativeThreads": 1,
+    "wasm": true,
+    "wasmMemoryPerWorkerBytes": {
+      "brent": 0,
+      "gmp-ecm": 67108864
+    }
+  },
+  "coldReadyMs": 145.1546659999999,
+  "artifact": {
+    "bytes": 13570,
+    "sha256": "f94f17de4db43d92b819db00fdb159cd7fdc91226c54dad2f3fe6de38eb89b4a"
+  },
+  "generation": "policy frozen before seed0x918c7d23; 6 new inputs; independent exhaustive uint64 proof; M127 runtime probable only",
+  "corpus": [
+    {
+      "id": "holdout-small-32",
+      "input": "2672663593",
+      "factors": [
+        "48593",
+        "55001"
+      ],
+      "bits": 32,
+      "factorBits": [
+        16,
+        16
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "independent-uint64-trial"
+    },
+    {
+      "id": "holdout-native-63",
+      "input": "7267227852335132417",
+      "factors": [
+        "1907613529",
+        "3809591273"
+      ],
+      "bits": 63,
+      "factorBits": [
+        31,
+        32
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "independent-uint64-trial"
+    },
+    {
+      "id": "holdout-native-64",
+      "input": "11742771915462595913",
+      "factors": [
+        "3283320961",
+        "3576492233"
+      ],
+      "bits": 64,
+      "factorBits": [
+        32,
+        32
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "independent-uint64-trial"
+    },
+    {
+      "id": "holdout-balanced-80",
+      "input": "908228588958112076066773",
+      "factors": [
+        "909536624993",
+        "998561865461"
+      ],
+      "bits": 80,
+      "factorBits": [
+        40,
+        40
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "independent-uint64-trial"
+    },
+    {
+      "id": "holdout-balanced-112",
+      "input": "2720469325557637940256367847086393",
+      "factors": [
+        "50751572209658171",
+        "53603646293344283"
+      ],
+      "bits": 112,
+      "factorBits": [
+        56,
+        56
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "independent-uint64-trial"
+    },
+    {
+      "id": "holdout-unbalanced-m127",
+      "input": "132557166175235038911389310012349022656011427",
+      "factors": [
+        "779101",
+        "170141183460469231731687303715884105727"
+      ],
+      "bits": 147,
+      "factorBits": [
+        20,
+        127
+      ],
+      "source": "stage6-policy-frozen-holdout",
+      "factorProof": "uint64-trial-small-factor; M127 runtime probable only"
+    }
+  ],
+  "records": [
+    {
+      "case": "holdout-small-32",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2672663593",
+      "factors": [
+        {
+          "value": "48593",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "55001",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 566,
+      "elapsedMs": 1,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2.799999998882413,
+      "initializationMs": 11.300000000745058,
+      "requestWallMs": 15.199999999254942,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2672663593",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 1559.767863,
+          "rssBytes": 1210073088,
+          "pssBytes": 409663488,
+          "processes": 12
+        },
+        "peakRssBytes": 1218658304,
+        "peakPssBytes": 415246336,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-small-32",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2672663593",
+      "factors": [
+        {
+          "value": "48593",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "55001",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 566,
+      "elapsedMs": 0.900000000372529,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2,
+      "initializationMs": 11.199999999254942,
+      "requestWallMs": 13.299999998882413,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2672663593",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 3,
+        "first": {
+          "atMs": 1717.34372,
+          "rssBytes": 1218732032,
+          "pssBytes": 415187968,
+          "processes": 12
+        },
+        "peakRssBytes": 1219264512,
+        "peakPssBytes": 415710208,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-small-32",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2672663593",
+      "factors": [
+        {
+          "value": "48593",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "55001",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 850,
+      "elapsedMs": 32.80000000074506,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 33.90000000037253,
+      "initializationMs": 69.59999999962747,
+      "requestWallMs": 103.5,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2672663593",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 1800.065344,
+          "rssBytes": 1219264512,
+          "pssBytes": 415710208,
+          "processes": 12
+        },
+        "peakRssBytes": 1258135552,
+        "peakPssBytes": 452877312,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-63",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7267227852335132417",
+      "factors": [
+        {
+          "value": "1907613529",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3809591273",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 132133,
+      "elapsedMs": 44.600000001490116,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 45.70000000111759,
+      "initializationMs": 11.099999999627471,
+      "requestWallMs": 56.80000000074506,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "7267227852335132417",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2030.803134,
+          "rssBytes": 1242390528,
+          "pssBytes": 437132288,
+          "processes": 12
+        },
+        "peakRssBytes": 1242390528,
+        "peakPssBytes": 437132288,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-63",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7267227852335132417",
+      "factors": [
+        {
+          "value": "1907613529",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3809591273",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 919,
+      "elapsedMs": 22.40000000037253,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 23.59999999962747,
+      "initializationMs": 48.09999999962747,
+      "requestWallMs": 71.79999999888241,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "7267227852335132417",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2178.4373,
+          "rssBytes": 1237217280,
+          "pssBytes": 431755264,
+          "processes": 12
+        },
+        "peakRssBytes": 1261301760,
+        "peakPssBytes": 455830528,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-63",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7267227852335132417",
+      "factors": [
+        {
+          "value": "1907613529",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3809591273",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 132133,
+      "elapsedMs": 40.70000000111759,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 42,
+      "initializationMs": 11.599999999627471,
+      "requestWallMs": 53.59999999962747,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "7267227852335132417",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2329.748862,
+          "rssBytes": 1262256128,
+          "pssBytes": 456784896,
+          "processes": 12
+        },
+        "peakRssBytes": 1262256128,
+        "peakPssBytes": 456784896,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-64",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "11742771915462595913",
+      "factors": [
+        {
+          "value": "3283320961",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3576492233",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 913,
+      "elapsedMs": 23.09999999962747,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 24.199999999254942,
+      "initializationMs": 54.09999999962747,
+      "requestWallMs": 78.29999999888241,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "11742771915462595913",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 2490.762115,
+          "rssBytes": 1236926464,
+          "pssBytes": 431417344,
+          "processes": 12
+        },
+        "peakRssBytes": 1262145536,
+        "peakPssBytes": 456626176,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-64",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "11742771915462595913",
+      "factors": [
+        {
+          "value": "3283320961",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3576492233",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 33236,
+      "elapsedMs": 11.300000000745058,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 12.400000000372529,
+      "initializationMs": 11.699999999254942,
+      "requestWallMs": 24.09999999962747,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "11742771915462595913",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 3,
+        "first": {
+          "atMs": 2716.939111,
+          "rssBytes": 1246973952,
+          "pssBytes": 441454592,
+          "processes": 12
+        },
+        "peakRssBytes": 1246973952,
+        "peakPssBytes": 441454592,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-native-64",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "11742771915462595913",
+      "factors": [
+        {
+          "value": "3283320961",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3576492233",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 33236,
+      "elapsedMs": 11.300000000745058,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 12.5,
+      "initializationMs": 11.900000000372529,
+      "requestWallMs": 24.59999999962747,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "11742771915462595913",
+        "algorithm": "brent",
+        "options": {
+          "algorithm": "brent",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 0,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2807.787829,
+          "rssBytes": 1238032384,
+          "pssBytes": 432513024,
+          "processes": 12
+        },
+        "peakRssBytes": 1239187456,
+        "peakPssBytes": 433668096,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "908228588958112076066773",
+      "factors": [
+        {
+          "value": "909536624993",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "998561865461",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1381,
+      "elapsedMs": 40,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 41.09999999962747,
+      "initializationMs": 49.29999999888241,
+      "requestWallMs": 90.39999999850988,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "908228588958112076066773",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 2966.600442,
+          "rssBytes": 1239187456,
+          "pssBytes": 433668096,
+          "processes": 12
+        },
+        "peakRssBytes": 1265795072,
+        "peakPssBytes": 460221440,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "908228588958112076066773",
+      "factors": [
+        {
+          "value": "909536624993",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "998561865461",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2852735,
+      "elapsedMs": 848.1000000014901,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 849.3000000007451,
+      "initializationMs": 11.599999999627471,
+      "requestWallMs": 860.9000000003725,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "908228588958112076066773",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 16,
+        "first": {
+          "atMs": 3119.61643,
+          "rssBytes": 1251819520,
+          "pssBytes": 446244864,
+          "processes": 12
+        },
+        "peakRssBytes": 1319813120,
+        "peakPssBytes": 447004672,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-80",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "908228588958112076066773",
+      "factors": [
+        {
+          "value": "909536624993",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "998561865461",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1381,
+      "elapsedMs": 35.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 37.80000000074506,
+      "initializationMs": 53.19999999925494,
+      "requestWallMs": 91,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "908228588958112076066773",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 4137.606293,
+          "rssBytes": 1320316928,
+          "pssBytes": 447438848,
+          "processes": 13
+        },
+        "peakRssBytes": 1328889856,
+        "peakPssBytes": 456010752,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2720469325557637940256367847086393",
+      "factors": [],
+      "remaining": "2720469325557637940256367847086393",
+      "operations": 3433906,
+      "elapsedMs": 1000.4000000003725,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1001.2999999988824,
+      "initializationMs": 11.5,
+      "requestWallMs": 1012.7999999988824,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2720469325557637940256367847086393",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 17,
+        "first": {
+          "atMs": 4299.239841,
+          "rssBytes": 1328906240,
+          "pssBytes": 455776256,
+          "processes": 13
+        },
+        "peakRssBytes": 1329057792,
+        "peakPssBytes": 455919616,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2720469325557637940256367847086393",
+      "factors": [
+        {
+          "value": "50751572209658171",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "53603646293344283",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 11217,
+      "elapsedMs": 398.8999999985099,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 400.09999999962747,
+      "initializationMs": 48.30000000074506,
+      "requestWallMs": 448.40000000037253,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2720469325557637940256367847086393",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 10,
+        "first": {
+          "atMs": 5422.451605,
+          "rssBytes": 1322184704,
+          "pssBytes": 448979968,
+          "processes": 13
+        },
+        "peakRssBytes": 1339449344,
+        "peakPssBytes": 466237440,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-balanced-112",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2720469325557637940256367847086393",
+      "factors": [
+        {
+          "value": "50751572209658171",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "53603646293344283",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 11217,
+      "elapsedMs": 402.7999999988824,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 404.2000000011176,
+      "initializationMs": 48.29999999888241,
+      "requestWallMs": 452.5,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "2720469325557637940256367847086393",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 9,
+        "first": {
+          "atMs": 6021.502035,
+          "rssBytes": 1332764672,
+          "pssBytes": 459376640,
+          "processes": 13
+        },
+        "peakRssBytes": 1335332864,
+        "peakPssBytes": 462186496,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "trial": 23,
+      "requestedAlgorithm": "gmp-ecm",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "132557166175235038911389310012349022656011427",
+      "factors": [
+        {
+          "value": "779101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1581,
+      "elapsedMs": 18.200000001117587,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.199999999254942,
+      "initializationMs": 48,
+      "requestWallMs": 67.29999999888241,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "132557166175235038911389310012349022656011427",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6573.340891,
+          "rssBytes": 1333841920,
+          "pssBytes": 461568000,
+          "processes": 13
+        },
+        "peakRssBytes": 1342951424,
+        "peakPssBytes": 471235584,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "trial": 23,
+      "requestedAlgorithm": "selector",
+      "algorithm": "gmp-ecm",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "132557166175235038911389310012349022656011427",
+      "factors": [
+        {
+          "value": "779101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1581,
+      "elapsedMs": 18.90000000037253,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.90000000037253,
+      "initializationMs": 50.20000000111759,
+      "requestWallMs": 70.10000000149012,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "132557166175235038911389310012349022656011427",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6729.82846,
+          "rssBytes": 1344864256,
+          "pssBytes": 473148416,
+          "processes": 13
+        },
+        "peakRssBytes": 1351327744,
+        "peakPssBytes": 479745024,
+        "maxProcesses": 13
+      }
+    },
+    {
+      "case": "holdout-unbalanced-m127",
+      "trial": 23,
+      "requestedAlgorithm": "brent",
+      "algorithm": "brent",
+      "seed": 23,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "132557166175235038911389310012349022656011427",
+      "factors": [
+        {
+          "value": "779101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 6433,
+      "elapsedMs": 3.299999998882413,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 4.299999998882413,
+      "initializationMs": 11.700000001117587,
+      "requestWallMs": 16,
+      "freshPerTrial": true,
+      "selection": {
+        "policy": "conservative-v1",
+        "eligible": true,
+        "input": "132557166175235038911389310012349022656011427",
+        "algorithm": "gmp-ecm",
+        "options": {
+          "algorithm": "gmp-ecm",
+          "seed": 23,
+          "timeBudgetMs": 1000,
+          "operationBudget": 50000000
+        },
+        "workers": 1,
+        "wasmLinearMemoryBytes": 67108864,
+        "initializationDeadlineMs": 5000,
+        "deliveryGraceMs": 100,
+        "requestEnvelopeMs": 6100
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 6888.518566,
+          "rssBytes": 1344278528,
+          "pssBytes": 472695808,
+          "processes": 13
+        },
+        "peakRssBytes": 1345101824,
+        "peakPssBytes": 473519104,
+        "maxProcesses": 13
+      }
+    }
+  ],
+  "poolRecords": [],
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "localBlobEvents": 29,
+    "observedWorkerSessions": 30,
+    "workerOfflineEmulation": "unsupported by Worker target; page offline plus stopped asset server",
+    "assetServerStoppedDuringOffline": true,
+    "cacheDisabled": true,
+    "offlineSameFactors": true,
+    "wasmOfflineSameFactors": true,
+    "ecmOfflineFactors": true,
+    "wasmCancelledAndRestartedOffline": true,
+    "cancelledAndRestartedOffline": true
+  },
+  "cancelled": {
+    "wallMs": 31.09999999962747,
+    "cancelMs": 11.300000000745058,
+    "heartbeat": 8,
+    "remaining": "27606985387162255149739023449107931668458716142620601169954803000803329"
+  },
+  "detectorSelfTest": {
+    "blockedFetchCspObserved": true,
+    "workerCspAuditObserved": true,
+    "navigationCdpAndHttpObserved": true,
+    "workerCdpAndHttpObserved": true
+  }
+}
