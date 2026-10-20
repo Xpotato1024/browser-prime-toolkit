@@ -1,0 +1,25 @@
+file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/test/siqs-lab-snapshot.test.js:3
+import {classifySavedPrefix} from '../src/siqs-lab/contracts.js';
+        ^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '../src/siqs-lab/contracts.js' does not provide an export named 'classifySavedPrefix'
+    at #asyncInstantiate (node:internal/modules/esm/module_job:327:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:431:5)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0
+✖ test/siqs-lab-snapshot.test.js (57.852563ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68.032158
+
+✖ failing tests:
+
+test at test/siqs-lab-snapshot.test.js:1:1
+✖ test/siqs-lab-snapshot.test.js (57.852563ms)
+  'test failed'

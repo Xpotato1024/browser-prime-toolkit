@@ -1,0 +1,2 @@
+{"id":"RSA-100","options":{"variant":"base","timeBudgetMs":10000,"seed":11,"workers":1,"streams":1,"operationBudget":1000000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":9097.09999999404,"graph":{"rawRelations":551,"uniqueRelations":551,"duplicates":0,"full":15,"partial":536,"combined":0,"total":15,"polynomials":1,"vertices":966,"components":430,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/parameter-RSA-100-s11-base.json

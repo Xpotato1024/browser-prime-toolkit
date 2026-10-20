@@ -202,7 +202,9 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
       - run: npm run fetch:full-siqs
-      - run: npm run build:siqs-lab -- --check
+      - run: node scripts/generate-siqs-lab-runtime.mjs --check
+      - run: node scripts/build-siqs-lab.mjs --check
+      - run: node scripts/build-siqs-lab-worker.mjs --check
       - run: npm run verify:siqs-lab-native
       - run: npm test
       - run: npm run check:siqs-lab

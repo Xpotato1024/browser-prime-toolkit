@@ -30,3 +30,5 @@
 Alpertron実行、GNFS/FLINT移植性能、p+1単独、standalone SQUFOF、旧gmp-wasm 1.3.2の性能測定は未実施です。測定値のないものを比較結果にしません。
 
 原本検証ログの末尾空白・EOF空行もbytes/SHAの一部として維持します。.gitattributesの例外はarchive/validation-logs/*.log.txtだけに限定し、通常コードの空白検査は維持します。
+
+Stage14の[SIQS lab全38試行](llm01-siqs-lab.md)は、通知・任意observer、parameter一要因、共通graph付き1／2 Workerの短時間比較です。[固定計画](../../bench/siqs-lab-plan.json)と全raw／log／source hashを残し、未採用設定も削除しません。旧full-siqs・Brent長枠・他候補の実行系と証跡は継続保全します。

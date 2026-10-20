@@ -56,3 +56,5 @@ Full SIQSの[桁数別・RSA100の実測と限界](benchmarks/llm01-staged-full.
 [次段階のfull SIQS profile候補](architecture/full-siqs-profiling-next.md)はsource由来の事実と未測定の改善仮説を分けています。
 
 Stage14は[ADR0014](adr/0014-siqs-lab.md)と[事前固定した短時間比較](../bench/siqs-lab-plan.json)に従い、任意の計測コスト、SIQS設定、共通関係式グラフを持つ1／2 Workerを別々に評価します。既存Stage13の実行系・実測は保全します。
+
+Stage14の[実測・全raw](benchmarks/llm01-siqs-lab.md)、[観測と次の判断](architecture/siqs-lab-findings.md)、[操作・測定契約](operations/siqs-lab.md)、[TDD証跡](operations/stage14-tdd-evidence.md)を分けます。verifiedは輸入関係式の検証成功を表し、因数分解完了ではありません。

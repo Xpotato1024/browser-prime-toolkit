@@ -48,8 +48,11 @@
     "verify:full-siqs": "node scripts/verify-full-siqs.mjs",
     "check:full-siqs": "node scripts/check-full-siqs.mjs && node scripts/check-full-practical.mjs && node scripts/build-full-siqs-worker.mjs --check && node scripts/report-full-siqs.mjs --check",
     "report:full-siqs": "node scripts/report-full-siqs.mjs",
-    "build:siqs-lab": "node scripts/generate-siqs-lab-runtime.mjs && node scripts/build-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs",
-    "check:siqs-lab": "node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check",
+    "build:siqs-lab": "node scripts/build-siqs-lab.mjs",
+    "build:siqs-lab-worker": "node scripts/build-siqs-lab-worker.mjs",
+    "benchmark:siqs-lab": "node scripts/benchmark-siqs-lab.mjs",
+    "report:siqs-lab": "node scripts/report-siqs-lab.mjs",
+    "check:siqs-lab": "node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check && node scripts/report-siqs-lab.mjs --check",
     "verify:siqs-lab": "node scripts/verify-siqs-lab.mjs",
     "verify:siqs-lab-native": "node scripts/build-siqs-lab.mjs --native"
   }

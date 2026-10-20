@@ -1,0 +1,2 @@
+{"id":"RSA-100","options":{"variant":"lp75","timeBudgetMs":10000,"seed":11,"workers":1,"streams":1,"operationBudget":1000000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":9088.90000000596,"graph":{"rawRelations":358,"uniqueRelations":358,"duplicates":0,"full":16,"partial":342,"combined":0,"total":16,"polynomials":1,"vertices":592,"components":250,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/parameter-RSA-100-s11-lp75.json
