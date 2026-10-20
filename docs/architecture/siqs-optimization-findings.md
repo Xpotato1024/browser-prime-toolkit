@@ -17,3 +17,5 @@
 CIのfull-siqs／lab失敗はGMP原本配布先の接続timeoutでした。原本first、同一ファイルのGNU公式fallbackを固定し、サイズ1939430／既存SHA256を必須にした新helperで回復しました。CI39387176350のfull-siqsは元URL timeout→GNU成功を記録し、旧manifestを変えずbuild／native／browser検証まで通りました。
 
 別のpush CI39387170942 supplementary-evaluationはChrome起動15秒超過で、計算開始前に失敗しました。CI専用copyは起動待ち30秒・quick固定・自身のsource pinだけ変更し、元測定driverとの全差分をcheckします。計算予算、終了処理、通信監査、検証は変更していません。再試行で隠す方式ではありません。
+
+最終確認中の5cd1c7c PR CIではprivate-uiにも同じ計算前のChrome起動15秒超過が出ました。空のstderr／attached=[]を残しており、UI計算失敗の証拠ではありません。性能rawのsourceFilesに結合されていない検証scriptの起動待ちだけ30秒へ合わせ、有限終了と全UI契約を維持します。74e6a57の同jobはpush／PRとも成功しており、ホスト起動の揺らぎを計算上限の緩和で隠しません。
