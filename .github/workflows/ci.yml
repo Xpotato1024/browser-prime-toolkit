@@ -137,7 +137,7 @@ jobs:
       - run: npm test
       - run: npm run check:private-ui
       - name: Exact decimal UI, copy, lifecycle and quiet browser integration
-        run: npm run verify:private-ui -- --out "$RUNNER_TEMP/private-ui.json"
+        run: node scripts/verify-private-ui-ci.mjs --out "$RUNNER_TEMP/private-ui.json"
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check

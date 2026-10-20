@@ -9,3 +9,10 @@ for(const [from,to] of [
 ]){assert.equal(expected.split(from).length,2);expected=expected.replace(from,to);}
 assert.equal(read('scripts/verify-supplement-ci.mjs'),expected,'CI profile changes only startup deadline, quick mode, and receipt identity');
 console.log('Supplement CI profile: finite 30s startup, historical computation/audits unchanged');
+let privateExpected=read('scripts/verify-private-ui.mjs');
+for(const[from,to]of [
+ ["stderr.slice(-1000))), 15000);","stderr.slice(-1000))), 30000);"],
+ ["'scripts/verify-private-ui.mjs'","'scripts/verify-private-ui-ci.mjs','scripts/verify-private-ui.mjs'"]
+]){assert.equal(privateExpected.split(from).length,2);privateExpected=privateExpected.replace(from,to);}
+assert.equal(read('scripts/verify-private-ui-ci.mjs'),privateExpected,'UI CI profile changes only startup deadline and receipt identity');
+console.log('Private UI CI profile: finite 30s startup, historical driver and contracts unchanged');

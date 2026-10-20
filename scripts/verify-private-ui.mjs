@@ -70,7 +70,7 @@ try {
   memory = new BrowserMemorySampler(chrome.pid); await memory.start();
   const debuggingUrl = await new Promise((resolveUrl, rejectUrl) => {
     let stderr = '';
-    const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 30000);
+    const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 15000);
     chrome.once('error', error => { clearTimeout(timer); rejectUrl(error); });
     chrome.once('exit', code => { clearTimeout(timer); rejectUrl(Error('Chrome exited: ' + code + ' ' + stderr.slice(-1000))); });
     chrome.stderr.on('data', data => {
