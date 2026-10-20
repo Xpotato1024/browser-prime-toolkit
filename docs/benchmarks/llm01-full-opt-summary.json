@@ -1,0 +1,437 @@
+{
+  "plan": "full-siqs-opt-stage16-v1",
+  "measuredHead": "7a33c533403403e62216a3c551c3769cbca58af2",
+  "rawTrials": 6,
+  "completeRsa100": false,
+  "rows": [
+    {
+      "id": "control-40-base",
+      "engine": "base",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "requestWallMs": 228.80000001192093,
+      "initializationMs": 50.400000005960464,
+      "computeWallMs": 178.40000000596046,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 1024,
+        "nativeWork": 35054453,
+        "phaseWork": [
+          0,
+          330656,
+          371945,
+          28782692,
+          4436950,
+          1060242,
+          71968
+        ],
+        "notifications": {
+          "periodic": 34232,
+          "flush": 21,
+          "deliveries": 34253
+        },
+        "abortReason": null,
+        "phase": 6,
+        "work": 35054453,
+        "relations": {
+          "total": 962,
+          "full": 419,
+          "combined": 543,
+          "partial": 3350,
+          "target": 687
+        },
+        "poisoned": false,
+        "saveBytes": 190520,
+        "nnz": 18880,
+        "reason": 0,
+        "line": 0,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 30,
+        "first": {
+          "atMs": 153.234527,
+          "rssBytes": 372736,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1245130752,
+        "peakPssBytes": 447220736,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/control-40-base.json",
+      "sha256": "b0675203e8838ab99c011a80c653b04be9d973d69c1857f51a6b380d24056220",
+      "logSha256": "70d14a3abf41dfffc651c6ee3af978b379d8bd88039f9274957b17570ae51032"
+    },
+    {
+      "id": "control-40-lto",
+      "engine": "lto",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "requestWallMs": 220.09999999403954,
+      "initializationMs": 59.599999994039536,
+      "computeWallMs": 160.5,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 16384,
+        "nativeWork": 35054453,
+        "phaseWork": [
+          0,
+          330656,
+          371945,
+          28782692,
+          4436950,
+          1060242,
+          71968
+        ],
+        "notifications": {
+          "periodic": 2139,
+          "flush": 21,
+          "deliveries": 2160
+        },
+        "abortReason": null,
+        "phase": 6,
+        "work": 35054453,
+        "relations": {
+          "total": 962,
+          "full": 419,
+          "combined": 543,
+          "partial": 3350,
+          "target": 687
+        },
+        "poisoned": false,
+        "saveBytes": 190520,
+        "nnz": 18880,
+        "reason": 0,
+        "line": 0,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 29,
+        "first": {
+          "atMs": 139.756034,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1252216832,
+        "peakPssBytes": 453050368,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/control-40-lto.json",
+      "sha256": "dc60a2bed7e31333d1fe228a3eae923c7621263d175a3f63e89c36da2726dc44",
+      "logSha256": "07946a3c7ec408d13ca41b8cd74b42afc3113c3e140154a59d1b8e27c88687f2"
+    },
+    {
+      "id": "control-64-base",
+      "engine": "base",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "requestWallMs": 20517.40000000596,
+      "initializationMs": 55.099999994039536,
+      "computeWallMs": 20462.30000001192,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 1024,
+        "nativeWork": 3809470039,
+        "phaseWork": [
+          0,
+          568367,
+          20650306,
+          3744303002,
+          6251762,
+          34911727,
+          2784875
+        ],
+        "notifications": {
+          "periodic": 3720185,
+          "flush": 229,
+          "deliveries": 3720414
+        },
+        "abortReason": null,
+        "phase": 6,
+        "work": 3809470039,
+        "relations": {
+          "total": 5972,
+          "full": 2793,
+          "combined": 3179,
+          "partial": 27167,
+          "target": 5715
+        },
+        "poisoned": false,
+        "saveBytes": 1725320,
+        "nnz": 167185,
+        "reason": 0,
+        "line": 0,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 277,
+        "first": {
+          "atMs": 142.588353,
+          "rssBytes": 376832,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1328553984,
+        "peakPssBytes": 461730816,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/control-64-base.json",
+      "sha256": "5b5fc467a08c06c1c743e34f6605e2d4ab2216f7e54c306a1cbfca9f151ed591",
+      "logSha256": "f52c9caa8ac829051b896d6e57c432cb4f618b95c5b78e81f0cd508553a70a59"
+    },
+    {
+      "id": "control-64-lto",
+      "engine": "lto",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "requestWallMs": 14245.90000000596,
+      "initializationMs": 51.099999994039536,
+      "computeWallMs": 14194.800000011921,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 16384,
+        "nativeWork": 3809470039,
+        "phaseWork": [
+          0,
+          568367,
+          20650306,
+          3744303002,
+          6251762,
+          34911727,
+          2784875
+        ],
+        "notifications": {
+          "periodic": 232511,
+          "flush": 229,
+          "deliveries": 232740
+        },
+        "abortReason": null,
+        "phase": 6,
+        "work": 3809470039,
+        "relations": {
+          "total": 5972,
+          "full": 2793,
+          "combined": 3179,
+          "partial": 27167,
+          "target": 5715
+        },
+        "poisoned": false,
+        "saveBytes": 1725320,
+        "nnz": 167185,
+        "reason": 0,
+        "line": 0,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 208,
+        "first": {
+          "atMs": 145.553634,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1328701440,
+        "peakPssBytes": 464811008,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/control-64-lto.json",
+      "sha256": "80378af0ea5dc8cfaa35e52dfe30e4391242f0715825e8e3707449c542cf6ce8",
+      "logSha256": "983b161632020c5816d9656e9c0645f4e72964bbcc39c252ffc4181b05b9f767"
+    },
+    {
+      "id": "rsa100-600s-base",
+      "engine": "base",
+      "case": "RSA-100",
+      "budgetMs": 600000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "requestWallMs": 599753.200000003,
+      "initializationMs": 55.6000000089407,
+      "computeWallMs": 599697.599999994,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 1024,
+        "nativeWork": 106083893248,
+        "phaseWork": [
+          0,
+          8433914,
+          86488481,
+          105988970853,
+          0,
+          0,
+          0
+        ],
+        "notifications": {
+          "periodic": 103597552,
+          "flush": 47,
+          "deliveries": 103597599
+        },
+        "abortReason": null,
+        "phase": 3,
+        "work": 106083893248,
+        "relations": {
+          "total": 487,
+          "full": 478,
+          "combined": 9,
+          "partial": 34989,
+          "target": 97743
+        },
+        "poisoned": true,
+        "saveBytes": 2686961,
+        "nnz": 0,
+        "reason": 0,
+        "line": 0,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 8050,
+        "first": {
+          "atMs": 145.177144,
+          "rssBytes": 385024,
+          "pssBytes": 165888,
+          "processes": 1
+        },
+        "peakRssBytes": 1354805248,
+        "peakPssBytes": 506144768,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/rsa100-600s-base.json",
+      "sha256": "5641674652734b5a653a09a26e555edd5aea9d1e179d1aca96bad8aff9b5195f",
+      "logSha256": "8dacd2717555ce80764c3c6173d54786f02e17de8cf1462d9223b8da70ad6865"
+    },
+    {
+      "id": "rsa100-600s-lto",
+      "engine": "lto",
+      "case": "RSA-100",
+      "budgetMs": 600000,
+      "kind": "incomplete",
+      "reason": "algorithm-resource",
+      "requestWallMs": 522612.5,
+      "initializationMs": 63.79999999701977,
+      "computeWallMs": 522548.700000003,
+      "diagnostics": {
+        "nativeScope": "last-split",
+        "splitCount": 1,
+        "nativeMode": 0,
+        "stride": 16384,
+        "nativeWork": 126787236244,
+        "phaseWork": [
+          0,
+          8433914,
+          105292467,
+          126673509863,
+          0,
+          0,
+          0
+        ],
+        "notifications": {
+          "periodic": 7738478,
+          "flush": 57,
+          "deliveries": 7738535
+        },
+        "abortReason": null,
+        "phase": 3,
+        "work": 126787236244,
+        "relations": {
+          "total": 612,
+          "full": 596,
+          "combined": 16,
+          "partial": 43176,
+          "target": 97743
+        },
+        "poisoned": true,
+        "saveBytes": 3228260,
+        "nnz": 0,
+        "reason": 3,
+        "line": 49,
+        "logs": []
+      },
+      "sampledRam": {
+        "samples": 6942,
+        "first": {
+          "atMs": 171.343179,
+          "rssBytes": 389120,
+          "pssBytes": 171008,
+          "processes": 1
+        },
+        "peakRssBytes": 1359323136,
+        "peakPssBytes": 507645952,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-full-opt-stage16/rsa100-600s-lto.json",
+      "sha256": "b07d4b80ced9a40898d92ffdf561d28c3718c7b1bc4b5204b73ebd197eb86435",
+      "logSha256": "871b3c0ff5aedaeb11db5b5242e9b6cebea20c47bffb7722039bd42f94e576ae"
+    }
+  ],
+  "diagnostic": {
+    "head": "3ab1a82225d3aa33354460ead8719da586249b8a",
+    "file": "docs/benchmarks/staged-full-diagnostic-stage16/rsa100-counts.json",
+    "sha256": "7bfef08d8284dbb12b3f7d56fcf6777a48fff99bee89693b59311846088cccda",
+    "logSha256": "b6002d64c478a119397192ba48b8cf30d18b0fc49a0b7a0cc9f90c8321590bbc",
+    "requestWallMs": 524142.799999997,
+    "diagnostics": {
+      "resourceCounters": {
+        "sieveBlocks": 4000000,
+        "basePolynomials": 28,
+        "derivedPolynomials": 111112
+      },
+      "wasmLinearBytes": 268435456,
+      "saveCapacityBytes": 16777216,
+      "nativeScope": "last-split",
+      "splitCount": 1,
+      "nativeMode": 0,
+      "stride": 16384,
+      "nativeWork": 126787236244,
+      "phaseWork": [
+        0,
+        8433914,
+        105292467,
+        126673509863,
+        0,
+        0,
+        0
+      ],
+      "notifications": {
+        "periodic": 7738478,
+        "flush": 57,
+        "deliveries": 7738535
+      },
+      "abortReason": null,
+      "phase": 3,
+      "work": 126787236244,
+      "relations": {
+        "total": 612,
+        "full": 596,
+        "combined": 16,
+        "partial": 43176,
+        "target": 97743
+      },
+      "poisoned": true,
+      "saveBytes": 3228260,
+      "nnz": 0,
+      "reason": 3,
+      "line": 49,
+      "logs": []
+    }
+  }
+}

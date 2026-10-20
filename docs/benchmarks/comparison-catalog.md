@@ -36,3 +36,5 @@ Stage14の[SIQS lab全38試行](llm01-siqs-lab.md)は、通知・任意observer�
 ## Stage15の保存
 
 [固定28試行](llm01-siqs-opt.md)はStage14を保全した上で、同一C patchのLTO／通知条件／1・2 Workerと明示60秒枠を比較します。[summary](llm01-siqs-opt-summary.json)、[rawとlog](staged-siqs-opt-stage15/run-all.json)、[検証manifest](archive/validation-logs/staged-siqs-opt-stage15/manifest.json)を結合し、失敗・未完了条件も残します。
+
+Stage16 full mode0: [report](llm01-full-opt.md), [summary](llm01-full-opt-summary.json), [six raw trials](staged-full-opt-stage16/run-all.json), [counter diagnostic](staged-full-diagnostic-stage16/rsa100-counts.json). Original C/WASM and previous raw are preserved.

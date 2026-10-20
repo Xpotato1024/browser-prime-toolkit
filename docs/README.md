@@ -60,3 +60,5 @@ Stage14は[ADR0014](adr/0014-siqs-lab.md)と[事前固定した短時間比較](
 Stage14の[実測・全raw](benchmarks/llm01-siqs-lab.md)、[観測と次の判断](architecture/siqs-lab-findings.md)、[操作・測定契約](operations/siqs-lab.md)、[TDD証跡](operations/stage14-tdd-evidence.md)を分けます。verifiedは輸入関係式の検証成功を表し、因数分解完了ではありません。
 
 Stage15は[ADR0015](adr/0015-siqs-optimization.md)に従い、同一ソースの有限取得回復とLTO／監視条件の固定28比較を行います。[実測と全raw](benchmarks/llm01-siqs-opt.md)、[解釈と次の対象](architecture/siqs-optimization-findings.md)、[操作](operations/siqs-tuned.md)、[回帰証跡](operations/stage15-tdd-evidence.md)を分け、RSA100完了と関係式検証を区別します。
+
+Stage16は[full経路の実測・全raw](benchmarks/llm01-full-opt.md)、[資源ガードと次の比較](architecture/full-siqs-optimization-findings.md)、[TDD証跡](operations/stage16-tdd-evidence.md)を追加します。RSA-100未完了と公開前の制約を維持します。

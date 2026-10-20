@@ -1,0 +1,122 @@
+{
+  "plan": "full-siqs-opt-stage16-v1",
+  "planSha256": "4602da0e57e3b3701d9fcad12bab4b9ab9e4eb64c70771883b7d0673f443f02b",
+  "measuredHead": "7a33c533403403e62216a3c551c3769cbca58af2",
+  "startedAt": "2026-10-20T08:32:24.223Z",
+  "trials": [
+    {
+      "id": "control-40-base",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "base",
+        "--case",
+        "full-balanced-40-1",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/control-40-base.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-40-lto",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "lto",
+        "--case",
+        "full-balanced-40-1",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/control-40-lto.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-base",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "base",
+        "--case",
+        "full-balanced-64-1",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/control-64-base.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-lto",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "lto",
+        "--case",
+        "full-balanced-64-1",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/control-64-lto.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-600s-base",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "base",
+        "--case",
+        "RSA-100",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "600000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/rsa100-600s-base.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-600s-lto",
+      "args": [
+        "scripts/verify-full-siqs-opt.mjs",
+        "--engine",
+        "lto",
+        "--case",
+        "RSA-100",
+        "--seed",
+        "1",
+        "--budget-ms",
+        "600000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-opt-stage16/rsa100-600s-lto.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    }
+  ]
+}
