@@ -25,6 +25,7 @@
     "tests-final-pre.log": "4a84b6ceb3029923013f9919cc719821e1e8d7d74f9d6bfa1dff229f7b78703d",
     "check-final-pre.log": "a6da87f9cfee7cd71e3186e262ed7c44d1bad1ec5a1ba6586c185fc9af370dfe",
     "supplement-ci-local.json": "237b5439c6a437b2896f23f92bc59954c1df9e374a3158c5a99baa7646fcd00e",
-    "supplement-ci-local.log": "c3a0ec5c89cee5a9ea723f08f01b3429af413b37b51107300b7c45cb32b1a99d"
+    "supplement-ci-local.log": "c3a0ec5c89cee5a9ea723f08f01b3429af413b37b51107300b7c45cb32b1a99d",
+    "fetch-candidate-fresh.log": "b84dfd614ece5bbf3f979c50458e5afc2efb14e57d301c1f9dab8338689868d4"
   }
 }

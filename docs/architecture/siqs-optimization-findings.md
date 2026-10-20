@@ -19,3 +19,5 @@ CIのfull-siqs／lab失敗はGMP原本配布先の接続timeoutでした。原�
 別のpush CI39387170942 supplementary-evaluationはChrome起動15秒超過で、計算開始前に失敗しました。CI専用copyは起動待ち30秒・quick固定・自身のsource pinだけ変更し、元測定driverとの全差分をcheckします。計算予算、終了処理、通信監査、検証は変更していません。再試行で隠す方式ではありません。
 
 最終確認中の5cd1c7c PR CIではprivate-uiにも同じ計算前のChrome起動15秒超過が出ました。空のstderr／attached=[]を残しており、UI計算失敗の証拠ではありません。検証scriptも過去receiptに結合されているため原本を保全し、CI専用copyの起動待ちだけ30秒へ合わせます。自身のsource記録との2差分以外をcheckerで拒否し、有限終了と全UI契約を維持します。74e6a57の同jobはpush／PRとも成功しており、ホスト起動の揺らぎを計算上限の緩和で隠しません。
+
+64922e5 PR CIのtest jobはGMP 6.3.0のGNU配布先接続timeoutで停止しました。旧fetch-gmp-sources.mjsとnative/gmp/upstreams.jsonを保全し、同じ有限helperをcandidate取得にも適用します。GNU first、GMP公式6.3.0配布先を固定fallbackとし、2094196 bytes／SHA256 a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898を照合します。[公式発表](https://gmplib.org/list-archives/gmp-announce/2023-July/000050.html)は両配布元の同一releaseを明記しています。取得確認前にbuildへ進みません。

@@ -23,7 +23,7 @@ jobs:
       - name: Set isolated candidate source cache
         run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
       - name: Fetch and verify fixed candidate source and build tools
-        run: npm run fetch:candidates
+        run: node scripts/fetch-reviewed-candidates.mjs
       - name: Rebuild GMP and ECM twice offline; compile true SIQS objects
         run: npm run build:candidates -- --check
       - name: Rebuild bounded SIQS twice offline
@@ -65,7 +65,7 @@ jobs:
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
-      - run: npm run fetch:candidates
+      - run: node scripts/fetch-reviewed-candidates.mjs
       - run: node scripts/build-supplement.mjs
       - run: git diff --exit-code -- src/engine/supplement-bytes.js native/gmp/supplement-build.json
       - run: node scripts/build-supplement.mjs --native
