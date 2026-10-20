@@ -1,0 +1,17 @@
+{"tests":[{"name":"profile-before-worker","pass":true},{"name":"configuration-forgery-retired","pass":true},{"name":"counter-forgery-retired","pass":true},{"name":"unsupported-before-worker","pass":true},{"name":"budget-before-worker","pass":true},{"name":"cancel-during-sieve","pass":true},{"name":"noncooperative-deadline","pass":true},{"name":"worker-cap-before-allocation","pass":true},{"name":"real-allocation-failure","pass":true},{"name":"unknown-trap-is-not-oom","pass":true},{"name":"forged-native-frame-retired","pass":true},{"name":"stale-generation-ignored","pass":true},{"name":"proper-divisor-independent-check","pass":true},{"name":"noncooperative-extraction-deadline","pass":true},{"name":"fresh-full-path","pass":true}],"performanceMeasurement":false}
+{"fatal":[],"badEvents":[],"requests":[],"diagnostic":{"violations":[],"errors":[]},"attached":[{"sessionId":"2BB5D1A788DE12FD1277C7FE59B14FD3","type":"page","url":"about:blank"},{"sessionId":"8C41F9D0E38A76818E43A221E26CE113","type":"worker","url":"blob:http://127.0.0.1:46837/f4f1a61b-6d3b-48cf-b8f8-76b31018416f"},{"sessionId":"FB96DF40299ED1D27A46A565429DD27A","type":"worker","url":"blob:http://127.0.0.1:46837/f47311e6-9354-447d-9b22-fe330b27097c"},{"sessionId":"6DF11900DCDE94AB6698237F54ADD290","type":"worker","url":"blob:http://127.0.0.1:46837/631da1b9-bbbf-44b4-a905-dc2073b4fbc5"},{"sessionId":"AE1B5C4609D1520B5A5FD7FB711158A7","type":"worker","url":"blob:http://127.0.0.1:46837/023cda24-d4b6-472f-83e2-794c450f3033"},{"sessionId":"0F707227EE47B7DFB573873555D4A9C7","type":"worker","url":"blob:http://127.0.0.1:46837/b49c0f09-79c0-4364-ba6a-ed6780ae9fcd"},{"sessionId":"FA934111D8E3B9D278773B699B2D8EEE","type":"worker","url":"blob:http://127.0.0.1:46837/acc45fd4-757b-4460-b47b-c82f7f601cd6"},{"sessionId":"D2B1708396CBD37664A03DB4A292F732","type":"worker","url":"blob:http://127.0.0.1:46837/52d46e27-9b96-48c5-b6e6-117aa83d8d9d"},{"sessionId":"E8C7899FA8E41F8247B575AFBDF81561","type":"worker","url":"blob:http://127.0.0.1:46837/de6b3592-4bd6-498e-8601-267e0096a165"},{"sessionId":"E5FCCD6E4CF9EEB1B27942CE6396A097","type":"worker","url":"blob:http://127.0.0.1:46837/65ec8da5-353d-4bb5-8a57-9587d8ff99ec"},{"sessionId":"6FE39BBED9A3DAD5A4C7E181F3CDCA67","type":"worker","url":"blob:http://127.0.0.1:46837/3bae2712-2bc7-4da4-8185-481aadb9b4f3"},{"sessionId":"CBE6023F138DF259DA31F45CA6B5F522","type":"worker","url":"blob:http://127.0.0.1:46837/905777cc-e68d-431d-9c65-441731e118e6"}],"pending":[]}
+node:internal/fs/promises:697
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open '/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/scripts/benchmark-dlp.mjs'
+    at async open (node:internal/fs/promises:697:25)
+    at async readFile (node:internal/fs/promises:1348:14)
+    at async file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/scripts/verify-dlp.mjs:180:749 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/scripts/benchmark-dlp.mjs'
+}
+
+Node.js v24.19.0

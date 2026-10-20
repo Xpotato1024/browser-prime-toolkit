@@ -1,0 +1,23 @@
+✔ only three named DLP profiles are accepted (2.413598ms)
+✔ native RSA configuration preserves B/interval/offset and automatic threshold coupling (0.694199ms)
+✔ configuration mismatch and independent threshold changes are rejected (0.5068ms)
+✔ collector full plus cycles equals usable; ingested rows remain bounded (0.5492ms)
+✔ per-owner cumulative wrapper timings are finite, bounded and monotonic (0.446199ms)
+✔ recheck deadline: late-ready (2.767598ms)
+✔ recheck deadline: release-late (0.621ms)
+✔ recheck deadline: late-extract (1.117099ms)
+✔ recheck deadline: retirement-late (0.753099ms)
+✔ retirement isolates exceptions: terminate-throws (0.9299ms)
+✔ retirement isolates exceptions: release-throws (0.281299ms)
+✔ retirement isolates exceptions: release-throws-once (0.2205ms)
+✔ normal owners are terminated and every Blob source is released (0.6216ms)
+✔ actual native profiles use identical coord/helper settings and fixed target (1360.69744ms)
+✔ actual serialized ingestion counters describe full and cycle yield (60.321953ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1516.083419

@@ -1,0 +1,15 @@
+✔ only three named DLP profiles are accepted (1.563199ms)
+✔ native RSA configuration preserves B/interval/offset and automatic threshold coupling (0.4937ms)
+✔ configuration mismatch and independent threshold changes are rejected (0.924399ms)
+✔ collector full plus cycles equals usable; ingested rows remain bounded (0.459ms)
+✔ per-owner cumulative wrapper timings are finite, bounded and monotonic (0.325199ms)
+✔ actual native profiles use identical coord/helper settings and fixed target (1373.091109ms)
+✔ actual serialized ingestion counters describe full and cycle yield (64.735749ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1555.216364

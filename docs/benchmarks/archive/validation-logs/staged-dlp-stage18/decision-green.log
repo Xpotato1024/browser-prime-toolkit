@@ -1,0 +1,11 @@
+✔ screen requires both paired two-worker gains and preserves the one-worker floor (3.924097ms)
+✔ missing trials, duplicate IDs, zero baseline and failed guarantees cannot select (0.4599ms)
+✔ long ABBA needs both candidate yields above the maximum baseline by the fixed margin (0.4116ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.73724

@@ -1,0 +1,23 @@
+✔ actual native profiles use identical coord/helper settings and fixed target (1361.970005ms)
+✖ actual serialized ingestion counters describe full and cycle yield (2.188998ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1455.869405
+
+✖ failing tests:
+
+test at test/dlp-native.test.js:23:1
+✖ actual serialized ingestion counters describe full and cycle yield (2.188998ms)
+  TypeError: Cannot read properties of undefined (reading 'input')
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/test/dlp-native.test.js:24:137)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
