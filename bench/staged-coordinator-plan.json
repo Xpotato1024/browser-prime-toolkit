@@ -1,0 +1,52 @@
+{
+  "id": "dedicated-coordinator-stage22-20261020",
+  "version": 1,
+  "prerequisiteCore": "a7d25eb952c63d20c220e653247a69de7c5d1d5a",
+  "case": "RSA-100",
+  "workers": 4,
+  "memoryMiB": 512,
+  "totalWasmBytes": 469762048,
+  "scheduler": "credit1",
+  "profile": "baseline",
+  "signal": {
+    "minimumGlobalCapacityIdleMs": 30000,
+    "minimumCoordinatorAssignedRatio": 0.9,
+    "maximumHelperAverageAssignedRatio": 0.85
+  },
+  "requestBudgetMs": 360000,
+  "selection": {
+    "minimumRatioNumerator": 110,
+    "minimumRatioDenominator": 100,
+    "claim": "one-host collection comparison only; no automatic or UI adoption"
+  },
+  "trials": [
+    {
+      "id": "combined-r1",
+      "coordinator": "combined",
+      "repeat": 1,
+      "workers": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "dedicated-r1",
+      "coordinator": "dedicated",
+      "repeat": 1,
+      "workers": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "dedicated-r2",
+      "coordinator": "dedicated",
+      "repeat": 2,
+      "workers": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "combined-r2",
+      "coordinator": "combined",
+      "repeat": 2,
+      "workers": 4,
+      "budgetMs": 60000
+    }
+  ]
+}
