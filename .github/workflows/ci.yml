@@ -284,6 +284,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/scheduler-*.test.js
       - run: node scripts/check-scheduler.mjs
@@ -293,6 +294,31 @@ jobs:
             for engine in one-drop two-drop; do
               node scripts/verify-scheduler.mjs --scheduler "$scheduler" --engine "$engine" --out "$RUNNER_TEMP/scheduler-$scheduler-$engine.json"
             done
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+
+  geometry-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/geometry-*.test.js
+      - run: node scripts/check-geometry.mjs
+      - name: Named native geometry and bounded offline real Worker contracts
+        run: |
+          for profile in b325-m524 b250-m524 b325-m262 b250-m262; do
+            node scripts/verify-geometry.mjs --profile "$profile" --engine two-drop --out "$RUNNER_TEMP/geometry-$profile.json"
           done
         env:
           CHROME_BIN: google-chrome
