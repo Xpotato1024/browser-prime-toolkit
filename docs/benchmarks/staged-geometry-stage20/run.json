@@ -1,0 +1,438 @@
+{
+  "plan": "stage20-geometry-v1",
+  "planSha256": "eb0b518f7f38d86637ead4228c8af2340956681616323bfcc9cd0858a00e354e",
+  "measuredHead": "609ca0c9352a407b28ba56b88ded952240ad289d",
+  "startedAt": "2026-10-20T15:11:34.730Z",
+  "preflight": [
+    {
+      "id": "contracts-b325-m524",
+      "profile": "b325-m524",
+      "workers": 2,
+      "budgetMs": 30000,
+      "preflight": true,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--profile",
+        "b325-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/contracts-b325-m524.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "6aa823584aab0853c1bdb2a44361488082c81ffc0d9aa633d7f143b8a54d9bc3",
+      "logSha256": "b57c20a15fccc6797080e1c814cc64e1cb5dd598da30d858e4ce2d2dfae0aa44"
+    },
+    {
+      "id": "contracts-b250-m524",
+      "profile": "b250-m524",
+      "workers": 2,
+      "budgetMs": 30000,
+      "preflight": true,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--profile",
+        "b250-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/contracts-b250-m524.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "41a41814bf961eb576c2b0db3a0e0691f1b491bb8af789dedcebc0c922e2d36c",
+      "logSha256": "381c04f396e35e98b9ca8de90d67d75a0a3481fdbf2c5d6e7c184a6ba0a39e47"
+    },
+    {
+      "id": "contracts-b325-m262",
+      "profile": "b325-m262",
+      "workers": 2,
+      "budgetMs": 30000,
+      "preflight": true,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--profile",
+        "b325-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/contracts-b325-m262.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "4a672077234448da5841fdb7fa4cb5d77302cfbc7812a74c8bbb6142ac4ee2ec",
+      "logSha256": "299367521e278fdc931af656da78f500bcc3c6306b25edf7cd5cd9d53d7f8b3e"
+    },
+    {
+      "id": "contracts-b250-m262",
+      "profile": "b250-m262",
+      "workers": 2,
+      "budgetMs": 30000,
+      "preflight": true,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--profile",
+        "b250-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/contracts-b250-m262.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "333986db39466760c2e859519f9459d1568e06da2abb6658ca082918ac953aab",
+      "logSha256": "5d011077703f09a190048c2bfeabac74943d2b3a8bec4b09a24cc0d4eb13b4ce"
+    }
+  ],
+  "trials": [
+    {
+      "id": "short-b325-m524-r1",
+      "profile": "b325-m524",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b325-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b325-m524-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "b337479e095a3cdea9697a3139322469c2901ab7a7d4ef602e8109041aa5515e",
+      "logSha256": "8b015791de7f18950c10190cc2b8f9c61c7a35ca6b14f7ccfd86182b4b57a46a"
+    },
+    {
+      "id": "short-b250-m524-r1",
+      "profile": "b250-m524",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b250-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b250-m524-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "6078978ed33b11494cac4283576dfd55a98d59972775fb852537628f8f1b10df",
+      "logSha256": "ca09d6466dd7b77d182fec93e0ac910070f719497753f7569a676ccf3c8f275b"
+    },
+    {
+      "id": "short-b250-m262-r1",
+      "profile": "b250-m262",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b250-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b250-m262-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "2fcb2e3d0705e83c187e36c6624eaa10f10b59994424ab3600534165578719a3",
+      "logSha256": "9574e9f1f6d9c78b463e0b2d41781986b5bcf55310b44f7636e52addf4dff2dc"
+    },
+    {
+      "id": "short-b325-m262-r1",
+      "profile": "b325-m262",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b325-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b325-m262-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "503014301761d39f9075b51a9a3c6bcfc45037e996608288053a178609788210",
+      "logSha256": "ded6faa881114ad77d6098f0dd0526302c6394266907bfdd275c6b84ca6adad9"
+    },
+    {
+      "id": "short-b325-m262-r2",
+      "profile": "b325-m262",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b325-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b325-m262-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "9c068b653b8c36008fb05bf257066865baded9f17beb80e95e44969006be8a84",
+      "logSha256": "1afe62bf76a70e69f570082243a20e027342fadf0949d71c59fb72103f952a84"
+    },
+    {
+      "id": "short-b250-m262-r2",
+      "profile": "b250-m262",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b250-m262",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b250-m262-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "2aabf348ce6f8338672b7d640e3fadfc8203a6e22f800abb465d136e9c558173",
+      "logSha256": "a9bb326a71d8d4ea3e3963f0640bebe575cd6899838fabc417fdbb552cfb8186"
+    },
+    {
+      "id": "short-b250-m524-r2",
+      "profile": "b250-m524",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b250-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b250-m524-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "51fa16051c00a9bb4514c52ee58ebd4b863fa05d3c4460fa1e85dab8d5c0e286",
+      "logSha256": "7734b74aca9f16beb8288ab11a67c708c4597cb7ff0bd981874f540d7c938b86"
+    },
+    {
+      "id": "short-b325-m524-r2",
+      "profile": "b325-m524",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-geometry.mjs",
+        "--case",
+        "RSA-100",
+        "--profile",
+        "b325-m524",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-scheduler-stage19/docs/benchmarks/staged-geometry-stage20/short-b325-m524-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "3d190afc81f140f1477e0bce0c85a9531a1dbab5acc64d50a558288b6550aeee",
+      "logSha256": "943805af2aaf1089147e53082315b38f53cb215b2ca7c9735da7d08ade5e1745"
+    }
+  ],
+  "completedAt": "2026-10-20T15:20:52.993Z",
+  "familyProof": {
+    "b325-m524": {
+      "families": 12,
+      "records": 2,
+      "acceptedPrefixes": 12,
+      "verified": true
+    },
+    "b250-m524": {
+      "families": 16,
+      "records": 2,
+      "acceptedPrefixes": 16,
+      "verified": true
+    },
+    "b325-m262": {
+      "families": 20,
+      "records": 2,
+      "acceptedPrefixes": 20,
+      "verified": true
+    },
+    "b250-m262": {
+      "families": 24,
+      "records": 2,
+      "acceptedPrefixes": 24,
+      "verified": true
+    }
+  },
+  "decision": {
+    "candidate": null,
+    "tiedTop": false,
+    "candidates": [
+      {
+        "profile": "b250-m524",
+        "pass": false,
+        "minimumNormalizedRatio": {
+          "numerator": 30176608,
+          "denominator": 29499913
+        },
+        "pairs": [
+          {
+            "repeat": 1,
+            "usable": 259,
+            "target": 91331,
+            "baselineUsable": 323,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 30176608,
+              "denominator": 29499913
+            },
+            "pass": false
+          },
+          {
+            "repeat": 2,
+            "usable": 259,
+            "target": 91331,
+            "baselineUsable": 295,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 30176608,
+              "denominator": 26942645
+            },
+            "pass": false
+          }
+        ]
+      },
+      {
+        "profile": "b325-m262",
+        "pass": false,
+        "minimumNormalizedRatio": {
+          "numerator": 37050816,
+          "denominator": 37633376
+        },
+        "pairs": [
+          {
+            "repeat": 1,
+            "usable": 318,
+            "target": 116512,
+            "baselineUsable": 323,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 37050816,
+              "denominator": 37633376
+            },
+            "pass": false
+          },
+          {
+            "repeat": 2,
+            "usable": 318,
+            "target": 116512,
+            "baselineUsable": 295,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 37050816,
+              "denominator": 34371040
+            },
+            "pass": false
+          }
+        ]
+      },
+      {
+        "profile": "b250-m262",
+        "pass": false,
+        "minimumNormalizedRatio": {
+          "numerator": 26215200,
+          "denominator": 29499913
+        },
+        "pairs": [
+          {
+            "repeat": 1,
+            "usable": 225,
+            "target": 91331,
+            "baselineUsable": 323,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 26215200,
+              "denominator": 29499913
+            },
+            "pass": false
+          },
+          {
+            "repeat": 2,
+            "usable": 225,
+            "target": 91331,
+            "baselineUsable": 295,
+            "baselineTarget": 116512,
+            "ratio": {
+              "numerator": 26215200,
+              "denominator": 26942645
+            },
+            "pass": false
+          }
+        ]
+      }
+    ],
+    "interpretation": "Provisional collection-progress candidate only; no default or completion-time claim"
+  }
+}

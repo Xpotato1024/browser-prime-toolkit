@@ -1,0 +1,3445 @@
+{
+  "mode": "geometry-measurement",
+  "variant": "two-drop",
+  "profile": "b250-m524",
+  "scheduler": "credit1",
+  "fixedFamilies": null,
+  "caseId": "RSA-100",
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 60000,
+  "lifecycle": null,
+  "measuredHead": "609ca0c9352a407b28ba56b88ded952240ad289d",
+  "measuredAt": "2026-10-20T15:14:33.385Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 125.35720500000002,
+  "initialAssets": [
+    {
+      "path": "/bench/geometry.html",
+      "bytes": 140,
+      "sha256": "9fc48475fd53f2a002d55933d93d381b7cff49228310495d73421e755e059ebc"
+    },
+    {
+      "path": "/bench/geometry.js",
+      "bytes": 8310,
+      "sha256": "7df893c9961a6a515fb5d3454466329615a8c2a52c9aceaadfb3d3f5d42bc04a"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/runner.js",
+      "bytes": 13454,
+      "sha256": "b5e602bd57c0bf877b752f360e37c0e0ded8c9d8b2531ccda07e8f2dcb4d8a44"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/worker-source.js",
+      "bytes": 579552,
+      "sha256": "845bc3d8ecd544a297a7cef44ce896bf124a048aa82bb8a0fcd1b5fbb2c08d23"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/contracts.js",
+      "bytes": 2658,
+      "sha256": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/contracts.js",
+      "bytes": 2032,
+      "sha256": "4fc199d78a54bb6a6ac1318ea5cda799a72da8f4c6105e22b6b8ee76487f6713"
+    },
+    {
+      "path": "/src/rusqsieve-scheduler/credits.js",
+      "bytes": 3262,
+      "sha256": "2685390b216906b9b2f474cea0dceaabbc9601763299f3fa6ca505af47729342"
+    },
+    {
+      "path": "/src/rusqsieve-scheduler/metrics.js",
+      "bytes": 2179,
+      "sha256": "e50e1f30dd057eea6103c5c1d6df2f88bccf07727a8f3a8d600158bbfc6674b9"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-geometry.mjs": "11c33508568b017841a70bec98bb9c919d847edb5b8e96e353bae17e1562765c",
+    "scripts/benchmark-geometry.mjs": "ba88b66b1839d48fab5b98d480da3174c350143e3a80c7aefeac96ae314be222",
+    "scripts/check-geometry.mjs": "38e6efb33186272219aa93dd1f21d87942b8d3b4b95178a5822aafb465f5fde0",
+    "scripts/report-geometry.mjs": "694289395203305a0aeea366979e68a51e09abca662ae441a96a51e7146e7c0f",
+    "scripts/geometry-decision.mjs": "62e9b27e0cec42a61f94e3b9b329b85e8a570787a954c92b0fd8f396b46432f6",
+    "scripts/generate-geometry-runner.mjs": "21dbca79aea5ba678babc21547049b94970a6b8e9b52e61fbc55dd8694376965",
+    "scripts/build-geometry-worker.mjs": "008ec00293b9d52089e6c0aed3a3a75e6479764f5fa295e0f6f5d2c85a264e93",
+    "scripts/build-rusqsieve-geometry.mjs": "76da8cf6fab718a55b361a7c4819e4f05cd083767fbd1a6c1826fb1b179765e5",
+    "scripts/geometry-asset-route.mjs": "0b1fcbdf16efcf263008d6f2038531e4c23b0abe4b8ffd2474f28c040b402622",
+    "native/rusqsieve-geometry/patch-source.mjs": "a4e0616964f8f797de680a50b80d73fd4ba21678f9dcc604bbb6b4f409aac08a",
+    "native/rusqsieve-geometry/staged-build.json": "40292a7c5c8b2b4188346b0a2b9135fa4796f917a2b772e34593ef769bdd25e7",
+    "src/rusqsieve-geometry/worker-body.js": "062ee93e2c3e150e14349ed823751eb42c2266c0e550e6fce65bb6ecc7d92c89",
+    "bench/staged-geometry-plan.json": "eb0b518f7f38d86637ead4228c8af2340956681616323bfcc9cd0858a00e354e",
+    "scripts/verify-scheduler.mjs": "9b6e1557d623ee21973ce1211e4d8b86c90c89eca196b0623ff9bef8d8e0a9a4",
+    "scripts/benchmark-scheduler.mjs": "88f92aafa7ef267625f2f94e07536a3ba81fea3862be562b2c7068a6abb82b88",
+    "scripts/check-scheduler.mjs": "bec1436dec04a20b88bffb9cbb3e89b657fa0aa9641909a60200be043a3b6097",
+    "scripts/report-scheduler.mjs": "24151be22f371d52580bd26cb6b8c1575f624946e8f3e501f0578e2ee53e0acd",
+    "scripts/scheduler-decision.mjs": "ef604b876e508515c62cd2122cd76fc2779c4af84fb90d987da66dbb85798596",
+    "scripts/scheduler-packets.mjs": "fc85e108e53505a2d82602233a415a5e359b935cc50edd7af6356bcca926106a",
+    "scripts/scheduler-asset-route.mjs": "2c22891f69dbde40f574e506507fdec9e022768d9bf1e0e2dcf8ef191152c299",
+    "scripts/generate-scheduler-runner.mjs": "246b7072d121d2f2369ab306213a0b77043a4487db0930ea156c36b01744fb4c",
+    "scripts/build-scheduler-worker.mjs": "a5f052321705af1672083a2100446908d7b9a0ab7e789d8b545c9a22b37766ee",
+    "src/rusqsieve-scheduler/worker-body.js": "ac9d17c0891cfb75ba4bc7f0eb74b5fbb25ab6c2f7af725aabbc00bb00c2c732",
+    "bench/staged-scheduler-plan.json": "d38d564b7637a5371fcf4f1b044f3567feb9360c18f14d0b81dc74b6e4f050a2",
+    "scripts/verify-dlp.mjs": "a369314575e4b46f0316bd942754d5277f61adeb7c643a9feefa471447d2edb7",
+    "scripts/benchmark-dlp.mjs": "f1f8dff9044c3aec03778d7286fd8e25d99734daf39ccb283d6129a7d635dfea",
+    "scripts/dlp-decision.mjs": "343881bda56b2ec2bd5cd4984e75a5c6684c0ad8300d7d744ce29e0a11199592",
+    "scripts/dlp-series-contract.mjs": "d186709fe6e34bcc00b9c21a605482fdda3d2d1440875d295980c4492ec0a7e9",
+    "bench/staged-dlp-plan.json": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/dlp-asset-route.mjs": "578bd967c843cf57842132a3fd835e51c72be60c712871e07470fe0ed379ea0a",
+    "scripts/build-dlp-worker.mjs": "dd9f890c544cda5f77e4112a09cbdb62e2141e578d3b2a46c2d1a071b0d2769b",
+    "scripts/build-rusqsieve-dlp.mjs": "e505cb3e788c48e7027cb851956e89ac3ed4da660c2aa4167975fffd702ca1fb",
+    "native/rusqsieve-dlp/staged-build.json": "bdf84eacb29bf3eb2feff488707767c820696b77f665b93a3d1a61dcebc66c5f",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve-dlp/patch-source.mjs": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+    "scripts/generate-dlp-runner.mjs": "71dea2a3139fed3195d6a36448ee2d4cda28a79be4da7ae81620712db1d21448",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "src/rusqsieve-dlp/worker-body.js": "327993b9f43733277d42de6c05db17a9ecd3bb073a9c00a1498876bcd9c27ecf",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "bench/geometry.html": "9fc48475fd53f2a002d55933d93d381b7cff49228310495d73421e755e059ebc",
+    "bench/geometry.js": "7df893c9961a6a515fb5d3454466329615a8c2a52c9aceaadfb3d3f5d42bc04a",
+    "src/rusqsieve-geometry/runner.js": "b5e602bd57c0bf877b752f360e37c0e0ded8c9d8b2531ccda07e8f2dcb4d8a44",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/rusqsieve-geometry/worker-source.js": "845bc3d8ecd544a297a7cef44ce896bf124a048aa82bb8a0fcd1b5fbb2c08d23",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/rusqsieve/contracts.js": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+    "src/rusqsieve-dlp/contracts.js": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64",
+    "src/rusqsieve-geometry/contracts.js": "4fc199d78a54bb6a6ac1318ea5cda799a72da8f4c6105e22b6b8ee76487f6713",
+    "src/rusqsieve-scheduler/credits.js": "2685390b216906b9b2f474cea0dceaabbc9601763299f3fa6ca505af47729342",
+    "src/rusqsieve-scheduler/metrics.js": "e50e1f30dd057eea6103c5c1d6df2f88bccf07727a8f3a8d600158bbfc6674b9",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "id": "RSA-100",
+      "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+      "bits": 330,
+      "digits": 100,
+      "knownFactorsUsed": false,
+      "outcome": {
+        "scheduler": "credit1",
+        "fixedFamilies": null,
+        "ownerActivity": {
+          "collectionWindowMs": 57108.30000001192,
+          "definition": "host assigned-job wall occupancy; not OS CPU utilization; delivered native sieve time is a lower bound for censored calls",
+          "owners": [
+            {
+              "owner": 0,
+              "states": {
+                "assignedMs": 56915.70000001788,
+                "submitMs": 191.59999999403954,
+                "blockedIdleMs": 0,
+                "idleMs": 1
+              },
+              "assignedRatio": 0.9966274604568163,
+              "blockedIdleRatio": 0
+            },
+            {
+              "owner": 1,
+              "states": {
+                "assignedMs": 57108,
+                "submitMs": 0,
+                "blockedIdleMs": 0,
+                "idleMs": 0.30000001192092896
+              },
+              "assignedRatio": 0.9999947468229325,
+              "blockedIdleRatio": 0
+            }
+          ]
+        },
+        "activeAtStop": [
+          {
+            "owner": 0,
+            "command": "job",
+            "job": {
+              "first": 17,
+              "count": 1
+            }
+          },
+          {
+            "owner": 1,
+            "command": "job",
+            "job": {
+              "first": 16,
+              "count": 1
+            }
+          }
+        ],
+        "creditState": {
+          "owned": [
+            1,
+            1
+          ],
+          "outstanding": 2,
+          "peakOutstanding": 3,
+          "reservedBytes": 16777216,
+          "peakReservedBytes": 25165824
+        },
+        "auditBytes": 3238728,
+        "profile": "b250-m524",
+        "configuration": {
+          "version": 1,
+          "profile": "b250-m524",
+          "bits": 330,
+          "factorBaseBound": 2500000,
+          "intervalHalfWidth": 524288,
+          "singleLimit": "362500000",
+          "doubleLimit": "6468750000000000",
+          "lpBits": 53,
+          "thresholdAdjustment": -23,
+          "factorBaseSize": 91267,
+          "aDistribution": {
+            "version": 1,
+            "multiplier": 139,
+            "q2": true,
+            "targetBits": 149,
+            "factorCount": 13,
+            "allCount": 91169,
+            "poolCount": 447,
+            "variants": 2048,
+            "samples": [
+              {
+                "family": 0,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 1,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 2,
+                "bits": 149,
+                "ratioMilli": 990
+              },
+              {
+                "family": 3,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 4,
+                "bits": 149,
+                "ratioMilli": 977
+              },
+              {
+                "family": 5,
+                "bits": 149,
+                "ratioMilli": 998
+              },
+              {
+                "family": 6,
+                "bits": 149,
+                "ratioMilli": 1005
+              },
+              {
+                "family": 7,
+                "bits": 150,
+                "ratioMilli": 2132
+              },
+              {
+                "family": 8,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 9,
+                "bits": 149,
+                "ratioMilli": 998
+              },
+              {
+                "family": 10,
+                "bits": 149,
+                "ratioMilli": 1059
+              },
+              {
+                "family": 11,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 12,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 13,
+                "bits": 149,
+                "ratioMilli": 996
+              },
+              {
+                "family": 14,
+                "bits": 149,
+                "ratioMilli": 997
+              },
+              {
+                "family": 15,
+                "bits": 149,
+                "ratioMilli": 1118
+              },
+              {
+                "family": 16,
+                "bits": 149,
+                "ratioMilli": 1003
+              },
+              {
+                "family": 17,
+                "bits": 149,
+                "ratioMilli": 1001
+              },
+              {
+                "family": 18,
+                "bits": 150,
+                "ratioMilli": 2002
+              },
+              {
+                "family": 19,
+                "bits": 150,
+                "ratioMilli": 2230
+              },
+              {
+                "family": 20,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 21,
+                "bits": 152,
+                "ratioMilli": 4987
+              },
+              {
+                "family": 22,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 23,
+                "bits": 149,
+                "ratioMilli": 1001
+              },
+              {
+                "family": 24,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 25,
+                "bits": 149,
+                "ratioMilli": 1001
+              },
+              {
+                "family": 26,
+                "bits": 149,
+                "ratioMilli": 1146
+              },
+              {
+                "family": 27,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 28,
+                "bits": 149,
+                "ratioMilli": 1139
+              },
+              {
+                "family": 29,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 30,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 31,
+                "bits": 149,
+                "ratioMilli": 998
+              },
+              {
+                "family": 32,
+                "bits": 149,
+                "ratioMilli": 998
+              },
+              {
+                "family": 33,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 34,
+                "bits": 149,
+                "ratioMilli": 1147
+              },
+              {
+                "family": 35,
+                "bits": 149,
+                "ratioMilli": 1005
+              },
+              {
+                "family": 36,
+                "bits": 150,
+                "ratioMilli": 2086
+              },
+              {
+                "family": 37,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 38,
+                "bits": 150,
+                "ratioMilli": 1226
+              },
+              {
+                "family": 39,
+                "bits": 150,
+                "ratioMilli": 1325
+              },
+              {
+                "family": 40,
+                "bits": 149,
+                "ratioMilli": 962
+              },
+              {
+                "family": 41,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 42,
+                "bits": 149,
+                "ratioMilli": 1003
+              },
+              {
+                "family": 43,
+                "bits": 149,
+                "ratioMilli": 992
+              },
+              {
+                "family": 44,
+                "bits": 150,
+                "ratioMilli": 2086
+              },
+              {
+                "family": 45,
+                "bits": 149,
+                "ratioMilli": 1003
+              },
+              {
+                "family": 46,
+                "bits": 149,
+                "ratioMilli": 968
+              },
+              {
+                "family": 47,
+                "bits": 149,
+                "ratioMilli": 996
+              },
+              {
+                "family": 48,
+                "bits": 149,
+                "ratioMilli": 998
+              },
+              {
+                "family": 49,
+                "bits": 149,
+                "ratioMilli": 1004
+              },
+              {
+                "family": 50,
+                "bits": 149,
+                "ratioMilli": 1001
+              },
+              {
+                "family": 51,
+                "bits": 150,
+                "ratioMilli": 1943
+              },
+              {
+                "family": 52,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 53,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 54,
+                "bits": 149,
+                "ratioMilli": 1006
+              },
+              {
+                "family": 55,
+                "bits": 150,
+                "ratioMilli": 1205
+              },
+              {
+                "family": 56,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 57,
+                "bits": 149,
+                "ratioMilli": 1005
+              },
+              {
+                "family": 58,
+                "bits": 150,
+                "ratioMilli": 1891
+              },
+              {
+                "family": 59,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 60,
+                "bits": 149,
+                "ratioMilli": 1000
+              },
+              {
+                "family": 61,
+                "bits": 149,
+                "ratioMilli": 1002
+              },
+              {
+                "family": 62,
+                "bits": 149,
+                "ratioMilli": 999
+              },
+              {
+                "family": 63,
+                "bits": 149,
+                "ratioMilli": 996
+              }
+            ]
+          }
+        },
+        "collectorStats": {
+          "full": 258,
+          "slp": 3610,
+          "dlp": 11801,
+          "cycles": 1,
+          "vertices": 27007,
+          "treeEdges": 15410,
+          "usable": 259,
+          "ingested": 15669
+        },
+        "wrapperTimingByOwner": [
+          {
+            "owner": 0,
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 55682.9999999702,
+              "copyFreeMs": 3.4000000059604645,
+              "framingMs": 38.10000002384186,
+              "submitMs": 162.5999999344349,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "owner": 1,
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 55524,
+              "copyFreeMs": 0.8999999463558197,
+              "framingMs": 21.700000017881393,
+              "submitMs": 0,
+              "observeMs": 0.30000001192092896,
+              "extractMs": 0
+            }
+          }
+        ],
+        "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+        "kind": "timeout",
+        "reason": "time-budget",
+        "factors": [],
+        "remaining": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+        "certainty": null,
+        "workers": 2,
+        "peakOwners": 2,
+        "allWorkersDisposed": true,
+        "allWorkerSourcesReleased": true,
+        "retirementErrors": [],
+        "requestWallMs": 60001.09999999404,
+        "initializationMs": 2892.699999988079,
+        "familiesIssued": 18,
+        "familiesSubmitted": 16,
+        "polynomialsSubmitted": 32768,
+        "rawRelationsSubmitted": 15669,
+        "bytesSubmitted": 3238728,
+        "familyBudget": 250000,
+        "relations": 259,
+        "target": 91331,
+        "transportCapBytes": 33554432,
+        "peakTransportBytes": 413395,
+        "maximumWasmBytes": 536870912,
+        "retainLocal": false,
+        "shareContext": true,
+        "factorBaseSize": 91267,
+        "phaseMemory": [
+          {
+            "type": "ready",
+            "owner": 1,
+            "memory": {
+              "linearBytes": 6225920,
+              "liveRequested": 3013808,
+              "peakRequested": 4633108,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "config": {
+              "version": 1,
+              "profile": "b250-m524",
+              "bits": 330,
+              "factorBaseBound": 2500000,
+              "intervalHalfWidth": 524288,
+              "singleLimit": "362500000",
+              "doubleLimit": "6468750000000000",
+              "lpBits": 53,
+              "thresholdAdjustment": -23,
+              "factorBaseSize": 91267,
+              "aDistribution": {
+                "version": 1,
+                "multiplier": 139,
+                "q2": true,
+                "targetBits": 149,
+                "factorCount": 13,
+                "allCount": 91169,
+                "poolCount": 447,
+                "variants": 2048,
+                "samples": [
+                  {
+                    "family": 0,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 1,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 2,
+                    "bits": 149,
+                    "ratioMilli": 990
+                  },
+                  {
+                    "family": 3,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 4,
+                    "bits": 149,
+                    "ratioMilli": 977
+                  },
+                  {
+                    "family": 5,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 6,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 7,
+                    "bits": 150,
+                    "ratioMilli": 2132
+                  },
+                  {
+                    "family": 8,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 9,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 10,
+                    "bits": 149,
+                    "ratioMilli": 1059
+                  },
+                  {
+                    "family": 11,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 12,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 13,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 14,
+                    "bits": 149,
+                    "ratioMilli": 997
+                  },
+                  {
+                    "family": 15,
+                    "bits": 149,
+                    "ratioMilli": 1118
+                  },
+                  {
+                    "family": 16,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 17,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 18,
+                    "bits": 150,
+                    "ratioMilli": 2002
+                  },
+                  {
+                    "family": 19,
+                    "bits": 150,
+                    "ratioMilli": 2230
+                  },
+                  {
+                    "family": 20,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 21,
+                    "bits": 152,
+                    "ratioMilli": 4987
+                  },
+                  {
+                    "family": 22,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 23,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 24,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 25,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 26,
+                    "bits": 149,
+                    "ratioMilli": 1146
+                  },
+                  {
+                    "family": 27,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 28,
+                    "bits": 149,
+                    "ratioMilli": 1139
+                  },
+                  {
+                    "family": 29,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 30,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 31,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 32,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 33,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 34,
+                    "bits": 149,
+                    "ratioMilli": 1147
+                  },
+                  {
+                    "family": 35,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 36,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 37,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 38,
+                    "bits": 150,
+                    "ratioMilli": 1226
+                  },
+                  {
+                    "family": 39,
+                    "bits": 150,
+                    "ratioMilli": 1325
+                  },
+                  {
+                    "family": 40,
+                    "bits": 149,
+                    "ratioMilli": 962
+                  },
+                  {
+                    "family": 41,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 42,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 43,
+                    "bits": 149,
+                    "ratioMilli": 992
+                  },
+                  {
+                    "family": 44,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 45,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 46,
+                    "bits": 149,
+                    "ratioMilli": 968
+                  },
+                  {
+                    "family": 47,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 48,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 49,
+                    "bits": 149,
+                    "ratioMilli": 1004
+                  },
+                  {
+                    "family": 50,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 51,
+                    "bits": 150,
+                    "ratioMilli": 1943
+                  },
+                  {
+                    "family": 52,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 53,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 54,
+                    "bits": 149,
+                    "ratioMilli": 1006
+                  },
+                  {
+                    "family": 55,
+                    "bits": 150,
+                    "ratioMilli": 1205
+                  },
+                  {
+                    "family": 56,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 57,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 58,
+                    "bits": 150,
+                    "ratioMilli": 1891
+                  },
+                  {
+                    "family": 59,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 60,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 61,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 62,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 63,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  }
+                ]
+              }
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 0,
+              "copyFreeMs": 0,
+              "framingMs": 0,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "ready",
+            "owner": 0,
+            "memory": {
+              "linearBytes": 6225920,
+              "liveRequested": 3014768,
+              "peakRequested": 4633108,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "config": {
+              "version": 1,
+              "profile": "b250-m524",
+              "bits": 330,
+              "factorBaseBound": 2500000,
+              "intervalHalfWidth": 524288,
+              "singleLimit": "362500000",
+              "doubleLimit": "6468750000000000",
+              "lpBits": 53,
+              "thresholdAdjustment": -23,
+              "factorBaseSize": 91267,
+              "aDistribution": {
+                "version": 1,
+                "multiplier": 139,
+                "q2": true,
+                "targetBits": 149,
+                "factorCount": 13,
+                "allCount": 91169,
+                "poolCount": 447,
+                "variants": 2048,
+                "samples": [
+                  {
+                    "family": 0,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 1,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 2,
+                    "bits": 149,
+                    "ratioMilli": 990
+                  },
+                  {
+                    "family": 3,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 4,
+                    "bits": 149,
+                    "ratioMilli": 977
+                  },
+                  {
+                    "family": 5,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 6,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 7,
+                    "bits": 150,
+                    "ratioMilli": 2132
+                  },
+                  {
+                    "family": 8,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 9,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 10,
+                    "bits": 149,
+                    "ratioMilli": 1059
+                  },
+                  {
+                    "family": 11,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 12,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 13,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 14,
+                    "bits": 149,
+                    "ratioMilli": 997
+                  },
+                  {
+                    "family": 15,
+                    "bits": 149,
+                    "ratioMilli": 1118
+                  },
+                  {
+                    "family": 16,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 17,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 18,
+                    "bits": 150,
+                    "ratioMilli": 2002
+                  },
+                  {
+                    "family": 19,
+                    "bits": 150,
+                    "ratioMilli": 2230
+                  },
+                  {
+                    "family": 20,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 21,
+                    "bits": 152,
+                    "ratioMilli": 4987
+                  },
+                  {
+                    "family": 22,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 23,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 24,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 25,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 26,
+                    "bits": 149,
+                    "ratioMilli": 1146
+                  },
+                  {
+                    "family": 27,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 28,
+                    "bits": 149,
+                    "ratioMilli": 1139
+                  },
+                  {
+                    "family": 29,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 30,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 31,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 32,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 33,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 34,
+                    "bits": 149,
+                    "ratioMilli": 1147
+                  },
+                  {
+                    "family": 35,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 36,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 37,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 38,
+                    "bits": 150,
+                    "ratioMilli": 1226
+                  },
+                  {
+                    "family": 39,
+                    "bits": 150,
+                    "ratioMilli": 1325
+                  },
+                  {
+                    "family": 40,
+                    "bits": 149,
+                    "ratioMilli": 962
+                  },
+                  {
+                    "family": 41,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 42,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 43,
+                    "bits": 149,
+                    "ratioMilli": 992
+                  },
+                  {
+                    "family": 44,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 45,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 46,
+                    "bits": 149,
+                    "ratioMilli": 968
+                  },
+                  {
+                    "family": 47,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 48,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 49,
+                    "bits": 149,
+                    "ratioMilli": 1004
+                  },
+                  {
+                    "family": 50,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 51,
+                    "bits": 150,
+                    "ratioMilli": 1943
+                  },
+                  {
+                    "family": 52,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 53,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 54,
+                    "bits": 149,
+                    "ratioMilli": 1006
+                  },
+                  {
+                    "family": 55,
+                    "bits": 150,
+                    "ratioMilli": 1205
+                  },
+                  {
+                    "family": 56,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 57,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 58,
+                    "bits": 150,
+                    "ratioMilli": 1891
+                  },
+                  {
+                    "family": 59,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 60,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 61,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 62,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 63,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  }
+                ]
+              }
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 0,
+              "copyFreeMs": 0,
+              "framingMs": 0,
+              "submitMs": 0,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          }
+        ],
+        "memoryByOwner": [
+          {
+            "owner": 0,
+            "last": {
+              "linearBytes": 19202048,
+              "liveRequested": 10132344,
+              "peakRequested": 16190260,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "peakLinearBytes": 19202048,
+            "peakRequestedBytes": 16190260
+          },
+          {
+            "owner": 1,
+            "last": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "peakLinearBytes": 11403264,
+            "peakRequestedBytes": 9517144
+          }
+        ],
+        "events": [
+          {
+            "type": "ready",
+            "elapsedMs": 1666.699999988079,
+            "owner": 1,
+            "memory": {
+              "linearBytes": 6225920,
+              "liveRequested": 3013808,
+              "peakRequested": 4633108,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "config": {
+              "version": 1,
+              "profile": "b250-m524",
+              "bits": 330,
+              "factorBaseBound": 2500000,
+              "intervalHalfWidth": 524288,
+              "singleLimit": "362500000",
+              "doubleLimit": "6468750000000000",
+              "lpBits": 53,
+              "thresholdAdjustment": -23,
+              "factorBaseSize": 91267,
+              "aDistribution": {
+                "version": 1,
+                "multiplier": 139,
+                "q2": true,
+                "targetBits": 149,
+                "factorCount": 13,
+                "allCount": 91169,
+                "poolCount": 447,
+                "variants": 2048,
+                "samples": [
+                  {
+                    "family": 0,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 1,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 2,
+                    "bits": 149,
+                    "ratioMilli": 990
+                  },
+                  {
+                    "family": 3,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 4,
+                    "bits": 149,
+                    "ratioMilli": 977
+                  },
+                  {
+                    "family": 5,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 6,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 7,
+                    "bits": 150,
+                    "ratioMilli": 2132
+                  },
+                  {
+                    "family": 8,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 9,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 10,
+                    "bits": 149,
+                    "ratioMilli": 1059
+                  },
+                  {
+                    "family": 11,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 12,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 13,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 14,
+                    "bits": 149,
+                    "ratioMilli": 997
+                  },
+                  {
+                    "family": 15,
+                    "bits": 149,
+                    "ratioMilli": 1118
+                  },
+                  {
+                    "family": 16,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 17,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 18,
+                    "bits": 150,
+                    "ratioMilli": 2002
+                  },
+                  {
+                    "family": 19,
+                    "bits": 150,
+                    "ratioMilli": 2230
+                  },
+                  {
+                    "family": 20,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 21,
+                    "bits": 152,
+                    "ratioMilli": 4987
+                  },
+                  {
+                    "family": 22,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 23,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 24,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 25,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 26,
+                    "bits": 149,
+                    "ratioMilli": 1146
+                  },
+                  {
+                    "family": 27,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 28,
+                    "bits": 149,
+                    "ratioMilli": 1139
+                  },
+                  {
+                    "family": 29,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 30,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 31,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 32,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 33,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 34,
+                    "bits": 149,
+                    "ratioMilli": 1147
+                  },
+                  {
+                    "family": 35,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 36,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 37,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 38,
+                    "bits": 150,
+                    "ratioMilli": 1226
+                  },
+                  {
+                    "family": 39,
+                    "bits": 150,
+                    "ratioMilli": 1325
+                  },
+                  {
+                    "family": 40,
+                    "bits": 149,
+                    "ratioMilli": 962
+                  },
+                  {
+                    "family": 41,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 42,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 43,
+                    "bits": 149,
+                    "ratioMilli": 992
+                  },
+                  {
+                    "family": 44,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 45,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 46,
+                    "bits": 149,
+                    "ratioMilli": 968
+                  },
+                  {
+                    "family": 47,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 48,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 49,
+                    "bits": 149,
+                    "ratioMilli": 1004
+                  },
+                  {
+                    "family": 50,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 51,
+                    "bits": 150,
+                    "ratioMilli": 1943
+                  },
+                  {
+                    "family": 52,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 53,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 54,
+                    "bits": 149,
+                    "ratioMilli": 1006
+                  },
+                  {
+                    "family": 55,
+                    "bits": 150,
+                    "ratioMilli": 1205
+                  },
+                  {
+                    "family": 56,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 57,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 58,
+                    "bits": 150,
+                    "ratioMilli": 1891
+                  },
+                  {
+                    "family": 59,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 60,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 61,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 62,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 63,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  }
+                ]
+              }
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 0,
+              "copyFreeMs": 0,
+              "framingMs": 0,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "ready",
+            "elapsedMs": 2892.5999999940395,
+            "owner": 0,
+            "memory": {
+              "linearBytes": 6225920,
+              "liveRequested": 3014768,
+              "peakRequested": 4633108,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "config": {
+              "version": 1,
+              "profile": "b250-m524",
+              "bits": 330,
+              "factorBaseBound": 2500000,
+              "intervalHalfWidth": 524288,
+              "singleLimit": "362500000",
+              "doubleLimit": "6468750000000000",
+              "lpBits": 53,
+              "thresholdAdjustment": -23,
+              "factorBaseSize": 91267,
+              "aDistribution": {
+                "version": 1,
+                "multiplier": 139,
+                "q2": true,
+                "targetBits": 149,
+                "factorCount": 13,
+                "allCount": 91169,
+                "poolCount": 447,
+                "variants": 2048,
+                "samples": [
+                  {
+                    "family": 0,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 1,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 2,
+                    "bits": 149,
+                    "ratioMilli": 990
+                  },
+                  {
+                    "family": 3,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 4,
+                    "bits": 149,
+                    "ratioMilli": 977
+                  },
+                  {
+                    "family": 5,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 6,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 7,
+                    "bits": 150,
+                    "ratioMilli": 2132
+                  },
+                  {
+                    "family": 8,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 9,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 10,
+                    "bits": 149,
+                    "ratioMilli": 1059
+                  },
+                  {
+                    "family": 11,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 12,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 13,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 14,
+                    "bits": 149,
+                    "ratioMilli": 997
+                  },
+                  {
+                    "family": 15,
+                    "bits": 149,
+                    "ratioMilli": 1118
+                  },
+                  {
+                    "family": 16,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 17,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 18,
+                    "bits": 150,
+                    "ratioMilli": 2002
+                  },
+                  {
+                    "family": 19,
+                    "bits": 150,
+                    "ratioMilli": 2230
+                  },
+                  {
+                    "family": 20,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 21,
+                    "bits": 152,
+                    "ratioMilli": 4987
+                  },
+                  {
+                    "family": 22,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 23,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 24,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 25,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 26,
+                    "bits": 149,
+                    "ratioMilli": 1146
+                  },
+                  {
+                    "family": 27,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 28,
+                    "bits": 149,
+                    "ratioMilli": 1139
+                  },
+                  {
+                    "family": 29,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 30,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 31,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 32,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 33,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 34,
+                    "bits": 149,
+                    "ratioMilli": 1147
+                  },
+                  {
+                    "family": 35,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 36,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 37,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 38,
+                    "bits": 150,
+                    "ratioMilli": 1226
+                  },
+                  {
+                    "family": 39,
+                    "bits": 150,
+                    "ratioMilli": 1325
+                  },
+                  {
+                    "family": 40,
+                    "bits": 149,
+                    "ratioMilli": 962
+                  },
+                  {
+                    "family": 41,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 42,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 43,
+                    "bits": 149,
+                    "ratioMilli": 992
+                  },
+                  {
+                    "family": 44,
+                    "bits": 150,
+                    "ratioMilli": 2086
+                  },
+                  {
+                    "family": 45,
+                    "bits": 149,
+                    "ratioMilli": 1003
+                  },
+                  {
+                    "family": 46,
+                    "bits": 149,
+                    "ratioMilli": 968
+                  },
+                  {
+                    "family": 47,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  },
+                  {
+                    "family": 48,
+                    "bits": 149,
+                    "ratioMilli": 998
+                  },
+                  {
+                    "family": 49,
+                    "bits": 149,
+                    "ratioMilli": 1004
+                  },
+                  {
+                    "family": 50,
+                    "bits": 149,
+                    "ratioMilli": 1001
+                  },
+                  {
+                    "family": 51,
+                    "bits": 150,
+                    "ratioMilli": 1943
+                  },
+                  {
+                    "family": 52,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 53,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 54,
+                    "bits": 149,
+                    "ratioMilli": 1006
+                  },
+                  {
+                    "family": 55,
+                    "bits": 150,
+                    "ratioMilli": 1205
+                  },
+                  {
+                    "family": 56,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 57,
+                    "bits": 149,
+                    "ratioMilli": 1005
+                  },
+                  {
+                    "family": 58,
+                    "bits": 150,
+                    "ratioMilli": 1891
+                  },
+                  {
+                    "family": 59,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 60,
+                    "bits": 149,
+                    "ratioMilli": 1000
+                  },
+                  {
+                    "family": 61,
+                    "bits": 149,
+                    "ratioMilli": 1002
+                  },
+                  {
+                    "family": 62,
+                    "bits": 149,
+                    "ratioMilli": 999
+                  },
+                  {
+                    "family": 63,
+                    "bits": 149,
+                    "ratioMilli": 996
+                  }
+                ]
+              }
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 0,
+              "copyFreeMs": 0,
+              "framingMs": 0,
+              "submitMs": 0,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 9998.5,
+            "owner": 0,
+            "first": 0,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3014816,
+              "peakRequested": 9504102,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 959,
+              "polynomials": 2048,
+              "bytes": 198431
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 7092.5999999940395,
+              "copyFreeMs": 1,
+              "framingMs": 5.800000011920929,
+              "submitMs": 0,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 10010.5,
+            "families": 1,
+            "relations": 19,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3457068,
+              "peakRequested": 9504102,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 19,
+              "slp": 243,
+              "dlp": 697,
+              "cycles": 0,
+              "vertices": 1634,
+              "treeEdges": 940,
+              "usable": 19,
+              "ingested": 959
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 7092.5999999940395,
+              "copyFreeMs": 1,
+              "framingMs": 8.600000023841858,
+              "submitMs": 8.599999994039536,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 10015.399999976158,
+            "owner": 1,
+            "first": 1,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 1012,
+              "polynomials": 2048,
+              "bytes": 209246
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 7114,
+              "copyFreeMs": 0.29999998211860657,
+              "framingMs": 2.800000011920929,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 16865.19999998808,
+            "owner": 0,
+            "first": 2,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3457068,
+              "peakRequested": 9949470,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 963,
+              "polynomials": 2048,
+              "bytes": 199311
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 13943.799999982119,
+              "copyFreeMs": 1.2000000178813934,
+              "framingMs": 9.900000005960464,
+              "submitMs": 8.599999994039536,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 16873.29999998212,
+            "families": 2,
+            "relations": 39,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3908412,
+              "peakRequested": 9949470,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 39,
+              "slp": 452,
+              "dlp": 1480,
+              "cycles": 0,
+              "vertices": 3402,
+              "treeEdges": 1932,
+              "usable": 39,
+              "ingested": 1971
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 13943.799999982119,
+              "copyFreeMs": 1.2000000178813934,
+              "framingMs": 11,
+              "submitMs": 15.300000011920929,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 16889.399999976158,
+            "owner": 1,
+            "first": 3,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 966,
+              "polynomials": 2048,
+              "bytes": 200059
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 13983.699999988079,
+              "copyFreeMs": 0.3999999761581421,
+              "framingMs": 5.300000011920929,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 16893.5,
+            "families": 3,
+            "relations": 51,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 4584252,
+              "peakRequested": 9949470,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 51,
+              "slp": 691,
+              "dlp": 2192,
+              "cycles": 0,
+              "vertices": 5060,
+              "treeEdges": 2883,
+              "usable": 51,
+              "ingested": 2934
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 13943.799999982119,
+              "copyFreeMs": 1.2000000178813934,
+              "framingMs": 11.900000005960464,
+              "submitMs": 33.80000001192093,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 16897.29999998212,
+            "families": 4,
+            "relations": 65,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 4792184,
+              "peakRequested": 9949470,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 65,
+              "slp": 921,
+              "dlp": 2914,
+              "cycles": 0,
+              "vertices": 6728,
+              "treeEdges": 3835,
+              "usable": 65,
+              "ingested": 3900
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 13943.799999982119,
+              "copyFreeMs": 1.2000000178813934,
+              "framingMs": 13.099999994039536,
+              "submitMs": 36.30000001192093,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 23790.19999998808,
+            "owner": 1,
+            "first": 4,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 981,
+              "polynomials": 2048,
+              "bytes": 202860
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 20879.19999998808,
+              "copyFreeMs": 0.4999999701976776,
+              "framingMs": 6.600000023841858,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 23792.69999998808,
+            "owner": 0,
+            "first": 5,
+            "count": 1,
+            "memory": {
+              "linearBytes": 12910592,
+              "liveRequested": 4792184,
+              "peakRequested": 11298060,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 1019,
+              "polynomials": 2048,
+              "bytes": 210535
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 20834.399999976158,
+              "copyFreeMs": 2.7000000178813934,
+              "framingMs": 14.5,
+              "submitMs": 36.30000001192093,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 23811,
+            "families": 5,
+            "relations": 78,
+            "memory": {
+              "linearBytes": 12910592,
+              "liveRequested": 5950608,
+              "peakRequested": 11298060,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 78,
+              "slp": 1152,
+              "dlp": 3651,
+              "cycles": 0,
+              "vertices": 8424,
+              "treeEdges": 4803,
+              "usable": 78,
+              "ingested": 4881
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 20834.399999976158,
+              "copyFreeMs": 2.7000000178813934,
+              "framingMs": 15.599999994039536,
+              "submitMs": 53.10000002384186,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 23819,
+            "families": 6,
+            "relations": 102,
+            "memory": {
+              "linearBytes": 12910592,
+              "liveRequested": 6158568,
+              "peakRequested": 11298060,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 102,
+              "slp": 1386,
+              "dlp": 4412,
+              "cycles": 0,
+              "vertices": 10168,
+              "treeEdges": 5798,
+              "usable": 102,
+              "ingested": 5900
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 20834.399999976158,
+              "copyFreeMs": 2.7000000178813934,
+              "framingMs": 16.69999998807907,
+              "submitMs": 59.70000001788139,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 30684.29999998212,
+            "owner": 1,
+            "first": 6,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 940,
+              "polynomials": 2048,
+              "bytes": 194586
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 27770.5,
+              "copyFreeMs": 0.6999999582767487,
+              "framingMs": 7.500000029802322,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 30824.09999999404,
+            "owner": 0,
+            "first": 7,
+            "count": 1,
+            "memory": {
+              "linearBytes": 14024704,
+              "liveRequested": 6158568,
+              "peakRequested": 12645962,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 948,
+              "polynomials": 2048,
+              "bytes": 195622
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 27836.099999964237,
+              "copyFreeMs": 2.9000000059604645,
+              "framingMs": 18.19999998807907,
+              "submitMs": 59.70000001788139,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 30838.5,
+            "families": 7,
+            "relations": 120,
+            "memory": {
+              "linearBytes": 14024704,
+              "liveRequested": 6350472,
+              "peakRequested": 12645962,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 120,
+              "slp": 1616,
+              "dlp": 5104,
+              "cycles": 0,
+              "vertices": 11772,
+              "treeEdges": 6720,
+              "usable": 120,
+              "ingested": 6840
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 27836.099999964237,
+              "copyFreeMs": 2.9000000059604645,
+              "framingMs": 19.5,
+              "submitMs": 72.59999999403954,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 30863,
+            "families": 8,
+            "relations": 134,
+            "memory": {
+              "linearBytes": 14024704,
+              "liveRequested": 6565144,
+              "peakRequested": 12645962,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 134,
+              "slp": 1835,
+              "dlp": 5819,
+              "cycles": 0,
+              "vertices": 13411,
+              "treeEdges": 7654,
+              "usable": 134,
+              "ingested": 7788
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 27836.099999964237,
+              "copyFreeMs": 2.9000000059604645,
+              "framingMs": 20.80000001192093,
+              "submitMs": 95.49999997019768,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 37674.79999998212,
+            "owner": 1,
+            "first": 8,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 981,
+              "polynomials": 2048,
+              "bytes": 202378
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 34753.29999998212,
+              "copyFreeMs": 0.7999999523162842,
+              "framingMs": 12.300000041723251,
+              "submitMs": 0,
+              "observeMs": 0.20000001788139343,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 37876.89999997616,
+            "owner": 0,
+            "first": 9,
+            "count": 1,
+            "memory": {
+              "linearBytes": 15138816,
+              "liveRequested": 6565144,
+              "peakRequested": 13069248,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 1010,
+              "polynomials": 2048,
+              "bytes": 208188
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 34846.4999999702,
+              "copyFreeMs": 3,
+              "framingMs": 22.400000035762787,
+              "submitMs": 95.49999997019768,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 37893.29999998212,
+            "families": 9,
+            "relations": 140,
+            "memory": {
+              "linearBytes": 15138816,
+              "liveRequested": 8419688,
+              "peakRequested": 13069248,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 140,
+              "slp": 2067,
+              "dlp": 6562,
+              "cycles": 0,
+              "vertices": 15118,
+              "treeEdges": 8629,
+              "usable": 140,
+              "ingested": 8769
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 34846.4999999702,
+              "copyFreeMs": 3,
+              "framingMs": 27.30000001192093,
+              "submitMs": 106.69999998807907,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 37898.39999997616,
+            "families": 10,
+            "relations": 160,
+            "memory": {
+              "linearBytes": 15138816,
+              "liveRequested": 8887968,
+              "peakRequested": 13069248,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 159,
+              "slp": 2303,
+              "dlp": 7317,
+              "cycles": 1,
+              "vertices": 16845,
+              "treeEdges": 9619,
+              "usable": 160,
+              "ingested": 9779
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 34846.4999999702,
+              "copyFreeMs": 3,
+              "framingMs": 28.500000029802322,
+              "submitMs": 110.2999999821186,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 44681.29999998212,
+            "owner": 1,
+            "first": 10,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 979,
+              "polynomials": 2048,
+              "bytes": 202552
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 41755.79999998212,
+              "copyFreeMs": 0.7999999523162842,
+              "framingMs": 13.900000035762787,
+              "submitMs": 0,
+              "observeMs": 0.30000001192092896,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 44897.19999998808,
+            "owner": 0,
+            "first": 11,
+            "count": 1,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 8887968,
+              "peakRequested": 15383474,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 978,
+              "polynomials": 2048,
+              "bytes": 202185
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 41842.4999999702,
+              "copyFreeMs": 3.0999999940395355,
+              "framingMs": 29.400000035762787,
+              "submitMs": 110.2999999821186,
+              "observeMs": 0.09999999403953552,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 44910.69999998808,
+            "families": 11,
+            "relations": 177,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9087616,
+              "peakRequested": 15383474,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 176,
+              "slp": 2521,
+              "dlp": 8061,
+              "cycles": 1,
+              "vertices": 18537,
+              "treeEdges": 10581,
+              "usable": 177,
+              "ingested": 10758
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 41842.4999999702,
+              "copyFreeMs": 3.0999999940395355,
+              "framingMs": 30.500000029802322,
+              "submitMs": 122.2999999821186,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 44917.19999998808,
+            "families": 12,
+            "relations": 196,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9287352,
+              "peakRequested": 15383474,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 195,
+              "slp": 2732,
+              "dlp": 8809,
+              "cycles": 1,
+              "vertices": 20227,
+              "treeEdges": 11540,
+              "usable": 196,
+              "ingested": 11736
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 41842.4999999702,
+              "copyFreeMs": 3.0999999940395355,
+              "framingMs": 31.80000004172325,
+              "submitMs": 127.39999997615814,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 51588.19999998808,
+            "owner": 1,
+            "first": 12,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 1003,
+              "polynomials": 2048,
+              "bytes": 207662
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 48659.39999997616,
+              "copyFreeMs": 0.7999999523162842,
+              "framingMs": 15.600000023841858,
+              "submitMs": 0,
+              "observeMs": 0.30000001192092896,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 51845.89999997616,
+            "owner": 0,
+            "first": 13,
+            "count": 1,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9287352,
+              "peakRequested": 15784504,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 965,
+              "polynomials": 2048,
+              "bytes": 199439
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 48768.79999998212,
+              "copyFreeMs": 3.2999999821186066,
+              "framingMs": 32.700000047683716,
+              "submitMs": 127.39999997615814,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 51860.19999998808,
+            "families": 13,
+            "relations": 208,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9492280,
+              "peakRequested": 15784504,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 207,
+              "slp": 2955,
+              "dlp": 9577,
+              "cycles": 1,
+              "vertices": 21973,
+              "treeEdges": 12531,
+              "usable": 208,
+              "ingested": 12739
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 48768.79999998212,
+              "copyFreeMs": 3.2999999821186066,
+              "framingMs": 34.00000002980232,
+              "submitMs": 140.19999998807907,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 51875.19999998808,
+            "families": 14,
+            "relations": 225,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9689416,
+              "peakRequested": 15784504,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 224,
+              "slp": 3187,
+              "dlp": 10293,
+              "cycles": 1,
+              "vertices": 23616,
+              "treeEdges": 13479,
+              "usable": 225,
+              "ingested": 13704
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 48768.79999998212,
+              "copyFreeMs": 3.2999999821186066,
+              "framingMs": 35.00000002980232,
+              "submitMs": 153.5999999642372,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 58460.59999999404,
+            "owner": 1,
+            "first": 14,
+            "count": 1,
+            "memory": {
+              "linearBytes": 11403264,
+              "liveRequested": 3013856,
+              "peakRequested": 9517144,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 966,
+              "polynomials": 2048,
+              "bytes": 199700
+            },
+            "timings": {
+              "prepareMs": 1633,
+              "sieveMs": 55524,
+              "copyFreeMs": 0.8999999463558197,
+              "framingMs": 21.700000017881393,
+              "submitMs": 0,
+              "observeMs": 0.30000001192092896,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 58792,
+            "owner": 0,
+            "first": 15,
+            "count": 1,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9689416,
+              "peakRequested": 16190260,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 1,
+              "relations": 999,
+              "polynomials": 2048,
+              "bytes": 205974
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 55682.9999999702,
+              "copyFreeMs": 3.4000000059604645,
+              "framingMs": 36.00000002980232,
+              "submitMs": 153.5999999642372,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 58799,
+            "families": 15,
+            "relations": 239,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 9888248,
+              "peakRequested": 16190260,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 238,
+              "slp": 3385,
+              "dlp": 11047,
+              "cycles": 1,
+              "vertices": 25297,
+              "treeEdges": 14431,
+              "usable": 239,
+              "ingested": 14670
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 55682.9999999702,
+              "copyFreeMs": 3.4000000059604645,
+              "framingMs": 36.90000003576279,
+              "submitMs": 159.49999994039536,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 58803.5,
+            "families": 16,
+            "relations": 259,
+            "memory": {
+              "linearBytes": 19202048,
+              "liveRequested": 10132344,
+              "peakRequested": 16190260,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "collectorStats": {
+              "full": 258,
+              "slp": 3610,
+              "dlp": 11801,
+              "cycles": 1,
+              "vertices": 27007,
+              "treeEdges": 15410,
+              "usable": 259,
+              "ingested": 15669
+            },
+            "timings": {
+              "prepareMs": 2860.4000000059605,
+              "sieveMs": 55682.9999999702,
+              "copyFreeMs": 3.4000000059604645,
+              "framingMs": 38.10000002384186,
+              "submitMs": 162.5999999344349,
+              "observeMs": 0.19999998807907104,
+              "extractMs": 0
+            }
+          }
+        ]
+      },
+      "handoff": {
+        "packets": [
+          {
+            "first": 0,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 9998.5,
+            "acceptedMs": 10010.5,
+            "waitMs": 12
+          },
+          {
+            "first": 1,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 10015.399999976158,
+            "acceptedMs": 16873.29999998212,
+            "waitMs": 6857.9000000059605
+          },
+          {
+            "first": 2,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 16865.19999998808,
+            "acceptedMs": 16893.5,
+            "waitMs": 28.30000001192093
+          },
+          {
+            "first": 3,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 16889.399999976158,
+            "acceptedMs": 16897.29999998212,
+            "waitMs": 7.9000000059604645
+          },
+          {
+            "first": 4,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 23790.19999998808,
+            "acceptedMs": 23811,
+            "waitMs": 20.80000001192093
+          },
+          {
+            "first": 5,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 23792.69999998808,
+            "acceptedMs": 23819,
+            "waitMs": 26.30000001192093
+          },
+          {
+            "first": 6,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 30684.29999998212,
+            "acceptedMs": 30838.5,
+            "waitMs": 154.2000000178814
+          },
+          {
+            "first": 7,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 30824.09999999404,
+            "acceptedMs": 30863,
+            "waitMs": 38.900000005960464
+          },
+          {
+            "first": 8,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 37674.79999998212,
+            "acceptedMs": 37893.29999998212,
+            "waitMs": 218.5
+          },
+          {
+            "first": 9,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 37876.89999997616,
+            "acceptedMs": 37898.39999997616,
+            "waitMs": 21.5
+          },
+          {
+            "first": 10,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 44681.29999998212,
+            "acceptedMs": 44910.69999998808,
+            "waitMs": 229.40000000596046
+          },
+          {
+            "first": 11,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 44897.19999998808,
+            "acceptedMs": 44917.19999998808,
+            "waitMs": 20
+          },
+          {
+            "first": 12,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 51588.19999998808,
+            "acceptedMs": 51860.19999998808,
+            "waitMs": 272
+          },
+          {
+            "first": 13,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 51845.89999997616,
+            "acceptedMs": 51875.19999998808,
+            "waitMs": 29.30000001192093
+          },
+          {
+            "first": 14,
+            "count": 1,
+            "owner": 1,
+            "returnedMs": 58460.59999999404,
+            "acceptedMs": 58799,
+            "waitMs": 338.40000000596046
+          },
+          {
+            "first": 15,
+            "count": 1,
+            "owner": 0,
+            "returnedMs": 58792,
+            "acceptedMs": 58803.5,
+            "waitMs": 11.5
+          }
+        ],
+        "returnedNotAccepted": [],
+        "maxAcceptedWaitMs": 6857.9000000059605,
+        "blockedIdleMs": 0,
+        "assignedTimeIsCpuUtilization": false,
+        "deliveredSieveTimesAreLowerBounds": true
+      },
+      "familyDigests": [
+        {
+          "family": 0,
+          "bytes": 198411,
+          "sha256": "8d2b6f9ff186ff75b7e393b4ffc55617a5c6afc4ebb82bfc1ae02b71578df504",
+          "polynomials": 2048,
+          "rawRelations": 959,
+          "acknowledged": true
+        },
+        {
+          "family": 1,
+          "bytes": 209226,
+          "sha256": "0cab36a4d1257cba753a6af611c906227a1c2936c4e8e52d8e6e78ea2e1aab68",
+          "polynomials": 2048,
+          "rawRelations": 1012,
+          "acknowledged": true
+        },
+        {
+          "family": 2,
+          "bytes": 199291,
+          "sha256": "ca7bcc4d1f61afbe0138133514e763052228e60a5621e677d2f056fd17237a68",
+          "polynomials": 2048,
+          "rawRelations": 963,
+          "acknowledged": true
+        },
+        {
+          "family": 3,
+          "bytes": 200039,
+          "sha256": "9b6a7951e38d6e8e1b4427ce9ce1fbab3a5c7642ed08355fb7ae5075388cc856",
+          "polynomials": 2048,
+          "rawRelations": 966,
+          "acknowledged": true
+        },
+        {
+          "family": 4,
+          "bytes": 202840,
+          "sha256": "6c2d8a8551edf9da234c0df60bad0c601cd34c77df304802431f0c79a725b1cb",
+          "polynomials": 2048,
+          "rawRelations": 981,
+          "acknowledged": true
+        },
+        {
+          "family": 5,
+          "bytes": 210515,
+          "sha256": "8de07f8da6f387b3b6e1895dd70efe6773b719d8fe97d8e0ad950108c2dc4736",
+          "polynomials": 2048,
+          "rawRelations": 1019,
+          "acknowledged": true
+        },
+        {
+          "family": 6,
+          "bytes": 194566,
+          "sha256": "61bf7d4fd7b1d7875f606427e9a60eabe9d25a900bf23916d081368dd654a55a",
+          "polynomials": 2048,
+          "rawRelations": 940,
+          "acknowledged": true
+        },
+        {
+          "family": 7,
+          "bytes": 195602,
+          "sha256": "d7ea39fe0a3cc154f17c9a8859f2df5c36c5cc2f814a95d22b1b20cdd6383b78",
+          "polynomials": 2048,
+          "rawRelations": 948,
+          "acknowledged": true
+        },
+        {
+          "family": 8,
+          "bytes": 202358,
+          "sha256": "deb7db52d39c345d21890d2c56adc60988e51b8d9d714931907c839f6a2ba4b2",
+          "polynomials": 2048,
+          "rawRelations": 981,
+          "acknowledged": true
+        },
+        {
+          "family": 9,
+          "bytes": 208168,
+          "sha256": "287b4418baaf61e893265c8bf0f9c927b30c373e95d9b4c603689e5c22fce0cf",
+          "polynomials": 2048,
+          "rawRelations": 1010,
+          "acknowledged": true
+        },
+        {
+          "family": 10,
+          "bytes": 202532,
+          "sha256": "877ebc06691724c3d65229cc8874994cc83e47716fa6bf8bccdaa19a02082813",
+          "polynomials": 2048,
+          "rawRelations": 979,
+          "acknowledged": true
+        },
+        {
+          "family": 11,
+          "bytes": 202165,
+          "sha256": "03d514982008d57e5f7e8fc8a5bb0890f60de673998bf72a8493b1e203b6294b",
+          "polynomials": 2048,
+          "rawRelations": 978,
+          "acknowledged": true
+        },
+        {
+          "family": 12,
+          "bytes": 207642,
+          "sha256": "9e1b2dca6339dc1bb0b17cc112db1167f0a6eaf79ebeb58f80a86c0f79730f1d",
+          "polynomials": 2048,
+          "rawRelations": 1003,
+          "acknowledged": true
+        },
+        {
+          "family": 13,
+          "bytes": 199419,
+          "sha256": "5aae8ddbefcd31f8ba7d44eb8d20d733105952cbdbab5d978037ccbd46c9284d",
+          "polynomials": 2048,
+          "rawRelations": 965,
+          "acknowledged": true
+        },
+        {
+          "family": 14,
+          "bytes": 199680,
+          "sha256": "fb8b5597c4147278b47613c85b2e85832d1e0c25cbe8a0b185b96addb5bcafed",
+          "polynomials": 2048,
+          "rawRelations": 966,
+          "acknowledged": true
+        },
+        {
+          "family": 15,
+          "bytes": 205954,
+          "sha256": "c9077a0ffe47769d456c57956ab26cd2fdef5ce9753a7cb7c9996af04218930c",
+          "polynomials": 2048,
+          "rawRelations": 999,
+          "acknowledged": true
+        }
+      ]
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 2,
+    "liveSources": 0,
+    "maxLiveSources": 2
+  },
+  "sampledRam": {
+    "samples": 792,
+    "first": {
+      "atMs": 117.138712,
+      "rssBytes": 372736,
+      "pssBytes": 154624,
+      "processes": 1
+    },
+    "peakRssBytes": 1355808768,
+    "peakPssBytes": 490770432,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "maxOwners": 2,
+    "packetBytes": 16777216,
+    "transportBytes": 33554432,
+    "initializationMs": 10000,
+    "wallMs": 60000,
+    "extractAttempts": 1,
+    "workUnit": "input-dependent finite SIQS families, not C checkpoint work",
+    "wholeRam": "sampled Chrome tree RSS/PSS; requested allocation sizes exclude metadata/fragmentation/stack/static; not a hard total RAM cap"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}
