@@ -18,3 +18,6 @@ docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-pr-full
 docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-failed.log whitespace=-blank-at-eol
 docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-lab.log whitespace=-blank-at-eol
 docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/native-core.log whitespace=-blank-at-eof
+
+# Preserve the exact reviewed upstream MPL license, including its original trailing space.
+native/rusqsieve/LICENSE-MPL whitespace=-blank-at-eol
