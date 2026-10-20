@@ -71,7 +71,7 @@ jobs:
       - run: node scripts/build-supplement.mjs --native
       - run: node scripts/check-supplement.mjs
       - run: npm test
-      - run: node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"
+      - run: node scripts/verify-supplement-ci.mjs --out "$RUNNER_TEMP/supplement.json"
         env:
           CHROME_BIN: google-chrome
   counted-siqs-evaluation:

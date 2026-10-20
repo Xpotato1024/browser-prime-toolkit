@@ -1,0 +1,6 @@
+Measured control {"kind":"ecm","workers":1,"totalMs":1000} complete null
+Measured control {"kind":"ecm","workers":2,"totalMs":1000} complete null
+Measured pm1-positive {"kind":"pm1","totalMs":1000} complete null
+Measured siqs-smoke {"kind":"profile","computeMs":10000,"totalMs":15100} complete null
+Measured control {"kind":"ecm","workers":2,"totalMs":1000} complete null
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage15/supplement-ci-local.json

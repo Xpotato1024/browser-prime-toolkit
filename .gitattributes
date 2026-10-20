@@ -12,3 +12,9 @@ vendor/msieve-lanczos/**/*.h whitespace=-blank-at-eol,-blank-at-eof,-space-befor
 # Preserve verbatim validation evidence; do not normalize original log bytes.
 docs/benchmarks/archive/validation-logs/*.log.txt whitespace=-blank-at-eol,-blank-at-eof
 docs/benchmarks/archive/validation-logs/staged-siqs-lab-stage14/native-third.log whitespace=-blank-at-eof
+
+# Preserve exact external CI/native evidence bytes; source whitespace checks stay enabled.
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-pr-full.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-failed.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-lab.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/native-core.log whitespace=-blank-at-eof
