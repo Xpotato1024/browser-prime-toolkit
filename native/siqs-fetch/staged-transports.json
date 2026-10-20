@@ -1,0 +1,11 @@
+[
+  {
+    "file": "gmp-6.1.2.tar.lz",
+    "bytes": 1939430,
+    "sha256": "12fed0532d440d2dc902e64f016aa89a33af6044b90bd1f7bca7396635105dbb",
+    "urls": [
+      "https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz",
+      "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.lz"
+    ]
+  }
+]

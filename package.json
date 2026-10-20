@@ -42,6 +42,7 @@
     "check:rsa-profile": "node scripts/check-rsa-core.mjs && node scripts/check-rsa-profile.mjs && node scripts/report-rsa.mjs --check",
     "report:rsa": "node scripts/report-rsa.mjs",
     "fetch:full-siqs": "node scripts/fetch-full-siqs-sources.mjs",
+    "fetch:reviewed-full-siqs": "node scripts/fetch-reviewed-full-siqs.mjs",
     "build:full-siqs": "node scripts/build-full-siqs.mjs",
     "verify:full-siqs-native": "node scripts/build-full-siqs.mjs --native",
     "build:full-siqs-worker": "node scripts/build-full-siqs-worker.mjs",
