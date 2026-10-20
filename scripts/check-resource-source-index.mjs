@@ -15,3 +15,16 @@ for(const f of index.files){
 }
 for(const p of ['src/resources/session.js','src/resources/policy.js','src/coordinator/runner.js','native/resources/build-64.json','native/resources/build-128.json','native/rusqsieve/staged-upstream.json','native/rusqsieve/RustDockerfile','LICENSE','NOTICE'])assert.ok(seen.has(p),'Required source/license '+p);
 console.log('Verified '+seen.size+' immutable source/license/build mappings');
+
+const screenshots=JSON.parse(readFileSync('docs/benchmarks/staged-resources-stage21/screenshots.json'));
+assert.deepEqual(screenshots.map(x=>x.originalName),['ui-desktop.png','ui-mobile.png']);
+for(const row of screenshots){
+ assert.equal(row.base64File,row.originalName+'.base64');
+ const text=readFileSync('docs/benchmarks/staged-resources-stage21/'+row.base64File,'utf8');
+ assert.match(text,/^[A-Za-z0-9+/]+={0,2}\n$/);
+ const b=Buffer.from(text.trim(),'base64');assert.equal(b.toString('base64')+'\n',text);
+ assert.equal(b.length,row.bytes);assert.equal(sha(b),row.sha256);
+ assert.equal(row.immutableOriginal,index.repository+'/blob/'+index.sourceCommit+'/docs/benchmarks/staged-resources-stage21/'+row.originalName);
+ assert.ok(b.equals(execFileSync('git',['show',index.sourceCommit+':docs/benchmarks/staged-resources-stage21/'+row.originalName],{maxBuffer:8*1024*1024})));
+}
+console.log('Verified lossless screenshot encoding against immutable original PNG bytes');

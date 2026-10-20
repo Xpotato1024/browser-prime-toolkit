@@ -1,0 +1,16 @@
+[
+  {
+    "originalName": "ui-desktop.png",
+    "base64File": "ui-desktop.png.base64",
+    "bytes": 156926,
+    "sha256": "41f050bd510b9116ac65875e3e7ecba022edc356fb6fa1367b1f2ecd8d2fc8bc",
+    "immutableOriginal": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/docs/benchmarks/staged-resources-stage21/ui-desktop.png"
+  },
+  {
+    "originalName": "ui-mobile.png",
+    "base64File": "ui-mobile.png.base64",
+    "bytes": 148072,
+    "sha256": "a59850f33b8b9d892e9f550bdc52d71d93642cc9b61e2434eb4488011d0f3068",
+    "immutableOriginal": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/docs/benchmarks/staged-resources-stage21/ui-mobile.png"
+  }
+]
