@@ -79,3 +79,5 @@ Stage21 [all owner-count results](benchmarks/llm01-resources.md) preserve1..4-wo
 
 - [Device resource implementation and bounded results](operations/device-resource-handoff.md)
 - [Stopped coordinator study](operations/stage22-outcome.md)
+
+Stage23: [追加事前契約](contracts/sustained-evaluation.md)、[TDD・固定family照合](operations/stage23-tdd-evidence.md)。PR17と旧Stage22の原本を保持し、集約方式・持続計測を別に評価します。

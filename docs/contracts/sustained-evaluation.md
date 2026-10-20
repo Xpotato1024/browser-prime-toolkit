@@ -7,14 +7,14 @@ PR17成功head c1d91e7d0f9b53ea324de3df654b51c94c597288を保存し、新ブラ�
 ## 有限の測定監査
 旧60秒4 Workerは生パケット5,806,696 bytesを保持しました。旧監査は8MiBなので長枠を監査上限で止める恐れがあります。旧runner/auditは変更せず、測定専用派生hostで返却パケットをWebCrypto SHA256へ順次変換して生payloadを解放し、familyごとのbytes/polynomials/rawRelations/hash/受理prefixを保持します。数値kernel、WASM、Worker、family設定、credit、全体4スロット、32MiB輸送、役割capはPR17から不変です。
 
-保留hash入力合計8MiB・同時digest4・family4096・進捗4096件で有限。重複/上限/hash失敗は失敗扱い。転送前に必要領域をコピーしてdigest開始し、Worker退役後に全成功を有限10秒で確認、完了待ちを収集時間から分離します。固定4-familyを旧生packet監査と照合し、一致しなければtimedへ進みません。hashのCPU/JSコストを含む測定と明記し、因子証明の代用にしません。
+保留hash入力合計8MiB・同時digest4・family4096・進捗4096・host event4096件で有限。重複/上限/hash失敗は失敗扱い。転送前に必要領域をコピーしてdigest開始し、Worker退役後に全成功を有限10秒で確認、完了待ちを収集時間から分離します。固定4-familyを旧生packet監査と照合し、一致しなければtimedへ進みません。hashのCPU/JSコストを含む測定と明記し、因子証明の代用にしません。
 
 ## 予算と採否
 bench/staged-sustained-plan.jsonを事前固定します。combined2/4・dedicated2/3/4の各16契約preflight後、combined2/4・dedicated4でfamilies0..3を各最大60秒処理し、旧のbytes/hash/native counters/prefixに照合します。
 
 集約方式はcombined4,dedicated4,dedicated4,combined4各60秒。両反復のdedicated usableが対応combinedの110/100以上で全安全条件成功なら候補です。短いharness失敗から方式不採用とは判断しません。
 
-持続はcombined2,4,4,2各300秒。その後2/4を各120秒収集して取消し、300秒全体期限内の全Worker/source退役と、取消前のfamily/graph増加を確認します。両反復の4 Worker収量が2の110/100以上、全安全条件成功を持続候補基準とします。
+持続はcombined2,4,4,2各300秒。その後2/4を各request開始120秒後に取消し、300秒全体期限内の全Worker/source退役と、取消前のfamily/graph増加を確認します。両反復の4 Worker収量が2の110/100以上、全安全条件成功を持続候補基準とします。
 
 300秒とgrown cancelが全成功、両反復比110/100以上、coordinator linear peakが256MiBの3/4以下、実行前available RAM4GiB以上、20:30UTC前なら600秒の同じ2,4,4,2を1セットだけ追加可能。それ以外は追加しません。最大計算予算はfixed3分+集約4分+持続20分+取消4分+条件付き延長40分=71分。preflight/build/test/review/CIは別。自動retry/overwrite/試行選別は禁止。全rawと負の結果を残し、重いbuild/testと同時実行しません。22:00UTC以降は新規探索を開始しません。
 

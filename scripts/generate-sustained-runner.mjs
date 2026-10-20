@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';import{readFileSync,writeFileSync,mkdirSync}from'node:fs';
+const read=p=>readFileSync(p,'utf8'),write=(p,s)=>{if(process.argv.includes('--check'))assert.equal(read(p),s,p);else{mkdirSync(p.slice(0,p.lastIndexOf('/')),{recursive:true});writeFileSync(p,s);}};
+let s=read('src/coordinator/runner.js');
+for(const[a,b]of [
+ ["if(events.length>256)events.shift();","if(events.length>4096)throw Error('Measurement event retention cap');"],
+ ["import {OwnerClock,PacketAudit} from './metrics.js';","import {OwnerClock} from '../coordinator/metrics.js';\nimport {StreamingPacketAudit as PacketAudit} from './packet-audit.js';"],
+ ["auditBytes:audit.bytes,packetArchives:audit.packets,","auditBytes:audit.bytes,packetArchives:audit.packets,auditProof:audit.finish(),"]
+]){assert.equal(s.split(a).length,2);s=s.replace(a,b);}write('src/sustained/runner.js',s);
+let b=read('bench/coordinator.js').replace("from '../src/coordinator/runner.js'","from '../src/sustained/runner.js'");
+const start=b.indexOf('async function measure('),end=b.indexOf('\nconst tests=[',start);assert.ok(start>=0&&end>start);
+b=b.slice(0,start)+"async function measure({id,budgetMs,fixedFamilies=null,cancelAfterMs=null}){\n const c=[...RSA_CASES,...FULL_CASES].find(c=>c.id===id);assert(c,'Unknown case');\n assert(cancelAfterMs===null||cancelAfterMs===120000&&budgetMs===300000,'Fixed cancel control');\n const controller=new AbortController(),progressTimeline=[];const measuredStart=performance.now();let timer,cancelRequestedAtMs=null,retiredAtMs=null;\n if(cancelAfterMs!==null)timer=setTimeout(()=>{cancelRequestedAtMs=performance.now()-measuredStart;controller.abort();},cancelAfterMs);\n let outcome;try{outcome=await runRusqsieve(c.input,{...settings(),fixedFamilies,capturePackets:true,timeBudgetMs:budgetMs,signal:controller.signal,createWorker,onProgress:p=>{\n  if(progressTimeline.length>=4096)throw Error('Progress retention cap');\n  progressTimeline.push({atMs:performance.now()-measuredStart,...structuredClone(p)});\n }});}finally{clearTimeout(timer);}\n retiredAtMs=performance.now()-measuredStart;const hashStarted=performance.now(),proof=await outcome.auditProof;delete outcome.auditProof;delete outcome.packetArchives;\n const hashFlushMs=performance.now()-hashStarted,familyDigests=proof.families.map(r=>({...r,acknowledged:r.family<outcome.familiesSubmitted}));delete proof.families;\n return{id,input:c.input,bits:c.bits,digits:c.digits,knownFactorsUsed:false,cancelAfterMs,cancelRequestedAtMs,retiredAtMs,cancelToRetirementMs:cancelRequestedAtMs===null?null:retiredAtMs-cancelRequestedAtMs,outcome,familyDigests,streamAudit:proof,progressTimeline,hashFlushMs};\n}"+b.slice(end);
+write('bench/sustained.js',b);
+write('bench/sustained.html',read('bench/coordinator.html').replace('./coordinator.js','./sustained.js').replace('coordinator.js','sustained.js'));
+console.log('Sustained host derives only bounded measurement audit; original coordinator numeric/credit/deadline/lifecycle unchanged');

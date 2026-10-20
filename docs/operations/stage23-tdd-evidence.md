@@ -1,0 +1,11 @@
+# Stage23 計測前証跡
+
+基準はPR17成功head c1d91e7d0f9b53ea324de3df654b51c94c597288。専用worktree browser-prime-sustained-stage23、branch codex/resource-sustained-20261020。事前契約と71分最大予算はc74184fで先にコミットしました。PR17のbranch/head・旧rawは変更していません。
+
+監査module未実装でunit redを確認。旧Buffer.slice相当のviewは転送後に空hashとなる回帰が失敗し、Uint8Array.fromによる独立コピーへ修正。累積8MiB超の実frame、保留4件・重複拒否・hash失敗を確認。元coordinatorから生成したhostの期限・退役24ケースと、全received familyのhash/全退役を合わせ29件が通りました。
+
+独立レビューでgrown cancelのgraph増加検証が弱いP2を受け、空graph・増加なしの非ゼロgraphでred再現。native ingested増加とvertices/treeEdges/cyclesいずれか増加、最終outcome一致、actual取消要求→退役API時刻をdriver/report/gate共通で検証し、31件が成功。修正確認で数値レビューP1/P2/P3=0、配信・sourceレビューP0/P1/P2=0。
+
+新harnessのcombined4実Chrome16項目は全成功、通信ゼロ・positive detector・全退役。実native fixed families0..3は旧Stage21のSHA256/bytes/polynomials/rawRelations/native counters/accepted prefixと完全一致しました。開始前Page.navigateは約28msで返り、HTTP finish/statusを保存。原5秒timeoutのChrome内部原因までは断定せず、同経路で開始前期限だけを30秒にしています。
+
+準備段階のred/green・pilot logsはtask/prime-stage23へ保持。これらはtimed比較結果ではありません。測定はclean coreを固定し、全preflight/fixed controlsを同headで再確認してから実行します。source/math/WASM/Worker/credit/role capsはPR17から不変、変更したhash監査のCPU/JSコストを明記し、旧系列との速度差から計算コード改善とは推論しません。
