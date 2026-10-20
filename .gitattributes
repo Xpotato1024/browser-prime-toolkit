@@ -21,3 +21,8 @@ docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/native-core.log 
 
 # Preserve the exact reviewed upstream MPL license, including its original trailing space.
 native/rusqsieve/LICENSE-MPL whitespace=-blank-at-eol
+
+# Preserve exact failing-test evidence; only these reviewed log paths opt out.
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/lifecycle-red.log whitespace=-blank-at-eol,-blank-at-eof
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/release-once-red.log whitespace=-blank-at-eol,-blank-at-eof
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/unit-shared-first.log whitespace=-blank-at-eol,-blank-at-eof

@@ -1,0 +1,138 @@
+✖ recheck deadline: late-ready (4.599697ms)
+✖ recheck deadline: release-late (0.7696ms)
+✖ recheck deadline: late-extract (0.6869ms)
+✖ recheck deadline: retirement-late (0.506199ms)
+✖ retirement isolates exceptions: terminate-throws (100.185055ms)
+✖ retirement isolates exceptions: release-throws (0.901099ms)
+✖ normal owners are terminated and every Blob source is released (0.5106ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 309.17416
+
+✖ failing tests:
+
+test at test/rusqsieve-lifecycle.test.js:23:82
+✖ recheck deadline: late-ready (4.599697ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'timeout'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:26:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'timeout',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rusqsieve-lifecycle.test.js:23:82
+✖ recheck deadline: release-late (0.7696ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'timeout'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:26:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'timeout',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rusqsieve-lifecycle.test.js:23:82
+✖ recheck deadline: late-extract (0.6869ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'timeout'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:26:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'timeout',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rusqsieve-lifecycle.test.js:23:82
+✖ recheck deadline: retirement-late (0.506199ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'timeout'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:26:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'timeout',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rusqsieve-lifecycle.test.js:28:57
+✖ retirement isolates exceptions: terminate-throws (100.185055ms)
+  Error: Unresolved evaluation
+      at Timeout._onTimeout (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:22:80)
+      at listOnTimeout (node:internal/timers:635:17)
+      at process.processTimers (node:internal/timers:571:7)
+
+test at test/rusqsieve-lifecycle.test.js:28:57
+✖ retirement isolates exceptions: release-throws (0.901099ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'factorized'
+  - 'incomplete'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:30:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'factorized',
+    expected: 'incomplete',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rusqsieve-lifecycle.test.js:33:1
+✖ normal owners are terminated and every Blob source is released (0.5106ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:35:83)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

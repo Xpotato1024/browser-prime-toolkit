@@ -62,3 +62,5 @@ Stage14の[実測・全raw](benchmarks/llm01-siqs-lab.md)、[観測と次の判�
 Stage15は[ADR0015](adr/0015-siqs-optimization.md)に従い、同一ソースの有限取得回復とLTO／監視条件の固定28比較を行います。[実測と全raw](benchmarks/llm01-siqs-opt.md)、[解釈と次の対象](architecture/siqs-optimization-findings.md)、[操作](operations/siqs-tuned.md)、[回帰証跡](operations/stage15-tdd-evidence.md)を分け、RSA100完了と関係式検証を区別します。
 
 Stage16は[full経路の実測・全raw](benchmarks/llm01-full-opt.md)、[資源ガードと次の比較](architecture/full-siqs-optimization-findings.md)、[TDD証跡](operations/stage16-tdd-evidence.md)を追加します。RSA-100未完了と公開前の制約を維持します。
+
+Stage17: [SIMD comparison](benchmarks/llm01-rusqsieve.md), [contract](contracts/rusqsieve-evaluation.md), [operations](operations/rusqsieve-evaluation.md), [TDD](operations/stage17-tdd-evidence.md), [current methods](architecture/current-siqs-methods.md). No public adoption or RSA-100 completion is claimed.
