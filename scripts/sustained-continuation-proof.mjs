@@ -6,7 +6,7 @@ export const LEGACY='docs/benchmarks/staged-sustained-stage23',CURRENT='docs/ben
 export const SOURCE_PATHS=['scripts/sustained-trial-record.mjs','scripts/sustained-continuation-proof.mjs','scripts/generate-sustained-continuation.mjs','scripts/benchmark-sustained-continuation.mjs','scripts/report-sustained-closure.mjs','test/sustained-trial-record.test.js','docs/contracts/sustained-continuation.md'];
 const read=p=>readFileSync(p),sha=b=>createHash('sha256').update(b).digest('hex'),plan=JSON.parse(read('bench/staged-sustained-plan.json')),expectedInput=JSON.parse(read('bench/staged-rsa/catalog.json')).find(r=>r.id===plan.case).input;
 export function historicalRun(){
- const bytes=read(LEGACY+'/run.json'),old=JSON.parse(bytes);assert.equal(old.measuredHead,OLD_HEAD);assert.ok(old.stoppedAt&&!old.completedAt&&old.stopReason.includes('ids.has'));
+ const bytes=read(LEGACY+'/run.json');verifyBytes(bytes,'62681bc52b71dfb302999ff16d7d16f200e90c40cd3afbc067a506febee30683');const old=JSON.parse(bytes);assert.equal(old.measuredHead,OLD_HEAD);assert.ok(old.stoppedAt&&!old.completedAt&&old.stopReason.includes('ids.has'));
  assert.deepEqual(['preflight','controls','coordinator','sustained','cancels','extension'].map(k=>old[k].length),[5,3,4,0,0,0]);return{old,sha256:sha(bytes)};
 }
 export function validateCampaign(run){
