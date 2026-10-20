@@ -1,11 +1,11 @@
 # Repository instructions
 
 ## Scope and working rules
-- This private repository targets fast browser-only factorization of large semiprimes, with explicit measured limits.
+- This repository targets fast browser-only factorization of large semiprimes, with explicit measured limits.
 - BigInt is the initial input/display choice, not a final computation-engine restriction. Evaluate WASM and algorithms before selection.
 - Read docs/README.md and relevant contracts before changes. Keep canonical documents under docs/.
 - Design contracts before implementation. Use small behavior-level TDD red → green → refactor units; record actual results.
-- Work on a branch. Push and Draft PR are authorized; implementation merge, publication, deployment and site integration require separate authorization.
+- Work on a branch. Push and Draft PR are authorized; calculation-feature merge, deployment and site integration require separate authorization.
 - Use LLM-01 Desktop Commander. Run Git through WSL Ubuntu-24.04 login bash.
 - Do not change other project checkouts, credentials, permissions or existing site PRs.
 - Never commit intake archives, virtual environments, executables, secrets or unreviewed vendored bundles.
