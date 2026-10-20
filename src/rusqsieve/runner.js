@@ -16,7 +16,7 @@ export function runRusqsieve(input,options={}){
   const record=(type,data)=>{if(['ready','released','extracted','fatal'].includes(type))phaseMemory.push({type,...data});events.push({type,elapsedMs:now()-started,...data});if(events.length>256)events.shift();};
   const post=(owner,type,data={},transfer=[])=>{owner.command=type;owner.worker.postMessage({version:17,generation,type,...data},transfer);};
   const cleanupError=(owner,operation,error)=>retirementErrors.push({owner:owner.index,operation,error:String(error?.message??error).slice(0,120)});
-  const releaseSource=owner=>{if(owner.sourceReleased)return true;try{owner.worker.releaseSource?.();owner.sourceReleased=true;return true;}catch(error){cleanupError(owner,'releaseSource',error);return false;}};
+  const releaseSource=owner=>{if(owner.sourceReleased)return true;if(owner.sourceReleaseFailed)return false;try{owner.worker.releaseSource?.();owner.sourceReleased=true;return true;}catch(error){owner.sourceReleaseFailed=true;cleanupError(owner,'releaseSource',error);return false;}};
   const retire=owner=>{
    if(!owner.retirementAttempted){owner.retirementAttempted=true;
     try{owner.worker.onmessage=null;owner.worker.onerror=null;owner.worker.onmessageerror=null;}catch(error){cleanupError(owner,'detach',error);}
@@ -68,8 +68,8 @@ export function runRusqsieve(input,options={}){
    if(phase==='initializing'&&now()>=initDeadline){finish('timeout','initialization-timeout');return;}
    if(!d||d.version!==17||typeof d.type!=='string')throw Error('Worker protocol');
    for(const m of [d.memory,d.before,d.after].filter(Boolean))validateMemory(m);
-   if(d.type==='fatal'){record('fatal',{owner:owner.index,...d});finish('incomplete',d.reason,{fatal:d});return;}
    for(const m of [d.memory,d.before,d.after].filter(Boolean)){if(!Number.isInteger(m.linearBytes)||m.linearBytes>LIMITS.wasmBytes)throw Error('Worker memory bound');owner.memory=m;owner.peakLinear=Math.max(owner.peakLinear??0,m.linearBytes);owner.peakRequested=Math.max(owner.peakRequested??0,m.peakRequested);}
+   if(d.type==='fatal'){record('fatal',{owner:owner.index,...d});finish('incomplete',d.reason,{fatal:d});return;}
    if(d.type==='ready'){
     if(owner.command!=='init')throw Error('Unexpected ready');if(!releaseSource(owner)){finish('incomplete','worker-retirement');return;}owner.command=null;owner.ready=true;record('ready',{owner:owner.index,memory:d.memory});
     if(owner.index===0){target=d.target;factorBaseSize=d.factorBaseSize;familyBudget=d.familyBudget;if(!Number.isInteger(target)||target<1||target>1000000||!Number.isInteger(factorBaseSize)||factorBaseSize<1||target!==factorBaseSize+64||familyBudget!==(inputInfo.bits<=288?100000:inputInfo.bits<=368?250000:750000))throw Error('Coordinator limits');}

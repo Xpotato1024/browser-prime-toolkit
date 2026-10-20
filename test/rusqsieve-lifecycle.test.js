@@ -15,7 +15,7 @@ function fixture(mode='normal'){
   if(d.type==='release')response={type:'released',before:memory,after:memory};
   if(d.type==='extract'){if(mode==='late-extract')clock.value=101;response={type:'extracted',status:1,divisor:'11',before:memory,after:memory};}
   owner.onmessage?.({data:{version:17,generation:d.generation,...response}});
- });},terminate(){owner.terminated++;if(mode==='terminate-throws'&&index===0)throw Error('test terminate');if(mode==='retirement-late')clock.value=101;},releaseSource(){owner.released++;if(mode==='release-throws'&&index===0)throw Error('test release');if(mode==='release-late')clock.value=10001;}};
+ });},terminate(){owner.terminated++;if(mode==='terminate-throws'&&index===0)throw Error('test terminate');if(mode==='retirement-late')clock.value=101;},releaseSource(){owner.released++;if((mode==='release-throws'||(mode==='release-throws-once'&&owner.released===1))&&index===0)throw Error('test release');if(mode==='release-late')clock.value=10001;}};
  owners.push(owner);return owner;};
  return{clock,owners,createWorker};
 }
@@ -25,7 +25,7 @@ for(const mode of ['late-ready','release-late','late-extract','retirement-late']
  const r=await bounded(runRusqsieve('143',{createWorker:f.createWorker,timeBudgetMs:budget,now:()=>f.clock.value}));
  assert.equal(r.kind,'timeout');assert.equal(r.reason,budget===20000?'initialization-timeout':'time-budget');assert.deepEqual(r.factors,[]);assert.equal(r.remaining,'143');
 });
-for(const mode of ['terminate-throws','release-throws'])test('retirement isolates exceptions: '+mode,async()=>{
+for(const mode of ['terminate-throws','release-throws','release-throws-once'])test('retirement isolates exceptions: '+mode,async()=>{
  const f=fixture(mode),r=await bounded(runRusqsieve('143',{workers:2,createWorker:f.createWorker,timeBudgetMs:1000,now:()=>f.clock.value}));
  assert.equal(r.kind,'incomplete');assert.equal(r.reason,'worker-retirement');assert.ok(f.owners.every(o=>o.terminated>0&&o.released>0));assert.ok(r.retirementErrors.length);
  if(mode==='terminate-throws')assert.equal(r.allWorkersDisposed,false);else assert.equal(r.allWorkerSourcesReleased,false);
