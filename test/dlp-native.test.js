@@ -28,3 +28,16 @@ test('actual serialized ingestion counters describe full and cycle yield',()=>{
  const usable=bytesCall(b.subarray(12),(p,l)=>api.qs_coord_submit(s,p,l));validateDlpStats(stats(s),null,rows.relations,usable);assert.ok(stats(s).ingested>0);
  }finally{api.qs_coord_free(s);api.qs_worker_free(w);}
 });
+
+test('real RSA DLP packets reach the original collector for every named cutoff',{timeout:60000},()=>{
+ for(const [id,profile]of ['baseline','half','quarter'].entries()){
+  const s=inputCall(rsa,(p,n)=>api.codex_dlp_new(p,n,id)),w=inputCall(rsa,(p,n)=>api.codex_dlp_prepare(p,n,id));assert.ok(s&&w);
+  try{
+   const h=api.qs_worker_sieve(w,0,1),p=api.qs_buffer_pointer(h),length=api.qs_buffer_length(h),b=new Uint8Array(api.memory.buffer.slice(p,p+length));api.qs_buffer_free(h);
+   const rows=validatePacket(b,{first:0,count:1,target:api.codex_coord_fb_len(s)});assert.equal(rows.polynomials,2048);
+   const usable=bytesCall(b.subarray(12),(p,n)=>api.qs_coord_submit(s,p,n)),observed=stats(s);
+   validateDlpStats(observed,null,rows.relations,usable);assert.equal(observed.ingested,rows.relations);assert.ok(observed.dlp>0);
+   console.log(JSON.stringify({preflightOnly:true,profile,polynomials:rows.polynomials,raw:rows.relations,collector:observed,configuration:config(s,profile)}));
+  }finally{api.qs_coord_free(s);api.qs_worker_free(w);}
+ }
+});
