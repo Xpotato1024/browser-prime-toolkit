@@ -4,14 +4,14 @@ import assert from 'node:assert/strict';import {readFileSync,writeFileSync} from
 import {sameFamilies} from './scheduler-packets.mjs';import {schedulerDecision} from './scheduler-decision.mjs';
 const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),sha=b=>createHash('sha256').update(b).digest('hex'),dir='docs/benchmarks/staged-scheduler-stage19/',plan=JSON.parse(read('bench/staged-scheduler-plan.json')),run=JSON.parse(read(dir+'run.json'));
 assert.equal(run.planSha256,sha(read('bench/staged-scheduler-plan.json')));assert.ok(run.completedAt);assert.equal(run.controls.length,6);assert.equal(run.trials.length,12);assert.equal(run.preflight.length,6);
-const records=[],controls=[];
+const records=[],controls=[],sourceAtHead=new Map();
 for(const t of [...run.preflight,...run.controls,...run.trials]){
  assert.equal(t.exitCode,0);assert.equal(t.signal,null);assert.equal(t.error,null);
  assert.equal(t.rawSha256,sha(read(dir+t.id+'.json')));assert.equal(t.logSha256,sha(read(dir+t.id+'.log')));
  const receipt=JSON.parse(read(dir+t.id+'.json'));assert.equal(receipt.measuredHead,run.measuredHead);
  assert.deepEqual(receipt.quiet,{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true});
  assert.deepEqual(receipt.detectorSelfTest,{blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true});
- for(const[p,h]of Object.entries(receipt.sourceFiles))assert.equal(sha(execFileSync('git',['show',run.measuredHead+':'+p],{cwd:root,maxBuffer:33554432})),h,p);
+ for(const[p,h]of Object.entries(receipt.sourceFiles)){if(!sourceAtHead.has(p))sourceAtHead.set(p,sha(execFileSync('git',['show',run.measuredHead+':'+p],{cwd:root,maxBuffer:33554432})));assert.equal(sourceAtHead.get(p),h,p);}
  if(t.id.startsWith('contracts-')){assert.equal(receipt.records[0].tests.length,16);assert.ok(receipt.records[0].tests.every(x=>x.pass));continue;}
  const record=receipt.records[0];assert.equal(receipt.scheduler,t.scheduler);assert.equal(record.outcome.configuration.factorBaseBound,3250000);assert.equal(record.outcome.configuration.intervalHalfWidth,524288);assert.equal(record.outcome.maximumWasmBytes,t.workers*268435456);
  assert.ok(record.outcome.auditBytes<=8388608);assert.ok(record.outcome.creditState.peakReservedBytes<=33554432);assert.ok(record.outcome.peakTransportBytes<=33554432);
