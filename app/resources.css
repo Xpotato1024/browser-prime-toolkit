@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; font: 1rem/1.6 system-ui, sans-serif; }
+body { margin: 1rem; }
+main { max-width: 52rem; margin-inline: auto; }
+fieldset { min-width: 0; padding: 1rem; }
+input, select, textarea, button { font: inherit; box-sizing: border-box; max-width: 100%; }
+input, textarea { width: 100%; }
+label { display: inline-block; }
+button { padding: .4rem .8rem; margin-block: .4rem; }
+details { margin-block: 1rem; }
+p { overflow-wrap: anywhere; }
+textarea { min-height: 12rem; }
+#resource-error { font-weight: bold; }
+:focus-visible { outline: .2rem solid Highlight; outline-offset: .15rem; }

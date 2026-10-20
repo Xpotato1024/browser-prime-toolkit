@@ -323,3 +323,28 @@ jobs:
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
+
+  device-resource-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/resource-*.test.js
+      - run: npm run check:resources
+      - name: Finite1..4-owner real Worker contracts and private settings UI
+        run: |
+          for engine in one-drop two-drop three-drop four-drop; do
+            node scripts/verify-resources.mjs --engine "$engine" --out "$RUNNER_TEMP/resources-$engine.json"
+          done
+          node scripts/verify-resource-ui.mjs --out "$RUNNER_TEMP/resource-ui.json"
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
