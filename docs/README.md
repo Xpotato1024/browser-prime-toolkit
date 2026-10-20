@@ -81,3 +81,7 @@ Stage21 [all owner-count results](benchmarks/llm01-resources.md) preserve1..4-wo
 - [Stopped coordinator study](operations/stage22-outcome.md)
 
 Stage23: [追加事前契約](contracts/sustained-evaluation.md)、[TDD・固定family照合](operations/stage23-tdd-evidence.md)。PR17と旧Stage22の原本を保持し、集約方式・持続計測を別に評価します。
+
+Stage23/24: [集約・300/600秒の全結果](benchmarks/llm01-sustained.md)、[占有率・待ち・graph成長](benchmarks/llm01-sustained-observations.md)、[原本と再現境界](operations/sustained-measurement.md)、[継続集計のTDD](operations/stage24-tdd-evidence.md)。旧停止原本とsourceを保持しています。
+
+[Stage23/24 の結果と残件](operations/stage23-24-outcome.md)。

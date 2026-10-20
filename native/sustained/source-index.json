@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "repository": "https://github.com/Xpotato1024/browser-prime-toolkit",
+  "sourceCommit": "ed207f4a9e5aac90b914a8a21ec6b515f292a92b",
+  "measuredCommits": [
+    "2a88e59a5740d204dda40c474fa4959db454062d",
+    "ed207f4a9e5aac90b914a8a21ec6b515f292a92b"
+  ],
+  "scope": "Measurement-only source closure and transparent metadata correction; original numeric/Worker/WASM source remains mapped by native/resources/source-index.json",
+  "files": [
+    {
+      "path": "bench/staged-sustained-plan.json",
+      "bytes": 3789,
+      "sha256": "687afa8df82ee1aa981ee252ea818983a3e2a03e372f4b75daebf86137b9c371",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/bench/staged-sustained-plan.json"
+    },
+    {
+      "path": "bench/sustained.html",
+      "bytes": 141,
+      "sha256": "259813da31cbf77bb2b8025c54a8bc5b20edc77510ca02ac3ce653f8a573693b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/bench/sustained.html"
+    },
+    {
+      "path": "bench/sustained.js",
+      "bytes": 10233,
+      "sha256": "7e73aa638942a44aa1ee3397ea73acadf899e1db27a0d1579438de560b5aa9c6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/bench/sustained.js"
+    },
+    {
+      "path": "docs/contracts/sustained-continuation.md",
+      "bytes": 1513,
+      "sha256": "114dd5377ef80c1c67834667f3de7f64c2cfa35f7d2f6d42577d6d618e6b1fdd",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/docs/contracts/sustained-continuation.md"
+    },
+    {
+      "path": "docs/contracts/sustained-evaluation.md",
+      "bytes": 4499,
+      "sha256": "30d335290abf84d35173a9b77a45b97a6873391b89b98af315cbd32aefdb663d",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/docs/contracts/sustained-evaluation.md"
+    },
+    {
+      "path": "scripts/benchmark-sustained-continuation.mjs",
+      "bytes": 6099,
+      "sha256": "2fdf25925a7b47d8f2ce77dac9f6bd93ebc24d48adb7d18437745f66cf811d31",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/benchmark-sustained-continuation.mjs"
+    },
+    {
+      "path": "scripts/benchmark-sustained.mjs",
+      "bytes": 5870,
+      "sha256": "d28219f074089a491bbfc589a305ab9690af51d7f42227833f373eb4b318cd7d",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/benchmark-sustained.mjs"
+    },
+    {
+      "path": "scripts/check-sustained.mjs",
+      "bytes": 1062,
+      "sha256": "a55eaf7bc479287e30dd770919fafcd326253bf4cd735ef4fce075004cb9bfb2",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/check-sustained.mjs"
+    },
+    {
+      "path": "scripts/generate-sustained-continuation.mjs",
+      "bytes": 9640,
+      "sha256": "68366580d4f455f94a8fd887efc213b119a20d157b1e2ae27cc5a92bb4952f10",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/generate-sustained-continuation.mjs"
+    },
+    {
+      "path": "scripts/generate-sustained-harness.mjs",
+      "bytes": 5472,
+      "sha256": "adf89c40d973a33aba4f17c076d8a827e215a7d4517003d45e24ec6e2912e59a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/generate-sustained-harness.mjs"
+    },
+    {
+      "path": "scripts/generate-sustained-runner.mjs",
+      "bytes": 3066,
+      "sha256": "e78fc7d1f03c823d5cb56ebee1c424b525360d825879435da7c4566d7bb05f53",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/generate-sustained-runner.mjs"
+    },
+    {
+      "path": "scripts/report-sustained-closure.mjs",
+      "bytes": 7057,
+      "sha256": "7302561fca4ad6e9040f27252e5693393a8cf37ea930e59d909ab67bdd17cd02",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/report-sustained-closure.mjs"
+    },
+    {
+      "path": "scripts/report-sustained.mjs",
+      "bytes": 11844,
+      "sha256": "01556853995a12aa461a91812b3f53699a32e8970cfbcfa05da6d8af77b9d511",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/report-sustained.mjs"
+    },
+    {
+      "path": "scripts/sustained-asset-route.mjs",
+      "bytes": 730,
+      "sha256": "8a153a9698eb1aacbc9546a38278052ec94944cb22e30bd7385a606313db0ab3",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-asset-route.mjs"
+    },
+    {
+      "path": "scripts/sustained-continuation-proof.mjs",
+      "bytes": 9291,
+      "sha256": "28aa7fb7787f3699656bf2997317113f6c5048b0d878ecb565ea0913e9f34332",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-continuation-proof.mjs"
+    },
+    {
+      "path": "scripts/sustained-decision.mjs",
+      "bytes": 3566,
+      "sha256": "61537af2a14ce340340773a159b04dafd3970a7cae8d5378a40e8aff8ea9d31e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-decision.mjs"
+    },
+    {
+      "path": "scripts/sustained-memory.mjs",
+      "bytes": 313,
+      "sha256": "208b53f06258d81592934322e6cf0642edc85b7df5f390fb2309ecf9633a7498",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-memory.mjs"
+    },
+    {
+      "path": "scripts/sustained-proof.mjs",
+      "bytes": 1874,
+      "sha256": "c2e89b881a28bac49e8c86242fa3134597cfb4e9223830e3b13289e13a865efa",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-proof.mjs"
+    },
+    {
+      "path": "scripts/sustained-trial-record.mjs",
+      "bytes": 895,
+      "sha256": "d5ef9b1643ecc6a2e2c8438fcf86fcf3cbec1a5771a0a6227cdc422b9baa39b7",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/sustained-trial-record.mjs"
+    },
+    {
+      "path": "scripts/verify-sustained.mjs",
+      "bytes": 22374,
+      "sha256": "3a6760d9077c31d8a2ceec8394081a69f44647c5e910c4434d46308d12911526",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/scripts/verify-sustained.mjs"
+    },
+    {
+      "path": "src/sustained/NOTICE",
+      "bytes": 280,
+      "sha256": "01acb72375f1da55d35ff88d286b0c2ffa5de890572b65fb644a1f2a9a3ff9fa",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/src/sustained/NOTICE"
+    },
+    {
+      "path": "src/sustained/packet-audit.js",
+      "bytes": 3274,
+      "sha256": "5d5317d23d87715fac49216bf24880c55f7a3d1291419eb9aa6bd4e32fb344da",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/src/sustained/packet-audit.js"
+    },
+    {
+      "path": "src/sustained/runner.js",
+      "bytes": 14490,
+      "sha256": "12cb21a14d9eb6410bac9f42c3a796ffde9b965c8a6469f97e301ad62ae0a95b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/src/sustained/runner.js"
+    },
+    {
+      "path": "test/sustained-audit.test.js",
+      "bytes": 2846,
+      "sha256": "429012343b68b686a9b376f15339e5822d873cda8ab30a0fda0fe85a99cb2c92",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/test/sustained-audit.test.js"
+    },
+    {
+      "path": "test/sustained-decision.test.js",
+      "bytes": 2901,
+      "sha256": "fcee70984f4401727eb9f68d8ffe2e85562bb319e9c2f0b9af6488455434c1bc",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/test/sustained-decision.test.js"
+    },
+    {
+      "path": "test/sustained-lifecycle.test.js",
+      "bytes": 5329,
+      "sha256": "6e8fd6d5f8377a6c9803cb7d208e51796b3eaea215706a9911f96d13907af61e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/test/sustained-lifecycle.test.js"
+    },
+    {
+      "path": "test/sustained-trial-record.test.js",
+      "bytes": 1426,
+      "sha256": "d066895635a01eddddd6840d622c07c9ac8f2b7d242642eee5938998225669f2",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/ed207f4a9e5aac90b914a8a21ec6b515f292a92b/test/sustained-trial-record.test.js"
+    }
+  ]
+}
