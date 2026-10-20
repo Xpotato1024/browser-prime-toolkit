@@ -16,14 +16,14 @@ if(stage==='short'){assert.equal(execFileSync('git',['status','--porcelain'],{cw
 else{
  assert.ok(!existsSync(join(dir,'long-run.json')),'Long series already exists');
  const short=JSON.parse(readFileSync(join(dir,'short-run.json')));
- const state={changedTracked:execFileSync('git',['diff','--name-only','HEAD','--'],{cwd:root,encoding:'utf8'}),untracked:execFileSync('git',['ls-files','--others','--exclude-standard'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean)};
+ const state={changedTracked:execFileSync('git',['status','--porcelain','--untracked-files=no'],{cwd:root,encoding:'utf8'}),untracked:execFileSync('git',['ls-files','--others','--exclude-standard'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean)};
  assertLongStart(short,plan,sha(read('bench/staged-dlp-plan.json')),head,state,read,root);decision=screenDecision(rows(),plan);assert.deepEqual(short.decision,decision);
  assert.ok(decision.candidate,'No candidate passed fixed gate');
  trials=plan.gate.longOrder.map((p,i)=>({id:'long-'+String(i+1)+'-'+(p==='candidate'?decision.candidate:p),profile:p==='candidate'?decision.candidate:p,workers:2,repeat:i+1,budgetMs:600000}));
 }
 const run={plan:plan.id,planSha256:sha(read('bench/staged-dlp-plan.json')),stage,measuredHead:head,startedAt:new Date().toISOString(),trials:[],screen:decision};
 for(const t of trials){
- assert.equal(execFileSync('git',['diff','--name-only','HEAD','--'],{cwd:root,encoding:'utf8'}).trim(),'','Tracked sources must stay frozen');assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),head);
+ assert.equal(execFileSync('git',['status','--porcelain','--untracked-files=no'],{cwd:root,encoding:'utf8'}).trim(),'','Tracked sources must stay frozen');assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),head);
  const file=join(dir,t.id+'.json'),args=trialArguments(t,root),fd=openSync(join(dir,t.id+'.log'),'wx');
  let result;try{result=spawnSync(process.execPath,args,{cwd:root,env:{...process.env,PRIME_MEASURED_HEAD:head},stdio:['ignore',fd,fd],timeout:t.budgetMs+60000});}finally{closeSync(fd);}
  const record={...t,args,exitCode:result.status,signal:result.signal,error:result.error?.message??null,rawSha256:existsSync(file)?sha(readFileSync(file)):null,logSha256:sha(readFileSync(join(dir,t.id+'.log')))};run.trials.push(record);writeFileSync(join(dir,stage+'-run.json'),JSON.stringify(run,null,2)+'\n');console.log(JSON.stringify(record));
