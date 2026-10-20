@@ -1,0 +1,624 @@
+{
+  "profile": "siqs-lto-1.53-v1",
+  "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+  "upstreams": [
+    {
+      "file": "msieve153_src.tar.gz",
+      "url": "https://sourceforge.net/projects/msieve/files/msieve/Msieve%20v1.53/msieve153_src.tar.gz/download",
+      "bytes": 976135,
+      "sha256": "c5fcbaaff266a43aa8bca55239d5b087d3e3f138d1a95d75b776c04ce4d93bb4"
+    },
+    {
+      "file": "gmp-6.1.2.tar.lz",
+      "url": "https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz",
+      "bytes": 1939430,
+      "sha256": "12fed0532d440d2dc902e64f016aa89a33af6044b90bd1f7bca7396635105dbb"
+    },
+    {
+      "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+      "bytes": 198836,
+      "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+    },
+    {
+      "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "bytes": 14612,
+      "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+    }
+  ],
+  "linkMapSha256": "866a94d1dec10eea0c5e5e284af46d9e6dc050ee220f8433fa81168eefeefee5",
+  "linkedObjects": [],
+  "cleanBuilds": 2,
+  "wasmBytes": 192409,
+  "wasmSha256": "8eafdec76301d468a213212fcff540d0c8b823e5c81e12deb58ee3bb91a351bb",
+  "glueSha256": "642fdbd53a4f92485f2a2367fdb6ffdd5d9f45df4c7022d166fe16e532220ad6",
+  "memoryBytes": 268435456,
+  "stackBytes": 4194304,
+  "saveBytes": 16777216,
+  "growth": false,
+  "threads": 1,
+  "recipe": "set -eu\ntrap 'rc=$?; if [ \"$rc\" -ne 0 ]; then tail -n 30 /work/*.log >&2; fi' EXIT\nfor pkg in /src/*.deb; do dpkg-deb -x \"$pkg\" /; done\nexport LC_ALL=C TZ=UTC SOURCE_DATE_EPOCH=1773093262\nmkdir /work/gmp /work/msieve\ntar --no-same-owner --no-same-permissions -xzf /src/gmp.tar.gz --strip-components=1 -C /work/gmp\ntar --no-same-owner --no-same-permissions -xzf /src/msieve.tar.gz --strip-components=1 -C /work/msieve\ncd /work/gmp\nexport CFLAGS=\"-O2\" LDFLAGS=\"-sALLOW_MEMORY_GROWTH=0\"\nemconfigure ./configure \"CCAS=gcc -c\" --host=none --build=x86_64-pc-linux-gnu --disable-assembly --disable-shared --disable-cxx > /work/configure.log 2>&1\nemmake make -j2 all > /work/gmp.log 2>&1\npython3 - <<'PY'\nimport json,hashlib\nfrom pathlib import Path\nroot=Path('/work/msieve')\nfor name,e in json.loads(Path('/src/patched.json').read_text()).items():\n p=root/name\n assert hashlib.sha256(p.read_bytes()).hexdigest()==e['originalSha256'],name\n p.write_text(e['text'])\n assert hashlib.sha256(p.read_bytes()).hexdigest()==e['sha256'],name\nPY\ncp /src/native/siqs-lab/runtime.c /work/msieve/demo.c\ncd /work/msieve\nexport CFLAGS=\"-flto -I/work/gmp -Impqs -I/src/native/siqs-lab -include /src/native/siqs-lab/runtime.h -fwasm-exceptions -sSUPPORT_LONGJMP=wasm\"\nexport LDFLAGS=\"-flto -fwasm-exceptions -sSUPPORT_LONGJMP=wasm -sENVIRONMENT=web,worker -sFILESYSTEM=0 -sMODULARIZE=1 -sEXPORT_ES6=1 -sINVOKE_RUN=0 -sEXIT_RUNTIME=1 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=268435456 -sSTACK_SIZE=4194304 -sWASM_BIGINT=1 -sEXPORTED_FUNCTIONS=['_malloc','_abort','_large_input_ptr','_large_accept','_large_run','_large_work','_large_phase','_large_saved','_large_configure','_large_nnz','_large_reason','_large_line','_lab_configure','_lab_save_ptr','_lab_import_ptr','_lab_import','_lab_release','_lab_stat','_lab_timer','_lab_timer_calls','_lab_timer_open','_lab_timer_elapsed'] -sEXPORTED_RUNTIME_METHODS=['UTF8ToString','HEAPU8'] --js-library /src/native/siqs-lab/callbacks.js -L/work/gmp/.libs -Wl,-Map=/work/link.map\"\nemmake make -j2 all CC=emcc AR=emar RANLIB=emranlib NO_ZLIB=1 NFS_OBJS= GPU_OBJS= > /work/msieve.log 2>&1\ncp msieve /work/full.mjs\ncp msieve.wasm /work/full.wasm\n",
+  "buildDeps": [
+    {
+      "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+      "bytes": 198836,
+      "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+    },
+    {
+      "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+      "bytes": 14612,
+      "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+    }
+  ],
+  "imports": [
+    {
+      "module": "a",
+      "name": "a",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "b",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "c",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "d",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "e",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "f",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "g",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "h",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "i",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "j",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "k",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "l",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "m",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "n",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "o",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "p",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "q",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "r",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "s",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "t",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "u",
+      "kind": "function"
+    },
+    {
+      "module": "a",
+      "name": "v",
+      "kind": "function"
+    }
+  ],
+  "patched": {
+    "common/driver.c": {
+      "originalSha256": "062a7e9ea311228b941edc3cc3123911e3b6efa8b623c15712070b3cd9a39046",
+      "sha256": "efe891699791f78954ffeaaeb0f12066abe6ebcc28cff8068f18f04d0b2c6374",
+      "changes": [
+        {
+          "removed": "unused msieve_run and implicit rho/ECM/NFS dispatch"
+        },
+        {
+          "collector": "nontrivial-divisor-only; no APRCL dispatch"
+        },
+        {
+          "loopCheckpoints": 9
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos.c": {
+      "originalSha256": "e3644606b2cf83f1b0dcd7192069fe09ca3b2647e95c5b50b7e0e965a55ca156",
+      "sha256": "aadffbf1263a567216438793cb4f6fa93e1aac8dfe4ec3c72149644391420249",
+      "changes": [
+        {
+          "from": "static void dump_lanczos_state",
+          "to": "static void init_lanczos_state"
+        },
+        {
+          "old": "fflush(stderr);"
+        },
+        {
+          "from": "\tif (obj->flags & MSIEVE_FLAG_NFS_LA_RESTART) {",
+          "to": "\n\tmask1 = 0;"
+        },
+        {
+          "from": "\n\tif (dump_interval) {",
+          "to": "\n\t/* perform the iteration */"
+        },
+        {
+          "from": "\t\tif (dump_interval) {",
+          "to": "\n\t}\n\n\tMPI_NODE_0_START"
+        },
+        {
+          "from": "\tif (max_nrows > 1000000) {",
+          "to": "\n\t/* solve the matrix */"
+        },
+        {
+          "old": "\t\titer++;"
+        },
+        {
+          "old": "\tdo {\n\t\tdependencies"
+        },
+        {
+          "loopCheckpoints": 31
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_io.c": {
+      "originalSha256": "6b2b720322733bb3d12356094ecd3d531bb14298fcfb4a37ceeb2be441b65785",
+      "sha256": "5e9e1bbc369ff5e43ebd760a1d86c06564e8e925a8db849f84c179a21e577db3",
+      "changes": [
+        {
+          "loopCheckpoints": 8
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_matmul0.c": {
+      "originalSha256": "ac240eb77e62d1ba5bd953540cf14a4ac80b0aca8161c21517664fe221a15e14",
+      "sha256": "a37037c5c364fb74538ef4af634aea8aa4fd7fc54b99bac038542f45d166ee0e",
+      "changes": [
+        {
+          "old": "free(p->dense_blocks[i]);"
+        },
+        {
+          "loopCheckpoints": 32
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_matmul1.c": {
+      "originalSha256": "b7ff2c7431eb68f502728d20094ed27918d5ceda105156eef7a524c981ec32d9",
+      "sha256": "4756f3a6a94d776c5bca341e74a5707dd748b45c56105cd0b7b7131f83dfb9ba",
+      "changes": [
+        {
+          "loopCheckpoints": 6
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_matmul2.c": {
+      "originalSha256": "d09d74902790037e8deb22139b54882ebbbdb4979da346b2bf5284d6e32f8d54",
+      "sha256": "d9c32de545bdf62cb8a9db51a836582e46e1f85dec5245110868d6374aa615b1",
+      "changes": [
+        {
+          "loopCheckpoints": 5
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_pre.c": {
+      "originalSha256": "a3c0953a9439c95aeeeb68d75cf72c9198a7cd5c5e136a9950a9f8b930f8711f",
+      "sha256": "dfebb9dc4b543b6de4254b9c23a595226348f799e5edca74e5fd1a0615a77e11",
+      "changes": [
+        {
+          "old": "\tc0->cycle.list = (uint32 *)xrealloc(c0->cycle.list, "
+        },
+        {
+          "loopCheckpoints": 24
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_reorder.c": {
+      "originalSha256": "b53ff209cda38e53261f9e5f6060af07c84e7917331d821f2b607949b0eb8886",
+      "sha256": "f2e7aa9749a443e28376ccce9375e936727d9627dd453c0e54dea2e382f8ee60",
+      "changes": [
+        {
+          "loopCheckpoints": 42
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/lanczos_vv.c": {
+      "originalSha256": "a83e74789b93b0449f745e953c3edc4db475226cfa0118f50a6eede78614a721",
+      "sha256": "e1df2779eb393008d7c4dac5108a95e4388139aa411fd1102fdd382de12db631",
+      "changes": [
+        {
+          "loopCheckpoints": 10
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/lanczos/matmul_util.c": {
+      "originalSha256": "b4d12cbe99a4c7ad92361471bc92c362cb9dbef2c2b99cbee18e6dad8cb8ee5f",
+      "sha256": "f4fb19c98731c81de3b37954a0f9e936598bd68aeda9b8a005294f9f0fb17962",
+      "changes": [
+        {
+          "loopCheckpoints": 5
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/mp.c": {
+      "originalSha256": "ec4a0bf991c118f4641cc96603c242862fcc91c92faba0f13a02cb1782f7a44e",
+      "sha256": "6090ea27cfafedd06329ce4d881e4e7e63303d13f75a6dcdd894430e8d7f15b2",
+      "changes": [
+        {
+          "loopCheckpoints": 47
+        },
+        {
+          "old": "void mp_mul(mp_t *a, mp_t *b, mp_t *prod) {"
+        },
+        {
+          "old": "void mp_mul_1(mp_t *a, uint32 b, mp_t *x) {"
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "common/prime_sieve.c": {
+      "originalSha256": "4e3c74ff070e57cee9df94e1d82b0ff91ead9443dbb65b50bac0e4ce6630301f",
+      "sha256": "295ec6d7c82ed06ceebafe4b8e7c43bf7161b8d3359ab53bef1861a58e851168",
+      "changes": [
+        {
+          "loopCheckpoints": 8
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "include/common.h": {
+      "originalSha256": "9a74128c431a6830d7c78f2609bd9e2dc7ac8d351ad312721b9cf24afeafc6f2",
+      "sha256": "d37e8948be942a9f14188745f5118330f3eb0b9d385a8df82eedae8aa89d3c29",
+      "changes": [
+        {
+          "old": "#define LINE_BUF_SIZE 300",
+          "count": 1
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "include/util.h": {
+      "originalSha256": "8b7391c56e7c320ed9f0a4e184a0ddf36023fec6510059a50664cbafdd99837d",
+      "sha256": "7114f470fd38aa34937c38178e421e1059549157ec901514ccd09f21bf7e49a0",
+      "changes": [
+        {
+          "nativePortableArithmetic": true
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/gf2.c": {
+      "originalSha256": "989333a19b7da437e9a0482e6b46b8c5598d8055569ed53e4a5352c6315325af",
+      "sha256": "baf0b42502b6fa0085c07f1729139282b6853ad57c98591e63acf17e7f28e13c",
+      "changes": [
+        {
+          "old": "reduce_matrix(obj, &nrows, 0, &ncols, cols, NUM_EXTRA_RELATIONS);"
+        },
+        {
+          "old": "nrows = fb_size;"
+        },
+        {
+          "old": "weight = qs_merge_relations(accum, buf, weight,"
+        },
+        {
+          "old": "relation_t *r = relation_list + col->cycle.list[j];"
+        },
+        {
+          "old": "col->weight = weight;"
+        },
+        {
+          "old": "*bitfield = dependencies;"
+        },
+        {
+          "loopCheckpoints": 4
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/mpqs.c": {
+      "originalSha256": "df6200510829e8fe10c8b6e8d04f952c27ce3d87429fb7e4abfa5a5b9eac2386",
+      "sha256": "c7cf058bd145839b11f9da3cb7d4bd2aadd91475e1a5ebbf173b24740c54b90d",
+      "changes": [
+        {
+          "old": "fb_size = params.fb_size;",
+          "count": 1
+        },
+        {
+          "old": "get_sieve_params(bits, &params);",
+          "count": 1
+        },
+        {
+          "old": "solve_linear_system(obj, fb_size, &bitfield,",
+          "count": 1
+        },
+        {
+          "old": "factor_found = find_factors(obj, n, factor_base, fb_size,",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 6
+        },
+        {
+          "old": "bits<=128 && params.fb_size<=1024"
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/poly.c": {
+      "originalSha256": "1c13949ef3846411a6b28997788afcd69515f7b01b12330671bad2b44a7900cc",
+      "sha256": "e3820a72326837d85019a673fc027decbbf79bbe0058f6ebd7fac5ac8c1f457b",
+      "changes": [
+        {
+          "old": "logprintf(obj, \"fatal error: poly selection failed\\n\");\n\t\texit(-1);",
+          "count": 1
+        },
+        {
+          "old": "conf->num_poly_factors = num_factors;",
+          "count": 1
+        },
+        {
+          "old": "conf->factor_bits[j] = i;\n\t\tnum_factors++;",
+          "count": 1
+        },
+        {
+          "old": "void build_base_poly(sieve_conf_t *conf) {",
+          "count": 1
+        },
+        {
+          "old": "get_rand(&obj->seed1, &obj->seed2) % range;",
+          "count": 1
+        },
+        {
+          "old": "uint32 range = factor_bounds[bits+1] - factor_bounds[bits];",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 15
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/relation.c": {
+      "originalSha256": "072a7f11079c7d875867329274af9b3956b1d5e934b7ec83f72d15495c013720",
+      "sha256": "b939bcff87ba3f50eebedf3ac7ca12d81ebbbd1fc12dbb519eeadd9cfe08f2a7",
+      "changes": [
+        {
+          "old": "i = sprintf(buf, \"R \");",
+          "count": 1
+        },
+        {
+          "old": "if (fb_offset == 0 || fb_offset >= conf->fb_size)\n\t\t\tcontinue;",
+          "count": 1
+        },
+        {
+          "old": "poly_factors[i] = j;",
+          "count": 1
+        },
+        {
+          "old": "cycle_list[num_cycles-1].cycle.num_relations);",
+          "count": 1
+        },
+        {
+          "old": "qs_filter_relations(sieve_conf_t *conf) {",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 23
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/sieve.c": {
+      "originalSha256": "71ff57e26d18b6fc1a697a4bd84e04db0ce451a9c56575622aa27df082fd30ba",
+      "sha256": "e4befb93b134bcfa0492f065adc43294dcc4b2203f7a2321042b0502b3d25947",
+      "changes": [
+        {
+          "old": "mp_copy(&polyval.num, &res);",
+          "count": 1
+        },
+        {
+          "guardedFactorAppends": 13
+        },
+        {
+          "loopCheckpoints": 15
+        },
+        {
+          "old": "\t    \tif (obj->flags & (MSIEVE_FLAG_USE_LOGFILE |"
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/sieve_core.c": {
+      "originalSha256": "c7711677da6518c23e571fc058b0c25a2ce0b03b9091f93512f2dfd99fdaf448",
+      "sha256": "9c1caf4a557b0f546b350f119c5af497163577dcd8f92e5db5bf5e439e4f89ea",
+      "changes": [
+        {
+          "old": "for (i = 0; i < num_poly; i++) {",
+          "count": 1
+        },
+        {
+          "old": "TIME1(tf_plus_scan_time)",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 16
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "mpqs/sqrt.c": {
+      "originalSha256": "f77f9d4f5fb8fea7f45b360d7295f33f79303474aee13cd5a2e1f3d0136bca19",
+      "sha256": "5090fba704e97232f4a8184a74c503e38a444686abd1554cb9cb1e479f0b6a98",
+      "changes": [
+        {
+          "old": "mp_gcd(&tmp, n, &tmp);",
+          "count": 1
+        },
+        {
+          "old": "uint32 large_primes[200], num_large_primes;",
+          "count": 1
+        },
+        {
+          "old": "large_primes[2*m] = prime;",
+          "count": 1
+        },
+        {
+          "old": "for (j = 0; j < num_large_primes; j++) {",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 9
+        },
+        {
+          "old": "large_primes[804]"
+        },
+        {
+          "old": "REQUIRE(m<402)"
+        },
+        {
+          "old": "mp_mul_1(a, sieve_offset, &sum.num);"
+        },
+        {
+          "old": "fb_counts[relation->fb_offsets[k]]++;"
+        },
+        {
+          "old": "num_relations = vectors[i].cycle.num_relations;"
+        },
+        {
+          "lab": true
+        }
+      ]
+    },
+    "Makefile": {
+      "originalSha256": "7cc1ba71d206078d5ba080eab44e21fc15626be56bb3b1137b8ee0d296344a77",
+      "sha256": "cc6fc4b961894f0dfd1a22fa83fe8fa654fe7315c9f5a6849902128b3f9cbd7b"
+    }
+  },
+  "sourceHashes": {
+    "native/siqs-full/runtime.h": "94ee6a7e846cb336d588a822d8e4ea9dca0d416122bb07098f33f712b767ef8a",
+    "native/siqs-lab/runtime-tail.c": "9c0f64ce9cf873fd03bb597e224b06ee4745a94936c5d52ef349d6e1079a4f3f",
+    "native/siqs-lab/runtime.c": "b56908685c0b95adf90a6efa254e73715dd4fabe85cd947d73b4a1584d97bf3d",
+    "native/siqs-lab/runtime.h": "98472570573ebe8da778e9667a70c0bc84528773ebdd2fa6992e44fb728de113",
+    "native/siqs-lab/callbacks.js": "5f45528ac35b30c934b6e3b278f36d8434a74a2f8128bd7ea728b9e40a2f5e0b",
+    "native/siqs-lab/sanitize.c": "fa9ca2d75e210f55e2fa83e2d0a4fb032467a0ba1d03d310a6ff3e37fafdf364",
+    "scripts/build-siqs-tuned.mjs": "459c81963a2947a91d74d08386279ff890283da30ff71db6d8f6ffedaea142ea",
+    "scripts/build-siqs-lab.mjs": "c9023bd280eed6bf7167be51062ede54d02a10f5e33eaafb9bf49b1008481ee1",
+    "scripts/patch-siqs-lab.mjs": "30592ed25b5215284606d3e7dd6b6c317ec2f00711c6cbd0e9fc571a45c9f0d9",
+    "scripts/generate-siqs-lab-runtime.mjs": "5d1af14821bfb51b920d1ba16421f87dc63cacfd3f089a9d8cedcf9a92618f8e",
+    "scripts/patch-full-siqs.mjs": "164f78426a2fc1ff16f9c4157682d53ec40010f09e878a30316c4484b2eed517",
+    "scripts/patch-siqs.mjs": "63619dd6006e8cbc0c99e68b8d9e45b75f96487c3f96c8952c0abf90ed3fa0cb",
+    "scripts/full-siqs-source.py": "cbdb18dcac6405409048161111677fc55ae1a2840e978f33abeb2c85a5baba66",
+    "scripts/full-siqs-lzip.py": "79bed98d61655f504dab6f087c56449586a04e2feb07ff3454ba12142a6aa6df",
+    "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+    "native/siqs-lab/staged-upstreams.json": "55e05b160a99d1561983ae49ad2432b53025f94d61f96bede654772bb8cdd7e1",
+    "native/gmp/upstreams.json": "0e48bf3af751c11e8f1b92da23ae60900daea8f59313de81251c1e3b0e61e6ca",
+    "scripts/fetch-full-siqs-sources.mjs": "dbe2171f9092b079f601def716254f7110363a1aea8d9bfd40ca3b3d66650db1"
+  }
+}

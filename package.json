@@ -11,7 +11,7 @@
   "packageManager": "npm@11.19.0",
   "scripts": {
     "test": "node --test",
-    "check": "node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && npm run check:rsa-profile && npm run check:full-siqs && node scripts/check-long-history.mjs && npm run check:siqs-lab && node scripts/check.mjs",
+    "check": "node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && npm run check:rsa-profile && npm run check:full-siqs && node scripts/check-long-history.mjs && npm run check:siqs-lab && npm run check:siqs-tuned && node scripts/check.mjs",
     "build:worker": "node scripts/build-worker.mjs",
     "verify:browser": "node scripts/benchmark-browser.mjs --quick --advanced",
     "benchmark:browser": "node scripts/benchmark-browser.mjs --advanced",
@@ -55,6 +55,11 @@
     "report:siqs-lab": "node scripts/report-siqs-lab.mjs",
     "check:siqs-lab": "node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check && node scripts/report-siqs-lab.mjs --check",
     "verify:siqs-lab": "node scripts/verify-siqs-lab.mjs",
-    "verify:siqs-lab-native": "node scripts/build-siqs-lab.mjs --native"
+    "verify:siqs-lab-native": "node scripts/build-siqs-lab.mjs --native",
+    "build:siqs-tuned": "node scripts/build-siqs-tuned.mjs",
+    "build:siqs-tuned-worker": "node scripts/build-siqs-tuned-worker.mjs",
+    "verify:siqs-tuned": "node scripts/verify-siqs-tuned.mjs",
+    "check:siqs-tuned": "node scripts/check-siqs-tuned.mjs && node scripts/build-siqs-tuned-worker.mjs --check",
+    "benchmark:siqs-tuned": "node scripts/benchmark-siqs-tuned.mjs"
   }
 }
