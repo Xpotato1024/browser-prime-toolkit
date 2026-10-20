@@ -74,3 +74,5 @@ Stage20: [conditional geometry contract](contracts/geometry-evaluation.md), [ope
 Stage19 [measured scheduler results](benchmarks/llm01-scheduler.md) select finite ahead credit for further experiments. Stage20 [all geometry results](benchmarks/llm01-geometry.md) retain the original B/M settings under the fixed gate. [Interpretation and integration boundary](architecture/scheduler-geometry-findings.md) keep collection evidence separate from completion and site adoption.
 
 Stage21: [finite device resource contract](contracts/device-resources.md), [decision](adr/0021-finite-device-resources.md), [private entry and reproduction](operations/device-resources.md), [TDD and preserved corrections](operations/stage21-tdd-evidence.md). The original entry and site integration boundary remain unchanged.
+
+Stage21 [all owner-count results](benchmarks/llm01-resources.md) preserve1..4-worker packet identity and measured limits. Stage22 [dedicated-coordinator contract](contracts/coordinator-evaluation.md), [operations](operations/coordinator-evaluation.md) and [TDD](operations/stage22-tdd-evidence.md) isolate host scheduling under the same four-owner budget.
