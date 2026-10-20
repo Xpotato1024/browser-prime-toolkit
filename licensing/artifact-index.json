@@ -1,54 +1,58 @@
 {
-  "sourceSnapshot": "0999af2b90f458d5c6808128793f831e5e7182f2",
-  "repositorySource": "https://github.com/Xpotato1024/browser-prime-toolkit/tree/0999af2b90f458d5c6808128793f831e5e7182f2",
+  "sourceSnapshot": "dc0458547b2d104eff31af6b39074281ecb4c210",
+  "repositorySource": "https://github.com/Xpotato1024/browser-prime-toolkit/tree/dc0458547b2d104eff31af6b39074281ecb4c210",
   "artifactReceipts": [
     {
       "path": "native/gmp/build-stage4-baseline.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/build-stage4-baseline.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/build-stage4-baseline.json"
     },
     {
       "path": "native/gmp/build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/build.json"
     },
     {
       "path": "native/gmp/supplement-build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/supplement-build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/supplement-build.json"
+    },
+    {
+      "path": "native/rusqsieve-dlp/staged-build.json",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve-dlp/staged-build.json"
     },
     {
       "path": "native/rusqsieve/staged-build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/rusqsieve/staged-build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve/staged-build.json"
     },
     {
       "path": "native/siqs-full/staged-build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-full/staged-build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-full/staged-build.json"
     },
     {
       "path": "native/siqs-lab/staged-build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-lab/staged-build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-lab/staged-build.json"
     },
     {
       "path": "native/siqs-tuned/staged-build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-tuned/staged-build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-tuned/staged-build.json"
     },
     {
       "path": "native/siqs-v2/build-dense.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-v2/build-dense.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-v2/build-dense.json"
     },
     {
       "path": "native/siqs-v2/build-lanczos.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-v2/build-lanczos.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-v2/build-lanczos.json"
     },
     {
       "path": "native/siqs/build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs/build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs/build.json"
     },
     {
       "path": "native/tinyqs/build-bind-baseline.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/tinyqs/build-bind-baseline.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/tinyqs/build-bind-baseline.json"
     },
     {
       "path": "native/tinyqs/build.json",
-      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/tinyqs/build.json"
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/tinyqs/build.json"
     }
   ],
   "originalInputs": [
@@ -58,7 +62,7 @@
       "bytes": 2094196,
       "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json"
       ],
       "role": "source archive",
       "downloadUrls": [
@@ -72,7 +76,7 @@
       "bytes": 721052,
       "sha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json"
       ],
       "role": "source archive",
       "downloadUrls": [
@@ -85,7 +89,7 @@
       "bytes": 337608,
       "sha256": "96b528889794c4134015a63c75050f93d8aecdf5e3f2a20993c1433f4c61b80e",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json"
       ],
       "role": "build tool bootstrap package",
       "downloadUrls": [
@@ -98,7 +102,7 @@
       "bytes": 557936,
       "sha256": "59e3890fc8407bcf8ccc9f709d6513156346d5c942e8c624dc90435e58f6f978",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json"
       ],
       "role": "build tool bootstrap package",
       "downloadUrls": [
@@ -111,9 +115,9 @@
       "bytes": 198836,
       "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-full/staged-upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-lab/staged-upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-full/staged-upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-lab/staged-upstreams.json"
       ],
       "role": "build tool bootstrap package",
       "downloadUrls": [
@@ -126,7 +130,7 @@
       "bytes": 163940,
       "sha256": "fb994bc0152f4e77a791b51bc54fd5e38963aa6473e60c45369ef373b6119124",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json"
       ],
       "role": "build tool bootstrap package",
       "downloadUrls": [
@@ -139,9 +143,9 @@
       "bytes": 14612,
       "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/gmp/upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-full/staged-upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-lab/staged-upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/gmp/upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-full/staged-upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-lab/staged-upstreams.json"
       ],
       "role": "build tool bootstrap package",
       "downloadUrls": [
@@ -154,8 +158,8 @@
       "bytes": 976135,
       "sha256": "c5fcbaaff266a43aa8bca55239d5b087d3e3f138d1a95d75b776c04ce4d93bb4",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-full/staged-upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-lab/staged-upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-full/staged-upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-lab/staged-upstreams.json"
       ],
       "role": "source archive",
       "downloadUrls": [
@@ -168,8 +172,8 @@
       "bytes": 1939430,
       "sha256": "12fed0532d440d2dc902e64f016aa89a33af6044b90bd1f7bca7396635105dbb",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-full/staged-upstreams.json",
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/siqs-lab/staged-upstreams.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-full/staged-upstreams.json",
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/siqs-lab/staged-upstreams.json"
       ],
       "role": "source archive",
       "downloadUrls": [
@@ -183,7 +187,7 @@
       "bytes": 297628,
       "sha256": "86ab9802fbd93690a053dc0630fffe33d1f3f1625d7d6345ec82d74be9d8d11c",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/rusqsieve/staged-upstream.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve/staged-upstream.json"
       ],
       "role": "source archive",
       "downloadUrls": [
@@ -196,7 +200,7 @@
       "bytes": 948974,
       "sha256": "489c19f20d331765ab2835661eb546de90f6446a107a8db83045e7371e45cae2",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/rusqsieve/staged-toolchain.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve/staged-toolchain.json"
       ],
       "role": "compiler/toolchain manifest",
       "downloadUrls": [
@@ -209,7 +213,7 @@
       "bytes": 82519204,
       "sha256": "48c2a42de9e92fcae8c24568f5fe40d5734696a6f80e83cc6d46eef1a78f13c9",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/rusqsieve/staged-toolchain.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve/staged-toolchain.json"
       ],
       "role": "compiler/toolchain binary input",
       "downloadUrls": [
@@ -222,7 +226,7 @@
       "bytes": 21133648,
       "sha256": "e6e3964f4a9639688577d5a3609633b983c795ad8de43c9eceb878a84d1aeb78",
       "manifests": [
-        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/native/rusqsieve/staged-toolchain.json"
+        "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/native/rusqsieve/staged-toolchain.json"
       ],
       "role": "compiler/toolchain binary input",
       "downloadUrls": [
@@ -230,8 +234,8 @@
       ]
     }
   ],
-  "changesAndBuildScripts": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/scripts",
-  "thirdPartyNotices": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/0999af2b90f458d5c6808128793f831e5e7182f2/vendor",
+  "changesAndBuildScripts": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/scripts",
+  "thirdPartyNotices": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/vendor",
   "scope": "Measured Stage17 calculation source snapshot, including Stage16 full-SIQS LTO and bounded rusqsieve artifacts; every historical artifact retains its own source/build receipt.",
   "sourceAvailability": "Official archive bytes were independently materialized and hash-checked. Equivalent source access combines these original archives with the repository commit sources/changes/build scripts; owner retains verified recovery copies."
 }

@@ -64,3 +64,5 @@ Stage15は[ADR0015](adr/0015-siqs-optimization.md)に従い、同一ソースの
 Stage16は[full経路の実測・全raw](benchmarks/llm01-full-opt.md)、[資源ガードと次の比較](architecture/full-siqs-optimization-findings.md)、[TDD証跡](operations/stage16-tdd-evidence.md)を追加します。RSA-100未完了と公開前の制約を維持します。
 
 Stage17: [SIMD comparison](benchmarks/llm01-rusqsieve.md), [contract](contracts/rusqsieve-evaluation.md), [operations](operations/rusqsieve-evaluation.md), [TDD](operations/stage17-tdd-evidence.md), [current methods](architecture/current-siqs-methods.md). No public adoption or RSA-100 completion is claimed.
+
+Stage18: [fixed DLP results](benchmarks/llm01-dlp.md), [contract](contracts/dlp-evaluation.md), [operations](operations/dlp-evaluation.md), [TDD](operations/stage18-tdd-evidence.md), [native rebuild/source mapping](../native/rusqsieve-dlp/README.md). Performance, observed memory and conditional long-gate results are reported separately.

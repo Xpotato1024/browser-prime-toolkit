@@ -1,0 +1,1952 @@
+{
+  "plan": "stage18-dlp-only-v1",
+  "measuredHead": "dc0458547b2d104eff31af6b39074281ecb4c210",
+  "baselineHead": "b2e38bb4b87a36cf2f76159c6ac6b76d4ea60064",
+  "buildSha256": "c9fc84ce31f1c8ac92cfa44e0ce77521d419abc87570d762e326974ed313bd13",
+  "rawTrials": 12,
+  "memoryComparisons": [
+    {
+      "profile": "half",
+      "workers": 1,
+      "repeat": 1,
+      "baselineSumPerOwnerRequestedHighWater": 15218233,
+      "candidateSumPerOwnerRequestedHighWater": 14990544,
+      "observedRequestedBytesDifference": 227689,
+      "baselineGraphVertices": 15407,
+      "candidateGraphVertices": 13153,
+      "baselineYield": 169,
+      "candidateYield": 169,
+      "baselineSubmittedPolynomials": 12288,
+      "candidateSubmittedPolynomials": 12288,
+      "equalSubmittedPolynomials": true
+    },
+    {
+      "profile": "half",
+      "workers": 1,
+      "repeat": 2,
+      "baselineSumPerOwnerRequestedHighWater": 15218233,
+      "candidateSumPerOwnerRequestedHighWater": 14990544,
+      "observedRequestedBytesDifference": 227689,
+      "baselineGraphVertices": 15407,
+      "candidateGraphVertices": 13153,
+      "baselineYield": 169,
+      "candidateYield": 169,
+      "baselineSubmittedPolynomials": 12288,
+      "candidateSubmittedPolynomials": 12288,
+      "equalSubmittedPolynomials": true
+    },
+    {
+      "profile": "half",
+      "workers": 2,
+      "repeat": 1,
+      "baselineSumPerOwnerRequestedHighWater": 30413465,
+      "candidateSumPerOwnerRequestedHighWater": 27513781,
+      "observedRequestedBytesDifference": 2899684,
+      "baselineGraphVertices": 30590,
+      "candidateGraphVertices": 21748,
+      "baselineYield": 323,
+      "candidateYield": 273,
+      "baselineSubmittedPolynomials": 24576,
+      "candidateSubmittedPolynomials": 20480,
+      "equalSubmittedPolynomials": false
+    },
+    {
+      "profile": "half",
+      "workers": 2,
+      "repeat": 2,
+      "baselineSumPerOwnerRequestedHighWater": 30413465,
+      "candidateSumPerOwnerRequestedHighWater": 27519481,
+      "observedRequestedBytesDifference": 2893984,
+      "baselineGraphVertices": 30590,
+      "candidateGraphVertices": 21748,
+      "baselineYield": 323,
+      "candidateYield": 273,
+      "baselineSubmittedPolynomials": 24576,
+      "candidateSubmittedPolynomials": 20480,
+      "equalSubmittedPolynomials": false
+    },
+    {
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 1,
+      "baselineSumPerOwnerRequestedHighWater": 15218233,
+      "candidateSumPerOwnerRequestedHighWater": 14638767,
+      "observedRequestedBytesDifference": 579466,
+      "baselineGraphVertices": 15407,
+      "candidateGraphVertices": 10912,
+      "baselineYield": 169,
+      "candidateYield": 169,
+      "baselineSubmittedPolynomials": 12288,
+      "candidateSubmittedPolynomials": 12288,
+      "equalSubmittedPolynomials": true
+    },
+    {
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 2,
+      "baselineSumPerOwnerRequestedHighWater": 15218233,
+      "candidateSumPerOwnerRequestedHighWater": 14638767,
+      "observedRequestedBytesDifference": 579466,
+      "baselineGraphVertices": 15407,
+      "candidateGraphVertices": 10912,
+      "baselineYield": 169,
+      "candidateYield": 169,
+      "baselineSubmittedPolynomials": 12288,
+      "candidateSubmittedPolynomials": 12288,
+      "equalSubmittedPolynomials": true
+    },
+    {
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 1,
+      "baselineSumPerOwnerRequestedHighWater": 30413465,
+      "candidateSumPerOwnerRequestedHighWater": 27137877,
+      "observedRequestedBytesDifference": 3275588,
+      "baselineGraphVertices": 30590,
+      "candidateGraphVertices": 17968,
+      "baselineYield": 323,
+      "candidateYield": 273,
+      "baselineSubmittedPolynomials": 24576,
+      "candidateSubmittedPolynomials": 20480,
+      "equalSubmittedPolynomials": false
+    },
+    {
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 2,
+      "baselineSumPerOwnerRequestedHighWater": 30413465,
+      "candidateSumPerOwnerRequestedHighWater": 27137877,
+      "observedRequestedBytesDifference": 3275588,
+      "baselineGraphVertices": 30590,
+      "candidateGraphVertices": 17968,
+      "baselineYield": 323,
+      "candidateYield": 273,
+      "baselineSubmittedPolynomials": 24576,
+      "candidateSubmittedPolynomials": 20480,
+      "equalSubmittedPolynomials": false
+    }
+  ],
+  "screen": {
+    "candidate": null,
+    "reason": "no-reproducible-short-improvement",
+    "requiredLongTrials": 0,
+    "profiles": [
+      {
+        "profile": "half",
+        "oneRatios": [
+          1,
+          1
+        ],
+        "twoRatios": [
+          0.8452012383900929,
+          0.8452012383900929
+        ],
+        "score": 0.8452012383900929,
+        "minYield": 273,
+        "minBaseline": 323,
+        "qualifies": false
+      },
+      {
+        "profile": "quarter",
+        "oneRatios": [
+          1,
+          1
+        ],
+        "twoRatios": [
+          0.8452012383900929,
+          0.8452012383900929
+        ],
+        "score": 0.8452012383900929,
+        "minYield": 273,
+        "minBaseline": 323,
+        "qualifies": false
+      }
+    ]
+  },
+  "final": {
+    "adopted": false,
+    "reason": "no-short-candidate"
+  },
+  "completeRsa100": [],
+  "timing": {
+    "shortStartedAt": "2026-10-20T12:38:59.549Z",
+    "shortCompletedAt": "2026-10-20T12:51:30.580Z",
+    "shortHarnessWallMs": 751031,
+    "longStartedAt": null,
+    "longCompletedAt": null,
+    "longHarnessWallMs": null,
+    "requestCalculationMs": 720011,
+    "maximumAuthorizedCalculationMs": 3120000,
+    "preparation": {
+      "worktreeCreatedAt": "2026-10-20T11:50:14+00:00",
+      "preflightCompletedAt": "2026-10-20T12:38:58.332096+00:00",
+      "note": "Build, test, browser controls, review and invocation corrections; excludes subsequent RSA trials and CI."
+    }
+  },
+  "rows": [
+    {
+      "id": "short-baseline-w1-r1",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60001,
+      "initializationMs": 369.59999999403954,
+      "configuration": {
+        "version": 1,
+        "profile": "baseline",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "10932187500000000",
+        "lpBits": 54,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2139,
+        "dlp": 6665,
+        "cycles": 0,
+        "vertices": 15407,
+        "treeEdges": 8804,
+        "usable": 169,
+        "ingested": 8973
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 8973,
+      "bytesSubmitted": 1846193,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 342.5,
+            "sieveMs": 48626.29999999702,
+            "copyFreeMs": 1.699999988079071,
+            "framingMs": 35.10000002384186,
+            "submitMs": 75.70000000298023,
+            "observeMs": 0.3999999910593033,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 9280868,
+            "peakRequested": 15218233,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 15218233
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 342.5,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.10000000894069672,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 633629,
+      "sampledRam": {
+        "samples": 855,
+        "first": {
+          "atMs": 109.920737,
+          "rssBytes": 385024,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1327226880,
+        "peakPssBytes": 459706368,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-baseline-w1-r1.json",
+      "sha256": "a645798de1b9a64594541ac7c4a00f98c8d22de0e7dd214dc7b28151a603cff6",
+      "logSha256": "2e77f83666e612f004bb49508e4a1ec7fd0e26de6c642eafb7d5c1dcb8521b48"
+    },
+    {
+      "id": "short-half-w1-r1",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.79999999702,
+      "initializationMs": 358.70000000298023,
+      "configuration": {
+        "version": 1,
+        "profile": "half",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "5408000000000000",
+        "lpBits": 53,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2137,
+        "dlp": 5535,
+        "cycles": 0,
+        "vertices": 13153,
+        "treeEdges": 7672,
+        "usable": 169,
+        "ingested": 7841
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 7841,
+      "bytesSubmitted": 1615177,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 332.59999999403954,
+            "sieveMs": 47721.90000000596,
+            "copyFreeMs": 1.5999999940395355,
+            "framingMs": 27.900000005960464,
+            "submitMs": 74.8999999910593,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 16711680,
+            "liveRequested": 7402068,
+            "peakRequested": 14990544,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 16711680,
+          "peakRequestedBytes": 14990544
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 332.59999999403954,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 554691,
+      "sampledRam": {
+        "samples": 839,
+        "first": {
+          "atMs": 102.877157,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1320833024,
+        "peakPssBytes": 458804224,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-half-w1-r1.json",
+      "sha256": "c9aba3874d7c9c3ddf29035fc10c8e672cdc325cb6092524bc31663be7f52554",
+      "logSha256": "eb9bdbafe2d1237abb329734cb3aa00cffadfecb14e2bd9b9a97d330c422db27"
+    },
+    {
+      "id": "short-quarter-w1-r1",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60001,
+      "initializationMs": 368.59999999403954,
+      "configuration": {
+        "version": 1,
+        "profile": "quarter",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "2704000000000000",
+        "lpBits": 52,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2133,
+        "dlp": 4411,
+        "cycles": 0,
+        "vertices": 10912,
+        "treeEdges": 6544,
+        "usable": 169,
+        "ingested": 6713
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 6713,
+      "bytesSubmitted": 1384560,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 342.79999999701977,
+            "sieveMs": 46728.29999999702,
+            "copyFreeMs": 1.2999999821186066,
+            "framingMs": 24.700000017881393,
+            "submitMs": 74.59999999403954,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 7178108,
+            "peakRequested": 14638767,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 14638767
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 342.79999999701977,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 473038,
+      "sampledRam": {
+        "samples": 845,
+        "first": {
+          "atMs": 101.686012,
+          "rssBytes": 364544,
+          "pssBytes": 146432,
+          "processes": 1
+        },
+        "peakRssBytes": 1326292992,
+        "peakPssBytes": 458973184,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-quarter-w1-r1.json",
+      "sha256": "28ef69e166efbb7c37db782d2ae07c55c15fdc66c914cef37419b81415cc66ea",
+      "logSha256": "ea41e50e6061acf6b3d3623db7f6b10f961ece3484206772d183520861cd3d56"
+    },
+    {
+      "id": "short-quarter-w2-r1",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60001,
+      "initializationMs": 570.0999999940395,
+      "configuration": {
+        "version": 1,
+        "profile": "quarter",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "2704000000000000",
+        "lpBits": 52,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 273,
+      "target": 116512,
+      "collectorStats": {
+        "full": 271,
+        "slp": 3501,
+        "dlp": 7291,
+        "cycles": 2,
+        "vertices": 17968,
+        "treeEdges": 10790,
+        "usable": 273,
+        "ingested": 11063
+      },
+      "familiesSubmitted": 10,
+      "familiesIssued": 14,
+      "polynomialsSubmitted": 20480,
+      "rawRelationsSubmitted": 11063,
+      "bytesSubmitted": 2280389,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 542.5999999940395,
+            "sieveMs": 47168.59999997914,
+            "copyFreeMs": 0.800000011920929,
+            "framingMs": 35.99999997019768,
+            "submitMs": 139.6000000089407,
+            "observeMs": 0.19999998807907104,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 530.2000000029802,
+            "sieveMs": 31847.40000000596,
+            "copyFreeMs": 1,
+            "framingMs": 10.799999997019768,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 10026036,
+            "peakRequested": 15241972,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 15241972
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 11895905,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 11895905
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 530.2000000029802,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 542.5999999940395,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 911522,
+      "sampledRam": {
+        "samples": 841,
+        "first": {
+          "atMs": 110.272848,
+          "rssBytes": 385024,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1364082688,
+        "peakPssBytes": 500325376,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-quarter-w2-r1.json",
+      "sha256": "6c07a8e27e0647f0785620a96586e5844dbd4fad9c56913d96a55d91c80a2f0c",
+      "logSha256": "bcebbf4f42e10f8b9a2b8b64338b3c16f1b3f188806bed5c4ac88083b5fd5651"
+    },
+    {
+      "id": "short-half-w2-r1",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.90000000596,
+      "initializationMs": 649,
+      "configuration": {
+        "version": 1,
+        "profile": "half",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "5408000000000000",
+        "lpBits": 53,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 273,
+      "target": 116512,
+      "collectorStats": {
+        "full": 271,
+        "slp": 3507,
+        "dlp": 9189,
+        "cycles": 2,
+        "vertices": 21748,
+        "treeEdges": 12694,
+        "usable": 273,
+        "ingested": 12967
+      },
+      "familiesSubmitted": 10,
+      "familiesIssued": 14,
+      "polynomialsSubmitted": 20480,
+      "rawRelationsSubmitted": 12967,
+      "bytesSubmitted": 2669617,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 615.4000000059605,
+            "sieveMs": 48281.39999999106,
+            "copyFreeMs": 2.4000000059604645,
+            "framingMs": 39.49999997019768,
+            "submitMs": 138.20000000298023,
+            "observeMs": 0.19999998807907104,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 617.3000000119209,
+            "sieveMs": 32436.39999999106,
+            "copyFreeMs": 0.5000000149011612,
+            "framingMs": 11.699999988079071,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 17104896,
+            "liveRequested": 10404004,
+            "peakRequested": 15522211,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 17104896,
+          "peakRequestedBytes": 15522211
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 11991570,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 11991570
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 615.4000000059605,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 617.3000000119209,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 1077357,
+      "sampledRam": {
+        "samples": 834,
+        "first": {
+          "atMs": 112.417514,
+          "rssBytes": 360448,
+          "pssBytes": 142336,
+          "processes": 1
+        },
+        "peakRssBytes": 1351995392,
+        "peakPssBytes": 489151488,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-half-w2-r1.json",
+      "sha256": "e3bd0d53ba89a36fe8b77a3041d3b5ddcd4158dd9e06b8ea4692d2f1d19bcb45",
+      "logSha256": "ad549ce0254086ee4601fd64f6d46cc0d41a656d2508cbeb9c27034129cc8065"
+    },
+    {
+      "id": "short-baseline-w2-r1",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.90000000596,
+      "initializationMs": 532,
+      "configuration": {
+        "version": 1,
+        "profile": "baseline",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "10932187500000000",
+        "lpBits": 54,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 323,
+      "target": 116512,
+      "collectorStats": {
+        "full": 320,
+        "slp": 4175,
+        "dlp": 13317,
+        "cycles": 3,
+        "vertices": 30590,
+        "treeEdges": 17489,
+        "usable": 323,
+        "ingested": 17812
+      },
+      "familiesSubmitted": 12,
+      "familiesIssued": 16,
+      "polynomialsSubmitted": 24576,
+      "rawRelationsSubmitted": 17812,
+      "bytesSubmitted": 3664316,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 484.6000000089407,
+            "sieveMs": 49795.39999999106,
+            "copyFreeMs": 1.0000000149011612,
+            "framingMs": 44.5,
+            "submitMs": 161.79999999701977,
+            "observeMs": 0.30000001192092896,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 496.90000000596046,
+            "sieveMs": 49607.30000001192,
+            "copyFreeMs": 2.000000014901161,
+            "framingMs": 19.799999982118607,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 23724032,
+            "liveRequested": 14688372,
+            "peakRequested": 18347349,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 23724032,
+          "peakRequestedBytes": 18347349
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 12066116,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 12066116
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 484.6000000089407,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.10000000894069672,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 496.90000000596046,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 1227120,
+      "sampledRam": {
+        "samples": 823,
+        "first": {
+          "atMs": 111.765848,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1360842752,
+        "peakPssBytes": 496172032,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-baseline-w2-r1.json",
+      "sha256": "d2963c069df87b81636266e598d3579e267b08417d15d30162cc20427e5bd29d",
+      "logSha256": "607cc808b08634796234d4949f58d5dd6247778e6f95d0501917238467c21d2b"
+    },
+    {
+      "id": "short-quarter-w1-r2",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.79999999702,
+      "initializationMs": 370.29999999701977,
+      "configuration": {
+        "version": 1,
+        "profile": "quarter",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "2704000000000000",
+        "lpBits": 52,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2133,
+        "dlp": 4411,
+        "cycles": 0,
+        "vertices": 10912,
+        "treeEdges": 6544,
+        "usable": 169,
+        "ingested": 6713
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 6713,
+      "bytesSubmitted": 1384560,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 341.5,
+            "sieveMs": 46712,
+            "copyFreeMs": 1.0999999940395355,
+            "framingMs": 27.19999998807907,
+            "submitMs": 74.5,
+            "observeMs": 0.4000000059604645,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 7178108,
+            "peakRequested": 14638767,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 14638767
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 341.5,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 473038,
+      "sampledRam": {
+        "samples": 834,
+        "first": {
+          "atMs": 108.994547,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1327943680,
+        "peakPssBytes": 459634688,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-quarter-w1-r2.json",
+      "sha256": "b3f22a2ac028e6506f6072b80d5eb45ed032c1e308a60ab119dd0201e6e193be",
+      "logSha256": "f845e136244a4d646ec7c571058e6b5cfe1905ff42fb83af95638b129b1cb4e1"
+    },
+    {
+      "id": "short-half-w1-r2",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60001.10000000894,
+      "initializationMs": 369.80000001192093,
+      "configuration": {
+        "version": 1,
+        "profile": "half",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "5408000000000000",
+        "lpBits": 53,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2137,
+        "dlp": 5535,
+        "cycles": 0,
+        "vertices": 13153,
+        "treeEdges": 7672,
+        "usable": 169,
+        "ingested": 7841
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 7841,
+      "bytesSubmitted": 1615177,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 342.90000000596046,
+            "sieveMs": 47681.90000000596,
+            "copyFreeMs": 1.4999999850988388,
+            "framingMs": 31.600000023841858,
+            "submitMs": 76,
+            "observeMs": 0.19999998807907104,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 16711680,
+            "liveRequested": 7402068,
+            "peakRequested": 14990544,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 16711680,
+          "peakRequestedBytes": 14990544
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 342.90000000596046,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 554691,
+      "sampledRam": {
+        "samples": 840,
+        "first": {
+          "atMs": 105.235748,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1326456832,
+        "peakPssBytes": 460023808,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-half-w1-r2.json",
+      "sha256": "16bc533885112dd6f5318f09bf5162a30f6eb41032c04f37561cd18fc20bdfeb",
+      "logSha256": "7bc364ec9894305f65609136677fa73c7b973b3a67241793e15e5ba48586a5c1"
+    },
+    {
+      "id": "short-baseline-w1-r2",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60001,
+      "initializationMs": 365.30000001192093,
+      "configuration": {
+        "version": 1,
+        "profile": "baseline",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "10932187500000000",
+        "lpBits": 54,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 169,
+      "target": 116512,
+      "collectorStats": {
+        "full": 169,
+        "slp": 2139,
+        "dlp": 6665,
+        "cycles": 0,
+        "vertices": 15407,
+        "treeEdges": 8804,
+        "usable": 169,
+        "ingested": 8973
+      },
+      "familiesSubmitted": 6,
+      "familiesIssued": 8,
+      "polynomialsSubmitted": 12288,
+      "rawRelationsSubmitted": 8973,
+      "bytesSubmitted": 1846193,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 337.5,
+            "sieveMs": 48525.5,
+            "copyFreeMs": 1.4000000208616257,
+            "framingMs": 34.19999998807907,
+            "submitMs": 74.90000002086163,
+            "observeMs": 0.19999998807907104,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 9280868,
+            "peakRequested": 15218233,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 15218233
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 337.5,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 633629,
+      "sampledRam": {
+        "samples": 840,
+        "first": {
+          "atMs": 104.802172,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1324396544,
+        "peakPssBytes": 459134976,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-baseline-w1-r2.json",
+      "sha256": "86c35f3970a44e8f8074e3e8f6948e7622445e86920c80cf9cebbe37dda17942",
+      "logSha256": "3920f3aa74ac32d04291349c79e05acf4a8ebdb89817e01e5af041d5159cc312"
+    },
+    {
+      "id": "short-baseline-w2-r2",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.89999999106,
+      "initializationMs": 535.6999999880791,
+      "configuration": {
+        "version": 1,
+        "profile": "baseline",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "10932187500000000",
+        "lpBits": 54,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 323,
+      "target": 116512,
+      "collectorStats": {
+        "full": 320,
+        "slp": 4175,
+        "dlp": 13317,
+        "cycles": 3,
+        "vertices": 30590,
+        "treeEdges": 17489,
+        "usable": 323,
+        "ingested": 17812
+      },
+      "familiesSubmitted": 12,
+      "familiesIssued": 16,
+      "polynomialsSubmitted": 24576,
+      "rawRelationsSubmitted": 17812,
+      "bytesSubmitted": 3664316,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 503.40000000596046,
+            "sieveMs": 49597.29999999702,
+            "copyFreeMs": 0.9000000059604645,
+            "framingMs": 45.70000001788139,
+            "submitMs": 161.70000000298023,
+            "observeMs": 0.5,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 494.90000000596046,
+            "sieveMs": 49476.90000000596,
+            "copyFreeMs": 1.5,
+            "framingMs": 18.80000001192093,
+            "submitMs": 0,
+            "observeMs": 0.20000000298023224,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 23724032,
+            "liveRequested": 14688372,
+            "peakRequested": 18347349,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 23724032,
+          "peakRequestedBytes": 18347349
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 12066116,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 12066116
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 494.90000000596046,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "baseline",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "10932187500000000",
+            "lpBits": 54,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 503.40000000596046,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.10000000894069672,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 1227120,
+      "sampledRam": {
+        "samples": 814,
+        "first": {
+          "atMs": 107.267931,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1365790720,
+        "peakPssBytes": 499175424,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-baseline-w2-r2.json",
+      "sha256": "d7991bd7aeb3b75b0d0c5f60ddc369718335c70a93fd5ef6457c68cf2b8c11e8",
+      "logSha256": "8d4075add117994be15b11e534c684a30be67a033aaf5ba792af45e3c8156c11"
+    },
+    {
+      "id": "short-half-w2-r2",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.79999999702,
+      "initializationMs": 532,
+      "configuration": {
+        "version": 1,
+        "profile": "half",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "5408000000000000",
+        "lpBits": 53,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 273,
+      "target": 116512,
+      "collectorStats": {
+        "full": 271,
+        "slp": 3507,
+        "dlp": 9189,
+        "cycles": 2,
+        "vertices": 21748,
+        "treeEdges": 12694,
+        "usable": 273,
+        "ingested": 12967
+      },
+      "familiesSubmitted": 10,
+      "familiesIssued": 14,
+      "polynomialsSubmitted": 20480,
+      "rawRelationsSubmitted": 12967,
+      "bytesSubmitted": 2669617,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 495.6000000089407,
+            "sieveMs": 48350.79999999702,
+            "copyFreeMs": 1.199999988079071,
+            "framingMs": 34.20000001788139,
+            "submitMs": 139.70000000298023,
+            "observeMs": 0.20000000298023224,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 507.90000000596046,
+            "sieveMs": 32786.79999999702,
+            "copyFreeMs": 1.300000011920929,
+            "framingMs": 14.399999991059303,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 10404004,
+            "peakRequested": 15548810,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 15548810
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 11970671,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 11970671
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 495.6000000089407,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.10000000894069672,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "half",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "5408000000000000",
+            "lpBits": 53,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 507.90000000596046,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0.09999999403953552,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 1060486,
+      "sampledRam": {
+        "samples": 825,
+        "first": {
+          "atMs": 101.978451,
+          "rssBytes": 360448,
+          "pssBytes": 153600,
+          "processes": 1
+        },
+        "peakRssBytes": 1358778368,
+        "peakPssBytes": 493561856,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-half-w2-r2.json",
+      "sha256": "b42bf3ea9a8dd372d7c0e33bc439490449cdae7847a0b3da6314121cd2b6f13c",
+      "logSha256": "bb1f5f87dcfc4e0c377bdb3e61142b0db4cd78d614d4ba3a01eee4a38bc95cc4"
+    },
+    {
+      "id": "short-quarter-w2-r2",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.79999999702,
+      "initializationMs": 543.5,
+      "configuration": {
+        "version": 1,
+        "profile": "quarter",
+        "bits": 330,
+        "factorBaseBound": 3250000,
+        "intervalHalfWidth": 524288,
+        "singleLimit": "471250000",
+        "doubleLimit": "2704000000000000",
+        "lpBits": 52,
+        "thresholdAdjustment": -23,
+        "factorBaseSize": 116448
+      },
+      "relations": 273,
+      "target": 116512,
+      "collectorStats": {
+        "full": 271,
+        "slp": 3501,
+        "dlp": 7291,
+        "cycles": 2,
+        "vertices": 17968,
+        "treeEdges": 10790,
+        "usable": 273,
+        "ingested": 11063
+      },
+      "familiesSubmitted": 10,
+      "familiesIssued": 14,
+      "polynomialsSubmitted": 20480,
+      "rawRelationsSubmitted": 11063,
+      "bytesSubmitted": 2280389,
+      "wrapperTimingByOwner": [
+        {
+          "owner": 0,
+          "timings": {
+            "prepareMs": 506.70000000298023,
+            "sieveMs": 47160.70000000298,
+            "copyFreeMs": 1.5999999940395355,
+            "framingMs": 30.299999997019768,
+            "submitMs": 138.20000000298023,
+            "observeMs": 0.19999998807907104,
+            "extractMs": 0
+          }
+        },
+        {
+          "owner": 1,
+          "timings": {
+            "prepareMs": 517.2999999970198,
+            "sieveMs": 31979.29999999702,
+            "copyFreeMs": 0.7999999970197678,
+            "framingMs": 9.300000011920929,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 18546688,
+            "liveRequested": 10026036,
+            "peakRequested": 15241972,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 18546688,
+          "peakRequestedBytes": 15241972
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 11895905,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 11895905
+        }
+      ],
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845740,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 506.70000000298023,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "config": {
+            "version": 1,
+            "profile": "quarter",
+            "bits": 330,
+            "factorBaseBound": 3250000,
+            "intervalHalfWidth": 524288,
+            "singleLimit": "471250000",
+            "doubleLimit": "2704000000000000",
+            "lpBits": 52,
+            "thresholdAdjustment": -23,
+            "factorBaseSize": 116448
+          },
+          "timings": {
+            "prepareMs": 517.2999999970198,
+            "sieveMs": 0,
+            "copyFreeMs": 0,
+            "framingMs": 0,
+            "submitMs": 0,
+            "observeMs": 0,
+            "extractMs": 0
+          }
+        }
+      ],
+      "peakTransportBytes": 911522,
+      "sampledRam": {
+        "samples": 820,
+        "first": {
+          "atMs": 104.295148,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1362989056,
+        "peakPssBytes": 495463424,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-dlp-stage18/short-quarter-w2-r2.json",
+      "sha256": "35bfce1cc026d91ae01d6fb88856a696bbbbce3ce8318eaf298cee927bad959f",
+      "logSha256": "6bbd530b0327b96aec569e47a81d173c88e5ad02ffb629aae1be222a83d8f2f4"
+    }
+  ]
+}

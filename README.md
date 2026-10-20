@@ -31,3 +31,5 @@ PR6は[保守的selectorと新6問holdout](docs/benchmarks/llm01-selection-holdo
 [Full SIQSの独立private評価](docs/architecture/full-siqs-source-review.md)はmsieve1.53の大行列Lanczosを使います。既存UI/profile・公開配布は変更しません。[操作](docs/operations/full-siqs.md)と[検証記録](docs/operations/stage13-tdd-evidence.md)を参照してください。
 
 Stage17: [pinned SIMD SIQS results and limits](docs/benchmarks/llm01-rusqsieve.md), [contract](docs/contracts/rusqsieve-evaluation.md), [current-method context](docs/architecture/current-siqs-methods.md). RSA-100 remains incomplete in the measured600s conditions; publication and CI are separate decisions.
+
+Stage18: [fixed DLP screen and limits](docs/benchmarks/llm01-dlp.md), [contract](docs/contracts/dlp-evaluation.md), [operations](docs/operations/dlp-evaluation.md). This preserves Stage17 and evaluates only three frozen DLP conditions; no product default or site integration is changed.

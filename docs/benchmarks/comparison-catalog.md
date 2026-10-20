@@ -40,3 +40,5 @@ Stage14の[SIQS lab全38試行](llm01-siqs-lab.md)は、通知・任意observer�
 Stage16 full mode0: [report](llm01-full-opt.md), [summary](llm01-full-opt-summary.json), [six raw trials](staged-full-opt-stage16/run-all.json), [counter diagnostic](staged-full-diagnostic-stage16/rsa100-counts.json). Original C/WASM and previous raw are preserved.
 
 Stage17: [14 fixed SIMD trials](llm01-rusqsieve.md), [raw/log invocation](staged-rusqsieve-stage17/run-all.json), [source-bound summary](llm01-rusqsieve-summary.json). The0.4 reference, former C paths and every earlier raw remain preserved.
+
+Stage18: [fixed DLP-only comparison](llm01-dlp.md), [short raw/log invocation](staged-dlp-stage18/short-run.json), [source-bound summary](llm01-dlp-summary.json), [validation manifest](archive/validation-logs/staged-dlp-stage18/manifest.json). All three settings, failures and negative outcomes remain preserved; Stage17 and previous methods are unchanged.

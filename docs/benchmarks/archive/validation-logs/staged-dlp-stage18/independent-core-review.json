@@ -1,0 +1,16 @@
+{
+  "reviewer": "independent numeric reviewer",
+  "head": "dc0458547b2d104eff31af6b39074281ecb4c210",
+  "readOnly": true,
+  "findings": {
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "resolved": [
+    "Long-start source/raw/log/head binding",
+    "Actual RSA-tier packet/collector coverage",
+    "Both staged and unstaged source detection"
+  ],
+  "scope": "Transcribed completed core review. Reviewer ran no benchmark/build."
+}
