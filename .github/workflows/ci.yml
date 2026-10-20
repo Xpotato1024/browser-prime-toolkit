@@ -187,3 +187,28 @@ jobs:
           CHROME_BIN: google-chrome
           PRIME_MEASURED_HEAD: ${{ github.sha }}
       - run: git diff --check
+
+  siqs-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
+      - run: npm run fetch:full-siqs
+      - run: npm run build:siqs-lab -- --check
+      - run: npm run verify:siqs-lab-native
+      - run: npm test
+      - run: npm run check:siqs-lab
+      - name: Bounded profiling and shared relation graph contracts offline
+        run: npm run verify:siqs-lab -- --out "$RUNNER_TEMP/siqs-lab.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check

@@ -54,3 +54,5 @@ Stage13は[ADR0013](adr/0013-large-sparse-siqs.md)に従い、[full SIQS原本�
 Full SIQSの[桁数別・RSA100の実測と限界](benchmarks/llm01-staged-full.md)は、固定4組・全raw・source結合を検査する生成報告です。未記載の中間桁は未測定です。
 
 [次段階のfull SIQS profile候補](architecture/full-siqs-profiling-next.md)はsource由来の事実と未測定の改善仮説を分けています。
+
+Stage14は[ADR0014](adr/0014-siqs-lab.md)と[事前固定した短時間比較](../bench/siqs-lab-plan.json)に従い、任意の計測コスト、SIQS設定、共通関係式グラフを持つ1／2 Workerを別々に評価します。既存Stage13の実行系・実測は保全します。
