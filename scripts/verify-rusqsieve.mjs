@@ -150,7 +150,7 @@ try {
     const c=catalog.find(c=>c.id===caseId);assert.ok(c,'Official case exists');
     const record=await evaluate('evaluationHarness.measure('+JSON.stringify({id:caseId,seed,budgetMs})+')');
     assert.equal(record.input,c.input);assert.equal(record.bits,c.bits);assert.equal(record.digits,c.digits);assert.equal(record.knownFactorsUsed,false);
-    const value=record.outcome;assert.equal(value.input,c.input);assert.equal(value.allWorkersDisposed,true);
+    const value=record.outcome;assert.equal(value.input,c.input);assert.equal(value.allWorkersDisposed,true);assert.equal(value.allWorkerSourcesReleased,true);
     assert.ok(value.peakOwners<=2);assert.ok(value.maximumWasmBytes<=536870912);assert.ok(value.peakTransportBytes<=33554432);
     if(value.factors.length){let product=BigInt(value.remaining);for(const f of value.factors)product*=BigInt(f.value);assert.equal(product,BigInt(c.input));}
     if(['factorized','prime','probable'].includes(value.kind))assert.ok(value.requestWallMs<budgetMs);
@@ -168,7 +168,7 @@ try {
     assert.equal(checks.performanceMeasurement,false);records.push(checks);
   }
   const lifecycle=null;
-  const ownership=await evaluate('evaluationHarness.ownership()');assert.equal(ownership.live,0);assert.ok(ownership.maxLive<=2);
+  const ownership=await evaluate('evaluationHarness.ownership()');assert.equal(ownership.live,0);assert.ok(ownership.maxLive<=2);assert.equal(ownership.liveSources,0);assert.ok(ownership.maxLiveSources<=2);
   assert.deepEqual(await evaluate('evaluationHarness.violations'),[]);
   assert.deepEqual(await evaluate('evaluationHarness.errors'),[]);
   assert.deepEqual(await evaluate('evaluationHarness.rejections'),[]);

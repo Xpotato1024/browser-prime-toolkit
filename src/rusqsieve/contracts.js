@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Copyright (C) 2026 Xpotato.net / Xpotato1024
-export const LIMITS=Object.freeze({workers:2,wasmBytes:268435456,totalWasmBytes:536870912,packetBytes:16777216,transportBytes:33554432,batchFamilies:2,maxMs:600000,initMs:10000,maxExtracts:4});
+export const LIMITS=Object.freeze({workers:2,wasmBytes:268435456,totalWasmBytes:536870912,packetBytes:16777216,transportBytes:33554432,batchFamilies:2,maxMs:600000,initMs:10000,maxExtracts:1});
 export function validateInput(input){
  if(typeof input!=='string'||input.length>100||!/^[1-9][0-9]*$/.test(input))throw Error('Canonical integer required');
  const n=BigInt(input),bits=n.toString(2).length;if(n<2n||bits>332)throw Error('Input outside SIQS profile');return{input,bits};
