@@ -1,0 +1,126 @@
+{
+  "id": "stage18-dlp-only-v1",
+  "baseHead": "b2e38bb4b87a36cf2f76159c6ac6b76d4ea60064",
+  "case": "RSA-100",
+  "seed": 1,
+  "profiles": {
+    "baseline": 1035,
+    "half": 512,
+    "quarter": 256
+  },
+  "fixed": {
+    "factorBaseBound": 3250000,
+    "intervalHalfWidth": 524288,
+    "largePrimeMultiplier": 145,
+    "thresholdAdjustment": -23,
+    "batchFamilies": 2,
+    "familyBudget": 250000,
+    "shareContext": true,
+    "retainLocal": false,
+    "maxOwners": 2,
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912
+  },
+  "trials": [
+    {
+      "id": "short-baseline-w1-r1",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-half-w1-r1",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-quarter-w1-r1",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-quarter-w2-r1",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-half-w2-r1",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-baseline-w2-r1",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-quarter-w1-r2",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-half-w1-r2",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-baseline-w1-r2",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-baseline-w2-r2",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-half-w2-r2",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-quarter-w2-r2",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    }
+  ],
+  "gate": {
+    "shortTwoWorkerEachRatio": 1.15,
+    "shortOneWorkerEachMinimumRatio": 0.9,
+    "longCandidateEachVsBaselineMaxRatio": 1.15,
+    "choose": "largest minimum two-worker repeat ratio; tie half before quarter",
+    "longOrder": [
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline"
+    ],
+    "longWorkers": 2,
+    "longBudgetMs": 600000,
+    "maxLongTrials": 4
+  },
+  "restrictions": "DLP product bound and its existing automatic lp_bits coupling only; no manual threshold offset/FB/interval/family/budget/algorithm changes; no completion-time extrapolation"
+}
