@@ -14,3 +14,5 @@ LLM-01 task directory `prime-stage20` retains actual preparation results:
 The native preflight observes k=139 and Q2=true. B3.25M has FB116,448/target116,512/lp_bits54; B2.5M has FB91,267/target91,331/lp_bits53. Halfwidth524,288 yields target-A149bits;262,144 yields150bits. All four sampled contexts have13 A factors and2,048 variants. These are actual native observations, not an assertion of final factorization performance.
 
 Independent read-only native/API review found P1=0,P2=0,P3=0 before measurement. Full plan/gate/driver review, final-head tests, comparison results and CI are recorded at handoff.
+
+The complete premeasurement Node suite passed344 tests. The frozen campaign completed all four browser contract configurations and all eight short trials, with no candidate meeting both1.15 normalized-progress gates. Generated reports validate every raw/log/source hash, within-geometry family/prefix equality and the unchanged Stage19 native baseline. Exact final-head test/review/CI results are supplied with the handoff.

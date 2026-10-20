@@ -70,3 +70,5 @@ Stage18: [fixed DLP results](benchmarks/llm01-dlp.md), [contract](contracts/dlp-
 Stage19: [scheduler contract](contracts/scheduler-evaluation.md), [operation and test method](operations/scheduler-evaluation.md), [actual TDD/preflight evidence](operations/stage19-tdd-evidence.md). The numeric kernel remains the Stage18 baseline.
 
 Stage20: [conditional geometry contract](contracts/geometry-evaluation.md), [operations](operations/geometry-evaluation.md), [TDD/build evidence](operations/stage20-tdd-evidence.md), [native artifact mapping](../native/rusqsieve-geometry/README.md). Only the predeclared four geometries are screened.
+
+Stage19 [measured scheduler results](benchmarks/llm01-scheduler.md) select finite ahead credit for further experiments. Stage20 [all geometry results](benchmarks/llm01-geometry.md) retain the original B/M settings under the fixed gate. [Interpretation and integration boundary](architecture/scheduler-geometry-findings.md) keep collection evidence separate from completion and site adoption.
