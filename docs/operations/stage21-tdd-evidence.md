@@ -28,3 +28,5 @@ The packet limit displayed in new receipts was corrected from the copied16MiB de
 
 ## Measured and final results
 The frozen plan, measured core, all raw/log hashes, same-family proof, paired gate and observed memory are recorded in docs/benchmarks/llm01-resources.md after execution. Final-head tests/check, independent review and exact-head Draft PR CI are required before handoff. No RSA-100 completion, all-device speedup or physical phone test is implied.
+
+The first final whole-tree check failed because new PNG screenshots were decoded as text. The checker now recognizes only documentation benchmark PNGs, validates signature/IHDR bounds/terminal IEND, and keeps all text UTF8/LF/syntax/link checks. Real screenshot, corrupt/truncated image and path-scoping regressions pass. Original failure log remains local.

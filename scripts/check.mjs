@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { TextDecoder } from 'node:util';
+import { documentationImage } from './documentation-image.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const decoder = new TextDecoder('utf-8', { fatal: true });
@@ -18,6 +19,7 @@ function walk(directory) {
 walk(root);
 for (const file of files) {
   const bytes = readFileSync(file);
+  if (documentationImage(relative(root, file).split('\\').join('/'), bytes)) continue;
   if (bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf) {
     throw new Error('UTF-8 BOM: ' + file);
   }

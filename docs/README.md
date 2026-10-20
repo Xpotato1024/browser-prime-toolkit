@@ -76,3 +76,6 @@ Stage19 [measured scheduler results](benchmarks/llm01-scheduler.md) select finit
 Stage21: [finite device resource contract](contracts/device-resources.md), [decision](adr/0021-finite-device-resources.md), [private entry and reproduction](operations/device-resources.md), [TDD and preserved corrections](operations/stage21-tdd-evidence.md). The original entry and site integration boundary remain unchanged.
 
 Stage21 [all owner-count results](benchmarks/llm01-resources.md) preserve1..4-worker packet identity and measured limits. Stage22 [dedicated-coordinator contract](contracts/coordinator-evaluation.md), [operations](operations/coordinator-evaluation.md) and [TDD](operations/stage22-tdd-evidence.md) isolate host scheduling under the same four-owner budget.
+
+- [Device resource implementation and bounded results](operations/device-resource-handoff.md)
+- [Stopped coordinator study](operations/stage22-outcome.md)

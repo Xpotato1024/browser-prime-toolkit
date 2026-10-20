@@ -348,3 +348,30 @@ jobs:
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
+
+  coordinator-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/coordinator-*.test.js
+      - run: npm run check:coordinator
+      - run: node scripts/report-coordinator-aborted.mjs --check
+      - run: node scripts/check-resource-source-index.mjs
+      - name: Dedicated coordinator offline contracts without performance trials
+        run: |
+          node scripts/verify-coordinator.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
+          for engine in two-drop three-drop four-drop; do
+            node scripts/verify-coordinator.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check

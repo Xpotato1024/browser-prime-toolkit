@@ -1,0 +1,130 @@
+{
+  "plan": "dedicated-coordinator-stage22-20261020",
+  "planSha256": "bb43f4071db705543c5ddcd633eadbb4f837b6feaf12db8bfb1440730281221e",
+  "measuredHead": "4203aab1703e9129fd3e86343c485c334bbccc4a",
+  "startedAt": "2026-10-20T17:28:47.262Z",
+  "preflight": [
+    {
+      "id": "contracts-combined-w4",
+      "coordinator": "combined",
+      "workers": 4,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-coordinator.mjs",
+        "--coordinator",
+        "combined",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-coordinator-stage22/contracts-combined-w4.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "25c4d4f980efd4bc19d89edfcca1b1ff5e43608b7f5dbd3f8756709b787b8431",
+      "logSha256": "8954f2703e20f0b8359fa710d2414122961763c7cc948f97d4bd6ecaf6054c77"
+    },
+    {
+      "id": "contracts-dedicated-w2",
+      "coordinator": "dedicated",
+      "workers": 2,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-coordinator.mjs",
+        "--coordinator",
+        "dedicated",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-coordinator-stage22/contracts-dedicated-w2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "bd36fb93d0df7a6945a36a280f715c2e3b09ebc2100b300bcf1b1b4d0ae0e03d",
+      "logSha256": "96ca981d46bee28b4bc92b0e565c71bdb83b1fa3c2d0584e515cdf40c027bd2e"
+    },
+    {
+      "id": "contracts-dedicated-w3",
+      "coordinator": "dedicated",
+      "workers": 3,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-coordinator.mjs",
+        "--coordinator",
+        "dedicated",
+        "--engine",
+        "three-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-coordinator-stage22/contracts-dedicated-w3.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "f294328cf15cc6575c9de51ea07877d78f79b3b613f0623e54685dcb16c1c557",
+      "logSha256": "d471ab4a010d54990e2160714a2b7d4400f0915116a6680c0ba39b4d08c6df46"
+    },
+    {
+      "id": "contracts-dedicated-w4",
+      "coordinator": "dedicated",
+      "workers": 4,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-coordinator.mjs",
+        "--coordinator",
+        "dedicated",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-coordinator-stage22/contracts-dedicated-w4.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "158b8d7dd1da53e0b020429c2a8d7e65dba172689f711928d977e681569fceca",
+      "logSha256": "b394309964091b8261ac152f32d7097203e4b78877cb3c44bbcc8b3e4ce9d28e"
+    }
+  ],
+  "controls": [
+    {
+      "id": "fixed-combined",
+      "coordinator": "combined",
+      "workers": 4,
+      "fixedFamilies": 4,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-coordinator.mjs",
+        "--coordinator",
+        "combined",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-coordinator-stage22/fixed-combined.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "4"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "rawSha256": null,
+      "logSha256": "36c4fdf5ebf405802d729c9d5d0b1df4b8bcf3af912a7cc8f5a1dc4a7b68cba5"
+    }
+  ],
+  "trials": []
+}
