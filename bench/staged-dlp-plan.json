@@ -120,7 +120,9 @@
     ],
     "longWorkers": 2,
     "longBudgetMs": 600000,
-    "maxLongTrials": 4
+    "maxLongTrials": 4,
+    "metric": "native usable full+cycles in acknowledged contiguous submitted prefix only",
+    "undefinedRatio": "zero baseline, missing receipt, invalid contract or abnormal outcome disqualifies selection"
   },
   "restrictions": "DLP product bound and its existing automatic lp_bits coupling only; no manual threshold offset/FB/interval/family/budget/algorithm changes; no completion-time extrapolation"
 }
