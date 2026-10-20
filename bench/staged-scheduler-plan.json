@@ -1,0 +1,208 @@
+{
+  "id": "stage19-scheduler-v1",
+  "baseHead": "2008edb702a6b9a214687542a146d38582a780de",
+  "wasmSha256": "c9fc84ce31f1c8ac92cfa44e0ce77521d419abc87570d762e326974ed313bd13",
+  "case": "RSA-100",
+  "modes": {
+    "batch2": {
+      "batch": 2,
+      "credit": 2,
+      "packetBytes": 16777216
+    },
+    "batch1": {
+      "batch": 1,
+      "credit": 1,
+      "packetBytes": 16777216
+    },
+    "credit1": {
+      "batch": 1,
+      "credit": 2,
+      "packetBytes": 8388608
+    }
+  },
+  "fixed": {
+    "factorBaseBound": 3250000,
+    "intervalHalfWidth": 524288,
+    "largePrimeMultiplier": 145,
+    "doubleLargePrimeMultiplier": 1035,
+    "thresholdAdjustment": -23,
+    "shareContext": true,
+    "retainLocal": false,
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "transportBytes": 33554432,
+    "auditBytes": 8388608,
+    "auditPacketCount": 1024,
+    "maxOwners": 2
+  },
+  "controls": [
+    {
+      "id": "fixed-batch2-w1",
+      "scheduler": "batch2",
+      "workers": 1,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    },
+    {
+      "id": "fixed-batch2-w2",
+      "scheduler": "batch2",
+      "workers": 2,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    },
+    {
+      "id": "fixed-batch1-w1",
+      "scheduler": "batch1",
+      "workers": 1,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    },
+    {
+      "id": "fixed-batch1-w2",
+      "scheduler": "batch1",
+      "workers": 2,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    },
+    {
+      "id": "fixed-credit1-w1",
+      "scheduler": "credit1",
+      "workers": 1,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    },
+    {
+      "id": "fixed-credit1-w2",
+      "scheduler": "credit1",
+      "workers": 2,
+      "fixedFamilies": 4,
+      "budgetMs": 180000
+    }
+  ],
+  "trials": [
+    {
+      "id": "short-batch2-w1-r1",
+      "scheduler": "batch2",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch1-w1-r1",
+      "scheduler": "batch1",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-credit1-w1-r1",
+      "scheduler": "credit1",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-credit1-w2-r1",
+      "scheduler": "credit1",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch1-w2-r1",
+      "scheduler": "batch1",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch2-w2-r1",
+      "scheduler": "batch2",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-credit1-w1-r2",
+      "scheduler": "credit1",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch1-w1-r2",
+      "scheduler": "batch1",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch2-w1-r2",
+      "scheduler": "batch2",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch2-w2-r2",
+      "scheduler": "batch2",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-batch1-w2-r2",
+      "scheduler": "batch1",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-credit1-w2-r2",
+      "scheduler": "credit1",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    }
+  ],
+  "gate": {
+    "twoWorkerEachRatio": {
+      "n": 110,
+      "d": 100
+    },
+    "oneWorkerEachMinimumRatio": {
+      "n": 90,
+      "d": 100
+    },
+    "twoWorkerBlockedIdleAllowanceMs": 100,
+    "zeroOrInvalidBaseline": "fail closed",
+    "rank": "largest minimum exact two-worker usable ratio; tie batch1 before credit1",
+    "noLongTrials": true
+  },
+  "geometry": {
+    "conditional": true,
+    "bounds": [
+      2500000,
+      3250000
+    ],
+    "halfWidths": [
+      262144,
+      524288
+    ],
+    "workers": 2,
+    "repeats": 2,
+    "budgetMs": 60000,
+    "maxTrials": 8,
+    "eachNormalizedYieldRatio": {
+      "n": 115,
+      "d": 100
+    },
+    "noLongTrials": true
+  },
+  "limits": {
+    "shortTrials": 12,
+    "shortTotalRequestMs": 720000,
+    "controlTotalMaximumRequestMs": 1080000,
+    "conditionalGeometryTotalRequestMs": 480000
+  }
+}
