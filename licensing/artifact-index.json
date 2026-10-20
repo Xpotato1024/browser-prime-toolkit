@@ -236,6 +236,6 @@
   ],
   "changesAndBuildScripts": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/scripts",
   "thirdPartyNotices": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/dc0458547b2d104eff31af6b39074281ecb4c210/vendor",
-  "scope": "Measured Stage17 calculation source snapshot, including Stage16 full-SIQS LTO and bounded rusqsieve artifacts; every historical artifact retains its own source/build receipt.",
+  "scope": "Measured Stage18 calculation source snapshot, including the fixed DLP evaluation, Stage17 bounded rusqsieve and Stage16 full-SIQS LTO artifacts; every historical artifact retains its own source/build receipt.",
   "sourceAvailability": "Official archive bytes were independently materialized and hash-checked. Equivalent source access combines these original archives with the repository commit sources/changes/build scripts; owner retains verified recovery copies."
 }
