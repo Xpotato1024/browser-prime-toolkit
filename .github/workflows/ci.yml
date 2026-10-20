@@ -364,13 +364,14 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/coordinator-*.test.js
       - run: npm run check:coordinator
+      - run: node scripts/generate-coordinator-ci.mjs --check
       - run: node scripts/report-coordinator-aborted.mjs --check
       - run: node scripts/check-resource-source-index.mjs
       - name: Dedicated coordinator offline contracts without performance trials
         run: |
-          node scripts/verify-coordinator.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
+          node scripts/verify-coordinator-ci.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
           for engine in two-drop three-drop four-drop; do
-            node scripts/verify-coordinator.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
+            node scripts/verify-coordinator-ci.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
           done
         env:
           CHROME_BIN: google-chrome
