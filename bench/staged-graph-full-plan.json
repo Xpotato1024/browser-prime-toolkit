@@ -1,0 +1,69 @@
+{
+  "id": "llm01-graph-full-control-20261021-v1",
+  "baseline": "stage25 compact artifact",
+  "hypothesis": "same final prefix/counters/packet+column digests and factors; peak requested decrease >=10%; full time median <=1.10x",
+  "source": "immutable campaign HEAD; baseline and compact built from same reviewed source",
+  "limits": {
+    "workers": 1,
+    "coordinatorMiB": 256,
+    "helperMiB": 64,
+    "totalWasmMiB": 256,
+    "transportMiB": 32,
+    "outstanding": 4,
+    "liveStopMiB": 160,
+    "linearStopMiB": 208,
+    "pssStopMiB": 1536,
+    "startAvailableMiB": 4096,
+    "totalCalculationMs": 240000
+  },
+  "trials": [
+    {
+      "id": "forty-1-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "forty-2-release",
+      "graph": "release",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "forty-3-release",
+      "graph": "release",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "forty-4-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "sixtyfour-1-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "sixtyfour-2-release",
+      "graph": "release",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "sixtyfour-3-release",
+      "graph": "release",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "sixtyfour-4-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000
+    }
+  ]
+}

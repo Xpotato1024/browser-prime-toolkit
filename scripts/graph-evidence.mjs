@@ -30,7 +30,7 @@ export function validateCampaign(dir,{requireComplete=true}={}){
   records.push({row,receipt:r,record});
  }
  const hashes=historicalHashes(run.head,[...sources.keys()]);for(const[p,h]of sources)assert.equal(hashes.get(p),h,'Pinned historical source '+p);
- const planPath=run.plan.includes('packed')?'bench/staged-graph-arena-plan.json':run.plan.includes('release')?'bench/staged-graph-release-plan.json':'bench/staged-graph-plan.json';
+ const planPath=run.plan.includes('full-control')?'bench/staged-graph-full-plan.json':run.plan.includes('packed')?'bench/staged-graph-arena-plan.json':run.plan.includes('release')?'bench/staged-graph-release-plan.json':'bench/staged-graph-plan.json';
  const driverPath=planPath.replace('bench/staged-graph-','scripts/benchmark-graph-').replace('-plan.json','.mjs').replace('scripts/benchmark-graph-plan.json','scripts/benchmark-graph-profile.mjs');
  const driver=planPath==='bench/staged-graph-plan.json'?'scripts/benchmark-graph-profile.mjs':driverPath;
  const hashes2=historicalHashes(run.head,[planPath,driver]);assert.equal(hashes2.get(planPath),run.planSha256);assert.equal(hashes2.get(driver),run.driverSha256);
