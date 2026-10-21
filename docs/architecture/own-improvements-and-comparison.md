@@ -88,4 +88,4 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 
 成功requestでcoordinator wrapperのsieveは2143.236秒、submit23.907秒、observe0.531秒、extract42.592秒だった。重なる呼出時間でCPU利用率ではないが、集約や観測だけを削って大幅高速化する根拠は弱い。仮に抽出42.592秒を全て消してもrequestの約1.92%に相当するという単純上限の見積りであり、実装可能な短縮率ではない。
 
-今回の低〜中コスト候補は採用または負の結果まで閉じた。これは「改善余地ゼロ」の証明ではなく、実測で裏付けられた改良を固定して受入へ進む実務上の区切りである。最終headのtest/check・独立review・CIを成立させてから条件付きmerge/releaseを判断する。実機スマホ、Safari/Firefox、サイトReact island/manifest v1、multi-instance admission/CSP/通常サイト移動は別の受入であり、RSA100成功を本番統合済みとは扱わない。
+保持・同期候補は採用または負の結果まで閉じたが、本人の追加指示に従い、[Stage40の収集ホットパス診断と改善](../contracts/collection-profile.md)を継続する。既存計時の区分外だったresieve/C係数/score初期化/Gray B更新を含めて分け、現在の比率で優先順位を定める。過去profileを現状比率にせず、filter早期解放だけを最後の改善余地とは扱わない。関係式収集の評価は未完了であり、現時点で条件付きmerge/releaseを成立扱いしない。実機スマホ、Safari/Firefox、サイトReact island/manifest v1、multi-instance admission/CSP/通常サイト移動は別の受入であり、RSA100成功を本番統合済みとは扱わない。

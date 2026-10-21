@@ -40,3 +40,5 @@ PR13のFAILUREは[run39391717377](https://github.com/Xpotato1024/browser-prime-t
 Stage37開始時点の追加固定基準: PR19 head3826a590、PR20 head18d7d843は成功CIを確認したDraftとして保持する。新しい反映と長枠はその後の増分branchへ分離し、最終head・依存順・受入条件を改めて確認する。
 
 2026-10-21 16:29 UTC読取の追加依存: PR19 head3826a590 → PR20 head18d7d843 → PR21 headdc8dbbb3 → PR22 head d1e0b865（測定時点）。すべてDraft。PR21は同head CI34件、PR22測定headはCI36件が成功した。報告追加後のPR22最終headは本文で更新し、マージ直前に実HEAD・base・checkを取り直す。
+
+Stage40開始時点: PR23最終de9c9d7は574tests/check・独立review2名・CI36件成功。本人の追加指示に従い収集ホットパスの段階診断と有限改善を継続するため、保持候補の終了だけでmerge/release条件成立とは判断しない。

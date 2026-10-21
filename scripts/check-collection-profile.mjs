@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {RUSQSIEVE_BASE64} from '../src/collection-profile/wasm-phase-1024.js';
+import {RUSQSIEVE_BASE64 as baseline} from '../src/long-window/wasm-long-1024.js';
+import {collectionMemoryContract} from '../native/collection-profile/memory-contract.mjs';
+import {COLLECTION_PHASES} from '../src/collection-profile/phases.js';
+import {collectionWorkerSource} from '../src/collection-profile/worker-source.js';
+const read=p=>readFileSync(p),sha=b=>createHash('sha256').update(b).digest('hex');
+const receipt=JSON.parse(read('native/collection-profile/build-phase-1024.json')),old=JSON.parse(read('native/long-window/build-long-1024.json')),plan=JSON.parse(read('bench/staged-collection-profile-plan.json'));
+const bytes=Buffer.from(RUSQSIEVE_BASE64,'base64');assert.equal(sha(bytes),receipt.sha256);assert.equal(bytes.length,receipt.bytes);assert.equal(receipt.cleanBuilds,2);
+assert.deepEqual(collectionMemoryContract(bytes),receipt.memory);assert.equal(receipt.memory.maximumBytes,1073741824);assert.ok(receipt.memory.initialBytes<=2097152);
+assert.equal(receipt.upstreamSha256,old.upstreamSha256);assert.equal(receipt.compiler,old.compiler);assert.deepEqual(receipt.args,old.args);
+for(const[p,h]of Object.entries(receipt.sourceHashes))assert.equal(sha(read(p)),h,p);
+const changed=Object.keys(old.compiledSources).filter(p=>old.compiledSources[p]!==receipt.compiledSources[p]).sort();
+assert.deepEqual(changed,['src/src/engine.rs','src/src/engine/root_wasm.rs','src/src/engine/siqs.rs','src/src/engine/wire.rs','src/src/lib.rs','src/src/wasm.rs']);
+assert.deepEqual(Object.keys(receipt.compiledSources).filter(p=>!(p in old.compiledSources)),['src/src/collection_profile.rs']);
+assert.equal(plan.artifacts.baseline.sha256,sha(Buffer.from(baseline,'base64')));assert.equal(plan.artifacts.instrumented.sha256,receipt.sha256);
+assert.deepEqual(plan.trials.map(t=>t.graph),['baseline','instrumented','instrumented','baseline']);assert.equal(plan.trials.length,4);
+assert.ok(plan.trials.every(t=>t.budgetMs===90000));assert.equal(plan.trials.reduce((s,t)=>s+t.budgetMs+30000,0),plan.limits.totalCampaignMs);
+assert.equal(plan.limits.totalCampaignMs,480000);assert.equal(plan.limits.families,4);assert.equal(plan.limits.clockCalls,2000000);assert.equal(plan.gates.overheadRatioMax,1.1);
+assert.equal(COLLECTION_PHASES.length,16);
+for(const variant of ['baseline','instrumented'])new Function(collectionWorkerSource(1024,variant));
+execFileSync(process.execPath,['scripts/generate-collection-harness.mjs','--check'],{stdio:'inherit'});
+console.log('Fixed import/clock/array/source/compiler/artifact and finite four-family ABBA bounds verified');

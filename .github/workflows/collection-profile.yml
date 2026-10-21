@@ -1,0 +1,29 @@
+name: Collection phase diagnostic contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  collection-profile-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24.19.0
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/collection-*.test.js
+      - run: npm run check:collection-profile
+      - run: node scripts/check-collection-probe.mjs
+      - name: Native40/64 exact packets, columns, counters and proper factors
+        run: node scripts/verify-collection-native.mjs "$RUNNER_TEMP/collection-native.json"
+      - name: Actual browser protocol, diagnostic port retirement and fresh recovery
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+        run: node scripts/verify-collection-profile.mjs --graph instrumented --out "$RUNNER_TEMP/collection-contracts.json"
+      - run: git diff --check

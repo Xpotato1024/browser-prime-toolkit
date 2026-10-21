@@ -12,7 +12,7 @@
 
 固定upstream/現行patch/compiler/flagsを維持した別namespaceの診断Nativeを作る。既存の選定入口・Stage38成功artifactは変更しない。多項式family準備、初期root/Bainv、Gray B更新、SIMD root更新、per-poly係数準備、score初期化/加算、候補走査、resieve、試し割り、残余分類、relation出力、packet化、collector mergeを分ける。
 
-診断専用のlocal monotonic clock importを使い、固定長phase配列の累積時間/回数だけを保存する。任意remote code・通信・保存APIは追加しない。入力・演算・順序・閾値/LP設定・受理prefixを変えない。nested scopeは包含関係を明記し、trialdivisionに内包される残余分類等を二重加算しない。タイマー分解能、JIT/inlining、計測import自体の摂動を記録し、CPU使用率や全工程の割合を断定しない。clock異常や上限超過は診断失敗として原本を残す。
+診断専用のlocal monotonic clock importを使い、固定長16phase/深さ16の配列へinclusive/exclusive時間と回数だけを保存する。clock呼出し上限2,000,000回、逆行・非有限・不正なscope順序を診断失敗にする。第一版は全対象の有限計時とし、10%overhead gateを超える場合は採取頻度を事前固定した別planへ見直す。任意remote code・通信・保存APIは追加しない。入力・演算・順序・閾値/LP設定・受理prefixを変えない。nested scopeは包含関係を明記し、trialdivisionに内包される残余分類等を二重加算しない。タイマー分解能、JIT/inlining、計測import自体の摂動を記録し、CPU使用率や全工程の割合を断定しない。clock異常や上限超過は診断失敗として原本を残す。
 
 Nativeはco1024の現行codeを基準に初期memory約1MiB・最大1024MiB、既存quota640/linear事前832MiBを維持する。計測対象の保持量は小さい固定prefixで、巨大割当の限界探索はしない。fixed配列以外のevent無制限蓄積をしない。source/plan/head/driverを先に固定し、clean・exclusive出力、全session/Worker退役、通信0・取消/期限・fresh recoveryを保つ。
 
