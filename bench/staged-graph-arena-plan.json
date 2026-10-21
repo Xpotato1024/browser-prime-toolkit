@@ -1,0 +1,80 @@
+{
+  "id": "llm01-graph-packed-20261021-v1",
+  "baseline": "stage26 release artifact",
+  "hypothesis": "lossless packed forest relations reduce requested live >=10% at accepted64, packet/column/counters match, time median <=1.10x",
+  "source": "immutable campaign HEAD; baseline and compact built from same reviewed source",
+  "limits": {
+    "workers": 4,
+    "coordinatorMiB": 256,
+    "helperMiB": 64,
+    "totalWasmMiB": 448,
+    "transportMiB": 32,
+    "outstanding": 4,
+    "liveStopMiB": 160,
+    "linearStopMiB": 208,
+    "pssStopMiB": 1536,
+    "startAvailableMiB": 4096,
+    "totalCalculationMs": 960000
+  },
+  "trials": [
+    {
+      "id": "contracts-packed",
+      "graph": "packed",
+      "budgetMs": 30000
+    },
+    {
+      "id": "small-packed40",
+      "graph": "packed",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "small-packed64",
+      "graph": "packed",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "fixed-packed",
+      "graph": "packed",
+      "case": "RSA-100",
+      "fixedFamilies": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "retained-1-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "budgetMs": 180000
+    },
+    {
+      "id": "retained-2-packed",
+      "graph": "packed",
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "budgetMs": 180000
+    },
+    {
+      "id": "retained-3-packed",
+      "graph": "packed",
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "budgetMs": 180000
+    },
+    {
+      "id": "retained-4-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "budgetMs": 180000
+    }
+  ]
+}

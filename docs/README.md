@@ -86,3 +86,5 @@ Stage23/24: [集約・300/600秒の全結果](benchmarks/llm01-sustained.md)、[
 
 [Stage23/24 の結果と残件](operations/stage23-24-outcome.md)。
 Stage25: [graph保持量・抽出移行の事前契約](contracts/graph-profile.md)、[可逆root保存artifactと再現手順](../native/graph-profile/README.md)。旧計測原本と公開入口を維持します。
+
+Stage26/27: [不可逆な抽出移行](contracts/graph-release.md)、[部分関係式の可逆packed保存](contracts/graph-arena.md)。各候補は別source・別予算で比較し、旧原本を維持します。
