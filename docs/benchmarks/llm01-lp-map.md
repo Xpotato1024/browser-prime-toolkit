@@ -11,6 +11,8 @@ PR19 head3826a590を保持し、測定head c2409f30ec7561a3a5cb8019477a6f99f79ce
 
 live中央値 -8.66%、時間 -0.04%、PSS 0.62%。事前のlive5%以上減/時間1.05倍/PSS1.10倍gateは成立し、LP map分離を採用する。速度向上の主張はしない。
 
+数値gateの判断と実反映は別で、選定入口はPR19 Nativeのまま。入口反映と長枠用Worker/host実装は自動承認レビューの拒否で保留している。長枠は未実施。
+
 profileのkey/value容量下限は3,670,016→1,835,008bytes。allocator総liveは24,217,635→22,120,547bytesで、control/容量丸め/structの影響も含むため差を同じ指標と呼ばない。u32外のキーはu64 fallbackに保持し、境界/同一下位32bit/混在cycle/置換をNative probeで確認した。40/64桁の全packet/列/counter/因子とterminal後のfresh recoveryも成功した。
 
 開始前Windows空きRAM 16509.92MiB、各試行前WSL空きRAM4096MiB以上。計算前のCIM呼出し失敗は旧runのローカルlogに保存し、Windows側の正規Desktop Commander読取証跡へ修正した。最初の失敗では計算試行0。成功campaignは 2026-10-21T06:31:18.792Z〜2026-10-21T06:40:22.724Z。各試行前後のHEAD/bytes guard、原本/log SHA、plan/driver/sourceの歴史結合、offline/検出器自己試験/全退役、事前契約16件が成功した。

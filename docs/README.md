@@ -96,3 +96,5 @@ Stage28〜35: [保持・抽出・並列・数値hot pathの全比較](benchmarks
 Stage36: [LP mapの幅縮小と有限長枠の事前契約](contracts/lp-map.md)。PR19を固定対照とし、性能比較は静穏枠で行います。
 
 Stage36の[固定64family全結果](benchmarks/llm01-lp-map.md)は、全packet/列/counter一致と全体live要求8.66%減を確認した採用判断です。
+
+[Stage36の実測・保留境界](operations/stage36-outcome.md)は、数値gate成立と選定入口の未反映、長枠の阻害を分けています。
