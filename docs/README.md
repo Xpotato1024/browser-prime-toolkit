@@ -110,3 +110,5 @@ Stage38結果: [RSA100の明示大メモリ枠での通し実測](benchmarks/llm
 [Stage38の検証・残るfilter保持候補](operations/stage38-outcome.md)。成功した原本と、未検証候補・最終head確認を分ける。
 
 Stage39: [縮約行列構築前のfilter配列解放の有限比較](contracts/matrix-memory.md)。Stage38の成功原本を固定し、実測peak区間の1候補だけを別headで検証する。
+
+[Stage39全結果](benchmarks/llm01-matrix-memory.md)、[独自改良・CPU/Workerを含む総合比較](architecture/own-improvements-and-comparison.md)、[不採用判断と残る検証](operations/stage39-outcome.md)。

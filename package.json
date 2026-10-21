@@ -74,6 +74,6 @@
     "verify:long-window": "node scripts/verify-long-window.mjs",
     "check:wide-window": "node scripts/check-wide-window.mjs",
     "check:wide-window-results": "node scripts/report-wide-window.mjs --check",
-    "check:matrix-memory": "node scripts/check-matrix-memory.mjs"
+    "check:matrix-memory": "node scripts/check-matrix-memory.mjs && node scripts/report-matrix-memory.mjs --check"
   }
 }
