@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Copyright (C) 2026 Xpotato.net / Xpotato1024
-import {LIMITS as BASE_LIMITS,validateInput,validatePacket,validateMemory} from '../rusqsieve/contracts.js';
+import {LIMITS as BASE_LIMITS,validateInput,validatePacket} from '../rusqsieve/contracts.js';
 import {dlpProfile,validateDlpConfiguration,validateDlpStats} from '../rusqsieve-dlp/contracts.js';
 import {CreditLedger,schedulerProfile} from '../graph-multicore/credits.js';
 import {OwnerClock} from '../graph-multicore/metrics.js';
@@ -8,6 +8,7 @@ import {StreamingPacketAudit as PacketAudit} from '../graph-multicore/packet-aud
 import{wideWorkerSource as workerSourceForCap}from'./worker-source.js';
 import{WIDE_LIMITS as LONG_LIMITS,validateWideTimings as validateLongTimings,validateWideQuotaTelemetry as validateQuotaTelemetry}from'./budget.js';
 import {selectResourcePlan,validateResourcePlan} from './policy.js';
+import {validateWideMemory} from './memory.js';
 import {makeWorkerFromSource} from '../worker/source-factory.js';
 import {assessPrime} from '../engine/arithmetic.js';
 import {SMALL_PRIMES} from '../engine/options.js';
@@ -79,7 +80,7 @@ export function runRusqsieve(input,options={}){
    if(phase==='initializing'&&now()>=initDeadline){finish('timeout','initialization-timeout');return;}
    if(!d||d.version!==21||typeof d.type!=='string')throw Error('Worker protocol');
    validateLongTimings(d.timings,owner.timings);owner.timings=d.timings;
-    for(const m of [d.memory,d.before,d.after].filter(Boolean))validateMemory(m);
+    for(const m of [d.memory,d.before,d.after].filter(Boolean))validateWideMemory(m,resourcePlan.ownerCapsMiB[owner.index]);
    for(const m of [d.memory,d.before,d.after].filter(Boolean)){if(!Number.isInteger(m.linearBytes)||m.linearBytes>resourcePlan.ownerCapsMiB[owner.index]*1048576)throw Error('Worker memory bound');owner.memory=m;owner.peakLinear=Math.max(owner.peakLinear??0,m.linearBytes);owner.peakRequested=Math.max(owner.peakRequested??0,m.peakRequested);}
    if(d.type!=='fatal'&&owner.index===0&&[d.memory,d.before,d.after].filter(Boolean).some(m=>m.liveRequested>=resourcePlan.ownerCapsMiB[0]*655360||m.linearBytes>=resourcePlan.ownerCapsMiB[0]*851968)){record('resource-stop',{owner:0,memory:owner.memory});finish('incomplete','coordinator-memory-soft-stop');return;}
    if(d.type==='fatal'){

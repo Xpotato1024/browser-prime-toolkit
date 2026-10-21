@@ -50,3 +50,18 @@ for(const [name,replacement] of [['missing','nativeQuota'],['null','memory:null,
  const r=await run({transform:s=>s.replace('api.qs_coord_extract(session)','(api.codex_la_abort_probe(),0)').replace('memory:stats,nativeQuota',replacement)});
  assert.equal(r.reason,'protocol-failure');assert.deepEqual(r.factors,[]);
 });
+
+test('wide runner accepts coordinator telemetry above old 256MiB ceiling',async()=>{
+ const r=await run({transform:(s,i)=>i===0?s.replaceAll('memory:memory()','memory:{...memory(),linearBytes:257*1048576}'):s});
+ assert.ok(['factorized','probable'].includes(r.kind),JSON.stringify({kind:r.kind,reason:r.reason}));
+ assert.equal(r.remaining,'1');assert.equal(r.memoryByOwner[0].peakLinearBytes,257*1048576);
+});
+for(const [name,owner,mib] of [['coordinator',0,1025],['helper',1,65]])test('wide runner rejects '+name+' memory above role hardcap',async()=>{
+ const r=await run({transform:(s,i)=>i===owner?s.replaceAll('memory:memory()','memory:{...memory(),linearBytes:'+mib+'*1048576}'):s});
+ assert.equal(r.reason,'protocol-failure');assert.deepEqual(r.factors,[]);
+});
+
+test('wide coordinator reaches its named soft stop instead of old protocol ceiling',async()=>{
+ const r=await run({transform:(s,i)=>i===0?s.replaceAll('memory:memory()','memory:{...memory(),linearBytes:833*1048576}'):s});
+ assert.equal(r.reason,'coordinator-memory-soft-stop');assert.deepEqual(r.factors,[]);
+});

@@ -16,7 +16,7 @@ h=rep(h,"if(api.qs_alloc(OWNER_CAP_MIB*1048576,8)===0)throw new WebAssembly.Runt
 write('bench/wide-window.js',h);
 write('bench/wide-window.html',read('bench/long-window.html').replace('./long-window.js','./wide-window.js'));
 let route=read('scripts/long-window-asset-route.mjs');
-route=rep(route,'const assets=new Set([','const assets=new Set(["bench/wide-window.html","bench/wide-window.js","src/wide-window/index.js","src/wide-window/runner.js","src/wide-window/policy.js","src/wide-window/budget.js","src/wide-window/worker-source.js","src/long-window/wasm-long-1024.js",');
+route=rep(route,'const assets=new Set([','const assets=new Set(["bench/wide-window.html","bench/wide-window.js","src/wide-window/index.js","src/wide-window/runner.js","src/wide-window/policy.js","src/wide-window/budget.js","src/wide-window/memory.js","src/wide-window/worker-source.js","src/long-window/wasm-long-1024.js",');
 route=route.replace('longAsset','wideAsset');write('scripts/wide-window-asset-route.mjs',route);
 let v=read('scripts/verify-long-window.mjs');
 v=rep(v,"import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';","import { WideMemorySampler as BrowserMemorySampler } from './wide-window-memory.mjs';");
@@ -32,6 +32,6 @@ v=rep(v,'row.pssBytes>=1536*1048576','row.pssBytes>=3072*1048576');
 v=rep(v,'value.maximumWasmBytes<=512*1048576','value.maximumWasmBytes<=1280*1048576');
 v=rep(v,'wasmBytesPerOwner:268435456,totalWasmBytes:512*1048576','wasmBytesPerOwner:1073741824,totalWasmBytes:1280*1048576');
 v=rep(v,'receipt.graphSourceFiles={};',`receipt.graphSourceFiles={};
-  for(const p of ["scripts/generate-wide-window.mjs","scripts/generate-wide-window-harness.mjs","scripts/verify-wide-window.mjs","scripts/wide-window-asset-route.mjs","scripts/wide-window-memory.mjs","scripts/windows-memory-receipt.mjs","src/wide-window/policy.js","src/wide-window/budget.js","src/wide-window/worker-source.js","src/wide-window/runner.js","src/wide-window/index.js","native/long-window/build-long-1024.json","docs/contracts/wide-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");`);
+  for(const p of ["scripts/generate-wide-window.mjs","scripts/generate-wide-window-harness.mjs","scripts/verify-wide-window.mjs","scripts/wide-window-asset-route.mjs","scripts/wide-window-memory.mjs","scripts/windows-memory-receipt.mjs","src/wide-window/policy.js","src/wide-window/budget.js","src/wide-window/memory.js","src/wide-window/worker-source.js","src/wide-window/runner.js","src/wide-window/index.js","native/long-window/build-long-1024.json","docs/contracts/wide-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");`);
 write('scripts/verify-wide-window.mjs',v);
 console.log('Derived finite wide harness; tiny refusal probe uses no giant allocation');
