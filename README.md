@@ -4,6 +4,7 @@
 native BigInt と限定 MPQS/WASMに加え、別の評価用bundleでGMP低位Brent・ECMを実装しています。
 予算・取消付きWorkerと比較harnessを持ち、従来Rhoは1/2/4本、64MiB候補は128MiB枠内の1/2本を評価します。
 現在の高難度向け選定済み実験コアは[ESM入口](docs/contracts/optimized-engine.md)です。[graph保持・抽出・並列・剰余の比較](docs/benchmarks/llm01-graph-optimization.md)で採否と限界を示します。小入力の既存経路を維持し、サイトadapterと本番受入は次工程です。
+明示manual1536MiBの独立実験枠では、[RSA100を2220.175秒でproper divisorへ分解](docs/benchmarks/llm01-wide-window.md)した。独立検算後のラベルはprobableで、通常600秒・実機スマホ・サイト本番の保証とは区別する。
 過去の[初期採否判断](docs/architecture/engine-selection-closeout.md)は判断履歴として保持します。
 [非公開standalone UI](docs/operations/private-ui.md)は全桁・指数表示とコピーを備えます。React の製品画面、サイト用アダプター、公開配布は後続です。
 
