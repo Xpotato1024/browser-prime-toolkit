@@ -63,8 +63,8 @@ try{
   row.summary={requestWallMs:o.requestWallMs,kind:o.kind,reason:o.reason,families:o.familiesSubmitted,usable:o.relations,peakPssBytes:r.sampledRam.peakPssBytes,clockStatus:frame.status,phases:frame.rows,referencePrefix4Matched:true};
   save();console.log('Done',t.id,JSON.stringify(row.summary));
  }
- const median=a=>(a[0]+a[1])/2,old=manifest.trials.filter(t=>t.graph==='baseline'),next=manifest.trials.filter(t=>t.graph==='instrumented');
- manifest.diagnosticOverheadRatio=median(next.map(t=>t.summary.requestWallMs))/median(old.map(t=>t.summary.requestWallMs));
+ const median=a=>(a[0]+a[1])/2,baselineTrials=manifest.trials.filter(t=>t.graph==='baseline'),instrumentedTrials=manifest.trials.filter(t=>t.graph==='instrumented');
+ manifest.diagnosticOverheadRatio=median(instrumentedTrials.map(t=>t.summary.requestWallMs))/median(baselineTrials.map(t=>t.summary.requestWallMs));
  manifest.diagnosticGatePassed=manifest.diagnosticOverheadRatio<=plan.gates.overheadRatioMax;
  assert.ok(performance.now()<=deadline);manifest.completedAt=new Date().toISOString();save();
 }catch(error){manifest.stoppedAt=new Date().toISOString();manifest.error=String(error.stack??error);save();throw error;}
