@@ -44,6 +44,28 @@ hardwareConcurrency=6/deviceMemory=8は参考値です。6 WorkerはWASM576MiB�
 
 Rust組込みu32剰余は境界値・seed固定10000組を既存reciprocal法とBigInt oracleへ照合し、40/64桁の全packet/column/counter/最終因子が一致しました。RSA100固定32family ABBAでは時間 -9.27%、PSS 1.03%、事前gateは成立。
 
+## 集約専用と持続・取消
+
+同じ5計算WorkerのABBAで、集約専用1＋計算5は5combinedに対し時間 0.81%、PSS 4.64%。速度gate不成立で不採用です。元のpage読み込み失敗を方式の否定とはせず、回復したharnessで比較しました。
+
+| 持続対照 | accepted128秒 | live / linear MiB at128 | 終了 / accepted / usable | 最終live / linear MiB | Chrome peak RSS / PSS MiB |
+| --- | ---: | --- | --- | --- | --- |
+| legacy | 300.626 | 99.87 / 110.50 | coordinator-memory-soft-stop / 179 / 5033 | 157.61 / 210.50 | 1386.10 / 623.71 |
+| optimized | 218.599 | 60.45 / 72.56 | time-budget / 359 / 11652 | 153.82 / 169.75 | 1427.13 / 700.79 |
+
+両側でprefix128のpacket・列・full/SLP/DLP/cycle/usableが一致しています。旧方式は約420秒でcoordinator保護停止、改善版は600秒の期限停止。異なる終了prefixのメモリ比を同条件の削減率にしません。改善版120秒取消は 0.800msで全退役し、全試行のallocator拒否は0でした。
+
+| 持続試行 | max return→ACK ms | global capacity idle / blocked idle ms（全owner合計） | assigned-job wall占有率 owner別 |
+| --- | ---: | --- | --- |
+| legacy | 8260.4 | 129203.9 / 0.0 | 98.84%, 88.90%, 88.68%, 90.61% |
+| optimized | 8238.0 | 34274.2 / 1311.4 | 98.87%, 97.68%, 98.05%, 99.46%, 97.87% |
+
+占有率はhostの割当job wall timeであり、OS CPU使用率ではありません。ACK待ちは先行計算と重なる場合があります。送付済みnative時間は中断中の呼出しを含まない下限です。
+
+## 可逆powers圧縮
+
+固定64family・4Worker/8枠のABBAで、live要求量 -27.85%、時間 -0.31%、PSS -0.39%。事前gateは成立。全packet/列/counter一致、40/64桁の最終因子一致、405 codec境界と不正入力拒否を確認しました。外部wire形式と数学パラメータは変更しません。
+
 ## 限界と残作業
 
 RSA100の収集→大行列→GCDの完了は未確認です。小さい対照40/64桁の成功を代替にせず、usable/targetから全工程所要時間を推定しません。physical mobile/Safari/Firefoxは未検証です。requested/linear/Chrome RSS・PSSは区別し、OSによるtab終了を防げるとは約束しません。旧原本、負の比較、失敗した開発build/testログをLLM-01内に保持しています。
@@ -54,5 +76,8 @@ RSA100の収集→大行列→GCDの完了は未確認です。小さい対照40
 - [full manifest](staged-graph-stage25/full/run.json): `0b36d39b2d79afe7ed771db585a3e428ad3d135b`、8 trials。
 - [multicore manifest](staged-graph-stage25/multicore/run.json): `e97e7836bb594d7769a898a3332a04d256c44936`、11 trials。
 - [builtin manifest](staged-graph-stage25/builtin/run.json): `14a3ac3ef36f25212d901a406d0b47c5c455208b`、5 trials。
+- [dedicated manifest](staged-graph-stage25/dedicated/run.json): `7899800a6fb64e97d4a218ac56bbdf702b907891`、5 trials。
+- [integrated manifest](staged-graph-stage25/integrated/run.json): `477f141fd3855b0b73e89af7559482a7c2ebb7ca`、5 trials。
+- [varint manifest](staged-graph-stage25/varint/run.json): `764982e9a31d8c23bfc1b70ad0c9a0fb33c20ecb`、5 trials。
 
 [契約一覧](../README.md)と[操作・解釈](../operations/graph-optimization.md)を参照してください。公開releaseとサイトのplugin受入・本番切替は別工程です。
