@@ -11,7 +11,7 @@ let v=read('scripts/verify-graph-profile.mjs');
 v=rep(v,"import {graphAsset as coordinatorAsset} from './graph-asset-route.mjs';","import {profilingAsset as coordinatorAsset} from './graph-profiling-asset-route.mjs';\nimport{summarizeCpuProfile}from'./graph-cpu-summary.mjs';");
 v=rep(v,"import { readFile, writeFile, access, mkdtemp, rm }","import { readFile, writeFile, access, mkdtemp, rm, realpath }");
 v=rep(v,"import { resolve, join, extname, sep }","import { resolve, join, extname, sep, dirname }");
-v=rep(v,"try{await access(output);","const rawParent=await realpath(dirname(output)),realRoot=await realpath(root);assert.ok(rawParent!==realRoot&&!rawParent.startsWith(realRoot+sep),'CPU raw output must stay outside repository');\ntry{await access(output);");
+v=rep(v,"try{await access(output);","const rawParent=await realpath(dirname(output)),realRoot=await realpath(root);const pathKey=p=>/^\\/mnt\\/[a-z]\\//i.test(p)?p.toLowerCase():p;assert.ok(pathKey(rawParent)!==pathKey(realRoot)&&!pathKey(rawParent).startsWith(pathKey(realRoot)+sep),'CPU raw output must stay outside repository');\ntry{await access(output);");
 v=rep(v,"['baseline','compact']","['names']");v=rep(v,"arg('--graph','baseline')","arg('--graph','names')");
 v=rep(v,"variant=arg('--engine','four-drop')","variant=arg('--engine','one-drop')");
 v=rep(v,"assert.ok(['one-drop','two-drop','three-drop','four-drop'].includes(variant));","assert.equal(variant,'one-drop');assert.equal(caseId,'RSA-100');assert.equal(budgetMs,30000);");

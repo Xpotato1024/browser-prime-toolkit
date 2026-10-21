@@ -16,7 +16,7 @@ import {knownDetachedSetup,retireSetupCalls} from './resource-ui-cdp-lifecycle.m
 const root = resolve(import.meta.dirname, '..');
 const arg=(key,fallback)=>process.argv.includes(key)?process.argv[process.argv.indexOf(key)+1]:fallback;
 const output=resolve(arg('--out',join(tmpdir(),'rsa-profile-receipt.json')));
-const rawParent=await realpath(dirname(output)),realRoot=await realpath(root);assert.ok(rawParent!==realRoot&&!rawParent.startsWith(realRoot+sep),'CPU raw output must stay outside repository');
+const rawParent=await realpath(dirname(output)),realRoot=await realpath(root);const pathKey=p=>/^\/mnt\/[a-z]\//i.test(p)?p.toLowerCase():p;assert.ok(pathKey(rawParent)!==pathKey(realRoot)&&!pathKey(rawParent).startsWith(pathKey(realRoot)+sep),'CPU raw output must stay outside repository');
 try{await access(output);throw Error('Refusing to overwrite '+output);}catch(e){if(e.code!=='ENOENT')throw e;}
 const graphVariant=arg('--graph','names');assert.ok(['names'].includes(graphVariant));
 const coordinator=arg('--coordinator','combined');assert.ok(['combined','dedicated'].includes(coordinator));
