@@ -1,0 +1,9 @@
+# 採用候補の持続・取消対照
+
+Stage32はStage25〜31の採否が確定したsource HEADで実行する。旧Native保持（観測付き未圧縮coordinator）4 Worker/4枠と、採用Native保持・数値kernel・combinedまたはdedicated役割候補を比較する。すべて同じ新しい安全runnerで実行し、古いfatal分類不具合を持ち込まない。旧原本は変更しない。
+
+legacyは4Worker/4枠、coordinator256+helper64×3=448MiB。最適化候補はStage29〜31結果で固定し、全体WASM576MiB以下・明示768MiB予算以下、輸送64MiB/8枠以下、credit2、監査16MiB/8件。両方開始MemAvailable>=4096MiB、coordinator live160MiB/linear208MiB、Chrome PSS1536MiBで停止する。単一呼出の一時ピークやOSタブ終了の完全防止は保証しない。
+
+legacy600秒と候補600秒を各1回、その後候補を300秒予算の120秒地点で取消。計算予算計1500秒以内。結果を見て同じtrialを上書き/追加反復しない。ソースとplanを開始前に固定し、ビルド/別計算を併走しない。
+
+持続計測は性能の統計的優越を確定する目的ではなく、graph増加・新停止条件・全退役・通信0の実在性を検証する。共通accepted prefix128（両方到達時）の全packet/列SHA/native countersとrequested/linearを比較する。時間上限終了または確認済み安全停止は成功した因数分解とは呼ばず、RSA100の収量から全工程時間を外挿しない。終端が異なる場合のendメモリ比較も同条件の削減率に変換しない。取消要求から全退役API応答までの遅延を記録し、OSメモリ回収完了と混同しない。
