@@ -1,0 +1,118 @@
+{
+  "encoding": "gzip+canonical-base64-lines76",
+  "files": {
+    "run.json": {
+      "file": "run.json.gz.base64",
+      "originalBytes": 6102,
+      "originalSha256": "af7943beb80fc98cc3a50f3eb0bdd3d593611984bda726db928e3f26260f8ab4",
+      "compressedBytes": 1449,
+      "compressedSha256": "c9367d827b2990f9df8555106abdac678260b32b8322eb9386e3c44084b68cf7",
+      "encodedBytes": 1958
+    },
+    "driver.log": {
+      "file": "driver.log.gz.base64",
+      "originalBytes": 1072,
+      "originalSha256": "283c1a07ff8c3a3058550c7826bef84287f15ec5457aab9923ecde6f3455fe0a",
+      "compressedBytes": 317,
+      "compressedSha256": "d1c8dfb39d4791cdd3bab753f7873dcc9d485d4439da8488285ef445b422a59f",
+      "encodedBytes": 430
+    },
+    "native.json": {
+      "file": "native.json.gz.base64",
+      "originalBytes": 230959,
+      "originalSha256": "4d3c9044a79d3fa6c3d317864df01258bc25edfbde3c2ccec112bbd9421b45fc",
+      "compressedBytes": 51763,
+      "compressedSha256": "ef5cb53deaa409b152b089063b5681b119c3b64685e5cd0866c7e2766fb5685a",
+      "encodedBytes": 69929
+    },
+    "oracles.json": {
+      "file": "oracles.json.gz.base64",
+      "originalBytes": 4733,
+      "originalSha256": "ac8d19cbefb3706a37bad0730e7dbb739b4ec1170d158a4636dfe6e4d16dcb4b",
+      "compressedBytes": 2084,
+      "compressedSha256": "bd542d91201e9dbbb2bcac0170dc1c3e2b463c63ea46c1a618d72b2fda8bd4c9",
+      "encodedBytes": 2817
+    },
+    "contracts-prefix.json": {
+      "file": "contracts-prefix.json.gz.base64",
+      "originalBytes": 43172,
+      "originalSha256": "a0f91881468c7b262a303baabb3c597e9505b5077f5db1f35d60e4be9ad34529",
+      "compressedBytes": 14563,
+      "compressedSha256": "d819e678c61866386c866171b7d6c61a531ba801932b41d54e371243a35c87bd",
+      "encodedBytes": 19676
+    },
+    "probe-prefix.json": {
+      "file": "probe-prefix.json.gz.base64",
+      "originalBytes": 13147,
+      "originalSha256": "1d435852b2592a7f27a8bfa12e42fa928e6d9ee0400a124859c914c2a4f1c33e",
+      "compressedBytes": 4495,
+      "compressedSha256": "9926e35afb15a4d6389e3436032a9d48a4892510b5a81d47a3fbb6f0c275e87f",
+      "encodedBytes": 6075
+    },
+    "prefix-1-baseline.json": {
+      "file": "prefix-1-baseline.json.gz.base64",
+      "originalBytes": 48897,
+      "originalSha256": "7490c75c0a78f5a285235a5b2efa7b09bcfbf6a373227184991826a926c25b39",
+      "compressedBytes": 16442,
+      "compressedSha256": "ee0b9481c2581ac815c2705b5b81ba8ba9e41d6cb27b2d9f4d0c8f4dd01e5669",
+      "encodedBytes": 22213
+    },
+    "prefix-1-baseline.log": {
+      "file": "prefix-1-baseline.log.gz.base64",
+      "originalBytes": 223,
+      "originalSha256": "39b940a493acb737e180526f2d43d0ac4d04f87d2f723b8a8710e8074501f5d1",
+      "compressedBytes": 198,
+      "compressedSha256": "492891875789fd900639fd2370a7df5302ecf80c595d01c8cfceac8e7e5165ab",
+      "encodedBytes": 268
+    },
+    "prefix-2-prefix.json": {
+      "file": "prefix-2-prefix.json.gz.base64",
+      "originalBytes": 48842,
+      "originalSha256": "bb465457a741886d57f3a10dcec8b8d00fefc5b1145ee295add6d04b363ab448",
+      "compressedBytes": 16316,
+      "compressedSha256": "9a56086b09ed47143a68454d59e4950994faa6a3ffce145166c48e876f7786f4",
+      "encodedBytes": 22043
+    },
+    "prefix-2-prefix.log": {
+      "file": "prefix-2-prefix.log.gz.base64",
+      "originalBytes": 221,
+      "originalSha256": "2cd86fd081aeaeb977e29b04ad96a70f9668a298ef5619f9459dfba07f74e365",
+      "compressedBytes": 196,
+      "compressedSha256": "d7ea5827c9503fc520fb77269fc213a132adf2361f1e1a56b8c74e66b60291c7",
+      "encodedBytes": 268
+    },
+    "prefix-3-prefix.json": {
+      "file": "prefix-3-prefix.json.gz.base64",
+      "originalBytes": 48570,
+      "originalSha256": "8199c6cb0cce9d95f930e30f6613f39f0c7a3bb85d126ed68425be0e81ab1681",
+      "compressedBytes": 16283,
+      "compressedSha256": "13d98fb6bd904a842c6a4c5e28a165c4461a4082cceceaba3cbd069287acfb35",
+      "encodedBytes": 21998
+    },
+    "prefix-3-prefix.log": {
+      "file": "prefix-3-prefix.log.gz.base64",
+      "originalBytes": 221,
+      "originalSha256": "c94fa334a6ceb2c50889dabc86f0c3de99cbe185ea8229409d29cbab860fc9eb",
+      "compressedBytes": 195,
+      "compressedSha256": "c63bbc8064f81496e69b27203107c990ce210974cdb5728b9f6df31d042763d1",
+      "encodedBytes": 264
+    },
+    "prefix-4-baseline.json": {
+      "file": "prefix-4-baseline.json.gz.base64",
+      "originalBytes": 48803,
+      "originalSha256": "20a248b7a960a0292b25512af02d72f79132446098e5f4db5d5d922f60fe9747",
+      "compressedBytes": 16305,
+      "compressedSha256": "73f927750d716afe5b9914b34128ec646062b0e7bd2fa580997716149d54da62",
+      "encodedBytes": 22027
+    },
+    "prefix-4-baseline.log": {
+      "file": "prefix-4-baseline.log.gz.base64",
+      "originalBytes": 211,
+      "originalSha256": "939f62cc89b3fadf9412d4df422f961e0af1cffaaa57b9ddc0b48727283b7191",
+      "compressedBytes": 192,
+      "compressedSha256": "2ee58b041e21f2a6edb4cdeba518c68c67107cbf3a85f8e56beaa1e74ccfa4ae",
+      "encodedBytes": 260
+    }
+  },
+  "totalEncodedBytes": 190226
+}
