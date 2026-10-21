@@ -37,3 +37,10 @@ docs/benchmarks/staged-sustained-stage24/*.log linguist-generated=true
 docs/benchmarks/staged-resieve-stage41/*.gz.base64 linguist-generated=true
 docs/benchmarks/staged-prefix-stage42/*.gz.base64 linguist-generated=true
 docs/benchmarks/staged-unroll-stage43/*.gz.base64 linguist-generated=true
+
+# Reversible fixed32 raw evidence and generated selected role payloads.
+docs/benchmarks/staged-hotpath-repeat-stage44/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-selected-wide-stage44/*.gz.base64 linguist-generated=true
+src/selected-wide/worker-64.js linguist-generated=true
+src/selected-wide/worker-1024.js linguist-generated=true
+src/selected-wide/wasm-selected-64.js linguist-generated=true
