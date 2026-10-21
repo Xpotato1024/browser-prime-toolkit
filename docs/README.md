@@ -94,3 +94,5 @@ Stage28〜35: [保持・抽出・並列・数値hot pathの全比較](benchmarks
 [Stage25〜35の採否・TDD・残件](operations/stage25-35-outcome.md)は、生成実測と未測定仮説を区別した今回の引渡し境界です。
 
 Stage36: [LP mapの幅縮小と有限長枠の事前契約](contracts/lp-map.md)。PR19を固定対照とし、性能比較は静穏枠で行います。
+
+Stage36の[固定64family全結果](benchmarks/llm01-lp-map.md)は、全packet/列/counter一致と全体live要求8.66%減を確認した採用判断です。

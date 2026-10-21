@@ -1,0 +1,323 @@
+{
+  "windowsMemory": {
+    "checkedAt": "2026-10-21T06:30:56.2708056Z",
+    "host": "LLM-01",
+    "availableMiB": 16509.92,
+    "totalMiB": 32632.84
+  },
+  "windowsMemorySha256": "be9aad2e738fa296af6d1b3bc458403fa1ed095b72954ce53a587402daf5aa55",
+  "nodeVersion": "v24.19.0",
+  "sourceGuard": {
+    "version": 1,
+    "files": 769,
+    "treeSha256": "1e683f1e41191df4d4ee29d50a559651e8b5e48a0c121e31c7e898cd9e4d706a"
+  },
+  "plan": "llm01-lpmap-20261021-v1",
+  "planSha256": "04ff42cfdbc4d1abb3e5bbade8843b8f9595ae8daa8bdd9e88e47557015f2fd2",
+  "driverSha256": "446297270627c32f8f7f4d5a8085bd6b01b836a4eb86cbd7f5e12d2913a1e862",
+  "head": "c2409f30ec7561a3a5cb8019477a6f99f79ce1ea",
+  "startedAt": "2026-10-21T06:31:18.792Z",
+  "trials": [
+    {
+      "id": "contracts-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "availableMiB": 9174.7578125,
+      "args": [
+        "scripts/verify-lp-map.mjs",
+        "--graph",
+        "lpmap",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage36/campaign2-lpmap/contracts-lpmap.json",
+        "--memory-mib",
+        "512"
+      ],
+      "startedAt": "2026-10-21T06:31:21.197Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T06:31:30.858Z",
+      "logSha256": "c646ee4ff4e544ac5c0b3200ab77aa0c7b323ed179a311340679f560cc978689",
+      "bytes": 32598,
+      "sha256": "76b57b90727c91f34d967e500bc311a5e1147d082001ec690a441fb10ae28570",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "1-baseline",
+      "harness": "lpmap",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "availableMiB": 9035.37890625,
+      "args": [
+        "scripts/verify-lp-map.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "180000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage36/campaign2-lpmap/1-baseline.json",
+        "--memory-mib",
+        "512",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "64"
+      ],
+      "startedAt": "2026-10-21T06:31:35.463Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T06:33:42.491Z",
+      "logSha256": "6cff16f494937d800e408113475dc5e120f63a258ad70aa630c492402adea85f",
+      "bytes": 100436,
+      "sha256": "df1c2f215f06ca7044868017bca889722fe3d766c2aa8da5636e01ff55d8c64a",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 64,
+        "usable": 1706,
+        "wallMs": 124841.80000001192,
+        "peakPssBytes": 576315392
+      }
+    },
+    {
+      "id": "2-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "availableMiB": 9132.671875,
+      "args": [
+        "scripts/verify-lp-map.mjs",
+        "--graph",
+        "lpmap",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "180000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage36/campaign2-lpmap/2-lpmap.json",
+        "--memory-mib",
+        "512",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "64"
+      ],
+      "startedAt": "2026-10-21T06:33:47.236Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T06:35:54.366Z",
+      "logSha256": "b5656f025df3498722356b887d89b0fc90d32c107d485d78ba8aee8b26c1c274",
+      "bytes": 100220,
+      "sha256": "98b5c81fd4ff89783c7efce567908dedb3d70854fe3468fe5ed32308d4a3159a",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 64,
+        "usable": 1706,
+        "wallMs": 125150.10000002384,
+        "peakPssBytes": 581712896
+      }
+    },
+    {
+      "id": "3-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "availableMiB": 9213.640625,
+      "args": [
+        "scripts/verify-lp-map.mjs",
+        "--graph",
+        "lpmap",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "180000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage36/campaign2-lpmap/3-lpmap.json",
+        "--memory-mib",
+        "512",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "64"
+      ],
+      "startedAt": "2026-10-21T06:35:59.027Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T06:38:07.051Z",
+      "logSha256": "0fcedcf4fc44d2553f1e0bda9522ab2e4147179d1a2b0a57f9a2e09972169e61",
+      "bytes": 99604,
+      "sha256": "bd73d22abcd02e6e83c56f5ac465674e1e1f5083926001ddb2b78632d7f79b8c",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 64,
+        "usable": 1706,
+        "wallMs": 125997.79999998212,
+        "peakPssBytes": 577213440
+      }
+    },
+    {
+      "id": "4-baseline",
+      "harness": "lpmap",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64,
+      "availableMiB": 9197.5078125,
+      "args": [
+        "scripts/verify-lp-map.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "180000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage36/campaign2-lpmap/4-baseline.json",
+        "--memory-mib",
+        "512",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "64"
+      ],
+      "startedAt": "2026-10-21T06:38:11.702Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T06:40:20.323Z",
+      "logSha256": "2b962e689c21465ba6bfc3beb04eb935c351ee61bec0cbc110f35a25ee99339a",
+      "bytes": 101007,
+      "sha256": "05126b54bd847c4015eddc2bf2590144d18c5e09cbecb6c2c4bf1d0eb1b47e0f",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 64,
+        "usable": 1706,
+        "wallMs": 126417.5,
+        "peakPssBytes": 575428608
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T06:40:22.724Z"
+}
