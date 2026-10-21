@@ -11,7 +11,7 @@
     },
     "prefix": {
       "path": "src/resieve-prefix/wasm-prefix-1024.js",
-      "sha256": "PENDING_BUILD"
+      "sha256": "3b4ca1f1db0aed131fe7283a4283aeb99185938a71119e06420fb739d8a9ab95"
     }
   },
   "limits": {
