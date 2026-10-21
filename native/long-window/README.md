@@ -12,7 +12,7 @@ node scripts/check-long-window.mjs
 node --test test/long-window-*.test.js
 ```
 
-The256MiB artifact has two identical clean builds,439916bytes, SHA256 `56bbfc06947ae631a1c3c984ef9bcb97fb90e1325ab160da3d93b7ea91d66974`. [Receipt](build-long-256.json) binds all patches, observer, flags, compiled sources and memory exports. The builder reserves a1024MiB variant; this first-phase API does not build or accept that role.
+The256MiB artifact has two identical clean builds,439916bytes, SHA256 `56bbfc06947ae631a1c3c984ef9bcb97fb90e1325ab160da3d93b7ea91d66974`. [Receipt](build-long-256.json) binds all patches, observer, flags, compiled sources and memory exports. The Stage37 API does not accept a1024MiB role. Stage38 builds that separate named variant: [receipt](build-long-1024.json), [finite wide contract](../../docs/contracts/wide-window.md). Its initial memory remains small; the1GiB value is an unshared WASM hard maximum, not an eager physical allocation.
 
 The scope begins before extraction matrix allocation, after terminal collection release. Checked preflight CSR/CSC payload is only a lower-bound test; subsequent allocation/zeroed/reallocation calls share the quota. Requested heap, linear precheck and actual WASM hardmax are distinct. The linear estimate is not a proof of allocator growth or process RSS.
 

@@ -1,4 +1,4 @@
-# 明示的な大メモリ長枠の有限検証（未実装）
+# 明示的な大メモリ長枠の有限検証（Stage38）
 
 基準はPR21 dc8dbbb、Stage37測定head f27dd7c。co256は956.817秒・accepted572/usable22525でlive160MiB保護停止し、allocator失敗0、host availableはWSL8663.86/Windows15682.73MiB以上だった。メモリ容量が収集継続を制約するという実測に対し、co1024の有限枠で収集→大行列→GCDへ進めるかを確認する。速度向上や完了時間を予測しない。
 
@@ -15,3 +15,9 @@ Nativeは既存fixed source/compile recipeから1024MiB hardmaxだけを指定�
 本試行はStage37と共通する先頭572 familyのpacket/counter、prefix128の列SHAへ照合する。終了family数が異なる最終メモリ比を速度・省メモリ比較にしない。大行列へ達した場合は段階別rows/cols/nnzとrequested/peak/linear、GCD・最終因子検証を記録する。未達なら実停止理由を残し、usable/targetを全工程進捗や単純時間予測としない。
 
 この1回の結果をもとに候補一覧・採否・残る制約を整理する。未達を理由に無制限の追加長時間試行へ拡大しない。条件付きmerge/release判定は主要候補の検証・正しさ・資源制限・同head最終CI/独立reviewを満たした後。サイト旧分解機撤去と本番切替は別の受入工程。
+
+実装はwide-window namespaceへ分離した。Nativeは439917bytes、SHA256 9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037、2clean一致。初期memoryは2MiB未満である。測定前の40/64桁全packet/列/counter/因子一致、7 Native試験、9 policy/実Worker試験、11監視試験と実Chrome22契約が成功した。これらの途中head試験を、最終headの本試行と区別する。
+
+固定planはcontracts30秒とRSA100最大3600秒1回、子process待ちの合計上限3870秒。契約試行は性能測定ではない。Windows monitorはMaximumSeconds3900/Samples391、従来設定は2700秒/271個のまま。監視は30秒の鮮度、実行中available4096MiB停止、独立1000ms stop期限を維持する。
+
+起動時はWindows monitorの最初の確定sampleを読取確認してからdriverを開始する。producer準備中の空directoryは正しく拒否され、計算は開始しない。残りcampaign枠が要求時間＋120秒の退役reserveを満たさなければchildを起動せずnot-startedとして保存する。外側deadlineの短縮でNodeだけを先にkillしない。

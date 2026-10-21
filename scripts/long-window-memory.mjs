@@ -3,10 +3,10 @@ import {readFile} from 'node:fs/promises';
 import {BrowserMemorySampler} from './browser-memory.mjs';
 import {readWindowsMemory} from './windows-memory-receipt.mjs';
 export class LongMemorySampler extends BrowserMemorySampler{
- constructor(pid,{read=readFile,list,windowsDirectory=process.env.PRIME_WINDOWS_MEMORY_DIRECTORY,windowsRead=readWindowsMemory,onFailure=async()=>{}}={}){super(pid,500,{read,...(list?{list}:{})});this.windowsDirectory=windowsDirectory;this.windowsRead=windowsRead;this.onFailure=onFailure;this.observerFailure=null;}
+ constructor(pid,{read=readFile,list,windowsDirectory=process.env.PRIME_WINDOWS_MEMORY_DIRECTORY,windowsRead=readWindowsMemory,sampleLimit=5000,onFailure=async()=>{}}={}){super(pid,500,{read,...(list?{list}:{})});if(![5000,8000].includes(sampleLimit))throw Error("Named RAM sample limit");this.sampleLimit=sampleLimit;this.windowsDirectory=windowsDirectory;this.windowsRead=windowsRead;this.onFailure=onFailure;this.observerFailure=null;}
  async sample(){
   try{
-   if(this.samples.length>=5000)throw Error('Long RAM sample retention cap');
+   if(this.samples.length>=this.sampleLimit)throw Error('Long RAM sample retention cap');
    const row=await super.sample(),text=await this.read('/proc/meminfo','utf8');
    const match=/^MemAvailable:\s+(\d+)/m.exec(text);if(!match)throw Error('Host RAM unavailable');
    row.availableMiB=Number(match[1])/1024;if(!Number.isFinite(row.availableMiB)||row.availableMiB<0)throw Error('Invalid host RAM observation');
@@ -23,6 +23,6 @@ export class LongMemorySampler extends BrowserMemorySampler{
  summary(mark=0){
   const rows=this.samples.slice(mark);if(!rows.length)throw Error('Missing browser RAM samples');
   const available=rows.filter(r=>Number.isFinite(r.availableMiB)),windows=rows.filter(r=>Number.isFinite(r.windowsAvailableMiB));
-  return {samples:rows.length,first:rows[0],peakRssBytes:Math.max(...rows.map(r=>r.rssBytes)),peakPssBytes:Math.max(...rows.map(r=>r.pssBytes)),maxProcesses:Math.max(...rows.map(r=>r.processes)),intervalMs:500,sampleLimit:5000,minAvailableMiB:available.length?Math.min(...available.map(r=>r.availableMiB)):null,minWindowsAvailableMiB:windows.length?Math.min(...windows.map(r=>r.windowsAvailableMiB)):null,maxWindowsReceiptAgeMs:windows.length?Math.max(...windows.map(r=>r.windowsReceiptAgeMs)):null,observerFailure:this.observerFailure};
+  return {samples:rows.length,first:rows[0],peakRssBytes:Math.max(...rows.map(r=>r.rssBytes)),peakPssBytes:Math.max(...rows.map(r=>r.pssBytes)),maxProcesses:Math.max(...rows.map(r=>r.processes)),intervalMs:500,sampleLimit:this.sampleLimit,minAvailableMiB:available.length?Math.min(...available.map(r=>r.availableMiB)):null,minWindowsAvailableMiB:windows.length?Math.min(...windows.map(r=>r.windowsAvailableMiB)):null,maxWindowsReceiptAgeMs:windows.length?Math.max(...windows.map(r=>r.windowsReceiptAgeMs)):null,observerFailure:this.observerFailure};
  }
 }

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import assert from 'node:assert/strict';
+import {requireTrialWindow} from './finite-trial-budget.mjs';
 import {readWindowsMemorySync} from './windows-memory-receipt.mjs';
 import {captureSourceGuard,checkSourceGuard} from './source-guard.mjs';
 import {validateStreamRecord} from './graph-multicore-proof.mjs';
@@ -37,8 +38,8 @@ try{
   if(t.case)args.push('--case',t.case);if(t.fixedFamilies)args.push('--fixed-families',String(t.fixedFamilies));if(t.cancelAfterMs)args.push('--cancel-after-ms',String(t.cancelAfterMs));
   const row={...t,availableMiB,windowsMemory:windows.value,windowsMemorySha256:sha(windows.bytes),args,startedAt:new Date().toISOString(),state:'running'};manifest.trials.push(row);save();
   console.log('Start',t.id,row.startedAt);
-  const remainingMs=Math.floor(deadline-performance.now());assert.ok(remainingMs>0,'Campaign deadline');
-  const result=spawnSync(process.execPath,args,{cwd:root,env:{...process.env,PRIME_MEASURED_HEAD:head},encoding:'utf8',maxBuffer:4194304,timeout:Math.min(t.budgetMs+120000,remainingMs)});
+  let timeoutMs;try{timeoutMs=requireTrialWindow(deadline,t.budgetMs);}catch(error){row.state='not-started';row.finishedAt=new Date().toISOString();save();throw error;}
+  const result=spawnSync(process.execPath,args,{cwd:root,env:{...process.env,PRIME_MEASURED_HEAD:head},encoding:'utf8',maxBuffer:4194304,timeout:timeoutMs});
   const log=(result.stdout??'')+(result.stderr??'');writeFileSync(join(out,t.id+'.log'),log,{flag:'wx'});
   Object.assign(row,{exitCode:result.status,finishedAt:new Date().toISOString(),state:result.status===0?'completed':'failed',logSha256:sha(log),logBytes:Buffer.byteLength(log)});
   if(existsSync(receipt)){const b=readFileSync(receipt);row.bytes=b.length;row.sha256=sha(b);assert.ok(b.length<=plan.limits.maxReceiptBytes);}
