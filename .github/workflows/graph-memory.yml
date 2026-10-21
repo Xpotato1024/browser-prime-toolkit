@@ -25,6 +25,8 @@ jobs:
           node scripts/verify-graph-profile.mjs --graph compact --engine four-drop --out "$RUNNER_TEMP/graph-root-contracts.json"
           node scripts/verify-graph-release.mjs --graph release --engine four-drop --out "$RUNNER_TEMP/graph-release-contracts.json"
           node scripts/verify-graph-arena.mjs --graph packed --engine four-drop --out "$RUNNER_TEMP/graph-packed-contracts.json"
+          node scripts/verify-graph-multicore.mjs --graph packed --engine six-drop --slots 8 --out "$RUNNER_TEMP/graph-multicore-contracts.json"
+          node scripts/verify-graph-builtin.mjs --graph builtin --engine four-drop --slots 8 --out "$RUNNER_TEMP/graph-builtin-contracts.json"
         env:
           CHROME_BIN: google-chrome
           PRIME_MEASURED_HEAD: ${{ github.sha }}

@@ -1,0 +1,59 @@
+{
+  "id": "llm01-graph-builtin-20261021-v1",
+  "hypothesis": "builtin u32 remainder reducesfixed-prefixmedian>=5%,PSS<=1.10x;allpackets/columns/countersexact",
+  "source": "campaign HEAD pinned; same packed storage and8slots",
+  "limits": {
+    "totalCalculationMs": 540000,
+    "startAvailableMiB": 4096,
+    "workers": 4,
+    "slots": 8,
+    "totalWasmMiB": 448,
+    "maxTransportMiB": 64,
+    "pssStopMiB": 1536
+  },
+  "trials": [
+    {
+      "id": "contracts-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-2-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-3-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    }
+  ]
+}
