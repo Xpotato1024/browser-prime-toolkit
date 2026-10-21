@@ -1,0 +1,23 @@
+{
+  "head": "18d7d8437308a61d47c16b147a91e78eb1b868fb",
+  "roles": {
+    "64": {
+      "sourceSha256": "26ebfaf9e783a147248fe030535ff1b2fea9fd937402c354b2d3657ec53021db",
+      "normalizedSha256": "13066b59e424c306d1812fe3f228b31c13dcd06f5c641bf43fe49611e8e3839d",
+      "nativeReceipt": "native/graph-builtin/build-builtin-64.json",
+      "nativeSha256": "78c6e22e5c06d6ea6eabf73dca4fa9c439ecf3ef20ca304d4baa92256cc132a6"
+    },
+    "128": {
+      "sourceSha256": "68f195036b52f9805d591039bc4bd8f2b9550fae00f2f273e7992aebdc1b4769",
+      "normalizedSha256": "b76157c87dcf80e10a49e453b575a1d9ee2b470fc9bcc87e3271527dc44bee8b",
+      "nativeReceipt": "native/graph-varint/build-varint-128.json",
+      "nativeSha256": "1fd4ac356f508ead3c4bdb52a3c52db2a2fa10df5f7ab92f0c2c43a1dbe682df"
+    },
+    "256": {
+      "sourceSha256": "e8c269b86510e79dcdb959afe19369c1805a88834cadcbf5826928f8f40c18e9",
+      "normalizedSha256": "7ba16b9c22e560054882c4a8dc8e01af7d2ffce3b9916ef9b62fda914badae13",
+      "nativeReceipt": "native/graph-varint/build-varint-256.json",
+      "nativeSha256": "5a5607d02251a0dd3b1916e31f11a4d5145a4f718b90569f08987fbd1be3b528"
+    }
+  }
+}

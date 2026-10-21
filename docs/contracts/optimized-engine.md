@@ -4,7 +4,7 @@
 
 `src/optimized/index.js`は`selectResourcePlan`、`validateResourcePlan`、`runRusqsieve`を提供する。入力は既存のcanonical decimal/最大332bit・100桁契約。raw Numberの丸めを経由しない。proven/probable/incomplete/timeout/cancelledを区別し、proper divisor・因子積・確実性を検算する。直接大入力APIは入力形状が対象外なら拒否し、0/1等の通常経路を置き換えない。
 
-採用NativeはStage30/33で同一packet/列/counter/因子を確認した可逆varint powers retention + terminal collection解放 + Rust組込みu32剰余。compiled64/128/256MiB role artifactを明示し、cap128で無言の旧エンジンfallbackをしない。64は測定済みbuiltin、128/256は同じvarint patchの2clean build一致とrole memory契約を満たす。追加runtime依存、remote code、storage、telemetryは使わない。
+採用NativeはStage30/33で同一packet/列/counter/因子を確認した可逆varint powers retention + terminal collection解放 + Rust組込みu32剰余。compiled64/128/256MiB role artifactを明示し、cap128で無言の旧エンジンfallbackをしない。64は測定済みbuiltin、128/256はStage36の固定ABBAで全packet/列/counter一致とlive要求8.66%減を確認したLP map幅分離を加え、2clean build一致とrole memory契約を満たす。旧ABBA baselineはNativeとsource SHAを固定して保全し、選定変更に追随させない。追加runtime依存、remote code、storage、telemetryは使わない。
 
 自動は最大2 Worker、deviceMemory欠落時128MiB/1Workerの保守fallback。manualは1〜6 Worker、予算128/256/384/512/768MiB、coordinator128/256・helper64、6Workerはco256でWASM576MiBを明示768予算へ収める。推奨は計測で採用された構成であり、自動的にCPUを最大使用しない。8global枠は手動planで選択可能、autoは4。owner credit2、transport32/64MiB、SHA監査16MiB/8件（診断を明示した場合）。
 

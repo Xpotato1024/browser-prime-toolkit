@@ -1,8 +1,8 @@
 {
   "baselineHead": "7539031cfe5c0c7b27ca31f54df95598061b663f",
   "method": "Exact role source equality on initial generation; normalized protocol body SHA preserved on subsequent generation; selected Native role hash/hardcap tied to clean-build receipt",
-  "recipeSha256": "a4f22fcdb9f50da7162eafaea7d7276f3797efdb8cc8ada4216a74555e22bc53",
-  "generatorSha256": "ab3719763b4a2d12db947470726c1eb68bbb8a3e0ca9596b5fda577aaf4e2bf3",
+  "recipeSha256": "6ce6e40371ad93dc14f97c91c4d67d4d0cd3c36378b7d9968d3ba35fa302c637",
+  "generatorSha256": "a526a62be0320ed923bf936437eab792cd59a0f9bf224a682905bbf868a4de8d",
   "roles": {
     "64": {
       "sourceSha256": "26ebfaf9e783a147248fe030535ff1b2fea9fd937402c354b2d3657ec53021db",
@@ -201,10 +201,10 @@
       }
     },
     "128": {
-      "sourceSha256": "68f195036b52f9805d591039bc4bd8f2b9550fae00f2f273e7992aebdc1b4769",
+      "sourceSha256": "056cc9a248a47c781930974bce7e2c4d6d4eb5b31504c25bdbf1eee757be771a",
       "normalizedSha256": "b76157c87dcf80e10a49e453b575a1d9ee2b470fc9bcc87e3271527dc44bee8b",
-      "nativeReceipt": "native/graph-varint/build-varint-128.json",
-      "nativeSha256": "1fd4ac356f508ead3c4bdb52a3c52db2a2fa10df5f7ab92f0c2c43a1dbe682df",
+      "nativeReceipt": "native/lp-map/build-lpmap-128.json",
+      "nativeSha256": "5fb2f2ddd292c6f488f94640145e82f3d7eecdf6b14140ae5e5a477e8c3c1d25",
       "memory": {
         "flags": 1,
         "minPages": 17,
@@ -358,6 +358,14 @@
             "kind": "function"
           },
           {
+            "name": "codex_lpmap_selftest",
+            "kind": "function"
+          },
+          {
+            "name": "codex_lpmap_field",
+            "kind": "function"
+          },
+          {
             "name": "codex_mem_live",
             "kind": "function"
           },
@@ -397,10 +405,10 @@
       }
     },
     "256": {
-      "sourceSha256": "e8c269b86510e79dcdb959afe19369c1805a88834cadcbf5826928f8f40c18e9",
+      "sourceSha256": "69c387cf519659e3640011ca705b0afe430e4497481c33adbf7aa931cf5a986f",
       "normalizedSha256": "7ba16b9c22e560054882c4a8dc8e01af7d2ffce3b9916ef9b62fda914badae13",
-      "nativeReceipt": "native/graph-varint/build-varint-256.json",
-      "nativeSha256": "5a5607d02251a0dd3b1916e31f11a4d5145a4f718b90569f08987fbd1be3b528",
+      "nativeReceipt": "native/lp-map/build-lpmap-256.json",
+      "nativeSha256": "bdb6c58c82462927e073bb6aeb87cfaec7fc85d52987d9b79a8e3520f242375c",
       "memory": {
         "flags": 1,
         "minPages": 17,
@@ -551,6 +559,14 @@
           },
           {
             "name": "codex_graph_roundtrip",
+            "kind": "function"
+          },
+          {
+            "name": "codex_lpmap_selftest",
+            "kind": "function"
+          },
+          {
+            "name": "codex_lpmap_field",
             "kind": "function"
           },
           {
