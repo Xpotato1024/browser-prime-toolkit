@@ -264,7 +264,7 @@
   "sourceHashes": {
     "scripts/build-resieve-prefix.mjs": "d2d2d418fabbb81987261c2710d0f40bc5d4ee2d4e3c2e372bf77dbf2239bf0e",
     "native/resieve-prefix/patch-source.mjs": "cfc404840b9c239df8f0025540124a11b05f27fde3b1a6e6393e34051fb58578",
-    "native/resieve-prefix/oracle.rs": "f50199cde359eaf81686336741fb1a94a549f6fbb78f421f75d2d67ea8ca2096",
+    "native/resieve-prefix/oracle.rs": "0b097c172b3a4a8d740cd4a73bc0174a3e718d078149b3ca9d4c28a5287a545c",
     "scripts/build-collection-hotpath.mjs": "96f9521b35669f0f856f11a810c97d0dd09a24d63e7d1055c4a29b89aa6811b6",
     "native/collection-hotpath/patch-source.mjs": "0a6916f5ff261677aaf4cf283826d7d0944ac4cbdddfc6f83ccffba32c181cf2",
     "native/collection-hotpath/oracle.rs": "4908ac602484c506f1cd034ffa46b6bf74873e78af282d8dfc6e6b447c7eae35",
