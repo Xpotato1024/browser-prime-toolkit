@@ -100,3 +100,9 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 同じLLM-01/Chrome155/1Worker/先頭4familyの各独立ABBAで、係数1 -1.93%、word-rank +1.14%、prefixループ順 -1.63%、score4回展開 -1.23%。
 全16試行でpacket・列・counter一致。全て事前5%gate未達で通常入口へ未採用。
 小差をゼロと断定せず、5WorkerのRSA100完了時間へ外挿しない。基準2220.175秒成功は1回のままで、新しい長時間試行は0回。
+
+## Stage44：小幅改善を独立反復し係数1を選定
+
+上の4候補screen後、[2候補だけの均衡32反復](../benchmarks/llm01-hotpath-repeat.md)を実施した。各候補はABBA/BAAB各2block、armごと8試行。係数1は時間比0.971954（−2.80%）・PSS比1.000366、prefixは0.984192（−1.58%）・1.002064。双方とも全4block・両順序で改善し、今回事前固定の0.5%幅と参考上側比・一貫性・PSS条件を満たした。旧5%はユーザーの許容下限ではない。連続4blockの統計仮定・他環境への一般化には限界がある。
+
+効果と複雑性から係数1だけを[選定wide入口](../contracts/selected-wide.md)へ反映した。変更は既存resieveの分岐境界一つで追加配列や整数方式を増やさない。owner1024MiBは実測bytes、新helper64MiBは対象関数一致・2clean・旧新4family packet同値を確認し、Chrome22契約も通過した。通常UIやサイト公開は変更していない。測定は同じLLM-01/Chrome155/1Worker/先頭4familyであり、上流SIQS/SIMDそのものを新規貢献とせず、5Worker全工程や2220.175秒を比例短縮する数字を出さない。新規RSA100完走試行は0回。[採否・残件](../operations/stage44-outcome.md)の通り、prefix合成・後半family・他端末は未検証であり改善枯渇やmerge条件成立とは扱わない。
