@@ -84,6 +84,6 @@
     "check:resieve-prefix-results": "node scripts/report-resieve-prefix.mjs --check",
     "check:score-unroll": "node scripts/check-score-unroll.mjs && node scripts/generate-score-unroll.mjs --check",
     "check:score-unroll-results": "node scripts/report-score-unroll.mjs --check",
-    "check:hotpath-repeat": "node scripts/check-hotpath-repeat.mjs && node scripts/report-hotpath-repeat.mjs --check && node scripts/check-selected-wide.mjs"
+    "check:hotpath-repeat": "node scripts/check-hotpath-repeat.mjs && node scripts/report-hotpath-repeat.mjs --check && node scripts/check-selected-wide.mjs && node scripts/report-selected-wide.mjs --check"
   }
 }

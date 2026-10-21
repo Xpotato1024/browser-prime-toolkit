@@ -1,0 +1,54 @@
+{
+  "encoding": "gzip+canonical-base64-lines76",
+  "files": {
+    "selected-helper.json": {
+      "file": "selected-helper.json.gz.base64",
+      "originalBytes": 5632,
+      "originalSha256": "914b27763c7f81a42ec0e8f7dae42490566ba357b98bae3f0b3930b32181c977",
+      "compressedBytes": 1093,
+      "compressedSha256": "57aadb0093a99144715f464afbd21984f4b074dd218fb0d8445fbdc04ef85a1b",
+      "encodedBytes": 1480
+    },
+    "selected-helper.log": {
+      "file": "selected-helper.log.gz.base64",
+      "originalBytes": 128,
+      "originalSha256": "a4518bafdc22c963256e01cc4abbdf939c5d9cde8f5bf88a934acc2c00ebde4f",
+      "compressedBytes": 131,
+      "compressedSha256": "1e7d38e34046f4b00fc9dced3ff354e85cd0c8f268adc0efe6ed51085041d184",
+      "encodedBytes": 179
+    },
+    "selected-contracts.json": {
+      "file": "selected-contracts.json.gz.base64",
+      "originalBytes": 38637,
+      "originalSha256": "b46d1e5dfaa7d3533fe51b0dbaeac423a2b4019c6218c22783d1ca9121e9201f",
+      "compressedBytes": 14519,
+      "compressedSha256": "d3bede89a173f7d37c0bc59ac9c444c96a92558407f94a945c095e19df355832",
+      "encodedBytes": 19615
+    },
+    "selected-contracts.log": {
+      "file": "selected-contracts.log.gz.base64",
+      "originalBytes": 3266,
+      "originalSha256": "04128d487eb454fc7a892f74877f9ee9d008dbe885988eb8058061fd879054b0",
+      "compressedBytes": 500,
+      "compressedSha256": "f2945afc99fb4efc068e9a8ecbd1c8dfd3d9d70093cbff2ff070ebb49546dd85",
+      "encodedBytes": 677
+    },
+    "selected-red.log": {
+      "file": "selected-red.log.gz.base64",
+      "originalBytes": 1547,
+      "originalSha256": "8a201d3d6b33f936c5f7d93cd4673a433eb77e9caab831b80dd534a3cf5c8f6f",
+      "compressedBytes": 584,
+      "compressedSha256": "5ed02f499a4f088e202ffadd7cfa5f2a06bd4e22c0c1ea436ca6dcd6836b53bc",
+      "encodedBytes": 791
+    },
+    "selected-green.log": {
+      "file": "selected-green.log.gz.base64",
+      "originalBytes": 872,
+      "originalSha256": "b5028599c9710d91ba66dd709594aca417cca48bc0d74954a05401835bab9d13",
+      "compressedBytes": 503,
+      "compressedSha256": "1e54efe175bed3e86e6cd9727d5e3dcf5662747af48f2eb4a5e3a9456e73de82",
+      "encodedBytes": 681
+    }
+  },
+  "totalEncodedBytes": 23423
+}
