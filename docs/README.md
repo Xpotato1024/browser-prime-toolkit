@@ -100,3 +100,5 @@ Stage36の[固定64family全結果](benchmarks/llm01-lp-map.md)は、全packet/�
 [Stage36の実測・保留境界](operations/stage36-outcome.md)は、数値gate成立と選定入口の未反映、長枠の阻害を分けています。
 
 Stage37: [有限長枠・抽出割当ガード](contracts/long-window.md)と[固定試行plan](../bench/staged-long-window-plan.json)。本人承認後にLP mapを選定128/256 roleへ反映し、旧ABBA baselineのsource SHAを固定した。通常入口と長枠を分離する。
+
+Stage37結果: [有限長枠の実停止・取消・監視修正](benchmarks/llm01-long-window.md)。固定512MiB枠ではcoordinator保持メモリで停止し、大行列は未到達。失敗原本と成功原本を分離して保存する。

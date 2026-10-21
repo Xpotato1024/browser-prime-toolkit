@@ -18,7 +18,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node --test test/long-window-*.test.js test/lp-map-selection.test.js
+      - run: node --test test/long-window-*.test.js test/windows-memory-receipt.test.js test/lp-map-selection.test.js
       - run: npm run check:long-window
       - name: Offline quota abort, preflight, deadline, cancellation and fresh recovery
         run: node scripts/verify-long-window.mjs --engine five-drop --slots 8 --out "$RUNNER_TEMP/long-contracts.json"
