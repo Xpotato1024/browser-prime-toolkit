@@ -1,0 +1,445 @@
+{
+  "nodeVersion": "v24.19.0",
+  "sourceGuard": {
+    "version": 1,
+    "files": 751,
+    "treeSha256": "0c3c10538f48cf8813b9067cfd777f689a0de22d8361fad5cfe0a4e43c7db3bc"
+  },
+  "plan": "llm01-optimized-final-20261021-v1",
+  "planSha256": "7d7374c4f0dc2db6fdfa2bae5d5ea615c8f5af252e97bf61bb9b49675be13d94",
+  "driverSha256": "f4e9963b3d8b483ca5d4cafeb1e90dc9b92ed235a814fac30953ecc0b00eed32",
+  "head": "98a62b2bc1e0498dbe8041e717d673beb6f00af7",
+  "startedAt": "2026-10-21T05:21:31.567Z",
+  "trials": [
+    {
+      "id": "full64-1-baseline",
+      "harness": "varint",
+      "graph": "baseline",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1",
+      "availableMiB": 9170.41796875,
+      "args": [
+        "scripts/verify-graph-varint.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "one-drop",
+        "--slots",
+        "4",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/full64-1-baseline.json",
+        "--memory-mib",
+        "256",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T05:21:33.881Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:21:45.482Z",
+      "logSha256": "54e4f8e3a1b2cc5dfb78202b9dd4d051afba5d04c98ab0794b2e4a2a189e57ab",
+      "bytes": 315595,
+      "sha256": "ea4669639348b4a6ae4837883cb9af640a23ea0c5dbc5fdcc48e3ef002a55383",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 359,
+        "usable": 6526,
+        "wallMs": 9125.800000011921,
+        "peakPssBytes": 511030272
+      }
+    },
+    {
+      "id": "full64-2-varint",
+      "harness": "varint",
+      "graph": "varint",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1",
+      "availableMiB": 9150.89453125,
+      "args": [
+        "scripts/verify-graph-varint.mjs",
+        "--graph",
+        "varint",
+        "--engine",
+        "one-drop",
+        "--slots",
+        "4",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/full64-2-varint.json",
+        "--memory-mib",
+        "256",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T05:21:50.067Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:22:01.195Z",
+      "logSha256": "4df570ee959a108d63d350ffccdfaa48f2b971339c43d1ddebb7d070d82dc584",
+      "bytes": 315096,
+      "sha256": "df2103e088bdc1867a99f5a744b05243f9f1bbc2373a9973d3f620e4799fc309",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 359,
+        "usable": 6526,
+        "wallMs": 8932.699999988079,
+        "peakPssBytes": 510148608
+      }
+    },
+    {
+      "id": "full64-3-varint",
+      "harness": "varint",
+      "graph": "varint",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1",
+      "availableMiB": 9122.37890625,
+      "args": [
+        "scripts/verify-graph-varint.mjs",
+        "--graph",
+        "varint",
+        "--engine",
+        "one-drop",
+        "--slots",
+        "4",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/full64-3-varint.json",
+        "--memory-mib",
+        "256",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T05:22:05.705Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:22:16.778Z",
+      "logSha256": "20141f7552053488ee64893a88bd3b73732cea79f0bc918187370c98385003a0",
+      "bytes": 314703,
+      "sha256": "8aab82b8d44b09a9e2c089bca31e006a4cfd124f2738f5664d53b55a66324906",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 359,
+        "usable": 6526,
+        "wallMs": 9005.299999982119,
+        "peakPssBytes": 512130048
+      }
+    },
+    {
+      "id": "full64-4-baseline",
+      "harness": "varint",
+      "graph": "baseline",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1",
+      "availableMiB": 9100.6015625,
+      "args": [
+        "scripts/verify-graph-varint.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "one-drop",
+        "--slots",
+        "4",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/full64-4-baseline.json",
+        "--memory-mib",
+        "256",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T05:22:21.343Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:22:32.546Z",
+      "logSha256": "7cb5336bd133257495519e27bf5e2ee74291d44d938895919b4769516bf019d3",
+      "bytes": 314755,
+      "sha256": "93be50c887a4d2e6549262627c3adb8d4cbe233f0064139adb6fa73aac8a407d",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 359,
+        "usable": 6526,
+        "wallMs": 9052.59999999404,
+        "peakPssBytes": 512481280
+      }
+    },
+    {
+      "id": "entry-contracts-five",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "availableMiB": 9106.578125,
+      "args": [
+        "scripts/verify-optimized-entry.mjs",
+        "--graph",
+        "optimized",
+        "--engine",
+        "five-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/entry-contracts-five.json",
+        "--memory-mib",
+        "512"
+      ],
+      "startedAt": "2026-10-21T05:22:37.099Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:22:46.285Z",
+      "logSha256": "1948fb49ef6ee609931c2dc8659e95a485ba4714500cb90c2ad927f3d9d31d4e",
+      "bytes": 31249,
+      "sha256": "0c1bad05767401d82b12365c83e53f8fd6cd933e171d57cc4b4224698b1cfd75",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "entry-lowcap-full64",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 128,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1",
+      "availableMiB": 9024.125,
+      "args": [
+        "scripts/verify-optimized-entry.mjs",
+        "--graph",
+        "optimized",
+        "--engine",
+        "one-drop",
+        "--slots",
+        "4",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/entry-lowcap-full64.json",
+        "--memory-mib",
+        "128",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T05:22:50.815Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:23:01.881Z",
+      "logSha256": "82da0bd93dc8b72c954e81aa5ad77fc5597cea7e675eedafc2c8a2e1c6dde6ba",
+      "bytes": 295672,
+      "sha256": "9812b4975ae133d91defbdf99478452981f99bdc00e53073838536ca97b13ea3",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 359,
+        "usable": 6526,
+        "wallMs": 8964.40000000596,
+        "peakPssBytes": 482515968
+      }
+    },
+    {
+      "id": "entry-sustained600",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 600000,
+      "case": "RSA-100",
+      "availableMiB": 9129.82421875,
+      "args": [
+        "scripts/verify-optimized-entry.mjs",
+        "--graph",
+        "optimized",
+        "--engine",
+        "five-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "600000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/entry-sustained600.json",
+        "--memory-mib",
+        "512",
+        "--case",
+        "RSA-100"
+      ],
+      "startedAt": "2026-10-21T05:23:06.485Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:33:08.723Z",
+      "logSha256": "b61cd2ff880b622c80ea21f4ced80a7c5ce6b2b557dee740a3c62ea60c041136",
+      "bytes": 330177,
+      "sha256": "f71047c695a7567ae8d5ea53ddd87fa0a553010f55f7f2ee9ad181c9529cb2c3",
+      "summary": {
+        "kind": "timeout",
+        "reason": "time-budget",
+        "families": 362,
+        "usable": 11771,
+        "wallMs": 600001.400000006,
+        "peakPssBytes": 662300672
+      }
+    },
+    {
+      "id": "entry-cancel120",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 300000,
+      "case": "RSA-100",
+      "cancelAfterMs": 120000,
+      "availableMiB": 9204.828125,
+      "args": [
+        "scripts/verify-optimized-entry.mjs",
+        "--graph",
+        "optimized",
+        "--engine",
+        "five-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "300000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign11-final/entry-cancel120.json",
+        "--memory-mib",
+        "512",
+        "--cancel-after-ms",
+        "120000",
+        "--case",
+        "RSA-100"
+      ],
+      "startedAt": "2026-10-21T05:33:13.332Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:35:15.567Z",
+      "logSha256": "eae51db001baffdee6d45eef7642e5d9aa85166fba3ec5f51a91bd3ab5620e1d",
+      "bytes": 103875,
+      "sha256": "f09ae34f7e85537b7ae73f5b0477dd07d76718f5d1261c8d904a503788ea22c3",
+      "summary": {
+        "kind": "cancelled",
+        "reason": "cancelled",
+        "families": 69,
+        "usable": 1849,
+        "wallMs": 119997.09999999404,
+        "peakPssBytes": 604073984
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T05:35:17.824Z"
+}

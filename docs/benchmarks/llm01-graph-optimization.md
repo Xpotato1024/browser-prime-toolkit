@@ -60,11 +60,26 @@ Rust組込みu32剰余は境界値・seed固定10000組を既存reciprocal法と
 | legacy | 8260.4 | 129203.9 / 0.0 | 98.84%, 88.90%, 88.68%, 90.61% |
 | optimized | 8238.0 | 34274.2 / 1311.4 | 98.87%, 97.68%, 98.05%, 99.46%, 97.87% |
 
-占有率はhostの割当job wall timeであり、OS CPU使用率ではありません。ACK待ちは先行計算と重なる場合があります。送付済みnative時間は中断中の呼出しを含まない下限です。
+占有率はhostの割当job wall timeであり、OS CPU使用率ではありません。ACK待ちは先行計算と重なる場合があります。送付済みnative時間とallocator/linear観測は、中断中の呼出しの未送信変化を含みません。Chrome RSS/PSSは別の間隔samplingです。
 
 ## 可逆powers圧縮
 
 固定64family・4Worker/8枠のABBAで、live要求量 -27.85%、時間 -0.31%、PSS -0.39%。事前gateは成立。全packet/列/counter一致、40/64桁の最終因子一致、405 codec境界と不正入力拒否を確認しました。外部wire形式と数学パラメータは変更しません。
+
+## 残る局所候補と配布入口
+
+| 候補 | 同一条件 | 時間変化 | PSS変化 | 判断 |
+| --- | --- | ---: | ---: | --- |
+| skip | 固定32family4Worker/8枠ABBA | -0.29% | 0.13% | 速度5% gate不成立・不採用（live 0.00%） |
+| block16 | 固定32family4Worker/8枠ABBA | 4.85% | -0.15% | 速度5% gate不成立・不採用（live 0.00%） |
+
+元順序を保つsigned index差分は4familyのpayload比 99.70% / 98.69% / 98.71% / 98.75%。全partialのbyte数からの初期live削減見積りは 0.125%で、事前20%payload/10%live gate不成立。追加codecは実装しません。これは有界サイズ診断で、全工程の実測省メモリ率ではありません。Node child maxRSS 105.81MiB、Chrome値とは別です。
+
+64桁全工程の1owner ABBA（最終prefix359）でも全packet/counter/因子と共通prefix128列が一致し、varint時間は -1.32%、要求peakは 0.00%。
+
+選定済みESM入口の初回取得は 19asset、計 1879727bytes。runtime依存に旧実験factory/非選定WASMを含めず、3role sourceは整理前とバイト一致・body SHA/Native hardcapを固定しています。
+
+上限600秒（実request 600.001秒）の試行は timeout/time-budget、accepted362、usable11771。最後に受信したcoordinator live/linear 104.38/121.31MiB、Chrome peak RSS/PSS 1409.39/631.62MiB。prefix128で旧未圧縮方式とのlive要求比は -57.33%、到達時間変化は -29.94%（別headの統合比較）。120秒取消は 1.100msで全Worker/source退役、全試行通信0とallocator拒否0を確認しています。
 
 ## 限界と残作業
 
@@ -79,5 +94,7 @@ RSA100の収集→大行列→GCDの完了は未確認です。小さい対照40
 - [dedicated manifest](staged-graph-stage25/dedicated/run.json): `7899800a6fb64e97d4a218ac56bbdf702b907891`、5 trials。
 - [integrated manifest](staged-graph-stage25/integrated/run.json): `477f141fd3855b0b73e89af7559482a7c2ebb7ca`、5 trials。
 - [varint manifest](staged-graph-stage25/varint/run.json): `764982e9a31d8c23bfc1b70ad0c9a0fb33c20ecb`、5 trials。
+- [hotpath manifest](staged-graph-stage25/hotpath/run.json): `65e8f9f8a011ae60f6498cd30c999bbfa77667db`、10 trials。
+- [final manifest](staged-graph-stage25/final/run.json): `98a62b2bc1e0498dbe8041e717d673beb6f00af7`、8 trials。
 
 [契約一覧](../README.md)と[操作・解釈](../operations/graph-optimization.md)を参照してください。公開releaseとサイトのplugin受入・本番切替は別工程です。

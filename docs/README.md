@@ -90,3 +90,5 @@ Stage25: [graph保持量・抽出移行の事前契約](contracts/graph-profile.
 Stage26/27: [不可逆な抽出移行](contracts/graph-release.md)、[部分関係式の可逆packed保存](contracts/graph-arena.md)。各候補は別source・別予算で比較し、旧原本を維持します。
 
 Stage28〜35: [保持・抽出・並列・数値hot pathの全比較](benchmarks/llm01-graph-optimization.md)、[操作と測定契約](operations/graph-optimization.md)、[選定済みESM入口](contracts/optimized-engine.md)、[マージ依存順とrelease条件](operations/graph-release-readiness.md)。[powers可逆圧縮](contracts/graph-varint.md)、[篩局所変更](contracts/graph-hotpath.md)、[差分サイズ診断](contracts/graph-width-diagnostic.md)は独立した有限仮説として扱います。
+
+[Stage25〜35の採否・TDD・残件](operations/stage25-35-outcome.md)は、生成実測と未測定仮説を区別した今回の引渡し境界です。
