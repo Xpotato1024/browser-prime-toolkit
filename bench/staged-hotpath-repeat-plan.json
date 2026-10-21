@@ -20,9 +20,9 @@
   "limits": {
     "totalCampaignMs": 2880000,
     "maxTrials": 32,
-    "childBudgetMs": 60000,
+    "childBudgetMs": 90000,
     "reservePerChildMs": 30000,
-    "childTimeoutMs": 82000,
+    "childTimeoutMs": 112000,
     "families": 4,
     "workers": 1,
     "nativeHardmaxMiB": 1024,
@@ -35,7 +35,9 @@
     "chromePssStopMiB": 1536,
     "childJsHeapMiB": 128,
     "maxReceiptBytes": 2097152,
-    "maxCandidates": 2
+    "maxCandidates": 2,
+    "maxTotalHarnessLaunches": 33,
+    "priorPreconditionRefusals": 1
   },
   "gates": {
     "minimumTimeRatio": 0.995,
@@ -95,7 +97,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b01-s2-resieve1",
@@ -105,7 +107,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b01-s3-resieve1",
@@ -115,7 +117,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b01-s4-baseline",
@@ -125,7 +127,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b02-s1-prefix",
@@ -135,7 +137,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b02-s2-baseline",
@@ -145,7 +147,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b02-s3-baseline",
@@ -155,7 +157,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b02-s4-prefix",
@@ -165,7 +167,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b03-s1-resieve1",
@@ -175,7 +177,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b03-s2-baseline",
@@ -185,7 +187,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b03-s3-baseline",
@@ -195,7 +197,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b03-s4-resieve1",
@@ -205,7 +207,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b04-s1-baseline",
@@ -215,7 +217,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b04-s2-prefix",
@@ -225,7 +227,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b04-s3-prefix",
@@ -235,7 +237,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b04-s4-baseline",
@@ -245,7 +247,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b05-s1-baseline",
@@ -255,7 +257,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b05-s2-prefix",
@@ -265,7 +267,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b05-s3-prefix",
@@ -275,7 +277,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b05-s4-baseline",
@@ -285,7 +287,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b06-s1-resieve1",
@@ -295,7 +297,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b06-s2-baseline",
@@ -305,7 +307,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b06-s3-baseline",
@@ -315,7 +317,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b06-s4-resieve1",
@@ -325,7 +327,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b07-s1-prefix",
@@ -335,7 +337,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b07-s2-baseline",
@@ -345,7 +347,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b07-s3-baseline",
@@ -355,7 +357,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b07-s4-prefix",
@@ -365,7 +367,7 @@
       "candidate": "prefix",
       "profile": "resieve-prefix",
       "graph": "prefix",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b08-s1-baseline",
@@ -375,7 +377,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b08-s2-resieve1",
@@ -385,7 +387,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b08-s3-resieve1",
@@ -395,7 +397,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "resieve1",
-      "budgetMs": 60000
+      "budgetMs": 90000
     },
     {
       "id": "b08-s4-baseline",
@@ -405,7 +407,7 @@
       "candidate": "resieve1",
       "profile": "resieve-followup",
       "graph": "baseline",
-      "budgetMs": 60000
+      "budgetMs": 90000
     }
   ],
   "reusedValidation": {
@@ -429,5 +431,13 @@
         "oracles.json": "ac8d19cbefb3706a37bad0730e7dbb739b4ec1170d158a4636dfe6e4d16dcb4b"
       }
     }
+  },
+  "preMeasurementCorrection": {
+    "head": "d25e944b2fec64e377cfbb72f3fbc25df7d41173",
+    "runSha256": "ea8b8c0c16b0e583dd3a0b2c5138bdcd62c39664c97ecd7422d5277806d9cfa9",
+    "logSha256": "cefd66207589c7462e76c4be2b10caccc1032132e12c4356e1640975ca594a8f",
+    "nativeFamilies": 0,
+    "browserStarted": false,
+    "reason": "Existing verifier requires90000ms before creating Chrome; 60000 was rejected. Verifier unchanged."
   }
 }

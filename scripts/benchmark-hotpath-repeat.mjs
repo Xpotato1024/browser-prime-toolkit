@@ -22,7 +22,7 @@ const entry=index.files['wide-1024.json'],packed=Buffer.from(readFileSync(join(b
 assert.equal(sha(packed),entry.compressedSha256);assert.equal(sha(raw),oldRow.sha256);assert.equal(sha(raw),entry.originalSha256);
 const old=JSON.parse(raw).records[0];assert.equal(oldRun.head,plan.successfulReferenceHead);
 const chromeVersion=execFileSync(process.env.CHROME_BIN,['--version'],{encoding:'utf8'}).trim();assert.match(chromeVersion,/155\./);
-assert.equal(plan.trials.length,32);assert.ok(plan.trials.every(t=>['resieve-followup','resieve-prefix'].includes(t.profile)&&t.budgetMs===60000));
+assert.equal(plan.trials.length,32);assert.ok(plan.trials.every(t=>['resieve-followup','resieve-prefix'].includes(t.profile)&&t.budgetMs===90000));
 mkdirSync(out);
 const started=performance.now(),deadline=started+plan.limits.totalCampaignMs,guard=captureSourceGuard(root);
 const manifest={plan:plan.id,head,nodeVersion:process.version,planSha256:sha(readFileSync(planPath)),driverSha256:sha(readFileSync(new URL(import.meta.url))),sourceGuard:{version:guard.version,files:guard.files,treeSha256:guard.treeSha256},environment:{chromeVersion,logicalCpu:cpus().length,cpuModel:cpus()[0].model,platform:process.platform,arch:process.arch},startedAt:new Date().toISOString(),trials:[]};
