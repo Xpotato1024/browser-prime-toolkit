@@ -75,7 +75,10 @@ pub extern "C" fn codex_resieve_prefix_oracle()->u32 {
     let positions=vec![0u32,1,63,64];
     for k in [48usize,49,48] {
         r1.fill(u32::MAX);r2.fill(0);
-        for i in small..small+k {r1[i]=0;r2[i]=if i<small+10 {1}else{0};}
+        for i in small..small+k {r1[i]=0;}
+        // These ten primes follow candidate0's possible 49th factor.
+        // A short-circuit overflow OR would incorrectly suppress them.
+        for i in small+49..small+59 {r1[i]=1;r2[i]=1;}
         let a=resieve_candidate_factors_reference(&ctx,&r1,&r2,&scores,0,&positions,small,&mut cc,&mut cf,&mut cb);
         let z=resieve_candidate_factors(&ctx,&r1,&r2,&scores,0,&positions,small,&mut nc,&mut nf,&mut nb);
         assert_eq!(a,k==48);assert_eq!(a,z);assert_eq!(cc,nc);assert_eq!(cf,nf);
