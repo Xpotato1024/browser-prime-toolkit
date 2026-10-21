@@ -85,3 +85,4 @@ Stage23: [追加事前契約](contracts/sustained-evaluation.md)、[TDD・固定
 Stage23/24: [集約・300/600秒の全結果](benchmarks/llm01-sustained.md)、[占有率・待ち・graph成長](benchmarks/llm01-sustained-observations.md)、[原本と再現境界](operations/sustained-measurement.md)、[継続集計のTDD](operations/stage24-tdd-evidence.md)。旧停止原本とsourceを保持しています。
 
 [Stage23/24 の結果と残件](operations/stage23-24-outcome.md)。
+Stage25: [graph保持量・抽出移行の事前契約](contracts/graph-profile.md)、[可逆root保存artifactと再現手順](../native/graph-profile/README.md)。旧計測原本と公開入口を維持します。
