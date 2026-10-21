@@ -3,7 +3,8 @@
 大きな半素数をブラウザ内で高速に分解することを目標に開発する公開実験リポジトリです。
 native BigInt と限定 MPQS/WASMに加え、別の評価用bundleでGMP低位Brent・ECMを実装しています。
 予算・取消付きWorkerと比較harnessを持ち、従来Rhoは1/2/4本、64MiB候補は128MiB枠内の1/2本を評価します。
-公開する最終エンジンは未確定です。[採否と本人判断点](docs/architecture/engine-selection-closeout.md)を整理し、設計探索を区切ります。
+現在の高難度向け選定済み実験コアは[ESM入口](docs/contracts/optimized-engine.md)です。[graph保持・抽出・並列・剰余の比較](docs/benchmarks/llm01-graph-optimization.md)で採否と限界を示します。小入力の既存経路を維持し、サイトadapterと本番受入は次工程です。
+過去の[初期採否判断](docs/architecture/engine-selection-closeout.md)は判断履歴として保持します。
 [非公開standalone UI](docs/operations/private-ui.md)は全桁・指数表示とコピーを備えます。React の製品画面、サイト用アダプター、公開配布は後続です。
 
 ## 開発
