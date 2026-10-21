@@ -1,10 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {wideWorkerSource} from '../wide-window/worker-source.js';
 import {RUSQSIEVE_BASE64} from './wasm-phase-1024.js';
+import {RUSQSIEVE_BASE64 as RESIEVE4} from '../collection-hotpath/wasm-resieve4-1024.js';
+import {RUSQSIEVE_BASE64 as SPARSE} from '../collection-hotpath/wasm-sparse-1024.js';
 const rep=(s,a,b)=>{if(s.split(a).length!==2)throw Error('Collection Worker anchor '+a.slice(0,90));return s.replace(a,b);};
 export function collectionWorkerSource(cap,variant){
- if(cap!==1024||!['baseline','instrumented'].includes(variant))throw Error('Named one-owner diagnostic role');
+ if(cap!==1024||!['baseline','instrumented','resieve4','sparse'].includes(variant))throw Error('Named one-owner diagnostic role');
  let s=wideWorkerSource(1024);
+ if(['resieve4','sparse'].includes(variant)){
+  const re=/const RUSQSIEVE_BASE64="[^"]+";/g;if([...s.matchAll(re)].length!==1)throw Error('One candidate artifact');
+  s=s.replace(re,()=> 'const RUSQSIEVE_BASE64='+JSON.stringify(variant==='resieve4'?RESIEVE4:SPARSE)+';');
+ }
  if(variant==='instrumented'){
   const re=/const RUSQSIEVE_BASE64="[^"]+";/g;if([...s.matchAll(re)].length!==1)throw Error('One artifact');
   s=s.replace(re,()=> 'const RUSQSIEVE_BASE64='+JSON.stringify(RUSQSIEVE_BASE64)+';');

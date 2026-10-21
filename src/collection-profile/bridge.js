@@ -14,7 +14,7 @@ export function validateCollectionFrame(d,variant,previous=null){
  return true;
 }
 export function attachCollectionPort(worker,variant,onFailure){
- if(!['baseline','instrumented'].includes(variant))throw Error('Named diagnostic variant');
+ if(!['baseline','instrumented','resieve4','sparse'].includes(variant))throw Error('Named diagnostic variant');
  const channel=new MessageChannel();let last=null,closed=false,failure=null;
  channel.port1.onmessage=e=>{if(closed)return;try{validateCollectionFrame(e.data,variant,last);last=e.data;}catch(error){failure=String(error.message);onFailure(failure);}};
  channel.port1.onmessageerror=()=>{failure='Diagnostic port decode failure';onFailure(failure);};
