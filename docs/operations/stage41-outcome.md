@@ -17,3 +17,5 @@ candidateごとの因子昇順・48因子上限・全candidate処理・bitmap cl
 静的レビューで隠れたRNG/cache更新がないことを確認済み。別の事前契約で有限比較する。
 倍率4／疎scoreの前段結果、旧filter解放・skip・dense候補、37分成功原本は保全する。
 今回のscreenをRSA100の全工程時間へ外挿せず、改善枯渇・merge条件成立とは扱わない。
+
+後続のprefix/score単独比較は[Stage41〜43のhandoff](stage41-43-outcome.md)へ完了記録を追加した。上記の段階別原本・判断を保全する。

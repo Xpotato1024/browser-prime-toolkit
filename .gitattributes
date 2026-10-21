@@ -32,3 +32,8 @@ docs/benchmarks/staged-sustained-stage23/*.json linguist-generated=true
 docs/benchmarks/staged-sustained-stage23/*.log linguist-generated=true
 docs/benchmarks/staged-sustained-stage24/*.json linguist-generated=true
 docs/benchmarks/staged-sustained-stage24/*.log linguist-generated=true
+
+# Reversible benchmark payloads; review the manifest, verifier and generated Japanese report.
+docs/benchmarks/staged-resieve-stage41/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-prefix-stage42/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-unroll-stage43/*.gz.base64 linguist-generated=true

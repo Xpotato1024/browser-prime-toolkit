@@ -118,3 +118,5 @@ Stage40: [収集ホットパスの段階診断と有限改善](contracts/collect
 Stage40: [現行収集16phaseと独立2候補の全比較](benchmarks/llm01-collection-hotpath.md)、[事前診断契約](contracts/collection-profile.md)、[候補契約](contracts/collection-candidates.md)、[修正・採否・継続判断](operations/stage40-outcome.md)。resieve/scoreを優先し、今回の2候補は不採用。改善探索は継続する。
 
 Stage41: [resieve倍率1・bitmap rankの全8試行](benchmarks/llm01-resieve-followup.md)、[事前契約](contracts/resieve-followup.md)、[採否・次の局所候補](operations/stage41-outcome.md)。時間比0.98067/1.01137で初回gate不成立。原本と小差を保全する。
+
+Stage42/43の[prefix](benchmarks/llm01-resieve-prefix.md)・[score展開](benchmarks/llm01-score-unroll.md)を独立比較した。[候補群の採否・停止判断](architecture/hotpath-candidate-closeout.md)、[最終検証の入口](operations/stage41-43-outcome.md)を参照。小幅短縮も事前5%gate未達として未採用で、改善余地ゼロとは扱わない。

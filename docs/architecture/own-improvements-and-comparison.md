@@ -93,3 +93,10 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 [Stage40の現行phase・12試行・原本](../benchmarks/llm01-collection-hotpath.md)では、計測時間増加1.90%を確認した。旧filter早期解放だけを最後の改善余地とは扱わず、関係式収集の探索を継続する。
 
 [Stage41の有限追試](../benchmarks/llm01-resieve-followup.md)では倍率1が約1.93%短縮、bitmap word-rankは約1.14%増。どちらも初回5%gate不成立。小差をゼロとせず、追加bufferを使わないresieve前半のループ順交換を次の具体的候補として検証する。
+
+## 現行hotpathの追加4候補（2026-10-21）
+
+[候補群の採否・停止判断](hotpath-candidate-closeout.md)に詳細を追記した。
+同じLLM-01/Chrome155/1Worker/先頭4familyの各独立ABBAで、係数1 -1.93%、word-rank +1.14%、prefixループ順 -1.63%、score4回展開 -1.23%。
+全16試行でpacket・列・counter一致。全て事前5%gate未達で通常入口へ未採用。
+小差をゼロと断定せず、5WorkerのRSA100完了時間へ外挿しない。基準2220.175秒成功は1回のままで、新しい長時間試行は0回。
