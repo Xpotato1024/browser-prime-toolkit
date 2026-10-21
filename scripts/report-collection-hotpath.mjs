@@ -9,6 +9,7 @@ import {validateGuardManifest} from './source-guard.mjs';
 import {historicalHashes} from './git-source-blobs.mjs';
 import {validateStreamRecord} from './graph-multicore-proof.mjs';
 import {validateCollectionFinal} from '../src/collection-profile/bridge.js';
+import {validateCollectionSources,validateCollectionContracts,validateNativeCollection} from './collection-receipt-proof.mjs';
 import {COLLECTION_PHASES} from '../src/collection-profile/phases.js';
 const base='docs/benchmarks/staged-collection-stage40',sha=b=>createHash('sha256').update(b).digest('hex');
 if(process.argv.includes('--pack')){
@@ -58,8 +59,8 @@ for(const [prefix,run]of [['profile',profile],['hotpath',hotpath]]){
   const bytes=originals.get(prefix+'-'+t.id+'.json'),log=originals.get(prefix+'-'+t.id+'.log');
   assert.equal(sha(bytes),t.sha256);assert.equal(bytes.length,t.bytes);assert.equal(sha(log),t.logSha256);assert.equal(log.length,t.logBytes);
   const r=JSON.parse(bytes);assert.equal(r.measuredHead,run.head);assert.equal(r.graphVariant,t.graph);assert.equal(r.records.length,1);
-  const sources={...r.sourceFiles,...r.graphSourceFiles},hashes=historicalHashes(run.head,Object.keys(sources));
-  for(const[p,h]of Object.entries(sources))assert.equal(hashes.get(p),h,p);
+  const paths=[...new Set([...Object.keys(r.sourceFiles??{}),...Object.keys(r.graphSourceFiles??{})])],hashes=historicalHashes(run.head,paths);
+  validateCollectionSources(r,hashes);
   assert.deepEqual(r.quiet,{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true});
   assert.deepEqual(r.detectorSelfTest,{blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true});
   assert.equal(r.sampledRam.observerFailure,null);assert.ok(r.sampledRam.minAvailableMiB>=4096&&r.sampledRam.peakPssBytes<1536*1048576);
@@ -85,15 +86,19 @@ const decisions=['resieve4','sparse'].map(kind=>{
  const timeRatio=median(next.map(r=>r.ms))/median(old.map(r=>r.ms)),pssRatio=median(next.map(r=>r.pss))/median(old.map(r=>r.pss));
  const d={timeRatio,pssRatio,allPrefixesMatched:true,initialGatePassed:timeRatio<=0.95&&pssRatio<=1.10};assert.deepEqual(hotpath.comparisons[kind],d);return{kind,...d};
 });
-const native=json('native-hotpath.json');validateGuardManifest({head:native.measuredHead,sourceGuard:native.sourceGuard});
-for(const caseId of ['digits40','digits64']){
- const rows=native.rows.filter(r=>r.caseId===caseId);assert.equal(rows.length,3);
- const math=r=>({input:r.input,packets:r.packets,counters:r.counters,columnBytes:r.columnBytes,columnSha256:r.columnSha256,profile:r.profile,pair:r.pair});
- for(const r of rows){assert.deepEqual(math(r),math(rows[0]));assert.ok(r.disposed);assert.equal(r.before.failures,0);assert.equal(r.after.failures,0);assert.equal(r.pair.map(BigInt).reduce((a,b)=>a*b,1n),BigInt(r.input));}
+for(const[name,head,variants]of [
+ ['native-profile.json','8ea62fd90f678afed933f7eef2fda746a9504076',['baseline','instrumented']],
+ ['native-hotpath.json',hotpath.head,['baseline','resieve4','sparse']]
+]){
+ const r=json(name);validateGuardManifest({head:r.measuredHead,sourceGuard:r.sourceGuard});
+ validateNativeCollection(r,{head,variants});
 }
 const oracles=json('oracles.json');assert.equal(oracles.rows.length,2);assert.ok(oracles.rows.every(r=>r.cases===435&&r.pass));
 for(const kind of ['instrumented','resieve4','sparse']){
- const r=json('contracts-'+kind+'.json');assert.equal(r.collectionDiagnostics.failure,null);assert.equal(r.collectionDiagnostics.livePorts,0);
+ const r=json('contracts-'+kind+'.json'),head=kind==='instrumented'?'367b14f2be86cc27b2b1afd018e863b244c9fca2':hotpath.head;
+ validateCollectionContracts(r,{head,graph:kind});
+ const paths=[...new Set([...Object.keys(r.sourceFiles??{}),...Object.keys(r.graphSourceFiles??{})])];
+ validateCollectionSources(r,historicalHashes(head,paths));
 }
 const fmt=(n,d=3)=>n.toFixed(d),pct=n=>fmt((n-1)*100,2)+'%';
 const report=`# LLM-01 現行の関係式収集profileと有限改善比較
