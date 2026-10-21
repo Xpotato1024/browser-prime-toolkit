@@ -14,6 +14,10 @@
 | Stage28 | 1 ownerで最終prefix・列SHAを揃える抽出比較、名前付き同一コードCPU診断 | Stage25/26 |
 | Stage29 | 4/8 reservation枠を先に比較し、4/5/6 Workerを比較 | Stage27・数学条件同一 |
 | Stage30 | reciprocal/u128経由のu32剰余をRust組込み剰余に置換 | Stage27・同じscheduler |
+| Stage31/32 | 同じ5計算ownerの集約専用対照、600秒と取消 | combined/legacyと選定候補 |
+| Stage33 | powersの可逆varint保持 | packed+builtinの同じ64family |
+| Stage34 | resieve剰余省略とdense16KiBを独立比較 | varint+builtin、どちらも不採用 |
+| Stage35 | 4familyだけのindex差分サイズ診断、選定Workerの依存整理 | 追加codec不採用、role sourceのbyte一致 |
 
 各契約はdocs/contracts/graph-*.md、固定planはbench/staged-graph-*-plan.json。全trialの予算を先に固定する。manifestのHEAD・plan/driver hash、raw/log hash、実読込assetと補助source hashを結び、accepted prefixのpacket SHA・canonical column SHA・全native countersを検証する。計測中にビルド・別の計算試行は行わない。失敗は上書きせず、新しい試行IDと原因・差分を残す。
 
@@ -41,3 +45,7 @@ coordinatorのlive requested160MiBまたはlinear208MiB、Chrome PSS1536MiBで�
 accepted family/列/counterが違う試行のメモリや全工程時間は厳密な同条件採否に使わない。Stage26の4 owner予備試行はdrainで最終prefix360/362となったため、Stage28の1 owner最終prefix一致対照を追加した。予備試行も保持する。
 
 RSA100の収量/targetを全工程進捗率や単純な完了時間予測へ換算しない。物理スマホ・Safari・Firefoxや、RSA100の大行列経路を小さい対照入力の成功で代替しない。サイト側のCSP・capability・license・long-compute受入と本番切替は別工程。
+
+## 最終入口の固定検証
+
+[最終契約](../contracts/optimized-final.md)と[固定plan](../../bench/staged-optimized-final-plan.json)に従い、scripts/benchmark-optimized-final.mjs /outside/new-directoryを実行する。既存directoryを再利用せず、source guardがHEAD bytes・両source map・tracked/staged cleanを各trial前後に検査する。測定中に文書/配布sourceを編集せず、build/test/downloadを重ねない。npm run check:graphが全raw/source/plan/driverの歴史結合と生成報告も検査する。

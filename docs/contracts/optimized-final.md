@@ -1,0 +1,9 @@
+# 選定済みESM入口の最終固定比較
+
+[固定plan](../../bench/staged-optimized-final-plan.json)は同じsource HEADで8試行、合計の計算予算1080秒。varint保持の64桁1owner ABBAを最大30秒×4（co256）で通し確認し、実配布ESM依存だけの入口で5owner契約16項目、co128の64桁、5owner600秒、120秒取消（deadline300秒）を確認する。基準と候補のpacket/列prefix128、最終family359の全packet/counter/因子を照合する。cap128はNativeテストで全列を比較済み、Chromeでも最終因子と全退役を確認する。
+
+coordinator最大256/helper64、選定5ownerのWASM計512MiB、輸送8枠/64MiB、owner credit2、digest16MiB/8件、出力receipt各1MiBを維持する。co live160/linear208MiB、Chrome PSS1536MiB、開始前WSL MemAvailable4096MiB以上。未知trap/allocator拒否をsoft-stopの成功へ変更しない。低capの保護は比例して80/104MiB。OS強制終了を防げるとは主張しない。
+
+driverは既存出力directoryを再利用しない。新directoryを排他的作成し、logはwx、manifestだけ自身の状態として更新する。全runtime/recipe/plan/contracts等のtracked sourceをHEAD bytesへ開始前に照合し、各trial前後にHEAD・tracked/staged clean・SHAを再確認する。sourceFilesとgraphSourceFilesは同一路径があっても各hashを別々に検査し、unknown sourceも拒否する。測定中に保護対象source・文書を編集しない。別build/test/長いdownloadを並行しない。Tunnel側は親が調整し、Prime計算を優先する。
+
+raw/logを上書きせず、歴史blobへ全source・driver・plan・manifestを結ぶ。RSA100が未完了ならその事実を保持し、usable/targetや600秒収量から全工程時間を外挿しない。これは実ESM配布入口の計算/取消/通信の受入であり、サイトReact/CSP/multi-instanceと実機スマホの受入は次工程。

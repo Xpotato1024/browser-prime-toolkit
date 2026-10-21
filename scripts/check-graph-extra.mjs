@@ -5,3 +5,6 @@ for(const[space,name,cap]of [['graph-profiling','names',256],['graph-builtin','b
 for(const n of ['full','profiling','multicore','builtin','integrated','varint','hotpath'])execFileSync(process.execPath,['scripts/generate-graph-'+n+'.mjs','--check'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/generate-optimized.mjs','--check'],{stdio:'inherit'});
 console.log('Named diagnostic semantic equality, role hardcaps, build hashes and generated experiments verified');
+
+execFileSync(process.execPath,['scripts/build-optimized-workers.mjs','--check'],{stdio:'inherit'});
+execFileSync(process.execPath,['scripts/generate-optimized-entry.mjs','--check'],{stdio:'inherit'});

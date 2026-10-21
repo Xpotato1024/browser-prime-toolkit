@@ -11,3 +11,7 @@
 `runRusqsieve(input,{resourcePlan,signal,onProgress})`は初期化込みの有限deadlineを共有し、取消/期限/異常で全WorkerとBlob sourceを退役させる。後から時間/仕事予算をresetしない。coordinatorのsoft-stopはrole capのlive requested62.5%またはlinear81.25%（128時80/104MiB、256時160/208MiB）。fatalの理由をsoft-stopへ上書きしない。単一呼出内の一時増加やOS tab終了の完全防止は保証しない。WASM上限と全体RSSは別。
 
 sourceはlocal ESMとして先に全依存を取得する。以後の計算/取消/再生成は通信0を最終配布artifactで確認する。サイト側のmulti-instance admission、CSP/Worker/WASM/licenseとlong-compute profileの受入、本番切替は次工程。ブラウザ全tab/OS全体の資源上限をこのAPIが保証するとは扱わない。
+
+## 配布するsourceの依存範囲
+
+選定入口は最終的に選定64/128/256 roleの生成済みWorker sourceだけをruntime importする。旧baseline/compact/release/packedのWASMと実験factoryへの依存はbuild recipe側へ移す。生成前の各role sourceとbody（WASM定数を除く）のSHAを固定し、生成後も同じprotocol/上限/telemetry/取消処理であることを確認する。役割別のNative hash/hardcapと生成差分をCIで検査する。これは依存と不要asset取得の削減で、計算高速化やRSSの率として外挿しない。最終の実ESM依存だけを読む専用Chrome入口でoffline/全退役/低capと40/64桁を検証する。

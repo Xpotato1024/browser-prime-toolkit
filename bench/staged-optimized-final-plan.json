@@ -1,0 +1,110 @@
+{
+  "id": "llm01-optimized-final-20261021-v1",
+  "hypothesis": "Exact selected ESM-only distribution, varint full-path cost, 600s growth and cancel; no completion extrapolation",
+  "acceptance": {
+    "fullControlPrefix": 359,
+    "fullPacketsCountersFactorsEqual": true,
+    "commonSustainedPrefix": 128,
+    "allWorkersRetired": true,
+    "allocationFailures": 0,
+    "quietRequests": 0
+  },
+  "limits": {
+    "totalCalculationMs": 1080000,
+    "startAvailableMiB": 4096,
+    "maxWasmMiB": 512,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8,
+    "maxReceiptBytes": 1048576
+  },
+  "trials": [
+    {
+      "id": "full64-1-baseline",
+      "harness": "varint",
+      "graph": "baseline",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "full64-2-varint",
+      "harness": "varint",
+      "graph": "varint",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "full64-3-varint",
+      "harness": "varint",
+      "graph": "varint",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "full64-4-baseline",
+      "harness": "varint",
+      "graph": "baseline",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 256,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "entry-contracts-five",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "entry-lowcap-full64",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 128,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "entry-sustained600",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 600000,
+      "case": "RSA-100"
+    },
+    {
+      "id": "entry-cancel120",
+      "harness": "entry",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 300000,
+      "case": "RSA-100",
+      "cancelAfterMs": 120000
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "baselineHead": "7539031cfe5c0c7b27ca31f54df95598061b663f",
+  "method": "Exact role source equality on initial generation; normalized protocol body SHA preserved on subsequent generation; selected Native role hash/hardcap tied to clean-build receipt",
+  "recipeSha256": "a4f22fcdb9f50da7162eafaea7d7276f3797efdb8cc8ada4216a74555e22bc53",
+  "generatorSha256": "ab3719763b4a2d12db947470726c1eb68bbb8a3e0ca9596b5fda577aaf4e2bf3",
+  "roles": {
+    "64": {
+      "sourceSha256": "26ebfaf9e783a147248fe030535ff1b2fea9fd937402c354b2d3657ec53021db",
+      "normalizedSha256": "13066b59e424c306d1812fe3f228b31c13dcd06f5c641bf43fe49611e8e3839d",
+      "nativeReceipt": "native/graph-builtin/build-builtin-64.json",
+      "nativeSha256": "78c6e22e5c06d6ea6eabf73dca4fa9c439ecf3ef20ca304d4baa92256cc132a6",
+      "memory": {
+        "flags": 1,
+        "minPages": 17,
+        "maxPages": 1024,
+        "shared": false,
+        "initialBytes": 1114112,
+        "maximumBytes": 67108864,
+        "exports": [
+          {
+            "name": "memory",
+            "kind": "memory"
+          },
+          {
+            "name": "qs_abi_version",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_siqs_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_input_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_alloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_dealloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_pointer",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_length",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_sieve",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_new",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_target",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_relations",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_family_budget",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_submit",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_extract",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_b1",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_curves",
+            "kind": "function"
+          },
+          {
+            "name": "qs_rho",
+            "kind": "function"
+          },
+          {
+            "name": "codex_extract_status",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_worker",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_fb_len",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_version",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_new",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_coord_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_worker_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_stat",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_profile",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_columns",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_phase",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_roundtrip",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_live",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_failures",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_last_failed",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_reset_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_builtin_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "codex_reciprocal_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "__data_end",
+            "kind": "global"
+          },
+          {
+            "name": "__heap_base",
+            "kind": "global"
+          }
+        ]
+      }
+    },
+    "128": {
+      "sourceSha256": "68f195036b52f9805d591039bc4bd8f2b9550fae00f2f273e7992aebdc1b4769",
+      "normalizedSha256": "b76157c87dcf80e10a49e453b575a1d9ee2b470fc9bcc87e3271527dc44bee8b",
+      "nativeReceipt": "native/graph-varint/build-varint-128.json",
+      "nativeSha256": "1fd4ac356f508ead3c4bdb52a3c52db2a2fa10df5f7ab92f0c2c43a1dbe682df",
+      "memory": {
+        "flags": 1,
+        "minPages": 17,
+        "maxPages": 2048,
+        "shared": false,
+        "initialBytes": 1114112,
+        "maximumBytes": 134217728,
+        "exports": [
+          {
+            "name": "memory",
+            "kind": "memory"
+          },
+          {
+            "name": "qs_abi_version",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_siqs_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_input_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_alloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_dealloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_pointer",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_length",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_sieve",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_new",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_target",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_relations",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_family_budget",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_submit",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_extract",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_b1",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_curves",
+            "kind": "function"
+          },
+          {
+            "name": "qs_rho",
+            "kind": "function"
+          },
+          {
+            "name": "codex_extract_status",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_worker",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_fb_len",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_version",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_new",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_coord_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_worker_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_stat",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_profile",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_columns",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_phase",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_roundtrip",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_live",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_failures",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_last_failed",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_reset_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_builtin_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "codex_reciprocal_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "__data_end",
+            "kind": "global"
+          },
+          {
+            "name": "__heap_base",
+            "kind": "global"
+          }
+        ]
+      }
+    },
+    "256": {
+      "sourceSha256": "e8c269b86510e79dcdb959afe19369c1805a88834cadcbf5826928f8f40c18e9",
+      "normalizedSha256": "7ba16b9c22e560054882c4a8dc8e01af7d2ffce3b9916ef9b62fda914badae13",
+      "nativeReceipt": "native/graph-varint/build-varint-256.json",
+      "nativeSha256": "5a5607d02251a0dd3b1916e31f11a4d5145a4f718b90569f08987fbd1be3b528",
+      "memory": {
+        "flags": 1,
+        "minPages": 17,
+        "maxPages": 4096,
+        "shared": false,
+        "initialBytes": 1114112,
+        "maximumBytes": 268435456,
+        "exports": [
+          {
+            "name": "memory",
+            "kind": "memory"
+          },
+          {
+            "name": "qs_abi_version",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_siqs_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_max_input_bits",
+            "kind": "function"
+          },
+          {
+            "name": "qs_alloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_dealloc",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_pointer",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_length",
+            "kind": "function"
+          },
+          {
+            "name": "qs_buffer_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_sieve",
+            "kind": "function"
+          },
+          {
+            "name": "qs_worker_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_new",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_target",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_relations",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_family_budget",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_submit",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_extract",
+            "kind": "function"
+          },
+          {
+            "name": "qs_coord_free",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_b1",
+            "kind": "function"
+          },
+          {
+            "name": "qs_ecm_default_curves",
+            "kind": "function"
+          },
+          {
+            "name": "qs_rho",
+            "kind": "function"
+          },
+          {
+            "name": "codex_extract_status",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_worker",
+            "kind": "function"
+          },
+          {
+            "name": "codex_coord_fb_len",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_version",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_prepare",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_new",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_coord_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_worker_config",
+            "kind": "function"
+          },
+          {
+            "name": "codex_dlp_stat",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_profile",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_columns",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_phase",
+            "kind": "function"
+          },
+          {
+            "name": "codex_graph_roundtrip",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_live",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_failures",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_last_failed",
+            "kind": "function"
+          },
+          {
+            "name": "codex_mem_reset_peak",
+            "kind": "function"
+          },
+          {
+            "name": "codex_builtin_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "codex_reciprocal_remainder",
+            "kind": "function"
+          },
+          {
+            "name": "__data_end",
+            "kind": "global"
+          },
+          {
+            "name": "__heap_base",
+            "kind": "global"
+          }
+        ]
+      }
+    }
+  }
+}

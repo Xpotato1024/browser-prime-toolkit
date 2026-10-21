@@ -69,6 +69,6 @@
     "check:coordinator": "node scripts/check-coordinator.mjs",
     "verify:coordinator": "node scripts/verify-coordinator.mjs",
     "check:sustained": "node scripts/check-sustained.mjs && node scripts/generate-sustained-continuation.mjs --check && node scripts/check-sustained-source-index.mjs && node scripts/report-sustained-closure.mjs --check && node scripts/report-sustained-observations.mjs --check",
-    "check:graph": "node scripts/check-graph-profile.mjs && node scripts/check-graph-memory.mjs && node scripts/check-graph-extra.mjs"
+    "check:graph": "node scripts/check-graph-profile.mjs && node scripts/check-graph-memory.mjs && node scripts/check-graph-extra.mjs && node scripts/report-graph-optimization.mjs --check"
   }
 }
