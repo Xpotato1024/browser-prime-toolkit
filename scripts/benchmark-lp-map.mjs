@@ -13,8 +13,9 @@ const sha=b=>createHash('sha256').update(b).digest('hex');
 const key=p=>{const r=realpathSync(p);return /^\/mnt\/[a-z]\//i.test(r)?r.toLowerCase():r;};const parent=key(dirname(resolve(out))),rk=key(root);assert.ok(parent!==rk&&!parent.startsWith(rk+sep),'Output outside repository');assert.ok(!existsSync(out),'Never reuse any campaign directory');
 mkdirSync(out);
 const guard=captureSourceGuard(root);assert.equal(guard.head,head);
-const windows=JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command',"$v=Get-CimInstance Win32_OperatingSystem;[pscustomobject]@{availableMiB=[math]::Round($v.FreePhysicalMemory/1024,2);totalMiB=[math]::Round($v.TotalVisibleMemorySize/1024,2)}|ConvertTo-Json -Compress"],{encoding:'utf8'}).trim());assert.ok(windows.availableMiB>=plan.limits.startWindowsAvailableMiB,'Windows RAM precondition');
-const manifest={windowsMemory:windows,nodeVersion:process.version,sourceGuard:{version:guard.version,files:guard.files,treeSha256:guard.treeSha256},plan:plan.id,planSha256:sha(readFileSync(planPath)),driverSha256:sha(readFileSync(new URL(import.meta.url))),head,startedAt:new Date().toISOString(),trials:[]};
+const windowsPath=process.env.PRIME_WINDOWS_MEMORY_RECEIPT;assert.ok(windowsPath,'Explicit Windows memory receipt required');
+const windowsBytes=readFileSync(windowsPath),windows=JSON.parse(windowsBytes);assert.ok(Number.isFinite(windows.availableMiB)&&windows.availableMiB>=plan.limits.startWindowsAvailableMiB,'Windows RAM precondition');const age=Date.now()-Date.parse(windows.checkedAt);assert.ok(age>=0&&age<=300000,'Fresh Windows precondition within five minutes');
+const manifest={windowsMemory:windows,windowsMemorySha256:sha(windowsBytes),nodeVersion:process.version,sourceGuard:{version:guard.version,files:guard.files,treeSha256:guard.treeSha256},plan:plan.id,planSha256:sha(readFileSync(planPath)),driverSha256:sha(readFileSync(new URL(import.meta.url))),head,startedAt:new Date().toISOString(),trials:[]};
 let manifestCreated=false;const save=()=>{writeFileSync(join(out,'run.json'),JSON.stringify(manifest,null,2)+'\n',manifestCreated?{}:{flag:'wx'});manifestCreated=true;};
 save();
 try{
