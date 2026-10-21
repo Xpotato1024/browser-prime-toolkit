@@ -80,7 +80,7 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 
 | 優先 | 候補と期待 | 追加試験・制約 |
 | --- | --- | --- |
-| 1：次の研究開発候補 | 関係収集kernelの整数演算・root更新・candidate scanの効率改善 | 15秒診断のsieve_one_poly self83.20%は収集hot pathを示す。具体的な変更ごとに全packet一致と32/64family ABBA。一般的な「さらにSIMD化」で高速化率は予測できない |
+| 1：次の研究開発候補 | 関係収集kernelの整数演算・root更新・candidate scanの効率改善 | 現行Chromeの固定4family診断ではresieve49.08%、score35.81%、根更新3.69%、候補走査1.26%（1Worker経過時間）。旧15秒profileを現状比率としない。倍率4は+7.42%、疎score省略は+1.52%で不採用。逆方向境界とbitmap索引を有限追試する |
 | 2：別の有限計画 | 高収集量時点のB/interval/LP/threshold調整 | 既存60秒screenは不採用だが後半cycle収量の最適を否定しない。target・A分布・LP上限・行列費用を含む固定入力の通し比較が必要。未測定の完了時刻を外挿しない |
 | 3：端末別の適応 | 5以外のWorker/予算設定、実機mobileの軽い経路 | 同じPCの6は不採用。CPU scoreでは決めず各端末の有限screen、取消/熱/応答性・最低メモリを測る。巨大割当による空きRAM探索はしない |
 | 保留 | 大きい行列でのfilter早期解放の実効果 | 局所解放の正しさは確認したが小さい入力の全工程gate不成立。RSA100効果は未測定。今回の事前条件に従い追加長試行をしない |
@@ -89,3 +89,5 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 成功requestでcoordinator wrapperのsieveは2143.236秒、submit23.907秒、observe0.531秒、extract42.592秒だった。重なる呼出時間でCPU利用率ではないが、集約や観測だけを削って大幅高速化する根拠は弱い。仮に抽出42.592秒を全て消してもrequestの約1.92%に相当するという単純上限の見積りであり、実装可能な短縮率ではない。
 
 保持・同期候補は採用または負の結果まで閉じたが、本人の追加指示に従い、[Stage40の収集ホットパス診断と改善](../contracts/collection-profile.md)を継続する。既存計時の区分外だったresieve/C係数/score初期化/Gray B更新を含めて分け、現在の比率で優先順位を定める。過去profileを現状比率にせず、filter早期解放だけを最後の改善余地とは扱わない。関係式収集の評価は未完了であり、現時点で条件付きmerge/releaseを成立扱いしない。実機スマホ、Safari/Firefox、サイトReact island/manifest v1、multi-instance admission/CSP/通常サイト移動は別の受入であり、RSA100成功を本番統合済みとは扱わない。
+
+[Stage40の現行phase・12試行・原本](../benchmarks/llm01-collection-hotpath.md)では、計測時間増加1.90%を確認した。旧filter早期解放だけを最後の改善余地とは扱わず、関係式収集の探索を継続する。

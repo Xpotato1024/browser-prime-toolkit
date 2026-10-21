@@ -30,6 +30,9 @@ jobs:
       - name: Candidate Native40/64 exact equality
         if: matrix.graph == 'instrumented'
         run: node scripts/verify-collection-hotpath-native.mjs "$RUNNER_TEMP/hotpath-native.json"
+      - name: Reversible current-phase and candidate evidence
+        if: matrix.graph == 'instrumented'
+        run: npm run check:collection-report
       - name: Actual browser protocol, diagnostic port retirement and fresh recovery
         env:
           CHROME_BIN: google-chrome

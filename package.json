@@ -76,6 +76,7 @@
     "check:wide-window-results": "node scripts/report-wide-window.mjs --check",
     "check:matrix-memory": "node scripts/check-matrix-memory.mjs && node scripts/report-matrix-memory.mjs --check",
     "check:collection-profile": "node scripts/check-collection-profile.mjs",
-    "check:collection-hotpath": "node scripts/check-collection-hotpath.mjs"
+    "check:collection-hotpath": "node scripts/check-collection-hotpath.mjs",
+    "check:collection-report": "node scripts/report-collection-hotpath.mjs --check"
   }
 }
