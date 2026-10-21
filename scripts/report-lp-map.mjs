@@ -3,8 +3,14 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {validateCampaign,compareAccepted,median,sha} from './graph-evidence.mjs';
 const base='docs/benchmarks/staged-lp-map-stage36',campaign=validateCampaign(base);
-const w=readFileSync(base+'/windows-memory.json');
+// Windows CIM emitted no final newline. Preserve its exact bytes as base64,
+// and keep the readable JSON copy consistent with the original receipt.
+const encoded=readFileSync(base+'/windows-memory.original.base64','utf8');
+assert.match(encoded,/^[A-Za-z0-9+/]+={0,2}\n$/);
+const w=Buffer.from(encoded.trimEnd(),'base64');
+assert.equal(w.toString('base64')+'\n',encoded);
 assert.equal(sha(w),campaign.run.windowsMemorySha256);assert.deepEqual(JSON.parse(w),campaign.run.windowsMemory);
+assert.equal(readFileSync(base+'/windows-memory.json','utf8'),w.toString('utf8')+'\n');
 assert.ok(campaign.run.windowsMemory.availableMiB>=4096);
 assert.ok(Date.parse(campaign.run.startedAt)-Date.parse(campaign.run.windowsMemory.checkedAt)>=0&&Date.parse(campaign.run.startedAt)-Date.parse(campaign.run.windowsMemory.checkedAt)<=300000);
 const rows=campaign.records.filter(x=>x.row.fixedFamilies===64);

@@ -11,3 +11,5 @@ PR19 head3826a590を基準に、u32範囲のLP keyとu64 fallbackを分けた候
 未完了のNative source・2clean artifact・試験・契約はLLM-01のrepo外prime-stage36/pending-long-nativeへ同bytesで保存し、index.jsonにSHA/サイズを記録した。4つの拒否対象ファイルは作成されていない。保留コードをこのPRの試験済みruntimeやサイト配布物に含めない。長時間試行、co1024の導入、RSA100収集→大行列→GCDの完了は未実施であり、性能改善が概ね尽きた条件やmerge/release条件成立とは扱わない。
 
 再開に必要な具体的対象は、選定WorkerのLP map Native反映と、長枠専用policy/budget/worker-source/生成scriptによる有限deadline・quota分類・全Worker退役である。再開後は実Workerでの小quota拒否とfresh recovery、最終head試験/独立レビュー/CI、親が調整した静穏枠での有限長時間計測が残る。Tunnelのbuild/test中に性能計測を再開しない。
+
+Windows CIM証跡は末尾改行なしで取得された。`windows-memory.original.base64` に原本バイト列を可逆保存し、閲覧用JSONへ末尾LFを付した。report検査は原本SHA・run値・閲覧用JSONの一致を確認し、UTF-8/LF検査は緩和していない。
