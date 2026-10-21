@@ -33,7 +33,9 @@
     "chromePssStopMiB": 1536,
     "childJsHeapMiB": 128,
     "maxReceiptBytes": 2097152,
-    "maxCandidates": 2
+    "maxCandidates": 2,
+    "sideFramesPerWorker": 2048,
+    "retainedFramesPerWorker": 1
   },
   "gates": {
     "identicalAllPacketsColumnsCounters": true,

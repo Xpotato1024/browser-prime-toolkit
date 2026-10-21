@@ -2,7 +2,7 @@
 const types=['ready','batch','submitted','released','extracted'];
 export function validateCollectionFrame(d,variant,previous=null){
  if(!d||typeof d!=='object'||Object.keys(d).sort().join(',')!=='instrumented,rows,sequence,status,type,version')throw Error('Diagnostic frame shape');
- if(d.version!==1||!Number.isInteger(d.sequence)||d.sequence!==(previous?.sequence??0)+1||d.sequence>128||!types.includes(d.type)||d.instrumented!==(variant==='instrumented'))throw Error('Diagnostic frame identity');
+ if(d.version!==1||!Number.isInteger(d.sequence)||d.sequence!==(previous?.sequence??0)+1||d.sequence>2048||!types.includes(d.type)||d.instrumented!==(variant==='instrumented'))throw Error('Diagnostic frame identity');
  if(!d.instrumented){if(d.rows!==null||d.status!==null)throw Error('Baseline has no diagnostic imports');return true;}
  if(!Array.isArray(d.rows)||d.rows.length!==16||!Array.isArray(d.status)||d.status.length!==6)throw Error('Fixed diagnostic arrays');
  if(d.status.some(v=>!Number.isFinite(v)||v<0)||d.status[0]!==0||d.status[1]!==0||!Number.isInteger(d.status[2])||d.status[2]>2000000||!Number.isInteger(d.status[3])||d.status[3]>16||d.status[5]!==2000000)throw Error('Diagnostic clock/scope failure');
@@ -26,4 +26,4 @@ export function attachCollectionPort(worker,variant,onFailure){
 }
 
 // Final cumulative snapshot: runtime sequence transitions are enforced at reception.
-export function validateCollectionFinal(d,variant){if(!Number.isInteger(d?.sequence)||d.sequence<1||d.sequence>128)throw Error('Final diagnostic sequence');return validateCollectionFrame({...d,sequence:1},variant);}
+export function validateCollectionFinal(d,variant){if(!Number.isInteger(d?.sequence)||d.sequence<1||d.sequence>2048)throw Error('Final diagnostic sequence');return validateCollectionFrame({...d,sequence:1},variant);}

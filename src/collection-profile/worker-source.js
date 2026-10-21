@@ -8,6 +8,7 @@ export function collectionWorkerSource(cap,variant){
  if(variant==='instrumented'){
   const re=/const RUSQSIEVE_BASE64="[^"]+";/g;if([...s.matchAll(re)].length!==1)throw Error('One artifact');
   s=s.replace(re,()=> 'const RUSQSIEVE_BASE64='+JSON.stringify(RUSQSIEVE_BASE64)+';');
+  s=rep(s,"if(WebAssembly.Module.imports(module).length)throw Error('Unexpected WASM imports');","const imports=WebAssembly.Module.imports(module);if(imports.length!==1||imports[0].module!=='codex_collection'||imports[0].name!=='now_ms'||imports[0].kind!=='function')throw Error('Unexpected diagnostic WASM imports');");
   s=rep(s,'WebAssembly.instantiate(bytes,{})','WebAssembly.instantiate(bytes,{codex_collection:{now_ms:()=>performance.now()}})');
  }
  s=rep(s,'api=instance.instance.exports;bytes=null;','api=instance.instance.exports;collectionApi=api;bytes=null;');
@@ -23,11 +24,13 @@ addEventListener('message',e=>{
 function collectionSend(message,transfer){
  // Never call into a trapped instance while forwarding fatal/oom evidence.
  if(collectionPort&&collectionApi&&['ready','batch','submitted','released','extracted'].includes(message.type)){
-  if(++collectionSequence>128)throw Error('Diagnostic frame cap');
+  if(++collectionSequence>2048)throw Error('Diagnostic frame cap');
   const instrumented=typeof collectionApi.codex_collection_field==='function';
+  const status=instrumented?Array.from({length:6},(_,i)=>collectionApi.codex_collection_status(i)):null;
+  if(status&&(status[0]!==0||status[1]!==0||status[2]>2000000||status.some(v=>!Number.isFinite(v)||v<0)))throw Error('Diagnostic clock/scope failure');
   collectionPort.postMessage({version:1,sequence:collectionSequence,type:message.type,instrumented,
    rows:instrumented?Array.from({length:16},(_,i)=>Array.from({length:3},(_,j)=>collectionApi.codex_collection_field(i,j))):null,
-   status:instrumented?Array.from({length:6},(_,i)=>collectionApi.codex_collection_status(i)):null});
+   status});
  }
  postMessage(message,transfer);
 }

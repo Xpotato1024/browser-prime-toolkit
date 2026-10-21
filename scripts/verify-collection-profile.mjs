@@ -205,7 +205,7 @@ try {
     }
     records.push(record);console.log(JSON.stringify({id:caseId,seed,kind:value.kind,reason:value.reason,requestWallMs:value.requestWallMs}));
   }else{
-    const checks={tests:[],performanceMeasurement:false};for(let i=0;i<22;i++){const part=await evaluate('evaluationHarness.run('+i+')');checks.tests.push(...part.tests);console.log(JSON.stringify(part));}console.log(JSON.stringify(checks));assert.equal(checks.tests.length,22);assert.ok(checks.tests.every(t=>t.pass),JSON.stringify(checks.tests.filter(t=>!t.pass)));
+    const checks={tests:[],performanceMeasurement:false};for(let i=0;i<24;i++){const part=await evaluate('evaluationHarness.run('+i+')');checks.tests.push(...part.tests);console.log(JSON.stringify(part));}console.log(JSON.stringify(checks));assert.equal(checks.tests.length,24);assert.ok(checks.tests.every(t=>t.pass),JSON.stringify(checks.tests.filter(t=>!t.pass)));
     assert.equal(checks.performanceMeasurement,false);records.push(checks);
   }
   const lifecycle=null;
