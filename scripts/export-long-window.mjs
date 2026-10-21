@@ -4,13 +4,15 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
-const root=resolve(import.meta.dirname,'..'),source=resolve(process.argv[2]??''),destination=join(root,'docs/benchmarks/staged-long-window-stage37');
+const root=resolve(import.meta.dirname,'..'),source=resolve(process.argv[2]??''),label=process.argv[3]??'completed';
+assert.ok(['failed-monitor','completed'].includes(label));
+const destination=join(root,'docs/benchmarks/staged-long-window-stage37',label);
 assert.ok(source!==root&&!source.startsWith(root+'/'));assert.ok(!existsSync(destination),'Exclusive evidence directory');
 const runBytes=readFileSync(join(source,'run.json')),run=JSON.parse(runBytes);
 assert.ok(run.completedAt||run.stoppedAt);assert.ok(run.trials.length<=4);
 const sha=b=>createHash('sha256').update(b).digest('hex'),files=new Map([['run.json',runBytes]]),index={encoding:'gzip+canonical-base64-lines76',head:run.head,files:{}};
 for(const row of run.trials){
- for(const [suffix,expected,max]of [['json',row.sha256,16777216],['log',row.logSha256,4194304]]){
+ for(const [suffix,expected,max]of [['json',row.sha256,16777216],['log',row.logSha256,4194304],['json.failed.json',row.failureSha256,16777216]]){
   if(!expected)continue;
   const original=readFileSync(join(source,row.id+'.'+suffix));assert.equal(sha(original),expected);assert.ok(original.length<=max);
   const packed=gzipSync(original,{level:9});assert.ok(gunzipSync(packed,{maxOutputLength:max}).equals(original));
@@ -21,6 +23,6 @@ for(const row of run.trials){
  const w=readFileSync(join(source,row.id+'.windows.json'));assert.equal(sha(w),row.windowsMemorySha256);files.set(row.id+'.windows.json',w);
 }
 files.set('evidence-index.json',Buffer.from(JSON.stringify(index,null,2)+'\n'));
-mkdirSync(destination);
+mkdirSync(destination,{recursive:true});
 for(const[name,b]of files)writeFileSync(join(destination,name),b,{flag:'wx'});
 console.log('Originals retained locally; bounded reversible evidence exported '+destination);

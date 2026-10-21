@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {readFile} from 'node:fs/promises';
 import {BrowserMemorySampler} from './browser-memory.mjs';
+import {readWindowsMemory} from './windows-memory-receipt.mjs';
 export class LongMemorySampler extends BrowserMemorySampler{
- constructor(pid,{read=readFile,list,windowsPath=process.env.PRIME_WINDOWS_MEMORY_RECEIPT,onFailure=async()=>{}}={}){super(pid,500,{read,...(list?{list}:{})});this.windowsPath=windowsPath;this.onFailure=onFailure;}
+ constructor(pid,{read=readFile,list,windowsDirectory=process.env.PRIME_WINDOWS_MEMORY_DIRECTORY,windowsRead=readWindowsMemory,onFailure=async()=>{}}={}){super(pid,500,{read,...(list?{list}:{})});this.windowsDirectory=windowsDirectory;this.windowsRead=windowsRead;this.onFailure=onFailure;this.observerFailure=null;}
  async sample(){
   try{
    if(this.samples.length>=5000)throw Error('Long RAM sample retention cap');
@@ -10,18 +11,18 @@ export class LongMemorySampler extends BrowserMemorySampler{
    const match=/^MemAvailable:\s+(\d+)/m.exec(text);if(!match)throw Error('Host RAM unavailable');
    row.availableMiB=Number(match[1])/1024;if(!Number.isFinite(row.availableMiB)||row.availableMiB<0)throw Error('Invalid host RAM observation');
    if(row.availableMiB<4096)row.stopReason='wsl-available-memory';
-   const path=this.windowsPath;
-   if(path){
-    const w=JSON.parse(await this.read(path,'utf8')),age=Date.now()-Date.parse(w.checkedAt);
-    if(w.host!=='LLM-01'||!Number.isFinite(w.availableMiB)||w.availableMiB<0||!Number.isFinite(age)||age<0||age>30000)throw Error('Fresh Windows memory monitor required');
+   if(this.windowsDirectory){
+    const {value:w,age}=await this.windowsRead(this.windowsDirectory);
     row.windowsAvailableMiB=w.availableMiB;row.windowsReceiptAt=w.checkedAt;row.windowsReceiptAgeMs=age;
     if(w.availableMiB<4096)row.stopReason='windows-available-memory';
    }
    return row;
-  }catch(error){try{await this.onFailure(error);}catch{}throw error;}
+  }catch(error){this.observerFailure={message:String(error.message??error).slice(0,200),code:typeof error.code==='string'?error.code:null};try{await this.onFailure(error);}catch(stopError){this.observerFailure.stopError=String(stopError.message??stopError).slice(0,200);throw new AggregateError([error,stopError],'Memory observation and retirement failed');}throw error;}
  }
+ async stop(){this.running=false;try{await this.loop;}catch(error){this.error??=error;}}
  summary(mark=0){
-  const result=super.summary(mark),rows=this.samples.slice(mark),windows=rows.filter(r=>r.windowsAvailableMiB!==undefined);
-  return {...result,intervalMs:500,sampleLimit:5000,minAvailableMiB:Math.min(...rows.map(r=>r.availableMiB)),minWindowsAvailableMiB:windows.length?Math.min(...windows.map(r=>r.windowsAvailableMiB)):null,maxWindowsReceiptAgeMs:windows.length?Math.max(...windows.map(r=>r.windowsReceiptAgeMs)):null};
+  const rows=this.samples.slice(mark);if(!rows.length)throw Error('Missing browser RAM samples');
+  const available=rows.filter(r=>Number.isFinite(r.availableMiB)),windows=rows.filter(r=>Number.isFinite(r.windowsAvailableMiB));
+  return {samples:rows.length,first:rows[0],peakRssBytes:Math.max(...rows.map(r=>r.rssBytes)),peakPssBytes:Math.max(...rows.map(r=>r.pssBytes)),maxProcesses:Math.max(...rows.map(r=>r.processes)),intervalMs:500,sampleLimit:5000,minAvailableMiB:available.length?Math.min(...available.map(r=>r.availableMiB)):null,minWindowsAvailableMiB:windows.length?Math.min(...windows.map(r=>r.windowsAvailableMiB)):null,maxWindowsReceiptAgeMs:windows.length?Math.max(...windows.map(r=>r.windowsReceiptAgeMs)):null,observerFailure:this.observerFailure};
  }
 }

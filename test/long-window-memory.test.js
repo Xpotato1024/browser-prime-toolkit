@@ -11,7 +11,7 @@ function sampler({available=5000,windowsAvailable=6000,age=0,missing=false}={}){
   if(path==='windows.json'){if(missing)throw Error('Missing monitor');return JSON.stringify({host:'LLM-01',checkedAt:new Date(Date.now()-age).toISOString(),availableMiB:windowsAvailable});}
   throw Error('Unexpected RAM path '+path);
  };
- const s=new LongMemorySampler(1,{read,list:async()=>['1'],windowsPath:'windows.json',onFailure:async()=>{failures++;}});
+ const s=new LongMemorySampler(1,{read,list:async()=>['1'],windowsDirectory:'/watch',windowsRead:async()=>{const w=JSON.parse(await read('windows.json')),age=Date.now()-Date.parse(w.checkedAt);if(age<0||age>30000)throw Error('Stale monitor');return {value:w,age};},onFailure:async()=>{failures++;}});
  return {s,failures:()=>failures};
 }
 test('resource sampler distinguishes requested metrics and detects low host availability',async()=>{

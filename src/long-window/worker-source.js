@@ -12,6 +12,7 @@ export function longWorkerSource(cap){
  s=replace(s,'if(sum>610000)','if(sum>1810000)');
  s=replace(s,'maxMs:600000','maxMs:1800000');
  if(cap===64)return s;
+ s=replace(s,'graphSequence++%16!==0','graphSequence++%32!==0');
  s=replace(s,'onmessage=async({data:d})=>{',`let longExtracting=false,longTerminal=false;
 function quotaTelemetry(){
  if(role!=='coord'||!api||typeof api.codex_la_count!=='function')return null;

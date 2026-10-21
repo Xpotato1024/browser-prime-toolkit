@@ -10,6 +10,7 @@ import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';
 import{createChromeRetirement,cleanupLongHarness}from'./long-window-cleanup.mjs';
+import{stopForMemoryGuard}from'./long-window-memory-stop.mjs';
 import {longAsset as coordinatorAsset} from './long-window-asset-route.mjs';
 import {validateStreamRecord} from './graph-multicore-proof.mjs';
 import {knownDetachedSetup,retireSetupCalls} from './resource-ui-cdp-lifecycle.mjs';
@@ -28,7 +29,7 @@ const caseId=arg('--case',null),seed=Number(arg('--seed','1')),mode=caseId?'coor
 assert.ok(['one-drop','two-drop','three-drop','four-drop','five-drop'].includes(variant));
 const selectedMemory=Number(arg('--memory-mib','512'));assert.ok(selectedMemory===512);
 assert.ok([3000,30000,60000,120000,180000,300000,600000,1800000].includes(budgetMs));
-if(!caseId)assert.equal(budgetMs,30000);if(budgetMs>600000)assert.ok(process.env.PRIME_WINDOWS_MEMORY_RECEIPT,"Live Windows monitor required");
+if(!caseId)assert.equal(budgetMs,30000);if(budgetMs>600000)assert.ok(process.env.PRIME_WINDOWS_MEMORY_DIRECTORY,"Live Windows monitor required");
 assert.ok(cancelAfterMs===null||caseId==='RSA-100'&&Number.isInteger(cancelAfterMs)&&cancelAfterMs>=1&&cancelAfterMs<budgetMs);
 assert.ok(Number.isSafeInteger(seed)&&seed>=1&&seed<=4294967295);
 const catalog=[...JSON.parse(await readFile(join(root,'bench/staged-rsa/catalog.json'),'utf8')),...JSON.parse(await readFile(join(root,'bench/staged-practical/catalog.json'),'utf8')).cases,...JSON.parse(await readFile(join(root,'bench/staged-full/catalog.json'),'utf8')).cases];
@@ -102,7 +103,7 @@ try {
     '--disable-background-timer-throttling', '--remote-debugging-port=0', '--user-data-dir=' + temporary, 'about:blank'],
     { detached:true, stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true });
   hardTimer=setTimeout(()=>{const error=Error('Long harness total watchdog');for(const call of pending.values()){clearTimeout(call.timer);call.reject(error);}pending.clear();void retireChrome().catch(error=>fatal.push(error.message));socket?.close();},budgetMs+90000);
-  memory = new BrowserMemorySampler(chrome.pid);const originalSample=memory.sample.bind(memory);let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await evaluate('evaluationHarness.stop("memory-observer-failed")');else await retireChrome();};memory.sample=async()=>{const row=await originalSample();if(nodeMeasurementStart!==null&&(row.pssBytes>=1536*1048576||row.stopReason)&&!hostMemoryStopped){hostMemoryStopped=true;await evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')');}return row;}; await memory.start();
+  memory = new BrowserMemorySampler(chrome.pid);const originalSample=memory.sample.bind(memory);let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop("memory-observer-failed")'),retireChrome});else await retireChrome();};memory.sample=async()=>{const row=await originalSample();if(nodeMeasurementStart!==null&&(row.pssBytes>=1536*1048576||row.stopReason)&&!hostMemoryStopped){hostMemoryStopped=true;await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')'),retireChrome});}return row;}; await memory.start();
   const debuggingUrl = await new Promise((resolveUrl, rejectUrl) => {
     let stderr = '';
     const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 30000);
@@ -234,7 +235,7 @@ try {
   assert.ok(http.includes('/worker-probe'));assert.ok(requests.some(r=>r.url===origin+'/worker-probe'&&r.sessionId!==pageSession));
   receipt.detectorSelfTest={blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true};
   receipt.graphSourceFiles={};
-  for(const p of ["scripts/verify-long-window.mjs","scripts/generate-long-window-harness.mjs","scripts/generate-long-window.mjs","scripts/long-window-memory.mjs","scripts/long-window-cleanup.mjs","scripts/watch-windows-memory.ps1","scripts/long-window-asset-route.mjs","src/long-window/policy.js","src/long-window/budget.js","src/long-window/worker-source.js","src/long-window/runner.js","scripts/build-long-window.mjs","native/long-window/quota.rs","native/long-window/patch-source.mjs","native/long-window/memory-contract.mjs","native/long-window/build-long-256.json","docs/contracts/long-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
+  for(const p of ["scripts/verify-long-window.mjs","scripts/generate-long-window-harness.mjs","scripts/generate-long-window.mjs","scripts/long-window-memory.mjs","scripts/windows-memory-receipt.mjs","scripts/long-window-cleanup.mjs","scripts/long-window-memory-stop.mjs","scripts/watch-windows-memory.ps1","scripts/long-window-asset-route.mjs","src/long-window/policy.js","src/long-window/budget.js","src/long-window/worker-source.js","src/long-window/runner.js","scripts/build-long-window.mjs","native/long-window/quota.rs","native/long-window/patch-source.mjs","native/long-window/memory-contract.mjs","native/long-window/build-long-256.json","docs/contracts/long-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
   for(const p of ["scripts/verify-optimized-entry.mjs","scripts/generate-optimized-entry.mjs","scripts/optimized-entry-asset-route.mjs","scripts/build-optimized-workers.mjs","native/optimized/worker-recipe.mjs","native/optimized/selected-worker-sources.json"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
   for(const p of ["scripts/verify-graph-integrated.mjs","scripts/generate-graph-integrated.mjs","scripts/graph-integrated-asset-route.mjs","src/graph-integrated/worker-source.js","docs/contracts/graph-dedicated-followup.md","docs/contracts/graph-integrated-sustained.md","scripts/generate-optimized.mjs","scripts/build-optimized-lowcap.mjs","native/optimized/build-optimized-128.json","docs/contracts/optimized-engine.md","native/graph-varint/retained-relation.rs","native/graph-varint/patch-source.mjs","scripts/build-graph-varint.mjs","native/graph-varint/build-varint-128.json","native/graph-varint/build-varint-256.json","docs/contracts/graph-varint.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
   for(const p of ["scripts/verify-graph-builtin.mjs","scripts/generate-graph-builtin.mjs","scripts/graph-builtin-asset-route.mjs","scripts/build-graph-builtin.mjs","native/graph-builtin/patch-source.mjs","native/graph-builtin/build-builtin-64.json","native/graph-builtin/build-builtin-256.json","docs/contracts/graph-builtin-remainder.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
@@ -249,6 +250,11 @@ try {
   const text=JSON.stringify(receipt)+'\n';assert.ok(Buffer.byteLength(text)<=16777216,'Bounded long evidence <=16MiB');
   await writeFile(output,text);console.log('Receipt '+output);
 } catch (error) {
+  try{
+    let sampledRam=null;try{sampledRam=memory?.summary();}catch{}
+    const failure={kind:'harness-failure',measuredHead:process.env.PRIME_MEASURED_HEAD??null,failedAt:new Date().toISOString(),error:String(error.stack??error).slice(0,4000),sampledRam,ramTimeline:memory?.samples??[]};
+    const text=JSON.stringify(failure)+'\n';assert.ok(Buffer.byteLength(text)<=16777216);await writeFile(output+'.failed.json',text,{flag:'wx'});
+  }catch(writeError){console.error('Failure receipt write: '+String(writeError));}
   let diagnostic;
   try { diagnostic = await evaluate('({phase:globalThis.evaluationHarness?.state,violations:globalThis.evaluationHarness?.violations,errors:globalThis.evaluationHarness?.errors})'); } catch {}
   console.error(JSON.stringify({startupTrace,chromeStderr,fatal,badEvents,requests,diagnostic,attached,pending:[...pending.values()].map(v=>v.method)}));

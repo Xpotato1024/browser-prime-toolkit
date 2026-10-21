@@ -39,13 +39,13 @@ v=rep(v,"arg('--engine','four-drop')","arg('--engine','five-drop')");
 v=rep(v,"variant==='six-drop'?'768':'512'","'512'");
 v=rep(v,'[128,256,384,512,768].includes(selectedMemory)','selectedMemory===512');
 v=rep(v,'fixedFamilies<=128','fixedFamilies<=4096');
-v=rep(v,'if(!caseId)assert.equal(budgetMs,30000);','if(!caseId)assert.equal(budgetMs,30000);if(budgetMs>600000)assert.ok(process.env.PRIME_WINDOWS_MEMORY_RECEIPT,\"Live Windows monitor required\");');
+v=rep(v,'if(!caseId)assert.equal(budgetMs,30000);','if(!caseId)assert.equal(budgetMs,30000);if(budgetMs>600000)assert.ok(process.env.PRIME_WINDOWS_MEMORY_DIRECTORY,\"Live Windows monitor required\");');
 v=rep(v,'[3000,30000,60000,120000,180000,300000,600000].includes(budgetMs)','[3000,30000,60000,120000,180000,300000,600000,1800000].includes(budgetMs)');
 v=rep(v,"caseId==='RSA-100'&&budgetMs===300000&&cancelAfterMs===120000","caseId==='RSA-100'&&Number.isInteger(cancelAfterMs)&&cancelAfterMs>=1&&cancelAfterMs<budgetMs");
 v=v.replaceAll('/bench/optimized-entry.html','/bench/long-window.html');
-v=rep(v,'let hostMemoryStopped=false;memory.sample=',`let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await evaluate('evaluationHarness.stop("memory-observer-failed")');else chrome?.kill();};memory.sample=`);
+v=rep(v,'let hostMemoryStopped=false;memory.sample=',`let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop("memory-observer-failed")'),retireChrome});else chrome?.kill();};memory.sample=`);
 v=rep(v,'row.pssBytes>=1536*1048576','(row.pssBytes>=1536*1048576||row.stopReason)');
-v=rep(v,`await evaluate('evaluationHarness.stop("chrome-pss-soft-stop")');`,`await evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')');`);
+v=rep(v,`await evaluate('evaluationHarness.stop("chrome-pss-soft-stop")');`,`await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')'),retireChrome});`);
 v=rep(v,'nodeMeasurementStart=performance.now();','const preflightRam=await memory.sample();assert.ok(!preflightRam.stopReason,"Available RAM before calculation");\n  nodeMeasurementStart=performance.now();');
 v=rep(v,'for(let i=0;i<16;i++)','for(let i=0;i<22;i++)');
 v=rep(v,'assert.equal(checks.tests.length,16)','assert.equal(checks.tests.length,22)');
@@ -56,17 +56,23 @@ v=rep(v,'ownership.maxLiveSources<=6','ownership.maxLiveSources<=5');
 v=rep(v,'totalWasmBytes:576*1048576,maxOwners:6','totalWasmBytes:512*1048576,maxOwners:5');
 v=rep(v,'coldReadyMs,initialAssets','coldReadyMs,preflightRam,initialAssets');
 v=rep(v,'receipt.graphSourceFiles={};',`receipt.graphSourceFiles={};
-  for(const p of ["scripts/verify-long-window.mjs","scripts/generate-long-window-harness.mjs","scripts/generate-long-window.mjs","scripts/long-window-memory.mjs","scripts/long-window-cleanup.mjs","scripts/watch-windows-memory.ps1","scripts/long-window-asset-route.mjs","src/long-window/policy.js","src/long-window/budget.js","src/long-window/worker-source.js","src/long-window/runner.js","scripts/build-long-window.mjs","native/long-window/quota.rs","native/long-window/patch-source.mjs","native/long-window/memory-contract.mjs","native/long-window/build-long-256.json","docs/contracts/long-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");`);
+  for(const p of ["scripts/verify-long-window.mjs","scripts/generate-long-window-harness.mjs","scripts/generate-long-window.mjs","scripts/long-window-memory.mjs","scripts/windows-memory-receipt.mjs","scripts/long-window-cleanup.mjs","scripts/long-window-memory-stop.mjs","scripts/watch-windows-memory.ps1","scripts/long-window-asset-route.mjs","src/long-window/policy.js","src/long-window/budget.js","src/long-window/worker-source.js","src/long-window/runner.js","scripts/build-long-window.mjs","native/long-window/quota.rs","native/long-window/patch-source.mjs","native/long-window/memory-contract.mjs","native/long-window/build-long-256.json","docs/contracts/long-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");`);
 v=rep(v,"receipt.graphProfileSchema=graphVariant==='optimized'?2:1","receipt.graphProfileSchema=2");
 v=rep(v,'pssBytes:s.pssBytes,processes:s.processes','pssBytes:s.pssBytes,processes:s.processes,availableMiB:s.availableMiB,windowsAvailableMiB:s.windowsAvailableMiB,windowsReceiptAt:s.windowsReceiptAt');
 v=rep(v,"Buffer.byteLength(text)<=1048576,'Bounded evidence <=1MiB'","Buffer.byteLength(text)<=16777216,'Bounded long evidence <=16MiB'");
-v=rep(v,"import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';","import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';\nimport{createChromeRetirement,cleanupLongHarness}from'./long-window-cleanup.mjs';");
+v=rep(v,"import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';","import { LongMemorySampler as BrowserMemorySampler } from './long-window-memory.mjs';\nimport{createChromeRetirement,cleanupLongHarness}from'./long-window-cleanup.mjs';\nimport{stopForMemoryGuard}from'./long-window-memory-stop.mjs';");
 v=rep(v,'let chrome, socket, server, pageSession, memory, sequence = 0;',`let chrome, socket, server, pageSession, memory, hardTimer, sequence = 0;
 const retireChrome=createChromeRetirement(()=>chrome,{beforeClose:async()=>{if(socket?.readyState===WebSocket.OPEN)try{await send('Browser.close');}catch{}}});`);
 v=rep(v,"{ stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true }","{ detached:true, stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true }");
 v=rep(v,'  memory = new BrowserMemorySampler(chrome.pid);',`  hardTimer=setTimeout(()=>{const error=Error('Long harness total watchdog');for(const call of pending.values()){clearTimeout(call.timer);call.reject(error);}pending.clear();void retireChrome().catch(error=>fatal.push(error.message));socket?.close();},budgetMs+90000);
   memory = new BrowserMemorySampler(chrome.pid);`);
 v=rep(v,'else chrome?.kill();','else await retireChrome();');
+v=rep(v,'  let diagnostic;',`  try{
+    let sampledRam=null;try{sampledRam=memory?.summary();}catch{}
+    const failure={kind:'harness-failure',measuredHead:process.env.PRIME_MEASURED_HEAD??null,failedAt:new Date().toISOString(),error:String(error.stack??error).slice(0,4000),sampledRam,ramTimeline:memory?.samples??[]};
+    const text=JSON.stringify(failure)+'\\n';assert.ok(Buffer.byteLength(text)<=16777216);await writeFile(output+'.failed.json',text,{flag:'wx'});
+  }catch(writeError){console.error('Failure receipt write: '+String(writeError));}
+  let diagnostic;`);
 const finalStart=v.lastIndexOf('} finally {');
 assert.ok(v.slice(finalStart).startsWith('} finally {\n  if (memory?.running) await memory.stop();'));
 v=v.slice(0,finalStart)+`} finally {
