@@ -66,11 +66,11 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 | --- | --- | --- | ---: | --- | --- |
 | 今回の改変rusqsieve固定0.5.0 | RSA100、330bit | i7-9700K、WSL2、Chrome155 | 5、うち1つ集約兼任 | 2220.175秒、成功1回 | co requested peak482.72MiB、linear614.44MiB。Chrome tree RSS/PSS1706.79/1009.45MiB |
 | [開発者のブラウザ報告](https://zenn.dev/menhera/articles/58245043ec1ab7)、v0.4.0 | 別の97桁、320bit | Ryzen5 7535Uノート、Chrome、非アイドル | 12 | 1981.4秒 | RAM・準備時間・反復数不明 |
-| [上流現行BENCHMARKING](https://raw.githubusercontent.com/metastable-void/rusqsieve/main/BENCHMARKING.md)の後続native報告 | RSA100 | Xeon6975P-C、384logical CPUホスト、native | 192 | 54.01秒 | peak RSS約1.95GiB。ブラウザではない、現在のmainを2026-10-21参照 |
-| [固定0.5.0の過去gate](https://github.com/metastable-void/rusqsieve/blob/4b150834b57636f6ebc350a81321a15c1cd901d2/BENCHMARKING.md#04-release-gate-measurements) | RSA100 | Xeon8259CL、native | 96 | 320.10秒 | peak RSS1.48GiB、単一gate。上段とは別ホスト/版 |
+| [固定commitの後続matched gate](https://github.com/metastable-void/rusqsieve/blob/4b150834b57636f6ebc350a81321a15c1cd901d2/BENCHMARKING.md#L106) | RSA100 | Xeon6975P-C、384logical CPUホスト、native | 192 | 54.01秒 | peak RSS約1.95GiB。ブラウザではない。固定0.5.0原本にも記載 |
+| [固定原本に残る旧0.4 gate](https://github.com/metastable-void/rusqsieve/blob/4b150834b57636f6ebc350a81321a15c1cd901d2/BENCHMARKING.md#04-release-gate-measurements) | RSA100 | Xeon8259CL、native | 96 | 320.10秒 | peak RSS1.48GiB、単一gate。上段とは別ホスト/旧gate |
 | [Yaffleの作者報告](https://github.com/Yaffle/QuadraticSieveFactorization#performance)、JavaScript SIQS/DLP | RSA100 | Core i7-1165G7、runtime未記載 | single | 約1.5時間 | RAM・反復・準備条件不明。今回のエンジンとして実行していない |
 
-54.01秒は固定0.5.0 commitの記録ではなく、後続mainと作者記事の報告である。固定sourceの由来と現在の性能記事を混同しない。97桁と100桁は問題自体が違い、v0.4.0と0.5.0にも差がある。「Worker数が少ないのに同程度の時間」は興味深い観察だが、独自改良の効果を立証するmatched比較ではない。
+54.01秒の後続matched gateは固定0.5.0原本にも記載されている。320.10秒は同じ文書の旧0.4 gateであり、同じ条件や同じ時点の記録ではない。97桁と100桁は問題自体が違い、v0.4.0と0.5.0にも差がある。「Worker数が少ないのに同程度の時間」は興味深い観察だが、独自改良の効果を立証するmatched比較ではない。
 
 [Geekbench公式Processor chart](https://browser.geekbench.com/processor-benchmarks/)の2026-10-21参照値は**Geekbench7**で、i7-9700K=1657/8002、Ryzen5 7535U=1730/6710、i7-1165G7=1517/4337（single/multi）。投稿結果の集計であり、このLLM-01でGeekbenchを実行した値ではない。異なるISA・memory・電力・WSL上限・5Workerへの競合、SIQSの整数/篩/メモリアクセスの比率を表さないため、score比やWorker数を掛けた補正秒数は出さない。
 
