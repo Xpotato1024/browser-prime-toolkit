@@ -91,3 +91,5 @@ RSA100（330bit）は5計算Worker、うち1つが集約も行うcombined方式�
 保持・同期候補は採用または負の結果まで閉じたが、本人の追加指示に従い、[Stage40の収集ホットパス診断と改善](../contracts/collection-profile.md)を継続する。既存計時の区分外だったresieve/C係数/score初期化/Gray B更新を含めて分け、現在の比率で優先順位を定める。過去profileを現状比率にせず、filter早期解放だけを最後の改善余地とは扱わない。関係式収集の評価は未完了であり、現時点で条件付きmerge/releaseを成立扱いしない。実機スマホ、Safari/Firefox、サイトReact island/manifest v1、multi-instance admission/CSP/通常サイト移動は別の受入であり、RSA100成功を本番統合済みとは扱わない。
 
 [Stage40の現行phase・12試行・原本](../benchmarks/llm01-collection-hotpath.md)では、計測時間増加1.90%を確認した。旧filter早期解放だけを最後の改善余地とは扱わず、関係式収集の探索を継続する。
+
+[Stage41の有限追試](../benchmarks/llm01-resieve-followup.md)では倍率1が約1.93%短縮、bitmap word-rankは約1.14%増。どちらも初回5%gate不成立。小差をゼロとせず、追加bufferを使わないresieve前半のループ順交換を次の具体的候補として検証する。
