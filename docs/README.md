@@ -108,3 +108,5 @@ Stage38: [明示的な有限大メモリ枠](contracts/wide-window.md)と[固定
 Stage38結果: [RSA100の明示大メモリ枠での通し実測](benchmarks/llm01-wide-window.md)。proper divisor・独立因子積・probable判定まで成立した1回の記録で、通常600秒や他端末の完了保証には換算しない。
 
 [Stage38の検証・残るfilter保持候補](operations/stage38-outcome.md)。成功した原本と、未検証候補・最終head確認を分ける。
+
+Stage39: [縮約行列構築前のfilter配列解放の有限比較](contracts/matrix-memory.md)。Stage38の成功原本を固定し、実測peak区間の1候補だけを別headで検証する。

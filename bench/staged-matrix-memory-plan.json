@@ -1,0 +1,86 @@
+{
+  "id": "llm01-matrix-memory-stage39",
+  "baselineHead": "e1dae4b656b401c287fe880db9d6ee586bbd79d3",
+  "hypothesis": "Free only dead filter arrays before constructing the owned reduced sparse matrix; preserve all arithmetic and reduce peak requested heap.",
+  "runtime": "Node v24.19.0; Native WASM core, not browser speed evidence",
+  "limits": {
+    "totalCampaignMs": 360000,
+    "childMs": 30000,
+    "reservePerChildMs": 15000,
+    "maxFamilies": 1024,
+    "hardmaxMiB": 1024,
+    "jsHeapMiB": 128,
+    "startAvailableMiB": 4096,
+    "maxReceiptBytes": 2097152,
+    "maxRepositoryEvidenceBytes": 2097152
+  },
+  "adoption": {
+    "digits64PeakRatioMax": 0.9,
+    "requestRatioMax": 1.1,
+    "identicalPacketsColumnsCountersFactors": true,
+    "requireRealLiveDrop": true,
+    "nextChromeTrialsMax": 1,
+    "nextChromeBudgetMs": 3600000,
+    "nextChromeFixedFamilies": 1280
+  },
+  "cases": [
+    {
+      "id": "digits40",
+      "input": "8156172677439289108635319830552518815109"
+    },
+    {
+      "id": "digits64",
+      "input": "8505664162359734566676378490297194387200285122470917324701475577"
+    }
+  ],
+  "trials": [
+    {
+      "id": "digits40-1",
+      "caseId": "digits40",
+      "variant": "baseline",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits40-2",
+      "caseId": "digits40",
+      "variant": "candidate",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits40-3",
+      "caseId": "digits40",
+      "variant": "candidate",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits40-4",
+      "caseId": "digits40",
+      "variant": "baseline",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits64-1",
+      "caseId": "digits64",
+      "variant": "baseline",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits64-2",
+      "caseId": "digits64",
+      "variant": "candidate",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits64-3",
+      "caseId": "digits64",
+      "variant": "candidate",
+      "budgetMs": 30000
+    },
+    {
+      "id": "digits64-4",
+      "caseId": "digits64",
+      "variant": "baseline",
+      "budgetMs": 30000
+    }
+  ]
+}
