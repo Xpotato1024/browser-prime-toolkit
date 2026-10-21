@@ -1,0 +1,81 @@
+{
+  "id": "llm01-long-window-stage37",
+  "baselineHead": "18d7d8437308a61d47c16b147a91e78eb1b868fb",
+  "hypothesis": "LP-map collection preserves the fixed prefix; a bounded allocation guard exposes matrix transition and safely stops before role memory pressure. Yield is not a completion-time estimate.",
+  "limits": {
+    "startAvailableMiB": 4096,
+    "startWindowsAvailableMiB": 4096,
+    "maxWasmMiB": 512,
+    "maxPssMiB": 1536,
+    "maxReceiptBytes": 16777216,
+    "maxRepositoryEvidenceBytes": 2097152,
+    "totalCalculationMs": 2550000,
+    "totalCampaignMs": 2550000,
+    "maxFamilies": 4096,
+    "maxEvents": 12288,
+    "maxGraphSnapshots": 512,
+    "maxProgress": 4096
+  },
+  "adoption": {
+    "fixedPrefixFamilies": 16,
+    "requireIdenticalPacketsColumnsCounters": true,
+    "requireOfflineAndRetirement": true,
+    "allowedLongReasons": [
+      "time-budget",
+      "family-budget",
+      "coordinator-memory-soft-stop",
+      "native-memory-budget",
+      "algorithm-resource",
+      "insufficient-relations",
+      "no-dependency",
+      "no-factor",
+      "composite-divisor"
+    ],
+    "maxCancelRetirementMs": 5000,
+    "stage2": "Only after measured need, separate reviewed source/plan and fresh >=8192MiB host conditions; not implemented by this plan."
+  },
+  "trials": [
+    {
+      "id": "contracts-long",
+      "graph": "long",
+      "harness": true,
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 512,
+      "budgetMs": 30000
+    },
+    {
+      "id": "prefix16-long",
+      "graph": "long",
+      "case": "RSA-100",
+      "fixedFamilies": 16,
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 512,
+      "budgetMs": 60000
+    },
+    {
+      "id": "long-256",
+      "graph": "long",
+      "case": "RSA-100",
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 512,
+      "budgetMs": 1800000
+    },
+    {
+      "id": "grown-cancel",
+      "graph": "long",
+      "case": "RSA-100",
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 512,
+      "budgetMs": 180000,
+      "cancelAfterMs": 120000
+    }
+  ]
+}

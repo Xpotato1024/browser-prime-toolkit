@@ -98,3 +98,5 @@ Stage36: [LP mapの幅縮小と有限長枠の事前契約](contracts/lp-map.md)
 Stage36の[固定64family全結果](benchmarks/llm01-lp-map.md)は、全packet/列/counter一致と全体live要求8.66%減を確認した採用判断です。
 
 [Stage36の実測・保留境界](operations/stage36-outcome.md)は、数値gate成立と選定入口の未反映、長枠の阻害を分けています。
+
+Stage37: [有限長枠・抽出割当ガード](contracts/long-window.md)と[固定試行plan](../bench/staged-long-window-plan.json)。本人承認後にLP mapを選定128/256 roleへ反映し、旧ABBA baselineのsource SHAを固定した。通常入口と長枠を分離する。

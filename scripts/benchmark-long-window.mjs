@@ -1,0 +1,73 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';
+import {captureSourceGuard,checkSourceGuard} from './source-guard.mjs';
+import {validateStreamRecord} from './graph-multicore-proof.mjs';
+import {readFileSync,writeFileSync,mkdirSync,existsSync,realpathSync} from 'node:fs';
+import {execFileSync,spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {resolve,join,dirname,sep} from 'node:path';
+const root=resolve(import.meta.dirname,'..'),out=process.argv[2],planPath=join(root,'bench/staged-long-window-plan.json');
+const plan=JSON.parse(readFileSync(planPath)),sha=b=>createHash('sha256').update(b).digest('hex');
+assert.equal(plan.id,'llm01-long-window-stage37');assert.equal(process.version,'v24.19.0');
+const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8'}),head=git(['rev-parse','HEAD']).trim();
+assert.equal(git(['status','--porcelain']),'','Commit all sources before trial');
+assert.ok(out&&resolve(out)!==root);
+const key=p=>{const r=realpathSync(p);return /^\/mnt\/[a-z]\//i.test(r)?r.toLowerCase():r;};
+const rk=key(root),parent=key(dirname(resolve(out)));
+assert.ok(parent!==rk&&!parent.startsWith(rk+sep));assert.ok(!existsSync(out),'Exclusive campaign directory');
+const windowsPath=process.env.PRIME_WINDOWS_MEMORY_RECEIPT;assert.ok(windowsPath,'Live Windows monitor required');
+assert.ok(key(windowsPath)!==rk&&!key(windowsPath).startsWith(rk+sep),'Monitor outside repository');
+assert.equal(windowsPath.split('/').at(-1),'windows-memory-current.json');
+const windowsStop=join(dirname(windowsPath),'windows-memory.stop');
+const windowsSnapshot=()=>{
+ const b=readFileSync(windowsPath),w=JSON.parse(b),age=Date.now()-Date.parse(w.checkedAt);
+ assert.equal(w.host,'LLM-01');assert.equal(w.source,'Win32_OperatingSystem');
+ assert.ok(Number.isFinite(w.availableMiB)&&w.availableMiB>=4096&&Number.isFinite(w.totalMiB)&&w.totalMiB>=w.availableMiB);
+ assert.ok(age>=0&&age<=30000,'Fresh Windows precondition');return {bytes:b,value:w};
+};
+const initialWindows=windowsSnapshot();
+mkdirSync(out);
+const guard=captureSourceGuard(root);assert.equal(guard.head,head);
+const manifest={plan:plan.id,planSha256:sha(readFileSync(planPath)),driverSha256:sha(readFileSync(new URL(import.meta.url))),head,nodeVersion:process.version,startedAt:new Date().toISOString(),windowsMonitor:{source:'scripts/watch-windows-memory.ps1',initial:initialWindows.value},sourceGuard:{version:guard.version,files:guard.files,treeSha256:guard.treeSha256},trials:[]};
+let created=false;const save=()=>{writeFileSync(join(out,'run.json'),JSON.stringify(manifest,null,2)+'\n',created?{}:{flag:'wx'});created=true;};
+save();let totalCap=0;
+try{
+ for(const t of plan.trials){
+  checkSourceGuard(guard);
+  const availableMiB=Number(/^MemAvailable:\s+(\d+)/m.exec(readFileSync('/proc/meminfo','utf8'))[1])/1024;
+  assert.ok(Number.isFinite(availableMiB)&&availableMiB>=4096);
+  const windows=windowsSnapshot();writeFileSync(join(out,t.id+'.windows.json'),windows.bytes,{flag:'wx'});
+  totalCap+=t.budgetMs+120000;assert.ok(totalCap<=plan.limits.totalCampaignMs);
+  const receipt=join(out,t.id+'.json'),args=['scripts/verify-long-window.mjs','--graph','long','--engine',t.engine,'--slots',String(t.slots),'--coordinator',t.coordinator,'--memory-mib',String(t.memoryMiB),'--budget-ms',String(t.budgetMs),'--out',receipt];
+  if(t.case)args.push('--case',t.case);if(t.fixedFamilies)args.push('--fixed-families',String(t.fixedFamilies));if(t.cancelAfterMs)args.push('--cancel-after-ms',String(t.cancelAfterMs));
+  const row={...t,availableMiB,windowsMemory:windows.value,windowsMemorySha256:sha(windows.bytes),args,startedAt:new Date().toISOString(),state:'running'};manifest.trials.push(row);save();
+  console.log('Start',t.id,row.startedAt);
+  const result=spawnSync(process.execPath,args,{cwd:root,env:{...process.env,PRIME_MEASURED_HEAD:head},encoding:'utf8',maxBuffer:4194304,timeout:t.budgetMs+120000});
+  const log=(result.stdout??'')+(result.stderr??'');writeFileSync(join(out,t.id+'.log'),log,{flag:'wx'});
+  Object.assign(row,{exitCode:result.status,finishedAt:new Date().toISOString(),state:result.status===0?'completed':'failed',logSha256:sha(log),logBytes:Buffer.byteLength(log)});
+  if(existsSync(receipt)){const b=readFileSync(receipt);row.bytes=b.length;row.sha256=sha(b);assert.ok(b.length<=plan.limits.maxReceiptBytes);}
+  save();assert.equal(result.status,0,t.id+' failed; original log retained');
+  const r=JSON.parse(readFileSync(receipt));checkSourceGuard(guard,r);
+  assert.equal(r.measuredHead,head);assert.equal(r.graphVariant,'long');assert.equal(r.budgetMs,t.budgetMs);assert.equal(r.variant,t.engine);
+  assert.deepEqual(r.quiet,{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true});
+  assert.deepEqual(r.detectorSelfTest,{blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true});
+  const record=r.records[0],o=record.outcome;
+  if(!o){assert.equal(record.tests.length,22);assert.ok(record.tests.every(t=>t.pass));row.summary={contracts:22};}
+  else{
+   validateStreamRecord(record);assert.ok(o.maximumWasmBytes<=512*1048576);assert.equal(o.workers,5);assert.ok(o.peakTransportBytes<=64*1048576);assert.ok(o.familiesSubmitted<=4096);assert.ok(record.eventCount<=12288);
+   if(t.fixedFamilies){
+    assert.equal(o.reason,'fixed-family-bound');assert.equal(o.familiesSubmitted,16);
+    const old=JSON.parse(readFileSync(join(root,'docs/benchmarks/staged-lp-map-stage36/2-lpmap.json'))).records[0];
+    assert.deepEqual(record.familyDigests.filter(x=>x.family<16).map(x=>[x.family,x.sha256]),old.familyDigests.filter(x=>x.family<16).map(x=>[x.family,x.sha256]));
+    assert.equal(record.graphColumns.find(x=>x.family===16).sha256,old.graphColumns.find(x=>x.family===16).sha256);
+    assert.deepEqual(record.progressTimeline.find(x=>x.families===16).collectorStats,old.progressTimeline.find(x=>x.families===16).collectorStats);
+   }else if(t.cancelAfterMs){
+    assert.equal(o.kind,'cancelled');assert.ok(record.cancelRequestedAtMs!==null&&record.cancelToRetirementMs>=0&&record.cancelToRetirementMs<=5000);
+   }else assert.ok(['factorized','probable'].includes(o.kind)||plan.adoption.allowedLongReasons.includes(o.reason)||record.resourceStop);
+   row.summary={kind:o.kind,reason:o.reason,resourceStop:record.resourceStop,families:o.familiesSubmitted,usable:o.relations,target:o.target,wallMs:o.requestWallMs,peakPssBytes:r.sampledRam.peakPssBytes,coordinator:o.memoryByOwner[0].last,nativeQuota:o.nativeQuota??null,cancelToRetirementMs:record.cancelToRetirementMs};
+  }
+  save();console.log('Done',t.id,JSON.stringify(row.summary));
+ }
+ manifest.completedAt=new Date().toISOString();save();
+}catch(error){manifest.stoppedAt=new Date().toISOString();manifest.error=String(error.stack??error);save();throw error;}
+finally{if(!existsSync(windowsStop))writeFileSync(windowsStop,'done\n',{flag:'wx'});}

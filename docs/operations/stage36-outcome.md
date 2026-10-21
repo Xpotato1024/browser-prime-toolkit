@@ -13,3 +13,7 @@ PR19 head3826a590を基準に、u32範囲のLP keyとu64 fallbackを分けた候
 再開に必要な具体的対象は、選定WorkerのLP map Native反映と、長枠専用policy/budget/worker-source/生成scriptによる有限deadline・quota分類・全Worker退役である。再開後は実Workerでの小quota拒否とfresh recovery、最終head試験/独立レビュー/CI、親が調整した静穏枠での有限長時間計測が残る。Tunnelのbuild/test中に性能計測を再開しない。
 
 Windows CIM証跡は末尾改行なしで取得された。`windows-memory.original.base64` に原本バイト列を可逆保存し、閲覧用JSONへ末尾LFを付した。report検査は原本SHA・run値・閲覧用JSONの一致を確認し、UTF-8/LF検査は緩和していない。
+
+## Stage37への継続
+
+本人の追加承認を受け、旧拒否対象の選定反映と有限長枠を別branchで再開した。PR20 head18d7d843とStage36の原本は固定基準として保持する。現在の選定128/256 roleはLP map Nativeへ反映し、旧ABBAは歴史HEADのsource SHAと元Nativeで固定した。長枠の実装・試験・実測は[Stage37](stage37-tdd-evidence.md)へ分け、旧保留記録を履歴として残す。

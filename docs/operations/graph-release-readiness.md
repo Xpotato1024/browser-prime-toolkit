@@ -1,6 +1,6 @@
 # 改善完了判定とマージ・リリース前の確認
 
-2026-10-21 03:10 UTCの本人指示は、改善余地が概ね尽きた条件が成立した後のPRマージ・リリースを許可している。条件を早めるために探索を打ち切らない。Stage34の2候補は負の結果として閉じ、差分サイズ診断も基準不成立。選定版の最終持続/取消は測定head98a62b2で完了した。最終HEAD試験・独立レビュー・CIの結果は今回Draft PR本文へ固定head付きで記録する。LP map仮説は[Stage36固定対照](../benchmarks/llm01-lp-map.md)でgate成立したが、選定入口反映と長時間設定は[保留境界](stage36-outcome.md)の自動承認拒否で残っている。改善余地ゼロや条件成立済みとは扱わない。
+2026-10-21 03:10 UTCの本人指示は、改善余地が概ね尽きた条件が成立した後のPRマージ・リリースを許可している。条件を早めるために探索を打ち切らない。Stage34の2候補は負の結果として閉じ、差分サイズ診断も基準不成立。選定版の最終持続/取消は測定head98a62b2で完了した。最終HEAD試験・独立レビュー・CIの結果は今回Draft PR本文へ固定head付きで記録する。LP map仮説は[Stage36固定対照](../benchmarks/llm01-lp-map.md)でgate成立したが、選定入口反映と長時間設定は一度[保留](stage36-outcome.md)となり、本人の追加承認後に[Stage37](stage37-tdd-evidence.md)で反映・有限検証を再開した。長時間の結果と最終HEADの検証は未確定である。改善余地ゼロや条件成立済みとは扱わない。
 
 ## 依存PR
 
@@ -36,3 +36,5 @@ PR13のFAILUREは[run39391717377](https://github.com/Xpotato1024/browser-prime-t
 選定済み実験ESM入口 `src/optimized/index.js`、固定pinと2clean artifact、既存の軽い入力経路、全桁表示/確実性/因子検算、有限CPU/WASM/輸送/時間・取消契約、source/license/build accessと測定報告が対象。採用・不採用候補、失敗と旧rawの履歴も保全する。最終tagはマージ後mainの検証済みcommitへ固定し、release noteは日本語でRSA100未完了・実機mobile未検証を明記する。source archive/checksumを付ける場合も、対応する完全Git履歴とupstream/patch/flagsの再現手順へ結ぶ。npm公開や新repo作成はしない。
 
 サイトの旧分解機撤去、React island/manifest v1 adapter、multi-instance admission、初回asset後offline、通常サイト移動、CSP/license、軽い入力スマホ実機は次工程の受入対象。サイトの新ブランチで検証し、受入結果を確認してから本番切替する。ここでCloudflare/Search Console/資格情報/権限/端末設定を変更しない。
+
+Stage37開始時点の追加固定基準: PR19 head3826a590、PR20 head18d7d843は成功CIを確認したDraftとして保持する。新しい反映と長枠はその後の増分branchへ分離し、最終head・依存順・受入条件を改めて確認する。
