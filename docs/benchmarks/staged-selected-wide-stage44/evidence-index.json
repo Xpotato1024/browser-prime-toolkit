@@ -48,7 +48,23 @@
       "compressedBytes": 503,
       "compressedSha256": "1e54efe175bed3e86e6cd9727d5e3dcf5662747af48f2eb4a5e3a9456e73de82",
       "encodedBytes": 681
+    },
+    "contract-proof-red.log": {
+      "file": "contract-proof-red.log.gz.base64",
+      "originalBytes": 1566,
+      "originalSha256": "3e0343add6ef658560fe90d57f55ac490d65d77966e3cef4045129ab05d3bc19",
+      "compressedBytes": 583,
+      "compressedSha256": "0c1bdf6c54e896a100b7e691848cfb20d497e80cef9aa3fb5030dafdc8c31d57",
+      "encodedBytes": 791
+    },
+    "contract-proof-green.log": {
+      "file": "contract-proof-green.log.gz.base64",
+      "originalBytes": 349,
+      "originalSha256": "a8139f82a4409d25b986c257a4964bc7164fbaab86a2c7639a0c170f1a0b6d14",
+      "compressedBytes": 245,
+      "compressedSha256": "295edb8390db2fc279d16fe385464963164d026f6c0980abe0cb22239af5422b",
+      "encodedBytes": 333
     }
   },
-  "totalEncodedBytes": 23423
+  "totalEncodedBytes": 24547
 }

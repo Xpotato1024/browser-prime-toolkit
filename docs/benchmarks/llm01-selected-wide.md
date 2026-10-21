@@ -8,5 +8,5 @@
 - 実際に読み込んだassetは選定64/1024 roleを含み、旧Native factoryをロードしない。初回asset取得後はserverを止めofflineで計算した。
 - 入口/cap拒否/protocol/runner一致の実redを保存した。greenは統計7件＋入口2件。
 
-全6原本を可逆圧縮23,423 bytesで保全（上限1MiB）。[索引](staged-selected-wide-stage44/evidence-index.json)。
+全8原本を可逆圧縮24,547 bytesで保全（上限1MiB）。[索引](staged-selected-wide-stage44/evidence-index.json)。
 通常UI・サイト公開は変更していない。新入口でのRSA100完走、5Worker性能改善、他端末での改善は未測定。

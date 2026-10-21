@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 24.19.0
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node --test test/hotpath-repeat-stats.test.js test/selected-wide.test.js
+      - run: node --test test/hotpath-repeat-stats.test.js test/selected-wide.test.js test/selected-wide-proof.test.js
       - run: npm run check:hotpath-repeat
       - name: Selected64 four-family functional equality
         run: timeout 240s node scripts/verify-selected-wide-helper.mjs "$RUNNER_TEMP/helper.json"
