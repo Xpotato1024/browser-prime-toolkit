@@ -96,7 +96,7 @@ try {
     '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-first-run',
     '--disable-background-timer-throttling', '--remote-debugging-port=0', '--user-data-dir=' + temporary, 'about:blank'],
     { stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true });
-  memory = new BrowserMemorySampler(chrome.pid); await memory.start();
+  memory = new BrowserMemorySampler(chrome.pid);const originalSample=memory.sample.bind(memory);let hostMemoryStopped=false;memory.sample=async()=>{const row=await originalSample();if(nodeMeasurementStart!==null&&row.pssBytes>=1536*1048576&&!hostMemoryStopped){hostMemoryStopped=true;await evaluate('evaluationHarness.stop("chrome-pss-soft-stop")');}return row;}; await memory.start();
   const debuggingUrl = await new Promise((resolveUrl, rejectUrl) => {
     let stderr = '';
     const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 30000);
@@ -224,7 +224,7 @@ try {
   assert.ok(http.includes('/worker-probe'));assert.ok(requests.some(r=>r.url===origin+'/worker-probe'&&r.sessionId!==pageSession));
   receipt.detectorSelfTest={blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true};
   receipt.graphSourceFiles={};
-  for(const p of ['scripts/verify-graph-profile.mjs','scripts/generate-graph-profile.mjs','src/graph-profile/worker-source.js','src/graph-profile/runner.js','native/graph-profile/build-baseline.json','native/graph-profile/build-compact.json','native/graph-profile/patch-source.mjs','native/graph-profile/engine-profile.rs','native/graph-profile/compact-root.rs','native/graph-profile/phase.rs','docs/contracts/graph-profile.md'])receipt.graphSourceFiles[p]=createHash('sha256').update(await readFile(join(root,p))).digest('hex');
+  for(const p of ['scripts/verify-graph-profile.mjs','scripts/generate-graph-profile.mjs','scripts/graph-asset-route.mjs','src/graph-profile/worker-source.js','src/graph-profile/runner.js','native/graph-profile/build-baseline.json','native/graph-profile/build-compact.json','native/graph-profile/patch-source.mjs','native/graph-profile/engine-profile.rs','native/graph-profile/compact-root.rs','native/graph-profile/phase.rs','docs/contracts/graph-profile.md'])receipt.graphSourceFiles[p]=createHash('sha256').update(await readFile(join(root,p))).digest('hex');
   // Store compact evidence directly. Every original packet digest and numeric counter remains.
   receipt.ramTimeline=receipt.ramTimeline.filter((_,i,a)=>i%Math.max(1,Math.ceil(a.length/255))===0||i===a.length-1).map(s=>({atMs:s.atMs,rssBytes:s.rssBytes,pssBytes:s.pssBytes,processes:s.processes}));
   for(const r of records){if(!r.outcome)continue;r.eventCount=r.outcome.events.length;delete r.outcome.events;r.handoff.packets=r.handoff.packets.map(p=>[p.first,p.returnedMs,p.acceptedMs,p.waitMs]);}

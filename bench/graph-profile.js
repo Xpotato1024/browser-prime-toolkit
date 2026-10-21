@@ -3,7 +3,7 @@
 import {runRusqsieve as runDlp} from '../src/graph-profile/runner.js';
 import {makeWorkerFromSource} from '../src/worker/source-factory.js';
 import {graphWorkerSource} from '../src/graph-profile/worker-source.js';
-let graphVariant=null,graphSnapshots=[],graphPhases=[],graphColumns=[],resourceStop=null;
+let graphVariant=null,graphSnapshots=[],graphPhases=[],graphColumns=[],resourceStop=null,activeController=null;
 const workerSourceForCap=cap=>graphWorkerSource(cap,graphVariant);
 import {selectResourcePlan} from '../src/resources/policy.js';
 import {RSA_CASES} from './staged-rsa/cases.js';
@@ -19,14 +19,14 @@ const settings=()=>({profile:selectedProfile,workers:({'one-drop':1,'two-drop':2
 async function measure({id,budgetMs,fixedFamilies=null,cancelAfterMs=null}){
  const c=[...RSA_CASES,...FULL_CASES].find(c=>c.id===id);assert(c,'Unknown case');
  assert(cancelAfterMs===null||cancelAfterMs===120000&&budgetMs===300000,'Fixed cancel control');
- graphSnapshots=[];graphPhases=[];graphColumns=[];resourceStop=null;const controller=new AbortController(),progressTimeline=[];const measuredStart=performance.now();let timer,cancelRequestedAtMs=null,retiredAtMs=null;
+ graphSnapshots=[];graphPhases=[];graphColumns=[];resourceStop=null;const controller=new AbortController(),progressTimeline=[];activeController=controller;const measuredStart=performance.now();let timer,cancelRequestedAtMs=null,retiredAtMs=null;
  if(cancelAfterMs!==null)timer=setTimeout(()=>{cancelRequestedAtMs=performance.now()-measuredStart;controller.abort();},cancelAfterMs);
  let outcome;try{outcome=await runRusqsieve(c.input,{...settings(),fixedFamilies,capturePackets:true,timeBudgetMs:budgetMs,signal:controller.signal,createWorker,onProgress:p=>{
   if(progressTimeline.length>=4096)throw Error('Progress retention cap');
   progressTimeline.push({atMs:performance.now()-measuredStart,...structuredClone(p)});
   if(p.memory.liveRequested>=160*1048576||p.memory.linearBytes>=208*1048576){resourceStop='coordinator-memory-soft-stop';controller.abort();}
  }});}finally{clearTimeout(timer);}
- retiredAtMs=performance.now()-measuredStart;const hashStarted=performance.now(),proof=await outcome.auditProof;delete outcome.auditProof;delete outcome.packetArchives;
+ activeController=null;retiredAtMs=performance.now()-measuredStart;const hashStarted=performance.now(),proof=await outcome.auditProof;delete outcome.auditProof;delete outcome.packetArchives;
  const hashFlushMs=performance.now()-hashStarted,familyDigests=proof.families.map(r=>({...r,acknowledged:r.family<outcome.familiesSubmitted}));delete proof.families;
  return{graphVariant,graphSnapshots:graphSnapshots.map(s=>({...s,atMs:s.atMs-measuredStart})),graphPhases,graphColumns,resourceStop,id,input:c.input,bits:c.bits,digits:c.digits,knownFactorsUsed:false,cancelAfterMs,cancelRequestedAtMs,retiredAtMs,cancelToRetirementMs:cancelRequestedAtMs===null?null:retiredAtMs-cancelRequestedAtMs,outcome,familyDigests,streamAudit:proof,progressTimeline,hashFlushMs};
 }
@@ -48,4 +48,4 @@ const tests=[
  ['fresh-full-64-path',async()=>{const c=FULL_CASES.find(c=>c.id==='full-balanced-64-1');const r=await runRusqsieve(c.input,{...settings(),timeBudgetMs:30000,createWorker});assert(['probable','factorized'].includes(r.kind)&&r.remaining==='1'&&r.factors.length===2&&r.allWorkersDisposed,'Fresh64 factorization '+JSON.stringify(r));}],
  ['fresh-full-path',async()=>{const c=FULL_CASES.find(c=>c.id==='full-balanced-40-1');const r=await runRusqsieve(c.input,{...settings(),timeBudgetMs:30000,createWorker});assert(['probable','factorized'].includes(r.kind)&&r.remaining==='1'&&r.factors.length===2&&r.allWorkersDisposed,'Fresh factorization '+JSON.stringify(r));}]
 ];
-globalThis.evaluationHarness={selectGraph(v){assert(graphVariant===null&&['baseline','compact'].includes(v),'Immutable graph');graphVariant=v;},selectCoordinator(p){assert(selectedCoordinator===null&&['combined','dedicated'].includes(p),'Immutable coordinator');selectedCoordinator=p;},selectScheduler(p){assert(selectedScheduler===null&&['credit1'].includes(p),'Immutable scheduler');selectedScheduler=p;},selectProfile(p){assert(selectedProfile===null&&p==='baseline','Immutable profile');selectedProfile=p;},selectEngine(v){assert(selected===null&&['one-drop','two-drop','three-drop','four-drop'].includes(v),'Immutable configuration');selected=v;},measure,async run(index=null){const results=[];for(const[name,fn]of (index===null?tests:[tests[index]])){try{await fn();results.push({name,pass:true});}catch(e){results.push({name,pass:false,error:e.message});}}return{tests:results,performanceMeasurement:false};},ownership:()=>({live,maxLive,liveSources,maxLiveSources}),violations,errors,rejections};
+globalThis.evaluationHarness={stop(reason){resourceStop=reason;activeController?.abort();},selectGraph(v){assert(graphVariant===null&&['baseline','compact'].includes(v),'Immutable graph');graphVariant=v;},selectCoordinator(p){assert(selectedCoordinator===null&&['combined','dedicated'].includes(p),'Immutable coordinator');selectedCoordinator=p;},selectScheduler(p){assert(selectedScheduler===null&&['credit1'].includes(p),'Immutable scheduler');selectedScheduler=p;},selectProfile(p){assert(selectedProfile===null&&p==='baseline','Immutable profile');selectedProfile=p;},selectEngine(v){assert(selected===null&&['one-drop','two-drop','three-drop','four-drop'].includes(v),'Immutable configuration');selected=v;},measure,async run(index=null){const results=[];for(const[name,fn]of (index===null?tests:[tests[index]])){try{await fn();results.push({name,pass:true});}catch(e){results.push({name,pass:false,error:e.message});}}return{tests:results,performanceMeasurement:false};},ownership:()=>({live,maxLive,liveSources,maxLiveSources}),violations,errors,rejections};

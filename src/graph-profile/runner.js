@@ -79,6 +79,7 @@ export function runRusqsieve(input,options={}){
    validateDlpTimings(d.timings,owner.timings);owner.timings=d.timings;
     for(const m of [d.memory,d.before,d.after].filter(Boolean))validateMemory(m);
    for(const m of [d.memory,d.before,d.after].filter(Boolean)){if(!Number.isInteger(m.linearBytes)||m.linearBytes>resourcePlan.ownerCapsMiB[owner.index]*1048576)throw Error('Worker memory bound');owner.memory=m;owner.peakLinear=Math.max(owner.peakLinear??0,m.linearBytes);owner.peakRequested=Math.max(owner.peakRequested??0,m.peakRequested);}
+   if(owner.index===0&&[d.memory,d.before,d.after].filter(Boolean).some(m=>m.liveRequested>=160*1048576||m.linearBytes>=208*1048576)){record('resource-stop',{owner:0,memory:owner.memory});finish('incomplete','coordinator-memory-soft-stop');return;}
    if(d.type==='fatal'){record('fatal',{owner:owner.index,...d});finish('incomplete',d.reason,{fatal:d});return;}
    if(d.type==='ready'){
     if(owner.command!=='init'||d.role!==(owner.index===0?'coord':'sieve')||d.maxMiB!==resourcePlan.ownerCapsMiB[owner.index])throw Error('Unexpected ready role/cap');validateDlpConfiguration(d.config,profile,inputInfo.bits);owner.config=d.config;if(!releaseSource(owner)){finish('incomplete','worker-retirement');return;}owner.command=null;owner.ready=true;record('ready',{owner:owner.index,memory:d.memory,config:d.config,timings:d.timings});
