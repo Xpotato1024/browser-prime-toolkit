@@ -12,10 +12,10 @@ export function graphWorkerSource(cap,variant){
  const anchor='memory:memory(),...(role===';
  if(source.split(anchor).length!==2)throw Error('Graph snapshot anchor');
  source=source.replace(anchor,'...graphSnapshot(),memory:memory(),...(role===');
- source+='\nlet graphSequence=0;function graphSnapshot(){if(role!=="coord"||!session||graphSequence++%16!==0)return{};const b=take(api.codex_graph_profile(session)),v=new DataView(b.buffer);if(b.length!==156)throw Error("Graph snapshot width");return{graphProfile:Array.from({length:18},(_,i)=>Number(v.getBigUint64(12+8*i,true)))};}\n';
+ source+='\nlet graphSequence=0,graphPrefix=0;function graphSnapshot(){if(role!=="coord"||!session||graphSequence++%16!==0)return{};const b=take(api.codex_graph_profile(session)),v=new DataView(b.buffer);if(b.length!==156)throw Error("Graph snapshot width");return{graphPrefix,graphProfile:Array.from({length:18},(_,i)=>Number(v.getBigUint64(12+8*i,true)))};}\n';
  const submitted="send('submitted',{jobId:d.jobId,relations,target,...snapshot()});";
  if(source.split(submitted).length!==2)throw Error('Graph columns anchor');
- source=source.replace(submitted,"let graphColumnSha=null;const graphStart=performance.now();if([4,16,32,64,128].includes(d.first+d.count)){const bytes=take(api.codex_graph_columns(session));graphColumnSha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),n=>n.toString(16).padStart(2,'0')).join('');}send('submitted',{graphColumnSha,graphFamily:d.first+d.count,graphObserveMs:performance.now()-graphStart,jobId:d.jobId,relations,target,...snapshot()});");
+ source=source.replace(submitted,"graphPrefix=d.first+d.count;let graphColumnSha=null;const graphStart=performance.now();if([4,16,32,64,128].includes(d.first+d.count)){const bytes=take(api.codex_graph_columns(session));graphColumnSha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),n=>n.toString(16).padStart(2,'0')).join('');}send('submitted',{graphColumnSha,graphFamily:d.first+d.count,graphObserveMs:performance.now()-graphStart,jobId:d.jobId,relations,target,...snapshot()});");
  const extracted="send('extracted',{status,";
  if(source.split(extracted).length!==2)throw Error('Graph extraction anchor');
  return source.replace(extracted,"send('extracted',{graphPhases:Array.from({length:16},(_,i)=>Array.from({length:4},(_,j)=>api.codex_graph_phase(i,j))).filter(r=>r[0]),status,");
