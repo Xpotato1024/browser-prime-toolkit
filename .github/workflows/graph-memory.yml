@@ -18,7 +18,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node --test test/graph-*.test.js
+      - run: node --test test/graph-*.test.js test/optimized-*.test.js
       - run: npm run check:graph
       - name: Offline cancellation, fatal retirement and fresh complete extraction
         run: |
@@ -27,6 +27,8 @@ jobs:
           node scripts/verify-graph-arena.mjs --graph packed --engine four-drop --out "$RUNNER_TEMP/graph-packed-contracts.json"
           node scripts/verify-graph-multicore.mjs --graph packed --engine six-drop --slots 8 --out "$RUNNER_TEMP/graph-multicore-contracts.json"
           node scripts/verify-graph-builtin.mjs --graph builtin --engine four-drop --slots 8 --out "$RUNNER_TEMP/graph-builtin-contracts.json"
+          node scripts/verify-graph-integrated.mjs --graph optimized --engine five-drop --slots 8 --out "$RUNNER_TEMP/optimized-contracts.json"
+          node scripts/verify-graph-integrated.mjs --graph optimized --engine one-drop --memory-mib 128 --case full-balanced-64-1 --out "$RUNNER_TEMP/optimized-lowcap.json"
         env:
           CHROME_BIN: google-chrome
           PRIME_MEASURED_HEAD: ${{ github.sha }}

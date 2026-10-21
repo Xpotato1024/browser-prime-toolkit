@@ -21,6 +21,7 @@ try{
   assert.ok(availableMiB>=plan.limits.startAvailableMiB,'Host RAM precondition');
   total+=t.budgetMs;assert.ok(total<=plan.limits.totalCalculationMs,'Finite campaign budget');
   const receipt=join(out,t.id+'.json'),args=['scripts/verify-graph-integrated.mjs','--graph',t.graph,'--engine',t.engine,'--slots',String(t.slots),'--coordinator',t.coordinator,'--budget-ms',String(t.budgetMs),'--out',receipt];
+  if(t.memoryMiB)args.push('--memory-mib',String(t.memoryMiB));
   if(t.cancelAfterMs)args.push('--cancel-after-ms',String(t.cancelAfterMs));
   if(t.case)args.push('--case',t.case);if(t.fixedFamilies)args.push('--fixed-families',String(t.fixedFamilies));
   const row={...t,availableMiB,args,startedAt:new Date().toISOString(),state:'running'};manifest.trials.push(row);save();
@@ -30,7 +31,7 @@ try{
   row.exitCode=result.status;row.finishedAt=new Date().toISOString();row.state=result.status===0?'completed':'failed';row.logSha256=sha(log);
   if(existsSync(receipt)){const b=readFileSync(receipt);row.bytes=b.length;row.sha256=sha(b);}
   save();assert.equal(result.status,0,t.id+' failed; original log retained');
-  const r=JSON.parse(readFileSync(receipt));assert.equal(r.measuredHead,head);assert.equal(r.graphVariant,t.graph);assert.equal(r.variant,t.engine);assert.equal(r.slots,t.slots);assert.equal(r.coordinator,t.coordinator);assert.equal(r.quiet.networkRequests,0);
+  const r=JSON.parse(readFileSync(receipt));assert.equal(r.measuredHead,head);assert.equal(r.graphVariant,t.graph);assert.equal(r.variant,t.engine);assert.equal(r.slots,t.slots);assert.equal(r.coordinator,t.coordinator);assert.equal(r.selectedMemoryMiB,t.memoryMiB??(t.engine==='six-drop'?768:512));assert.equal(r.quiet.networkRequests,0);
   row.summary=r.records[0].outcome?{kind:r.records[0].outcome.kind,reason:r.records[0].outcome.reason,families:r.records[0].outcome.familiesSubmitted,usable:r.records[0].outcome.relations,wallMs:r.records[0].outcome.requestWallMs,peakPssBytes:r.sampledRam.peakPssBytes}:r.records[0];
   save();console.log('Done',t.id,JSON.stringify(row.summary));
  }

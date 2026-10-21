@@ -26,7 +26,7 @@ export function validateCampaign(dir,{requireComplete=true}={}){
   for(const a of r.initialAssets){assert.equal(sources.get(a.path.slice(1)),a.sha256);}
   assert.equal(r.records.length,1);const record=r.records[0];
   if(record.outcome){(many?validateManyRecord:validateStreamRecord)(record);const o=record.outcome;assert.equal(o.allWorkersDisposed,true);assert.equal(o.allWorkerSourcesReleased,true);assert.ok(o.maximumWasmBytes<=(many?576:448)*1048576);assert.ok(o.peakTransportBytes<=(many?64:32)*1048576);assert.ok(o.creditState.peakOutstanding<=(many?8:4));assert.ok(o.memoryByOwner.every(x=>x.last.allocationFailures===0));assert.ok(record.graphSnapshots.length<=256);
-   assert.ok(['timeout','incomplete','factorized','probable'].includes(o.kind));assert.ok(!record.resourceStop);
+   assert.ok(['timeout','incomplete','factorized','probable',...(run.plan.includes('integrated')?['cancelled']:[])].includes(o.kind));assert.ok(!record.resourceStop);
   }else assert.ok(record.tests.every(t=>t.pass));
   records.push({row,receipt:r,record});
  }
@@ -35,7 +35,7 @@ export function validateCampaign(dir,{requireComplete=true}={}){
  const driverPath=planPath.replace('bench/staged-graph-','scripts/benchmark-graph-').replace('-plan.json','.mjs').replace('scripts/benchmark-graph-plan.json','scripts/benchmark-graph-profile.mjs');
  const driver=run.plan.includes('dedicated')||run.plan.includes('integrated')?'scripts/benchmark-graph-followup.mjs':planPath==='bench/staged-graph-plan.json'?'scripts/benchmark-graph-profile.mjs':driverPath;
  const hashes2=historicalHashes(run.head,[planPath,driver]);assert.equal(hashes2.get(planPath),run.planSha256);assert.equal(hashes2.get(driver),run.driverSha256);
- const plan=JSON.parse(execFileSync('git',['show',run.head+':'+planPath],{encoding:'utf8'}));assert.equal(plan.id,run.plan);assert.deepEqual(run.trials.map(r=>({id:r.id,graph:r.graph,budgetMs:r.budgetMs,...(r.case?{case:r.case}:{}),...(r.fixedFamilies?{fixedFamilies:r.fixedFamilies}:{}),...(r.engine?{engine:r.engine}:{}),...(r.slots?{slots:r.slots}:{}),...(r.coordinator?{coordinator:r.coordinator}:{}),...(r.cancelAfterMs?{cancelAfterMs:r.cancelAfterMs}:{})})),plan.trials.map(r=>({id:r.id,graph:r.graph,budgetMs:r.budgetMs,...(r.case?{case:r.case}:{}),...(r.fixedFamilies?{fixedFamilies:r.fixedFamilies}:{}),...(r.engine?{engine:r.engine}:{}),...(r.slots?{slots:r.slots}:{}),...(r.coordinator?{coordinator:r.coordinator}:{}),...(r.cancelAfterMs?{cancelAfterMs:r.cancelAfterMs}:{})})));
+ const plan=JSON.parse(execFileSync('git',['show',run.head+':'+planPath],{encoding:'utf8'}));assert.equal(plan.id,run.plan);assert.deepEqual(run.trials.map(r=>({id:r.id,graph:r.graph,budgetMs:r.budgetMs,...(r.case?{case:r.case}:{}),...(r.fixedFamilies?{fixedFamilies:r.fixedFamilies}:{}),...(r.engine?{engine:r.engine}:{}),...(r.slots?{slots:r.slots}:{}),...(r.coordinator?{coordinator:r.coordinator}:{}),...(r.cancelAfterMs?{cancelAfterMs:r.cancelAfterMs}:{}),...(r.memoryMiB?{memoryMiB:r.memoryMiB}:{})})),plan.trials.map(r=>({id:r.id,graph:r.graph,budgetMs:r.budgetMs,...(r.case?{case:r.case}:{}),...(r.fixedFamilies?{fixedFamilies:r.fixedFamilies}:{}),...(r.engine?{engine:r.engine}:{}),...(r.slots?{slots:r.slots}:{}),...(r.coordinator?{coordinator:r.coordinator}:{}),...(r.cancelAfterMs?{cancelAfterMs:r.cancelAfterMs}:{}),...(r.memoryMiB?{memoryMiB:r.memoryMiB}:{})})));
  assert.ok(plan.trials.reduce((n,r)=>n+r.budgetMs,0)<=plan.limits.totalCalculationMs);
  return{run,records};
 }
