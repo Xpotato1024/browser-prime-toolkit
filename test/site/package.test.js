@@ -13,14 +13,16 @@ test('release generator has a fixed exact-set, license/source files and reproduc
   const results=outputs.map(out=>JSON.parse(execFileSync(process.execPath,['scripts/build-site-release.mjs',out],{encoding:'utf8'})));
   assert.equal(results[0].artifactSha256,results[1].artifactSha256);
   const m=JSON.parse(await readFile(join(outputs[0],'browser-tool.json'),'utf8'));
-  assert.equal(m.runtime.profile,'prime-factorizer-async-v1');
-  assert.equal(m.runtime.capabilities.clipboard,false);
+  assert.ok((await readFile(join(outputs[0],m.integration.entry),'utf8')).includes("'data-prime-tool-version':'"+m.version+"'"),'runtime label matches release version');
+  assert.equal(m.runtime.profile,'bounded-browser-v2');
+  assert.equal(m.runtime.capabilities.clipboard,true);
+  assert.equal(m.runtime.clipboardPolicy,'user-gesture-write-only');assert.equal(m.runtime.assetMode,'fixed-bundled');
   for(const f of m.files){
    const b=await readFile(join(outputs[0],f.path));
    assert.equal(b.length,f.bytes);assert.equal(createHash('sha256').update(b).digest('hex'),f.sha256);
    assert.ok(b.length<=2000000);assert.ok(!f.path.includes('bench/'));
   }
-  for(const p of ['SOURCE_OFFER.md','THIRD_PARTY_NOTICES.md','licensing/site-release-v0.1.0.json','licensing/artifact-index.json'])assert.ok(m.license.additional.includes(p));
+  for(const p of ['SOURCE_OFFER.md','THIRD_PARTY_NOTICES.md','licensing/site-release-v0.1.0.json','licensing/artifact-index.json','vendor/emscripten/MUSL-COPYRIGHT.txt'])assert.ok(m.license.additional.includes(p));
   const pkg=JSON.parse(await readFile(join(outputs[0],'package.json'),'utf8'));assert.equal(pkg.scripts,undefined);assert.equal(pkg.dependencies,undefined);
   assert.throws(()=>execFileSync(process.execPath,['scripts/build-site-release.mjs',outputs[0]],{stdio:'pipe'}));
  }finally{await rm(parent,{recursive:true,force:true});}
