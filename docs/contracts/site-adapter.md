@@ -1,56 +1,32 @@
-# 既存サイト形式に対する受入仕様案
-状態: 設計案。サイトの契約・設定は変更していません。確認日: 2026-10-18。
+# site adapter の現行契約と管理境界
 
-## 確認した既存形式
-site main 61ef70cbdf6785d43fb8953965f404382a4ef894 を読み取り確認しました。
-[PR103](https://github.com/Xpotato1024/xpotato-site/pull/103) は登録route・binding・islandとtransitive asset graph、実配信header検証を実装済みです。
-[PR105](https://github.com/Xpotato1024/xpotato-site/pull/105) は固定版取込・更新・差戻し・合成fixtureによる通信/offline試験を実装済みです。
-[PR110](https://github.com/Xpotato1024/xpotato-site/pull/110) は710bb20f5db8663509e40211e92a30a849b86079のDraftで、version/sourceと処理条件の静的表示を追加しています。mainには未反映です。
+確認日: 2026-10-22。v0.1.0はsite PR112で固定版として採用・配信済みです。旧案の「PR110未統合」「Worker/WASM禁止」「site未変更」は [歴史資料](../history/site-adapter-2026-10-18.md) に保持します。
 
-既存manifest v1はReact island API v1、ESM default、memory、none-after-readyを規定します。
-package名は @xpotato-tool/<toolId>、React/ReactDOM 19.2.8 peers、追加runtime依存なしです。
-source commit/tree、lock、manifest、配布exact-setのbytes/SHA-256、reviewと2回のclean build一致を固定します。
-LICENSE/NOTICE、明示的vendor/pin/import/registry/bindingを同一PRで確認し、通常buildは再取得しません。
-現行capabilityのWorker/WASM/file/download/clipboardはfalse、maxComputeMsは100以下です。
-1fileは2MB以下、SPDXは許可されたpermissive系のみです。LGPL bundleの直接採用は現行形式に適合しません。
-登録ToolのCSPはworker-src/connect-src noneであり、通常navigationは維持されています。
-合成fixtureの成功は実ツール採用や高負荷計算の受入れを代替しません。
+共通の正本はsiteの [作成契約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/contracts/browser-tool-authoring.md)、machine schemaは [browser-tool.ts](https://github.com/Xpotato1024/xpotato-site/blob/main/packages/content-contracts/src/browser-tool.ts) です。このrepoへ仕様・生成器・Skillの別コピーを作りません。正本の作成契約は今回のDraft候補であり、そのmerge前は該当site PRを参照してください。
 
-## コア・アダプター・配布物
-計算コアはDOM/React/siteに依存しない整数演算・結果モデルとし、複数backendを比較可能にします。
-Worker controllerがjob ID、提出時入力、進捗、deadline、cancel、dispose/restartを管理します。
-サイト用Reactアダプターだけが既存island APIへ接続し、unmountでWorkerを必ず破棄します。
-package/manifest/pin/reviewの既存形式を再利用し、独自plugin loaderや動的remote registryは作りません。
-releaseはESM entry、scoped CSS、Worker entry、WASM/補助資源、license/noticeを全て同梱し、固定hashを検証します。
-Worker import・WASM参照もasset graphへ追加し、未列挙・remote・遅延の未検証取得を拒否します。
+## このrepoが所有するもの
 
-## 最小の追加契約: 長時間計算プロファイル案
-現行v1を一括緩和せず、schemaの明示的version/profileとして別途サイトPRで審査します。
-- worker/wasmの必要な機能だけ宣言し、資源entry・初期化/最大Worker数・memory上限を固定する。
-- maxComputeMsの短時間同期処理とjob wall-time/操作予算を分け、残余と未完了を必須にする。
-- loading → ready → running → completed/incomplete/cancelled/error → disposedを規定する。
-- readyはWorkerとWASM・必要資源の初期化後。全Workerのready確認と失敗時cleanupを行う。
-- 結果はjob ID・元入力・因子・残余・確実性・使用方式を持ち、積一致を検証する。
-- cancel/timeout/unmountでterminateし、古い応答・別instance・再初期化後の混線を拒否する。
-- Worker URLは固定local assetのみ。WASMのロードとcompileに必要なCSPを実browserで確認する。
-- connect-src noneとの整合を設計する。remote許可や一律unsafe-eval追加を回避策にしない。
-- thread/SIMDは測定後に選ぶ。SharedArrayBufferのための全サイトCOOP/COEP変更を既定にしない。
+- src/site/index.js: default React adapter。refのmount/unmount、page復帰。
+- src/site/mount.js と tool.css: 固有GUI、label・focus・scoped style、詳細設定。GUIはsite側へコピーしない。
+- src/site/session.js: 入力・結果検証、計算状態、deadline/cancel/dispose、stale応答拒否。
+- src/site/document-scope.js: document単位のleaseと退役不明時のquarantine。
+- src/site/policy.js とcore/Worker/kernel: 有限の役割別予算、正確な整数計算。
+- scripts/build-site-release.mjs: source graphとlicense一式を固定配布物へ変換。
 
-## 受入れ
-ready後の操作区間ではmainとWorker双方のrequest/socket、navigation、例外、CSPとHTTP server traceを記録します。
-正常・悪意入力・境界・cancel・timeout・reset・2instanceで通信ゼロとofflineの同等結果を確認します。
-検出器の自己試験、Worker終了、資源未取得時の失敗表示、unmount/restart、通常サイト移動も検証します。
-実際の最終distで性能表と通信receiptを固定し、再現build/hash/licenseを添えます。
-サイト変更、capability/CSP拡張、LGPL等の採用、公開・deployは別途具体案を承認してから実施します。
+siteはroute、registry、hydration、immutable vendor/pin、CSP、version/license/対応ソース表示を所有します。hostのsemantic CSS tokenはfallback付きで参照し、計算hardcapをhostから注入しません。React以外のruntime SDK依存は追加しません。
 
-取消の基礎APIは[Worker.terminate](https://developer.mozilla.org/en-US/docs/Web/API/Worker/terminate)です。
-終了時にWorker側cleanupの完遂を前提にせず、host側で所有資源とjob状態を破棄します。
+## profileと配布
 
-初回コアはsiteへ取り込めるreleaseではありません。入力の文字数とmanifestのbyte数は別々に制限します。
-現行v1のmaxInputBytesは65536、maxOutputBytesは262144以下です。因数集約コアの最大出力はこの範囲に収まりません。
-アダプターはmanifestの入力・出力・進捗message上限を計算前と描画前に検証し、超過を明示します。
-上限を無言で切捨てたり、コアの受付桁数をサイトでの分解保証として表示したりしません。
+既定の同期v1はWorker/WASMなし・短時間処理・permissive限定のままです。この分解機だけ prime-factorizer-async-v1、固定source repo、AGPL-3.0-onlyと対応source/第三者条件、有限時間/Worker/WASM/輸送量を使います。別ツールへこの例外をコピーしません。
 
-基準Workerは固定sourceを同梱したBlob URLを使い、取消後もHTTP取得なしで再生成します。
-site採用には、固定source/hashとBlob所有寿命の検証、限定worker-src blob:の別審査が必要です。
-現在のsiteのWorker禁止・CSPは変更していません。
+prepareが初回資産を使えるようにした後、入力・結果はmemory内、再試行・取消後も通信なし。WASM上限はJS/ブラウザRSSの上限ではなく、OSによるタブ強制終了を防げるとはしません。通常移動、複数instance、unmount、cancel/deadline後のWorker退役を実distで確認します。
+
+GUI変更候補はsource version 0.1.1。公開・tag・npm・site採用は未実施です。旧v0.1.0 bytes/pin/測定SHAは保持します。新candidate builderはmusl COPYRIGHTも配布exact-setへ含めます。既存v0.1.0の対応補遺を上書きするものではありません。
+
+## 確認手順
+
+指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。
+
+実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。
+
+merge/release/本番配信は今回のDraft作成許可に含まれません。
