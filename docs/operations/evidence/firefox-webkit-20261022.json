@@ -1,0 +1,422 @@
+{
+  "generatedAt": "2026-10-22T11:05:27.437Z",
+  "platform": "win32",
+  "node": "v24.14.0",
+  "playwright": "1.61.0",
+  "toolVersion": "0.1.1",
+  "engines": [
+    {
+      "name": "firefox",
+      "cases": [
+        {
+          "label": "sample changes only input and restores focus",
+          "passed": true,
+          "workersCreated": 0
+        },
+        {
+          "label": "invalid decimal, negative, oversized exponent are rejected without Workers",
+          "passed": true,
+          "workersCreated": 0
+        },
+        {
+          "label": "scientific input, exact integer, zero and subsecond display",
+          "passed": true,
+          "elapsed": "実経過: 14 ms（初期化・検証・解放を含む）。時間上限: 1秒。brent、1 Worker、WASM上限 0 MiB。"
+        },
+        {
+          "label": "native user-gesture copy outcome",
+          "passed": true,
+          "outcome": "結果と計算状態をコピーしました。",
+          "api": "function"
+        },
+        {
+          "label": "controlled clipboard success",
+          "passed": true,
+          "writes": [
+            "360 = 2^3 × 3^2 × 5\n分解完了（すべて確定判定）。\n因子の確度: 2: 確定判定、3: 確定判定、5: 確定判定"
+          ]
+        },
+        {
+          "label": "controlled clipboard denied",
+          "passed": true,
+          "writes": [
+            "360 = 2^3 × 3^2 × 5\n分解完了（すべて確定判定）。\n因子の確度: 2: 確定判定、3: 確定判定、5: 確定判定"
+          ]
+        },
+        {
+          "label": "controlled clipboard unavailable",
+          "passed": true,
+          "writes": []
+        },
+        {
+          "label": "finite WASM calculation and release",
+          "passed": true,
+          "equation": "1050809297549059047257 = 32416187567 × 32416190071",
+          "elapsedMs": 136,
+          "wasmBytes": 134217728
+        },
+        {
+          "label": "keyboard start/cancel, release and fresh rerun",
+          "passed": true,
+          "focus": "cancel",
+          "afterCancel": {
+            "created": 5,
+            "terminated": 5,
+            "urlsCreated": 5,
+            "urlsRevoked": 5,
+            "network": [],
+            "storage": [],
+            "focus": [
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "copy",
+              "手動コピー用（計算状態を含む）",
+              "copy",
+              "手動コピー用（計算状態を含む）",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "SUMMARY",
+              "0以上の整数",
+              "cancel",
+              "P"
+            ]
+          }
+        },
+        {
+          "label": "reset and keyboard tab order",
+          "passed": true
+        },
+        {
+          "label": "390px viewport has no horizontal overflow",
+          "passed": true,
+          "viewport": "390x844 (desktop engine, no physical iPhone)"
+        },
+        {
+          "label": "unmount during work retires Workers and Blob URLs",
+          "passed": true,
+          "metrics": {
+            "created": 8,
+            "terminated": 8,
+            "urlsCreated": 8,
+            "urlsRevoked": 8,
+            "network": [],
+            "storage": [],
+            "focus": [
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "start",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "copy",
+              "手動コピー用（計算状態を含む）",
+              "copy",
+              "手動コピー用（計算状態を含む）",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "SUMMARY",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "reset",
+              "0以上の整数",
+              "SELECT",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel"
+            ]
+          }
+        }
+      ],
+      "errors": [],
+      "requestsAfterReady": [],
+      "failures": [],
+      "version": "151.0",
+      "offlineEmulation": true,
+      "finalMetrics": {
+        "created": 8,
+        "terminated": 8,
+        "urlsCreated": 8,
+        "urlsRevoked": 8,
+        "network": [],
+        "storage": [],
+        "focus": [
+          "0以上の整数",
+          "start",
+          "0以上の整数",
+          "start",
+          "0以上の整数",
+          "start",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "copy",
+          "手動コピー用（計算状態を含む）",
+          "copy",
+          "手動コピー用（計算状態を含む）",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "SUMMARY",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "reset",
+          "0以上の整数",
+          "SELECT",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel"
+        ]
+      }
+    },
+    {
+      "name": "webkit",
+      "cases": [
+        {
+          "label": "sample changes only input and restores focus",
+          "passed": true,
+          "workersCreated": 0
+        },
+        {
+          "label": "invalid decimal, negative, oversized exponent are rejected without Workers",
+          "passed": true,
+          "workersCreated": 0
+        },
+        {
+          "label": "scientific input, exact integer, zero and subsecond display",
+          "passed": true,
+          "elapsed": "実経過: 20 ms（初期化・検証・解放を含む）。時間上限: 1秒。brent、1 Worker、WASM上限 0 MiB。"
+        },
+        {
+          "label": "native user-gesture copy outcome",
+          "passed": true,
+          "outcome": "結果と計算状態をコピーしました。",
+          "api": "function"
+        },
+        {
+          "label": "controlled clipboard success",
+          "passed": true,
+          "writes": [
+            "360 = 2^3 × 3^2 × 5\n分解完了（すべて確定判定）。\n因子の確度: 2: 確定判定、3: 確定判定、5: 確定判定"
+          ]
+        },
+        {
+          "label": "controlled clipboard denied",
+          "passed": true,
+          "writes": [
+            "360 = 2^3 × 3^2 × 5\n分解完了（すべて確定判定）。\n因子の確度: 2: 確定判定、3: 確定判定、5: 確定判定"
+          ]
+        },
+        {
+          "label": "controlled clipboard unavailable",
+          "passed": true,
+          "writes": []
+        },
+        {
+          "label": "finite WASM calculation and release",
+          "passed": true,
+          "equation": "1050809297549059047257 = 32416187567 × 32416190071",
+          "elapsedMs": 115,
+          "wasmBytes": 134217728
+        },
+        {
+          "label": "keyboard start/cancel, release and fresh rerun",
+          "passed": true,
+          "focus": "cancel",
+          "afterCancel": {
+            "created": 5,
+            "terminated": 5,
+            "urlsCreated": 5,
+            "urlsRevoked": 5,
+            "network": [],
+            "storage": [],
+            "focus": [
+              "0以上の整数",
+              "0以上の整数",
+              "0以上の整数",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "手動コピー用（計算状態を含む）",
+              "手動コピー用（計算状態を含む）",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "SUMMARY",
+              "0以上の整数",
+              "cancel",
+              "P"
+            ]
+          }
+        },
+        {
+          "label": "reset and keyboard tab order",
+          "passed": true
+        },
+        {
+          "label": "390px viewport has no horizontal overflow",
+          "passed": true,
+          "viewport": "390x844 (desktop engine, no physical iPhone)"
+        },
+        {
+          "label": "unmount during work retires Workers and Blob URLs",
+          "passed": true,
+          "metrics": {
+            "created": 8,
+            "terminated": 8,
+            "urlsCreated": 8,
+            "urlsRevoked": 8,
+            "network": [],
+            "storage": [],
+            "focus": [
+              "0以上の整数",
+              "0以上の整数",
+              "0以上の整数",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "手動コピー用（計算状態を含む）",
+              "手動コピー用（計算状態を含む）",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "SUMMARY",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "SELECT",
+              "0以上の整数",
+              "cancel",
+              "P",
+              "0以上の整数",
+              "cancel"
+            ]
+          }
+        }
+      ],
+      "errors": [],
+      "requestsAfterReady": [],
+      "failures": [],
+      "version": "26.5",
+      "offlineEmulation": false,
+      "finalMetrics": {
+        "created": 8,
+        "terminated": 8,
+        "urlsCreated": 8,
+        "urlsRevoked": 8,
+        "network": [],
+        "storage": [],
+        "focus": [
+          "0以上の整数",
+          "0以上の整数",
+          "0以上の整数",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "手動コピー用（計算状態を含む）",
+          "手動コピー用（計算状態を含む）",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "SUMMARY",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "SELECT",
+          "0以上の整数",
+          "cancel",
+          "P",
+          "0以上の整数",
+          "cancel"
+        ]
+      }
+    }
+  ],
+  "testedSourceSha": "69d12a0a511e00a2e33040eb72f4222ce19a4f97",
+  "artifactSha256": "1d21b62421930792d5d4dafe501d97e809156330b43d52fb99ecfa588a64d383"
+}
