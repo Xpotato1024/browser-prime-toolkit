@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "frozenBeforeMeasurements": true,
+  "initialTiers": [
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "refinementTiers": [
+    14,
+    18,
+    22,
+    26,
+    30,
+    34,
+    36
+  ],
+  "seeds": [
+    1,
+    11
+  ],
+  "budgetsMs": [
+    3000,
+    30000,
+    180000
+  ],
+  "generatorSha256": "b2ac99597a2a4faffc7df7e3d30db73c3dfe3afd22e3da4eb03d97ac643b4662",
+  "files": {
+    "catalog.json": "e4d60ccc0be824b826de46a2a5cfc0a3e3961bd3298fbb6e2bcd62cbd4fdefbc",
+    "oracle.json": "c96b12103072b10bac8f7c39fc130f98939302bdae3ddf42ecd9db9a77ec419d",
+    "cases.js": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "version": "0.5.0",
+  "commit": "4b150834b57636f6ebc350a81321a15c1cd901d2",
+  "upstreamSha256": "86ab9802fbd93690a053dc0630fffe33d1f3f1625d7d6345ec82d74be9d8d11c",
+  "image": "sha256:0aabc47a61c105a320b69fecbc2708a2118ec9e54a8b10946998f21bd23423d4",
+  "compiler": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+  "target": "wasm32-unknown-unknown",
+  "simd": true,
+  "cleanBuilds": 2,
+  "bytes": 413563,
+  "sha256": "b792d521fe6c64ce238e1c8b43ac5567de9ad27ce1c4da799be64c69fa0fa53f",
+  "memory": {
+    "flags": 1,
+    "minPages": 17,
+    "maxPages": 4096,
+    "shared": false,
+    "initialBytes": 1114112,
+    "maximumBytes": 268435456,
+    "exports": [
+      {
+        "name": "memory",
+        "kind": "memory"
+      },
+      {
+        "name": "qs_abi_version",
+        "kind": "function"
+      },
+      {
+        "name": "qs_max_siqs_bits",
+        "kind": "function"
+      },
+      {
+        "name": "qs_max_input_bits",
+        "kind": "function"
+      },
+      {
+        "name": "qs_alloc",
+        "kind": "function"
+      },
+      {
+        "name": "qs_dealloc",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_pointer",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_length",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_prepare",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_sieve",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_new",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_target",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_relations",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_family_budget",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_submit",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_extract",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm_default_b1",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm_default_curves",
+        "kind": "function"
+      },
+      {
+        "name": "qs_rho",
+        "kind": "function"
+      },
+      {
+        "name": "codex_extract_status",
+        "kind": "function"
+      },
+      {
+        "name": "codex_coord_worker",
+        "kind": "function"
+      },
+      {
+        "name": "codex_coord_fb_len",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_live",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_peak",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_failures",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_last_failed",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_reset_peak",
+        "kind": "function"
+      },
+      {
+        "name": "__data_end",
+        "kind": "global"
+      },
+      {
+        "name": "__heap_base",
+        "kind": "global"
+      }
+    ]
+  },
+  "args": [
+    "/opt/rust/bin/rustc",
+    "--crate-name",
+    "rusqsieve",
+    "--crate-type",
+    "cdylib",
+    "--edition=2024",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--cfg",
+    "feature=\"wasm-simd128\"",
+    "-Copt-level=3",
+    "-Clto=fat",
+    "-Ccodegen-units=1",
+    "-Cpanic=abort",
+    "-Ctarget-feature=+simd128",
+    "-Clink-arg=--max-memory=268435456",
+    "-Clink-arg=--strip-all",
+    "/src/src/lib.rs",
+    "-o",
+    "/build/rusqsieve.wasm"
+  ],
+  "sourceHashes": {
+    "scripts/build-rusqsieve.mjs": "912ca7815cfbd685a66d954774a5e040d5d22c4afb8be9fb2ed1e9d3e6c8f28d",
+    "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "native/rusqsieve/RustDockerfile": "6cbece4b075ab047328c5203388af2d45379cefb5894297f494609481302c3c6",
+    "native/rusqsieve/staged-toolchain.json": "ba5a22e598b3e84208fc284440105c9f8a5d8d8c830216bd8f03dcbf5df5bf3b"
+  },
+  "compiledSources": {
+    "src/README.md": "95c5641c9ab92dd4b022a262fd481b1928198772cab7b886af37a6f6b227e093",
+    "src/src/capi.rs": "96fa402a15ab2ae2caa8328badd8699ce303a38745bdd2651e58183ebb0ac61b",
+    "src/src/ecm.rs": "488fc2fd3307f551209addc692119e6a2cde14c09115f7820b2bc56e281caec3",
+    "src/src/engine.rs": "5022133d7a99f69d91559ff8f6ee51f0702f6c179a947c6983423681e98d6d3c",
+    "src/src/factor.rs": "6894ac755f114cc59b79f5129edace19abdf350fc8069fff3392d64fab99658f",
+    "src/src/factors.rs": "613fb29512da26b2dabbd9aaeb4fc8eb56b97d7c201c68bedb8f37a4db56feb9",
+    "src/src/lib.rs": "8165ac1d0eaa56a4803fe5a3fbc70392ed825c1cecfeb398014c38b1120fceb1",
+    "src/src/native.rs": "215d839bc0e17c7db55d0e106d642d6102624705677d5b0b92da5ea9d0c0f2b5",
+    "src/src/primality.rs": "3572ad3922efd7e5c941b41e54502f09ddc631c4726b9a1e75080ebb032a063b",
+    "src/src/progress.rs": "fe2a138fcd87993cf8ee2a32e55e4fcd0c1d42cb418077f84e78287a49ecad5e",
+    "src/src/smallfactor.rs": "290c95b14623ad81767b76ac85d4a3d0d24185a63b4e007ddbf0fbcd36392b45",
+    "src/src/u64math.rs": "f12b0f7c7edc386a8e0030c6f20dd486f6542ad7c2c1951a25385661a6752085",
+    "src/src/wasm.rs": "57f90c794ba21134416d1eeeda329510d6a3deaf64ff4bbec52db69c8881d0f7",
+    "src/src/bin/qs-factor.rs": "e24c09c983ae4d58e5992d8b46305e9258e3294f8e63548dae6344981d0d98c8",
+    "src/src/engine/extract.rs": "f4b3d9b20c7960db2bf05119046f0c53b0f0afceb330188533e5e894e2079e34",
+    "src/src/engine/report_simd.rs": "032d593326cdcef15021ea6f02a5212e352cea06666508d859a105f44e2e23b7",
+    "src/src/engine/report_wasm.rs": "7fce7f9769ebac3f84dffd1edc5208db15e1531498349d8af86ab1212d82bd79",
+    "src/src/engine/root_simd.rs": "339b36efa5d05a48b6c937a22ab244f5b111b017db2fddbe84b30281185624a2",
+    "src/src/engine/root_wasm.rs": "a167765765c2d3374da8a1aded1a173add56f34711511873a7f97a9d7a1081d2",
+    "src/src/engine/siqs.rs": "6dac492bfd396733af31e7ef97e5ceb53f0a24206a9f3e2b13da6dff6b557d8d",
+    "src/src/engine/wire.rs": "db689b9ee26f287777a507e4073259c3e522f860ad2c1b5c7f1f1a01fad3b754",
+    "src/src/f2/block_lanczos.rs": "a3169dbac55b7eeeb5ade2f18a710465048ca2e48dad57f34d6e9548be9448d8",
+    "src/src/f2/mod.rs": "930f433033b7452c49ae26ca5efd105264b462504cffaa5ee9a131c49c8e8be3",
+    "src/src/natural/mod.rs": "4535f743924977c8b90963380b701cb2b51838a333f36194b2762e5c26d9898f",
+    "src/src/natural/montgomery.rs": "239798cbca8aa5bcf7686368fa81fa14e57ddcc9ce00efb2ccefb7259c659373",
+    "src/src/natural/prime.rs": "0f0a4e32df3be215abf59840b12d9e34aa70b3d7aaa5ee8065b8323b002ac5df",
+    "src/src/qs/mod.rs": "c8db30a767cb2baf66674ae42c1395bd8cf63156c8f401b7cae43e244896d337",
+    "src/src/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8"
+  },
+  "license": "Apache-2.0 OR MPL-2.0; original observer/adapter AGPL-3.0-only",
+  "method": "direct rustc; no-default-feature equivalent for cfg-gated native-only dependencies; no cargo dependency resolution"
+}

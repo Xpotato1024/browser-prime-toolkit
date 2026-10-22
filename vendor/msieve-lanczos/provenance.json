@@ -1,0 +1,28 @@
+{
+  "repository": "https://github.com/radii/msieve",
+  "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193",
+  "license": "public-domain author notice, retained verbatim",
+  "files": [
+    {
+      "path": "lanczos.c",
+      "upstreamPath": "common/lanczos/lanczos.c",
+      "gitBlob": "e989683cbd14425bea40844d68e093ae14045fce",
+      "bytes": 39768,
+      "sha256": "53987a217992c1826bb31e31664e65f438bdb489f7f77b13df012f7afecce530"
+    },
+    {
+      "path": "lanczos.h",
+      "upstreamPath": "common/lanczos/lanczos.h",
+      "gitBlob": "81d317e39245a1b7b68a2457ac4b2d20737159e6",
+      "bytes": 4825,
+      "sha256": "f615375d4ec502e0dfd803df2786553e55d0b0829ff1fb102fb1898e4ddffecd"
+    },
+    {
+      "path": "lanczos_matmul0.c",
+      "upstreamPath": "common/lanczos/lanczos_matmul0.c",
+      "gitBlob": "f41ab2bd4a86fa3c6119ed659cf42e76645b0c56",
+      "bytes": 19604,
+      "sha256": "fb81f1669785645806b11cd033854a66563ab00b8e526ee63659d240782a65e7"
+    }
+  ]
+}

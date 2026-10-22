@@ -1,0 +1,12 @@
+import {writeGenerated} from './generated-file.mjs';
+import {readFileSync} from 'node:fs';
+let s=readFileSync(new URL('./benchmark-siqs.mjs',import.meta.url),'utf8');
+const a=s.indexOf('  const records = [];'),b=s.indexOf('} catch (error) {\n  let diagnostic;');
+s=s.slice(0,a)+readFileSync(new URL('../bench/supplement-run-block.inc',import.meta.url),'utf8')+s.slice(b);
+s=s.replaceAll('factorHarness','evaluationHarness').replace("origin + '/bench/siqs.html'","origin + '/bench/evaluation.html'").replace("await evaluate('evaluationHarness.ready()');","await evaluate('evaluationHarness.ownership()');");
+const declaration="const corpus = candidates ? makeCandidateCorpus(quick) : advanced ? makeAdvancedCorpus(quick) : makeCorpus(quick);";
+s=s.replace(declaration,`const mode=process.argv.includes('--mode')?process.argv[process.argv.indexOf('--mode')+1]:'quick';
+const corpus=[...makeCandidateCorpus(false),...JSON.parse(await readFile(join(root,'bench/selection-holdout.json')))];
+const ids=['balanced-13-0','balanced-96bit-0','balanced-112bit-0','holdout-balanced-80','holdout-balanced-112'];
+const selected=ids.map(id=>{const c=corpus.find(c=>c.id===id);if(!c)throw Error(id);return c;});`);
+writeGenerated(new URL('./benchmark-supplement.mjs',import.meta.url),s);

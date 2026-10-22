@@ -1,0 +1,78 @@
+{
+  "id": "device-resources-stage21-20261020",
+  "version": 1,
+  "baseline": "d5e5304119534a64e4dc1e13a5d41aabaaa74897",
+  "case": "RSA-100",
+  "scheduler": "credit1",
+  "profile": "baseline",
+  "memoryMiB": 512,
+  "coordinatorCompute": true,
+  "geometry": {
+    "factorBaseBound": 3250000,
+    "intervalHalfWidth": 524288,
+    "singleMultiplier": 145,
+    "doubleMultiplier": 1035,
+    "thresholdAdjustment": -23
+  },
+  "controlBudgetMs": 60000,
+  "controlFamilies": 4,
+  "perTrialMs": 60000,
+  "requestBudgetMs": 720000,
+  "selection": {
+    "minimumRatioNumerator": 110,
+    "minimumRatioDenominator": 100,
+    "baselineWorkers": 2,
+    "minimumRepeats": 2,
+    "claim": "collection yield only; not completion time or all-device performance"
+  },
+  "trials": [
+    {
+      "id": "w1-r1",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w2-r1",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w3-r1",
+      "workers": 3,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w4-r1",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w4-r2",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w3-r2",
+      "workers": 3,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w2-r2",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "w1-r2",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000
+    }
+  ]
+}

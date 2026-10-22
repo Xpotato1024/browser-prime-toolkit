@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {RSA_PROFILE} from '../src/full-siqs-opt/profile.js';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+for(const n of ['core-result.js','options.js','factor.js','failure.js','result.js','evaluator.js'])assert.equal(read('src/full-siqs-opt/'+n),read('src/full-siqs/'+n),'Unchanged full contract '+n);
+assert.equal(read('src/full-siqs-opt/profile.js'),read('src/full-siqs/profile.js').replace("id:'full-siqs-153-v1'","id:'full-siqs-stage16-v1'").replace('wasmBytes:536870912','wasmBytes:268435456'));
+assert.equal(read('src/full-siqs-opt/install.js'),read('src/full-siqs/install.js').replace('wasmBytes:536870912','wasmBytes:268435456'));
+assert.equal(RSA_PROFILE.timeBudgetMs,600000);assert.equal(RSA_PROFILE.wasmBytes,268435456);assert.equal(RSA_PROFILE.workers,1);
+const base=JSON.parse(read('native/siqs-lab/staged-build.json')),lto=JSON.parse(read('native/siqs-tuned/staged-build.json'));
+assert.deepEqual(base.patched,lto.patched);assert.deepEqual(base.upstreams,lto.upstreams);
+assert.equal(base.wasmSha256,'e02d16c6ed59382ace994f1af573cf3a41bff0d35879b40f7b7eebad779f074d');
+assert.equal(lto.wasmSha256,'8eafdec76301d468a213212fcff540d0c8b823e5c81e12deb58ee3bb91a351bb');
+console.log('Full mode0 optimization: original result/lifecycle contracts, identical C patches and pinned artifacts');

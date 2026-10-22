@@ -1,0 +1,7005 @@
+{
+  "measuredHead": "5be4db3baf59d4ce9ae8f9d56cc6c3a281ea158f",
+  "advanced": false,
+  "candidates": true,
+  "wasmBuild": {
+    "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+    "emscripten": "4.0.15",
+    "upstreams": [
+      {
+        "file": "gmp-6.3.0.tar.xz",
+        "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+        "bytes": 2094196,
+        "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+      },
+      {
+        "file": "gmp-ecm.tar.gz",
+        "url": "https://codeload.github.com/sethtroisi/gmp-ecm/tar.gz/8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e",
+        "bytes": 721052,
+        "sha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494"
+      },
+      {
+        "file": "autoconf_2.71-2_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/autoconf/autoconf_2.71-2_all.deb",
+        "bytes": 337608,
+        "sha256": "96b528889794c4134015a63c75050f93d8aecdf5e3f2a20993c1433f4c61b80e"
+      },
+      {
+        "file": "automake_1.16.5-1.3_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.16/automake_1.16.5-1.3_all.deb",
+        "bytes": 557936,
+        "sha256": "59e3890fc8407bcf8ccc9f709d6513156346d5c942e8c624dc90435e58f6f978"
+      },
+      {
+        "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+        "bytes": 198836,
+        "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+      },
+      {
+        "file": "libtool_2.4.6-15build2_all.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.6-15build2_all.deb",
+        "bytes": 163940,
+        "sha256": "fb994bc0152f4e77a791b51bc54fd5e38963aa6473e60c45369ef373b6119124"
+      },
+      {
+        "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+        "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+        "bytes": 14612,
+        "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+      }
+    ],
+    "sourceHashes": {
+      "native/gmp/bridge.c": "a1e9fece20dfb0e9488bdba71ae395d4ef01236213c0062ca1728421ec154236",
+      "native/gmp/build.sh": "19c5c9bfd065766c85338ba7ae20abd0e88eff63ca15bd748113f2185f5e2a6a",
+      "native/gmp/sanitize.c": "4fcb7302d1563776429ac19fd663120cc17971399925ad53d92d361c0937e05a",
+      "native/gmp/upstreams.json": "4c92e7bd3876e25d5a589348dba86b623716f6e497fa4d647498e6fdabff9581",
+      "scripts/build-gmp.mjs": "a82a5cf6da727a5420ef5c77e2d95378e81af098c7a1fc1c640aff5cf81a3266",
+      "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+      "vendor/msieve-siqs/provenance.json": "d793ca71f7c60281d9c97d0ad020bcac49383afe5cffa0aacd5447b94ca17fde",
+      "vendor/msieve-siqs/mpqs/gf2.c": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3",
+      "vendor/msieve-siqs/mpqs/mpqs.c": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+      "vendor/msieve-siqs/mpqs/poly.c": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+      "vendor/msieve-siqs/mpqs/relation.c": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+      "vendor/msieve-siqs/mpqs/sieve.c": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+      "vendor/msieve-siqs/mpqs/sieve_core.c": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+      "vendor/msieve-siqs/mpqs/sqrt.c": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+      "vendor/msieve-siqs/mpqs/mpqs.h": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+      "vendor/msieve-siqs/include/common.h": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+      "vendor/msieve-siqs/include/msieve.h": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+      "vendor/msieve-siqs/include/gmp_xface.h": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+      "vendor/msieve-siqs/include/util.h": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778",
+      "vendor/msieve-siqs/include/mp.h": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
+    },
+    "cleanBuilds": 2,
+    "sha256": "f2a31a887ccb7bc39da55acfdcdbfdc8b676630e799f895e063e0ee112b7a130",
+    "bytes": 454508,
+    "imports": [
+      {
+        "module": "env",
+        "name": "budget_tick",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "proc_exit",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "clock_time_get",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_write",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_read",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_close",
+        "kind": "function"
+      },
+      {
+        "module": "wasi_snapshot_preview1",
+        "name": "fd_seek",
+        "kind": "function"
+      },
+      {
+        "module": "env",
+        "name": "__syscall_unlinkat",
+        "kind": "function"
+      }
+    ],
+    "exports": [
+      {
+        "name": "memory",
+        "kind": "memory"
+      },
+      {
+        "name": "input_ptr",
+        "kind": "function"
+      },
+      {
+        "name": "factor_ptr",
+        "kind": "function"
+      },
+      {
+        "name": "brent_split",
+        "kind": "function"
+      },
+      {
+        "name": "ecm_split",
+        "kind": "function"
+      },
+      {
+        "name": "__indirect_function_table",
+        "kind": "table"
+      },
+      {
+        "name": "_initialize",
+        "kind": "function"
+      }
+    ],
+    "memoryLimitBytes": 67108864,
+    "stackBytes": 1048576,
+    "siqsObjects": [
+      "23213275465090c0b5dcf1037fe4344bb9e1d3a6d1351a9d8a6b4498d44026f9  /work/siqs-objects/gf2.o",
+      "7266e4499883657281743268efca98880a2942f9b0c089d164e6d40358f99da9  /work/siqs-objects/mpqs.o",
+      "52286d74a3c87005d34fca68b1c4b19b5089d5a73c27951a5059abf1e3aea22d  /work/siqs-objects/poly.o",
+      "da80f2fc3c7008eee4b952c5b2803d2562495d146d852ee94a1645824d12208d  /work/siqs-objects/relation.o",
+      "00114f98b029a116f59653ca7711617300780bd59b81fa31c55683ad993be59e  /work/siqs-objects/sieve.o",
+      "237e310c2b572c6d3d85e353e9fcfed2299634870638f5be35afc94f0303d6b5  /work/siqs-objects/sieve_core_32.o",
+      "2353bd0061db489a5a49e8a62d6b7dbb45a640bea02b305b0f20e0521ddc9bf8  /work/siqs-objects/sieve_core_64.o",
+      "3e5e69ed9507c34ccc178197c2193f9959e73cc51fe26e4a02658d1dc4ae96fd  /work/siqs-objects/sqrt.o"
+    ],
+    "ecm": {
+      "parametrization": "Suyama",
+      "B1": 2000,
+      "B2": 200000,
+      "curves": 32,
+      "stage2MemoryBytes": 16777216
+    },
+    "container": {
+      "network": "none",
+      "cpus": 2,
+      "memory": "2g",
+      "workTmpfs": "512m",
+      "pids": 128,
+      "capabilities": "none"
+    }
+  },
+  "sourceFiles": {
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/options.js": "25c45ea320b58f931de57a2416feed7e0e1310e0d53852aa59dc4f333c4bd2cd",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/result.js": "c1344264653fedb20a44ff04e99b1a9ea9b826b4b9e052c288f6027a2218f8fd",
+    "src/engine/factor.js": "cf7d1a9bf56aec05738353bdee8c9c8cb875acda1b7d4383724cd895bb58e47b",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+    "bench/corpus.mjs": "45492b2232f7357d641cbf894616e78e33f19e124489a47dde256a8697ec37a3",
+    "bench/advanced-corpus.mjs": "d836766f611f7bca12b5ee143e0a3581a61bcfe73fd40bb5c6a8049b1f6deae1",
+    "bench/harness-common.js": "9cd4ddffa4742a99d1f5f797ffb75d20058e6c7a21de449990e0726efbd9e30f",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/worker/install.js": "6c302f3eaadc2c6dc75c48c067d4cdccc1b3f43e74fa6aefc9c776df38e47c41",
+    "src/engine/gmp.js": "5983eadaaedd5a85d0cd90fe4354fa5160585a0a942f49d98ae497e2101627c5",
+    "src/engine/gmp-bytes.js": "99586003a0f4e0a84623198625785cf5a3616d6309c0eb42c52a155f763d686b",
+    "src/worker/candidate-factory.js": "ce2cd2ed6bf23f85e8beb8051ea5ac98bf82b2f21f7ba4b1917293826ffca0be",
+    "src/worker/candidate-worker.js": "7607b47f5f561688e760131d1f9e2e35bf0013a65a67f6c51c033349fec6d0ef",
+    "bench/candidates.js": "ac473c0dc6f0dcfd66b762763f659fe8adb447022c76b0c026ea77997cb3ff24",
+    "bench/candidate-corpus.mjs": "f972539aefc61c58762c1f3845193d172381e8cf026ea9e134e15fd658207560",
+    "bench/candidate-corpus.json": "adef29cd8830c9387d4c4e8943f23c951ccc1d1971331dfe440abc6143c74aec",
+    "bench/candidate-prime-proof.json": "84a38ed63dda9da19f45f5da42bf5e1e23dbc3cc86b1a59c5f9aa63f7c945c72",
+    "src/engine/tinyqs.js": "a1d9d3ca61aad9857194316260a0806c867b7757cd2fb7bb1ca955310daa0c2a",
+    "src/engine/tinyqs-bytes.js": "d673304abfc3095147a4dfe33611449d0ec8d309d6bdd0b9c271839468d49706",
+    "bench/portfolio.js": "577cea569638811d90de492f75148b370fab86f96428e986693c885c82735689",
+    "bench/harness.js": "ca3333cd9e57aae97385b91eee5b778ff68879692179f4f28bc5ead494f450a9",
+    "scripts/benchmark-browser.mjs": "8692034009afdd58ba453840f7db588a762552bc9bd9ac40b39af873d5205c9f"
+  },
+  "measuredAt": "2026-10-19T02:47:36.369Z",
+  "quick": false,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "powerState": "not measured",
+    "peakWorkerHeapBytes": null,
+    "headless": true,
+    "nativeThreads": 1,
+    "wasm": true,
+    "wasmMemoryPerWorkerBytes": 67108864
+  },
+  "coldReadyMs": 188.25594300000012,
+  "artifact": {
+    "bytes": 623389,
+    "sha256": "58e58f567b602d7fad6d858cf31b3ed6b5a47c0e3bae6c2304f7cf3292daafbb"
+  },
+  "generation": "11 verified PR3 cases reused; 4 new balanced cases independently uint64-trial-certified outside timed region; 2 MR-fixed7 probable residual controls",
+  "corpus": [
+    {
+      "id": "balanced-10-0",
+      "kind": "balanced-semiprime",
+      "input": "10189224821914436983",
+      "factors": [
+        "1372994653",
+        "7421168611"
+      ],
+      "digits": 20,
+      "bits": 64,
+      "factorDigits": [
+        10,
+        10
+      ],
+      "factorBits": [
+        31,
+        33
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-10-1",
+      "kind": "balanced-semiprime",
+      "input": "2289188565159910529",
+      "factors": [
+        "1115973611",
+        "2051292739"
+      ],
+      "digits": 19,
+      "bits": 61,
+      "factorDigits": [
+        10,
+        10
+      ],
+      "factorBits": [
+        31,
+        31
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-10-2",
+      "kind": "balanced-semiprime",
+      "input": "3942659309005228261",
+      "factors": [
+        "1307811689",
+        "3014699549"
+      ],
+      "digits": 19,
+      "bits": 62,
+      "factorDigits": [
+        10,
+        10
+      ],
+      "factorBits": [
+        31,
+        32
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-10-3",
+      "kind": "balanced-semiprime",
+      "input": "6143490588876274441",
+      "factors": [
+        "1191117251",
+        "5157754691"
+      ],
+      "digits": 19,
+      "bits": 63,
+      "factorDigits": [
+        10,
+        10
+      ],
+      "factorBits": [
+        31,
+        33
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-13-0",
+      "kind": "balanced-semiprime",
+      "input": "3012048473684349413080363",
+      "factors": [
+        "1002800426933",
+        "3003637007711"
+      ],
+      "digits": 25,
+      "bits": 82,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        42
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": true
+    },
+    {
+      "id": "balanced-13-1",
+      "kind": "balanced-semiprime",
+      "input": "2007147835949070207153161",
+      "factors": [
+        "1002651853361",
+        "2001839251801"
+      ],
+      "digits": 25,
+      "bits": 81,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        41
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-13-2",
+      "kind": "balanced-semiprime",
+      "input": "4013595421370156128863971",
+      "factors": [
+        "1003312501979",
+        "4000344273049"
+      ],
+      "digits": 25,
+      "bits": 82,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        42
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-13-3",
+      "kind": "balanced-semiprime",
+      "input": "4018438122708272368009417",
+      "factors": [
+        "1003821743933",
+        "4003139149949"
+      ],
+      "digits": 25,
+      "bits": 82,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        42
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "unbalanced-101-13",
+      "kind": "unbalanced-semiprime",
+      "input": "101000000016463",
+      "factors": [
+        "101",
+        "1000000000163"
+      ],
+      "digits": 15,
+      "bits": 47,
+      "factorDigits": [
+        3,
+        13
+      ],
+      "factorBits": [
+        7,
+        40
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "square-13",
+      "kind": "square-control",
+      "input": "1000000000078000000001521",
+      "factors": [
+        "1000000000039",
+        "1000000000039"
+      ],
+      "digits": 25,
+      "bits": 80,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        40
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "close-13",
+      "kind": "close-factor-control",
+      "input": "1000000000202000000006357",
+      "factors": [
+        "1000000000039",
+        "1000000000163"
+      ],
+      "digits": 25,
+      "bits": 80,
+      "factorDigits": [
+        13,
+        13
+      ],
+      "factorBits": [
+        40,
+        40
+      ],
+      "factorProof": "independent exhaustive trial division, outside timed region",
+      "source": "PR3 historical verified corpus",
+      "pool": false
+    },
+    {
+      "id": "balanced-96bit-0",
+      "kind": "balanced-semiprime",
+      "source": "new-uint64-trial-certified",
+      "input": "59421120273299600154862853921",
+      "factors": [
+        "211106232545339",
+        "281474969056339"
+      ],
+      "factorBits": [
+        48,
+        48
+      ],
+      "bits": 96,
+      "factorDigits": [
+        15,
+        15
+      ],
+      "pool": false
+    },
+    {
+      "id": "balanced-96bit-1",
+      "kind": "balanced-semiprime",
+      "source": "new-uint64-trial-certified",
+      "input": "59421120412303754922170451409",
+      "factors": [
+        "211106233779923",
+        "281474968068683"
+      ],
+      "factorBits": [
+        48,
+        48
+      ],
+      "bits": 96,
+      "factorDigits": [
+        15,
+        15
+      ],
+      "pool": false
+    },
+    {
+      "id": "balanced-112bit-0",
+      "kind": "balanced-semiprime",
+      "source": "new-uint64-trial-certified",
+      "input": "3894222643488354664636594044948941",
+      "factors": [
+        "54043195528458347",
+        "72057594030273703"
+      ],
+      "factorBits": [
+        56,
+        56
+      ],
+      "bits": 112,
+      "factorDigits": [
+        17,
+        17
+      ],
+      "pool": false
+    },
+    {
+      "id": "balanced-112bit-1",
+      "kind": "balanced-semiprime",
+      "source": "new-uint64-trial-certified",
+      "input": "3894222643523935227381163886950903",
+      "factors": [
+        "54043195529692903",
+        "72057594029286001"
+      ],
+      "factorBits": [
+        56,
+        56
+      ],
+      "bits": 112,
+      "factorDigits": [
+        17,
+        17
+      ],
+      "pool": false
+    },
+    {
+      "id": "unbalanced-10digit-m127",
+      "kind": "unbalanced-large",
+      "source": "new-MR-fixed7-probable-residual-no-prime-proof",
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        "1000000007",
+        "170141183460469231731687303715884105727"
+      ],
+      "factorBits": [
+        30,
+        127
+      ],
+      "bits": 157,
+      "factorDigits": [
+        10,
+        39
+      ],
+      "pool": true
+    },
+    {
+      "id": "unbalanced-13digit-m127",
+      "kind": "unbalanced-large",
+      "source": "new-MR-fixed7-probable-residual-no-prime-proof",
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [
+        "1000000000039",
+        "170141183460469231731687303715884105727"
+      ],
+      "factorBits": [
+        40,
+        127
+      ],
+      "bits": 167,
+      "factorDigits": [
+        13,
+        39
+      ],
+      "pool": false
+    }
+  ],
+  "records": [
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 8322,
+      "elapsedMs": 4.199999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 7.399999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 61424,
+      "elapsedMs": 20.300000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.799999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 8322,
+      "elapsedMs": 2.2999999998137355,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2.7000000001862645,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 61424,
+      "elapsedMs": 16.59999999962747,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17.300000000279397,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 59575,
+      "elapsedMs": 16.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 134820,
+      "elapsedMs": 36,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 36.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 59575,
+      "elapsedMs": 15.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 134820,
+      "elapsedMs": 35.8000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 36.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 65921,
+      "elapsedMs": 17.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 62164,
+      "elapsedMs": 16.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 65921,
+      "elapsedMs": 17.899999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 62164,
+      "elapsedMs": 16.399999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.799999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 72600,
+      "elapsedMs": 19.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.899999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 71944,
+      "elapsedMs": 19.199999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 72600,
+      "elapsedMs": 19.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 71944,
+      "elapsedMs": 19.100000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 352151,
+      "elapsedMs": 100.39999999990687,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.70000000018626,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 344358,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2163344,
+      "elapsedMs": 634.6999999997206,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 635.1000000000931,
+      "progressCount": 6
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 495319,
+      "elapsedMs": 142.70000000018626,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 143.20000000018626,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [],
+      "remaining": "2007147835949070207153161",
+      "operations": 351531,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.20000000018626,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [],
+      "remaining": "2007147835949070207153161",
+      "operations": 350839,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2599842,
+      "elapsedMs": 747.6999999997206,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 748.1000000000931,
+      "progressCount": 7
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2153890,
+      "elapsedMs": 645.2999999998137,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 645.8999999999069,
+      "progressCount": 6
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [],
+      "remaining": "4013595421370156128863971",
+      "operations": 328548,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [],
+      "remaining": "4013595421370156128863971",
+      "operations": 354105,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2809446,
+      "elapsedMs": 801.2999999998137,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 801.7000000001863,
+      "progressCount": 8
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1099701,
+      "elapsedMs": 309.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 310,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [],
+      "remaining": "4018438122708272368009417",
+      "operations": 350357,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [],
+      "remaining": "4018438122708272368009417",
+      "operations": 351117,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2701673,
+      "elapsedMs": 774,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 774.3999999999069,
+      "progressCount": 7
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1155470,
+      "elapsedMs": 327.8000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 328.5,
+      "progressCount": 3
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 583,
+      "elapsedMs": 0.10000000009313226,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 550,
+      "elapsedMs": 0.10000000009313226,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 583,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 550,
+      "elapsedMs": 0.2999999998137355,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999998137355,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 349178,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.20000000018626,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 343465,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 3522924,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2000000001863,
+      "progressCount": 9
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2064545,
+      "elapsedMs": 583.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 584,
+      "progressCount": 5
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 350617,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 353391,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 3528555,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2000000001863,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 3536913,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 349940,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 352122,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 3528780,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3999999999069,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 3520567,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 351585,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.09999999962747,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 346902,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 3523377,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3000000002794,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 3376156,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 352324,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 353964,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 3537981,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 3531982,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 160006,
+      "elapsedMs": 47.799999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 48.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 43741,
+      "elapsedMs": 12.899999999906868,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 13.300000000279397,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 160006,
+      "elapsedMs": 47.5,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 47.89999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 43741,
+      "elapsedMs": 13.100000000093132,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 13.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 335479,
+      "elapsedMs": 100.10000000009313,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 335314,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 3344540,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 3346552,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 6909,
+      "elapsedMs": 13,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 13.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 51116,
+      "elapsedMs": 19.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 6909,
+      "elapsedMs": 2.3999999999068677,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2.8000000002793968,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 51116,
+      "elapsedMs": 18.200000000186265,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18.600000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 50066,
+      "elapsedMs": 18.199999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 110199,
+      "elapsedMs": 40.8000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 41.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 50066,
+      "elapsedMs": 18.300000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 110199,
+      "elapsedMs": 40.60000000009313,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 41,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 54093,
+      "elapsedMs": 19.899999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 51688,
+      "elapsedMs": 18.800000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.09999999962747,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 54093,
+      "elapsedMs": 19.699999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 51688,
+      "elapsedMs": 18.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 19.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 58269,
+      "elapsedMs": 21.59999999962747,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.799999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 57879,
+      "elapsedMs": 21.40000000037253,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.799999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 58269,
+      "elapsedMs": 21.399999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.799999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 57879,
+      "elapsedMs": 21.399999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 218408,
+      "elapsedMs": 100.70000000018626,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.90000000037253,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 217374,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1690611,
+      "elapsedMs": 762.3999999999069,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 762.5999999996275,
+      "progressCount": 7
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 396529,
+      "elapsedMs": 176.60000000009313,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 177.10000000009313,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [],
+      "remaining": "2007147835949070207153161",
+      "operations": 221197,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [],
+      "remaining": "2007147835949070207153161",
+      "operations": 221410,
+      "elapsedMs": 100.10000000009313,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.20000000018626,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1943645,
+      "elapsedMs": 897.2999999998137,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 897.6999999997206,
+      "progressCount": 8
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1686505,
+      "elapsedMs": 754.3000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 754.6999999997206,
+      "progressCount": 7
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [],
+      "remaining": "4013595421370156128863971",
+      "operations": 218908,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [],
+      "remaining": "4013595421370156128863971",
+      "operations": 218534,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2059092,
+      "elapsedMs": 961.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 961.7999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 854579,
+      "elapsedMs": 392.8000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 393.1999999997206,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [],
+      "remaining": "4018438122708272368009417",
+      "operations": 219036,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [],
+      "remaining": "4018438122708272368009417",
+      "operations": 219169,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1997606,
+      "elapsedMs": 926.3999999999069,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 926.6999999997206,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 886693,
+      "elapsedMs": 402.40000000037253,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 402.6999999997206,
+      "progressCount": 4
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 496,
+      "elapsedMs": 0.3000000002793968,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 479,
+      "elapsedMs": 0.10000000009313226,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 496,
+      "elapsedMs": 0.19999999972060323,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 479,
+      "elapsedMs": 0.19999999972060323,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999998137355,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.2999999998137355,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.10000000009313226,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.39999999990686774,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.6000000000931323,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 223043,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 222317,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [],
+      "remaining": "1000000000202000000006357",
+      "operations": 2158752,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2000000001863,
+      "progressCount": 9
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1638209,
+      "elapsedMs": 721.7000000001863,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 722.1000000000931,
+      "progressCount": 7
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 226979,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 228562,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 2254286,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3000000002794,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [],
+      "remaining": "59421120273299600154862853921",
+      "operations": 2256333,
+      "elapsedMs": 1000.1000000000931,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.5,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 230528,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 229463,
+      "elapsedMs": 100.10000000009313,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 2267682,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.1999999997206,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 2255388,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 198609,
+      "elapsedMs": 100.09999999962747,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 198821,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 1893401,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3999999999069,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 1897326,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.5,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 199018,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 197772,
+      "elapsedMs": 100.10000000009313,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 1904913,
+      "elapsedMs": 1000.0999999996275,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3999999999069,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 1894744,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3999999999069,
+      "progressCount": 9
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 105238,
+      "elapsedMs": 61.299999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 61.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 16.5,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.90000000037253,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 105238,
+      "elapsedMs": 61.299999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 61.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 16.40000000037253,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.699999999720603,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 138538,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 138485,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999981374,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 1473961,
+      "elapsedMs": 1000.1000000000931,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999998137,
+      "progressCount": 9
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [],
+      "remaining": "170141183467104737886645603753419910571919480123353",
+      "operations": 1473850,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.3999999999069,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 917,
+      "elapsedMs": 12.200000000186265,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 12.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1589,
+      "elapsedMs": 31.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 32.200000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 917,
+      "elapsedMs": 5.7999999998137355,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 6.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "10189224821914436983",
+      "factors": [
+        {
+          "value": "1372994653",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7421168611",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1589,
+      "elapsedMs": 30.299999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 30.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1249,
+      "elapsedMs": 17.199999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 907,
+      "elapsedMs": 5.2999999998137355,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.600000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1249,
+      "elapsedMs": 17.09999999962747,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17.399999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2289188565159910529",
+      "factors": [
+        {
+          "value": "1115973611",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2051292739",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 907,
+      "elapsedMs": 5.300000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.600000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 904,
+      "elapsedMs": 5.199999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 916,
+      "elapsedMs": 8.599999999627471,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 9,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 904,
+      "elapsedMs": 5.100000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.399999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3942659309005228261",
+      "factors": [
+        {
+          "value": "1307811689",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3014699549",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 916,
+      "elapsedMs": 8.700000000186265,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 9,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 932,
+      "elapsedMs": 8.800000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 9.099999999627471,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2502,
+      "elapsedMs": 48,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 48.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 932,
+      "elapsedMs": 8.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 9.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10-3",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "6143490588876274441",
+      "factors": [
+        {
+          "value": "1191117251",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "5157754691",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2502,
+      "elapsedMs": 47.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 48.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2061,
+      "elapsedMs": 39.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 39.89999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1731,
+      "elapsedMs": 29.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 30,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2061,
+      "elapsedMs": 39.39999999990687,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 39.8000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1731,
+      "elapsedMs": 29.600000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 29.90000000037253,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1720,
+      "elapsedMs": 29.600000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 30,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1390,
+      "elapsedMs": 19.699999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1720,
+      "elapsedMs": 29.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 29.899999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "2007147835949070207153161",
+      "factors": [
+        {
+          "value": "1002651853361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "2001839251801",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1390,
+      "elapsedMs": 19.800000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1067,
+      "elapsedMs": 9.900000000372529,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1397,
+      "elapsedMs": 19.699999999720603,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1067,
+      "elapsedMs": 9.800000000279397,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.199999999720603,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-2",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4013595421370156128863971",
+      "factors": [
+        {
+          "value": "1003312501979",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4000344273049",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1397,
+      "elapsedMs": 19.700000000186265,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 10,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2721,
+      "elapsedMs": 58.89999999990687,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 59.3000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 9.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.300000000279397,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-13-3",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "4018438122708272368009417",
+      "factors": [
+        {
+          "value": "1003821743933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "4003139149949",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2721,
+      "elapsedMs": 58.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 59.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 5.100000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.300000000279397,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 5.2000000001862645,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-101-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "101000000016463",
+      "factors": [
+        {
+          "value": "101",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 5.400000000372529,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.19999999972060323,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.3000000002793968,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "square-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000078000000001521",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 729,
+      "elapsedMs": 0.20000000018626451,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1059,
+      "elapsedMs": 9.899999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.300000000279397,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1389,
+      "elapsedMs": 19.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20.199999999720603,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1059,
+      "elapsedMs": 9.799999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 10.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "close-13",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000000000202000000006357",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000000000163",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1389,
+      "elapsedMs": 19.600000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 20,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [
+        {
+          "value": "211106232545339",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474969056339",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2498,
+      "elapsedMs": 49.39999999990687,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 49.8000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [
+        {
+          "value": "211106232545339",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474969056339",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1520,
+      "elapsedMs": 21.600000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 22.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [
+        {
+          "value": "211106232545339",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474969056339",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2498,
+      "elapsedMs": 49.10000000009313,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 49.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120273299600154862853921",
+      "factors": [
+        {
+          "value": "211106232545339",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474969056339",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1520,
+      "elapsedMs": 21.399999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.899999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [],
+      "remaining": "59421120412303754922170451409",
+      "operations": 3209,
+      "elapsedMs": 102.1999999997206,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 102.39999999990687,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [
+        {
+          "value": "211106233779923",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474968068683",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1519,
+      "elapsedMs": 21.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 21.899999999906868,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [
+        {
+          "value": "211106233779923",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474968068683",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 8779,
+      "elapsedMs": 257.6999999997206,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 258.3000000002794,
+      "progressCount": 2
+    },
+    {
+      "case": "balanced-96bit-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "59421120412303754922170451409",
+      "factors": [
+        {
+          "value": "211106233779923",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "281474968068683",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1519,
+      "elapsedMs": 21.600000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 22,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 2787,
+      "elapsedMs": 103.89999999990687,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 104.10000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 2838,
+      "elapsedMs": 103.39999999990687,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 103.70000000018626,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 10707,
+      "elapsedMs": 386,
+      "status": "incomplete",
+      "reason": "algorithm-exhausted",
+      "primality": "composite",
+      "wallMs": 386.29999999981374,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-112bit-0",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643488354664636594044948941",
+      "factors": [],
+      "remaining": "3894222643488354664636594044948941",
+      "operations": 10707,
+      "elapsedMs": 386.79999999981374,
+      "status": "incomplete",
+      "reason": "algorithm-exhausted",
+      "primality": "composite",
+      "wallMs": 387.29999999981374,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 2849,
+      "elapsedMs": 103.29999999981374,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 103.8000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [],
+      "remaining": "3894222643523935227381163886950903",
+      "operations": 2786,
+      "elapsedMs": 105,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 105.1999999997206,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [
+        {
+          "value": "54043195529692903",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "72057594029286001",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 5597,
+      "elapsedMs": 170,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 170.39999999990687,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-112bit-1",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3894222643523935227381163886950903",
+      "factors": [
+        {
+          "value": "54043195529692903",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "72057594029286001",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 11537,
+      "elapsedMs": 387,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 387.59999999962747,
+      "progressCount": 3
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 15.799999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.100000000093132,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2326,
+      "elapsedMs": 39.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 39.700000000186265,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 15.799999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 16.299999999813735,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2326,
+      "elapsedMs": 39.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 39.8000000002794,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2748,
+      "elapsedMs": 72.29999999981374,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 72.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2088,
+      "elapsedMs": 36.5,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 36.60000000009313,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2748,
+      "elapsedMs": 72.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 72.59999999962747,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-13digit-m127",
+      "trial": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141183467104737886645603753419910571919480123353",
+      "factors": [
+        {
+          "value": "1000000000039",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2088,
+      "elapsedMs": 36.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 36.60000000009313,
+      "progressCount": 0
+    }
+  ],
+  "poolRecords": [
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 211394,
+      "elapsedMs": 100.5,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 101.6999999997206,
+      "initializationMs": 48.5,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.200000000186265
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 205367,
+      "elapsedMs": 100.39999999990687,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 101.3000000002794,
+      "initializationMs": 48.10000000009313,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.5
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1690611,
+      "elapsedMs": 769,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 770.1000000000931,
+      "initializationMs": 48.1999999997206,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.299999999813735
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 396529,
+      "elapsedMs": 182.89999999990687,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 184,
+      "initializationMs": 47.799999999813735,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.700000000186265
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 105238,
+      "elapsedMs": 67.79999999981374,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 69,
+      "initializationMs": 53.39999999990687,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.6999999997206
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 22.600000000093132,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 23.700000000186265,
+      "initializationMs": 48.5,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.799999999813735
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 105238,
+      "elapsedMs": 67.60000000009313,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 68.79999999981374,
+      "initializationMs": 48,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.200000000186265
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 22.899999999906868,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 24.100000000093132,
+      "initializationMs": 48,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 189429,
+      "elapsedMs": 100.5,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 101.39999999990687,
+      "initializationMs": 50.60000000009313,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.5
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 12,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [],
+      "remaining": "3012048473684349413080363",
+      "operations": 191167,
+      "elapsedMs": 100.5,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 101.40000000037253,
+      "initializationMs": 50.299999999813735,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.799999999813735
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 987833,
+      "elapsedMs": 512.3000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 513.6000000000931,
+      "initializationMs": 50.299999999813735,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.3000000002794
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 396529,
+      "elapsedMs": 174.40000000037253,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 175.6999999997206,
+      "initializationMs": 55.5,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.39999999990687
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 63695,
+      "elapsedMs": 39.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 40.5,
+      "initializationMs": 55.39999999990687,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.200000000186265
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 17.100000000093132,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 18.299999999813735,
+      "initializationMs": 55.39999999990687,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.700000000186265
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 63695,
+      "elapsedMs": 39.09999999962747,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 40.1999999997206,
+      "initializationMs": 50.200000000186265,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.3000000002794
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-brent",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 28266,
+      "elapsedMs": 17.399999999906868,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 18.40000000037253,
+      "initializationMs": 50.799999999813735,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.1999999997206
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2061,
+      "elapsedMs": 61.299999999813735,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 62.8000000002794,
+      "initializationMs": 48.299999999813735,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 53.59999999962747
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1731,
+      "elapsedMs": 47.3000000002794,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 48.700000000186265,
+      "initializationMs": 48.1999999997206,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.299999999813735
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2061,
+      "elapsedMs": 57.60000000009313,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 59,
+      "initializationMs": 47.89999999990687,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.200000000186265
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1731,
+      "elapsedMs": 45.89999999990687,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 47.1999999997206,
+      "initializationMs": 48.40000000037253,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.3000000002794
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 29.700000000186265,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 30.700000000186265,
+      "initializationMs": 48.299999999813735,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.1999999997206
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2326,
+      "elapsedMs": 56.299999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 57.1999999997206,
+      "initializationMs": 52.90000000037253,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.10000000009313
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 30.700000000186265,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 31.700000000186265,
+      "initializationMs": 53.10000000009313,
+      "workers": 1,
+      "laneSeeds": [
+        1
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.09999999962747
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 11,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 2326,
+      "elapsedMs": 57.09999999962747,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 58.1999999997206,
+      "initializationMs": 48.200000000186265,
+      "workers": 1,
+      "laneSeeds": [
+        11
+      ],
+      "ownedLinearMemoryBytes": 67108864,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 53
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 31,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 32.10000000009313,
+      "initializationMs": 50.60000000009313,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.799999999813735
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 12,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 30.100000000093132,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 31.899999999906868,
+      "initializationMs": 50.5,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 53.6999999997206
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 28.899999999906868,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 30.09999999962747,
+      "initializationMs": 50.200000000186265,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 49.60000000009313
+    },
+    {
+      "case": "balanced-13-0",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 12,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "3012048473684349413080363",
+      "factors": [
+        {
+          "value": "1002800426933",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "3003637007711",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1071,
+      "elapsedMs": 28.700000000186265,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 30.100000000093132,
+      "initializationMs": 50.5,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 49.10000000009313
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 34.799999999813735,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 36,
+      "initializationMs": 50.5,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 48.700000000186265
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 12,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 34.3000000002794,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 35.39999999990687,
+      "initializationMs": 50,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 49.299999999813735
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 1,
+      "algorithm": "gmp-ecm",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 34.200000000186265,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 0,
+      "wallMs": 35.40000000037253,
+      "initializationMs": 50.5,
+      "workers": 2,
+      "laneSeeds": [
+        1,
+        2
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 52
+    },
+    {
+      "case": "unbalanced-10digit-m127",
+      "requestedSeed": 11,
+      "algorithm": "gmp-ecm",
+      "seed": 12,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "170141184651457515954971925837695231738188740089",
+      "factors": [
+        {
+          "value": "1000000007",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "170141183460469231731687303715884105727",
+          "certainty": "probable",
+          "method": "mr-fixed7"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1678,
+      "elapsedMs": 34.39999999990687,
+      "status": "probable",
+      "reason": null,
+      "primality": "composite",
+      "winningLane": 1,
+      "wallMs": 35.3000000002794,
+      "initializationMs": 50.1999999997206,
+      "workers": 2,
+      "laneSeeds": [
+        11,
+        12
+      ],
+      "ownedLinearMemoryBytes": 134217728,
+      "allocatedOperationBudget": 50000000,
+      "allLanesDisposed": true,
+      "idleControllerDisposedDuringPool": true,
+      "idleRecoveryMs": 54.1999999997206
+    }
+  ],
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "localBlobEvents": 82,
+    "observedWorkerSessions": 83,
+    "workerOfflineEmulation": "unsupported by Worker target; page offline plus stopped asset server",
+    "assetServerStoppedDuringOffline": true,
+    "cacheDisabled": true,
+    "offlineSameFactors": true,
+    "wasmOfflineSameFactors": true,
+    "ecmOfflineFactors": true,
+    "wasmCancelledAndRestartedOffline": true,
+    "cancelledAndRestartedOffline": true
+  },
+  "cancelled": {
+    "wallMs": 32.5,
+    "cancelMs": 2.3999999999068677,
+    "heartbeat": 15,
+    "remaining": "27606985387162255149739023449107931668458716142620601169954803000803329"
+  },
+  "detectorSelfTest": {
+    "blockedFetchCspObserved": true,
+    "workerCspAuditObserved": true,
+    "navigationCdpAndHttpObserved": true,
+    "workerCdpAndHttpObserved": true
+  }
+}

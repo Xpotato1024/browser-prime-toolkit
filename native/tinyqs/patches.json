@@ -1,0 +1,27 @@
+[
+  {
+    "old": "for (i = block_start = 0; i < num_sieve_blocks; i++) {",
+    "new": "for (i = block_start = 0; i < num_sieve_blocks; i++) {\n\t\tif (!budget_tick()) return;",
+    "count": 2
+  },
+  {
+    "old": "\t\tsieve_next_poly_tiny(params);",
+    "new": "\t\tif (!budget_tick()) { free(params); return 0; }\n\t\tsieve_next_poly_tiny(params);",
+    "count": 1
+  },
+  {
+    "old": "tiny_fb next_fb_array[MAX_FB_SIZE_TINY];",
+    "new": "tiny_fb next_fb_array[MAX_FB_SIZE_TINY] = {0};",
+    "count": 1
+  },
+  {
+    "old": "for (bits += i * LOGPRIME_SCALE_TINY; i; i--)\n\t\tfb_offsets[num_factors++] = MIN_FB_OFFSET;",
+    "new": "for (bits += i * LOGPRIME_SCALE_TINY; i; i--) {\n\t\tif (num_factors >= MAX_FACTORS_TINY) return;\n\t\tfb_offsets[num_factors++] = MIN_FB_OFFSET;\n\t}",
+    "count": 1
+  },
+  {
+    "old": "if (nmodp == 0) {",
+    "new": "if (nmodp == 0) {\n\t\t\tfbptr->modsqrt = 0;",
+    "count": 1
+  }
+]

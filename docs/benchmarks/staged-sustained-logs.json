@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "scope": "Byte-preserved global stdout/stderr including metadata failure; individual trial receipts remain bound by original manifests",
+  "files": [
+    {
+      "path": "docs/benchmarks/staged-sustained-stage23/campaign.log",
+      "bytes": 10675,
+      "sha256": "e9c11820f6a31de72b20e04debca7c64b73002a0889bd7e637e231087f88b06e",
+      "localArchive": "prime-stage23/campaign.log"
+    },
+    {
+      "path": "docs/benchmarks/staged-sustained-stage24/campaign.log",
+      "bytes": 9475,
+      "sha256": "b2bf8cb092f820f082bce6c7d8b087599b076ae1f26e5f3143e5eeafb53f2914",
+      "localArchive": "prime-stage23/continuation-campaign.log"
+    }
+  ]
+}

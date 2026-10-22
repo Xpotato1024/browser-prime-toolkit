@@ -1,0 +1,2078 @@
+{
+  "sourceFiles": {
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/options.js": "89b3c563a4102839015244a065f4e4209d8305cdfcee130bb3012ab65a69b26d",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/result.js": "2f731157602843c2be5ff05ec3518f321daa126ec2f12ed57c2c7b34422c63b9",
+    "src/engine/factor.js": "501271baebfd78d98c67d1ed3367e58cf4542678667eb83e38afbb7db29a170f",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/worker/factory.js": "b267cf33bd95dde828fed6f0ea4ffec0721af2da054fada72f53d399fe099e77",
+    "bench/corpus.mjs": "45492b2232f7357d641cbf894616e78e33f19e124489a47dde256a8697ec37a3",
+    "bench/harness.js": "816ed9b6fe6b523677de012a5aaf2f99c4f92c3ee8d897e286b3638dd86e7c26",
+    "scripts/benchmark-browser.mjs": "b909b9f6e452a5c2d70d8ea9bc5cacc6cd6530e2b9389877720dbe30ee6e8669"
+  },
+  "measuredAt": "2026-10-19T00:10:11.139Z",
+  "quick": false,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429255680,
+    "powerState": "not measured",
+    "peakWorkerHeapBytes": null,
+    "headless": true,
+    "nativeThreads": 1,
+    "wasm": false
+  },
+  "coldReadyMs": 105.27086800000006,
+  "artifact": {
+    "bytes": 11829,
+    "sha256": "410acb9b4198b55f1a6a73b51314f629c7631bb073c3436342464e7671320f3e"
+  },
+  "generation": "bench/corpus.mjs fixed offsets; independent trial division; outside timed region",
+  "corpus": [
+    {
+      "id": "balanced-6",
+      "kind": "semiprime",
+      "input": "84748558217",
+      "factors": [
+        "112349",
+        "754333"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 11,
+      "bits": 37,
+      "factorDigits": [
+        6,
+        6
+      ],
+      "factorBits": [
+        17,
+        20
+      ]
+    },
+    {
+      "id": "balanced-8",
+      "kind": "semiprime",
+      "input": "701408571066883",
+      "factors": [
+        "10012351",
+        "70054333"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 15,
+      "bits": 50,
+      "factorDigits": [
+        8,
+        8
+      ],
+      "factorBits": [
+        24,
+        27
+      ]
+    },
+    {
+      "id": "balanced-10",
+      "kind": "semiprime",
+      "input": "7000140864671659657",
+      "factors": [
+        "1000012361",
+        "7000054337"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 19,
+      "bits": 63,
+      "factorDigits": [
+        10,
+        10
+      ],
+      "factorBits": [
+        30,
+        33
+      ]
+    },
+    {
+      "id": "balanced-12",
+      "kind": "semiprime",
+      "input": "70000014077400670933519",
+      "factors": [
+        "100000012349",
+        "700000054331"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 23,
+      "bits": 76,
+      "factorDigits": [
+        12,
+        12
+      ],
+      "factorBits": [
+        37,
+        40
+      ]
+    },
+    {
+      "id": "unbalanced-4-12",
+      "kind": "semiprime",
+      "input": "100900000003027",
+      "factors": [
+        "1009",
+        "100000000003"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 15,
+      "bits": 47,
+      "factorDigits": [
+        4,
+        12
+      ],
+      "factorBits": [
+        10,
+        37
+      ]
+    },
+    {
+      "id": "square-7",
+      "kind": "semiprime-square",
+      "input": "1000006000009",
+      "factors": [
+        "1000003",
+        "1000003"
+      ],
+      "factorProof": "independent exhaustive trial division",
+      "digits": 13,
+      "bits": 40,
+      "factorDigits": [
+        7,
+        7
+      ],
+      "factorBits": [
+        20,
+        20
+      ]
+    }
+  ],
+  "records": [
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 988,
+      "elapsedMs": 1.7999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 4.799999999999272,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1007,
+      "elapsedMs": 0.6000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 0.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 988,
+      "elapsedMs": 0.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.7999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1007,
+      "elapsedMs": 0.3999999999996362,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.8999999999996362,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 779,
+      "elapsedMs": 0.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 14962,
+      "elapsedMs": 6.800000000001091,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 8.600000000000364,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 5513,
+      "elapsedMs": 8.199999999998909,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 8.700000000000728,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 8624,
+      "elapsedMs": 3.100000000000364,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 3.599999999998545,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 14962,
+      "elapsedMs": 7.799999999999272,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 8.200000000000728,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 5513,
+      "elapsedMs": 1.8000000000010914,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2.100000000000364,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 8624,
+      "elapsedMs": 2.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 2.7999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 118645,
+      "elapsedMs": 33,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 33.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 64047,
+      "elapsedMs": 17.80000000000109,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 18.299999999999272,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 127357,
+      "elapsedMs": 35.20000000000073,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 35.600000000000364,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 118645,
+      "elapsedMs": 32.600000000000364,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 32.899999999999636,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 64047,
+      "elapsedMs": 17.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 17.899999999999636,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 127357,
+      "elapsedMs": 34.69999999999891,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 35,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 344547,
+      "elapsedMs": 100.70000000000073,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.89999999999964,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 330079,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999999927,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 343549,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.30000000000109,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [
+        {
+          "value": "100000012349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "700000054331",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 651093,
+      "elapsedMs": 198.60000000000036,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 199,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [
+        {
+          "value": "100000012349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "700000054331",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 644303,
+      "elapsedMs": 189.79999999999927,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 190.10000000000036,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [
+        {
+          "value": "100000012349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "700000054331",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 622352,
+      "elapsedMs": 181.20000000000073,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 181.70000000000073,
+      "progressCount": 1
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 653,
+      "elapsedMs": 0.2000000000007276,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 666,
+      "elapsedMs": 0.3000000000010914,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.4000000000014552,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 727,
+      "elapsedMs": 0.1999999999989086,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 653,
+      "elapsedMs": 0.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 666,
+      "elapsedMs": 0.2000000000007276,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 727,
+      "elapsedMs": 0.2000000000007276,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.09999999999854481,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.1999999999989086,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.4000000000014552,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.3999999999996362,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1999999999989086,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "brent",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.2000000000007276,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.3000000000010914,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 6003,
+      "elapsedMs": 1.5,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1.8999999999996362,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 5510,
+      "elapsedMs": 1.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1.5,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 3382,
+      "elapsedMs": 0.7999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 6003,
+      "elapsedMs": 1.3999999999996362,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1.7000000000007276,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 5510,
+      "elapsedMs": 1.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1.6000000000003638,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-6",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "84748558217",
+      "factors": [
+        {
+          "value": "112349",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "754333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 3382,
+      "elapsedMs": 0.8000000000010914,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 1,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 149481,
+      "elapsedMs": 34,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 34.29999999999927,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 63654,
+      "elapsedMs": 14.600000000000364,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 14.900000000001455,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 144063,
+      "elapsedMs": 32.69999999999891,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 32.899999999999636,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 149481,
+      "elapsedMs": 33.79999999999927,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 34.29999999999927,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 63654,
+      "elapsedMs": 14.800000000001091,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 15.199999999998909,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-8",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "701408571066883",
+      "factors": [
+        {
+          "value": "10012351",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "70054333",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 144063,
+      "elapsedMs": 32.29999999999927,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 32.70000000000073,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [],
+      "remaining": "7000140864671659657",
+      "operations": 447402,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.29999999999927,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [],
+      "remaining": "7000140864671659657",
+      "operations": 449481,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.30000000000109,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [],
+      "remaining": "7000140864671659657",
+      "operations": 447593,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.09999999999854,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1341498,
+      "elapsedMs": 306,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 306.40000000000146,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 780472,
+      "elapsedMs": 179.6999999999989,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 180.10000000000036,
+      "progressCount": 1
+    },
+    {
+      "case": "balanced-10",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "7000140864671659657",
+      "factors": [
+        {
+          "value": "1000012361",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "7000054337",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1561273,
+      "elapsedMs": 355.39999999999964,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 355.7000000000007,
+      "progressCount": 3
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 403900,
+      "elapsedMs": 100,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.30000000000109,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 423282,
+      "elapsedMs": 100.10000000000036,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.19999999999891,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 429876,
+      "elapsedMs": 100.10000000000036,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 100.30000000000109,
+      "progressCount": 0
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 4305602,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.1999999999989,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 4290686,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2000000000007,
+      "progressCount": 9
+    },
+    {
+      "case": "balanced-12",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "70000014077400670933519",
+      "factors": [],
+      "remaining": "70000014077400670933519",
+      "operations": 4296376,
+      "elapsedMs": 1000,
+      "status": "incomplete",
+      "reason": "time-budget",
+      "primality": "composite",
+      "wallMs": 1000.2999999999993,
+      "progressCount": 9
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1190,
+      "elapsedMs": 0.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1221,
+      "elapsedMs": 0.1999999999989086,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1643,
+      "elapsedMs": 0.4000000000014552,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1190,
+      "elapsedMs": 0.3000000000010914,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.5,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1221,
+      "elapsedMs": 0.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.3999999999996362,
+      "progressCount": 0
+    },
+    {
+      "case": "unbalanced-4-12",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "100900000003027",
+      "factors": [
+        {
+          "value": "1009",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "100000000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 1643,
+      "elapsedMs": 0.2999999999992724,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.6000000000003638,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.4000000000014552,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2000000000007276,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 100,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1999999999989086,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 1,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.09999999999854481,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 2,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.2999999999992724,
+      "progressCount": 0
+    },
+    {
+      "case": "square-7",
+      "algorithm": "floyd",
+      "seed": 3,
+      "timeBudgetMs": 1000,
+      "operationBudget": 50000000,
+      "input": "1000006000009",
+      "factors": [
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        },
+        {
+          "value": "1000003",
+          "certainty": "proven",
+          "method": "mr64"
+        }
+      ],
+      "remaining": "1",
+      "operations": 406,
+      "elapsedMs": 0.1000000000003638,
+      "status": "complete",
+      "reason": null,
+      "primality": "composite",
+      "wallMs": 0.3999999999996362,
+      "progressCount": 0
+    }
+  ],
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "localBlobEvents": 1,
+    "observedWorkerSessions": 2,
+    "workerOfflineEmulation": "unsupported by Worker target; page offline plus stopped asset server",
+    "assetServerStoppedDuringOffline": true,
+    "cacheDisabled": true,
+    "offlineSameFactors": true,
+    "cancelledAndRestartedOffline": true
+  },
+  "cancelled": {
+    "wallMs": 31.19999999999891,
+    "cancelMs": 1.1999999999989086,
+    "heartbeat": 8,
+    "remaining": "27606985387162255149739023449107931668458716142620601169954803000803329"
+  },
+  "detectorSelfTest": {
+    "blockedFetchCspObserved": true,
+    "workerCspAuditObserved": true,
+    "navigationCdpAndHttpObserved": true,
+    "workerCdpAndHttpObserved": true
+  }
+}

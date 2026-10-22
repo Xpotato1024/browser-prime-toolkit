@@ -1,0 +1,257 @@
+{
+  "mode": "dlp-contracts",
+  "variant": "one-drop",
+  "profile": "baseline",
+  "caseId": null,
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 30000,
+  "lifecycle": null,
+  "measuredHead": null,
+  "measuredAt": "2026-10-20T12:14:46.308Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 125.04389800000013,
+  "initialAssets": [
+    {
+      "path": "/bench/dlp.html",
+      "bytes": 135,
+      "sha256": "a3429d249089e9c5c8f1f4a9accb59423a79e7c63d34faa0afb283b59c14292f"
+    },
+    {
+      "path": "/bench/dlp.js",
+      "bytes": 7421,
+      "sha256": "c195c24378a22fe6329ca83fe02b9fb57d4f21f77fff973768b4ec73e1cfc786"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/runner.js",
+      "bytes": 12119,
+      "sha256": "4d3af3ee3407547fd05c89e8d57daeec309b338782a6090cd93fa341441a9726"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/worker-source.js",
+      "bytes": 571526,
+      "sha256": "da41e08c09450a54dc7b83d06632dd5ea17a480dfa1a72aa68e7934f65747430"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/contracts.js",
+      "bytes": 2658,
+      "sha256": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-dlp.mjs": "7edf3f17e275a7dadd28abe0bcf8551b94bbc83829e77f816bc8cb59e33bac5f",
+    "scripts/benchmark-dlp.mjs": "6ba12606d169c0710832e0e8634fed68ea9afbd93e7db303b166babc77a092de",
+    "bench/staged-dlp-plan.json": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/dlp-asset-route.mjs": "578bd967c843cf57842132a3fd835e51c72be60c712871e07470fe0ed379ea0a",
+    "scripts/build-dlp-worker.mjs": "dd9f890c544cda5f77e4112a09cbdb62e2141e578d3b2a46c2d1a071b0d2769b",
+    "scripts/build-rusqsieve-dlp.mjs": "e505cb3e788c48e7027cb851956e89ac3ed4da660c2aa4167975fffd702ca1fb",
+    "native/rusqsieve-dlp/staged-build.json": "bdf84eacb29bf3eb2feff488707767c820696b77f665b93a3d1a61dcebc66c5f",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve-dlp/patch-source.mjs": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+    "scripts/generate-dlp-runner.mjs": "71dea2a3139fed3195d6a36448ee2d4cda28a79be4da7ae81620712db1d21448",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "src/rusqsieve-dlp/worker-body.js": "327993b9f43733277d42de6c05db17a9ecd3bb073a9c00a1498876bcd9c27ecf",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "bench/dlp.html": "a3429d249089e9c5c8f1f4a9accb59423a79e7c63d34faa0afb283b59c14292f",
+    "bench/dlp.js": "c195c24378a22fe6329ca83fe02b9fb57d4f21f77fff973768b4ec73e1cfc786",
+    "src/rusqsieve-dlp/runner.js": "4d3af3ee3407547fd05c89e8d57daeec309b338782a6090cd93fa341441a9726",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/rusqsieve-dlp/worker-source.js": "da41e08c09450a54dc7b83d06632dd5ea17a480dfa1a72aa68e7934f65747430",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/rusqsieve/contracts.js": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+    "src/rusqsieve-dlp/contracts.js": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "tests": [
+        {
+          "name": "profile-before-worker",
+          "pass": true
+        },
+        {
+          "name": "configuration-forgery-retired",
+          "pass": true
+        },
+        {
+          "name": "counter-forgery-retired",
+          "pass": true
+        },
+        {
+          "name": "unsupported-before-worker",
+          "pass": true
+        },
+        {
+          "name": "budget-before-worker",
+          "pass": true
+        },
+        {
+          "name": "cancel-during-sieve",
+          "pass": true
+        },
+        {
+          "name": "noncooperative-deadline",
+          "pass": true
+        },
+        {
+          "name": "worker-cap-before-allocation",
+          "pass": true
+        },
+        {
+          "name": "real-allocation-failure",
+          "pass": true
+        },
+        {
+          "name": "unknown-trap-is-not-oom",
+          "pass": true
+        },
+        {
+          "name": "forged-native-frame-retired",
+          "pass": true
+        },
+        {
+          "name": "stale-generation-ignored",
+          "pass": true
+        },
+        {
+          "name": "proper-divisor-independent-check",
+          "pass": true
+        },
+        {
+          "name": "noncooperative-extraction-deadline",
+          "pass": true
+        },
+        {
+          "name": "fresh-full-path",
+          "pass": true
+        }
+      ],
+      "performanceMeasurement": false
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1,
+    "liveSources": 0,
+    "maxLiveSources": 1
+  },
+  "sampledRam": {
+    "samples": 82,
+    "first": {
+      "atMs": 134.92919,
+      "rssBytes": 385024,
+      "pssBytes": 166912,
+      "processes": 1
+    },
+    "peakRssBytes": 1380642816,
+    "peakPssBytes": 511178752,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "maxOwners": 2,
+    "packetBytes": 16777216,
+    "transportBytes": 33554432,
+    "initializationMs": 10000,
+    "wallMs": 30000,
+    "extractAttempts": 1,
+    "workUnit": "input-dependent finite SIQS families, not C checkpoint work",
+    "wholeRam": "sampled Chrome tree RSS/PSS; requested allocation sizes exclude metadata/fragmentation/stack/static; not a hard total RAM cap"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

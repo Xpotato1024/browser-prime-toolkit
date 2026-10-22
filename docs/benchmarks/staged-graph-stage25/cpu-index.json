@@ -1,0 +1,16 @@
+{
+  "head": "0b36d39b2d79afe7ed771db585a3e428ad3d135b",
+  "summary": {
+    "bytes": 44559,
+    "sha256": "759f9b44279edb24e55dbbaf4802d0c3d54c25fa4ae15a4bdc5482e2319ea585"
+  },
+  "log": {
+    "bytes": 203,
+    "sha256": "ba2afea6a78928683c8c64b808d9f3444fc05fada9ad5df3745c4395db9b1f32"
+  },
+  "raw": {
+    "localOnly": true,
+    "bytes": 131841,
+    "sha256": "4d92a8df9df045a47a34bf39caa7cb2b8ce12e79d54c32fedeeeb1091fa03868"
+  }
+}

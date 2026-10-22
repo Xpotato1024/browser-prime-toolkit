@@ -1,0 +1,64 @@
+{
+  "method": "independent Python integer pow/square; deterministic seven-base MR for factors below 2^64; larger value is screened-probable, not a prime certificate",
+  "seed": "0x9A0319C5",
+  "corpusSha256": "6d8e4910fd1ecd336be1baa70d3262161eec731b7002dd65f3eaee0dce2a04ce",
+  "priorInputsSha256": "28ba7a36ed26d9599241e446f55cff174ca98405c5ee800df3267acf60450721",
+  "nonOverlapWithPrior": true,
+  "factors": [
+    {
+      "value": "792871",
+      "bits": 20,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "2856984007",
+      "bits": 32,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "3240962587",
+      "bits": 32,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "167980534411",
+      "bits": 38,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "242323566593",
+      "bits": 38,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "927478051710647",
+      "bits": 50,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "935630846978389",
+      "bits": 50,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "2305843009213693951",
+      "bits": 61,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "4087384525711141243",
+      "bits": 62,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "4281373022154622943",
+      "bits": 62,
+      "assessment": "MR64-proven"
+    },
+    {
+      "value": "127373070858890551114725833805635807531",
+      "bits": 127,
+      "assessment": "screened-probable"
+    }
+  ]
+}

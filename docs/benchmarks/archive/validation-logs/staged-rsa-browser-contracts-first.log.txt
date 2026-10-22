@@ -1,0 +1,16 @@
+{"fatal":[],"badEvents":[],"requests":[],"diagnostic":{"violations":[],"errors":[]},"attached":[{"sessionId":"7431AFFCEE8558709F39875381C0B5B9","type":"page","url":"about:blank"},{"sessionId":"42D2DEE2C5DEBE6E7C3D27D7487265CA","type":"worker","url":"blob:http://127.0.0.1:32925/7a8acd1f-3f94-414b-8aec-0ab5dc3514ee"},{"sessionId":"B695D4C79AFBE41EB0A6A1F416B6BACD","type":"worker","url":"blob:http://127.0.0.1:32925/438c399e-8af7-48eb-aaee-f9616c1e620c"},{"sessionId":"B301CF90BC73BB5DE8497A40D3187147","type":"worker","url":"blob:http://127.0.0.1:32925/9455738b-f8c5-4a1e-bc33-cd02c4b13360"},{"sessionId":"509B885DB071237A30ECF75F70927957","type":"worker","url":"blob:http://127.0.0.1:32925/5df1ea13-9882-4e7d-9d0c-2b0a6ae0c5dc"},{"sessionId":"A15EAF5A87DC5EE6BC5E12577DBAECEA","type":"worker","url":"blob:http://127.0.0.1:32925/b8820784-66af-4cf7-9c2a-a81effab2a01"},{"sessionId":"5EE03D31FFE53C41643784774EC777DB","type":"worker","url":"blob:http://127.0.0.1:32925/1a48193c-e610-46bf-bdd9-5dff6c723e4b"},{"sessionId":"C841E9E9FF9CD4B19E17579AFA0809C7","type":"worker","url":"blob:http://127.0.0.1:32925/3fcc07fa-7829-46d5-88a4-c335b4effff7"}],"pending":[]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: [{"name":"exact integers through the full 2048-bit boundary","pass":false,"error":"Exact factorization"},{"name":"probable factors receive a host check and stay unproven","pass":false,"error":"Explicit host-checked probable"},{"name":"loading and running cancellation retire the exact 617-digit request","pass":false,"error":"Run packet posted"},{"name":"accelerated host clock controls timeout without becoming a performance sample","pass":false,"error":"One total deadline"},{"name":"injected protocol failure retires and a fresh explicit request recovers","pass":false,"error":"Fresh native recovery"}]
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/scripts/verify-rsa-profile.mjs:148:103 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

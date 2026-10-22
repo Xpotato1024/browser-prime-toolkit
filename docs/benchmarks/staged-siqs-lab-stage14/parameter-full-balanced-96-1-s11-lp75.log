@@ -1,0 +1,2 @@
+{"id":"full-balanced-96-1","options":{"variant":"lp75","timeBudgetMs":10000,"seed":11,"workers":1,"streams":1,"operationBudget":1000000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":9086,"graph":{"rawRelations":627,"uniqueRelations":627,"duplicates":0,"full":7,"partial":620,"combined":0,"total":7,"polynomials":1,"vertices":1054,"components":434,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/parameter-full-balanced-96-1-s11-lp75.json

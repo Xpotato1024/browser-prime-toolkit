@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+const read=p=>readFileSync(p,'utf8'),write=(p,t)=>{if(process.argv.includes('--check'))assert.equal(read(p),t,p);else writeFileSync(p,t);};
+const rep=(s,a,b)=>{assert.equal(s.split(a).length,2,'Resieve harness anchor '+a.slice(0,100));return s.replace(a,b);};
+let h=read('bench/collection-profile.js');
+h=rep(h,"import {collectionWorkerSource as graphWorkerSource} from '../src/collection-profile/worker-source.js';","import {resieveWorkerSource as graphWorkerSource} from '../src/resieve-prefix/worker-source.js';");
+h=rep(h,"import {attachCollectionPort} from '../src/collection-profile/bridge.js';","import {attachResievePort as attachCollectionPort} from '../src/resieve-prefix/worker-source.js';");
+h=rep(h,"['baseline','instrumented','resieve4','sparse'].includes(v)","['baseline','prefix'].includes(v)");
+write('bench/resieve-prefix.js',h);
+write('bench/resieve-prefix.html',read('bench/collection-profile.html').replace('./collection-profile.js','./resieve-prefix.js'));
+let a=read('scripts/collection-profile-asset-route.mjs');
+a=rep(a,'const assets=new Set([','const assets=new Set(["bench/resieve-prefix.html","bench/resieve-prefix.js","src/resieve-prefix/worker-source.js","src/resieve-prefix/wasm-prefix-1024.js",');
+a=a.replace('collectionAsset','resieveAsset');write('scripts/resieve-prefix-asset-route.mjs',a);
+let v=read('scripts/verify-collection-profile.mjs');
+v=rep(v,"import {collectionAsset as coordinatorAsset} from './collection-profile-asset-route.mjs';","import {resieveAsset as coordinatorAsset} from './resieve-prefix-asset-route.mjs';");
+v=rep(v,"['baseline','instrumented','resieve4','sparse'].includes(graphVariant)","['baseline','prefix'].includes(graphVariant)");
+v=v.replaceAll('/bench/collection-profile.html','/bench/resieve-prefix.html');
+v=rep(v,'  receipt.graphSourceFiles={};','  receipt.graphSourceFiles={};\n  for(const p of ["scripts/generate-resieve-prefix.mjs","scripts/verify-resieve-prefix.mjs","scripts/resieve-prefix-asset-route.mjs","scripts/build-resieve-prefix.mjs","native/resieve-prefix/patch-source.mjs","native/resieve-prefix/oracle.rs","native/resieve-prefix/build-prefix-1024.json","src/resieve-prefix/worker-source.js","docs/contracts/resieve-prefix.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");');
+write('scripts/verify-resieve-prefix.mjs',v);
+console.log('Derived uninstrumented resieve variants; source, resource, offline and retirement contracts preserved');

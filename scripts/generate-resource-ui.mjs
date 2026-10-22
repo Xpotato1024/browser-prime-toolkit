@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import {readFileSync,writeFileSync} from 'node:fs';import assert from 'node:assert/strict';import {actions} from './resource-ui-actions.mjs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+let s=read('scripts/verify-resources.mjs');
+const change=(a,b)=>{assert.equal(s.split(a).length,2,a.slice(0,80));s=s.replace(a,b);};
+change("import {resourceAsset} from './resource-asset-route.mjs';","import {resourceUiAsset as resourceAsset} from './resource-ui-asset-route.mjs';\nimport {observer} from './resource-ui-observer.mjs';\nimport {knownDetachedSetup,retireSetupCalls} from './resource-ui-cdp-lifecycle.mjs';");
+s=s.replaceAll("'resource-measurement'","'resource-ui-contracts'").replaceAll("'resource-contracts'","'resource-ui-contracts'");
+change("'.mjs': 'text/javascript'","'.mjs': 'text/javascript', '.css':'text/css'");
+change("script-src 'self' 'wasm-unsafe-eval'; worker-src","script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; worker-src");
+change("const coldStarted = performance.now();","await send('Page.addScriptToEvaluateOnNewDocument',{source:observer},pageSession);\n  const coldStarted = performance.now();");
+change("origin + '/bench/resources.html'","origin + '/app/resources.html'");
+change("if (await evaluate('!!globalThis.evaluationHarness')) break;",`if (await evaluate('!!document.getElementById("start-computation")&&!document.getElementById("start-computation").disabled')) break;`);
+change("let chrome, socket, server, pageSession, memory, sequence = 0;","const setupFailures=[],setupTasks=[],detached=new Set();\nlet chrome, socket, server, pageSession, memory, sequence = 0;");
+change("enableNetwork(sessionId).then(() => send('Runtime.runIfWaitingForDebugger', {}, sessionId)).catch(error => fatal.push(error.message));","setupTasks.push(enableNetwork(sessionId).then(() => send('Runtime.runIfWaitingForDebugger', {}, sessionId)).catch(error => setupFailures.push({sessionId,error:error.message})));");
+change("if (message.method === 'Target.detachedFromTarget') sessions.delete(message.params.sessionId);","if (message.method === 'Target.detachedFromTarget'){sessions.delete(message.params.sessionId);detached.add(message.params.sessionId);retireSetupCalls(pending,message.params.sessionId);}");
+change("assert.equal(requests.length,0);assert.equal(http.length,0);assert.deepEqual(badEvents,[]);assert.deepEqual(fatal,[]);","await Promise.all(setupTasks);for(const row of setupFailures)if(!knownDetachedSetup(row,{detached,active:sessions,workers:new Set(attached.filter(a=>a.type==='worker').map(a=>a.sessionId))}))fatal.push(row.error);\n  assert.equal(requests.length,0);assert.equal(http.length,0);assert.deepEqual(badEvents,[]);assert.deepEqual(fatal,[]);");
+change("pending.set(id, { method, resolve: resolveCall, reject: rejectCall, timer });","pending.set(id, { sessionId, method, resolve: resolveCall, reject: rejectCall, timer });");
+const begin=s.indexOf("  await evaluate('evaluationHarness.selectScheduler("),end=s.indexOf('  const coldReadyMs',begin);assert.ok(begin>0&&end>begin);
+s=s.slice(0,begin)+`  await evaluate('(async()=>{globalThis.resourcePage=await import("/app/resources-main.js")})()');
+  const standardInitialAssets=requests.map(r=>new URL(r.url).pathname);
+  assert.ok(!standardInitialAssets.some(p=>p.startsWith('/src/resources/worker-')),'Experimental engine is not fetched for the ordinary entry');
+  await evaluate('document.getElementById("calculation-mode").value="experimental";document.getElementById("calculation-mode").dispatchEvent(new Event("change"))');
+  for(let i=0;i<500;i++){if(await evaluate('resourcePage.getApp().getState().phase==="ready"'))break;await new Promise(r=>setTimeout(r,10));}
+  assert.equal(await evaluate('resourcePage.getApp().getState().engine'),'experimental');
+`+s.slice(end);
+const calc=s.indexOf('  if(caseId){'),finish=s.indexOf('  const lifecycle=null;',calc);assert.ok(calc>0&&finish>calc);s=s.slice(0,calc)+actions+s.slice(finish);
+change("for(const p of ['scripts/benchmark-resources.mjs'","for(const p of ['scripts/verify-resource-ui.mjs','scripts/generate-resource-ui.mjs','scripts/resource-ui-actions.mjs','scripts/resource-ui-observer.mjs','scripts/resource-ui-cdp-lifecycle.mjs','scripts/resource-ui-asset-route.mjs','scripts/benchmark-resources.mjs'");
+change("assetBoundarySelfTest,coldReadyMs,initialAssets,","assetBoundarySelfTest,standardInitialAssets,detachedBeforeResume:setupFailures,detachedSetupProof:{detached:[...detached],active:[...sessions],workers:attached.filter(a=>a.type==='worker').map(a=>a.sessionId)},coldReadyMs,initialAssets,");
+const path=new URL('./verify-resource-ui.mjs',import.meta.url);if(process.argv.includes('--check'))assert.equal(readFileSync(path,'utf8'),s);else writeFileSync(path,s);
+console.log('Derived resource UI acceptance harness with original quiet-runtime and positive detectors');

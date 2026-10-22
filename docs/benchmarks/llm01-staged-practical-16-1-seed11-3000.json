@@ -1,0 +1,265 @@
+{
+  "mode": "long-rsa-measurement",
+  "variant": "native-brent",
+  "caseId": "balanced-16-1",
+  "group": "rsa",
+  "seed": 11,
+  "budgetMs": 3000,
+  "lifecycle": null,
+  "measuredHead": "e20c31b0c328022a8f95fa56b89d26713c19f4b2",
+  "measuredAt": "2026-10-19T13:06:07.157Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 138.31349299999988,
+  "initialAssets": [
+    {
+      "path": "/bench/long-rsa.html",
+      "bytes": 257,
+      "sha256": "3428b664009d9a8dd375eb5af738ef3f39f84f526557abceb5e4b8129409b0a4"
+    },
+    {
+      "path": "/bench/long-rsa.js",
+      "bytes": 5918,
+      "sha256": "affeace2f3c7a056181830df03cc15c35ab029b537be11415184a74dad645c39"
+    },
+    {
+      "path": "/src/long-rsa/evaluator.js",
+      "bytes": 6008,
+      "sha256": "04e75da1d5bb8e952d25f78d04d08fcf49a26ce7108a7b3ff59df68c2cabcd74"
+    },
+    {
+      "path": "/src/long-rsa/factory.js",
+      "bytes": 201,
+      "sha256": "dd8fc673125d1ebe02868699e0f031f7e47cb01f7cf69dfb1162c52edab2c067"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/long-rsa/profile.js",
+      "bytes": 2003,
+      "sha256": "c361e8e23fdf6703dcc67eec75bdcc27273cf4328a935458bb6418702d1d026b"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-practical/cases.js",
+      "bytes": 2121,
+      "sha256": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020"
+    },
+    {
+      "path": "/src/long-rsa/worker-source.js",
+      "bytes": 18963,
+      "sha256": "25be3806455b189c9a2ea4020c529e3e79542fa481d8777cf70ad87f362107f9"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/long-rsa/result.js",
+      "bytes": 1928,
+      "sha256": "15622936b84d592b72b0586401c1f56e99d8f393808f3074e4de0dd9f708ece0"
+    },
+    {
+      "path": "/src/long-rsa/core-result.js",
+      "bytes": 3993,
+      "sha256": "9f0ca3fbf5253fe897cecaa93dc1bc7bd8421bd42e2b543a01476fa4461d8afd"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-long-rsa.mjs": "71a74228133a7a5a6ded53b12d05b6fbb29487b83615cca4eeda7e416c38330b",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/long-asset-route.mjs": "93137c3203c9693c46501c530ef368c849545a0c6d486b1afc5f35ed343f94c9",
+    "scripts/build-long-rsa-worker.mjs": "da64b6e420ac0d0ede7238cd1ad5ed6e143b52d760d6972156b87f29db18a71a",
+    "scripts/check-long-rsa-core.mjs": "1be8f0b1d2ba134c471f863d518a3e4c88c4fba6b00a29b8bc8fe1a1d55a0814",
+    "src/long-rsa/factor.js": "53bb48df116db274ec9eaf1f6aab216de8821a0e6041a70248f70a562bd8dd47",
+    "src/long-rsa/options.js": "43e890d095d6910d24232abbd34acd4388c1cf273ec60a23575cfd9d3cc2f89f",
+    "src/long-rsa/install.js": "4cc1586dd2e60174ae037ab916910f9f6d3ceec79b37ace92ee94fd697ba9fdb",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-rsa/provenance.json": "44bb1b95275e219e419d5c513b10cbfa768e9a3b478b4d597fd3f0e2c4ff3875",
+    "bench/staged-practical/catalog.json": "e4d60ccc0be824b826de46a2a5cfc0a3e3961bd3298fbb6e2bcd62cbd4fdefbc",
+    "bench/staged-practical/oracle.json": "c96b12103072b10bac8f7c39fc130f98939302bdae3ddf42ecd9db9a77ec419d",
+    "bench/staged-practical/manifest.json": "e6ec2cd3cff3b031311d124e34c741250d313ea958ba0bcf824c110b178ef42c",
+    "scripts/generate-practical.py": "b2ac99597a2a4faffc7df7e3d30db73c3dfe3afd22e3da4eb03d97ac643b4662",
+    "bench/long-rsa.html": "3428b664009d9a8dd375eb5af738ef3f39f84f526557abceb5e4b8129409b0a4",
+    "bench/long-rsa.js": "affeace2f3c7a056181830df03cc15c35ab029b537be11415184a74dad645c39",
+    "src/long-rsa/evaluator.js": "04e75da1d5bb8e952d25f78d04d08fcf49a26ce7108a7b3ff59df68c2cabcd74",
+    "src/long-rsa/factory.js": "dd8fc673125d1ebe02868699e0f031f7e47cb01f7cf69dfb1162c52edab2c067",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/long-rsa/profile.js": "c361e8e23fdf6703dcc67eec75bdcc27273cf4328a935458bb6418702d1d026b",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-practical/cases.js": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020",
+    "src/long-rsa/worker-source.js": "25be3806455b189c9a2ea4020c529e3e79542fa481d8777cf70ad87f362107f9",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/long-rsa/result.js": "15622936b84d592b72b0586401c1f56e99d8f393808f3074e4de0dd9f708ece0",
+    "src/long-rsa/core-result.js": "9f0ca3fbf5253fe897cecaa93dc1bc7bd8421bd42e2b543a01476fa4461d8afd",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "id": "balanced-16-1",
+      "input": "6775806610486261",
+      "digits": 16,
+      "bits": 53,
+      "seed": 11,
+      "outcome": {
+        "profile": "long-native-brent-v1",
+        "input": "6775806610486261",
+        "backend": "brent",
+        "bits": 53,
+        "wasmBytes": 0,
+        "limits": {
+          "id": "long-native-brent-v1",
+          "maxBits": 2048,
+          "maxDigits": 617,
+          "timeBudgetMs": 3000,
+          "initializationDeadlineMs": 5000,
+          "operationBudget": 10000000000,
+          "workers": 1,
+          "wasmBytes": 0,
+          "packetBytes": 262144,
+          "deliveryGraceMs": 25
+        },
+        "kind": "factorized",
+        "reason": null,
+        "result": {
+          "input": "6775806610486261",
+          "factors": [
+            {
+              "value": "69299117",
+              "certainty": "proven",
+              "method": "mr64"
+            },
+            {
+              "value": "97776233",
+              "certainty": "proven",
+              "method": "mr64"
+            }
+          ],
+          "remaining": "1",
+          "operations": 16587,
+          "elapsedMs": 11.300000004470348,
+          "status": "complete",
+          "reason": null,
+          "primality": "composite",
+          "algorithm": "brent",
+          "seed": 11
+        },
+        "snapshot": {
+          "input": "6775806610486261",
+          "factors": [
+            {
+              "value": "69299117",
+              "certainty": "proven",
+              "method": "mr64"
+            },
+            {
+              "value": "97776233",
+              "certainty": "proven",
+              "method": "mr64"
+            }
+          ],
+          "remaining": "1",
+          "operations": 16587,
+          "elapsedMs": 11.300000004470348
+        },
+        "workers": 1,
+        "allWorkersDisposed": true,
+        "requestWallMs": 39.5,
+        "initializationMs": 23.5,
+        "computeWallMs": 16,
+        "proofTicks": 0
+      },
+      "knownFactorsUsed": false,
+      "oracleCheckedAfterRetirement": true
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 29,
+    "first": {
+      "atMs": 141.074897,
+      "rssBytes": 372736,
+      "pssBytes": 158720,
+      "processes": 1
+    },
+    "peakRssBytes": 1226874880,
+    "peakPssBytes": 421815296,
+    "maxProcesses": 12
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 10000000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "fixed native BigInt only; no WASM; unsupported GMP/SIQS never allocates a Worker",
+    "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

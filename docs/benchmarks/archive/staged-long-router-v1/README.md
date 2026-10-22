@@ -1,0 +1,8 @@
+# 10分試行の固定sourceと配信境界の修正
+8a63892ea855f598723d2fbdca4c646d019af5fcの600秒RSA-100試行・contract・pilot・CLI sourceを原bytes/hashのまま保全します。試行は599.9771秒でtime-budget未完了でした。
+
+独立レビューは、旧serverのdecode前禁止語検査をencoded URLで回避できるP2を発見しました。固定browser/Workerはoracleをimport/fetchしておらず、全初期assetの記録もinput-onlyの許可assetだけでした。計算後はserver停止/offline/通信0、公式RSAの既知因数は保有・使用していません。
+
+試行途中のsourceを変更せず終了後に保全し、現行CLIはdecode後の明示asset集合だけへ制限しました。encoded oracle/manifest/traversal等の実red→greenと実HTTP404対照を追加しています。check-long-historyは旧CLIから現行へ許した差分をimport・初回計算前のroute/拒否selftestだけへ機械限定します。全算術・Worker・host期限・固定入力・計算中部分は同じです。
+
+この歴史測定は実際の読み込みassetとsource hashに基づく10分結果として保持します。現行server境界の検証と混同しません。後続の小桁matrixは修正後CLI/contractへ統一し、旧pilotを成功率の分母へ混ぜません。

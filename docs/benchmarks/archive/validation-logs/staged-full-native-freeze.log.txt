@@ -1,0 +1,18 @@
+native mode no-deps
+full native matrix rows=128 compacted=66/160 dependencies=0
+native mode boundary
+full SIQS native boundary passed
+native mode counter
+full SIQS native counter passed
+native mode proof
+full SIQS native proof passed
+native mode factor
+full SIQS native factor passed
+native mode multiply
+full native packed M and M-transpose-M: all 30001 rows verified
+native mode post
+full native matrix rows=10001 compacted=30003/30003 dependencies=16
+native mode packed
+full native matrix rows=30100 compacted=90300/90300 dependencies=14
+full SIQS native factor passed
+

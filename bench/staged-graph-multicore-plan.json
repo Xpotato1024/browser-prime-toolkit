@@ -1,0 +1,113 @@
+{
+  "id": "llm01-graph-multicore-20261021-v1",
+  "hypothesis": "Separate4vs8globalcredits then4/5/6workers; >=5%mediantime reduction, PSS<=1.10x, exactacceptedprefix/columns/counters",
+  "limits": {
+    "totalCalculationMs": 1800000,
+    "startAvailableMiB": 4096,
+    "pssStopMiB": 1536,
+    "coordinatorLiveStopMiB": 160,
+    "coordinatorLinearStopMiB": 208,
+    "maxWasmMiB": 576,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8
+  },
+  "trials": [
+    {
+      "id": "contracts-six",
+      "graph": "packed",
+      "engine": "six-drop",
+      "slots": 8,
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed-1-4w-4s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 4,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-2-4w-8s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-3-4w-8s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-4-4w-4s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 4,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-5-5w-8s",
+      "graph": "packed",
+      "engine": "five-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-6-4w-8s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-7-6w-8s",
+      "graph": "packed",
+      "engine": "six-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-8-5w-8s",
+      "graph": "packed",
+      "engine": "five-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-9-4w-8s",
+      "graph": "packed",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-10-6w-8s",
+      "graph": "packed",
+      "engine": "six-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    }
+  ]
+}

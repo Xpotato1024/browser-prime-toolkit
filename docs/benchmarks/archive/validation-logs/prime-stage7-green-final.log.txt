@@ -1,0 +1,17 @@
+✔ shared total deadline includes loading and disposes both lanes (15.73869ms)
+✔ cancel and fatal retire all lanes without a replacement (10.844693ms)
+✔ inner computation timeout never creates replacement lanes (106.973329ms)
+✔ large total envelope respects the core 60000ms cap (6.574396ms)
+✔ p−1 bounded base finds favorable factor and reports no proper gcd=n factor (72.977951ms)
+✔ same 32 sigma schedule partitions without overlap and rejects bad lanes (950.806467ms)
+✔ zero operation budget stops normally and leaves reusable instance (42.466872ms)
+✔ fatal stage2 trap retires the supplementary instance (46.856068ms)
+✔ a job reserves each curve before success, across residual calls (375.480751ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1615.214326

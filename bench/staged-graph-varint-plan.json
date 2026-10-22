@@ -1,0 +1,68 @@
+{
+  "id": "llm01-graph-varint-20261021-v1",
+  "hypothesis": "Same external packets and mathematical parameters; smaller exact forest powers storage with bounded canonical codec",
+  "acceptance": {
+    "commonPrefix": 64,
+    "liveRatioMax": 0.9,
+    "wallRatioMax": 1.1,
+    "pssRatioMax": 1.1,
+    "allPacketsColumnsCountersEqual": true
+  },
+  "limits": {
+    "totalCalculationMs": 750000,
+    "startAvailableMiB": 4096,
+    "maxWasmMiB": 576,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8
+  },
+  "trials": [
+    {
+      "id": "contracts-four",
+      "graph": "varint",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed64-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "fixed64-2-varint",
+      "graph": "varint",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "fixed64-3-varint",
+      "graph": "varint",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "fixed64-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    }
+  ]
+}

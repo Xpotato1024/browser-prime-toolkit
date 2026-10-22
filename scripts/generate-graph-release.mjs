@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from'node:assert/strict';import{readFileSync,writeFileSync}from'node:fs';
+const read=p=>readFileSync(p,'utf8'),write=(p,s)=>{if(process.argv.includes('--check'))assert.equal(read(p),s,p);else writeFileSync(p,s);};
+const rep=(s,a,b)=>{assert.equal(s.split(a).length,2,'Release generator anchor '+a);return s.replace(a,b);};
+let r=read('src/graph-profile/runner.js');
+r=rep(r,"if(owner.index===0&&[d.memory,d.before,d.after]","if(d.type!=='fatal'&&owner.index===0&&[d.memory,d.before,d.after]");
+write('src/graph-release/runner.js',r);
+let h=read('bench/graph-profile.js');
+h=rep(h,"from '../src/graph-profile/runner.js'","from '../src/graph-release/runner.js'");
+h=rep(h,"import {graphWorkerSource} from '../src/graph-profile/worker-source.js';","import {graphReleaseWorkerSource as graphWorkerSource} from '../src/graph-release/worker-source.js';");
+h=rep(h,"['baseline','compact']","['baseline','release']");
+write('bench/graph-release.js',h);
+write('bench/graph-release.html',read('bench/graph-profile.html').replace('./graph-profile.js','./graph-release.js'));
+let a=read('scripts/graph-asset-route.mjs');
+a=rep(a,'const assets=new Set([','const assets=new Set(["bench/graph-release.html","bench/graph-release.js","src/graph-release/worker-source.js","src/graph-release/wasm-release.js","src/graph-release/runner.js",');
+a=a.replace('graphAsset','releaseAsset');write('scripts/graph-release-asset-route.mjs',a);
+let v=read('scripts/verify-graph-profile.mjs');
+v=rep(v,"import {graphAsset as coordinatorAsset} from './graph-asset-route.mjs';","import {releaseAsset as coordinatorAsset} from './graph-release-asset-route.mjs';");
+v=rep(v,"['baseline','compact']","['baseline','release']");
+v=v.replaceAll('/bench/graph-profile.html','/bench/graph-release.html');
+v=rep(v,"receipt.graphSourceFiles={};","receipt.graphSourceFiles={};\n  receipt.baselineStorage='stage25-compact';\n  for(const p of ['scripts/verify-graph-release.mjs','scripts/generate-graph-release.mjs','scripts/graph-release-asset-route.mjs','scripts/build-graph-release.mjs','native/graph-release/patch-source.mjs','native/graph-release/session-stop.rs','native/graph-release/build-release.json','src/graph-release/worker-source.js','src/graph-release/runner.js','docs/contracts/graph-release.md'])receipt.graphSourceFiles[p]=createHash('sha256').update(await readFile(join(root,p))).digest('hex');");
+write('scripts/verify-graph-release.mjs',v);
+console.log('Derived extraction-lifetime experiment; baseline is immutable Stage25 compact artifact');

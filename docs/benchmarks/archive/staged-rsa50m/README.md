@@ -1,0 +1,6 @@
+# 50M操作予算の予備RSA測定
+測定code headは83a3c0e8752c48f0ab2fe671fcb2366b77c35fda、profileはrsa-native-brent-v1です。RSA-100を5 seedで試し、全件5千万checkpointへ先に到達して未完了でした。初期化込み中央値17.5307秒、範囲17.3457–17.6637秒、成功0/5です。30秒枠を使い切る能力評価の完了とは扱いません。
+
+raw・summary・当時のreport sourceのbytesをそのまま保持し、manifestでhashを検査します。summaryのevidence pathは当時の保存先を記録しています。現在のarchiveでは各basenameをこのdirectoryで解決してください。rawのsourceFilesは上記歴史headに対応し、現行v2のsourceへ一致させて書き換えません。元のcontract 8群も性能測定とは別です。
+
+後続v2は有限2億checkpointをRSA専用に設け、旧profileへ影響させず実時間30秒枠を再評価します。予備測定は比較保全のため残します。

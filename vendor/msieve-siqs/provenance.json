@@ -1,0 +1,98 @@
+{
+  "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193",
+  "source": "https://github.com/radii/msieve",
+  "purpose": "compile-only SIQS feasibility; not linked or executed",
+  "files": [
+    {
+      "path": "mpqs/gf2.c",
+      "sourceBytes": 4601,
+      "sourceSha256": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3",
+      "bytes": 4601,
+      "sha256": "d10cfc20c343b24642002477deb93d013925462b5bfc415cf8e9446bbef9c3e3"
+    },
+    {
+      "path": "mpqs/mpqs.c",
+      "sourceBytes": 10656,
+      "sourceSha256": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+      "bytes": 10656,
+      "sha256": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7"
+    },
+    {
+      "path": "mpqs/poly.c",
+      "sourceBytes": 15377,
+      "sourceSha256": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+      "bytes": 15377,
+      "sha256": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f"
+    },
+    {
+      "path": "mpqs/relation.c",
+      "sourceBytes": 33859,
+      "sourceSha256": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+      "bytes": 33859,
+      "sha256": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94"
+    },
+    {
+      "path": "mpqs/sieve.c",
+      "sourceBytes": 35749,
+      "sourceSha256": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+      "bytes": 35749,
+      "sha256": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d"
+    },
+    {
+      "path": "mpqs/sieve_core.c",
+      "sourceBytes": 19657,
+      "sourceSha256": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+      "bytes": 19657,
+      "sha256": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8"
+    },
+    {
+      "path": "mpqs/sqrt.c",
+      "sourceBytes": 7227,
+      "sourceSha256": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+      "bytes": 7227,
+      "sha256": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269"
+    },
+    {
+      "path": "mpqs/mpqs.h",
+      "sourceBytes": 14603,
+      "sourceSha256": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+      "bytes": 14603,
+      "sha256": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493"
+    },
+    {
+      "path": "include/common.h",
+      "sourceBytes": 10025,
+      "sourceSha256": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+      "bytes": 10025,
+      "sha256": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21"
+    },
+    {
+      "path": "include/msieve.h",
+      "sourceBytes": 5708,
+      "sourceSha256": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+      "bytes": 5708,
+      "sha256": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4"
+    },
+    {
+      "path": "include/gmp_xface.h",
+      "sourceBytes": 2632,
+      "sourceSha256": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+      "bytes": 2632,
+      "sha256": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd"
+    },
+    {
+      "path": "include/util.h",
+      "sourceBytes": 7594,
+      "sourceSha256": "3fea18cc093a425d100726e12a03009f6b7e1b03428f84ae059d1ba220120b9c",
+      "bytes": 7584,
+      "sha256": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778"
+    },
+    {
+      "path": "include/mp.h",
+      "sourceBytes": 17890,
+      "sourceSha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+      "bytes": 17890,
+      "sha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
+    }
+  ]
+}

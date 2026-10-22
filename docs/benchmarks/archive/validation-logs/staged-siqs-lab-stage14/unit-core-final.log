@@ -1,0 +1,20 @@
+✔ lab cancellation retires loading and running workers once (24.157887ms)
+✔ independent host deadline retires a non-cooperative worker (25.406786ms)
+✔ unsupported input and invalid total budgets allocate no workers (0.6814ms)
+✔ late ready and late result cannot beat an undispatched host timer (0.6294ms)
+✔ retirement exceptions settle fatally and disable reuse (5.791997ms)
+✔ valid late merge results and slow retirement are timeouts (1.100299ms)
+✔ release failure still terminates and settles without claiming reuse (5.266197ms)
+✔ budget stop between header and newline preserves an ineligible prefix (1.4909ms)
+✔ lab budgets are shared across sequential and concurrent lanes (1.559ms)
+✔ derived periodic count is distinguished from observed flushes and clocks (0.2481ms)
+✔ partial relations join one graph across A contexts and duplicate lanes (0.9036ms)
+✔ polynomial identity, bounds and compatibility are required before merge (0.7782ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.906524

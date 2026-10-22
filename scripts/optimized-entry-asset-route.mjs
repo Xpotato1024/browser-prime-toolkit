@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+const assets=new Set(["bench/optimized-entry.html","bench/optimized-entry.js","src/optimized/index.js","src/optimized/runner.js","src/optimized/worker-source.js","src/optimized/worker-64.js","src/optimized/worker-128.js","src/optimized/worker-256.js","src/graph-multicore/policy.js","src/graph-multicore/credits.js","src/graph-multicore/metrics.js","src/graph-multicore/packet-audit.js","src/rusqsieve/contracts.js","src/rusqsieve-dlp/contracts.js","src/engine/arithmetic.js","src/engine/options.js","src/worker/source-factory.js","bench/staged-rsa/cases.js","bench/staged-full/cases.js"]);
+export function entryAsset(path){try{const key=decodeURIComponent(path).slice(1);return assets.has(key)?key:null;}catch{return null;}}

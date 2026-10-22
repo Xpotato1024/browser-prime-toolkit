@@ -1,0 +1,38 @@
+{
+  "rustc-LICENSE-APACHE": {
+    "archive": "rustc-x86_64-unknown-linux-gnu.tar.xz",
+    "member": "rustc-1.90.0-x86_64-unknown-linux-gnu/LICENSE-APACHE",
+    "bytes": 9723,
+    "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+  },
+  "rustc-COPYRIGHT": {
+    "archive": "rustc-x86_64-unknown-linux-gnu.tar.xz",
+    "member": "rustc-1.90.0-x86_64-unknown-linux-gnu/COPYRIGHT",
+    "bytes": 1571,
+    "sha256": "172020dbfd5b53a226dfde77616190a48dcff519b0bc0e6deb91a8450782c4af"
+  },
+  "rustc-LICENSE-MIT": {
+    "archive": "rustc-x86_64-unknown-linux-gnu.tar.xz",
+    "member": "rustc-1.90.0-x86_64-unknown-linux-gnu/LICENSE-MIT",
+    "bytes": 1068,
+    "sha256": "b71bd43a069ca0641a9ecfe585ca7b3c53b5cc1608f8b68321168698e28b5ea1"
+  },
+  "wasm-std-LICENSE-APACHE": {
+    "archive": "rust-std-wasm32-unknown-unknown.tar.xz",
+    "member": "rust-std-1.90.0-wasm32-unknown-unknown/LICENSE-APACHE",
+    "bytes": 9723,
+    "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+  },
+  "wasm-std-COPYRIGHT": {
+    "archive": "rust-std-wasm32-unknown-unknown.tar.xz",
+    "member": "rust-std-1.90.0-wasm32-unknown-unknown/COPYRIGHT",
+    "bytes": 1571,
+    "sha256": "172020dbfd5b53a226dfde77616190a48dcff519b0bc0e6deb91a8450782c4af"
+  },
+  "wasm-std-LICENSE-MIT": {
+    "archive": "rust-std-wasm32-unknown-unknown.tar.xz",
+    "member": "rust-std-1.90.0-wasm32-unknown-unknown/LICENSE-MIT",
+    "bytes": 1068,
+    "sha256": "b71bd43a069ca0641a9ecfe585ca7b3c53b5cc1608f8b68321168698e28b5ea1"
+  }
+}

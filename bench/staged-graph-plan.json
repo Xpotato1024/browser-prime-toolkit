@@ -1,0 +1,85 @@
+{
+  "id": "llm01-graph-root-20261021-v1",
+  "baseline": "297f9d29c2102dfcd420f0b9fee5230ed4a0d4df",
+  "hypothesis": "lossless compact retained roots reduce requested memory >=10% at identical accepted family64, median time to family64 <=1.10x baseline",
+  "source": "immutable campaign HEAD; baseline and compact built from same reviewed source",
+  "limits": {
+    "workers": 4,
+    "coordinatorMiB": 256,
+    "helperMiB": 64,
+    "totalWasmMiB": 448,
+    "transportMiB": 32,
+    "outstanding": 4,
+    "liveStopMiB": 160,
+    "linearStopMiB": 208,
+    "pssStopMiB": 1536,
+    "startAvailableMiB": 4096,
+    "totalCalculationMs": 1800000
+  },
+  "trials": [
+    {
+      "id": "contracts-baseline",
+      "graph": "baseline",
+      "budgetMs": 30000
+    },
+    {
+      "id": "contracts-compact",
+      "graph": "compact",
+      "budgetMs": 30000
+    },
+    {
+      "id": "small-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "small-compact",
+      "graph": "compact",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "fixed-compact",
+      "graph": "compact",
+      "case": "RSA-100",
+      "fixedFamilies": 4,
+      "budgetMs": 60000
+    },
+    {
+      "id": "retained-1-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 128,
+      "budgetMs": 300000
+    },
+    {
+      "id": "retained-2-compact",
+      "graph": "compact",
+      "case": "RSA-100",
+      "fixedFamilies": 128,
+      "budgetMs": 300000
+    },
+    {
+      "id": "retained-3-compact",
+      "graph": "compact",
+      "case": "RSA-100",
+      "fixedFamilies": 128,
+      "budgetMs": 300000
+    },
+    {
+      "id": "retained-4-baseline",
+      "graph": "baseline",
+      "case": "RSA-100",
+      "fixedFamilies": 128,
+      "budgetMs": 300000
+    }
+  ]
+}

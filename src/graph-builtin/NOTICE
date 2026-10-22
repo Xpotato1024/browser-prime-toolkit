@@ -1,0 +1,1 @@
+Pinned rusqsieve 0.5.0 / 4b150834b57636f6ebc350a81321a15c1cd901d2. Upstream Apache-2.0 OR MPL-2.0. Local patches/observer/adapters AGPL-3.0-only, Xpotato.net / Xpotato1024. See native/rusqsieve, native/graph-builtin build receipts and THIRD_PARTY_NOTICES.md. Experimental builtin remainder candidate; no new dependency.

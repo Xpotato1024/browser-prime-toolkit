@@ -1,0 +1,15 @@
+# Stage15の回帰検証と証跡
+
+[証跡manifest](../benchmarks/archive/validation-logs/staged-siqs-opt-stage15/manifest.json)は実ログのSHA256を固定します。core acceptanceログはその時点の実行、browser-*-headは測定head b25dfa54 の実行です。最終headの受入は別途実行し、過去ログのheadを付け替えません。
+
+fetch-red.logは新module未実装時の実REDです。fetch-final-unit.logの5検査は、有限fallback、hash／サイズ不一致、TLS拒否、試行終了、不正cache、repo内部cache拒否を確認します。fetch-fresh.logは元GMP配布先の実curl18後、GNU公式の同一pinで回復した実取得です。cacheの再検証はfetch-cache-verified.logにあります。
+
+新runner8回帰には60000ms受入／60001ms確保前拒否を追加しました。coreのnpm testは259成功、static checkは802ファイルでした。これは全新変更の個別REDを主張する記録ではありません。元Cを変えないLTO候補は、2回のclean artifact再現とnative sanitizer各106関係式、実WASMで両engine各12契約を確認しました。
+
+測定は事前commitした28条件の全raw／logとrun-allを残し、固定仕事量、seed別byte一致、共通graph、native proof、所有owner解放、通信ゼロをreportで再計算します。positive controlや停止条件を省略した成功扱いはしません。各60秒試行はtime-budget打切りで、因数分解完了ではありません。
+
+CI取得回復の実ログと、新たに観測した補助評価のChrome起動timeoutログも保全します。CI専用の起動30秒profileは元driverの全差分checkで計算や監査の変更を拒否します。最終head CIの成功確認は、これらの過去ログとは区別して報告します。
+
+追加確認: 64922e5 PRの旧candidate取得はGNU/GMP6.3.0接続timeoutで失敗しました。新candidate helperは同一pinの7ファイルをfresh取得して照合し、旧helperは保全しています。GMP公式fallbackを単独で確認した転送はcurl18の部分受信で失敗し、その不完全なファイルはcacheにもbuildにも使用していません。
+
+Actions無料枠消費の連絡後は追加push／rerunを停止しました。billing読み取りAPIは現認証scopeで404となり、scopeや請求設定は変更していません。64922e5の失敗test annotationはexit1で、個別ログの原因はGMP6.3.0接続timeoutです。この実行に課金拒否annotationは確認していません。新local headのCI合格は未確認として扱います。

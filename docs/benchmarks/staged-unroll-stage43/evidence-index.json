@@ -1,0 +1,118 @@
+{
+  "encoding": "gzip+canonical-base64-lines76",
+  "files": {
+    "run.json": {
+      "file": "run.json.gz.base64",
+      "originalBytes": 6132,
+      "originalSha256": "eb76f247e619872279c6bb479d32ff9d5d42965d4638a1236bf17ca3c88d6f5e",
+      "compressedBytes": 1456,
+      "compressedSha256": "e76a305961f399c1d7fa7eebac580847bb9a0aa8d598dcb5ed13085b36e46515",
+      "encodedBytes": 1970
+    },
+    "driver.log": {
+      "file": "driver.log.gz.base64",
+      "originalBytes": 1096,
+      "originalSha256": "b48e84725d04d7a93f642b2b67676c6025ba3640f9754032932ce32795b9ff4d",
+      "compressedBytes": 324,
+      "compressedSha256": "473466e34aad462d73a70775769f8c1334e530d83741719a1dd671ff1d33612f",
+      "encodedBytes": 438
+    },
+    "native.json": {
+      "file": "native.json.gz.base64",
+      "originalBytes": 230962,
+      "originalSha256": "89f4190b6d89c729d565456cecedc2ada0043c65fd61f0576d47cc37de40727f",
+      "compressedBytes": 51764,
+      "compressedSha256": "eeb7b9bd10f6f6fa4cde8f30bfa678be860aa7e7844fa9df46bfff8bb5b6d069",
+      "encodedBytes": 69929
+    },
+    "oracles.json": {
+      "file": "oracles.json.gz.base64",
+      "originalBytes": 4726,
+      "originalSha256": "bd8d1615ef34b1f3735e6e8f54e318c13afd80f767d6671577fb4df86ee0487a",
+      "compressedBytes": 2083,
+      "compressedSha256": "976eb3bd1f45aaec0caa818a56283136882422e201d2907f9f44d2641e76eac1",
+      "encodedBytes": 2817
+    },
+    "contracts-unroll4.json": {
+      "file": "contracts-unroll4.json.gz.base64",
+      "originalBytes": 43253,
+      "originalSha256": "dd3916315a8ac6dc97992d182c2efb202afcb165119d9e0e73e34f5af06cbd08",
+      "compressedBytes": 14582,
+      "compressedSha256": "035196e671a07105514db59b619d577e9680ee77061e8a380b2c67f89048bc44",
+      "encodedBytes": 19700
+    },
+    "probe-unroll4.json": {
+      "file": "probe-unroll4.json.gz.base64",
+      "originalBytes": 13138,
+      "originalSha256": "7351f3b00080590e627fe300eb3d2899616f6ac21c61ebf153107c9d75a05920",
+      "compressedBytes": 4495,
+      "compressedSha256": "b0ee2b7c693093d8a0f351ec313d2cb6acb0c2275db20ffdea7d6cbbdffec347",
+      "encodedBytes": 6075
+    },
+    "unroll4-1-baseline.json": {
+      "file": "unroll4-1-baseline.json.gz.base64",
+      "originalBytes": 48784,
+      "originalSha256": "fe1a1be36526249b5e3341dc723d85eec3deb8231893e914167c1855383a4a76",
+      "compressedBytes": 16465,
+      "compressedSha256": "a5009b45643a74626b9b2900eb3d393f1e6c05b1aa3d9bba517649f0762acb74",
+      "encodedBytes": 22245
+    },
+    "unroll4-1-baseline.log": {
+      "file": "unroll4-1-baseline.log.gz.base64",
+      "originalBytes": 225,
+      "originalSha256": "6f254dab39658dd80cec1b52098dc306930de6c55814e23406548a3e1fa6ac16",
+      "compressedBytes": 200,
+      "compressedSha256": "a0ddec85dcb002437b8014943f4927f7ca4cc394650fdb50c442fb1ed4905dfd",
+      "encodedBytes": 272
+    },
+    "unroll4-2-unroll4.json": {
+      "file": "unroll4-2-unroll4.json.gz.base64",
+      "originalBytes": 48681,
+      "originalSha256": "3ea2aca2be09fd8f57f243418735bb57c427649acf20f54ee6b9eed9fe4d2dcb",
+      "compressedBytes": 16357,
+      "compressedSha256": "9bbaca2efc1b5fcd98ac78aa22d1668ed9c48aa90c420df3748c10e6072c3fd9",
+      "encodedBytes": 22099
+    },
+    "unroll4-2-unroll4.log": {
+      "file": "unroll4-2-unroll4.log.gz.base64",
+      "originalBytes": 224,
+      "originalSha256": "44fb55d243fd24ec12dc3ccea397e56c46eda035eaff4961699feaac3cb4f5aa",
+      "compressedBytes": 196,
+      "compressedSha256": "76047cccad916bb02e427f7bc0e428112aef2d6e6989f7e64eccb6fa14720a16",
+      "encodedBytes": 268
+    },
+    "unroll4-3-unroll4.json": {
+      "file": "unroll4-3-unroll4.json.gz.base64",
+      "originalBytes": 48728,
+      "originalSha256": "da4664c1ea2661e3d6e63d411d024927a5a38724ac2cfc7e3c20c09c810e2281",
+      "compressedBytes": 16338,
+      "compressedSha256": "fba081afef1d68ce4e37e5913bb10a55c1a99124286f683e0b473a34a120a168",
+      "encodedBytes": 22071
+    },
+    "unroll4-3-unroll4.log": {
+      "file": "unroll4-3-unroll4.log.gz.base64",
+      "originalBytes": 224,
+      "originalSha256": "d035aa4dbb51edabda242c610bad660275d1fc91cacfd2d165a45cce8f974884",
+      "compressedBytes": 197,
+      "compressedSha256": "f6282458a916e58c29fe63e5c16cd272af58f94f0e9057b1df8180c759002d64",
+      "encodedBytes": 268
+    },
+    "unroll4-4-baseline.json": {
+      "file": "unroll4-4-baseline.json.gz.base64",
+      "originalBytes": 48905,
+      "originalSha256": "fdb12a6b92e6f23af11cf8862a1c140d919fd3b0a5b491db369dbb3e3f145b64",
+      "compressedBytes": 16391,
+      "compressedSha256": "cd881f63511594f9c5b66c5641c57567e8173a6e38bf43d6b8a32f360cf141bd",
+      "encodedBytes": 22144
+    },
+    "unroll4-4-baseline.log": {
+      "file": "unroll4-4-baseline.log.gz.base64",
+      "originalBytes": 225,
+      "originalSha256": "aeefda6f96aa9e99ed7716dc1224e0176503a5b8c7ec3598aca3e32f1d4e1d28",
+      "compressedBytes": 200,
+      "compressedSha256": "b95f439d1c66e7cc75d5fb3e176df4df9ecb0b11ab3f606e8b8ccd0a12d0acdf",
+      "encodedBytes": 272
+    }
+  },
+  "totalEncodedBytes": 190568
+}

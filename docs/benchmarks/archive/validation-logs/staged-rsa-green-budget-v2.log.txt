@@ -1,0 +1,35 @@
+✔ the RSA-only finite operation cap leaves legacy options unchanged (1.479599ms)
+✔ RSA result metadata crosses 50M exactly without changing legacy proof contracts (0.6884ms)
+✔ RSA high operation budget still checks the clock on each checkpoint (1.933899ms)
+✔ the generated Worker is valid as an ES module, including flattened private bindings (41.367278ms)
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (4.580198ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (1.526599ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.722999ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.5261ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (0.7054ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.899199ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (0.9234ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.2778ms)
+✔ source release time is still inside the five-second initialization cap (0.3073ms)
+✔ terminal cleanup cannot turn a result delivered after the total deadline into a success (0.4043ms)
+✔ Worker announces the exact bounded native profile and factors a full 2048-bit input (11.456494ms)
+✔ Worker rejects out-of-profile inputs and changed algorithm, budget or packet contract (1.256399ms)
+✔ Worker is one-shot and emits an explicit CSP audit signal (0.7511ms)
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (3.694798ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.2615ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.2402ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (0.5318ms)
+✔ the previous 128-bit staged profile is unchanged (7.415996ms)
+✔ large perfect powers retain their full input and proven factorization (9.743795ms)
+✔ probable remains unproven after an independent host check (2.808998ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.6868ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.729099ms)
+✔ partial progress cannot retain a forged probable composite factor (0.2232ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 251.021466

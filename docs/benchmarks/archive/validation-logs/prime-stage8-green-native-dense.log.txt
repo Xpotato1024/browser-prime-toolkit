@@ -1,0 +1,2 @@
+Counted SIQS safety: 8 exact limits, import stop, job caps, 6 phases, 2528 allocation failures (all 2528 without --quick), 13 boundary probes and recovery passed
+

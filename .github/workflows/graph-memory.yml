@@ -1,0 +1,35 @@
+name: Graph memory verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  graph-memory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/graph-*.test.js test/optimized-*.test.js
+      - run: npm run check:graph
+      - name: Offline cancellation, fatal retirement and fresh complete extraction
+        run: |
+          node scripts/verify-graph-profile.mjs --graph compact --engine four-drop --out "$RUNNER_TEMP/graph-root-contracts.json"
+          node scripts/verify-graph-release.mjs --graph release --engine four-drop --out "$RUNNER_TEMP/graph-release-contracts.json"
+          node scripts/verify-graph-arena.mjs --graph packed --engine four-drop --out "$RUNNER_TEMP/graph-packed-contracts.json"
+          node scripts/verify-graph-multicore.mjs --graph packed --engine six-drop --slots 8 --out "$RUNNER_TEMP/graph-multicore-contracts.json"
+          node scripts/verify-graph-builtin.mjs --graph builtin --engine four-drop --slots 8 --out "$RUNNER_TEMP/graph-builtin-contracts.json"
+          node scripts/verify-optimized-entry.mjs --graph optimized --engine five-drop --slots 8 --out "$RUNNER_TEMP/optimized-contracts.json"
+          node scripts/verify-optimized-entry.mjs --graph optimized --engine one-drop --memory-mib 128 --case full-balanced-64-1 --out "$RUNNER_TEMP/optimized-lowcap.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check

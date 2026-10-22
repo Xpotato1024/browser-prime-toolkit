@@ -1,0 +1,64 @@
+{
+  "id": "full-siqs-opt-stage16-v1",
+  "baseHead": "dbd1eb5c92c871edc8f0c07532a93fc93fa260ed",
+  "interpretation": "Mode0 whole factorization, base stride1024 vs LTO stride16384, fixed order and one exploratory observation each. No isolated compiler speed claim. Controls must pass full oracle and matrix accounting before long trials. Old Stage13 512MiB/save128MiB is historical context; both new paths use256MiB/save16MiB.",
+  "limits": {
+    "workers": 1,
+    "wasmBytes": 268435456,
+    "saveBytes": 16777216,
+    "operationBudget": 1000000000000,
+    "initializationMs": 5000,
+    "deliveryGraceMs": 250,
+    "runtimeNetwork": 0
+  },
+  "trials": [
+    {
+      "id": "control-40-base",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "engine": "base",
+      "seed": 1,
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-40-lto",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "engine": "lto",
+      "seed": 1,
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-base",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "engine": "base",
+      "seed": 1,
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-lto",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "engine": "lto",
+      "seed": 1,
+      "budgetMs": 30000
+    },
+    {
+      "id": "rsa100-600s-base",
+      "stage": "long",
+      "case": "RSA-100",
+      "engine": "base",
+      "seed": 1,
+      "budgetMs": 600000
+    },
+    {
+      "id": "rsa100-600s-lto",
+      "stage": "long",
+      "case": "RSA-100",
+      "engine": "lto",
+      "seed": 1,
+      "budgetMs": 600000
+    }
+  ]
+}

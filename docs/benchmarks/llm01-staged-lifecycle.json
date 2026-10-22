@@ -1,0 +1,1892 @@
+{
+  "schema": 1,
+  "sourceMatchingCommit": "e7f764398c3181eb713b5ae0858f8621c43220d7",
+  "measurementHeadRecorded": false,
+  "receipts": [
+    {
+      "mode": "lifecycle",
+      "variant": "brent",
+      "caseId": "balanced-112bit-0",
+      "group": "train",
+      "seed": 1,
+      "budgetMs": 1000,
+      "lifecycle": {
+        "loading": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "brent",
+            "seed": 1,
+            "policy": "brent",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "brent",
+            "engineMode": "brent",
+            "requestWallMs": 7.5,
+            "initializationMs": null,
+            "computeWallMs": null,
+            "workers": 1,
+            "linearMemoryBytes": 0,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 2.300000000745058
+        },
+        "running": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "brent",
+            "seed": 1,
+            "policy": "brent",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "brent",
+            "engineMode": "brent",
+            "requestWallMs": 46.5,
+            "initializationMs": 16.199999999254942,
+            "computeWallMs": 30.300000000745058,
+            "workers": 1,
+            "linearMemoryBytes": 0,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 0.10000000149011612
+        }
+      },
+      "measuredHead": null,
+      "measuredAt": "2026-10-19T09:40:44.918Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 123.86110099999996,
+      "initialAssets": [
+        {
+          "path": "/bench/staged.html",
+          "bytes": 130,
+          "sha256": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949"
+        },
+        {
+          "path": "/bench/staged.js",
+          "bytes": 1974,
+          "sha256": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93"
+        },
+        {
+          "path": "/src/worker/staged-factory.js",
+          "bytes": 1104,
+          "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+        },
+        {
+          "path": "/src/worker/staged-controller.js",
+          "bytes": 4980,
+          "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+        },
+        {
+          "path": "/src/worker/staged-brent-source.js",
+          "bytes": 23641,
+          "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+        },
+        {
+          "path": "/src/worker/staged-ecm-source.js",
+          "bytes": 638816,
+          "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+        },
+        {
+          "path": "/src/worker/staged-siqs-source.js",
+          "bytes": 156165,
+          "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+        },
+        {
+          "path": "/src/worker/staged-staged-source.js",
+          "bytes": 771340,
+          "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/engine/staged-plan.js",
+          "bytes": 1465,
+          "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+        },
+        {
+          "path": "/src/engine/staged-result.js",
+          "bytes": 3655,
+          "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-staged.mjs": "8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",
+        "bench/staged-train.json": "583d166f41b72879359728c48bde80816e3871fb969c7c9083137883f970f34a",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/staged.html": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949",
+        "bench/staged.js": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93",
+        "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+        "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+        "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+        "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+        "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+        "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+        "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+      },
+      "records": [
+        {
+          "case": "balanced-112bit-0",
+          "input": "3894222643488354664636594044948941",
+          "expectedFactors": [
+            "54043195528458347",
+            "72057594030273703"
+          ],
+          "options": {
+            "mode": "brent",
+            "timeBudgetMs": 1000,
+            "operationBudget": 50000000,
+            "seed": 1
+          },
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 3234014,
+            "elapsedMs": 964.5,
+            "status": "incomplete",
+            "reason": "time-budget",
+            "primality": "composite",
+            "algorithm": "brent",
+            "seed": 1,
+            "policy": "brent",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "brent-full",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.6999999992549419,
+                "endOps": 3234014,
+                "endMs": 964.5,
+                "outcome": "stopped",
+                "reason": "time-budget"
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "brent",
+            "engineMode": "brent",
+            "requestWallMs": 976.8000000007451,
+            "initializationMs": 10.5,
+            "computeWallMs": 966.3000000007451,
+            "workers": 1,
+            "linearMemoryBytes": 0,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "brent",
+              "ecm": null,
+              "siqs": null
+            }
+          },
+          "sampledRam": {
+            "samples": 16,
+            "first": {
+              "atMs": 1712.662766,
+              "rssBytes": 1222553600,
+              "pssBytes": 422322176,
+              "processes": 12
+            },
+            "peakRssBytes": 1230589952,
+            "peakPssBytes": 428835840,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 47,
+        "first": {
+          "atMs": 273.596504,
+          "rssBytes": 376832,
+          "pssBytes": 159744,
+          "processes": 1
+        },
+        "peakRssBytes": 1230589952,
+        "peakPssBytes": 428835840,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "ecm",
+      "caseId": "balanced-112bit-0",
+      "group": "train",
+      "seed": 1,
+      "budgetMs": 1000,
+      "lifecycle": {
+        "loading": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "gmp-ecm",
+            "seed": 1,
+            "policy": "ecm",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "ecm",
+            "engineMode": "ecm",
+            "requestWallMs": 10.700000002980232,
+            "initializationMs": null,
+            "computeWallMs": null,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 1.9000000022351742
+        },
+        "running": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "gmp-ecm",
+            "seed": 1,
+            "policy": "ecm",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "ecm",
+            "engineMode": "ecm",
+            "requestWallMs": 107.69999999925494,
+            "initializationMs": 77.39999999850988,
+            "computeWallMs": 30.300000000745058,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 0
+        },
+        "fatal": {
+          "failure": {
+            "message": "computation-error",
+            "audit": {
+              "engineMode": "ecm",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 1,
+                "curves": 1,
+                "pm1Attempts": 0,
+                "mask": 2,
+                "point": 1,
+                "injected": true,
+                "poisoned": true,
+                "gmpAllocations": 0,
+                "directAllocations": 0,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": null
+            },
+            "allWorkersDisposed": true,
+            "requestWallMs": 77.19999999925494
+          },
+          "recovered": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 10707,
+            "elapsedMs": 398.69999999925494,
+            "status": "incomplete",
+            "reason": "algorithm-exhausted",
+            "primality": "composite",
+            "algorithm": "gmp-ecm",
+            "seed": 1,
+            "policy": "ecm",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "ecm",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.3999999985098839,
+                "endOps": 10706,
+                "endMs": 398.30000000074506,
+                "outcome": "exhausted",
+                "reason": "algorithm-exhausted"
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "ecm",
+            "engineMode": "ecm",
+            "requestWallMs": 452.8999999985099,
+            "initializationMs": 52.600000001490116,
+            "computeWallMs": 400.29999999701977,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "ecm",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 4294967295,
+                "curves": 32,
+                "pm1Attempts": 0,
+                "mask": 16374,
+                "point": 13,
+                "injected": false,
+                "poisoned": false,
+                "gmpAllocations": 71649,
+                "directAllocations": 2304,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": null
+            }
+          }
+        }
+      },
+      "measuredHead": null,
+      "measuredAt": "2026-10-19T09:40:47.947Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 137.41773200000011,
+      "initialAssets": [
+        {
+          "path": "/bench/staged.html",
+          "bytes": 130,
+          "sha256": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949"
+        },
+        {
+          "path": "/bench/staged.js",
+          "bytes": 1974,
+          "sha256": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93"
+        },
+        {
+          "path": "/src/worker/staged-factory.js",
+          "bytes": 1104,
+          "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+        },
+        {
+          "path": "/src/worker/staged-controller.js",
+          "bytes": 4980,
+          "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+        },
+        {
+          "path": "/src/worker/staged-brent-source.js",
+          "bytes": 23641,
+          "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+        },
+        {
+          "path": "/src/worker/staged-ecm-source.js",
+          "bytes": 638816,
+          "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+        },
+        {
+          "path": "/src/worker/staged-siqs-source.js",
+          "bytes": 156165,
+          "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+        },
+        {
+          "path": "/src/worker/staged-staged-source.js",
+          "bytes": 771340,
+          "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/engine/staged-plan.js",
+          "bytes": 1465,
+          "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+        },
+        {
+          "path": "/src/engine/staged-result.js",
+          "bytes": 3655,
+          "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-staged.mjs": "8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",
+        "bench/staged-train.json": "583d166f41b72879359728c48bde80816e3871fb969c7c9083137883f970f34a",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/staged.html": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949",
+        "bench/staged.js": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93",
+        "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+        "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+        "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+        "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+        "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+        "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+        "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+      },
+      "records": [
+        {
+          "case": "balanced-112bit-0",
+          "input": "3894222643488354664636594044948941",
+          "expectedFactors": [
+            "54043195528458347",
+            "72057594030273703"
+          ],
+          "options": {
+            "mode": "ecm",
+            "timeBudgetMs": 1000,
+            "operationBudget": 50000000,
+            "seed": 1
+          },
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 10707,
+            "elapsedMs": 412.69999999925494,
+            "status": "incomplete",
+            "reason": "algorithm-exhausted",
+            "primality": "composite",
+            "algorithm": "gmp-ecm",
+            "seed": 1,
+            "policy": "ecm",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "ecm",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.4000000022351742,
+                "endOps": 10706,
+                "endMs": 412.5,
+                "outcome": "exhausted",
+                "reason": "algorithm-exhausted"
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "ecm",
+            "engineMode": "ecm",
+            "requestWallMs": 462.9000000022352,
+            "initializationMs": 48.80000000074506,
+            "computeWallMs": 414.1000000014901,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "ecm",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 4294967295,
+                "curves": 32,
+                "pm1Attempts": 0,
+                "mask": 16374,
+                "point": 13,
+                "injected": false,
+                "poisoned": false,
+                "gmpAllocations": 71649,
+                "directAllocations": 2304,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": null
+            }
+          },
+          "sampledRam": {
+            "samples": 9,
+            "first": {
+              "atMs": 2256.65966,
+              "rssBytes": 1237196800,
+              "pssBytes": 439715840,
+              "processes": 12
+            },
+            "peakRssBytes": 1249943552,
+            "peakPssBytes": 451205120,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 46,
+        "first": {
+          "atMs": 276.783445,
+          "rssBytes": 380928,
+          "pssBytes": 163840,
+          "processes": 1
+        },
+        "peakRssBytes": 1252966400,
+        "peakPssBytes": 455526400,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "siqs",
+      "caseId": "balanced-112bit-0",
+      "group": "train",
+      "seed": 1,
+      "budgetMs": 1000,
+      "lifecycle": {
+        "loading": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "siqs",
+            "seed": 1,
+            "policy": "siqs",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "siqs",
+            "engineMode": "siqs",
+            "requestWallMs": 6.899999998509884,
+            "initializationMs": null,
+            "computeWallMs": null,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 1.5999999977648258
+        },
+        "running": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "siqs",
+            "seed": 1,
+            "policy": "siqs",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "siqs",
+            "engineMode": "siqs",
+            "requestWallMs": 68.70000000298023,
+            "initializationMs": 38.400000002235174,
+            "computeWallMs": 30.300000000745058,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 0.10000000149011612
+        }
+      },
+      "measuredHead": null,
+      "measuredAt": "2026-10-19T09:40:50.422Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 134.76393999999982,
+      "initialAssets": [
+        {
+          "path": "/bench/staged.html",
+          "bytes": 130,
+          "sha256": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949"
+        },
+        {
+          "path": "/bench/staged.js",
+          "bytes": 1974,
+          "sha256": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93"
+        },
+        {
+          "path": "/src/worker/staged-factory.js",
+          "bytes": 1104,
+          "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+        },
+        {
+          "path": "/src/worker/staged-controller.js",
+          "bytes": 4980,
+          "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+        },
+        {
+          "path": "/src/worker/staged-brent-source.js",
+          "bytes": 23641,
+          "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+        },
+        {
+          "path": "/src/worker/staged-ecm-source.js",
+          "bytes": 638816,
+          "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+        },
+        {
+          "path": "/src/worker/staged-siqs-source.js",
+          "bytes": 156165,
+          "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+        },
+        {
+          "path": "/src/worker/staged-staged-source.js",
+          "bytes": 771340,
+          "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/engine/staged-plan.js",
+          "bytes": 1465,
+          "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+        },
+        {
+          "path": "/src/engine/staged-result.js",
+          "bytes": 3655,
+          "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-staged.mjs": "8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",
+        "bench/staged-train.json": "583d166f41b72879359728c48bde80816e3871fb969c7c9083137883f970f34a",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/staged.html": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949",
+        "bench/staged.js": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93",
+        "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+        "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+        "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+        "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+        "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+        "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+        "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+      },
+      "records": [
+        {
+          "case": "balanced-112bit-0",
+          "input": "3894222643488354664636594044948941",
+          "expectedFactors": [
+            "54043195528458347",
+            "72057594030273703"
+          ],
+          "options": {
+            "mode": "siqs",
+            "timeBudgetMs": 1000,
+            "operationBudget": 50000000,
+            "seed": 1
+          },
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [
+              {
+                "value": "54043195528458347",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "72057594030273703",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 11879607,
+            "elapsedMs": 128.69999999925494,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "policy": "siqs",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "siqs",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.5,
+                "endOps": 11878768,
+                "endMs": 128.30000000074506,
+                "outcome": "split",
+                "reason": null
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 0,
+                "elapsedMs": 0,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "siqs",
+            "engineMode": "siqs",
+            "requestWallMs": 153.39999999850988,
+            "initializationMs": 22.199999999254942,
+            "computeWallMs": 131.19999999925494,
+            "workers": 1,
+            "linearMemoryBytes": 67108864,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "siqs",
+              "ecm": null,
+              "siqs": {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 22540356,
+                "phaseMask": 126,
+                "allocations": 1339,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 185609,
+                "logical": 11878622,
+                "clockReads": 185610,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 11878622,
+                "nativeImports": 185609,
+                "phaseWork": [
+                  125702,
+                  152084,
+                  7066131,
+                  4308455,
+                  83931,
+                  142319
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            }
+          },
+          "sampledRam": {
+            "samples": 5,
+            "first": {
+              "atMs": 1907.856354,
+              "rssBytes": 1248821248,
+              "pssBytes": 447995904,
+              "processes": 12
+            },
+            "peakRssBytes": 1253388288,
+            "peakPssBytes": 452038656,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 41,
+        "first": {
+          "atMs": 320.494089,
+          "rssBytes": 364544,
+          "pssBytes": 147456,
+          "processes": 1
+        },
+        "peakRssBytes": 1253388288,
+        "peakPssBytes": 452038656,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "p64",
+      "caseId": "balanced-112bit-0",
+      "group": "train",
+      "seed": 1,
+      "budgetMs": 1000,
+      "lifecycle": {
+        "loading": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "staged",
+            "seed": 1,
+            "policy": "p64",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "p64",
+            "engineMode": "staged",
+            "requestWallMs": 13.100000001490116,
+            "initializationMs": null,
+            "computeWallMs": null,
+            "workers": 1,
+            "linearMemoryBytes": 134217728,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 2.400000002235174
+        },
+        "running": {
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [],
+            "remaining": "3894222643488354664636594044948941",
+            "operations": 0,
+            "elapsedMs": 0,
+            "status": "cancelled",
+            "reason": "cancelled",
+            "algorithm": "staged",
+            "seed": 1,
+            "policy": "p64",
+            "primality": "unknown",
+            "origin": "host",
+            "traceAvailable": false,
+            "stages": null,
+            "grants": null,
+            "mode": "p64",
+            "engineMode": "staged",
+            "requestWallMs": 107.30000000074506,
+            "initializationMs": 77,
+            "computeWallMs": 30.300000000745058,
+            "workers": 1,
+            "linearMemoryBytes": 134217728,
+            "allWorkersDisposed": true,
+            "audit": null
+          },
+          "aborted": true,
+          "abortResponseMs": 0.09999999776482582
+        },
+        "fatal": {
+          "failure": {
+            "message": "computation-error",
+            "audit": {
+              "engineMode": "staged",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 1,
+                "curves": 1,
+                "pm1Attempts": 0,
+                "mask": 2,
+                "point": 1,
+                "injected": true,
+                "poisoned": true,
+                "gmpAllocations": 0,
+                "directAllocations": 0,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 0,
+                "phaseMask": 0,
+                "allocations": 0,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 0,
+                "nativeImports": 0,
+                "phaseWork": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            },
+            "allWorkersDisposed": true,
+            "requestWallMs": 110
+          },
+          "recovered": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [
+              {
+                "value": "54043195528458347",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "72057594030273703",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 11920721,
+            "elapsedMs": 224.30000000074506,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "staged",
+            "seed": 1,
+            "policy": "p64",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "brent-prefix",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.6000000014901161,
+                "endOps": 39250,
+                "endMs": 21,
+                "outcome": "stopped",
+                "reason": "time-budget"
+              },
+              {
+                "index": 1,
+                "stage": "ecm-prefix",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 39250,
+                "startMs": 21.100000001490116,
+                "endOps": 41260,
+                "endMs": 104.60000000149012,
+                "outcome": "stopped",
+                "reason": "time-budget"
+              },
+              {
+                "index": 2,
+                "stage": "siqs",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 41260,
+                "startMs": 104.60000000149012,
+                "endOps": 11919882,
+                "endMs": 223.69999999925494,
+                "outcome": "split",
+                "reason": null
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 39104,
+                "elapsedMs": 20.5,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 2010,
+                "elapsedMs": 83.60000000149012,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "p64",
+            "engineMode": "staged",
+            "requestWallMs": 292.29999999701977,
+            "initializationMs": 65.69999999925494,
+            "computeWallMs": 226.59999999776483,
+            "workers": 1,
+            "linearMemoryBytes": 134217728,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "staged",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 127,
+                "curves": 7,
+                "pm1Attempts": 0,
+                "mask": 16374,
+                "point": 13,
+                "injected": false,
+                "poisoned": false,
+                "gmpAllocations": 13435,
+                "directAllocations": 432,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 22540356,
+                "phaseMask": 126,
+                "allocations": 1339,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 185609,
+                "logical": 11878622,
+                "clockReads": 185610,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 11878622,
+                "nativeImports": 185609,
+                "phaseWork": [
+                  125702,
+                  152084,
+                  7066131,
+                  4308455,
+                  83931,
+                  142319
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            }
+          }
+        }
+      },
+      "measuredHead": null,
+      "measuredAt": "2026-10-19T09:40:53.136Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 131.00847199999998,
+      "initialAssets": [
+        {
+          "path": "/bench/staged.html",
+          "bytes": 130,
+          "sha256": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949"
+        },
+        {
+          "path": "/bench/staged.js",
+          "bytes": 1974,
+          "sha256": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93"
+        },
+        {
+          "path": "/src/worker/staged-factory.js",
+          "bytes": 1104,
+          "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+        },
+        {
+          "path": "/src/worker/staged-controller.js",
+          "bytes": 4980,
+          "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+        },
+        {
+          "path": "/src/worker/staged-brent-source.js",
+          "bytes": 23641,
+          "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+        },
+        {
+          "path": "/src/worker/staged-ecm-source.js",
+          "bytes": 638816,
+          "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+        },
+        {
+          "path": "/src/worker/staged-siqs-source.js",
+          "bytes": 156165,
+          "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+        },
+        {
+          "path": "/src/worker/staged-staged-source.js",
+          "bytes": 771340,
+          "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/engine/staged-plan.js",
+          "bytes": 1465,
+          "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+        },
+        {
+          "path": "/src/engine/staged-result.js",
+          "bytes": 3655,
+          "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-staged.mjs": "8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",
+        "bench/staged-train.json": "583d166f41b72879359728c48bde80816e3871fb969c7c9083137883f970f34a",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/staged.html": "2b55d215304dff4c49836ecefb20fdaea08e54e9055a131af25ee4c3454c2949",
+        "bench/staged.js": "f6824cbb8c5b09b6051acc7aef3d840d91e8e9fbe121eb61f7fa4472b5eaba93",
+        "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+        "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+        "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+        "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+        "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+        "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+        "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+      },
+      "records": [
+        {
+          "case": "balanced-112bit-0",
+          "input": "3894222643488354664636594044948941",
+          "expectedFactors": [
+            "54043195528458347",
+            "72057594030273703"
+          ],
+          "options": {
+            "mode": "p64",
+            "timeBudgetMs": 1000,
+            "operationBudget": 50000000,
+            "seed": 1
+          },
+          "result": {
+            "input": "3894222643488354664636594044948941",
+            "factors": [
+              {
+                "value": "54043195528458347",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "72057594030273703",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 11920799,
+            "elapsedMs": 237.69999999925494,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "staged",
+            "seed": 1,
+            "policy": "p64",
+            "stages": [
+              {
+                "index": 0,
+                "stage": "brent-prefix",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 146,
+                "startMs": 0.5999999977648258,
+                "endOps": 39689,
+                "endMs": 21,
+                "outcome": "stopped",
+                "reason": "time-budget"
+              },
+              {
+                "index": 1,
+                "stage": "ecm-prefix",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 39689,
+                "startMs": 21,
+                "endOps": 41338,
+                "endMs": 101.5,
+                "outcome": "stopped",
+                "reason": "time-budget"
+              },
+              {
+                "index": 2,
+                "stage": "siqs",
+                "input": "3894222643488354664636594044948941",
+                "startOps": 41338,
+                "startMs": 101.59999999776483,
+                "endOps": 11919960,
+                "endMs": 237.19999999925494,
+                "outcome": "split",
+                "reason": null
+              }
+            ],
+            "grants": [
+              {
+                "name": "brent-prefix",
+                "operations": 39543,
+                "elapsedMs": 20.5,
+                "operationLimit": 50000,
+                "timeLimitMs": 20,
+                "disabled": false
+              },
+              {
+                "name": "ecm-prefix",
+                "operations": 1649,
+                "elapsedMs": 80.5,
+                "operationLimit": 500000,
+                "timeLimitMs": 80,
+                "disabled": false
+              }
+            ],
+            "origin": "worker",
+            "traceAvailable": true,
+            "mode": "p64",
+            "engineMode": "staged",
+            "requestWallMs": 294.5,
+            "initializationMs": 55.100000001490116,
+            "computeWallMs": 239.39999999850988,
+            "workers": 1,
+            "linearMemoryBytes": 134217728,
+            "allWorkersDisposed": true,
+            "audit": {
+              "engineMode": "staged",
+              "ecm": {
+                "method": "ecm",
+                "lane": 0,
+                "workers": 1,
+                "base": 2,
+                "sigma": [
+                  270375,
+                  67634695,
+                  2647435467,
+                  307599701,
+                  2398689239,
+                  745495510,
+                  632435488,
+                  435756216,
+                  2005365035,
+                  2916098938,
+                  2657092305,
+                  1495045949,
+                  3031976848,
+                  82049204,
+                  87470075,
+                  3385103799,
+                  891394318,
+                  3323190030,
+                  321008535,
+                  4283899423,
+                  2383559225,
+                  3822316991,
+                  1391776753,
+                  3652395605,
+                  44632824,
+                  1562130991,
+                  2440533931,
+                  333695722,
+                  1028688097,
+                  2771657028,
+                  57526109,
+                  3412600858
+                ],
+                "usedMask": 31,
+                "curves": 5,
+                "pm1Attempts": 0,
+                "mask": 16374,
+                "point": 13,
+                "injected": false,
+                "poisoned": false,
+                "gmpAllocations": 11196,
+                "directAllocations": 360,
+                "parameters": {
+                  "dF": 120,
+                  "k": 2,
+                  "S": 1,
+                  "repr": 3,
+                  "ntt": 0
+                }
+              },
+              "siqs": {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 22540356,
+                "phaseMask": 126,
+                "allocations": 1339,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 185609,
+                "logical": 11878622,
+                "clockReads": 185610,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 11878622,
+                "nativeImports": 185609,
+                "phaseWork": [
+                  125702,
+                  152084,
+                  7066131,
+                  4308455,
+                  83931,
+                  142319
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            }
+          },
+          "sampledRam": {
+            "samples": 7,
+            "first": {
+              "atMs": 2130.919229,
+              "rssBytes": 1254551552,
+              "pssBytes": 452059136,
+              "processes": 12
+            },
+            "peakRssBytes": 1283563520,
+            "peakPssBytes": 481006592,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 41,
+        "first": {
+          "atMs": 277.06219,
+          "rssBytes": 360448,
+          "pssBytes": 143360,
+          "processes": 1
+        },
+        "peakRssBytes": 1291595776,
+        "peakPssBytes": 489242624,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    }
+  ]
+}

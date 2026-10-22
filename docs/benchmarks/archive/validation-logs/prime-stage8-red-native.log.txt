@@ -1,0 +1,16 @@
+file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/scripts/container-compile.mjs:29
+    if (result.status !== 0) throw Error(String(result.stderr || result.error || 'Compiler failed'));
+                                   ^
+
+Error: /usr/bin/ld: /work/sanitize.o: in function `main':
+/src/native/siqs-v2/sanitize.c:29: undefined reference to `native_checkpoint_probe'
+/usr/bin/ld: /src/native/siqs-v2/sanitize.c:30: undefined reference to `native_checkpoint_probe'
+collect2: error: ld returned 1 exit status
+
+    at compileInContainer (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/scripts/container-compile.mjs:29:36)
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/scripts/build-siqs-v2.mjs:44:15
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0

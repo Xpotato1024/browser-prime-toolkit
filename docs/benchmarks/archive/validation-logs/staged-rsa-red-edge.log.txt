@@ -1,0 +1,61 @@
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (5.135997ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (0.516399ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.6398ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.487999ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (1.584999ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.9014ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.417399ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.2908ms)
+✖ source release time is still inside the five-second initialization cap (1.191499ms)
+✔ large perfect powers retain their full input and proven factorization (12.682092ms)
+✔ probable remains unproven after an independent host check (4.661197ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.7151ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.768799ms)
+✖ partial progress cannot retain a forged probable composite factor (0.5633ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 12
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153.523705
+
+✖ failing tests:
+
+test at test/rsa/evaluator.test.js:71:1
+✖ source release time is still inside the five-second initialization cap (1.191499ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'cancelled'
+  - 'fatal'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:75:25)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'cancelled',
+    expected: 'fatal',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/rsa/result.test.js:31:1
+✖ partial progress cannot retain a forged probable composite factor (0.5633ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:34:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /probable|prime/i,
+    operator: 'throws',
+    diff: 'simple'
+  }

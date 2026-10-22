@@ -1,0 +1,10 @@
+✔ unknown native trap and invalid algebra keep fatal identity after compute expiry (1.0183ms)
+✔ recognized native stops preserve their explicit reason (0.2277ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.531957

@@ -1,0 +1,11 @@
+SPDX-FileCopyrightText: 2026 Xpotato.net / Xpotato1024
+Original Xpotato source portions: SPDX-License-Identifier: AGPL-3.0-only
+
+This notice accompanies original code in this source directory, including
+historically measured files whose bytes remain fixed for reproducibility.
+New original source files should carry the same credit and SPDX identifier.
+
+Generated module.js, bytes.js and Worker bundles contain third-party code
+and/or object code. Their third-party portions retain the licenses listed
+in ../THIRD_PARTY_NOTICES.md; this notice does not relicense those portions.
+See ../LICENSING.md, ../SOURCE_OFFER.md and ../LICENSE for scope and source access.

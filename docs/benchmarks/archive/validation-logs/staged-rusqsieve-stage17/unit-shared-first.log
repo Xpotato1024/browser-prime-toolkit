@@ -1,0 +1,33 @@
+✔ rusqsieve rejects noncanonical and out-of-profile inputs before allocation (1.145599ms)
+✔ strict ABI6 framing requires exact issued families and complete nested consumption (3.072898ms)
+✔ upstream nonascending powers are accepted; duplicates and FB boundary are rejected (1.254799ms)
+✔ bounded SIMD WASM allocator observer accounts alloc/realloc/free and refused growth (5.038297ms)
+✖ shared context preserves family bytes, lifetime and post-free requested-live baseline (36.74768ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.967818
+
+✖ failing tests:
+
+test at test/rusqsieve-sharing.test.js:7:1
+✖ shared context preserves family bytes, lifetime and post-free requested-live baseline (36.74768ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(c)
+  
+      at cycle (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-sharing.test.js:13:49)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-sharing.test.js:21:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

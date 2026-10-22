@@ -1,0 +1,90 @@
+{
+  "profile": "rsa-native-brent-v2",
+  "measuredHead": "6c728c37c98fa08313e6ff84b10a5009fd6e99f5",
+  "browser": "Chrome/155.0.8059.39",
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "workers": 1,
+  "wasmBytes": 0,
+  "timeBudgetMs": 30000,
+  "operationBudget": 200000000,
+  "officialCasesMeasured": [
+    {
+      "id": "RSA-100",
+      "digits": 100,
+      "bits": 330
+    }
+  ],
+  "seeds": [
+    1,
+    11,
+    23,
+    41,
+    67
+  ],
+  "trials": 5,
+  "factorizedCount": 0,
+  "successRate": 0,
+  "largestObservedSuccess": null,
+  "requestWallMs": {
+    "median": 29977,
+    "min": 29976.39999999851,
+    "max": 29977.39999999851
+  },
+  "successfulRequestWallMs": null,
+  "stopCounts": {
+    "timeout/time-budget": 5
+  },
+  "checkpoints": {
+    "min": 85108348,
+    "max": 87158263,
+    "allPastLegacyCap": true
+  },
+  "factorsFound": 0,
+  "integrity": {
+    "knownFactorsUsed": false,
+    "allProductsReconstructed": true,
+    "allWorkersDisposed": true,
+    "postAssetNetworkRequests": 0,
+    "factorCertainties": []
+  },
+  "sampledRam": {
+    "peakRssBytes": 1317687296,
+    "peakPssBytes": 443453440,
+    "description": "Sampled whole Chrome process tree, including startup and pre-audit runtime; not a hard cap or instantaneous peak"
+  },
+  "limitations": [
+    "Only RSA-100 measured; other official moduli unmeasured",
+    "Native Brent baseline only; GMP/ECM/SIQS unsupported here",
+    "No universal maximum or large-SIQS performance claim",
+    "No proven prime factors if factorCertainties is empty"
+  ],
+  "evidence": [
+    {
+      "path": "docs/benchmarks/llm01-staged-rsa100-seed1.json",
+      "sha256": "78c74a0b83a42c5ad8036625cb9d63640ced3a69cee5cc40788d4701a6693611"
+    },
+    {
+      "path": "docs/benchmarks/llm01-staged-rsa100-seed11.json",
+      "sha256": "1d5238d06bc5329cf6cb337d9830f51a0692eb8e4f60b8f3206f86135e8a706e"
+    },
+    {
+      "path": "docs/benchmarks/llm01-staged-rsa100-seed23.json",
+      "sha256": "b5be2b11634c563e7053e298e6f7a21d099447a4ba631bb77df98b3c2a41b5aa"
+    },
+    {
+      "path": "docs/benchmarks/llm01-staged-rsa100-seed41.json",
+      "sha256": "d9745e68e5fa8be88f1fe850907e8605fc04775c86629ab1c6bb85e8e92b5813"
+    },
+    {
+      "path": "docs/benchmarks/llm01-staged-rsa100-seed67.json",
+      "sha256": "23afd97d1a24421c53f5a0b336100fecf6d8ada7ed9078547ae17769f3e4c7ab"
+    }
+  ]
+}

@@ -1,0 +1,1068 @@
+{
+  "mode": "full-siqs-opt-measurement",
+  "variant": "base",
+  "caseId": "RSA-100",
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 600000,
+  "lifecycle": null,
+  "measuredHead": "7a33c533403403e62216a3c551c3769cbca58af2",
+  "measuredAt": "2026-10-20T08:43:07.569Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 113.28975200000014,
+  "initialAssets": [
+    {
+      "path": "/bench/full-siqs-opt.html",
+      "bytes": 139,
+      "sha256": "8d5ce8fcdefa4a21c1ea5f7faa82148b38b3ca631d3257f72fd8af64638c88c7"
+    },
+    {
+      "path": "/bench/full-siqs-opt.js",
+      "bytes": 7458,
+      "sha256": "b0fb1f45bd4e1a0f109ff0eabb201b73c92ded96428730aae779ebe0eec051e1"
+    },
+    {
+      "path": "/src/full-siqs-opt/worker-source.js",
+      "bytes": 517055,
+      "sha256": "fca0811799eaf257106939670b74ca1419512f258546e5188f05a82ec67f1aef"
+    },
+    {
+      "path": "/src/full-siqs-opt/evaluator.js",
+      "bytes": 7090,
+      "sha256": "6a7d6a1dd204895a112aa6f1dad746c53174be8fa0fe0e94e2b334e31da8d144"
+    },
+    {
+      "path": "/src/full-siqs-opt/factory.js",
+      "bytes": 359,
+      "sha256": "46cdc10d01589d45ed7636c172fa566d5329fbdff7dfb1f8df1904af9d9785d4"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/full-siqs-opt/profile.js",
+      "bytes": 1464,
+      "sha256": "93111e99214828490f81dc83d188f49a234d803282aaab215401885c4c5d3db1"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-practical/cases.js",
+      "bytes": 2121,
+      "sha256": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/full-siqs-opt/result.js",
+      "bytes": 1932,
+      "sha256": "4294a1afde05f1a21921b9415db8b711298d78f3d616c405c516dfacb22cb2a0"
+    },
+    {
+      "path": "/src/full-siqs-opt/core-result.js",
+      "bytes": 4012,
+      "sha256": "b7e3e684a425926f68453a4346f3d3a36df2438966ecb177efcfdfe2ff229dc3"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-full-siqs-opt.mjs": "799bcfc55eeeac7abbde89053a3ed9527fc954972ae4a4352cc9165e8db1d1ba",
+    "scripts/benchmark-full-siqs-opt.mjs": "713f59071afa5cbeb085e8ac79df2f801a8e5bfe870288a6de0e6129ae72b88e",
+    "bench/staged-full-opt-plan.json": "4602da0e57e3b3701d9fcad12bab4b9ab9e4eb64c70771883b7d0673f443f02b",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/full-siqs-opt-asset-route.mjs": "2602f85679042d0dc77c6daafa8826a7accf36ac2051a7fc926db77e5d471913",
+    "scripts/build-full-siqs-opt-worker.mjs": "7a04dba7b0aaa63be4179cda5a17a5fc4451c454839afa99f6066f213ebbf3df",
+    "src/full-siqs-opt/factor.js": "a81567a604c19fb8325d3f1f2597c5090f9399f884374021e82c086d6fa985f5",
+    "src/full-siqs-opt/options.js": "6abcb7ec347471f21f48be1881c8be574cf3c186f49a6c484d2d2719aa2fdf35",
+    "src/full-siqs-opt/install.js": "7fdc7d2a5a4b5cc65bf8b19a66a0ccd5401cc679cf9824892bd6d24bb1e52d9f",
+    "src/full-siqs-opt/kernel.js": "81a06d7562af05b9fc555d32204473702a9d90720ad4df087b42a53f6783b9bb",
+    "native/siqs-lab/staged-build.json": "7129af68e7ef5befbf53f2e81ab5cc533f8869bf93f7b8279fe54f37566b2a66",
+    "native/siqs-tuned/staged-build.json": "d11b4267d5296dfad501696e415027058ac018f2d6b53ec090119f72113ebfe5",
+    "src/full-siqs-opt/settings.js": "22b87689743013b62a9172ae3be47c0d7f7158b02ed86ccfb09b113bfeca47fc",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-practical/catalog.json": "e4d60ccc0be824b826de46a2a5cfc0a3e3961bd3298fbb6e2bcd62cbd4fdefbc",
+    "bench/staged-practical/oracle.json": "c96b12103072b10bac8f7c39fc130f98939302bdae3ddf42ecd9db9a77ec419d",
+    "bench/staged-practical/manifest.json": "e6ec2cd3cff3b031311d124e34c741250d313ea958ba0bcf824c110b178ef42c",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "scripts/generate-full-practical.py": "08a4e6c077e72a4ed4237051e7349382f6e916423d2a8499167af870a6dfdd1d",
+    "scripts/check-full-practical.mjs": "e1617fa7af1f33e9177829ec486e31704407b1bba0edaa9e7fea94352eceb36b",
+    "bench/full-siqs-opt.html": "8d5ce8fcdefa4a21c1ea5f7faa82148b38b3ca631d3257f72fd8af64638c88c7",
+    "bench/full-siqs-opt.js": "b0fb1f45bd4e1a0f109ff0eabb201b73c92ded96428730aae779ebe0eec051e1",
+    "src/full-siqs-opt/worker-source.js": "fca0811799eaf257106939670b74ca1419512f258546e5188f05a82ec67f1aef",
+    "src/full-siqs-opt/evaluator.js": "6a7d6a1dd204895a112aa6f1dad746c53174be8fa0fe0e94e2b334e31da8d144",
+    "src/full-siqs-opt/factory.js": "46cdc10d01589d45ed7636c172fa566d5329fbdff7dfb1f8df1904af9d9785d4",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/full-siqs-opt/profile.js": "93111e99214828490f81dc83d188f49a234d803282aaab215401885c4c5d3db1",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-practical/cases.js": "d3c3ce7398e36e0778a8b5af75d8e65cc0af944edc3c4a7366966878c3af5020",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/full-siqs-opt/result.js": "4294a1afde05f1a21921b9415db8b711298d78f3d616c405c516dfacb22cb2a0",
+    "src/full-siqs-opt/core-result.js": "b7e3e684a425926f68453a4346f3d3a36df2438966ecb177efcfdfe2ff229dc3",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "id": "RSA-100",
+      "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+      "digits": 100,
+      "bits": 330,
+      "seed": 1,
+      "outcome": {
+        "profile": "full-siqs-stage16-v1",
+        "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+        "backend": "full-siqs",
+        "bits": 330,
+        "wasmBytes": 268435456,
+        "limits": {
+          "id": "full-siqs-stage16-v1",
+          "maxBits": 332,
+          "maxDigits": 100,
+          "timeBudgetMs": 600000,
+          "initializationDeadlineMs": 5000,
+          "operationBudget": 1000000000000,
+          "workers": 1,
+          "wasmBytes": 268435456,
+          "packetBytes": 262144,
+          "deliveryGraceMs": 250
+        },
+        "kind": "timeout",
+        "reason": "time-budget",
+        "result": {
+          "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+          "factors": [],
+          "remaining": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+          "operations": 106083893612,
+          "elapsedMs": 599695.1999999881,
+          "status": "incomplete",
+          "reason": "time-budget",
+          "primality": "composite",
+          "algorithm": "full-siqs",
+          "seed": 1
+        },
+        "snapshot": {
+          "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+          "factors": [],
+          "remaining": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+          "operations": 106083893612,
+          "elapsedMs": 599695.1999999881
+        },
+        "workers": 1,
+        "allWorkersDisposed": true,
+        "requestWallMs": 599753.200000003,
+        "initializationMs": 55.6000000089407,
+        "computeWallMs": 599697.599999994,
+        "proofTicks": 0,
+        "telemetry": [
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 1,
+            "work": 5446656,
+            "relations": null
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 104964365312,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 104981992448,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 104999856128,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105017344000,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105035289600,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105052954624,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105070613504,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105088548864,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105106159616,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105124131840,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105141643264,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105159268352,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105176972288,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105194487808,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105212453888,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105229984768,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105247867904,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105265927168,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105283738624,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105301837824,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105319630848,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105337436160,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105355501568,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105373375488,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105391384576,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105408751616,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105426425856,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105444439040,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105462181888,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105480138752,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105497955328,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105515888640,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105533869056,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105551516672,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105569304576,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105587357696,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105605131264,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105623250944,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105640598528,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105658228736,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105676030976,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105693869056,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105711996928,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105729871872,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105747739648,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105765811200,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105783627776,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105801738240,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105819518976,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105837297664,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105855345664,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105872349184,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105890313216,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105908007936,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105925764096,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105943741440,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105961624576,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105979604992,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 105997274112,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 106015051776,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 106033272832,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 106050919424,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          },
+          {
+            "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+            "phase": 3,
+            "work": 106068739072,
+            "relations": {
+              "total": 487,
+              "full": 478,
+              "combined": 9,
+              "partial": 34989,
+              "target": 97743
+            }
+          }
+        ],
+        "diagnostics": {
+          "nativeScope": "last-split",
+          "splitCount": 1,
+          "nativeMode": 0,
+          "stride": 1024,
+          "nativeWork": 106083893248,
+          "phaseWork": [
+            0,
+            8433914,
+            86488481,
+            105988970853,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "periodic": 103597552,
+            "flush": 47,
+            "deliveries": 103597599
+          },
+          "abortReason": null,
+          "phase": 3,
+          "work": 106083893248,
+          "relations": {
+            "total": 487,
+            "full": 478,
+            "combined": 9,
+            "partial": 34989,
+            "target": 97743
+          },
+          "poisoned": true,
+          "saveBytes": 2686961,
+          "nnz": 0,
+          "reason": 0,
+          "line": 0,
+          "logs": []
+        }
+      },
+      "knownFactorsUsed": false
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 8050,
+    "first": {
+      "atMs": 145.177144,
+      "rssBytes": 385024,
+      "pssBytes": 165888,
+      "processes": 1
+    },
+    "peakRssBytes": 1354805248,
+    "peakPssBytes": 506144768,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 1000000000000,
+    "wasmBytes": 268435456,
+    "saveCapBytes": 16777216,
+    "nativeMode": 0,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "one full mode0 SIQS Worker; fixed 256MiB WASM; unsupported input never allocates a Worker",
+    "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

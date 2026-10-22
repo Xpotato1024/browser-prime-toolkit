@@ -1,0 +1,18 @@
+{
+  "measuredHead": "7a33c533403403e62216a3c551c3769cbca58af2",
+  "files": {
+    "browser-base-head.json": "7edfd1ae9612db177eb46bc4723091a724c1f3f9e1a2723165e66fe4d99cb8f0",
+    "browser-base-head.log": "94ee94ed4f549eacb22d5c4913a4a7d7c5c1d74c7863b7eb7130abdf97ab3028",
+    "browser-lto-head.json": "4ae1c6fb9049b4418a717e050663b46005d00ab40a8d44ee647f9d4d6429de5f",
+    "browser-lto-head.log": "233513f25bd1b12433ee48db68b509d5f74e1e7c27bfc5c42c996c831bbbc60f",
+    "tests-measured-head.log": "81ac0257ee07163cf914b9f3ab19e32897316657103bd3e26d336fa77281033d",
+    "check-measured-head.log": "2ab4b5c7989ef7ae3a1a16d9992532c07fe0ba00b394474048763dcc7759dbb8",
+    "profile-red.log": "4b64e23b511edcf7ff5140232853c3bfb3b77627adc1ea527168c5043ec9b384",
+    "profile-first-green.log": "f7d2abc87dcb496a9f24b6c78ae38a46844e03e10b881384490458a45a78712b",
+    "profile-green.log": "ab6ffbce5aebd591562b31073c59fda8e652f02d500889c640f3850ace1e7f19",
+    "core-head.txt": "0083737cda7e63ce2d8cf76a33859e18359e46ad6f83837863630f467db8e0a4",
+    "diagnostic-head.txt": "ef944f4c2ea7a55100cfdf4684ace2de0f5d22853444942780d813124edb9ba5",
+    "browser-diagnostic-first.json": "6206e5222932a634fc5483dfccc40675f19de01532d548cbeb71494fba137c3c",
+    "browser-diagnostic-first.log": "4e125a6b663c02dfc3681437cd32c71a2cb0aa9fc5d7efe1a082f753bb512452"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "llm01-graph-hotpath-20261021-v1",
+  "hypothesis": "Independent resieve identity shortcut and dense-block locality; same varint retention and all mathematical parameters",
+  "acceptance": {
+    "commonPrefix": 32,
+    "wallRatioMax": 0.95,
+    "pssRatioMax": 1.1,
+    "liveRatioMax": 1.05,
+    "allPacketsColumnsCountersEqual": true
+  },
+  "limits": {
+    "totalCalculationMs": 780000,
+    "startAvailableMiB": 4096,
+    "maxWasmMiB": 576,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8
+  },
+  "trials": [
+    {
+      "id": "contracts-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "skip-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "skip-2-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "skip-3-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "skip-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "contracts-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "block16-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "block16-2-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "block16-3-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    },
+    {
+      "id": "block16-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32
+    }
+  ]
+}

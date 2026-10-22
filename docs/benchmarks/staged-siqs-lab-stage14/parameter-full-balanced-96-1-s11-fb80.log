@@ -1,0 +1,2 @@
+{"id":"full-balanced-96-1","options":{"variant":"fb80","timeBudgetMs":10000,"seed":11,"workers":1,"streams":1,"operationBudget":1000000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":9067.89999999106,"graph":{"rawRelations":722,"uniqueRelations":722,"duplicates":0,"full":5,"partial":717,"combined":0,"total":5,"polynomials":1,"vertices":1270,"components":553,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/parameter-full-balanced-96-1-s11-fb80.json

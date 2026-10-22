@@ -1,0 +1,364 @@
+[
+  {
+    "id": "balanced-10-0",
+    "kind": "balanced-semiprime",
+    "input": "10189224821914436983",
+    "factors": [
+      "1372994653",
+      "7421168611"
+    ],
+    "digits": 20,
+    "bits": 64,
+    "factorDigits": [
+      10,
+      10
+    ],
+    "factorBits": [
+      31,
+      33
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-10-1",
+    "kind": "balanced-semiprime",
+    "input": "2289188565159910529",
+    "factors": [
+      "1115973611",
+      "2051292739"
+    ],
+    "digits": 19,
+    "bits": 61,
+    "factorDigits": [
+      10,
+      10
+    ],
+    "factorBits": [
+      31,
+      31
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-10-2",
+    "kind": "balanced-semiprime",
+    "input": "3942659309005228261",
+    "factors": [
+      "1307811689",
+      "3014699549"
+    ],
+    "digits": 19,
+    "bits": 62,
+    "factorDigits": [
+      10,
+      10
+    ],
+    "factorBits": [
+      31,
+      32
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-10-3",
+    "kind": "balanced-semiprime",
+    "input": "6143490588876274441",
+    "factors": [
+      "1191117251",
+      "5157754691"
+    ],
+    "digits": 19,
+    "bits": 63,
+    "factorDigits": [
+      10,
+      10
+    ],
+    "factorBits": [
+      31,
+      33
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-13-0",
+    "kind": "balanced-semiprime",
+    "input": "3012048473684349413080363",
+    "factors": [
+      "1002800426933",
+      "3003637007711"
+    ],
+    "digits": 25,
+    "bits": 82,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      42
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": true
+  },
+  {
+    "id": "balanced-13-1",
+    "kind": "balanced-semiprime",
+    "input": "2007147835949070207153161",
+    "factors": [
+      "1002651853361",
+      "2001839251801"
+    ],
+    "digits": 25,
+    "bits": 81,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      41
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-13-2",
+    "kind": "balanced-semiprime",
+    "input": "4013595421370156128863971",
+    "factors": [
+      "1003312501979",
+      "4000344273049"
+    ],
+    "digits": 25,
+    "bits": 82,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      42
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-13-3",
+    "kind": "balanced-semiprime",
+    "input": "4018438122708272368009417",
+    "factors": [
+      "1003821743933",
+      "4003139149949"
+    ],
+    "digits": 25,
+    "bits": 82,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      42
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "unbalanced-101-13",
+    "kind": "unbalanced-semiprime",
+    "input": "101000000016463",
+    "factors": [
+      "101",
+      "1000000000163"
+    ],
+    "digits": 15,
+    "bits": 47,
+    "factorDigits": [
+      3,
+      13
+    ],
+    "factorBits": [
+      7,
+      40
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "square-13",
+    "kind": "square-control",
+    "input": "1000000000078000000001521",
+    "factors": [
+      "1000000000039",
+      "1000000000039"
+    ],
+    "digits": 25,
+    "bits": 80,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      40
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "close-13",
+    "kind": "close-factor-control",
+    "input": "1000000000202000000006357",
+    "factors": [
+      "1000000000039",
+      "1000000000163"
+    ],
+    "digits": 25,
+    "bits": 80,
+    "factorDigits": [
+      13,
+      13
+    ],
+    "factorBits": [
+      40,
+      40
+    ],
+    "factorProof": "independent exhaustive trial division, outside timed region",
+    "source": "PR3 historical verified corpus",
+    "pool": false
+  },
+  {
+    "id": "balanced-96bit-0",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "59421120273299600154862853921",
+    "factors": [
+      "211106232545339",
+      "281474969056339"
+    ],
+    "factorBits": [
+      48,
+      48
+    ],
+    "bits": 96,
+    "factorDigits": [
+      15,
+      15
+    ],
+    "pool": false
+  },
+  {
+    "id": "balanced-96bit-1",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "59421120412303754922170451409",
+    "factors": [
+      "211106233779923",
+      "281474968068683"
+    ],
+    "factorBits": [
+      48,
+      48
+    ],
+    "bits": 96,
+    "factorDigits": [
+      15,
+      15
+    ],
+    "pool": false
+  },
+  {
+    "id": "balanced-112bit-0",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "3894222643488354664636594044948941",
+    "factors": [
+      "54043195528458347",
+      "72057594030273703"
+    ],
+    "factorBits": [
+      56,
+      56
+    ],
+    "bits": 112,
+    "factorDigits": [
+      17,
+      17
+    ],
+    "pool": false
+  },
+  {
+    "id": "balanced-112bit-1",
+    "kind": "balanced-semiprime",
+    "source": "new-uint64-trial-certified",
+    "input": "3894222643523935227381163886950903",
+    "factors": [
+      "54043195529692903",
+      "72057594029286001"
+    ],
+    "factorBits": [
+      56,
+      56
+    ],
+    "bits": 112,
+    "factorDigits": [
+      17,
+      17
+    ],
+    "pool": false
+  },
+  {
+    "id": "unbalanced-10digit-m127",
+    "kind": "unbalanced-large",
+    "source": "new-MR-fixed7-probable-residual-no-prime-proof",
+    "input": "170141184651457515954971925837695231738188740089",
+    "factors": [
+      "1000000007",
+      "170141183460469231731687303715884105727"
+    ],
+    "factorBits": [
+      30,
+      127
+    ],
+    "bits": 157,
+    "factorDigits": [
+      10,
+      39
+    ],
+    "pool": true
+  },
+  {
+    "id": "unbalanced-13digit-m127",
+    "kind": "unbalanced-large",
+    "source": "new-MR-fixed7-probable-residual-no-prime-proof",
+    "input": "170141183467104737886645603753419910571919480123353",
+    "factors": [
+      "1000000000039",
+      "170141183460469231731687303715884105727"
+    ],
+    "factorBits": [
+      40,
+      127
+    ],
+    "bits": 167,
+    "factorDigits": [
+      13,
+      39
+    ],
+    "pool": false
+  }
+]

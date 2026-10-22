@@ -1,0 +1,14 @@
+✔ screen requires both paired two-worker gains and preserves the one-worker floor (3.500293ms)
+✔ missing trials, duplicate IDs, zero baseline and failed guarantees cannot select (1.164797ms)
+✔ long ABBA needs both candidate yields above the maximum baseline by the fixed margin (0.438699ms)
+✔ long starts only from all twelve bound successful short artifacts (3.392493ms)
+✔ tracked changes, extra untracked code and altered raw/log/source fail before long compute (4.64609ms)
+✔ wrong plan, incomplete/duplicate IDs or unsuccessful harness cannot enter long series (1.692396ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.302881

@@ -1,0 +1,2 @@
+const assets=new Set(['bench/full-siqs.html','bench/full-siqs.js','src/full-siqs/evaluator.js','src/full-siqs/factory.js','src/full-siqs/worker-source.js','src/full-siqs/result.js','src/full-siqs/core-result.js','src/full-siqs/profile.js','src/core/integer-input.js','src/engine/options.js','src/engine/arithmetic.js','src/worker/source-factory.js','bench/staged-rsa/cases.js','bench/staged-practical/cases.js','bench/staged-full/cases.js']);
+export function fullSiqsAsset(path){try{const key=decodeURIComponent(path).slice(1);return assets.has(key)?key:null;}catch{return null;}}

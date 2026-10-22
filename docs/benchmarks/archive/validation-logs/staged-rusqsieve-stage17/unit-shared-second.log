@@ -1,0 +1,14 @@
+✔ rusqsieve rejects noncanonical and out-of-profile inputs before allocation (1.0177ms)
+✔ strict ABI6 framing requires exact issued families and complete nested consumption (0.766899ms)
+✔ upstream nonascending powers are accepted; duplicates and FB boundary are rejected (1.2206ms)
+✔ bounded SIMD WASM allocator observer accounts alloc/free and refused growth (6.904996ms)
+{"sharedExtra":0,"copyExtra":72328}
+✔ shared context preserves family bytes, lifetime and post-free requested-live baseline (268.413775ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 380.216523

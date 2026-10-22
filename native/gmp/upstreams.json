@@ -1,0 +1,44 @@
+[
+  {
+    "file": "gmp-6.3.0.tar.xz",
+    "url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+    "bytes": 2094196,
+    "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+  },
+  {
+    "file": "gmp-ecm.tar.gz",
+    "url": "https://codeload.github.com/sethtroisi/gmp-ecm/tar.gz/8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e",
+    "bytes": 721052,
+    "sha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494"
+  },
+  {
+    "file": "autoconf_2.71-2_all.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/autoconf/autoconf_2.71-2_all.deb",
+    "bytes": 337608,
+    "sha256": "96b528889794c4134015a63c75050f93d8aecdf5e3f2a20993c1433f4c61b80e"
+  },
+  {
+    "file": "automake_1.16.5-1.3_all.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.16/automake_1.16.5-1.3_all.deb",
+    "bytes": 557936,
+    "sha256": "59e3890fc8407bcf8ccc9f709d6513156346d5c942e8c624dc90435e58f6f978"
+  },
+  {
+    "file": "m4_1.4.18-5ubuntu2_amd64.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb",
+    "bytes": 198836,
+    "sha256": "572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e"
+  },
+  {
+    "file": "libtool_2.4.6-15build2_all.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.6-15build2_all.deb",
+    "bytes": 163940,
+    "sha256": "fb994bc0152f4e77a791b51bc54fd5e38963aa6473e60c45369ef373b6119124"
+  },
+  {
+    "file": "libsigsegv2_2.13-1ubuntu3_amd64.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb",
+    "bytes": 14612,
+    "sha256": "894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891"
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "id": "llm01-resieve-followup-stage41",
+  "baselineHead": "26f2478eb0af0a7abdb02add4688e068e5e6bee6",
+  "successfulReferenceHead": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "hypothesis": "After crossover4 regressed, independently test crossover1 and exact bitmap word-rank to reduce measured resieve cost; preserve the old full score length and all factor order.",
+  "runtime": "LLM-01 real Headless Chrome155, one combined coordinator/compute Worker",
+  "artifacts": {
+    "baseline": {
+      "path": "src/long-window/wasm-long-1024.js",
+      "sha256": "9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037"
+    },
+    "resieve1": {
+      "path": "src/resieve-followup/wasm-resieve1-1024.js",
+      "sha256": "21cec2f0e9631c769ad256e42d37e9b7865de1d92e4b0ba129ec1d3c5eb77a6d"
+    },
+    "rank": {
+      "path": "src/resieve-followup/wasm-rank-1024.js",
+      "sha256": "ea624d26dbe14abc606a655a16199600ab4bdcb0e0429fda4c2eb6c80d89fbc8"
+    }
+  },
+  "limits": {
+    "totalCampaignMs": 960000,
+    "childBudgetMs": 90000,
+    "reservePerChildMs": 30000,
+    "families": 4,
+    "workers": 1,
+    "nativeHardmaxMiB": 1024,
+    "manualBudgetMiB": 1536,
+    "slots": 8,
+    "transportMiB": 64,
+    "credit": 2,
+    "clockCalls": 2000000,
+    "phases": 16,
+    "stackDepth": 16,
+    "startAvailableMiB": 4096,
+    "stopAvailableMiB": 4096,
+    "chromePssStopMiB": 1536,
+    "childJsHeapMiB": 128,
+    "maxReceiptBytes": 2097152,
+    "maxCandidates": 2,
+    "sideFramesPerWorker": 2048,
+    "retainedFramesPerWorker": 1,
+    "rankWordStartBytesPerRsa100Owner": 65600
+  },
+  "gates": {
+    "identicalAllPacketsColumnsCounters": true,
+    "full40And64FactorEquality": true,
+    "overheadRatioMax": 1.1,
+    "candidateTimeRatioMax": 0.95,
+    "candidatePssRatioMax": 1.1
+  },
+  "trials": [
+    {
+      "id": "resieve1-1-baseline",
+      "candidate": "resieve1",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve1-2-resieve1",
+      "candidate": "resieve1",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve1-3-resieve1",
+      "candidate": "resieve1",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve1-4-baseline",
+      "candidate": "resieve1",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "rank-1-baseline",
+      "candidate": "rank",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "rank-2-rank",
+      "candidate": "rank",
+      "graph": "rank",
+      "budgetMs": 90000
+    },
+    {
+      "id": "rank-3-rank",
+      "candidate": "rank",
+      "graph": "rank",
+      "budgetMs": 90000
+    },
+    {
+      "id": "rank-4-baseline",
+      "candidate": "rank",
+      "graph": "baseline",
+      "budgetMs": 90000
+    }
+  ]
+}

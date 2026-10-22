@@ -1,0 +1,12 @@
+✔ logical operations keep the original cap regardless of batching (1.779699ms)
+✔ phase change, bounded clock gap, finish and shared prework are accounted (0.873699ms)
+✔ deadline and pulse remain live; unnotified remainder can sync without a clock (0.3721ms)
+✔ short native phase-tail imports force a deadline check before another native batch (0.1505ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.174944

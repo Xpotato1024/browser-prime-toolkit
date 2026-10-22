@@ -1,0 +1,476 @@
+{
+  "plan": "llm01-graph-release-20261021-v1",
+  "planSha256": "09eac14d5a8fee742bb2df0b7d7b46d64bd2ade2536cdd20d7c15eba81f5e152",
+  "driverSha256": "1906bb8465d4ebe1a50351608617525dfa6fbe6db18ce11cd0b4df3da26f9068",
+  "head": "733753ab7a2fad07cdfb868b0420bb8b7387867f",
+  "startedAt": "2026-10-21T03:05:10.361Z",
+  "trials": [
+    {
+      "id": "contracts-baseline",
+      "graph": "baseline",
+      "budgetMs": 30000,
+      "availableMiB": 9245.43359375,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/contracts-baseline.json"
+      ],
+      "startedAt": "2026-10-21T03:05:10.454Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:23.693Z",
+      "logSha256": "8c15e7eda86bcee3ce95b39546f66e10b369a8f23f6ba5d2486882385cf3c690",
+      "bytes": 27286,
+      "sha256": "5cd3af7654cae79de722a665fa6584f7c1198cea574a431853e29ecf9f51096f",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "contracts-release",
+      "graph": "release",
+      "budgetMs": 30000,
+      "availableMiB": 9174.78125,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "release",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/contracts-release.json"
+      ],
+      "startedAt": "2026-10-21T03:05:23.801Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:37.326Z",
+      "logSha256": "3d95566bd37ce300131d0623fc8a692f799cbde0b30be62f84682e7826d5646c",
+      "bytes": 27191,
+      "sha256": "b76010be05a1877c8fba73e37bb37f1a2a05adb2b63b9938efa78d53c048adc1",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "forty-1-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "availableMiB": 9052.140625,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/forty-1-baseline.json",
+        "--case",
+        "full-balanced-40-1"
+      ],
+      "startedAt": "2026-10-21T03:05:37.427Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:40.103Z",
+      "logSha256": "636679730408289a3c4c328aa1007a378664fe2cede8bcd1718431f1663b8191",
+      "bytes": 36788,
+      "sha256": "b67214ec760ef33e9b8c8f0120b2b9a1cbef82d4fa620377123c68f60553b38e",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 9,
+        "usable": 2479,
+        "wallMs": 275.09999999403954,
+        "peakPssBytes": 502966272
+      }
+    },
+    {
+      "id": "forty-2-release",
+      "graph": "release",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "availableMiB": 8919.15234375,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "release",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/forty-2-release.json",
+        "--case",
+        "full-balanced-40-1"
+      ],
+      "startedAt": "2026-10-21T03:05:40.203Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:42.486Z",
+      "logSha256": "dbf226f18fc65294f9c4126752b592477c4f6edce0ebd9040c03be112a2bc67f",
+      "bytes": 37334,
+      "sha256": "f269a32e562655fa505d866d0e486393794a9c9d1c3aa0adb76583e2c2c87800",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 9,
+        "usable": 2479,
+        "wallMs": 281.5,
+        "peakPssBytes": 492499968
+      }
+    },
+    {
+      "id": "forty-3-release",
+      "graph": "release",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "availableMiB": 8884.12109375,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "release",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/forty-3-release.json",
+        "--case",
+        "full-balanced-40-1"
+      ],
+      "startedAt": "2026-10-21T03:05:42.586Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:44.957Z",
+      "logSha256": "8d47d9ff8c21429719369e4fdf0553e2439a1e2e1600c36568f8d7f7e12d7edf",
+      "bytes": 37155,
+      "sha256": "b1a9f03ed8dce4d8346a74cc968442099ee6728cd1547df548d4a6f235bc155f",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 9,
+        "usable": 2479,
+        "wallMs": 279,
+        "peakPssBytes": 491005952
+      }
+    },
+    {
+      "id": "forty-4-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-40-1",
+      "budgetMs": 30000,
+      "availableMiB": 8896.49609375,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/forty-4-baseline.json",
+        "--case",
+        "full-balanced-40-1"
+      ],
+      "startedAt": "2026-10-21T03:05:45.058Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:47.436Z",
+      "logSha256": "2d5acc8133dbf2db731997f173a902828775f9b2d239649ca06829e9199ac716",
+      "bytes": 37726,
+      "sha256": "04650513467800d2e28eba67a7859b0a24c2ca88d53448986accdd0f7398f7aa",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 10,
+        "usable": 2829,
+        "wallMs": 291.2000000178814,
+        "peakPssBytes": 541454336
+      }
+    },
+    {
+      "id": "sixtyfour-1-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "availableMiB": 9005.09765625,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/sixtyfour-1-baseline.json",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T03:05:47.537Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:52.409Z",
+      "logSha256": "5169e5e2bd6b81f79e72acbcdb07cb262dea3d987c501faf9537f061f7e25462",
+      "bytes": 305668,
+      "sha256": "2c38d7e3483424a1ecbf05cfd342592416928101580954024d36e86ed83c5c96",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 362,
+        "usable": 6612,
+        "wallMs": 2983.300000011921,
+        "peakPssBytes": 557157376
+      }
+    },
+    {
+      "id": "sixtyfour-2-release",
+      "graph": "release",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "availableMiB": 8896.90625,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "release",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/sixtyfour-2-release.json",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T03:05:52.511Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:05:57.663Z",
+      "logSha256": "6b932eef96986df7b67e38989c63d11ccc3682d45ddce6edbba810b896312310",
+      "bytes": 301179,
+      "sha256": "c8e7e9dd2415c71e2f46b1a0df0194b6100830afb3811cc72fa7ee1393bbf20f",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 362,
+        "usable": 6612,
+        "wallMs": 3002.7000000178814,
+        "peakPssBytes": 566605824
+      }
+    },
+    {
+      "id": "sixtyfour-3-release",
+      "graph": "release",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "availableMiB": 9084.65625,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "release",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/sixtyfour-3-release.json",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T03:05:57.766Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:06:02.507Z",
+      "logSha256": "58ec50b460e9471054867f227646f730592f1dd349cacffebc297be4553e7700",
+      "bytes": 301184,
+      "sha256": "a71692495b5f3f362ada9590ffa659aa9517c9fda225fc519f02e3cd63456aad",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 362,
+        "usable": 6612,
+        "wallMs": 2903,
+        "peakPssBytes": 566601728
+      }
+    },
+    {
+      "id": "sixtyfour-4-baseline",
+      "graph": "baseline",
+      "case": "full-balanced-64-1",
+      "budgetMs": 30000,
+      "availableMiB": 9022.82421875,
+      "args": [
+        "scripts/verify-graph-release.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign2-release/sixtyfour-4-baseline.json",
+        "--case",
+        "full-balanced-64-1"
+      ],
+      "startedAt": "2026-10-21T03:06:02.609Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:06:07.798Z",
+      "logSha256": "846bb572d7413c0e6d69ea5c567bce1d625953ca6833ba1d61c37f20b53ab50f",
+      "bytes": 300132,
+      "sha256": "289e6a2052688d308d1e1e16165614f5c2d7dedb0eb754ee92ebc3de8d6f364a",
+      "summary": {
+        "kind": "probable",
+        "reason": null,
+        "families": 360,
+        "usable": 6550,
+        "wallMs": 3271.699999988079,
+        "peakPssBytes": 568184832
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T03:06:07.811Z"
+}

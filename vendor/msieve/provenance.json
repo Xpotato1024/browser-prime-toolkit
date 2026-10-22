@@ -1,0 +1,42 @@
+{
+  "repository": "https://github.com/radii/msieve",
+  "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193",
+  "license": "Public domain dedication by Jason Papadopoulos in every imported file",
+  "files": [
+    {
+      "path": "common/smallfact/tinyqs.c",
+      "upstreamSha256": "3be8db8d7f969385fd46b043e6fe3ebd6ccd0bfd637ed89de8ce46ad11a7ecdc",
+      "normalization": "none",
+      "bytes": 20808,
+      "sha256": "3be8db8d7f969385fd46b043e6fe3ebd6ccd0bfd637ed89de8ce46ad11a7ecdc"
+    },
+    {
+      "path": "common/mp.c",
+      "upstreamSha256": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b",
+      "normalization": "none",
+      "bytes": 36047,
+      "sha256": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b"
+    },
+    {
+      "path": "common/prime_delta.c",
+      "upstreamSha256": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7",
+      "normalization": "none",
+      "bytes": 29839,
+      "sha256": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7"
+    },
+    {
+      "path": "include/mp.h",
+      "upstreamSha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+      "normalization": "none",
+      "bytes": 17890,
+      "sha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b"
+    },
+    {
+      "path": "include/util.h",
+      "upstreamSha256": "3fea18cc093a425d100726e12a03009f6b7e1b03428f84ae059d1ba220120b9c",
+      "normalization": "CRLF to LF only",
+      "bytes": 7584,
+      "sha256": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778"
+    }
+  ]
+}

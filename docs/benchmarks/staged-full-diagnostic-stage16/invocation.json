@@ -1,0 +1,19 @@
+{
+  "plan": "full-count-diagnostic-stage16-v1",
+  "planSha256": "13b05a8a0dc211f39d4874936e9169f2042d587c8447883b6602cebd2f7bce0e",
+  "measuredHead": "3ab1a82225d3aa33354460ead8719da586249b8a",
+  "args": [
+    "scripts/verify-full-siqs-diagnostic.mjs",
+    "--case",
+    "RSA-100",
+    "--engine",
+    "lto",
+    "--seed",
+    "1",
+    "--budget-ms",
+    "600000",
+    "--out",
+    "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-full-lto-stage16/docs/benchmarks/staged-full-diagnostic-stage16/rsa100-counts.json"
+  ],
+  "startedAt": "2026-10-20T09:09:44.278Z"
+}

@@ -1,0 +1,10 @@
+{"fatal":[],"badEvents":[],"requests":[],"attached":[],"pending":["Runtime.evaluate"]}
+file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/scripts/verify-rusqsieve.mjs:71
+  for(const path of ['scripts/verify-rusqsieve.mjs','scripts/browser-memory.mjs','scripts/rusqsieve-asset-route.mjs','scripts/build-rusqsieve-worker.mjs','scripts/build-rusqsieve.mjs','native/rusqsieve/staged-build.json','native/rusqsieve/staged-upstream.json','native/rusqsieve/patch-source.mjs','native/rusqsieve/codex_observer.rs','native/rusqsieve/memory-contract.mjs','src/rusqsieve/worker-body.js','bench/staged-rsa/catalog.json','bench/staged-full/catalog.json','bench/staged-full/oracle.json','bench/staged-full/manifest.json',...initialAssets.map(a=>a.path.slice(1))])sourceFiles[path]=createHash('sha256').update(await readFile(join(root,path))).digest('hex');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+
+ReferenceError: initialAssets is not defined
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/scripts/verify-rusqsieve.mjs:71:539
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v24.19.0

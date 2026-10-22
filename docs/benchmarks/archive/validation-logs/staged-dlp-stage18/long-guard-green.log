@@ -1,0 +1,11 @@
+✔ long starts only from all twelve bound successful short artifacts (3.098343ms)
+✔ tracked changes, extra untracked code and altered raw/log/source fail before long compute (3.82993ms)
+✔ wrong plan, incomplete/duplicate IDs or unsuccessful harness cannot enter long series (1.684169ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.066528

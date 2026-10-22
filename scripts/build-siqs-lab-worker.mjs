@@ -1,0 +1,21 @@
+import {readFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {writeGenerated} from './generated-file.mjs';
+const paths=['src/siqs-lab/contracts.js','src/siqs-lab/bytes.js','src/siqs-lab/worker.js'];
+const receipt=JSON.parse(readFileSync(new URL('../native/siqs-lab/staged-build.json',import.meta.url)));
+let module=readFileSync(new URL('../src/siqs-lab/module.js',import.meta.url),'utf8');
+if(!module.endsWith('export default Module;\n'))throw Error('Lab generated module export');
+module=module.replaceAll('import.meta.url',JSON.stringify('blob:siqs-lab-local')).replace('export default Module;','return Module;');
+const chunks=paths.map(path=>{
+ let code=readFileSync(new URL('../'+path,import.meta.url),'utf8');
+ code=code.replace(/^import .+ from '[^']+';\n/gm,'').replace(/^export (?=(?:async )?(const|class|function) )/gm,'');
+ if(/^(import|export) /m.test(code)||/\bimport\s*\(/.test(code))throw Error('Lab unsupported module syntax '+path);
+ return '// '+path+'\n'+code;
+});
+const prefix="'use strict';\nconst LAB_BUILD="+JSON.stringify(receipt.wasmSha256)+";\nconst createLabModule=(()=>{"+module+"})();\n"+chunks.join('\n');
+const code=prefix+'\ninstallLabWorker().catch(error=>self.postMessage({type:"error",version:14,code:"lab-initialization",message:String(error?.message).slice(0,256)}));\n';
+const checked=spawnSync(process.execPath,['--check','--input-type=module'],{input:code,encoding:'utf8'});
+if(checked.status!==0)throw Error(checked.stderr);
+writeGenerated(new URL('../src/siqs-lab/worker-source.js',import.meta.url),'// Generated lab Worker; no runtime imports.\nexport const LAB_WORKER_SOURCE='+JSON.stringify(code)+';\n');
+console.log('Lab Worker bytes',Buffer.byteLength(code),createHash('sha256').update(code).digest('hex'));

@@ -1,0 +1,35 @@
+✔ logical operations keep the original cap regardless of batching (1.5219ms)
+✔ phase change, bounded clock gap, finish and shared prework are accounted (0.9265ms)
+✔ deadline and pulse remain live; unnotified remainder can sync without a clock (0.3748ms)
+✖ short native phase-tail imports force a deadline check before another native batch (1.001699ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.404864
+
+✖ failing tests:
+
+test at test/checkpoint-charge.test.js:32:1
+✖ short native phase-tail imports force a deadline check before another native batch (1.001699ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/checkpoint-charge.test.js:35:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

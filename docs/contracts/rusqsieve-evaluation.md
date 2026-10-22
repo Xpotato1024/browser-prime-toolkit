@@ -1,0 +1,15 @@
+# rusqsieveの非公開比較契約
+
+公式0.5.0の固定commitをRust1.90.0／SIMDで再ビルドします。上流配布WASMの最大メモリ未指定をそのまま採用せず、実バイナリのunshared・初期17pages・最大4096pages・import/startなしを検査します。1／2実Worker、各256MiB以下、総線形メモリ512MiB以下です。bounded growthであり、初期から最大まで固定確保する説明はしません。
+
+入力はcanonical十進100桁／332bitまでをWorker生成前に検査します。ABI6、SIQS400bit、Natural1024bitを照合します。family総枠はnativeへ問い合わせ、入力bitとの整合を確認します。C版のcheckpoint workとは異なる単位です。familyは0から重複なく連続発行し、最大2family／batch、全階層の長さ・完結・発行済番号・sign／LP tag・実factor-base長・powers重複を検査します。上流powers順序は制限しません。
+
+coordinator＋local sieveは同じWASMの独立registryです。共有条件ではimmutableなArc<Context>をcloneし、factor baseと設定を共有します。scratch／関係式graphは共有しません。copy条件も保存して差を比較します。輸送はArrayBuffer transferを使用し、最大packet16MiB・同時32MiB、常時最大1batch／ownerです。native packetはcopy後すぐfreeし、履歴の全packetを保持しません。進捗traceは256event、phase memoryは有限段階のみを保存します。
+
+時間は初期化・計算・配送・検算を含む最大600秒で、初期化は最大10秒。host deadline／AbortSignalで全ownerをterminateし、同期ふるい／行列中もhostで停止できます。世代違いを無視し、未知packet・OOM・trapでは全ownerを退役させます。allocator失敗記録のないtrapをOOMと決めつけません。
+
+収集終了後に未処理batchを排出し、helperを退役、local contextを解放してからcoordinatorで1回だけextractします。retain条件のみlocal contextを比較用に保持します。typed extract statusで不足／依存なし／因数なし／資源／不正依存／取消／その他を区別し、一律に関係式不足と呼びません。再試行やrho／ECMを暗黙追加しません。
+
+返却されたdivisorは別のhost BigInt経路でproper divisorと積を検査し、既存MR経路で素数判定します。probableをprovenへ上げません。oracleは全owner退役後だけに照合します。初回asset取得後はサーバ停止・cache無効・CDP offlineで通信0を確認し、検出器の正例も試験します。
+
+requested live／peakはallocatorの要求量で、metadata・fragmentation・stack・static・JS／Chromeを含みません。線形メモリの実増加量とサンプルRSS/PSSを別に記録します。freeしても線形メモリは縮まないため、低いlive量を即座のOS RAM節約と読み替えません。秘密情報・公開判断・CI無料枠の境界は別工程です。

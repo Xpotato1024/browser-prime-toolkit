@@ -1,0 +1,26 @@
+✔ only three named DLP profiles are accepted (2.301798ms)
+✔ native RSA configuration preserves B/interval/offset and automatic threshold coupling (0.530099ms)
+✔ configuration mismatch and independent threshold changes are rejected (0.3163ms)
+✔ collector full plus cycles equals usable; ingested rows remain bounded (0.3875ms)
+✔ per-owner cumulative wrapper timings are finite, bounded and monotonic (0.3197ms)
+✔ screen requires both paired two-worker gains and preserves the one-worker floor (2.725897ms)
+✔ missing trials, duplicate IDs, zero baseline and failed guarantees cannot select (0.4773ms)
+✔ long ABBA needs both candidate yields above the maximum baseline by the fixed margin (0.509399ms)
+✔ recheck deadline: late-ready (2.885798ms)
+✔ recheck deadline: release-late (0.7324ms)
+✔ recheck deadline: late-extract (1.277699ms)
+✔ recheck deadline: retirement-late (0.767899ms)
+✔ retirement isolates exceptions: terminate-throws (0.919099ms)
+✔ retirement isolates exceptions: release-throws (0.333ms)
+✔ retirement isolates exceptions: release-throws-once (0.2222ms)
+✔ normal owners are terminated and every Blob source is released (0.617499ms)
+✔ actual native profiles use identical coord/helper settings and fixed target (1362.697792ms)
+✔ actual serialized ingestion counters describe full and cycle yield (58.027753ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1550.498539

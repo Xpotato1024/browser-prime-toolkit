@@ -1,0 +1,81 @@
+{
+  "id": "llm01-lpmap-20261021-v1",
+  "baselineHead": "3826a590cf7e3097c1e1dea4b96a0049bd438995",
+  "hypothesis": "Exact u32/u64 map partition reduces retained total memory without changing family/vertex/cycle output",
+  "acceptance": {
+    "fixedFamilies": 64,
+    "liveMedianRatioMax": 0.95,
+    "wallMedianRatioMax": 1.05,
+    "pssMedianRatioMax": 1.1,
+    "allPacketsColumnsCountersEqual": true
+  },
+  "limits": {
+    "totalCalculationMs": 750000,
+    "startAvailableMiB": 4096,
+    "startWindowsAvailableMiB": 4096,
+    "maxWasmMiB": 448,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8,
+    "maxReceiptBytes": 1048576
+  },
+  "trials": [
+    {
+      "id": "contracts-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "1-baseline",
+      "harness": "lpmap",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "2-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "3-lpmap",
+      "harness": "lpmap",
+      "graph": "lpmap",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    },
+    {
+      "id": "4-baseline",
+      "harness": "lpmap",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 180000,
+      "case": "RSA-100",
+      "fixedFamilies": 64
+    }
+  ]
+}

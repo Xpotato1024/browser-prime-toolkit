@@ -1,0 +1,70 @@
+{
+  "encoding": "gzip+canonical-base64-lines76",
+  "head": "f27dd7caab2f15e25c3191503ba646a8dd5b2344",
+  "files": {
+    "contracts-long.json": {
+      "file": "contracts-long.json.gz.base64",
+      "originalBytes": 38571,
+      "originalSha256": "d60116353870efc96beadd95ba2f31e47ca0bff6d9b2202909ef5269bddf9ff3",
+      "compressedBytes": 13737,
+      "compressedSha256": "f569b9dd56fb5453478688f7c32b2a0f373a4b2ad5ab543cd2c2e76c3ee1560c",
+      "encodedBytes": 18557
+    },
+    "contracts-long.log": {
+      "file": "contracts-long.log.gz.base64",
+      "originalBytes": 3277,
+      "originalSha256": "b9af3f722e60de9851f00aa9f6f6e28dd7fb9519f518d5a6f64b6d5dfee0fc29",
+      "compressedBytes": 509,
+      "compressedSha256": "8b2ba089fd1fb7e037c5271cc7aa055348bb81bc42f08928edef7baabc9d6a78",
+      "encodedBytes": 689
+    },
+    "prefix16-long.json": {
+      "file": "prefix16-long.json.gz.base64",
+      "originalBytes": 60495,
+      "originalSha256": "3ed31610592ada6335d52af4ccb8dc7d4ac2eb1d4214d81f0418df617df8fb38",
+      "compressedBytes": 16921,
+      "compressedSha256": "d7c304dc5d427a3f8a9dff90e2329720a29bffa40ce51e77eb3b8387180ef6f0",
+      "encodedBytes": 22861
+    },
+    "prefix16-long.log": {
+      "file": "prefix16-long.log.gz.base64",
+      "originalBytes": 205,
+      "originalSha256": "19832dddced7c04a9dee1dd9e8aa76f75d7f095b15c6ca9a2866d2455f00c325",
+      "compressedBytes": 188,
+      "compressedSha256": "2b5be0fece58677da3b5aa624f583789f792b21e324115124a9e3627ab93af89",
+      "encodedBytes": 256
+    },
+    "long-256.json": {
+      "file": "long-256.json.gz.base64",
+      "originalBytes": 527043,
+      "originalSha256": "42304d95422efceeed71127270f4d2067403b99ccb3e1933d41bf5a751a92294",
+      "compressedBytes": 101255,
+      "compressedSha256": "b537b5292c7344aca4e716370724cec202b3fe95f20c383130afd3f8cd20b329",
+      "encodedBytes": 136785
+    },
+    "long-256.log": {
+      "file": "long-256.log.gz.base64",
+      "originalBytes": 211,
+      "originalSha256": "5790df583a155aeffc1235c6022f4e7fee5ad68366b348318b516dcd322864b9",
+      "compressedBytes": 192,
+      "compressedSha256": "c09ed7741106a55788f0f2dc25b3136e50337db9c4836e3904a6df9574ec32fe",
+      "encodedBytes": 260
+    },
+    "grown-cancel.json": {
+      "file": "grown-cancel.json.gz.base64",
+      "originalBytes": 132472,
+      "originalSha256": "328541bd47b9551a369d7bde6cc216f40d83107be49d9851306acaca7e9d1329",
+      "compressedBytes": 28357,
+      "compressedSha256": "1911c77fb78b400db80c0227188cbbb683b43ab21034190972e4920c9e5fac0f",
+      "encodedBytes": 38310
+    },
+    "grown-cancel.log": {
+      "file": "grown-cancel.log.gz.base64",
+      "originalBytes": 207,
+      "originalSha256": "0c095bcdb92eb96aabb336372c00d8bc0f592dc2372369dfe7e403705829773a",
+      "compressedBytes": 179,
+      "compressedSha256": "bc90a2776c61d42147dbc8792a748b7eb5b936d9ad83d174f6c298f1d9d41f1e",
+      "encodedBytes": 244
+    }
+  }
+}

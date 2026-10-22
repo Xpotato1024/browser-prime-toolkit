@@ -1,0 +1,264 @@
+{
+  "plan": "llm01-matrix-memory-stage39",
+  "head": "1181a66c9e41e92ac33cd38e53643281a08487ad",
+  "nodeVersion": "v24.19.0",
+  "planSha256": "eef0d8dbb483e0f5e20d1a67e2be98e4bd51b055077046b55028db741361ccf0",
+  "driverSha256": "e9aa2eafba2f463ac6dcc583e653b1da3bff71496d7b9bf594497b1616fbfe94",
+  "sourceGuard": {
+    "version": 1,
+    "files": 832,
+    "treeSha256": "d7a733db8577be08cab4275cd4638f343d883ea8c0b54ede8d95433ea1fd9381"
+  },
+  "startedAt": "2026-10-21T17:56:23.458Z",
+  "trials": [
+    {
+      "id": "digits40-1",
+      "caseId": "digits40",
+      "variant": "baseline",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "baseline",
+        "digits40",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits40-1.json"
+      ],
+      "availableMiB": 9177.1796875,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:25.861Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:56:26.203Z",
+      "logBytes": 117,
+      "logSha256": "d47e6091e349b795699b5bbfade8df18ea134160681686719f3f223041a9da06",
+      "receipt": {
+        "bytes": 9264,
+        "sha256": "3690fc1aee5ede2f53c1de28aa52ee5b2ac639ba11c8175df9503e5cdad22522"
+      },
+      "summary": {
+        "families": 9,
+        "wallMs": 175.448466,
+        "peakRequested": 2975556,
+        "linear": 5636096
+      }
+    },
+    {
+      "id": "digits40-2",
+      "caseId": "digits40",
+      "variant": "candidate",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "candidate",
+        "digits40",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits40-2.json"
+      ],
+      "availableMiB": 9159.34765625,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:30.998Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:56:31.317Z",
+      "logBytes": 126,
+      "logSha256": "f2858eef89266b5280bcdd41854d92dad6d36bffec8b8c633c9869181cd9193d",
+      "receipt": {
+        "bytes": 9341,
+        "sha256": "3428dabea3317c77c1c94b6e1f9c64f9e97084d28d8b00775c3425ee532f5140"
+      },
+      "summary": {
+        "families": 9,
+        "wallMs": 166.92411900000002,
+        "peakRequested": 2975556,
+        "linear": 5636096
+      }
+    },
+    {
+      "id": "digits40-3",
+      "caseId": "digits40",
+      "variant": "candidate",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "candidate",
+        "digits40",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits40-3.json"
+      ],
+      "availableMiB": 9160.265625,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:35.898Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:56:36.223Z",
+      "logBytes": 126,
+      "logSha256": "a19ca314af962e42f02c480cd30aad6f956260ea8eaf5491024f2109bb90c2be",
+      "receipt": {
+        "bytes": 9341,
+        "sha256": "e14f720736004fcfe840ca6d8b7c7c53eeca91c83f172564a564d71946603a21"
+      },
+      "summary": {
+        "families": 9,
+        "wallMs": 170.61391700000001,
+        "peakRequested": 2975556,
+        "linear": 5636096
+      }
+    },
+    {
+      "id": "digits40-4",
+      "caseId": "digits40",
+      "variant": "baseline",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "baseline",
+        "digits40",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits40-4.json"
+      ],
+      "availableMiB": 9152.48046875,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:40.830Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:56:41.150Z",
+      "logBytes": 117,
+      "logSha256": "3f3218402f90fe3eeacc8012e592fd0d1c2fe3eefa69135814e3991ea5b460dd",
+      "receipt": {
+        "bytes": 9256,
+        "sha256": "d98fa35aeba01fc537de07085f62d7d191668f857ecfa0c2d4295ee14172f420"
+      },
+      "summary": {
+        "families": 9,
+        "wallMs": 172.156013,
+        "peakRequested": 2975556,
+        "linear": 5636096
+      }
+    },
+    {
+      "id": "digits64-1",
+      "caseId": "digits64",
+      "variant": "baseline",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "baseline",
+        "digits64",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits64-1.json"
+      ],
+      "availableMiB": 9169.55078125,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:46.112Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:56:55.118Z",
+      "logBytes": 122,
+      "logSha256": "3b480855963f0e98fd012a2f401543c1541e6be0042f7769d609975e12ff4ff0",
+      "receipt": {
+        "bytes": 95208,
+        "sha256": "cd74e5479e285bc7481c4758676aeb6ce9fb83d988d115e64e49a8dcc761453e"
+      },
+      "summary": {
+        "families": 359,
+        "wallMs": 8846.198585,
+        "peakRequested": 12356156,
+        "linear": 14811136
+      }
+    },
+    {
+      "id": "digits64-2",
+      "caseId": "digits64",
+      "variant": "candidate",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "candidate",
+        "digits64",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits64-2.json"
+      ],
+      "availableMiB": 9200.109375,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:56:59.635Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:57:08.856Z",
+      "logBytes": 123,
+      "logSha256": "b13bb6ed2111d1307a67b97225f4678ded10a779dfa7f90bbfc1d79a37a02450",
+      "receipt": {
+        "bytes": 95286,
+        "sha256": "3e99226eca99b2a556623ebb041e8a63a42b084b363a5d125c3e7e705e34b747"
+      },
+      "summary": {
+        "families": 359,
+        "wallMs": 9063.898948,
+        "peakRequested": 12356156,
+        "linear": 14811136
+      }
+    },
+    {
+      "id": "digits64-3",
+      "caseId": "digits64",
+      "variant": "candidate",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "candidate",
+        "digits64",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits64-3.json"
+      ],
+      "availableMiB": 9194.75,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:57:13.867Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:57:22.710Z",
+      "logBytes": 123,
+      "logSha256": "de3880326b99adf775aa2182f6151fee2adc5a4c4ffd7b0d84ad824bd2e3a1bd",
+      "receipt": {
+        "bytes": 95286,
+        "sha256": "0e1c68a67e254485b6107586674a844c58c272737a423c499fb07151c2fb9897"
+      },
+      "summary": {
+        "families": 359,
+        "wallMs": 8686.561912,
+        "peakRequested": 12356156,
+        "linear": 14811136
+      }
+    },
+    {
+      "id": "digits64-4",
+      "caseId": "digits64",
+      "variant": "baseline",
+      "budgetMs": 30000,
+      "args": [
+        "--max-old-space-size=128",
+        "scripts/matrix-memory-trial.mjs",
+        "baseline",
+        "digits64",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage39/campaign1-small/digits64-4.json"
+      ],
+      "availableMiB": 9203.34765625,
+      "state": "completed",
+      "startedAt": "2026-10-21T17:57:27.297Z",
+      "exitCode": 0,
+      "signal": null,
+      "finishedAt": "2026-10-21T17:57:36.330Z",
+      "logBytes": 122,
+      "logSha256": "d703b5c653e8706e174e44574ee6e83570c426870b12382d6fd52a52aff27b91",
+      "receipt": {
+        "bytes": 95207,
+        "sha256": "e4710e119616e617e2bbadd3d2bb2177e7699d4644f07275edee45e347ac476b"
+      },
+      "summary": {
+        "families": 359,
+        "wallMs": 8874.542741,
+        "peakRequested": 12356156,
+        "linear": 14811136
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T17:57:38.597Z"
+}

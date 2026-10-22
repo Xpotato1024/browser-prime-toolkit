@@ -1,0 +1,37 @@
+name: Sustained verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  sustained-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/sustained-*.test.js
+      - run: npm run check:sustained
+      - name: Streaming audit and offline retirement contracts without timed performance trials
+        run: |
+          node scripts/verify-sustained.mjs --coordinator combined --engine two-drop --out "$RUNNER_TEMP/sustained-contracts-combined2.json"
+          node scripts/verify-sustained.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/sustained-contracts-combined4.json"
+          for engine in two-drop three-drop four-drop; do
+            node scripts/verify-sustained.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/sustained-contracts-dedicated-$engine.json"
+          done
+          node scripts/verify-sustained.mjs --coordinator combined --engine two-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined2.json"
+          node scripts/verify-sustained.mjs --coordinator combined --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined4.json"
+          node scripts/verify-sustained.mjs --coordinator dedicated --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-dedicated4.json"
+          node scripts/check-sustained-ci-results.mjs "$RUNNER_TEMP"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check

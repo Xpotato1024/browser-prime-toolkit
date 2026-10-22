@@ -1,0 +1,16 @@
+{
+  "id": "full-count-diagnostic-stage16-v1",
+  "measuredReference": "7a33c533403403e62216a3c551c3769cbca58af2",
+  "purpose": "Read existing native counters after known resource stop. Identical artifact/C logic, no guard increase; diagnostic is not a new performance comparison.",
+  "case": "RSA-100",
+  "engine": "lto",
+  "seed": 1,
+  "budgetMs": 600000,
+  "operationBudget": 1000000000000,
+  "caps": {
+    "rawRelations": 2000000,
+    "basePolynomials": 65536,
+    "derivedPolynomials": 1000000,
+    "sieveBlocks": 4000000
+  }
+}

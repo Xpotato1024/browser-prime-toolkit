@@ -1,0 +1,115 @@
+{
+  "id": "stage20-geometry-v1",
+  "prerequisite": {
+    "head": "a8f9ae5fdff8012d856096f779d7db8d347e4bcf",
+    "plan": "stage19-scheduler-v1",
+    "candidate": "credit1",
+    "requireCompleted": true
+  },
+  "case": "RSA-100",
+  "profiles": {
+    "b325-m524": {
+      "code": 0,
+      "B": 3250000,
+      "halfwidth": 524288
+    },
+    "b250-m524": {
+      "code": 1,
+      "B": 2500000,
+      "halfwidth": 524288
+    },
+    "b325-m262": {
+      "code": 2,
+      "B": 3250000,
+      "halfwidth": 262144
+    },
+    "b250-m262": {
+      "code": 3,
+      "B": 2500000,
+      "halfwidth": 262144
+    }
+  },
+  "workers": 2,
+  "scheduler": "credit1",
+  "fixed": {
+    "singleMultiplier": 145,
+    "doubleMultiplier": 1035,
+    "thresholdAdjustment": -23,
+    "familyBudget": 250000,
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "transportBytes": 33554432,
+    "auditBytes": 8388608,
+    "auditPacketCount": 1024,
+    "aSampleFamilies": 64
+  },
+  "gate": {
+    "normalizedProgress": {
+      "numerator": 115,
+      "denominator": 100
+    },
+    "allRepeats": true,
+    "ties": "unchanged baseline / no candidate",
+    "defaultChange": false,
+    "maxTrials": 8,
+    "budgetMs": 60000
+  },
+  "trials": [
+    {
+      "id": "short-b325-m524-r1",
+      "profile": "b325-m524",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b250-m524-r1",
+      "profile": "b250-m524",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b250-m262-r1",
+      "profile": "b250-m262",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b325-m262-r1",
+      "profile": "b325-m262",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b325-m262-r2",
+      "profile": "b325-m262",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b250-m262-r2",
+      "profile": "b250-m262",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b250-m524-r2",
+      "profile": "b250-m524",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "short-b325-m524-r2",
+      "profile": "b325-m524",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000
+    }
+  ]
+}

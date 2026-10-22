@@ -1,0 +1,24 @@
+✔ pagehide retires its owner and persisted pageshow remounts the draft without executing (1.454599ms)
+✔ ordinary pageshow does not remount and duplicate pagehide is idempotent (0.2708ms)
+✔ explicit disposal removes lifecycle listeners and never restores a closed page (0.2263ms)
+✔ private preview binds to loopback and serves only the UI entry and source (67.186859ms)
+✔ repository metadata, artifacts and path escapes are never served (26.531484ms)
+✔ preview has no upload route and HEAD sends no document body (14.452291ms)
+✔ exact decimals survive Number boundaries and large prime values (8.767895ms)
+✔ perfect powers and duplicate factors have one structured exponent (1.386799ms)
+✔ probable factors stay unproven in visible and copied descriptions (0.6124ms)
+✔ partial and cancelled residuals never become prime factors (0.5517ms)
+✔ zero/one retain neither and the submitted identity is checked (0.386999ms)
+✔ scientific input is normalized exactly and only the fixed profile reaches the engine (6.126697ms)
+✔ invalid or out-of-profile values fail before allocating any engine (0.4865ms)
+✔ a canceling owner blocks a replacement until its request has settled (0.748499ms)
+✔ disposed sessions ignore late responses and never allocate another engine (0.4779ms)
+✔ fatal and invalid result rejection recover on a fresh explicit request (0.662ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 276.952128

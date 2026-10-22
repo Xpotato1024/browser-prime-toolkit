@@ -1,0 +1,43 @@
+✖ the generated Worker is valid as an ES module, including flattened private bindings (38.62519ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.705064
+
+✖ failing tests:
+
+test at test/rsa/bundle.test.js:5:1
+✖ the generated Worker is valid as an ES module, including flattened private bindings (38.62519ms)
+  AssertionError [ERR_ASSERTION]: [stdin]:199
+  function fail() { throw new TypeError('Invalid factor result'); }
+  ^
+  
+  SyntaxError: Identifier 'fail' has already been declared
+      at checkSyntax (node:internal/main/check_syntax:72:5)
+      at node:internal/main/check_syntax:45:5
+      at Socket.<anonymous> (node:internal/process/execution:205:5)
+      at Socket.emit (node:events:521:24)
+      at endReadableNT (node:internal/streams/readable:1736:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+  
+  Node.js v24.19.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/bundle.test.js:7:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,552 @@
+{
+  "mode": "resource-ui-contracts",
+  "variant": "one-drop",
+  "profile": "baseline",
+  "scheduler": "credit1",
+  "fixedFamilies": null,
+  "caseId": null,
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 30000,
+  "lifecycle": null,
+  "measuredHead": "a7d25eb952c63d20c220e653247a69de7c5d1d5a",
+  "measuredAt": "2026-10-20T17:01:58.364Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "standardInitialAssets": [
+    "/app/resources.html",
+    "/app/resources.css",
+    "/app/resources-main.js",
+    "/src/resources/mount.js",
+    "/src/resources/session.js",
+    "/src/resources/policy.js",
+    "/src/core/integer-input.js",
+    "/src/ui/result-view.js",
+    "/src/engine/arithmetic.js",
+    "/src/engine/options.js",
+    "/src/core/factor-powers.js",
+    "/src/engine/staged-result.js",
+    "/src/engine/result.js",
+    "/src/engine/staged-plan.js",
+    "/src/resources/light-adapter.js",
+    "/src/engine/staged-selected.js",
+    "/src/worker/staged-selected.js",
+    "/src/worker/staged-controller.js",
+    "/src/worker/staged-factory.js",
+    "/src/worker/staged-brent-source.js",
+    "/src/worker/staged-ecm-source.js",
+    "/src/worker/staged-siqs-source.js",
+    "/src/worker/staged-staged-source.js",
+    "/src/worker/source-factory.js"
+  ],
+  "detachedBeforeResume": [
+    {
+      "sessionId": "78E87CD830F2FADB6ED23E17E640D3FC",
+      "error": "Network.setCacheDisabled: Session with given id not found."
+    },
+    {
+      "sessionId": "393B6C84117B576A72C7C90C66E9C8E9",
+      "error": "Network.setBypassServiceWorker: Session with given id not found."
+    }
+  ],
+  "detachedSetupProof": {
+    "detached": [
+      "5B30C52C7BF2010A6A97548196309ACA",
+      "327822A878F3416BAFBE275CBAA42DCF",
+      "70CEEE2F9D01BCC93E4902D6DD74A58F",
+      "E22E332CC37D43AD54AB1B312772E528",
+      "6D57718A14B0FDF6A3E2F5C8926E50C3",
+      "435A75B7C6AFD69816621D6A76B11158",
+      "2F3DC43A2678D5E02397EE7DFD61319D",
+      "1E6553AAD8DF90FA62DC5750487645B3",
+      "B617C926FDFAD735CC69C58990F5D92C",
+      "1EF4F605E1C939C8EAB2A74B57C18B7C",
+      "3A379BF1CD8690984F8D13BD5BEAA936",
+      "E096F60023412B6B774DA0C012DD6D69",
+      "A3686D2925E7A1F49B5FB2A1F68E18DA",
+      "AFA36DAD8A25FC49F40699CC504B1582",
+      "FB758223F0313751307C51ABBB00D324",
+      "78E87CD830F2FADB6ED23E17E640D3FC",
+      "393B6C84117B576A72C7C90C66E9C8E9"
+    ],
+    "active": [
+      "B3B0BDF692F44D2643E349D0B098D10B",
+      "59D17C6FA116B000D1887B4C70009FC2",
+      "35EE8DA9A8739875A443DCCB0E4C8AC5",
+      "3C8772A2A59D8A9017DD06D3CBEDE94C",
+      "4C7EA814AD2E79685D0EF35397790642"
+    ],
+    "workers": [
+      "5B30C52C7BF2010A6A97548196309ACA",
+      "327822A878F3416BAFBE275CBAA42DCF",
+      "70CEEE2F9D01BCC93E4902D6DD74A58F",
+      "E22E332CC37D43AD54AB1B312772E528",
+      "6D57718A14B0FDF6A3E2F5C8926E50C3",
+      "435A75B7C6AFD69816621D6A76B11158",
+      "2F3DC43A2678D5E02397EE7DFD61319D",
+      "1E6553AAD8DF90FA62DC5750487645B3",
+      "B617C926FDFAD735CC69C58990F5D92C",
+      "A3686D2925E7A1F49B5FB2A1F68E18DA",
+      "1EF4F605E1C939C8EAB2A74B57C18B7C",
+      "E096F60023412B6B774DA0C012DD6D69",
+      "3A379BF1CD8690984F8D13BD5BEAA936",
+      "AFA36DAD8A25FC49F40699CC504B1582",
+      "FB758223F0313751307C51ABBB00D324",
+      "393B6C84117B576A72C7C90C66E9C8E9",
+      "78E87CD830F2FADB6ED23E17E640D3FC",
+      "59D17C6FA116B000D1887B4C70009FC2",
+      "35EE8DA9A8739875A443DCCB0E4C8AC5",
+      "3C8772A2A59D8A9017DD06D3CBEDE94C",
+      "4C7EA814AD2E79685D0EF35397790642"
+    ]
+  },
+  "coldReadyMs": 274.959294,
+  "initialAssets": [
+    {
+      "path": "/app/resources.html",
+      "bytes": 423,
+      "sha256": "c186c4ad2b5943c1946c7b189fe43902aee075bf92c7c4c3cfe5848fd2bbb605"
+    },
+    {
+      "path": "/app/resources.css",
+      "bytes": 608,
+      "sha256": "ef10939303aaf43baae4c64f288b2e30d23c0aada273165e9c943fa9ce1a62fe"
+    },
+    {
+      "path": "/app/resources-main.js",
+      "bytes": 419,
+      "sha256": "7c39159ad77a1f5bfff23a657d962ba8b5d22af7b1ba62703c28c11b6d5a86ed"
+    },
+    {
+      "path": "/src/resources/mount.js",
+      "bytes": 6868,
+      "sha256": "4d6eb20490f35c0b814033a5adadecb245928a6cb4a1d7e1b9dc5630d59756d6"
+    },
+    {
+      "path": "/src/resources/session.js",
+      "bytes": 6660,
+      "sha256": "9767a3e657a2654fb7e2a460442de216c3e25af5be9ee916af6bf5d5b80f28a5"
+    },
+    {
+      "path": "/src/resources/policy.js",
+      "bytes": 2404,
+      "sha256": "9372433ee38302a6c011888daeb32e21e72c9781cd643d827f6cc2f51b5fa5a5"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/ui/result-view.js",
+      "bytes": 2496,
+      "sha256": "6f1bc4709f74d6355315ef366a7eec57e81e222023f77a2416c331ddba693f4b"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/core/factor-powers.js",
+      "bytes": 949,
+      "sha256": "d5cef19229ebf8ef64cd0b4acaa78095ec84a671eaedc1713c4c6eb633c7c21a"
+    },
+    {
+      "path": "/src/engine/staged-result.js",
+      "bytes": 3655,
+      "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/engine/staged-plan.js",
+      "bytes": 1465,
+      "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+    },
+    {
+      "path": "/src/resources/light-adapter.js",
+      "bytes": 185,
+      "sha256": "f9e825746f6bb4c7285a93d51bcbe23fbe25d42eb11e1f8fa484e3f781df14f6"
+    },
+    {
+      "path": "/src/engine/staged-selected.js",
+      "bytes": 215,
+      "sha256": "e6b11a47b2cd2beb25084e8deca059967e59c7ac079d39691364c00b7668a49b"
+    },
+    {
+      "path": "/src/worker/staged-selected.js",
+      "bytes": 275,
+      "sha256": "f6d7c65261fbb516d611b701553a1b39e37004aa408e097c2b76ea9ab974579c"
+    },
+    {
+      "path": "/src/worker/staged-controller.js",
+      "bytes": 4980,
+      "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+    },
+    {
+      "path": "/src/worker/staged-factory.js",
+      "bytes": 1104,
+      "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+    },
+    {
+      "path": "/src/worker/staged-brent-source.js",
+      "bytes": 23641,
+      "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+    },
+    {
+      "path": "/src/worker/staged-ecm-source.js",
+      "bytes": 638816,
+      "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+    },
+    {
+      "path": "/src/worker/staged-siqs-source.js",
+      "bytes": 156165,
+      "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+    },
+    {
+      "path": "/src/worker/staged-staged-source.js",
+      "bytes": 771340,
+      "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/resources/runner.js",
+      "bytes": 14072,
+      "sha256": "e34da80c5c9063bdab0b7ecbb64ece5fced9abd110eea888aa45a847067b36ca"
+    },
+    {
+      "path": "/src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/contracts.js",
+      "bytes": 2658,
+      "sha256": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64"
+    },
+    {
+      "path": "/src/resources/credits.js",
+      "bytes": 3241,
+      "sha256": "5bc5b98eec4447d619439ff7cda63c33017f786371bed07399252a57b431694e"
+    },
+    {
+      "path": "/src/resources/metrics.js",
+      "bytes": 2269,
+      "sha256": "71aa0144398905798efb4faf487d6cf15026128c77f8f7962f19eaf222cc82c2"
+    },
+    {
+      "path": "/src/resources/worker-sources.js",
+      "bytes": 381,
+      "sha256": "882171bb39c578317df429f6534cf2e66075fda6400fd91cf1646e6060a90280"
+    },
+    {
+      "path": "/src/resources/worker-64.js",
+      "bytes": 575293,
+      "sha256": "7034e52d4fc247c9cf8fb4c8c9838edff25ace19770980474a08d77b71148b88"
+    },
+    {
+      "path": "/src/resources/worker-128.js",
+      "bytes": 575294,
+      "sha256": "312755ebc284aa4c45e8545d7e2b0168dcb1b140511caa72bbaa6d82ff3078c0"
+    },
+    {
+      "path": "/src/resources/worker-256.js",
+      "bytes": 575294,
+      "sha256": "f1a291d1051c9731ae275b11ae5e67cbb2625c86cc286dff8527e282ac210254"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-resource-ui.mjs": "c4937ddfa7e57740f1d3be88fda35f02a195df78be3bc9e7c270587296953a91",
+    "scripts/generate-resource-ui.mjs": "0b536703d0e42dd6bebf2ff6337d607794d0d17b3634ef034ed2903b1a109792",
+    "scripts/resource-ui-actions.mjs": "98d6cc3b754ac95ca4d9d48586e6bf01560c56deef5053129a22b64980960b10",
+    "scripts/resource-ui-observer.mjs": "48d1e70b44591a8503bd124357629f2d180d6dba98f816c57cb90bb0b299daba",
+    "scripts/resource-ui-cdp-lifecycle.mjs": "288f7d6e235300c8fd7f06bee90f43668da8f19d6b8a0068dd2b362ec051b14f",
+    "scripts/resource-ui-asset-route.mjs": "676beaa54a57bf3c400c3acd29b109144a214dec40befdf635173ba0ad23edda",
+    "scripts/benchmark-resources.mjs": "33e1403e8d43e43a665ed0d16aafeaf1a6f60ed4d018357f873dc0d8ce59ef73",
+    "scripts/resource-decision.mjs": "0b2e08db06eae3de77e6bd5594f287788dbc3a85684e0fb10e1b1237573371fc",
+    "scripts/report-resources.mjs": "e49aa1edfdabf497ac5274adb950b885192f2a96c32ff712a28b6bde4559f1ae",
+    "bench/staged-resource-plan.json": "90a39f6f3ebcf9c2613617df00b74df8ea1cee4546b6c6b3dcb4e04b1e9f1b40",
+    "scripts/generate-resource-runner.mjs": "12ae13c291d465205489534c3588f36c5a0a0846708c81932cc8ce65ed99f05f",
+    "scripts/build-resource-worker.mjs": "a4ba3a7692843ba75e46917efe8c78492baa4db3453f040f4495b6350e9fe6aa",
+    "scripts/build-resource-wasm.mjs": "14ff9c91bd8b73fb5b73e1fcbed6ae2134ef473cd57d7083bb80ac018da7ce4a",
+    "scripts/verify-resources.mjs": "21ca0c40b7a6f2fa0b2dffed74bf3c8e8586edeef0ed6bb98fefac8c1d71731c",
+    "scripts/resource-asset-route.mjs": "cd5c13451a97f2f334dc5d049e2110aa086aa174f5ebe016eda98bab86f7e5e6",
+    "native/resources/memory-contract.mjs": "b145cbd2ee96773ff3cb768f626d581ec54213ef30dd4403213a23e45030fd30",
+    "native/resources/build-64.json": "53e80bcc4cb1b74aaa2fa0058ca3d02633181249130e009bdbbb7670f3ded1cb",
+    "native/resources/build-128.json": "2681f5ff2db7ee98d5a45233dc163609cc5ce446f1990066226853876bae53f0",
+    "src/resources/worker-body.js": "d4c0c7dc911fc75ccb7d98a9583455ff0262907abae9f9dafef1e9a92155c75f",
+    "src/resources/policy.js": "9372433ee38302a6c011888daeb32e21e72c9781cd643d827f6cc2f51b5fa5a5",
+    "scripts/verify-scheduler.mjs": "9b6e1557d623ee21973ce1211e4d8b86c90c89eca196b0623ff9bef8d8e0a9a4",
+    "scripts/benchmark-scheduler.mjs": "88f92aafa7ef267625f2f94e07536a3ba81fea3862be562b2c7068a6abb82b88",
+    "scripts/check-scheduler.mjs": "bec1436dec04a20b88bffb9cbb3e89b657fa0aa9641909a60200be043a3b6097",
+    "scripts/report-scheduler.mjs": "24151be22f371d52580bd26cb6b8c1575f624946e8f3e501f0578e2ee53e0acd",
+    "scripts/scheduler-decision.mjs": "ef604b876e508515c62cd2122cd76fc2779c4af84fb90d987da66dbb85798596",
+    "scripts/scheduler-packets.mjs": "fc85e108e53505a2d82602233a415a5e359b935cc50edd7af6356bcca926106a",
+    "scripts/scheduler-asset-route.mjs": "2c22891f69dbde40f574e506507fdec9e022768d9bf1e0e2dcf8ef191152c299",
+    "scripts/generate-scheduler-runner.mjs": "246b7072d121d2f2369ab306213a0b77043a4487db0930ea156c36b01744fb4c",
+    "scripts/build-scheduler-worker.mjs": "a5f052321705af1672083a2100446908d7b9a0ab7e789d8b545c9a22b37766ee",
+    "src/rusqsieve-scheduler/worker-body.js": "ac9d17c0891cfb75ba4bc7f0eb74b5fbb25ab6c2f7af725aabbc00bb00c2c732",
+    "bench/staged-scheduler-plan.json": "d38d564b7637a5371fcf4f1b044f3567feb9360c18f14d0b81dc74b6e4f050a2",
+    "scripts/verify-dlp.mjs": "a369314575e4b46f0316bd942754d5277f61adeb7c643a9feefa471447d2edb7",
+    "scripts/benchmark-dlp.mjs": "f1f8dff9044c3aec03778d7286fd8e25d99734daf39ccb283d6129a7d635dfea",
+    "scripts/dlp-decision.mjs": "343881bda56b2ec2bd5cd4984e75a5c6684c0ad8300d7d744ce29e0a11199592",
+    "scripts/dlp-series-contract.mjs": "d186709fe6e34bcc00b9c21a605482fdda3d2d1440875d295980c4492ec0a7e9",
+    "bench/staged-dlp-plan.json": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/dlp-asset-route.mjs": "578bd967c843cf57842132a3fd835e51c72be60c712871e07470fe0ed379ea0a",
+    "scripts/build-dlp-worker.mjs": "dd9f890c544cda5f77e4112a09cbdb62e2141e578d3b2a46c2d1a071b0d2769b",
+    "scripts/build-rusqsieve-dlp.mjs": "e505cb3e788c48e7027cb851956e89ac3ed4da660c2aa4167975fffd702ca1fb",
+    "native/rusqsieve-dlp/staged-build.json": "bdf84eacb29bf3eb2feff488707767c820696b77f665b93a3d1a61dcebc66c5f",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve-dlp/patch-source.mjs": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+    "scripts/generate-dlp-runner.mjs": "71dea2a3139fed3195d6a36448ee2d4cda28a79be4da7ae81620712db1d21448",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "src/rusqsieve-dlp/worker-body.js": "327993b9f43733277d42de6c05db17a9ecd3bb073a9c00a1498876bcd9c27ecf",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "app/resources.html": "c186c4ad2b5943c1946c7b189fe43902aee075bf92c7c4c3cfe5848fd2bbb605",
+    "app/resources.css": "ef10939303aaf43baae4c64f288b2e30d23c0aada273165e9c943fa9ce1a62fe",
+    "app/resources-main.js": "7c39159ad77a1f5bfff23a657d962ba8b5d22af7b1ba62703c28c11b6d5a86ed",
+    "src/resources/mount.js": "4d6eb20490f35c0b814033a5adadecb245928a6cb4a1d7e1b9dc5630d59756d6",
+    "src/resources/session.js": "9767a3e657a2654fb7e2a460442de216c3e25af5be9ee916af6bf5d5b80f28a5",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/ui/result-view.js": "6f1bc4709f74d6355315ef366a7eec57e81e222023f77a2416c331ddba693f4b",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/core/factor-powers.js": "d5cef19229ebf8ef64cd0b4acaa78095ec84a671eaedc1713c4c6eb633c7c21a",
+    "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+    "src/resources/light-adapter.js": "f9e825746f6bb4c7285a93d51bcbe23fbe25d42eb11e1f8fa484e3f781df14f6",
+    "src/engine/staged-selected.js": "e6b11a47b2cd2beb25084e8deca059967e59c7ac079d39691364c00b7668a49b",
+    "src/worker/staged-selected.js": "f6d7c65261fbb516d611b701553a1b39e37004aa408e097c2b76ea9ab974579c",
+    "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+    "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+    "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+    "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+    "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+    "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/resources/runner.js": "e34da80c5c9063bdab0b7ecbb64ece5fced9abd110eea888aa45a847067b36ca",
+    "src/rusqsieve/contracts.js": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+    "src/rusqsieve-dlp/contracts.js": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64",
+    "src/resources/credits.js": "5bc5b98eec4447d619439ff7cda63c33017f786371bed07399252a57b431694e",
+    "src/resources/metrics.js": "71aa0144398905798efb4faf487d6cf15026128c77f8f7962f19eaf222cc82c2",
+    "src/resources/worker-sources.js": "882171bb39c578317df429f6534cf2e66075fda6400fd91cf1646e6060a90280",
+    "src/resources/worker-64.js": "7034e52d4fc247c9cf8fb4c8c9838edff25ace19770980474a08d77b71148b88",
+    "src/resources/worker-128.js": "312755ebc284aa4c45e8545d7e2b0168dcb1b140511caa72bbaa6d82ff3078c0",
+    "src/resources/worker-256.js": "f1a291d1051c9731ae275b11ae5e67cbb2625c86cc286dff8527e282ac210254"
+  },
+  "records": [
+    {
+      "checks": [
+        {
+          "name": "zero",
+          "pass": true
+        },
+        {
+          "name": "one",
+          "pass": true
+        },
+        {
+          "name": "small-factor",
+          "pass": true
+        },
+        {
+          "name": "exact-power-output",
+          "pass": true
+        },
+        {
+          "name": "prime",
+          "pass": true
+        },
+        {
+          "name": "square",
+          "pass": true
+        },
+        {
+          "name": "balanced-small",
+          "pass": true
+        },
+        {
+          "name": "safe-number-boundary",
+          "pass": true
+        },
+        {
+          "name": "above-safe-number",
+          "pass": true
+        },
+        {
+          "name": "64bit-minus-one",
+          "pass": true
+        },
+        {
+          "name": "64bit-boundary",
+          "pass": true
+        },
+        {
+          "name": "experimental-opt-in",
+          "pass": true
+        },
+        {
+          "name": "native-input-never-truncates",
+          "pass": true
+        },
+        {
+          "name": "overlong-input-rejected",
+          "pass": true
+        },
+        {
+          "name": "keyboard-submit",
+          "pass": true
+        },
+        {
+          "name": "accessible-input-and-mode",
+          "pass": true
+        },
+        {
+          "name": "manual-controls-open",
+          "pass": true
+        },
+        {
+          "name": "infeasible-combination-before-workers",
+          "pass": true
+        },
+        {
+          "name": "real-four-owner-factor-and-retirement",
+          "pass": true
+        },
+        {
+          "name": "running-settings-locked",
+          "pass": true
+        },
+        {
+          "name": "cancel-all-owners",
+          "pass": true
+        },
+        {
+          "name": "whole-deadline-is-incomplete",
+          "pass": true
+        },
+        {
+          "name": "viewport320-no-horizontal-overflow",
+          "pass": true
+        },
+        {
+          "name": "pagehide-disposes",
+          "pass": true
+        },
+        {
+          "name": "bfcache-draft-only",
+          "pass": true
+        }
+      ],
+      "realSmartphoneTest": false,
+      "viewportEmulationOnly": true
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 4,
+    "created": 25,
+    "liveSources": 0,
+    "maxLiveSources": 4
+  },
+  "sampledRam": {
+    "samples": 58,
+    "first": {
+      "atMs": 159.57016,
+      "rssBytes": 385024,
+      "pssBytes": 166912,
+      "processes": 1
+    },
+    "peakRssBytes": 1440309248,
+    "peakPssBytes": 620137472,
+    "maxProcesses": 12
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "maxOwners": 4,
+    "packetBytes": 8388608,
+    "transportBytes": 33554432,
+    "initializationMs": 10000,
+    "wallMs": 30000,
+    "extractAttempts": 1,
+    "workUnit": "input-dependent finite SIQS families, not C checkpoint work",
+    "wholeRam": "sampled Chrome tree RSS/PSS; requested allocation sizes exclude metadata/fragmentation/stack/static; not a hard total RAM cap"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

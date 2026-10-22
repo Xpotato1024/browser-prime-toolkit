@@ -1,0 +1,1557 @@
+{
+  "plan": "rusqsieve-simd-stage17-v1",
+  "measuredHead": "0999af2b90f458d5c6808128793f831e5e7182f2",
+  "upstream": "0.5.0",
+  "buildSha256": "b792d521fe6c64ce238e1c8b43ac5567de9ad27ce1c4da799be64c69fa0fa53f",
+  "rawTrials": 14,
+  "memoryFindings": {
+    "rsa60InitialCoordinator": {
+      "copy": 7690360,
+      "shared": 3845612,
+      "saved": 3844748
+    },
+    "control64RequestedPeak": {
+      "copy": 32947554,
+      "shared": 32947554,
+      "retain": 33163386
+    },
+    "rsa600SubmittedPolynomials": {
+      "one": 147456,
+      "two": 270336
+    }
+  },
+  "rows": [
+    {
+      "id": "control-40-one-copy",
+      "stage": "control",
+      "variant": "one-copy",
+      "case": "full-balanced-40-1",
+      "workers": 1,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 362.8999999910593,
+      "initializationMs": 104.29999999701977,
+      "familiesIssued": 10,
+      "familiesSubmitted": 10,
+      "polynomialsSubmitted": 80,
+      "rawRelationsSubmitted": 11204,
+      "bytesSubmitted": 1101594,
+      "relations": 2829,
+      "target": 2162,
+      "factorBaseSize": 2098,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1310720,
+            "liveRequested": 145520,
+            "peakRequested": 179308,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 9306112,
+            "liveRequested": 5277072,
+            "peakRequested": 5929536,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9306112,
+            "liveRequested": 5204744,
+            "peakRequested": 5929536,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 9568256,
+            "liveRequested": 5204744,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9568256,
+            "liveRequested": 912,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 9568256,
+            "liveRequested": 912,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 9568256,
+          "peakRequestedBytes": 7498009
+        }
+      ],
+      "peakTransportBytes": 226188,
+      "sampledRam": {
+        "samples": 31,
+        "first": {
+          "atMs": 113.009811,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1249398784,
+        "peakPssBytes": 451275776,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-40-one-copy.json",
+      "sha256": "018c7fa09ac2933bb6b84b94712469957dd073ec9cc0f932016d29da73621ca6",
+      "logSha256": "225aa2df363e68548e8ce6528e1a0d33ff151e2660bb6cb35f5eb185a44e934f"
+    },
+    {
+      "id": "control-40-one-drop",
+      "stage": "control",
+      "variant": "one-drop",
+      "case": "full-balanced-40-1",
+      "workers": 1,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 340.79999999701977,
+      "initializationMs": 81.3999999910593,
+      "familiesIssued": 10,
+      "familiesSubmitted": 10,
+      "polynomialsSubmitted": 80,
+      "rawRelationsSubmitted": 11204,
+      "bytesSubmitted": 1101594,
+      "relations": 2829,
+      "target": 2162,
+      "factorBaseSize": 2098,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1245184,
+            "liveRequested": 73192,
+            "peakRequested": 106148,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 9437184,
+            "liveRequested": 5204744,
+            "peakRequested": 5857208,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9437184,
+            "liveRequested": 5204744,
+            "peakRequested": 5857208,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 9437184,
+            "liveRequested": 5204744,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9437184,
+            "liveRequested": 912,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 9437184,
+            "liveRequested": 912,
+            "peakRequested": 7498009,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 9437184,
+          "peakRequestedBytes": 7498009
+        }
+      ],
+      "peakTransportBytes": 226188,
+      "sampledRam": {
+        "samples": 30,
+        "first": {
+          "atMs": 109.795514,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1250545664,
+        "peakPssBytes": 450575360,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-40-one-drop.json",
+      "sha256": "7a12c6554b847661cd54c75ea3ceecfc34c98479be7d96be6ca163102d0cc5f0",
+      "logSha256": "bec2e9e3f109a6ba5a7823df1ab8ae3afe1cf5fe00f4647d19a5a4a6f46cdff4"
+    },
+    {
+      "id": "control-40-two-copy",
+      "stage": "control",
+      "variant": "two-copy",
+      "case": "full-balanced-40-1",
+      "workers": 2,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 319.20000000298023,
+      "initializationMs": 95,
+      "familiesIssued": 12,
+      "familiesSubmitted": 12,
+      "polynomialsSubmitted": 96,
+      "rawRelationsSubmitted": 13402,
+      "bytesSubmitted": 1318047,
+      "relations": 3533,
+      "target": 2162,
+      "factorBaseSize": 2098,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 1245184,
+            "liveRequested": 72360,
+            "peakRequested": 106148,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1310720,
+            "liveRequested": 145520,
+            "peakRequested": 179308,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 9306112,
+            "liveRequested": 5535416,
+            "peakRequested": 6154794,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9306112,
+            "liveRequested": 5463088,
+            "peakRequested": 6154794,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 1,
+          "before": {
+            "linearBytes": 2097152,
+            "liveRequested": 72408,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 2097152,
+            "liveRequested": 80,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 10485760,
+            "liveRequested": 5463088,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 10485760,
+            "liveRequested": 912,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 10485760,
+            "liveRequested": 912,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 10485760,
+          "peakRequestedBytes": 8368577
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 2097152,
+            "liveRequested": 80,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 2097152,
+          "peakRequestedBytes": 811154
+        }
+      ],
+      "peakTransportBytes": 442641,
+      "sampledRam": {
+        "samples": 29,
+        "first": {
+          "atMs": 106.350014,
+          "rssBytes": 385024,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1270788096,
+        "peakPssBytes": 471013376,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-40-two-copy.json",
+      "sha256": "b1b9c49b877266791433b43450480556981c8d77a210a960d91d91e9156fc0c6",
+      "logSha256": "8d4e7dac0d1366bd6b2c71da115cb268a748153a264bb240bc7cdaf5b8265d65"
+    },
+    {
+      "id": "control-40-two-drop",
+      "stage": "control",
+      "variant": "two-drop",
+      "case": "full-balanced-40-1",
+      "workers": 2,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 335.20000000298023,
+      "initializationMs": 96.40000000596046,
+      "familiesIssued": 12,
+      "familiesSubmitted": 12,
+      "polynomialsSubmitted": 96,
+      "rawRelationsSubmitted": 13402,
+      "bytesSubmitted": 1318047,
+      "relations": 3533,
+      "target": 2162,
+      "factorBaseSize": 2098,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 1245184,
+            "liveRequested": 72360,
+            "peakRequested": 106148,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1245184,
+            "liveRequested": 73192,
+            "peakRequested": 106148,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 9175040,
+            "liveRequested": 5463088,
+            "peakRequested": 6082466,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 9175040,
+            "liveRequested": 5463088,
+            "peakRequested": 6082466,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 1,
+          "before": {
+            "linearBytes": 2097152,
+            "liveRequested": 72408,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 2097152,
+            "liveRequested": 80,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 10420224,
+            "liveRequested": 5463088,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 10420224,
+            "liveRequested": 912,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 10420224,
+            "liveRequested": 912,
+            "peakRequested": 8368577,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 10420224,
+          "peakRequestedBytes": 8368577
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 2097152,
+            "liveRequested": 80,
+            "peakRequested": 811154,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 2097152,
+          "peakRequestedBytes": 811154
+        }
+      ],
+      "peakTransportBytes": 442641,
+      "sampledRam": {
+        "samples": 29,
+        "first": {
+          "atMs": 109.641412,
+          "rssBytes": 364544,
+          "pssBytes": 146432,
+          "processes": 1
+        },
+        "peakRssBytes": 1272344576,
+        "peakPssBytes": 472524800,
+        "maxProcesses": 12
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-40-two-drop.json",
+      "sha256": "c130f90e55fb5d5114b5bfc5b38f1f4f5d2db1b94481b136b514d1c6ad52af68",
+      "logSha256": "cb9916df8bd081670f478969c84a8a47b65f51032569499c4371ec6735ab34d5"
+    },
+    {
+      "id": "control-64-one-copy",
+      "stage": "control",
+      "variant": "one-copy",
+      "case": "full-balanced-64-1",
+      "workers": 1,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 9938.29999999702,
+      "initializationMs": 104.8999999910593,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1769472,
+            "liveRequested": 432528,
+            "peakRequested": 543016,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 29097984,
+            "liveRequested": 21384048,
+            "peakRequested": 21871055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 29097984,
+            "liveRequested": 21168216,
+            "peakRequested": 21871055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34734080,
+            "liveRequested": 21168216,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34734080,
+          "peakRequestedBytes": 32947554
+        }
+      ],
+      "peakTransportBytes": 37827,
+      "sampledRam": {
+        "samples": 150,
+        "first": {
+          "atMs": 112.454309,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1343389696,
+        "peakPssBytes": 477303808,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-one-copy.json",
+      "sha256": "9edb67a66bbb310b7960bf005100cefa26256931b15f39a06bdfbb2f8ff14d98",
+      "logSha256": "9ce0c4550f5a0f6c0b632ddd0bf42df5d9defb9620aa952ac36fb63a852804e5"
+    },
+    {
+      "id": "control-64-one-drop",
+      "stage": "control",
+      "variant": "one-drop",
+      "case": "full-balanced-64-1",
+      "workers": 1,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 9697.20000000298,
+      "initializationMs": 91.40000000596046,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1507328,
+            "liveRequested": 216696,
+            "peakRequested": 326352,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 29032448,
+            "liveRequested": 21168216,
+            "peakRequested": 21655223,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 29032448,
+            "liveRequested": 21168216,
+            "peakRequested": 21655223,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34734080,
+            "liveRequested": 21168216,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34734080,
+          "peakRequestedBytes": 32947554
+        }
+      ],
+      "peakTransportBytes": 37827,
+      "sampledRam": {
+        "samples": 150,
+        "first": {
+          "atMs": 110.139629,
+          "rssBytes": 368640,
+          "pssBytes": 157696,
+          "processes": 1
+        },
+        "peakRssBytes": 1334472704,
+        "peakPssBytes": 474191872,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-one-drop.json",
+      "sha256": "7fba008b806dbc343a71bf7524352cd61fad60d13d39160b55eb120c6774ca61",
+      "logSha256": "213c3f66fae4aef42e7939eb183cf7c65607bf37634ace6f8da6137190d086eb"
+    },
+    {
+      "id": "control-64-one-retain",
+      "stage": "control",
+      "variant": "one-retain",
+      "case": "full-balanced-64-1",
+      "workers": 1,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 10016.90000000596,
+      "initializationMs": 98.79999999701977,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1769472,
+            "liveRequested": 432528,
+            "peakRequested": 543016,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 29097984,
+            "liveRequested": 21384048,
+            "peakRequested": 21871055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 29097984,
+            "liveRequested": 21384048,
+            "peakRequested": 21871055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34996224,
+            "liveRequested": 21384048,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34996224,
+            "liveRequested": 912,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34996224,
+            "liveRequested": 912,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34996224,
+          "peakRequestedBytes": 33163386
+        }
+      ],
+      "peakTransportBytes": 37827,
+      "sampledRam": {
+        "samples": 152,
+        "first": {
+          "atMs": 109.532831,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1342222336,
+        "peakPssBytes": 475553792,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-one-retain.json",
+      "sha256": "d7ee80d6c30eb6395fb16f027565fdcb4432389bed0cda147d5427011ffa912e",
+      "logSha256": "98fbc181cb00298ef7f054e4a20678e12c18c23b442f74718016af25dd352f01"
+    },
+    {
+      "id": "control-64-two-copy",
+      "stage": "control",
+      "variant": "two-copy",
+      "case": "full-balanced-64-1",
+      "workers": 2,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 6142.100000008941,
+      "initializationMs": 131.70000000298023,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 1507328,
+            "liveRequested": 215864,
+            "peakRequested": 326352,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1769472,
+            "liveRequested": 432528,
+            "peakRequested": 543016,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 29753344,
+            "liveRequested": 21384048,
+            "peakRequested": 21832055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 29753344,
+            "liveRequested": 21168216,
+            "peakRequested": 21832055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 1,
+          "before": {
+            "linearBytes": 2031616,
+            "liveRequested": 215912,
+            "peakRequested": 768022,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 768022,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34865152,
+            "liveRequested": 21168216,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34865152,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34865152,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34865152,
+          "peakRequestedBytes": 32947554
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 768022,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 2031616,
+          "peakRequestedBytes": 768022
+        }
+      ],
+      "peakTransportBytes": 69229,
+      "sampledRam": {
+        "samples": 102,
+        "first": {
+          "atMs": 113.798076,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1362567168,
+        "peakPssBytes": 495464448,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-two-copy.json",
+      "sha256": "6b64f6135b474986c6240bac0a82de23aa6bf488bcfa3866c2a2d1fb99cbd4bb",
+      "logSha256": "1e08d3d263f81fbedea69455ed8297eed6f20455f4369cac57c63910d9c55ac6"
+    },
+    {
+      "id": "control-64-two-drop",
+      "stage": "control",
+      "variant": "two-drop",
+      "case": "full-balanced-64-1",
+      "workers": 2,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 5150.79999999702,
+      "initializationMs": 114.20000000298023,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1507328,
+            "liveRequested": 216696,
+            "peakRequested": 326352,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 1507328,
+            "liveRequested": 215864,
+            "peakRequested": 326352,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 28901376,
+            "liveRequested": 21168216,
+            "peakRequested": 21617600,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 28901376,
+            "liveRequested": 21168216,
+            "peakRequested": 21617600,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 1,
+          "before": {
+            "linearBytes": 2031616,
+            "liveRequested": 215912,
+            "peakRequested": 765686,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 765686,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34734080,
+            "liveRequested": 21168216,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34734080,
+            "liveRequested": 912,
+            "peakRequested": 32947554,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34734080,
+          "peakRequestedBytes": 32947554
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 765686,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 2031616,
+          "peakRequestedBytes": 765686
+        }
+      ],
+      "peakTransportBytes": 69419,
+      "sampledRam": {
+        "samples": 88,
+        "first": {
+          "atMs": 105.999743,
+          "rssBytes": 372736,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1360588800,
+        "peakPssBytes": 494585856,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-two-drop.json",
+      "sha256": "0dbc447adda247f4c4d2ee66f8febddc788140c582ccc84f1c26c1dfdd5f8996",
+      "logSha256": "88668d8677c493e1068cc6d54e745b13c90abc742105b8ba45ad596fe9511ad5"
+    },
+    {
+      "id": "control-64-two-retain",
+      "stage": "control",
+      "variant": "two-retain",
+      "case": "full-balanced-64-1",
+      "workers": 2,
+      "budgetMs": 30000,
+      "kind": "probable",
+      "reason": null,
+      "complete": true,
+      "requestWallMs": 5671.699999988079,
+      "initializationMs": 110.59999999403954,
+      "familiesIssued": 360,
+      "familiesSubmitted": 360,
+      "polynomialsSubmitted": 23040,
+      "rawRelationsSubmitted": 40563,
+      "bytesSubmitted": 5656222,
+      "relations": 6550,
+      "target": 6510,
+      "factorBaseSize": 6446,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 1507328,
+            "liveRequested": 215864,
+            "peakRequested": 326352,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 1769472,
+            "liveRequested": 432528,
+            "peakRequested": 543016,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 0,
+          "before": {
+            "linearBytes": 28901376,
+            "liveRequested": 21384048,
+            "peakRequested": 21832055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 28901376,
+            "liveRequested": 21384048,
+            "peakRequested": 21832055,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "released",
+          "owner": 1,
+          "before": {
+            "linearBytes": 2031616,
+            "liveRequested": 215912,
+            "peakRequested": 765305,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 765305,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "extracted",
+          "status": 1,
+          "before": {
+            "linearBytes": 34996224,
+            "liveRequested": 21384048,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "after": {
+            "linearBytes": 34996224,
+            "liveRequested": 912,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 34996224,
+            "liveRequested": 912,
+            "peakRequested": 33163386,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 34996224,
+          "peakRequestedBytes": 33163386
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 2031616,
+            "liveRequested": 80,
+            "peakRequested": 765305,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 2031616,
+          "peakRequestedBytes": 765305
+        }
+      ],
+      "peakTransportBytes": 69383,
+      "sampledRam": {
+        "samples": 98,
+        "first": {
+          "atMs": 98.895645,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1364557824,
+        "peakPssBytes": 496609280,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/control-64-two-retain.json",
+      "sha256": "fda0b730225b167c9389423e7b7ad103aa963d6be8be1fea93831f8c3157194b",
+      "logSha256": "d869914378b65fbb36b5013fe08b0cda1692850f7235c286eb712881eff70461"
+    },
+    {
+      "id": "rsa100-60s-two-copy",
+      "stage": "short",
+      "variant": "two-copy",
+      "case": "RSA-100",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.90000000596,
+      "initializationMs": 729.4000000059605,
+      "familiesIssued": 16,
+      "familiesSubmitted": 12,
+      "polynomialsSubmitted": 24576,
+      "rawRelationsSubmitted": 17812,
+      "bytesSubmitted": 3664316,
+      "relations": 323,
+      "target": 116512,
+      "factorBaseSize": 116448,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 11599872,
+            "liveRequested": 7690360,
+            "peakRequested": 9611832,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 24182784,
+            "liveRequested": 18532992,
+            "peakRequested": 22191969,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 24182784,
+          "peakRequestedBytes": 22191969
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 12066116,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 12066116
+        }
+      ],
+      "peakTransportBytes": 1227120,
+      "sampledRam": {
+        "samples": 770,
+        "first": {
+          "atMs": 107.756044,
+          "rssBytes": 356352,
+          "pssBytes": 142336,
+          "processes": 1
+        },
+        "peakRssBytes": 1369739264,
+        "peakPssBytes": 501716992,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/rsa100-60s-two-copy.json",
+      "sha256": "7f63f9a042bc169544fd4db2ccd3311c156ca754e5e560bf9b65c3e3bf126edd",
+      "logSha256": "fac89360ffcc10ec4620d26de8f831f498954c56c353cbf9635fa6f8409a85b7"
+    },
+    {
+      "id": "rsa100-60s-two-drop",
+      "stage": "short",
+      "variant": "two-drop",
+      "case": "RSA-100",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 60000.79999999702,
+      "initializationMs": 540.5,
+      "familiesIssued": 14,
+      "familiesSubmitted": 10,
+      "polynomialsSubmitted": 20480,
+      "rawRelationsSubmitted": 14826,
+      "bytesSubmitted": 3049125,
+      "relations": 273,
+      "target": 116512,
+      "factorBaseSize": 116448,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845612,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 23724032,
+            "liveRequested": 10771988,
+            "peakRequested": 17500565,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 23724032,
+          "peakRequestedBytes": 17500565
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 12049988,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 12049988
+        }
+      ],
+      "peakTransportBytes": 1212564,
+      "sampledRam": {
+        "samples": 806,
+        "first": {
+          "atMs": 104.708541,
+          "rssBytes": 364544,
+          "pssBytes": 157696,
+          "processes": 1
+        },
+        "peakRssBytes": 1359605760,
+        "peakPssBytes": 494374912,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/rsa100-60s-two-drop.json",
+      "sha256": "5757ae38e0e7aafbaff05cf82c222449a054beacb7b5577ac75ded4356647129",
+      "logSha256": "ac0cbb5ade1c91d9fd7c6d6c595670cd12811c0bf7a4259a7b14803d95ab8bbe"
+    },
+    {
+      "id": "rsa100-600s-one-drop",
+      "stage": "long",
+      "variant": "one-drop",
+      "case": "RSA-100",
+      "workers": 1,
+      "budgetMs": 600000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 600001.099999994,
+      "initializationMs": 353.79999999701977,
+      "familiesIssued": 74,
+      "familiesSubmitted": 72,
+      "polynomialsSubmitted": 147456,
+      "rawRelationsSubmitted": 107482,
+      "bytesSubmitted": 22126275,
+      "relations": 1936,
+      "target": 116512,
+      "factorBaseSize": 116448,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845612,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 67633152,
+            "liveRequested": 56709252,
+            "peakRequested": 64929635,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 67633152,
+          "peakRequestedBytes": 64929635
+        }
+      ],
+      "peakTransportBytes": 648440,
+      "sampledRam": {
+        "samples": 8095,
+        "first": {
+          "atMs": 104.702148,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1323184128,
+        "peakPssBytes": 508507136,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/rsa100-600s-one-drop.json",
+      "sha256": "a3504215203a9334d23c993050a15cf30c785aece70ca76a5f1ed5ef5679af94",
+      "logSha256": "d64259f577eaf3ceab12e011c65829d7c6514d44a37ddb91d436fd096fbe6ec9"
+    },
+    {
+      "id": "rsa100-600s-two-drop",
+      "stage": "long",
+      "variant": "two-drop",
+      "case": "RSA-100",
+      "workers": 2,
+      "budgetMs": 600000,
+      "kind": "timeout",
+      "reason": "time-budget",
+      "complete": false,
+      "requestWallMs": 600001,
+      "initializationMs": 554.1000000089407,
+      "familiesIssued": 136,
+      "familiesSubmitted": 132,
+      "polynomialsSubmitted": 270336,
+      "rawRelationsSubmitted": 196765,
+      "bytesSubmitted": 40503657,
+      "relations": 3672,
+      "target": 116512,
+      "factorBaseSize": 116448,
+      "phaseMemory": [
+        {
+          "type": "ready",
+          "owner": 0,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3845612,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        },
+        {
+          "type": "ready",
+          "owner": 1,
+          "memory": {
+            "linearBytes": 7077888,
+            "liveRequested": 3844780,
+            "peakRequested": 5766252,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          }
+        }
+      ],
+      "memoryByOwner": [
+        {
+          "owner": 0,
+          "last": {
+            "linearBytes": 117309440,
+            "liveRequested": 105937172,
+            "peakRequested": 112948377,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 117309440,
+          "peakRequestedBytes": 112948377
+        },
+        {
+          "owner": 1,
+          "last": {
+            "linearBytes": 13369344,
+            "liveRequested": 3844828,
+            "peakRequested": 12087913,
+            "allocationFailures": 0,
+            "lastFailed": 0
+          },
+          "peakLinearBytes": 13369344,
+          "peakRequestedBytes": 12087913
+        }
+      ],
+      "peakTransportBytes": 1270250,
+      "sampledRam": {
+        "samples": 8055,
+        "first": {
+          "atMs": 111.584273,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1356341248,
+        "peakPssBytes": 570617856,
+        "maxProcesses": 13
+      },
+      "file": "docs/benchmarks/staged-rusqsieve-stage17/rsa100-600s-two-drop.json",
+      "sha256": "e94b99dd1a8c12b25fda9825d05e7ffcf3cd4d9a278fccca1a9974ca05e63cc8",
+      "logSha256": "4c248f8d04de67d0f456334a9ff58c4436895588c7d5a709c8c9d4b5923292cd"
+    }
+  ],
+  "completeRsa100": [],
+  "interpretation": "One exploratory observation per fixed condition; deterministic input/family order, fresh Chrome per trial; no CPU-time or ETA claim. copy vs drop isolates same-WASM immutable-context sharing; retain also keeps local context through extraction. 1/2 actual owners, each bounded growth256MiB, total<=512MiB. Query native input-dependent family budget; one typed extraction attempt; no rho/ECM."
+}

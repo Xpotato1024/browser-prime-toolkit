@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import{packedWorkerSource}from'../graph-arena/worker-source.js';import{RUSQSIEVE_BASE64 as s64}from'./wasm-builtin-64.js';import{RUSQSIEVE_BASE64 as s256}from'./wasm-builtin-256.js';
+export function builtinWorkerSource(cap,variant){if(![64,256].includes(cap)||!['baseline','builtin'].includes(variant))throw Error('Named builtin role/variant');let s=packedWorkerSource(cap,'packed');if(variant==='baseline')return s;const p=/const RUSQSIEVE_BASE64="[^"]+";/g;if([...s.matchAll(p)].length!==1)throw Error('Builtin role artifact anchor');return s.replace(p,()=> 'const RUSQSIEVE_BASE64='+JSON.stringify(cap===64?s64:s256)+';');}
