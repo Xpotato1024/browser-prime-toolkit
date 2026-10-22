@@ -1,0 +1,2 @@
+{"id":"RSA-100","options":{"variant":"stride16k","timeBudgetMs":60000,"seed":1,"workers":2,"streams":2,"operationBudget":1000000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":59172.79999999702,"graph":{"rawRelations":9546,"uniqueRelations":9546,"duplicates":0,"full":146,"partial":9400,"combined":2,"total":148,"polynomials":6,"vertices":16551,"components":7153,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/staged-siqs-opt-stage15/long-r1-lto-stride16k.json

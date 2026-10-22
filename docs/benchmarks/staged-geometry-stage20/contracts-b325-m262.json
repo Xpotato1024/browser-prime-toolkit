@@ -1,0 +1,307 @@
+{
+  "mode": "geometry-contracts",
+  "variant": "two-drop",
+  "profile": "b325-m262",
+  "scheduler": "credit1",
+  "fixedFamilies": null,
+  "caseId": null,
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 30000,
+  "lifecycle": null,
+  "measuredHead": "609ca0c9352a407b28ba56b88ded952240ad289d",
+  "measuredAt": "2026-10-20T15:12:14.186Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 125.18180499999994,
+  "initialAssets": [
+    {
+      "path": "/bench/geometry.html",
+      "bytes": 140,
+      "sha256": "9fc48475fd53f2a002d55933d93d381b7cff49228310495d73421e755e059ebc"
+    },
+    {
+      "path": "/bench/geometry.js",
+      "bytes": 8310,
+      "sha256": "7df893c9961a6a515fb5d3454466329615a8c2a52c9aceaadfb3d3f5d42bc04a"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/runner.js",
+      "bytes": 13454,
+      "sha256": "b5e602bd57c0bf877b752f360e37c0e0ded8c9d8b2531ccda07e8f2dcb4d8a44"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/worker-source.js",
+      "bytes": 579552,
+      "sha256": "845bc3d8ecd544a297a7cef44ce896bf124a048aa82bb8a0fcd1b5fbb2c08d23"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e"
+    },
+    {
+      "path": "/src/rusqsieve-dlp/contracts.js",
+      "bytes": 2658,
+      "sha256": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64"
+    },
+    {
+      "path": "/src/rusqsieve-geometry/contracts.js",
+      "bytes": 2032,
+      "sha256": "4fc199d78a54bb6a6ac1318ea5cda799a72da8f4c6105e22b6b8ee76487f6713"
+    },
+    {
+      "path": "/src/rusqsieve-scheduler/credits.js",
+      "bytes": 3262,
+      "sha256": "2685390b216906b9b2f474cea0dceaabbc9601763299f3fa6ca505af47729342"
+    },
+    {
+      "path": "/src/rusqsieve-scheduler/metrics.js",
+      "bytes": 2179,
+      "sha256": "e50e1f30dd057eea6103c5c1d6df2f88bccf07727a8f3a8d600158bbfc6674b9"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-geometry.mjs": "11c33508568b017841a70bec98bb9c919d847edb5b8e96e353bae17e1562765c",
+    "scripts/benchmark-geometry.mjs": "ba88b66b1839d48fab5b98d480da3174c350143e3a80c7aefeac96ae314be222",
+    "scripts/check-geometry.mjs": "38e6efb33186272219aa93dd1f21d87942b8d3b4b95178a5822aafb465f5fde0",
+    "scripts/report-geometry.mjs": "694289395203305a0aeea366979e68a51e09abca662ae441a96a51e7146e7c0f",
+    "scripts/geometry-decision.mjs": "62e9b27e0cec42a61f94e3b9b329b85e8a570787a954c92b0fd8f396b46432f6",
+    "scripts/generate-geometry-runner.mjs": "21dbca79aea5ba678babc21547049b94970a6b8e9b52e61fbc55dd8694376965",
+    "scripts/build-geometry-worker.mjs": "008ec00293b9d52089e6c0aed3a3a75e6479764f5fa295e0f6f5d2c85a264e93",
+    "scripts/build-rusqsieve-geometry.mjs": "76da8cf6fab718a55b361a7c4819e4f05cd083767fbd1a6c1826fb1b179765e5",
+    "scripts/geometry-asset-route.mjs": "0b1fcbdf16efcf263008d6f2038531e4c23b0abe4b8ffd2474f28c040b402622",
+    "native/rusqsieve-geometry/patch-source.mjs": "a4e0616964f8f797de680a50b80d73fd4ba21678f9dcc604bbb6b4f409aac08a",
+    "native/rusqsieve-geometry/staged-build.json": "40292a7c5c8b2b4188346b0a2b9135fa4796f917a2b772e34593ef769bdd25e7",
+    "src/rusqsieve-geometry/worker-body.js": "062ee93e2c3e150e14349ed823751eb42c2266c0e550e6fce65bb6ecc7d92c89",
+    "bench/staged-geometry-plan.json": "eb0b518f7f38d86637ead4228c8af2340956681616323bfcc9cd0858a00e354e",
+    "scripts/verify-scheduler.mjs": "9b6e1557d623ee21973ce1211e4d8b86c90c89eca196b0623ff9bef8d8e0a9a4",
+    "scripts/benchmark-scheduler.mjs": "88f92aafa7ef267625f2f94e07536a3ba81fea3862be562b2c7068a6abb82b88",
+    "scripts/check-scheduler.mjs": "bec1436dec04a20b88bffb9cbb3e89b657fa0aa9641909a60200be043a3b6097",
+    "scripts/report-scheduler.mjs": "24151be22f371d52580bd26cb6b8c1575f624946e8f3e501f0578e2ee53e0acd",
+    "scripts/scheduler-decision.mjs": "ef604b876e508515c62cd2122cd76fc2779c4af84fb90d987da66dbb85798596",
+    "scripts/scheduler-packets.mjs": "fc85e108e53505a2d82602233a415a5e359b935cc50edd7af6356bcca926106a",
+    "scripts/scheduler-asset-route.mjs": "2c22891f69dbde40f574e506507fdec9e022768d9bf1e0e2dcf8ef191152c299",
+    "scripts/generate-scheduler-runner.mjs": "246b7072d121d2f2369ab306213a0b77043a4487db0930ea156c36b01744fb4c",
+    "scripts/build-scheduler-worker.mjs": "a5f052321705af1672083a2100446908d7b9a0ab7e789d8b545c9a22b37766ee",
+    "src/rusqsieve-scheduler/worker-body.js": "ac9d17c0891cfb75ba4bc7f0eb74b5fbb25ab6c2f7af725aabbc00bb00c2c732",
+    "bench/staged-scheduler-plan.json": "d38d564b7637a5371fcf4f1b044f3567feb9360c18f14d0b81dc74b6e4f050a2",
+    "scripts/verify-dlp.mjs": "a369314575e4b46f0316bd942754d5277f61adeb7c643a9feefa471447d2edb7",
+    "scripts/benchmark-dlp.mjs": "f1f8dff9044c3aec03778d7286fd8e25d99734daf39ccb283d6129a7d635dfea",
+    "scripts/dlp-decision.mjs": "343881bda56b2ec2bd5cd4984e75a5c6684c0ad8300d7d744ce29e0a11199592",
+    "scripts/dlp-series-contract.mjs": "d186709fe6e34bcc00b9c21a605482fdda3d2d1440875d295980c4492ec0a7e9",
+    "bench/staged-dlp-plan.json": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/dlp-asset-route.mjs": "578bd967c843cf57842132a3fd835e51c72be60c712871e07470fe0ed379ea0a",
+    "scripts/build-dlp-worker.mjs": "dd9f890c544cda5f77e4112a09cbdb62e2141e578d3b2a46c2d1a071b0d2769b",
+    "scripts/build-rusqsieve-dlp.mjs": "e505cb3e788c48e7027cb851956e89ac3ed4da660c2aa4167975fffd702ca1fb",
+    "native/rusqsieve-dlp/staged-build.json": "bdf84eacb29bf3eb2feff488707767c820696b77f665b93a3d1a61dcebc66c5f",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve-dlp/patch-source.mjs": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+    "scripts/generate-dlp-runner.mjs": "71dea2a3139fed3195d6a36448ee2d4cda28a79be4da7ae81620712db1d21448",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "src/rusqsieve-dlp/worker-body.js": "327993b9f43733277d42de6c05db17a9ecd3bb073a9c00a1498876bcd9c27ecf",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "bench/geometry.html": "9fc48475fd53f2a002d55933d93d381b7cff49228310495d73421e755e059ebc",
+    "bench/geometry.js": "7df893c9961a6a515fb5d3454466329615a8c2a52c9aceaadfb3d3f5d42bc04a",
+    "src/rusqsieve-geometry/runner.js": "b5e602bd57c0bf877b752f360e37c0e0ded8c9d8b2531ccda07e8f2dcb4d8a44",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/rusqsieve-geometry/worker-source.js": "845bc3d8ecd544a297a7cef44ce896bf124a048aa82bb8a0fcd1b5fbb2c08d23",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/rusqsieve/contracts.js": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+    "src/rusqsieve-dlp/contracts.js": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64",
+    "src/rusqsieve-geometry/contracts.js": "4fc199d78a54bb6a6ac1318ea5cda799a72da8f4c6105e22b6b8ee76487f6713",
+    "src/rusqsieve-scheduler/credits.js": "2685390b216906b9b2f474cea0dceaabbc9601763299f3fa6ca505af47729342",
+    "src/rusqsieve-scheduler/metrics.js": "e50e1f30dd057eea6103c5c1d6df2f88bccf07727a8f3a8d600158bbfc6674b9",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "tests": [
+        {
+          "name": "profile-before-worker",
+          "pass": true
+        },
+        {
+          "name": "configuration-forgery-retired",
+          "pass": true
+        },
+        {
+          "name": "counter-forgery-retired",
+          "pass": true
+        },
+        {
+          "name": "unsupported-before-worker",
+          "pass": true
+        },
+        {
+          "name": "budget-before-worker",
+          "pass": true
+        },
+        {
+          "name": "cancel-during-sieve",
+          "pass": true
+        },
+        {
+          "name": "noncooperative-deadline",
+          "pass": true
+        },
+        {
+          "name": "worker-cap-before-allocation",
+          "pass": true
+        },
+        {
+          "name": "real-allocation-failure",
+          "pass": true
+        },
+        {
+          "name": "unknown-trap-is-not-oom",
+          "pass": true
+        },
+        {
+          "name": "forged-native-frame-retired",
+          "pass": true
+        },
+        {
+          "name": "stale-generation-ignored",
+          "pass": true
+        },
+        {
+          "name": "proper-divisor-independent-check",
+          "pass": true
+        },
+        {
+          "name": "noncooperative-extraction-deadline",
+          "pass": true
+        },
+        {
+          "name": "fresh-full-64-path",
+          "pass": true
+        },
+        {
+          "name": "fresh-full-path",
+          "pass": true
+        }
+      ],
+      "performanceMeasurement": false
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 2,
+    "liveSources": 0,
+    "maxLiveSources": 2
+  },
+  "sampledRam": {
+    "samples": 151,
+    "first": {
+      "atMs": 117.152011,
+      "rssBytes": 380928,
+      "pssBytes": 162816,
+      "processes": 1
+    },
+    "peakRssBytes": 1426255872,
+    "peakPssBytes": 558667776,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "maxOwners": 2,
+    "packetBytes": 16777216,
+    "transportBytes": 33554432,
+    "initializationMs": 10000,
+    "wallMs": 30000,
+    "extractAttempts": 1,
+    "workUnit": "input-dependent finite SIQS families, not C checkpoint work",
+    "wholeRam": "sampled Chrome tree RSS/PSS; requested allocation sizes exclude metadata/fragmentation/stack/static; not a hard total RAM cap"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

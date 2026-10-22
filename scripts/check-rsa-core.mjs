@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const read=path=>readFile(path,'utf8');
+let result=await read('src/engine/result.js');
+result="import {RSA_PROFILE} from './profile.js';\n"+result.replaceAll("'./options.js'","'../engine/options.js'").replaceAll("'./arithmetic.js'","'../engine/arithmetic.js'").replaceAll('50000000','RSA_PROFILE.operationBudget');
+assert.equal(await read('src/rsa/core-result.js'),result,'RSA proof fork changes only imports and operation cap');
+let factor=await read('src/engine/factor.js');
+factor=factor.replace("import { Budget, BudgetExceeded, INPUT_CEILING, SMALL_PRIMES, normalizeOptions } from './options.js';","import { Budget, BudgetExceeded, INPUT_CEILING, SMALL_PRIMES } from '../engine/options.js';\nimport { normalizeRsaCoreOptions } from './options.js';");
+factor=factor.replaceAll("'./arithmetic.js'","'../engine/arithmetic.js'").replaceAll("'./result.js'","'./core-result.js'").replaceAll('factorInteger','factorRsaInteger').replaceAll('normalizeOptions(options)','normalizeRsaCoreOptions(options)');
+assert.equal(await read('src/rsa/factor.js'),factor,'RSA driver fork preserves the existing mathematical implementation');
+const dir='docs/benchmarks/archive/staged-rsa50m/',manifest=JSON.parse(await read(dir+'manifest.json'));
+assert.equal(manifest.measuredHead,'83a3c0e8752c48f0ab2fe671fcb2366b77c35fda');assert.equal(manifest.files.length,8);
+for(const{file,sha256}of manifest.files)assert.equal(createHash('sha256').update(await readFile(dir+file)).digest('hex'),sha256,file);
+console.log('Verified RSA-only control-layer forks, unchanged shared math/clock and immutable 50M baseline archive');

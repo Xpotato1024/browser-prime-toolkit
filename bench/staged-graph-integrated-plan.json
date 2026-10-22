@@ -1,0 +1,64 @@
+{
+  "id": "llm01-graph-integrated-20261021-v1",
+  "source": "fixedHEAD; Stage29 manual5/8slots andStage30builtinadopted; Stage31dedicated time1.0081497756 PSS1.0464065 notadopted",
+  "hypothesis": "bounded600s collectiongrowth/pressure-stop; exactcommonprefix128; cancelretirement; noend-to-endforecast",
+  "limits": {
+    "totalCalculationMs": 1560000,
+    "startAvailableMiB": 4096,
+    "maxWasmMiB": 576,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8
+  },
+  "trials": [
+    {
+      "id": "lowcap-full64",
+      "graph": "optimized",
+      "engine": "one-drop",
+      "slots": 4,
+      "memoryMiB": 128,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "case": "full-balanced-64-1"
+    },
+    {
+      "id": "contracts-five",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 30000
+    },
+    {
+      "id": "sustained-legacy",
+      "graph": "legacy",
+      "engine": "four-drop",
+      "slots": 4,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 600000,
+      "case": "RSA-100"
+    },
+    {
+      "id": "sustained-optimized",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 600000,
+      "case": "RSA-100"
+    },
+    {
+      "id": "cancel-optimized",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "memoryMiB": 512,
+      "coordinator": "combined",
+      "budgetMs": 300000,
+      "case": "RSA-100",
+      "cancelAfterMs": 120000
+    }
+  ]
+}

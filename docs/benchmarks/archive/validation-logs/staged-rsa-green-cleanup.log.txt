@@ -1,0 +1,31 @@
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (4.81ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (1.3872ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.6628ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.4633ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (0.710401ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.8698ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.0547ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.2749ms)
+✔ source release time is still inside the five-second initialization cap (0.2973ms)
+✔ terminal cleanup cannot turn a result delivered after the total deadline into a success (0.4653ms)
+✔ Worker announces the exact bounded native profile and factors a full 2048-bit input (15.1858ms)
+✔ Worker rejects out-of-profile inputs and changed algorithm, budget or packet contract (1.301701ms)
+✔ Worker is one-shot and emits an explicit CSP audit signal (2.7152ms)
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (7.996201ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.3279ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.2198ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (0.5114ms)
+✔ the previous 128-bit staged profile is unchanged (10.2708ms)
+✔ large perfect powers retain their full input and proven factorization (10.603701ms)
+✔ probable remains unproven after an independent host check (5.8072ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.7698ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.837ms)
+✔ partial progress cannot retain a forged probable composite factor (0.2839ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 180.339206

@@ -1,0 +1,13 @@
+✔ exact decimals survive Number boundaries and large prime values (11.602691ms)
+✔ perfect powers and duplicate factors have one structured exponent (1.299399ms)
+✔ probable factors stay unproven in visible and copied descriptions (0.548099ms)
+✔ partial and cancelled residuals never become prime factors (0.603ms)
+✔ zero/one retain neither and the submitted identity is checked (0.402499ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 175.503867

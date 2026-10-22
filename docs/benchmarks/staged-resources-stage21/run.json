@@ -1,0 +1,457 @@
+{
+  "plan": "device-resources-stage21-20261020",
+  "planSha256": "90a39f6f3ebcf9c2613617df00b74df8ea1cee4546b6c6b3dcb4e04b1e9f1b40",
+  "measuredHead": "a7d25eb952c63d20c220e653247a69de7c5d1d5a",
+  "startedAt": "2026-10-20T17:01:53.197Z",
+  "preflight": [
+    {
+      "id": "contracts-ui",
+      "ui": true,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-resource-ui.mjs",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/contracts-ui.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "b7938388a0317fb956fb905287c7adc1aaae626a4e0c3811e304ca88dc5d6dd2",
+      "logSha256": "a4c73a5ed3857da6c6ece9ed1f7980a336f7731ad34848da878d12979211e94e"
+    },
+    {
+      "id": "contracts-w1",
+      "engine": "one-drop",
+      "workers": 1,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/contracts-w1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "5dcbe2b7236b87975c29b318b6e396906be3b9aaa90d19fd3cc2dc1344064b65",
+      "logSha256": "43c8f0007f5b7218a53df0a4545dfbb79569690d192fc0f2b3850e4bd087d20f"
+    },
+    {
+      "id": "contracts-w2",
+      "engine": "two-drop",
+      "workers": 2,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/contracts-w2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "62359d846b1ed09e412f468f8ecd35a76465f5c70cb89f85f8e4818d6a50a5e5",
+      "logSha256": "52506fd365968e765e43e97a28fbb3d490d2e0873dba6594d08cc4eb92960ea5"
+    },
+    {
+      "id": "contracts-w3",
+      "engine": "three-drop",
+      "workers": 3,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "three-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/contracts-w3.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "86123e2ac046f6cfeae70cfd20bad4ebefd5859b1c03f4060b50fb226773933c",
+      "logSha256": "6eb6509fbe98aa5222b3f247aaba2861c5542e70bf3779cc529733b2b7069b2e"
+    },
+    {
+      "id": "contracts-w4",
+      "engine": "four-drop",
+      "workers": 4,
+      "preflight": true,
+      "budgetMs": 30000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/contracts-w4.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "9602ed539086dcf1ff3d542ad5324d993171fa7314df8e8c63fdd71b09346c6d",
+      "logSha256": "27aa0a466fc7a716897738b86d4452adad288188db5a703d6db7c401d468bb74"
+    }
+  ],
+  "controls": [
+    {
+      "id": "fixed-w1",
+      "engine": "one-drop",
+      "workers": 1,
+      "fixedFamilies": 4,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/fixed-w1.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "4"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "146d8ce3cb669cbba925c40fd3a2ce38b35be136c8058ab7fb730934716c0741",
+      "logSha256": "8c666b6da16a05962ff252809903a40c65560106cad864630eff9066c5983e3c"
+    },
+    {
+      "id": "fixed-w2",
+      "engine": "two-drop",
+      "workers": 2,
+      "fixedFamilies": 4,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/fixed-w2.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "4"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "22f4345a5363b59fa8a842044236fbfa61fb4c27ecce9285c758895f30c934e2",
+      "logSha256": "bcd0893fba7350f48386a8b84e9351ba3eeb7da192cc183ef9c44af807b4becd"
+    },
+    {
+      "id": "fixed-w3",
+      "engine": "three-drop",
+      "workers": 3,
+      "fixedFamilies": 4,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "three-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/fixed-w3.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "4"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "4fa37c36cf33fc838231f2bc31114cd2442e26eaca185ee6a1d450b531509730",
+      "logSha256": "1c270d0148e547b720e716b35052b093d9b3a7136979d18fadbe1b49e0d741e1"
+    },
+    {
+      "id": "fixed-w4",
+      "engine": "four-drop",
+      "workers": 4,
+      "fixedFamilies": 4,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/fixed-w4.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "4"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "8aa5c0a17f05351660fc651592eeaa7373c3e77a3bfb89561b0973f3f40872d7",
+      "logSha256": "c2eff7162ac9105b2edae7891b9209449bafb68440160e4036bae0663a75a16f"
+    }
+  ],
+  "trials": [
+    {
+      "id": "w1-r1",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "engine": "one-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w1-r1.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "9317b9b72fae450e57b663b3017e06eb8f9d41c33af36fb74416af9930207585",
+      "logSha256": "82a69af749ecd3d33f793640f468cce0d0a41efc6e0996b3c421a15bc2dc12e5"
+    },
+    {
+      "id": "w2-r1",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "engine": "two-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w2-r1.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "35c124d9a9a5b986537e89c4982a668400fd343187b209568cdda2e3e3a6af5b",
+      "logSha256": "2d5a3a4bc238735967454011bc85143a699b3e55b8eaa4f0a737c1a0072e72c0"
+    },
+    {
+      "id": "w3-r1",
+      "workers": 3,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "engine": "three-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "three-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w3-r1.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "cb67681970efd564b17b31b64ff67d3e80b10be64d2dfd46b176d43ba4b60024",
+      "logSha256": "8ef5e63b92a18cf5ec51b1e883774ef100e13a9b0a977792f86574ca143b0fb0"
+    },
+    {
+      "id": "w4-r1",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "engine": "four-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w4-r1.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "e56133c4868d13c299203832eec685ab24135fb6d6176f1ebaf8b2fbdf5a1e64",
+      "logSha256": "ffb8d768f00b8820dcc572b420a0315cacb6c96c5633ec09113064814186a49e"
+    },
+    {
+      "id": "w4-r2",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "engine": "four-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "four-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w4-r2.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "854f837d0cf8f2a3d3c313423b80e429b9dc28006931ed5a8910d64e53e54924",
+      "logSha256": "84a2b67f6aa81e848790f12f200d107be8ff24b9fce72a33c123a6b34aa76b6d"
+    },
+    {
+      "id": "w3-r2",
+      "workers": 3,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "engine": "three-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "three-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w3-r2.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "7464b32b0e5cb20445798f23c499a7404d16b385bbf20b8b805cf2bdac01505a",
+      "logSha256": "b61eaa46ca4d53ef1b9cb0e6205390db87727b0bef91070c3bddf883c300f767"
+    },
+    {
+      "id": "w2-r2",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "engine": "two-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w2-r2.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "778cd8298ac3f5af16f873eca6c6da9e9675273ed227c021a0300df9ff1ccfb5",
+      "logSha256": "c5b69caade76e397f33d956e578ddd284b11053a148f20d349e807568dd59c9b"
+    },
+    {
+      "id": "w1-r2",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "engine": "one-drop",
+      "args": [
+        "scripts/verify-resources.mjs",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-resources-stage21/docs/benchmarks/staged-resources-stage21/w1-r2.json",
+        "--case",
+        "RSA-100"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "3b2fc856291ac4d73d89beef221491d0a6cba870361b6ec1255d17aadb5e7cef",
+      "logSha256": "0fd0a2fec84857245c80871c851963d6d7e8d30e84c3d11c724386e4d2902215"
+    }
+  ],
+  "fixedFamilyProof": {
+    "families": 4,
+    "records": 5,
+    "acceptedPrefixes": 4,
+    "verified": true
+  },
+  "completedAt": "2026-10-20T17:12:48.419Z",
+  "familyProof": {
+    "families": 19,
+    "records": 8,
+    "acceptedPrefixes": 18,
+    "verified": true
+  },
+  "decision": {
+    "baselineWorkers": 2,
+    "baselineYields": [
+      344,
+      376
+    ],
+    "candidates": [
+      {
+        "workers": 3,
+        "yields": [
+          448,
+          423
+        ],
+        "pass": true,
+        "pairedRatios": [
+          {
+            "numerator": 448,
+            "denominator": 344
+          },
+          {
+            "numerator": 423,
+            "denominator": 376
+          }
+        ]
+      },
+      {
+        "workers": 4,
+        "yields": [
+          475,
+          475
+        ],
+        "pass": true,
+        "pairedRatios": [
+          {
+            "numerator": 475,
+            "denominator": 344
+          },
+          {
+            "numerator": 475,
+            "denominator": 376
+          }
+        ]
+      }
+    ],
+    "candidate": 4,
+    "automaticDefaultChanged": false,
+    "scope": "one-host 60s collection screen; no completion-time or smartphone extrapolation"
+  }
+}

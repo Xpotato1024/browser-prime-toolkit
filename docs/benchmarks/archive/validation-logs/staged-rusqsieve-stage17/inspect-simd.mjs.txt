@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Copyright (C) 2026 Xpotato.net / Xpotato1024
+import {writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {compileInContainer} from '../browser-prime-rusqsieve-stage17/scripts/container-compile.mjs';
+import {RUSQSIEVE_BASE64} from '../browser-prime-rusqsieve-stage17/src/rusqsieve/wasm-bytes.js';
+const b=Buffer.from(RUSQSIEVE_BASE64,'base64'),image='sha256:0aabc47a61c105a320b69fecbc2708a2118ec9e54a8b10946998f21bd23423d4';
+const analysis="import json,re,hashlib,collections,pathlib\nb=pathlib.Path('/work/checked.wat').read_bytes()\ncounts=collections.Counter(m.group(1)+'.'+m.group(2) for m in re.finditer(r'\\((v128|i8x16|i16x8|i32x4|i64x2|f32x4|f64x2)\\.([a-z0-9_]+)',b.decode()))\nprint(json.dumps({'watSha256':hashlib.sha256(b).hexdigest(),'watBytes':len(b),'opcodes':dict(counts),'simdInstructionOccurrences':sum(counts.values())}))\n";
+const inspected=JSON.parse(compileInContainer(image,{'src/checked.wasm':b,'src/inspect.py':Buffer.from(analysis)},['sh','-c','/emsdk/upstream/bin/wasm-dis /src/checked.wasm -o /work/checked.wat && python3 /src/inspect.py'],'true',60000).toString());
+const r={wasmSha256:createHash('sha256').update(b).digest('hex'),bytes:b.length,image,...inspected,interpretation:'Static artifact inspection; not an isolated SIMD speed benchmark'};
+if(!r.simdInstructionOccurrences)throw Error('No SIMD instructions');
+writeFileSync(new URL('./simd-inspection.json',import.meta.url),JSON.stringify(r,null,2)+'\n');console.log(JSON.stringify(r));

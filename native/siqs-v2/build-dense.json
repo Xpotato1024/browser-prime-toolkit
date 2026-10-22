@@ -1,0 +1,528 @@
+{
+  "variant": "dense",
+  "image": "emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8",
+  "sourceHashes": {
+    "native/siqs-v2/runtime.c": "3b69b5aee117912f0f9b27d67b77741c4d9d2530479df426e77d18d6b620c3af",
+    "native/siqs-v2/runtime.h": "92a7acecd62112ba3fb98f869dd85858dda81e833ba72aefc830446c0734cb5c",
+    "native/siqs-v2/matrix-dense.c": "6cee7bb42cf1e9d5092e03108f4f49931e5ce6a775dab7f4a30b1684015e0d36",
+    "native/siqs-v2/sanitize.c": "eacbd336ade84423e6300f788c2ffc6805b567e655f6aad6ccf3872b1bfed971",
+    "native/siqs-v2/checkpoint.inc": "c3ce97c478a66a1b46882980053b66f6ce08fc4f744c5099a1e2f1efa970af54",
+    "native/siqs-v2/snapshot.inc": "625836e5757bcb4d7ebf6e8058f5345425bae7f37ead52185554d2d090a150e4",
+    "native/siqs/sources.json": "d96abfc56bc4e803373f85d115aa7d5db680176da996bcd5010ba454cda63025",
+    "vendor/msieve-lanczos/provenance.json": "4d5146e0904029b0b2f48024d1a2fc867c422c9701ada610983a7fa2668652a7",
+    "scripts/prepare-siqs-v2.mjs": "104d4ffe1c0faba0d7445bd6b4d66df5a9b8744095638c0cadd69ef19a6dc543",
+    "scripts/patch-siqs.mjs": "63619dd6006e8cbc0c99e68b8d9e45b75f96487c3f96c8952c0abf90ed3fa0cb",
+    "scripts/patch-lanczos.mjs": "44229b6a3b66f4a2d3eeabe19be70c79d0a42660a7a3e70717ce7a0824a8bc71",
+    "scripts/build-siqs-v2.mjs": "f95b7e0fecd8367f9f1398c9a1e8433b81a89f09a93aebfdb186fe4507e2e2e3",
+    "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704"
+  },
+  "upstreams": [
+    {
+      "source": "vendor/msieve-siqs/include/common.h",
+      "destination": "include/common.h",
+      "sha256": "f6857e39583440f5c7c5a6c764433b824747c71af54da99492e5157acad35c21",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/include/msieve.h",
+      "destination": "include/msieve.h",
+      "sha256": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/include/util.h",
+      "destination": "include/util.h",
+      "sha256": "37e2357caaf52750198f13841db9aec5df47fcfdec2b1a80852a02db7e416778",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/include/mp.h",
+      "destination": "include/mp.h",
+      "sha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/include/gmp_xface.h",
+      "destination": "include/gmp_xface.h",
+      "sha256": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/mpqs.h",
+      "destination": "mpqs/mpqs.h",
+      "sha256": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/mpqs.c",
+      "destination": "mpqs/mpqs.c",
+      "sha256": "67326a47fca42eef0295ab8764097ee0c290aa03cd16e7ef530c132ac78c38e7",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/poly.c",
+      "destination": "mpqs/poly.c",
+      "sha256": "4adb0309b7b7eb88d415676fd19296384e7067aeda53a2f32e4d8a5ad628e67f",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/relation.c",
+      "destination": "mpqs/relation.c",
+      "sha256": "81db5d89a116a100e045d0da70061a8caefd96a81aa12bc7dbf06146df3f6f94",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/sieve.c",
+      "destination": "mpqs/sieve.c",
+      "sha256": "e89f71ca2dafa81d95c455d7a4c1f01e25adfaee20706413a01674e7c8c6c96d",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/sieve_core.c",
+      "destination": "mpqs/sieve_core.c",
+      "sha256": "2ed9abc4753d43993373cabace58df7b834a80018a02bcaaccadcd7b333ffef8",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/mpqs/sqrt.c",
+      "destination": "mpqs/sqrt.c",
+      "sha256": "9c086fcf589b8e83fdb7ee35c3cd1b3264f41cdf47b9ccc24b0a8ed2eceec269",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/common/prime_sieve.c",
+      "destination": "common/prime_sieve.c",
+      "sha256": "a3d680f8a9a08c2a9050a4ca7d2ce1aa6233a9fc71df26c4d8aeb0112ae794f7",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve-siqs/common/smallfact/squfof.c",
+      "destination": "common/squfof.c",
+      "sha256": "40602e5b8cc61cf8f1e0a82c471ba60dfafaff93c595fbb0cebeffdab2abc492",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve/common/mp.c",
+      "destination": "common/mp.c",
+      "sha256": "de76a11dde0fe6680c1eeb99dd6ff4f1207bd61b8479a0cc674afc73dbdaa67b",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    },
+    {
+      "source": "vendor/msieve/common/prime_delta.c",
+      "destination": "common/prime_delta.c",
+      "sha256": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7",
+      "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/radii/msieve",
+    "commit": "c8727d91305bdbe0972d160ef0ce61dd02ce9193",
+    "license": "public-domain author notice, retained verbatim",
+    "files": [
+      {
+        "path": "lanczos.c",
+        "upstreamPath": "common/lanczos/lanczos.c",
+        "gitBlob": "e989683cbd14425bea40844d68e093ae14045fce",
+        "bytes": 39768,
+        "sha256": "53987a217992c1826bb31e31664e65f438bdb489f7f77b13df012f7afecce530"
+      },
+      {
+        "path": "lanczos.h",
+        "upstreamPath": "common/lanczos/lanczos.h",
+        "gitBlob": "81d317e39245a1b7b68a2457ac4b2d20737159e6",
+        "bytes": 4825,
+        "sha256": "f615375d4ec502e0dfd803df2786553e55d0b0829ff1fb102fb1898e4ddffecd"
+      },
+      {
+        "path": "lanczos_matmul0.c",
+        "upstreamPath": "common/lanczos/lanczos_matmul0.c",
+        "gitBlob": "f41ab2bd4a86fa3c6119ed659cf42e76645b0c56",
+        "bytes": 19604,
+        "sha256": "fb81f1669785645806b11cd033854a66563ab00b8e526ee63659d240782a65e7"
+      }
+    ]
+  },
+  "patched": {
+    "include/common.h": {
+      "sha256": "0053f6d189cb6394835724eeaa9db186ff6d92c745a5b6cc6257e45aa06b0cdd",
+      "changes": [
+        {
+          "old": "#define LINE_BUF_SIZE 300",
+          "count": 1
+        }
+      ]
+    },
+    "include/msieve.h": {
+      "sha256": "abfe6b108372fdaf51b75f39021762dba4f867923e7ca79e85207582ba946ca4",
+      "changes": []
+    },
+    "include/util.h": {
+      "sha256": "ef9ffbdb181eb059233f60190588cbd996c984db06a90d5efed196f0c0164040",
+      "changes": [
+        {
+          "nativePortableArithmetic": true
+        }
+      ]
+    },
+    "include/mp.h": {
+      "sha256": "1bd59ffe1285f8544b45b7f7314b0ca20b555bed30a6fea6582ae1ec1016381b",
+      "changes": []
+    },
+    "include/gmp_xface.h": {
+      "sha256": "8907e6b646037f80128f69b36a5f74b8e5236d523a4b9d3fb8cd0e1715ce62dd",
+      "changes": []
+    },
+    "mpqs/mpqs.h": {
+      "sha256": "63996576f204d1d64fd0b83efdf94370a6528062f0052b2541baadc02bdb4493",
+      "changes": []
+    },
+    "mpqs/mpqs.c": {
+      "sha256": "4d2549568e695711055689d50cd28723fc1ed73632c03cc74cfe224916abb25e",
+      "changes": [
+        {
+          "old": "fb_size = params.fb_size;",
+          "count": 1
+        },
+        {
+          "old": "get_sieve_params(bits, &params);",
+          "count": 1
+        },
+        {
+          "old": "solve_linear_system(obj, fb_size, &bitfield,",
+          "count": 1
+        },
+        {
+          "old": "factor_found = find_factors(obj, n, factor_base, fb_size,",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 6
+        }
+      ]
+    },
+    "mpqs/poly.c": {
+      "sha256": "750ef91d415a4b106737b89d0eddc73c66441fd51170601d44e10ebb870e181f",
+      "changes": [
+        {
+          "old": "logprintf(obj, \"fatal error: poly selection failed\\n\");\n\t\texit(-1);",
+          "count": 1
+        },
+        {
+          "old": "conf->num_poly_factors = num_factors;",
+          "count": 1
+        },
+        {
+          "old": "conf->factor_bits[j] = i;\n\t\tnum_factors++;",
+          "count": 1
+        },
+        {
+          "old": "void build_base_poly(sieve_conf_t *conf) {",
+          "count": 1
+        },
+        {
+          "old": "get_rand(&obj->seed1, &obj->seed2) % range;",
+          "count": 1
+        },
+        {
+          "old": "uint32 range = factor_bounds[bits+1] - factor_bounds[bits];",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 15
+        }
+      ]
+    },
+    "mpqs/relation.c": {
+      "sha256": "2156f010f38a0a1f4e29126806bb865c9d7d2d52e8eb1d3d483ec2be75cdc03e",
+      "changes": [
+        {
+          "old": "i = sprintf(buf, \"R \");",
+          "count": 1
+        },
+        {
+          "old": "if (fb_offset == 0 || fb_offset >= conf->fb_size)\n\t\t\tcontinue;",
+          "count": 1
+        },
+        {
+          "old": "poly_factors[i] = j;",
+          "count": 1
+        },
+        {
+          "old": "cycle_list[num_cycles-1].cycle.num_relations);",
+          "count": 1
+        },
+        {
+          "old": "qs_filter_relations(sieve_conf_t *conf) {",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 23
+        }
+      ]
+    },
+    "mpqs/sieve.c": {
+      "sha256": "062baf461e3503226b6749be97f538bca14ef825a7c5a153197c8a05bab14d7d",
+      "changes": [
+        {
+          "old": "mp_copy(&polyval.num, &res);",
+          "count": 1
+        },
+        {
+          "guardedFactorAppends": 13
+        },
+        {
+          "loopCheckpoints": 15
+        }
+      ]
+    },
+    "mpqs/sieve_core.c": {
+      "sha256": "c7286aa1685c106845610ac9e3765a5f1f74604fa8d7fd243e41db348c4c9e6b",
+      "changes": [
+        {
+          "old": "for (i = 0; i < num_poly; i++) {",
+          "count": 1
+        },
+        {
+          "old": "TIME1(tf_plus_scan_time)",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 16
+        }
+      ]
+    },
+    "mpqs/sqrt.c": {
+      "sha256": "a9966060d543f8e016de7ca7bff6d37cf413ce3c4014a59d65b030fcc48608ec",
+      "changes": [
+        {
+          "old": "mp_gcd(&tmp, n, &tmp);",
+          "count": 1
+        },
+        {
+          "old": "uint32 large_primes[200], num_large_primes;",
+          "count": 1
+        },
+        {
+          "old": "large_primes[2*m] = prime;",
+          "count": 1
+        },
+        {
+          "old": "for (j = 0; j < num_large_primes; j++) {",
+          "count": 1
+        },
+        {
+          "loopCheckpoints": 9
+        }
+      ]
+    },
+    "common/prime_sieve.c": {
+      "sha256": "b74b612932fcc5a24feffdc6f411c8599be79e516c9e620e87308ecfa050d800",
+      "changes": [
+        {
+          "loopCheckpoints": 8
+        }
+      ]
+    },
+    "common/squfof.c": {
+      "sha256": "78239f3a32aa553949da9b7b7e4f07667eee3818a9d505c2fa0f5290ddd521e2",
+      "changes": [
+        {
+          "loopCheckpoints": 7
+        }
+      ]
+    },
+    "common/mp.c": {
+      "sha256": "45d8e09f85ad15a19cb9aaa2421406745e24e26306435495877a09f77f8d5059",
+      "changes": [
+        {
+          "loopCheckpoints": 45
+        }
+      ]
+    },
+    "common/prime_delta.c": {
+      "sha256": "12cb600614a5c126800fbe6bfe9d1b5ae1f58589bde20416d5c4dc94f8cd69e7",
+      "changes": [
+        {
+          "loopCheckpoints": 0
+        }
+      ]
+    },
+    "lanczos.c": {
+      "sha256": "e9cc42fa969d792c6cb0b8d0a3e41d44b77fd6c043ecf1c704eb1a7085e7f7bf",
+      "changes": [
+        {
+          "from": "static uint64 * form_post_lanczos_matrix",
+          "to": "static void mul_64x64_64x64"
+        },
+        {
+          "from": "static void dump_lanczos_state",
+          "to": "static void init_lanczos_state"
+        },
+        {
+          "from": "\tif (obj->flags & MSIEVE_FLAG_NFS_LA_RESTART) {",
+          "to": "\n\tmask1 = 0;"
+        },
+        {
+          "from": "\tfirst_time = time(NULL);",
+          "to": "\n\tif (dump_interval)"
+        },
+        {
+          "from": "\t\t/* possibly print a status update */",
+          "to": "\n\tlogprintf(obj, \"lanczos halted"
+        },
+        {
+          "from": "\tif (ncols > 1000000) {",
+          "to": "\n\t/* solve the matrix */"
+        },
+        {
+          "old": "\t\titer++;"
+        },
+        {
+          "old": "\tdo {\n\t\tdependencies"
+        },
+        {
+          "loopCheckpoints": 37
+        }
+      ]
+    }
+  },
+  "script": "set -eu\ncd /src\nFLAGS=\"-O2 -std=gnu99 -DCPU_GENERIC -D_GMP_XFACE_H_ -Iinclude -Impqs -Inative/siqs-v2 -fwasm-exceptions -sSUPPORT_LONGJMP=wasm\"\nfor n in mpqs poly relation sieve sqrt; do emcc $FLAGS -include native/siqs-v2/runtime.h -c mpqs/$n.c -o /work/$n.o; done\nfor n in mp prime_delta prime_sieve squfof; do emcc $FLAGS -include native/siqs-v2/runtime.h -c common/$n.c -o /work/$n.o; done\nfor b in 32 64; do emcc $FLAGS -include native/siqs-v2/runtime.h -DBLOCK_KB=$b -DROUTINE_NAME=qs_core_sieve_generic_\"$b\"k -c mpqs/sieve_core.c -o /work/core$b.o; done\nemcc $FLAGS -c native/siqs-v2/runtime.c -o /work/runtime.o\nemcc $FLAGS -c native/siqs-v2/matrix-dense.c -o /work/matrix.o\nemcc /work/*.o -O2 -fwasm-exceptions -sSUPPORT_LONGJMP=wasm --no-entry -sSTANDALONE_WASM=1 -sFILESYSTEM=0 -sALLOW_MEMORY_GROWTH=0 -sINITIAL_MEMORY=67108864 -sSTACK_SIZE=1048576 -sMALLOC=emmalloc '-sEXPORTED_FUNCTIONS=[\"_input_ptr\",\"_factor_ptr\",\"_siqs_split\",\"_stat_live\",\"_stat_peak\",\"_stat_phases\",\"_stat_reason\",\"_configure_fault\",\"_stat_line\",\"_log_ptr\",\"_stat_allocs\",\"_configure_checkpoint_budget\",\"_stat_work\",\"_stat_imports\",\"_stat_operation_stop\",\"_stat_phase_work\",\"_stat_lanczos_attempts\",\"_stat_lanczos_iterations\",\"_configure_snapshot\",\"_stat_snapshot_ptr\",\"_stat_snapshot_bytes\",\"_stat_parity_ptr\",\"_stat_parity_bytes\"]' -o /work/siqs.wasm\n",
+  "cleanBuilds": 2,
+  "bytes": 93241,
+  "sha256": "0c3313e9ca1c1532cf74aaf065d2aa895e2308b425626381c2da8ae2c29a573e",
+  "imports": [
+    {
+      "module": "env",
+      "name": "budget_tick",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_close",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_write",
+      "kind": "function"
+    },
+    {
+      "module": "wasi_snapshot_preview1",
+      "name": "fd_seek",
+      "kind": "function"
+    }
+  ],
+  "exports": [
+    {
+      "name": "memory",
+      "kind": "memory"
+    },
+    {
+      "name": "__indirect_function_table",
+      "kind": "table"
+    },
+    {
+      "name": "configure_checkpoint_budget",
+      "kind": "function"
+    },
+    {
+      "name": "stat_work",
+      "kind": "function"
+    },
+    {
+      "name": "stat_imports",
+      "kind": "function"
+    },
+    {
+      "name": "stat_operation_stop",
+      "kind": "function"
+    },
+    {
+      "name": "stat_phase_work",
+      "kind": "function"
+    },
+    {
+      "name": "stat_lanczos_attempts",
+      "kind": "function"
+    },
+    {
+      "name": "stat_lanczos_iterations",
+      "kind": "function"
+    },
+    {
+      "name": "configure_snapshot",
+      "kind": "function"
+    },
+    {
+      "name": "stat_snapshot_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "stat_snapshot_bytes",
+      "kind": "function"
+    },
+    {
+      "name": "stat_parity_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "stat_parity_bytes",
+      "kind": "function"
+    },
+    {
+      "name": "log_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "input_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "factor_ptr",
+      "kind": "function"
+    },
+    {
+      "name": "stat_live",
+      "kind": "function"
+    },
+    {
+      "name": "stat_peak",
+      "kind": "function"
+    },
+    {
+      "name": "stat_phases",
+      "kind": "function"
+    },
+    {
+      "name": "stat_reason",
+      "kind": "function"
+    },
+    {
+      "name": "configure_fault",
+      "kind": "function"
+    },
+    {
+      "name": "siqs_split",
+      "kind": "function"
+    },
+    {
+      "name": "stat_line",
+      "kind": "function"
+    },
+    {
+      "name": "stat_allocs",
+      "kind": "function"
+    },
+    {
+      "name": "_initialize",
+      "kind": "function"
+    },
+    {
+      "name": "__trap",
+      "kind": "function"
+    }
+  ],
+  "memoryLimitBytes": 67108864,
+  "stackBytes": 1048576,
+  "managedHeapBytes": 33554432
+}

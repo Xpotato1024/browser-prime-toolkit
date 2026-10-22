@@ -1,0 +1,38 @@
+{
+  "measuredHead": "83a3c0e8752c48f0ab2fe671fcb2366b77c35fda",
+  "note": "50M operation-budget incomplete baseline, not the completed 30-second ability evaluation",
+  "files": [
+    {
+      "file": "llm01-staged-rsa-contract.json",
+      "sha256": "6eeabde10f83647fdf1519f22d9caac7596634f553bb73745e58b1cc1ff2c882"
+    },
+    {
+      "file": "llm01-staged-rsa100-summary.json",
+      "sha256": "dd024cb29c29dcfdc64c222167702685887b9cca9bf323ffa61adf7a64330f3c"
+    },
+    {
+      "file": "llm01-staged-rsa100-seed1.json",
+      "sha256": "1a5b525a01cd3709421512fec727111a9c16f5f1ace876dbf926b31e88bd5195"
+    },
+    {
+      "file": "llm01-staged-rsa100-seed11.json",
+      "sha256": "a2626ad9ae72d1b7c8eb264df30dff8eff53b1a696cd71d0ee87465f39ea1ba9"
+    },
+    {
+      "file": "llm01-staged-rsa100-seed23.json",
+      "sha256": "171749a237f5a6a0a47b6d25d17c817205b6cfa14224de7374359b74fe8a97c4"
+    },
+    {
+      "file": "llm01-staged-rsa100-seed41.json",
+      "sha256": "701f08969bc60f87fbf95d5fb77ce251572c26b25528d75f70993b0d4e8b573c"
+    },
+    {
+      "file": "llm01-staged-rsa100-seed67.json",
+      "sha256": "fa5bbafcf2889754553ff2c65324a0fd84617a654e2ba3cc6d02c574aa0777f6"
+    },
+    {
+      "file": "report-rsa-source.txt",
+      "sha256": "0d7438c1a0df74258aee57dffc9b9bc0b72957246b5e9353718e525ddb3df2ea"
+    }
+  ]
+}

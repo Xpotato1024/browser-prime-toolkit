@@ -1,0 +1,8 @@
+file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/scripts/verify-dlp.mjs:16
+try{await access(output);throw Error('Refusing to overwrite '+output);}catch(e){if(e.code!=='ENOENT')throw e;}
+                               ^
+
+Error: Refusing to overwrite /tmp/rsa-profile-receipt.json
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/scripts/verify-dlp.mjs:16:32
+
+Node.js v24.19.0

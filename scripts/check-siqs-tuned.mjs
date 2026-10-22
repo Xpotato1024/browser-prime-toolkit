@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {LAB_SIQS_BASE64} from '../src/siqs-tuned/bytes.js';
+const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),sha=b=>createHash('sha256').update(b).digest('hex');
+const receipt=JSON.parse(read('native/siqs-tuned/staged-build.json')),bytes=Buffer.from(LAB_SIQS_BASE64,'base64');
+assert.deepEqual(receipt.upstreams,JSON.parse(read('native/siqs-lab/staged-upstreams.json')));assert.equal(sha(read('native/siqs-tuned/staged-link-map.txt')),receipt.linkMapSha256);
+assert.ok(!/libgmp|aprcl/.test(read('native/siqs-tuned/staged-link-map.txt').toString()));
+assert.equal(receipt.cleanBuilds,2);assert.equal(bytes.length,receipt.wasmBytes);assert.equal(sha(bytes),receipt.wasmSha256);
+assert.equal(sha(read('src/siqs-tuned/module.js')),receipt.glueSha256);
+for(const[p,h]of Object.entries(receipt.sourceHashes))assert.equal(sha(read(p)),h,'SIQS lab source pin '+p);
+const module=new WebAssembly.Module(bytes),imports=WebAssembly.Module.imports(module),exports=WebAssembly.Module.exports(module);
+assert.deepEqual(imports,receipt.imports);
+assert.ok(imports.every(i=>i.module==='a'&&i.kind==='function'&&/^[a-z]$/.test(i.name)));
+assert.equal(receipt.memoryBytes,268435456);assert.equal(receipt.saveBytes,16777216);assert.equal(receipt.stackBytes,4194304);assert.equal(receipt.growth,false);assert.equal(receipt.threads,1);
+const denied={};for(const i of imports){denied[i.module]??={};denied[i.module][i.name]=()=>{throw Error('Unexpected probe import');};}
+const instance=new WebAssembly.Instance(module,denied),memories=exports.filter(e=>e.kind==='memory');
+assert.equal(memories.length,1);const memory=instance.exports[memories[0].name];
+assert.equal(memory.buffer.byteLength,268435456);
+assert.throws(()=>memory.grow(1),RangeError);
+assert.ok(Object.hasOwn(receipt.patched,'common/lanczos/lanczos.c'));
+assert.ok(Object.hasOwn(receipt.patched,'mpqs/gf2.c'));
+assert.ok(receipt.recipe.includes('CFLAGS="-flto -I/work/gmp'));
+console.log('SIQS LTO: two clean builds, complete source pins, fixed 256MiB and rejected growth');

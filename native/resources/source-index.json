@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "repository": "https://github.com/Xpotato1024/browser-prime-toolkit",
+  "sourceCommit": "4203aab1703e9129fd3e86343c485c334bbccc4a",
+  "resourceMeasuredCommit": "a7d25eb952c63d20c220e653247a69de7c5d1d5a",
+  "scope": "Reviewed resource/private-entry/coordinator source closure, native recipes, original upstream/license mappings; sources unchanged from immutable core",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/LICENSE"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 483,
+      "sha256": "68ef01d6d0cf280652484a6f9963f015a3e34c5c039910ff68feaac6487c3b29",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/NOTICE"
+    },
+    {
+      "path": "app/resources-main.js",
+      "bytes": 419,
+      "sha256": "7c39159ad77a1f5bfff23a657d962ba8b5d22af7b1ba62703c28c11b6d5a86ed",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/app/resources-main.js"
+    },
+    {
+      "path": "app/resources.css",
+      "bytes": 608,
+      "sha256": "ef10939303aaf43baae4c64f288b2e30d23c0aada273165e9c943fa9ce1a62fe",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/app/resources.css"
+    },
+    {
+      "path": "app/resources.html",
+      "bytes": 423,
+      "sha256": "c186c4ad2b5943c1946c7b189fe43902aee075bf92c7c4c3cfe5848fd2bbb605",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/app/resources.html"
+    },
+    {
+      "path": "bench/coordinator.html",
+      "bytes": 143,
+      "sha256": "319d0f6edd427a3d1e3c5ff11779f14a65443834f21baf5369177011dca10241",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/coordinator.html"
+    },
+    {
+      "path": "bench/coordinator.js",
+      "bytes": 9323,
+      "sha256": "0cc26a3e1c29e4401e3f3e968305697ba9d1076bb81e7ddfbe993a04e7faed28",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/coordinator.js"
+    },
+    {
+      "path": "bench/staged-coordinator-plan.json",
+      "bytes": 1192,
+      "sha256": "bb43f4071db705543c5ddcd633eadbb4f837b6feaf12db8bfb1440730281221e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-coordinator-plan.json"
+    },
+    {
+      "path": "bench/staged-dlp-plan.json",
+      "bytes": 3018,
+      "sha256": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-dlp-plan.json"
+    },
+    {
+      "path": "bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-full/cases.js"
+    },
+    {
+      "path": "bench/staged-full/catalog.json",
+      "bytes": 10862,
+      "sha256": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-full/catalog.json"
+    },
+    {
+      "path": "bench/staged-full/manifest.json",
+      "bytes": 433,
+      "sha256": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-full/manifest.json"
+    },
+    {
+      "path": "bench/staged-full/oracle.json",
+      "bytes": 63199,
+      "sha256": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-full/oracle.json"
+    },
+    {
+      "path": "bench/staged-resource-plan.json",
+      "bytes": 1545,
+      "sha256": "90a39f6f3ebcf9c2613617df00b74df8ea1cee4546b6c6b3dcb4e04b1e9f1b40",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-resource-plan.json"
+    },
+    {
+      "path": "bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-rsa/cases.js"
+    },
+    {
+      "path": "bench/staged-rsa/catalog.json",
+      "bytes": 22108,
+      "sha256": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-rsa/catalog.json"
+    },
+    {
+      "path": "bench/staged-scheduler-plan.json",
+      "bytes": 4338,
+      "sha256": "d38d564b7637a5371fcf4f1b044f3567feb9360c18f14d0b81dc74b6e4f050a2",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/bench/staged-scheduler-plan.json"
+    },
+    {
+      "path": "native/resources/NOTICE",
+      "bytes": 144,
+      "sha256": "f66a0bc93489f8e534971a2a8cb209c371e0ac1e56c186987c0d8b01fbde9d82",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/resources/NOTICE"
+    },
+    {
+      "path": "native/resources/README.md",
+      "bytes": 1647,
+      "sha256": "c373b22a4d41f9cd3dd77e2b8e79be3c66b11eb0c2389bbca840129266d0a351",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/resources/README.md"
+    },
+    {
+      "path": "native/resources/build-128.json",
+      "bytes": 8422,
+      "sha256": "2681f5ff2db7ee98d5a45233dc163609cc5ce446f1990066226853876bae53f0",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/resources/build-128.json"
+    },
+    {
+      "path": "native/resources/build-64.json",
+      "bytes": 8419,
+      "sha256": "53e80bcc4cb1b74aaa2fa0058ca3d02633181249130e009bdbbb7670f3ded1cb",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/resources/build-64.json"
+    },
+    {
+      "path": "native/resources/memory-contract.mjs",
+      "bytes": 1347,
+      "sha256": "b145cbd2ee96773ff3cb768f626d581ec54213ef30dd4403213a23e45030fd30",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/resources/memory-contract.mjs"
+    },
+    {
+      "path": "native/rusqsieve-dlp/README.md",
+      "bytes": 3235,
+      "sha256": "da5c823d058ae11cc11e1e9ac658de2822bbef97e671b9eff82780f10b08107f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve-dlp/README.md"
+    },
+    {
+      "path": "native/rusqsieve-dlp/patch-source.mjs",
+      "bytes": 4493,
+      "sha256": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve-dlp/patch-source.mjs"
+    },
+    {
+      "path": "native/rusqsieve-dlp/staged-build.json",
+      "bytes": 8394,
+      "sha256": "bdf84eacb29bf3eb2feff488707767c820696b77f665b93a3d1a61dcebc66c5f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve-dlp/staged-build.json"
+    },
+    {
+      "path": "native/rusqsieve/LICENSE-APACHE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/LICENSE-APACHE"
+    },
+    {
+      "path": "native/rusqsieve/LICENSE-MPL",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/LICENSE-MPL"
+    },
+    {
+      "path": "native/rusqsieve/README.md",
+      "bytes": 2931,
+      "sha256": "60077529f2d1f7e707fe30754bc63aeac8df9074bb926f2c3fcc0b3d902538a9",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/README.md"
+    },
+    {
+      "path": "native/rusqsieve/RustDockerfile",
+      "bytes": 563,
+      "sha256": "6cbece4b075ab047328c5203388af2d45379cefb5894297f494609481302c3c6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/RustDockerfile"
+    },
+    {
+      "path": "native/rusqsieve/codex_observer.rs",
+      "bytes": 2297,
+      "sha256": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/codex_observer.rs"
+    },
+    {
+      "path": "native/rusqsieve/memory-contract.mjs",
+      "bytes": 1246,
+      "sha256": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/memory-contract.mjs"
+    },
+    {
+      "path": "native/rusqsieve/patch-source.mjs",
+      "bytes": 3093,
+      "sha256": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/patch-source.mjs"
+    },
+    {
+      "path": "native/rusqsieve/staged-build.json",
+      "bytes": 7579,
+      "sha256": "69b2ecb4af966a40cac825e55c6806ddd9e564755c2b286662fb443900c02000",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/staged-build.json"
+    },
+    {
+      "path": "native/rusqsieve/staged-toolchain.json",
+      "bytes": 783,
+      "sha256": "ba5a22e598b3e84208fc284440105c9f8a5d8d8c830216bd8f03dcbf5df5bf3b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/staged-toolchain.json"
+    },
+    {
+      "path": "native/rusqsieve/staged-upstream.json",
+      "bytes": 7042,
+      "sha256": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/staged-upstream.json"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/rustc-COPYRIGHT",
+      "bytes": 1571,
+      "sha256": "172020dbfd5b53a226dfde77616190a48dcff519b0bc0e6deb91a8450782c4af",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/rustc-COPYRIGHT"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/rustc-LICENSE-APACHE",
+      "bytes": 9723,
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/rustc-LICENSE-APACHE"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/rustc-LICENSE-MIT",
+      "bytes": 1068,
+      "sha256": "b71bd43a069ca0641a9ecfe585ca7b3c53b5cc1608f8b68321168698e28b5ea1",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/rustc-LICENSE-MIT"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/staged-manifest.json",
+      "bytes": 1540,
+      "sha256": "d658aba338cb8f5a024a08b97301c8715143617910346dc942cd7e45725b0f25",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/staged-manifest.json"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/wasm-std-COPYRIGHT",
+      "bytes": 1571,
+      "sha256": "172020dbfd5b53a226dfde77616190a48dcff519b0bc0e6deb91a8450782c4af",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/wasm-std-COPYRIGHT"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/wasm-std-LICENSE-APACHE",
+      "bytes": 9723,
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/wasm-std-LICENSE-APACHE"
+    },
+    {
+      "path": "native/rusqsieve/toolchain-notices/wasm-std-LICENSE-MIT",
+      "bytes": 1068,
+      "sha256": "b71bd43a069ca0641a9ecfe585ca7b3c53b5cc1608f8b68321168698e28b5ea1",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/native/rusqsieve/toolchain-notices/wasm-std-LICENSE-MIT"
+    },
+    {
+      "path": "scripts/benchmark-coordinator.mjs",
+      "bytes": 4053,
+      "sha256": "139389f8811602b13c29b8745e16e8c37f68adf0b77b68f89dc077d71e6cce65",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/benchmark-coordinator.mjs"
+    },
+    {
+      "path": "scripts/benchmark-dlp.mjs",
+      "bytes": 3772,
+      "sha256": "f1f8dff9044c3aec03778d7286fd8e25d99734daf39ccb283d6129a7d635dfea",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/benchmark-dlp.mjs"
+    },
+    {
+      "path": "scripts/benchmark-resources.mjs",
+      "bytes": 4082,
+      "sha256": "33e1403e8d43e43a665ed0d16aafeaf1a6f60ed4d018357f873dc0d8ce59ef73",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/benchmark-resources.mjs"
+    },
+    {
+      "path": "scripts/benchmark-scheduler.mjs",
+      "bytes": 3585,
+      "sha256": "88f92aafa7ef267625f2f94e07536a3ba81fea3862be562b2c7068a6abb82b88",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/benchmark-scheduler.mjs"
+    },
+    {
+      "path": "scripts/browser-memory.mjs",
+      "bytes": 2029,
+      "sha256": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/browser-memory.mjs"
+    },
+    {
+      "path": "scripts/build-dlp-worker.mjs",
+      "bytes": 1067,
+      "sha256": "dd9f890c544cda5f77e4112a09cbdb62e2141e578d3b2a46c2d1a071b0d2769b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/build-dlp-worker.mjs"
+    },
+    {
+      "path": "scripts/build-resource-wasm.mjs",
+      "bytes": 3968,
+      "sha256": "14ff9c91bd8b73fb5b73e1fcbed6ae2134ef473cd57d7083bb80ac018da7ce4a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/build-resource-wasm.mjs"
+    },
+    {
+      "path": "scripts/build-resource-worker.mjs",
+      "bytes": 1222,
+      "sha256": "a4ba3a7692843ba75e46917efe8c78492baa4db3453f040f4495b6350e9fe6aa",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/build-resource-worker.mjs"
+    },
+    {
+      "path": "scripts/build-rusqsieve-dlp.mjs",
+      "bytes": 3600,
+      "sha256": "e505cb3e788c48e7027cb851956e89ac3ed4da660c2aa4167975fffd702ca1fb",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/build-rusqsieve-dlp.mjs"
+    },
+    {
+      "path": "scripts/build-scheduler-worker.mjs",
+      "bytes": 1152,
+      "sha256": "a5f052321705af1672083a2100446908d7b9a0ab7e789d8b545c9a22b37766ee",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/build-scheduler-worker.mjs"
+    },
+    {
+      "path": "scripts/check-coordinator.mjs",
+      "bytes": 1376,
+      "sha256": "dab83ee580224ef69d06f86ce30f8a8a008ad145e4e5bd21ffc1ef279ede312e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/check-coordinator.mjs"
+    },
+    {
+      "path": "scripts/check-scheduler.mjs",
+      "bytes": 2232,
+      "sha256": "bec1436dec04a20b88bffb9cbb3e89b657fa0aa9641909a60200be043a3b6097",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/check-scheduler.mjs"
+    },
+    {
+      "path": "scripts/coordinator-asset-route.mjs",
+      "bytes": 706,
+      "sha256": "11832f1fbb36c1b54f05089c47e7a28194ee3fc553b2b9140a240b910ebb67fb",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/coordinator-asset-route.mjs"
+    },
+    {
+      "path": "scripts/coordinator-decision.mjs",
+      "bytes": 1222,
+      "sha256": "b4faf9afb882ffbc174bce368fe1fb72e0d2a9ec94792083d61a98655dceb0b8",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/coordinator-decision.mjs"
+    },
+    {
+      "path": "scripts/dlp-asset-route.mjs",
+      "bytes": 548,
+      "sha256": "578bd967c843cf57842132a3fd835e51c72be60c712871e07470fe0ed379ea0a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/dlp-asset-route.mjs"
+    },
+    {
+      "path": "scripts/dlp-decision.mjs",
+      "bytes": 4763,
+      "sha256": "343881bda56b2ec2bd5cd4984e75a5c6684c0ad8300d7d744ce29e0a11199592",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/dlp-decision.mjs"
+    },
+    {
+      "path": "scripts/dlp-series-contract.mjs",
+      "bytes": 2373,
+      "sha256": "d186709fe6e34bcc00b9c21a605482fdda3d2d1440875d295980c4492ec0a7e9",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/dlp-series-contract.mjs"
+    },
+    {
+      "path": "scripts/generate-coordinator-runner.mjs",
+      "bytes": 2016,
+      "sha256": "99f88c42446c87bae1253a14cb4dc049482d4895ce69d21af8bbb0449a1b8bf3",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/generate-coordinator-runner.mjs"
+    },
+    {
+      "path": "scripts/generate-dlp-runner.mjs",
+      "bytes": 3452,
+      "sha256": "71dea2a3139fed3195d6a36448ee2d4cda28a79be4da7ae81620712db1d21448",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/generate-dlp-runner.mjs"
+    },
+    {
+      "path": "scripts/generate-resource-runner.mjs",
+      "bytes": 4033,
+      "sha256": "12ae13c291d465205489534c3588f36c5a0a0846708c81932cc8ce65ed99f05f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/generate-resource-runner.mjs"
+    },
+    {
+      "path": "scripts/generate-resource-ui.mjs",
+      "bytes": 4909,
+      "sha256": "0b536703d0e42dd6bebf2ff6337d607794d0d17b3634ef034ed2903b1a109792",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/generate-resource-ui.mjs"
+    },
+    {
+      "path": "scripts/generate-scheduler-runner.mjs",
+      "bytes": 5926,
+      "sha256": "246b7072d121d2f2369ab306213a0b77043a4487db0930ea156c36b01744fb4c",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/generate-scheduler-runner.mjs"
+    },
+    {
+      "path": "scripts/report-coordinator.mjs",
+      "bytes": 7153,
+      "sha256": "444e90c96bdbbfb4b42573bd4fd58696f1b375e40ad4556f5f8ec183affa2947",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/report-coordinator.mjs"
+    },
+    {
+      "path": "scripts/report-resources.mjs",
+      "bytes": 6976,
+      "sha256": "e49aa1edfdabf497ac5274adb950b885192f2a96c32ff712a28b6bde4559f1ae",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/report-resources.mjs"
+    },
+    {
+      "path": "scripts/report-scheduler.mjs",
+      "bytes": 5460,
+      "sha256": "24151be22f371d52580bd26cb6b8c1575f624946e8f3e501f0578e2ee53e0acd",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/report-scheduler.mjs"
+    },
+    {
+      "path": "scripts/resource-asset-route.mjs",
+      "bytes": 695,
+      "sha256": "cd5c13451a97f2f334dc5d049e2110aa086aa174f5ebe016eda98bab86f7e5e6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-asset-route.mjs"
+    },
+    {
+      "path": "scripts/resource-decision.mjs",
+      "bytes": 1769,
+      "sha256": "0b2e08db06eae3de77e6bd5594f287788dbc3a85684e0fb10e1b1237573371fc",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-decision.mjs"
+    },
+    {
+      "path": "scripts/resource-ui-actions.mjs",
+      "bytes": 6959,
+      "sha256": "98d6cc3b754ac95ca4d9d48586e6bf01560c56deef5053129a22b64980960b10",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-ui-actions.mjs"
+    },
+    {
+      "path": "scripts/resource-ui-asset-route.mjs",
+      "bytes": 396,
+      "sha256": "676beaa54a57bf3c400c3acd29b109144a214dec40befdf635173ba0ad23edda",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-ui-asset-route.mjs"
+    },
+    {
+      "path": "scripts/resource-ui-cdp-lifecycle.mjs",
+      "bytes": 851,
+      "sha256": "288f7d6e235300c8fd7f06bee90f43668da8f19d6b8a0068dd2b362ec051b14f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-ui-cdp-lifecycle.mjs"
+    },
+    {
+      "path": "scripts/resource-ui-observer.mjs",
+      "bytes": 1177,
+      "sha256": "48d1e70b44591a8503bd124357629f2d180d6dba98f816c57cb90bb0b299daba",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/resource-ui-observer.mjs"
+    },
+    {
+      "path": "scripts/scheduler-asset-route.mjs",
+      "bytes": 652,
+      "sha256": "2c22891f69dbde40f574e506507fdec9e022768d9bf1e0e2dcf8ef191152c299",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/scheduler-asset-route.mjs"
+    },
+    {
+      "path": "scripts/scheduler-decision.mjs",
+      "bytes": 2253,
+      "sha256": "ef604b876e508515c62cd2122cd76fc2779c4af84fb90d987da66dbb85798596",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/scheduler-decision.mjs"
+    },
+    {
+      "path": "scripts/scheduler-packets.mjs",
+      "bytes": 2992,
+      "sha256": "fc85e108e53505a2d82602233a415a5e359b935cc50edd7af6356bcca926106a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/scheduler-packets.mjs"
+    },
+    {
+      "path": "scripts/verify-coordinator.mjs",
+      "bytes": 20238,
+      "sha256": "3fb77b72f3bd2baf4b0fb751115cb622be6e6d3500442fe7818975f17a89a933",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/verify-coordinator.mjs"
+    },
+    {
+      "path": "scripts/verify-dlp.mjs",
+      "bytes": 16753,
+      "sha256": "a369314575e4b46f0316bd942754d5277f61adeb7c643a9feefa471447d2edb7",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/verify-dlp.mjs"
+    },
+    {
+      "path": "scripts/verify-resource-ui.mjs",
+      "bytes": 25380,
+      "sha256": "c4937ddfa7e57740f1d3be88fda35f02a195df78be3bc9e7c270587296953a91",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/verify-resource-ui.mjs"
+    },
+    {
+      "path": "scripts/verify-resources.mjs",
+      "bytes": 19658,
+      "sha256": "21ca0c40b7a6f2fa0b2dffed74bf3c8e8586edeef0ed6bb98fefac8c1d71731c",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/verify-resources.mjs"
+    },
+    {
+      "path": "scripts/verify-scheduler.mjs",
+      "bytes": 19028,
+      "sha256": "9b6e1557d623ee21973ce1211e4d8b86c90c89eca196b0623ff9bef8d8e0a9a4",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/scripts/verify-scheduler.mjs"
+    },
+    {
+      "path": "src/coordinator/NOTICE",
+      "bytes": 180,
+      "sha256": "0789d5ffce63361291f9d8c54d0cc06504301088c039d54757d453e6cf40d40e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/coordinator/NOTICE"
+    },
+    {
+      "path": "src/coordinator/metrics.js",
+      "bytes": 2370,
+      "sha256": "d49c8f75d721766bc82b7e32d0a8eae2b810fb72ba242668bca7efe7883979f3",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/coordinator/metrics.js"
+    },
+    {
+      "path": "src/coordinator/runner.js",
+      "bytes": 14359,
+      "sha256": "0572c8c0f972e671e9aba1e81a239257dcbdb7b87a7ed088ecd7bd4e4c98070f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/coordinator/runner.js"
+    },
+    {
+      "path": "src/core/factor-powers.js",
+      "bytes": 949,
+      "sha256": "d5cef19229ebf8ef64cd0b4acaa78095ec84a671eaedc1713c4c6eb633c7c21a",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/core/factor-powers.js"
+    },
+    {
+      "path": "src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/core/integer-input.js"
+    },
+    {
+      "path": "src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/arithmetic.js"
+    },
+    {
+      "path": "src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/options.js"
+    },
+    {
+      "path": "src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/result.js"
+    },
+    {
+      "path": "src/engine/staged-plan.js",
+      "bytes": 1465,
+      "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/staged-plan.js"
+    },
+    {
+      "path": "src/engine/staged-result.js",
+      "bytes": 3655,
+      "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/staged-result.js"
+    },
+    {
+      "path": "src/engine/staged-selected.js",
+      "bytes": 215,
+      "sha256": "e6b11a47b2cd2beb25084e8deca059967e59c7ac079d39691364c00b7668a49b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/engine/staged-selected.js"
+    },
+    {
+      "path": "src/resources/NOTICE",
+      "bytes": 144,
+      "sha256": "f66a0bc93489f8e534971a2a8cb209c371e0ac1e56c186987c0d8b01fbde9d82",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/NOTICE"
+    },
+    {
+      "path": "src/resources/credits.js",
+      "bytes": 3241,
+      "sha256": "5bc5b98eec4447d619439ff7cda63c33017f786371bed07399252a57b431694e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/credits.js"
+    },
+    {
+      "path": "src/resources/light-adapter.js",
+      "bytes": 185,
+      "sha256": "f9e825746f6bb4c7285a93d51bcbe23fbe25d42eb11e1f8fa484e3f781df14f6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/light-adapter.js"
+    },
+    {
+      "path": "src/resources/metrics.js",
+      "bytes": 2269,
+      "sha256": "71aa0144398905798efb4faf487d6cf15026128c77f8f7962f19eaf222cc82c2",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/metrics.js"
+    },
+    {
+      "path": "src/resources/mount.js",
+      "bytes": 6868,
+      "sha256": "4d6eb20490f35c0b814033a5adadecb245928a6cb4a1d7e1b9dc5630d59756d6",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/mount.js"
+    },
+    {
+      "path": "src/resources/policy.js",
+      "bytes": 2404,
+      "sha256": "9372433ee38302a6c011888daeb32e21e72c9781cd643d827f6cc2f51b5fa5a5",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/policy.js"
+    },
+    {
+      "path": "src/resources/runner.js",
+      "bytes": 14072,
+      "sha256": "e34da80c5c9063bdab0b7ecbb64ece5fced9abd110eea888aa45a847067b36ca",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/runner.js"
+    },
+    {
+      "path": "src/resources/session.js",
+      "bytes": 6660,
+      "sha256": "9767a3e657a2654fb7e2a460442de216c3e25af5be9ee916af6bf5d5b80f28a5",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/session.js"
+    },
+    {
+      "path": "src/resources/wasm-128.js",
+      "bytes": 557323,
+      "sha256": "4d12b076b9ce49a440aa3c489f20541f37c6911b6c7533e48ed8d07bf71b830f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/wasm-128.js"
+    },
+    {
+      "path": "src/resources/wasm-64.js",
+      "bytes": 557323,
+      "sha256": "d6ecbb9b1689bdc120fe957a34f92ace57dfdb5820031ea02284a98302dfe09e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/wasm-64.js"
+    },
+    {
+      "path": "src/resources/worker-128.js",
+      "bytes": 575294,
+      "sha256": "312755ebc284aa4c45e8545d7e2b0168dcb1b140511caa72bbaa6d82ff3078c0",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/worker-128.js"
+    },
+    {
+      "path": "src/resources/worker-256.js",
+      "bytes": 575294,
+      "sha256": "f1a291d1051c9731ae275b11ae5e67cbb2625c86cc286dff8527e282ac210254",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/worker-256.js"
+    },
+    {
+      "path": "src/resources/worker-64.js",
+      "bytes": 575293,
+      "sha256": "7034e52d4fc247c9cf8fb4c8c9838edff25ace19770980474a08d77b71148b88",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/worker-64.js"
+    },
+    {
+      "path": "src/resources/worker-body.js",
+      "bytes": 6804,
+      "sha256": "d4c0c7dc911fc75ccb7d98a9583455ff0262907abae9f9dafef1e9a92155c75f",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/worker-body.js"
+    },
+    {
+      "path": "src/resources/worker-sources.js",
+      "bytes": 381,
+      "sha256": "882171bb39c578317df429f6534cf2e66075fda6400fd91cf1646e6060a90280",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/resources/worker-sources.js"
+    },
+    {
+      "path": "src/rusqsieve-dlp/contracts.js",
+      "bytes": 2658,
+      "sha256": "af216e748a1e29200811f9422a5e21e80d1d82a776022a17b8e94fc4886dbd64",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/rusqsieve-dlp/contracts.js"
+    },
+    {
+      "path": "src/rusqsieve-dlp/worker-body.js",
+      "bytes": 6441,
+      "sha256": "327993b9f43733277d42de6c05db17a9ecd3bb073a9c00a1498876bcd9c27ecf",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/rusqsieve-dlp/worker-body.js"
+    },
+    {
+      "path": "src/rusqsieve-scheduler/worker-body.js",
+      "bytes": 6612,
+      "sha256": "ac9d17c0891cfb75ba4bc7f0eb74b5fbb25ab6c2f7af725aabbc00bb00c2c732",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/rusqsieve-scheduler/worker-body.js"
+    },
+    {
+      "path": "src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/rusqsieve/contracts.js"
+    },
+    {
+      "path": "src/ui/result-view.js",
+      "bytes": 2496,
+      "sha256": "6f1bc4709f74d6355315ef366a7eec57e81e222023f77a2416c331ddba693f4b",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/ui/result-view.js"
+    },
+    {
+      "path": "src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/source-factory.js"
+    },
+    {
+      "path": "src/worker/staged-brent-source.js",
+      "bytes": 23641,
+      "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-brent-source.js"
+    },
+    {
+      "path": "src/worker/staged-controller.js",
+      "bytes": 4980,
+      "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-controller.js"
+    },
+    {
+      "path": "src/worker/staged-ecm-source.js",
+      "bytes": 638816,
+      "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-ecm-source.js"
+    },
+    {
+      "path": "src/worker/staged-factory.js",
+      "bytes": 1104,
+      "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-factory.js"
+    },
+    {
+      "path": "src/worker/staged-selected.js",
+      "bytes": 275,
+      "sha256": "f6d7c65261fbb516d611b701553a1b39e37004aa408e097c2b76ea9ab974579c",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-selected.js"
+    },
+    {
+      "path": "src/worker/staged-siqs-source.js",
+      "bytes": 156165,
+      "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-siqs-source.js"
+    },
+    {
+      "path": "src/worker/staged-staged-source.js",
+      "bytes": 771340,
+      "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+      "url": "https://github.com/Xpotato1024/browser-prime-toolkit/blob/4203aab1703e9129fd3e86343c485c334bbccc4a/src/worker/staged-staged-source.js"
+    }
+  ]
+}

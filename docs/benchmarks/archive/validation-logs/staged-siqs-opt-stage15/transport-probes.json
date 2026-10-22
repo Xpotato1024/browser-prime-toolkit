@@ -1,0 +1,12 @@
+[
+  {
+    "name": "gnu-list",
+    "url": "https://ftp.gnu.org/gnu/gmp/",
+    "exit": 0
+  },
+  {
+    "name": "gmp-origin",
+    "url": "https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz",
+    "exit": 18
+  }
+]

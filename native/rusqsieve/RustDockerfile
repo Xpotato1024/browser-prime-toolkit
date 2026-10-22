@@ -1,0 +1,8 @@
+FROM emscripten/emsdk@sha256:27bc6267cb285223b8aebb7627bfebae7cb3ad2aaa0d5923b8aa5321793033e8
+COPY rustc.tar.xz /tmp/rustc.tar.xz
+COPY wasm-std.tar.xz /tmp/wasm-std.tar.xz
+RUN mkdir -p /opt/rust /tmp/rustc /tmp/wasm-std && \
+    tar --no-same-owner --no-same-permissions -xJf /tmp/rustc.tar.xz --strip-components=1 -C /tmp/rustc && \
+    tar --no-same-owner --no-same-permissions -xJf /tmp/wasm-std.tar.xz --strip-components=1 -C /tmp/wasm-std && \
+    cp -a /tmp/rustc/rustc/. /opt/rust/ && \
+    cp -a /tmp/wasm-std/rust-std-wasm32-unknown-unknown/. /opt/rust/

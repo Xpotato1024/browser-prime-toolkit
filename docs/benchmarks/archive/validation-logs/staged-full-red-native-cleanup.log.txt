@@ -1,0 +1,135 @@
+file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-large-siqs-stage13/scripts/container-compile.mjs:29
+    if (result.status !== 0) throw Error(String(result.stderr || result.error || 'Compiler failed'));
+                                   ^
+
+Error: =================================================================
+==17578==ERROR: AddressSanitizer: attempting double-free on 0x5020000010b0 in thread T0:
+    #0 0x79a070c39537 in __interceptor_free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:127
+    #1 0x5e853b5533f1 in free_cycle_list common/driver.c:376
+    #2 0x5e853b5283a0 in matrix_probe /work/msieve/demo.c:219
+    #3 0x5e853b529479 in main /work/msieve/demo.c:229
+    #4 0x79a070269d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+    #5 0x79a070269e3f in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29e3f)
+    #6 0x5e853b524d64 in _start (/work/msieve/msieve+0x21fd64)
+
+0x5020000010b0 is located 0 bytes inside of 4-byte region [0x5020000010b0,0x5020000010b4)
+freed by thread T0 here:
+    #0 0x79a070c39537 in __interceptor_free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:127
+    #1 0x5e853b54a63c in reduce_matrix common/lanczos/lanczos_pre.c:387
+    #2 0x5e853b5715a0 in solve_linear_system mpqs/gf2.c:46
+    #3 0x5e853b528327 in matrix_probe /work/msieve/demo.c:212
+    #4 0x5e853b529479 in main /work/msieve/demo.c:229
+    #5 0x79a070269d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+
+previously allocated by thread T0 here:
+    #0 0x79a070c39887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x5e853b528b78 in matrix_probe /work/msieve/demo.c:206
+    #2 0x5e853b529479 in main /work/msieve/demo.c:229
+    #3 0x79a070269d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+
+SUMMARY: AddressSanitizer: double-free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:127 in __interceptor_free
+==17578==ABORTING
+Aborted (core dumped)
+==> /work/configure.log <==
+config.status: linking mpn/generic/sec_aors_1.c to mpn/sec_sub_1.c
+config.status: linking mpn/generic/sec_invert.c to mpn/sec_invert.c
+config.status: linking mpn/generic/trialdiv.c to mpn/trialdiv.c
+config.status: linking mpn/generic/remove.c to mpn/remove.c
+config.status: linking mpn/generic/logops_n.c to mpn/and_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/andn_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/nand_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/ior_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/iorn_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/nior_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/xor_n.c
+config.status: linking mpn/generic/logops_n.c to mpn/xnor_n.c
+config.status: linking mpn/generic/copyi.c to mpn/copyi.c
+config.status: linking mpn/generic/copyd.c to mpn/copyd.c
+config.status: linking mpn/generic/zero.c to mpn/zero.c
+config.status: linking mpn/generic/sec_tabselect.c to mpn/sec_tabselect.c
+config.status: linking mpn/generic/comb_tables.c to mpn/comb_tables.c
+config.status: linking mpn/generic/add_n_sub_n.c to mpn/add_n_sub_n.c
+config.status: linking mpn/generic/gmp-mparam.h to gmp-mparam.h
+config.status: executing libtool commands
+configure: summary of build options:
+
+  Version:           GNU MP 6.1.2
+  Host type:         none-none-none
+  ABI:               standard
+  Install prefix:    /usr/local
+  Compiler:          cc
+  Static libraries:  yes
+  Shared libraries:  no
+
+
+==> /work/gmp.log <==
+libtool: link: ln mpn/mul.o .libs/libgmp.lax/lt82-mul.o || cp mpn/mul.o .libs/libgmp.lax/lt82-mul.o
+libtool: link: ln mpn/random.o .libs/libgmp.lax/lt83-random.o || cp mpn/random.o .libs/libgmp.lax/lt83-random.o
+libtool: link: ln mpn/random2.o .libs/libgmp.lax/lt84-random2.o || cp mpn/random2.o .libs/libgmp.lax/lt84-random2.o
+libtool: link: ln mpn/rootrem.o .libs/libgmp.lax/lt85-rootrem.o || cp mpn/rootrem.o .libs/libgmp.lax/lt85-rootrem.o
+libtool: link: ln mpn/sqrtrem.o .libs/libgmp.lax/lt86-sqrtrem.o || cp mpn/sqrtrem.o .libs/libgmp.lax/lt86-sqrtrem.o
+libtool: link: ln mpn/sizeinbase.o .libs/libgmp.lax/lt87-sizeinbase.o || cp mpn/sizeinbase.o .libs/libgmp.lax/lt87-sizeinbase.o
+libtool: link: ln mpn/get_str.o .libs/libgmp.lax/lt88-get_str.o || cp mpn/get_str.o .libs/libgmp.lax/lt88-get_str.o
+libtool: link: ln mpn/set_str.o .libs/libgmp.lax/lt89-set_str.o || cp mpn/set_str.o .libs/libgmp.lax/lt89-set_str.o
+libtool: link: ln mpn/scan0.o .libs/libgmp.lax/lt90-scan0.o || cp mpn/scan0.o .libs/libgmp.lax/lt90-scan0.o
+libtool: link: ln mpn/scan1.o .libs/libgmp.lax/lt91-scan1.o || cp mpn/scan1.o .libs/libgmp.lax/lt91-scan1.o
+libtool: link: ln mpn/popcount.o .libs/libgmp.lax/lt92-popcount.o || cp mpn/popcount.o .libs/libgmp.lax/lt92-popcount.o
+libtool: link: ln mpn/hamdist.o .libs/libgmp.lax/lt93-hamdist.o || cp mpn/hamdist.o .libs/libgmp.lax/lt93-hamdist.o
+libtool: link: ln mpn/cmp.o .libs/libgmp.lax/lt94-cmp.o || cp mpn/cmp.o .libs/libgmp.lax/lt94-cmp.o
+libtool: link: ln mpn/perfsqr.o .libs/libgmp.lax/lt95-perfsqr.o || cp mpn/perfsqr.o .libs/libgmp.lax/lt95-perfsqr.o
+libtool: link: ln mpn/perfpow.o .libs/libgmp.lax/lt96-perfpow.o || cp mpn/perfpow.o .libs/libgmp.lax/lt96-perfpow.o
+libtool: link: ln mpn/gcd.o .libs/libgmp.lax/lt97-gcd.o || cp mpn/gcd.o .libs/libgmp.lax/lt97-gcd.o
+libtool: link: ln mpn/gcdext.o .libs/libgmp.lax/lt98-gcdext.o || cp mpn/gcdext.o .libs/libgmp.lax/lt98-gcdext.o
+libtool: link: ln mpn/tdiv_qr.o .libs/libgmp.lax/lt99-tdiv_qr.o || cp mpn/tdiv_qr.o .libs/libgmp.lax/lt99-tdiv_qr.o
+libtool: link: ln mpn/jacobi.o .libs/libgmp.lax/lt100-jacobi.o || cp mpn/jacobi.o .libs/libgmp.lax/lt100-jacobi.o
+libtool: link: ln mpn/get_d.o .libs/libgmp.lax/lt101-get_d.o || cp mpn/get_d.o .libs/libgmp.lax/lt101-get_d.o
+libtool: link: ln mpn/invert.o .libs/libgmp.lax/lt102-invert.o || cp mpn/invert.o .libs/libgmp.lax/lt102-invert.o
+libtool: link: ln mpn/divexact.o .libs/libgmp.lax/lt103-divexact.o || cp mpn/divexact.o .libs/libgmp.lax/lt103-divexact.o
+libtool: link: ln mpn/powm.o .libs/libgmp.lax/lt104-powm.o || cp mpn/powm.o .libs/libgmp.lax/lt104-powm.o
+libtool: link: ln mpn/remove.o .libs/libgmp.lax/lt105-remove.o || cp mpn/remove.o .libs/libgmp.lax/lt105-remove.o
+libtool: link: ar cq .libs/libgmp.a assert.o compat.o errno.o extract-dbl.o invalid.o memory.o mp_bpl.o mp_clz_tab.o mp_dv_tab.o mp_minv_tab.o mp_get_fns.o mp_set_fns.o version.o nextprime.o primesieve.o tal-reent.o mpf/init.o mpf/init2.o mpf/inits.o mpf/set.o mpf/set_ui.o mpf/set_si.o mpf/set_str.o mpf/set_d.o mpf/set_z.o mpf/iset.o mpf/iset_ui.o mpf/iset_si.o mpf/iset_str.o mpf/iset_d.o mpf/clear.o mpf/clears.o mpf/get_str.o mpf/dump.o mpf/size.o mpf/eq.o mpf/reldiff.o mpf/sqrt.o mpf/random2.o mpf/inp_str.o mpf/out_str.o mpf/add.o mpf/add_ui.o mpf/sub.o mpf/sub_ui.o mpf/ui_sub.o mpf/mul.o mpf/mul_ui.o mpf/div.o mpf/div_ui.o mpf/cmp_z.o mpf/cmp.o mpf/cmp_d.o mpf/cmp_ui.o mpf/cmp_si.o mpf/mul_2exp.o mpf/div_2exp.o mpf/abs.o mpf/neg.o mpf/set_q.o mpf/get_d.o mpf/get_d_2exp.o mpf/set_dfl_prec.o mpf/set_prc.o mpf/set_prc_raw.o mpf/get_dfl_prec.o mpf/get_prc.o mpf/ui_div.o mpf/sqrt_ui.o mpf/ceilfloor.o mpf/trunc.o mpf/pow_ui.o mpf/urandomb.o mpf/swap.o mpf/fits_sint.o mpf/fits_slong.o mpf/fits_sshort.o mpf/fits_uint.o mpf/fits_ulong.o mpf/fits_ushort.o mpf/get_si.o mpf/get_ui.o mpf/int_p.o .libs/libgmp.lax/lt1-abs.o .libs/libgmp.lax/lt2-add.o .libs/libgmp.lax/lt3-add_ui.o mpz/aorsmul.o mpz/aorsmul_i.o mpz/and.o mpz/array_init.o mpz/bin_ui.o mpz/bin_uiui.o mpz/cdiv_q.o mpz/cdiv_q_ui.o mpz/cdiv_qr.o mpz/cdiv_qr_ui.o mpz/cdiv_r.o mpz/cdiv_r_ui.o mpz/cdiv_ui.o mpz/cfdiv_q_2exp.o mpz/cfdiv_r_2exp.o .libs/libgmp.lax/lt4-clear.o .libs/libgmp.lax/lt5-clears.o mpz/clrbit.o .libs/libgmp.lax/lt6-cmp.o .libs/libgmp.lax/lt7-cmp_d.o .libs/libgmp.lax/lt8-cmp_si.o .libs/libgmp.lax/lt9-cmp_ui.o mpz/cmpabs.o mpz/cmpabs_d.o mpz/cmpabs_ui.o mpz/com.o mpz/combit.o mpz/cong.o mpz/cong_2exp.o mpz/cong_ui.o mpz/divexact.o mpz/divegcd.o mpz/dive_ui.o mpz/divis.o mpz/divis_ui.o mpz/divis_2exp.o .libs/libgmp.lax/lt10-dump.o mpz/export.o mpz/mfac_uiui.o mpz/2fac_ui.o mpz/fac_ui.o mpz/oddfac_1.o mpz/prodlimbs.o mpz/fdiv_q_ui.o mpz/fdiv_qr.o mpz/fdiv_qr_ui.o mpz/fdiv_r.o mpz/fdiv_r_ui.o mpz/fdiv_q.o mpz/fdiv_ui.o mpz/fib_ui.o mpz/fib2_ui.o .libs/libgmp.lax/lt11-fits_sint.o .libs/libgmp.lax/lt12-fits_slong.o .libs/libgmp.lax/lt13-fits_sshort.o .libs/libgmp.lax/lt14-fits_uint.o .libs/libgmp.lax/lt15-fits_ulong.o .libs/libgmp.lax/lt16-fits_ushort.o mpz/gcd.o mpz/gcd_ui.o mpz/gcdext.o .libs/libgmp.lax/lt17-get_d.o .libs/libgmp.lax/lt18-get_d_2exp.o .libs/libgmp.lax/lt19-get_si.o .libs/libgmp.lax/lt20-get_str.o .libs/libgmp.lax/lt21-get_ui.o mpz/getlimbn.o mpz/hamdist.o mpz/import.o .libs/libgmp.lax/lt22-init.o .libs/libgmp.lax/lt23-init2.o .libs/libgmp.lax/lt24-inits.o mpz/inp_raw.o .libs/libgmp.lax/lt25-inp_str.o mpz/invert.o mpz/ior.o .libs/libgmp.lax/lt26-iset.o .libs/libgmp.lax/lt27-iset_d.o .libs/libgmp.lax/lt28-iset_si.o .libs/libgmp.lax/lt29-iset_str.o .libs/libgmp.lax/lt30-iset_ui.o mpz/jacobi.o mpz/kronsz.o mpz/kronuz.o mpz/kronzs.o mpz/kronzu.o mpz/lcm.o mpz/lcm_ui.o mpz/limbs_finish.o mpz/limbs_modify.o mpz/limbs_read.o mpz/limbs_write.o mpz/lucnum_ui.o mpz/lucnum2_ui.o mpz/millerrabin.o mpz/mod.o .libs/libgmp.lax/lt31-mul.o .libs/libgmp.lax/lt32-mul_2exp.o mpz/mul_si.o .libs/libgmp.lax/lt33-mul_ui.o mpz/n_pow_ui.o .libs/libgmp.lax/lt34-neg.o .libs/libgmp.lax/lt35-nextprime.o mpz/out_raw.o .libs/libgmp.lax/lt36-out_str.o mpz/perfpow.o mpz/perfsqr.o mpz/popcount.o .libs/libgmp.lax/lt37-pow_ui.o mpz/powm.o mpz/powm_sec.o mpz/powm_ui.o mpz/primorial_ui.o mpz/pprime_p.o mpz/random.o .libs/libgmp.lax/lt38-random2.o mpz/realloc.o mpz/realloc2.o mpz/remove.o mpz/roinit_n.o mpz/root.o mpz/rootrem.o mpz/rrandomb.o mpz/scan0.o mpz/scan1.o .libs/libgmp.lax/lt39-set.o .libs/libgmp.lax/lt40-set_d.o mpz/set_f.o .libs/libgmp.lax/lt41-set_q.o .libs/libgmp.lax/lt42-set_si.o .libs/libgmp.lax/lt43-set_str.o .libs/libgmp.lax/lt44-set_ui.o mpz/setbit.o .libs/libgmp.lax/lt45-size.o mpz/sizeinbase.o .libs/libgmp.lax/lt46-sqrt.o mpz/sqrtrem.o .libs/libgmp.lax/lt47-sub.o .libs/libgmp.lax/lt48-sub_ui.o .libs/libgmp.lax/lt49-swap.o mpz/tdiv_ui.o mpz/tdiv_q.o mpz/tdiv_q_2exp.o mpz/tdiv_q_ui.o mpz/tdiv_qr.o mpz/tdiv_qr_ui.o mpz/tdiv_r.o mpz/tdiv_r_2exp.o mpz/tdiv_r_ui.o mpz/tstbit.o mpz/ui_pow_ui.o .libs/libgmp.lax/lt50-ui_sub.o .libs/libgmp.lax/lt51-urandomb.o mpz/urandomm.o mpz/xor.o .libs/libgmp.lax/lt52-abs.o mpq/aors.o mpq/canonicalize.o .libs/libgmp.lax/lt53-clear.o .libs/libgmp.lax/lt54-clears.o .libs/libgmp.lax/lt55-cmp.o .libs/libgmp.lax/lt56-cmp_si.o .libs/libgmp.lax/lt57-cmp_ui.o .libs/libgmp.lax/lt58-div.o .libs/libgmp.lax/lt59-get_d.o mpq/get_den.o mpq/get_num.o .libs/libgmp.lax/lt60-get_str.o .libs/libgmp.lax/lt61-init.o .libs/libgmp.lax/lt62-inits.o .libs/libgmp.lax/lt63-inp_str.o mpq/inv.o mpq/md_2exp.o .libs/libgmp.lax/lt64-mul.o .libs/libgmp.lax/lt65-neg.o .libs/libgmp.lax/lt66-out_str.o .libs/libgmp.lax/lt67-set.o mpq/set_den.o mpq/set_num.o .libs/libgmp.lax/lt68-set_si.o .libs/libgmp.lax/lt69-set_str.o .libs/libgmp.lax/lt70-set_ui.o mpq/equal.o .libs/libgmp.lax/lt71-set_z.o .libs/libgmp.lax/lt72-set_d.o .libs/libgmp.lax/lt73-set_f.o .libs/libgmp.lax/lt74-swap.o mpn/fib_table.o mpn/mp_bases.o .libs/libgmp.lax/lt75-add.o mpn/add_1.o mpn/add_n.o .libs/libgmp.lax/lt76-sub.o mpn/sub_1.o mpn/sub_n.o mpn/cnd_add_n.o mpn/cnd_sub_n.o mpn/cnd_swap.o .libs/libgmp.lax/lt77-neg.o .libs/libgmp.lax/lt78-com.o mpn/mul_1.o mpn/addmul_1.o mpn/submul_1.o mpn/add_err1_n.o mpn/add_err2_n.o mpn/add_err3_n.o mpn/sub_err1_n.o mpn/sub_err2_n.o mpn/sub_err3_n.o mpn/lshift.o mpn/rshift.o mpn/dive_1.o mpn/diveby3.o .libs/libgmp.lax/lt79-divis.o mpn/divrem.o mpn/divrem_1.o mpn/divrem_2.o .libs/libgmp.lax/lt80-fib2_ui.o mpn/mod_1.o mpn/mod_34lsub1.o mpn/mode1o.o mpn/pre_divrem_1.o mpn/pre_mod_1.o .libs/libgmp.lax/lt81-dump.o mpn/mod_1_1.o mpn/mod_1_2.o mpn/mod_1_3.o mpn/mod_1_4.o mpn/lshiftc.o .libs/libgmp.lax/lt82-mul.o mpn/mul_fft.o mpn/mul_n.o mpn/sqr.o mpn/mul_basecase.o mpn/sqr_basecase.o mpn/nussbaumer_mul.o mpn/mulmid_basecase.o mpn/toom42_mulmid.o mpn/mulmid_n.o mpn/mulmid.o .libs/libgmp.lax/lt83-random.o .libs/libgmp.lax/lt84-random2.o mpn/pow_1.o .libs/libgmp.lax/lt85-rootrem.o .libs/libgmp.lax/lt86-sqrtrem.o .libs/libgmp.lax/lt87-sizeinbase.o .libs/libgmp.lax/lt88-get_str.o .libs/libgmp.lax/lt89-set_str.o .libs/libgmp.lax/lt90-scan0.o .libs/libgmp.lax/lt91-scan1.o .libs/libgmp.lax/lt92-popcount.o .libs/libgmp.lax/lt93-hamdist.o .libs/libgmp.lax/lt94-cmp.o mpn/zero_p.o .libs/libgmp.lax/lt95-perfsqr.o .libs/libgmp.lax/lt96-perfpow.o mpn/gcd_1.o .libs/libgmp.lax/lt97-gcd.o mpn/gcdext_1.o .libs/libgmp.lax/lt98-gcdext.o mpn/gcd_subdiv_step.o mpn/gcdext_lehmer.o mpn/div_q.o .libs/libgmp.lax/lt99-tdiv_qr.o mpn/jacbase.o mpn/jacobi_2.o .libs/libgmp.lax/lt100-jacobi.o .libs/libgmp.lax/lt101-get_d.o mpn/matrix22_mul.o mpn/matrix22_mul1_inverse_vector.o mpn/hgcd_matrix.o mpn/hgcd2.o mpn/hgcd_step.o mpn/hgcd_reduce.o mpn/hgcd.o mpn/hgcd_appr.o mpn/hgcd2_jacobi.o mpn/hgcd_jacobi.o mpn/mullo_n.o mpn/mullo_basecase.o mpn/sqrlo.o mpn/sqrlo_basecase.o mpn/toom22_mul.o mpn/toom32_mul.o mpn/toom42_mul.o mpn/toom52_mul.o mpn/toom62_mul.o mpn/toom33_mul.o mpn/toom43_mul.o mpn/toom53_mul.o mpn/toom54_mul.o mpn/toom63_mul.o mpn/toom44_mul.o mpn/toom6h_mul.o mpn/toom6_sqr.o mpn/toom8h_mul.o mpn/toom8_sqr.o mpn/toom_couple_handling.o mpn/toom2_sqr.o mpn/toom3_sqr.o mpn/toom4_sqr.o mpn/toom_eval_dgr3_pm1.o mpn/toom_eval_dgr3_pm2.o mpn/toom_eval_pm1.o mpn/toom_eval_pm2.o mpn/toom_eval_pm2exp.o mpn/toom_eval_pm2rexp.o mpn/toom_interpolate_5pts.o mpn/toom_interpolate_6pts.o mpn/toom_interpolate_7pts.o mpn/toom_interpolate_8pts.o mpn/toom_interpolate_12pts.o mpn/toom_interpolate_16pts.o mpn/invertappr.o .libs/libgmp.lax/lt102-invert.o mpn/binvert.o mpn/mulmod_bnm1.o mpn/sqrmod_bnm1.o mpn/div_qr_1.o mpn/div_qr_1n_pi1.o mpn/div_qr_2.o mpn/div_qr_2n_pi1.o mpn/div_qr_2u_pi1.o mpn/sbpi1_div_q.o mpn/sbpi1_div_qr.o mpn/sbpi1_divappr_q.o mpn/dcpi1_div_q.o mpn/dcpi1_div_qr.o mpn/dcpi1_divappr_q.o mpn/mu_div_qr.o mpn/mu_divappr_q.o mpn/mu_div_q.o mpn/bdiv_q_1.o mpn/sbpi1_bdiv_q.o mpn/sbpi1_bdiv_qr.o mpn/dcpi1_bdiv_q.o mpn/dcpi1_bdiv_qr.o mpn/mu_bdiv_q.o mpn/mu_bdiv_qr.o mpn/bdiv_q.o mpn/bdiv_qr.o mpn/broot.o mpn/brootinv.o mpn/bsqrt.o mpn/bsqrtinv.o .libs/libgmp.lax/lt103-divexact.o mpn/bdiv_dbm1c.o mpn/redc_1.o mpn/redc_2.o mpn/redc_n.o .libs/libgmp.lax/lt104-powm.o mpn/powlo.o mpn/sec_powm.o mpn/sec_mul.o mpn/sec_sqr.o mpn/sec_div_qr.o mpn/sec_div_r.o mpn/sec_pi1_div_qr.o mpn/sec_pi1_div_r.o mpn/sec_add_1.o mpn/sec_sub_1.o mpn/sec_invert.o mpn/trialdiv.o .libs/libgmp.lax/lt105-remove.o mpn/and_n.o mpn/andn_n.o mpn/nand_n.o mpn/ior_n.o mpn/iorn_n.o mpn/nior_n.o mpn/xor_n.o mpn/xnor_n.o mpn/copyi.o mpn/copyd.o mpn/zero.o mpn/sec_tabselect.o mpn/comb_tables.o mpn/add_n_sub_n.o printf/asprintf.o printf/asprntffuns.o printf/doprnt.o printf/doprntf.o printf/doprnti.o printf/fprintf.o printf/obprintf.o printf/obvprintf.o printf/obprntffuns.o printf/printf.o printf/printffuns.o printf/snprintf.o printf/snprntffuns.o printf/sprintf.o printf/sprintffuns.o printf/vasprintf.o printf/vfprintf.o printf/vprintf.o printf/vsnprintf.o printf/vsprintf.o printf/repl-vsnprintf.o scanf/doscan.o scanf/fscanf.o scanf/fscanffuns.o scanf/scanf.o scanf/sscanf.o scanf/sscanffuns.o scanf/vfscanf.o scanf/vscanf.o scanf/vsscanf.o rand/rand.o rand/randclr.o rand/randdef.o rand/randiset.o rand/randlc2s.o rand/randlc2x.o rand/randmt.o rand/randmts.o rand/rands.o rand/randsd.o rand/randsdui.o rand/randbui.o rand/randmui.o
+libtool: link: ranlib .libs/libgmp.a
+libtool: link: rm -fr .libs/libgmp.lax
+libtool: link: ( cd ".libs" && rm -f "libgmp.la" && ln -s "../libgmp.la" "libgmp.la" )
+make[2]: Leaving directory '/work/gmp'
+make[1]: Leaving directory '/work/gmp'
+
+==> /work/msieve.log <==
+cc -DPRIME_NATIVE_TESTS -I/work/gmp -Impqs -I/src/native/siqs-full -include /src/native/siqs-full/runtime.h -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -D_FILE_OFFSET_BITS=64 -DNDEBUG -D_LARGEFILE64_SOURCE  -Wall -W -DMSIEVE_SVN_VERSION="\"unknown\"" -I. -Iaprcl -Iinclude -Ignfs -Ignfs/poly -Ignfs/poly/stage1 -DNO_ZLIB -DBLOCK_KB=64 -DHAS_SSE2 \
+	-DROUTINE_NAME=qs_core_sieve_generic_64k \
+	-c -o mpqs/sieve_core_generic_64k.qo mpqs/sieve_core.c
+rm -f libmsieve.a
+ar r libmsieve.a aprcl/mpz_aprcl32.o common/filter/clique.o common/filter/filter.o common/filter/merge.o common/filter/merge_post.o common/filter/merge_pre.o common/filter/merge_util.o common/filter/singleton.o common/lanczos/lanczos.o common/lanczos/lanczos_io.o common/lanczos/lanczos_matmul0.o common/lanczos/lanczos_matmul1.o common/lanczos/lanczos_matmul2.o common/lanczos/lanczos_pre.o common/lanczos/lanczos_vv.o common/lanczos/matmul_util.o common/smallfact/gmp_ecm.o common/smallfact/smallfact.o common/smallfact/squfof.o common/smallfact/tinyqs.o common/batch_factor.o common/cuda_xface.o common/dickman.o common/driver.o common/expr_eval.o common/hashtable.o common/integrate.o common/minimize.o common/minimize_global.o common/mp.o common/polyroot.o common/prime_delta.o common/prime_sieve.o common/strtoll.o common/thread.o common/util.o mpqs/gf2.qo mpqs/mpqs.qo mpqs/poly.qo mpqs/relation.qo mpqs/sieve.qo mpqs/sqrt.qo mpqs/sieve_core_generic_32k.qo mpqs/sieve_core_generic_64k.qo 
+ar: creating libmsieve.a
+ranlib libmsieve.a
+cc -DPRIME_NATIVE_TESTS -I/work/gmp -Impqs -I/src/native/siqs-full -include /src/native/siqs-full/runtime.h -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -D_FILE_OFFSET_BITS=64 -DNDEBUG -D_LARGEFILE64_SOURCE  -Wall -W -DMSIEVE_SVN_VERSION="\"unknown\"" -I. -Iaprcl -Iinclude -Ignfs -Ignfs/poly -Ignfs/poly/stage1 -DNO_ZLIB demo.c -o msieve -fsanitize=address,undefined -Wl,--wrap=block_lanczos -L/work/gmp/.libs \
+		libmsieve.a -ldl -lgmp -lm -lpthread
+demo.c: In function 'token':
+demo.c:83:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+   83 |  while(*p==' ')p++;*cursor=p;return value;
+      |  ^~~~~
+demo.c:83:20: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+   83 |  while(*p==' ')p++;*cursor=p;return value;
+      |                    ^
+demo.c: In function 'prime_validate_line':
+demo.c:96:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   96 |   if(count!=poly_factors)prime_fail(STOP_INVALID);return;
+      |   ^~
+demo.c:96:51: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   96 |   if(count!=poly_factors)prime_fail(STOP_INVALID);return;
+      |                                                   ^~~~~~
+demo.c: In function 'savefile_write_line':
+demo.c:119:2: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  119 |  if(line[0]=='R')prime_count(0,1);if(line[0]=='A')prime_count(1,1);
+      |  ^~
+demo.c:119:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  119 |  if(line[0]=='R')prime_count(0,1);if(line[0]=='A')prime_count(1,1);
+      |                                   ^~
+
+    at compileInContainer (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-large-siqs-stage13/scripts/container-compile.mjs:29:36)
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-large-siqs-stage13/scripts/build-full-siqs.mjs:87:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0

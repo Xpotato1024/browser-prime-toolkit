@@ -1,0 +1,724 @@
+{
+  "mode": "quick",
+  "measuredHead": null,
+  "measuredAt": "2026-10-20T07:56:21.021Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "coldReadyMs": 153.7202830000001,
+  "initialAssets": [
+    {
+      "path": "/bench/evaluation.html",
+      "bytes": 147,
+      "sha256": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4"
+    },
+    {
+      "path": "/bench/evaluation.js",
+      "bytes": 1180,
+      "sha256": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388"
+    },
+    {
+      "path": "/src/worker/evaluation-factory.js",
+      "bytes": 1079,
+      "sha256": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3"
+    },
+    {
+      "path": "/src/worker/siqs-factory.js",
+      "bytes": 227,
+      "sha256": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9"
+    },
+    {
+      "path": "/bench/evaluation-runner.js",
+      "bytes": 4703,
+      "sha256": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288"
+    },
+    {
+      "path": "/src/worker/siqs-worker-source.js",
+      "bytes": 139519,
+      "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/worker/supplement-source.js",
+      "bytes": 628674,
+      "sha256": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e"
+    },
+    {
+      "path": "/src/worker/siqs-profile-source.js",
+      "bytes": 139905,
+      "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+    },
+    {
+      "path": "/src/worker/controller.js",
+      "bytes": 5433,
+      "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/worker/factory.js",
+      "bytes": 225,
+      "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/worker/worker-source.js",
+      "bytes": 106532,
+      "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-supplement-ci.mjs": "4aa9213c89a8ba1206e50417b0f256177b196062ccf3930ca6f3d6fe2613a910",
+    "scripts/benchmark-supplement.mjs": "118d0e639fa6a9906631b23271e775f0f06620ff544d85e67f6531eb7117abf9",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "native/gmp/supplement-build.json": "0c0a09fa5d6a2f70141fbf7bf711de51d1e607a5e42d3f595f3d982d1123d035",
+    "bench/evaluation.html": "6a702b4d0962454a981d08db699d5fc52a286d5682fdd37a53006615b7bf53e4",
+    "bench/evaluation.js": "3d7eda7c2fcedfab9d9e3f437ddd3e443dbdf7ac9c38f1289ef29dc46a89b388",
+    "src/worker/evaluation-factory.js": "9b382d9d29e246ada18b0e4cab2919e22d416a034d8848b534a1ac424b109da3",
+    "src/worker/siqs-factory.js": "f254cb358ebfb5ee4e18e59b8ebc72b1c1dad77b90a0bfdb5368d3b2b649c4b9",
+    "bench/evaluation-runner.js": "0c8c63e3d1b66b86ea115aa64185949d42c7877401ca201c9a26381784f5d288",
+    "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/worker/supplement-source.js": "7bbe49d9fc300a7e1eeacc499d2763006e60516451dedae585de9395aea00a8e",
+    "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+    "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+  },
+  "records": [
+    {
+      "case": "control",
+      "input": "10403",
+      "expectedFactors": [
+        "101",
+        "103"
+      ],
+      "options": {
+        "kind": "ecm",
+        "workers": 1,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "10403",
+        "factors": [
+          {
+            "value": "101",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "103",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 197,
+        "elapsedMs": 14.900000005960464,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 102.3999999910593,
+        "initializationMs": 81.79999999701977,
+        "computeWallMs": 20.599999994039536,
+        "workers": 1,
+        "kind": "ecm",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "ecm",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 1,
+            "curves": 1,
+            "pm1Attempts": 0,
+            "mask": 12288,
+            "point": 13,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 5,
+        "first": {
+          "atMs": 1535.385109,
+          "rssBytes": 1197727744,
+          "pssBytes": 406202368,
+          "processes": 12
+        },
+        "peakRssBytes": 1224474624,
+        "peakPssBytes": 425106432,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "control",
+      "input": "10403",
+      "expectedFactors": [
+        "101",
+        "103"
+      ],
+      "options": {
+        "kind": "ecm",
+        "workers": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "10403",
+        "factors": [
+          {
+            "value": "101",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "103",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 197,
+        "elapsedMs": 17.399999991059303,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 1,
+        "requestWallMs": 79.29999999701977,
+        "initializationMs": 60.20000000298023,
+        "computeWallMs": 19.099999994039536,
+        "workers": 2,
+        "kind": "ecm",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 134217728,
+        "audits": [
+          null,
+          {
+            "method": "ecm",
+            "lane": 1,
+            "workers": 2,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 2,
+            "curves": 1,
+            "pm1Attempts": 0,
+            "mask": 12288,
+            "point": 13,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          [],
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 1784.840694,
+          "rssBytes": 1224474624,
+          "pssBytes": 424749056,
+          "processes": 12
+        },
+        "peakRssBytes": 1252556800,
+        "peakPssBytes": 452793344,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "pm1-positive",
+      "input": "1009003027",
+      "expectedFactors": [
+        "1009",
+        "1000003"
+      ],
+      "options": {
+        "kind": "pm1",
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "1009003027",
+        "factors": [
+          {
+            "value": "1009",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "1000003",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 323,
+        "elapsedMs": 6.700000002980232,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 61.900000005960464,
+        "initializationMs": 53.1000000089407,
+        "computeWallMs": 8.799999997019768,
+        "workers": 1,
+        "kind": "pm1",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "method": "pm1",
+            "lane": 0,
+            "workers": 1,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 0,
+            "curves": 0,
+            "pm1Attempts": 1,
+            "mask": 0,
+            "point": 0,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 1959.033534,
+          "rssBytes": 1233084416,
+          "pssBytes": 433310720,
+          "processes": 12
+        },
+        "peakRssBytes": 1248468992,
+        "peakPssBytes": 448641024,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "siqs-smoke",
+      "input": "1000000000100000000002379",
+      "expectedFactors": [
+        "1000000000039",
+        "1000000000061"
+      ],
+      "options": {
+        "kind": "profile",
+        "computeMs": 10000,
+        "totalMs": 15100
+      },
+      "result": {
+        "input": "1000000000100000000002379",
+        "factors": [
+          {
+            "value": "1000000000039",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "1000000000061",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 6471694,
+        "elapsedMs": 1428.5999999940395,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "siqs",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 1449.2000000029802,
+        "initializationMs": 19,
+        "computeWallMs": 1430.2000000029802,
+        "workers": 1,
+        "kind": "profile",
+        "base": 2,
+        "totalMs": 15100,
+        "computeMs": 10000,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 67108864,
+        "audits": [
+          {
+            "profile": {
+              "calls": [
+                0,
+                120155,
+                24506,
+                1721422,
+                4350507,
+                135791,
+                118585
+              ],
+              "wallMs": [
+                1.2999999970197678,
+                39,
+                5.700000002980232,
+                380,
+                937.5999999940395,
+                35,
+                29.200000002980232
+              ],
+              "samplingEvery": 1024
+            },
+            "log": "commencing quadratic sieve (25-digit input)\nusing multiplier of 3\nusing generic 32kb sieve core\nsieve interval: 4 blocks of size 32768\nprocessing polynomials in batches of 51\nusing a sieve bound of 2423 (188 primes)\nusing large prime bound of 96920 (16 bits)\npolynomial 'A' values have 3 factors\n1026 relations (337 full + 689 combined from 2221 partial), need 284\nbegin with 2558 relations\nreduce to 1474 relations in 2 passes\nattempting to read 1474 relations\nrecovered 1474 relations\nrecovered 4 polynomials\nattempting to build 1026 cycles\nfound 1026 cycles in 1 passes\ndistribution of cycle lengths:\n   length 1 : 337\n   length 2 : 689\nlargest cycle: 2 relations\ngcd=3\ngcd=3000000000117\n",
+            "liveBytes": 0,
+            "peakBytes": 22568492,
+            "phaseMask": 126,
+            "allocations": 2528,
+            "reason": 0,
+            "line": 0,
+            "poisoned": false
+          }
+        ],
+        "laneTrace": [
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 22,
+        "first": {
+          "atMs": 2130.368583,
+          "rssBytes": 1237032960,
+          "pssBytes": 436854784,
+          "processes": 12
+        },
+        "peakRssBytes": 1263169536,
+        "peakPssBytes": 460902400,
+        "maxProcesses": 12
+      }
+    },
+    {
+      "case": "control",
+      "input": "10403",
+      "expectedFactors": [
+        "101",
+        "103"
+      ],
+      "options": {
+        "kind": "ecm",
+        "workers": 2,
+        "totalMs": 1000
+      },
+      "result": {
+        "input": "10403",
+        "factors": [
+          {
+            "value": "101",
+            "certainty": "proven",
+            "method": "mr64"
+          },
+          {
+            "value": "103",
+            "certainty": "proven",
+            "method": "mr64"
+          }
+        ],
+        "remaining": "1",
+        "operations": 197,
+        "elapsedMs": 14.199999988079071,
+        "status": "complete",
+        "reason": null,
+        "primality": "composite",
+        "algorithm": "gmp-ecm",
+        "seed": 1,
+        "winningLane": 0,
+        "requestWallMs": 73.40000000596046,
+        "initializationMs": 57.900000005960464,
+        "computeWallMs": 15.5,
+        "workers": 2,
+        "kind": "ecm",
+        "base": 2,
+        "totalMs": 1000,
+        "computeMs": null,
+        "allocatedOperations": 50000000,
+        "linearMemoryBytes": 134217728,
+        "audits": [
+          {
+            "method": "ecm",
+            "lane": 0,
+            "workers": 2,
+            "base": 2,
+            "sigma": [
+              270375,
+              67634695,
+              2647435467,
+              307599701,
+              2398689239,
+              745495510,
+              632435488,
+              435756216,
+              2005365035,
+              2916098938,
+              2657092305,
+              1495045949,
+              3031976848,
+              82049204,
+              87470075,
+              3385103799,
+              891394318,
+              3323190030,
+              321008535,
+              4283899423,
+              2383559225,
+              3822316991,
+              1391776753,
+              3652395605,
+              44632824,
+              1562130991,
+              2440533931,
+              333695722,
+              1028688097,
+              2771657028,
+              57526109,
+              3412600858
+            ],
+            "usedMask": 1,
+            "curves": 1,
+            "pm1Attempts": 0,
+            "mask": 12288,
+            "point": 13,
+            "injected": false,
+            "poisoned": false,
+            "gmpAllocations": 0,
+            "directAllocations": 0,
+            "parameters": null
+          }
+        ],
+        "laneTrace": [
+          [],
+          []
+        ],
+        "allLanesDisposed": true
+      },
+      "sampledRam": {
+        "samples": 4,
+        "first": {
+          "atMs": 3762.154362,
+          "rssBytes": 1244512256,
+          "pssBytes": 441980928,
+          "processes": 12
+        },
+        "peakRssBytes": 1247584256,
+        "peakPssBytes": 445052928,
+        "maxProcesses": 12
+      }
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 2
+  },
+  "sampledRam": {
+    "samples": 68,
+    "first": {
+      "atMs": 112.885765,
+      "rssBytes": 376832,
+      "pssBytes": 157696,
+      "processes": 1
+    },
+    "peakRssBytes": 1263169536,
+    "peakPssBytes": 460902400,
+    "maxProcesses": 12
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 50000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "terminal/progress observations only; terminated loser may have unreported final curve",
+    "profile": "last split approximate callback interval wall including JS/import/budget/output validation; additional phase clock sampling, not primary timing"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

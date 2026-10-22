@@ -1,0 +1,62 @@
+{
+  "id": "llm01-wide-window-stage38",
+  "baselineHead": "dc8dbbb30243f49c24bce4bb394b3a003cac6d81",
+  "hypothesis": "A named co1024 hardcap can pass the measured co256 collection ceiling; preserve mathematical results and finite stops. This is capacity evidence, not a speed or completion-time forecast.",
+  "limits": {
+    "startAvailableMiB": 8192,
+    "startWindowsAvailableMiB": 8192,
+    "runtimeAvailableMiB": 4096,
+    "maxWasmMiB": 1280,
+    "declaredBudgetMiB": 1536,
+    "maxPssMiB": 3072,
+    "maxReceiptBytes": 16777216,
+    "maxRepositoryEvidenceBytes": 2097152,
+    "totalCampaignMs": 3870000,
+    "maxFamilies": 4096,
+    "maxEvents": 16416,
+    "maxGraphSnapshots": 512,
+    "maxProgress": 4096,
+    "ramSamples": 8000,
+    "windowsSamples": 391
+  },
+  "adoption": {
+    "commonPrefixFamilies": 572,
+    "commonColumnPrefix": 128,
+    "requireIdenticalPacketsAndCounters": true,
+    "requireOfflineAndRetirement": true,
+    "allowedLongReasons": [
+      "time-budget",
+      "family-budget",
+      "coordinator-memory-soft-stop",
+      "native-memory-budget",
+      "algorithm-resource",
+      "insufficient-relations",
+      "no-dependency",
+      "no-factor",
+      "composite-divisor"
+    ],
+    "noMoreLongTrials": "Close this finite trial and record negative results; no unbounded extension or completion-time extrapolation."
+  },
+  "trials": [
+    {
+      "id": "contracts-wide",
+      "graph": "wide",
+      "harness": true,
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 1536,
+      "budgetMs": 30000
+    },
+    {
+      "id": "wide-1024",
+      "graph": "wide",
+      "case": "RSA-100",
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "memoryMiB": 1536,
+      "budgetMs": 3600000
+    }
+  ]
+}

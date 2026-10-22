@@ -1,0 +1,20 @@
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	﻿2026-10-20T07:42:25.1003920Z ##[group]Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1004770Z [36;1mnode scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"[0m
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1067398Z shell: /usr/bin/bash -e {0}
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1067655Z env:
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1067943Z   PRIME_UPSTREAM_DIR: /home/runner/work/_temp/prime-upstreams
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1068314Z   CHROME_BIN: google-chrome
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:25.1068549Z ##[endgroup]
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:40.2002399Z {"fatal":[],"badEvents":[],"requests":[],"attached":[],"pending":["Runtime.evaluate"]}
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2053883Z file:///home/runner/work/browser-prime-toolkit/browser-prime-toolkit/scripts/benchmark-supplement.mjs:79
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2055433Z     const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 15000);
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2056344Z                                              ^
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2056670Z 
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2058370Z Error: Chrome startup timed out: [81396:81421:1020/074237.535108:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2059205Z 
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2059728Z     at Timeout._onTimeout (file:///home/runner/work/browser-prime-toolkit/browser-prime-toolkit/scripts/benchmark-supplement.mjs:79:46)
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2060843Z     at listOnTimeout (node:internal/timers:635:17)
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2061248Z     at process.processTimers (node:internal/timers:571:7)
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2061489Z 
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2061575Z Node.js v24.19.0
+supplementary-evaluation	Run node scripts/benchmark-supplement.mjs --mode quick --out "$RUNNER_TEMP/supplement.json"	2026-10-20T07:42:42.2122657Z ##[error]Process completed with exit code 1.

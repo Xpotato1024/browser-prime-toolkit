@@ -1,0 +1,116 @@
+{
+  "id": "rusqsieve-simd-stage17-v1",
+  "upstream": "0.5.0",
+  "commit": "4b150834b57636f6ebc350a81321a15c1cd901d2",
+  "interpretation": "One exploratory observation per fixed condition; deterministic input/family order, fresh Chrome per trial; no CPU-time or ETA claim. copy vs drop isolates same-WASM immutable-context sharing; retain also keeps local context through extraction. 1/2 actual owners, each bounded growth256MiB, total<=512MiB. Query native input-dependent family budget; one typed extraction attempt; no rho/ECM.",
+  "limits": {
+    "maxOwners": 2,
+    "wasmPerOwner": 268435456,
+    "totalWasm": 536870912,
+    "packetBytes": 16777216,
+    "transportBytes": 33554432,
+    "initMs": 10000,
+    "extractAttempts": 1,
+    "runtimeNetwork": 0
+  },
+  "trials": [
+    {
+      "id": "control-40-one-copy",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "variant": "one-copy",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-40-one-drop",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "variant": "one-drop",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-40-two-copy",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "variant": "two-copy",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-40-two-drop",
+      "stage": "control",
+      "case": "full-balanced-40-1",
+      "variant": "two-drop",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-one-copy",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "one-copy",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-one-drop",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "one-drop",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-one-retain",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "one-retain",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-two-copy",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "two-copy",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-two-drop",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "two-drop",
+      "budgetMs": 30000
+    },
+    {
+      "id": "control-64-two-retain",
+      "stage": "control",
+      "case": "full-balanced-64-1",
+      "variant": "two-retain",
+      "budgetMs": 30000
+    },
+    {
+      "id": "rsa100-60s-two-copy",
+      "stage": "short",
+      "case": "RSA-100",
+      "variant": "two-copy",
+      "budgetMs": 60000
+    },
+    {
+      "id": "rsa100-60s-two-drop",
+      "stage": "short",
+      "case": "RSA-100",
+      "variant": "two-drop",
+      "budgetMs": 60000
+    },
+    {
+      "id": "rsa100-600s-one-drop",
+      "stage": "long",
+      "case": "RSA-100",
+      "variant": "one-drop",
+      "budgetMs": 600000
+    },
+    {
+      "id": "rsa100-600s-two-drop",
+      "stage": "long",
+      "case": "RSA-100",
+      "variant": "two-drop",
+      "budgetMs": 600000
+    }
+  ]
+}

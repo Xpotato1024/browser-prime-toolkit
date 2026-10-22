@@ -1,0 +1,277 @@
+{
+  "mode": "private-ui",
+  "variant": "p64",
+  "caseId": "ui-contracts",
+  "group": "ui",
+  "seed": 1,
+  "budgetMs": 1000,
+  "lifecycle": null,
+  "measuredHead": "adeb5f42a0d7cb964a24f08ce39776d228c8ef1d",
+  "measuredAt": "2026-10-19T11:02:20.441Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "coldReadyMs": 204.86852699999986,
+  "initialAssets": [
+    {
+      "path": "/bench/private-ui.html",
+      "bytes": 255,
+      "sha256": "0b9c47c73f6295a18c474503c9d4757ea00a1902939e691c4b7381b92cfeb814"
+    },
+    {
+      "path": "/bench/private-ui.js",
+      "bytes": 7741,
+      "sha256": "3bc2fafbc4fb23eb162e7d249457d2dca7d622bb4aa40cfa2ef2082d925004a4"
+    },
+    {
+      "path": "/app/main.js",
+      "bytes": 175,
+      "sha256": "9fa82ef51ef48d3a003eca0fc88a400381a7180f061d723d43e4a3d5b4619bf4"
+    },
+    {
+      "path": "/src/ui/page-lifecycle.js",
+      "bytes": 824,
+      "sha256": "cdf248604aa9a13df50c7b1bcf45747a4390a94d98073f61837cca291a681582"
+    },
+    {
+      "path": "/src/ui/mount.js",
+      "bytes": 6653,
+      "sha256": "5fb06ed1283ee393d676822cb713527755b0e17aa9db0011d72912ee217353cc"
+    },
+    {
+      "path": "/src/worker/staged-selected.js",
+      "bytes": 275,
+      "sha256": "f6d7c65261fbb516d611b701553a1b39e37004aa408e097c2b76ea9ab974579c"
+    },
+    {
+      "path": "/src/worker/staged-factory.js",
+      "bytes": 1104,
+      "sha256": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4"
+    },
+    {
+      "path": "/src/engine/staged-factor.js",
+      "bytes": 3667,
+      "sha256": "87cec7caffcd316005f19c9e0821d14565edc202be77c046c2c05c7529e37da9"
+    },
+    {
+      "path": "/src/engine/staged-selected.js",
+      "bytes": 215,
+      "sha256": "e6b11a47b2cd2beb25084e8deca059967e59c7ac079d39691364c00b7668a49b"
+    },
+    {
+      "path": "/src/worker/staged-controller.js",
+      "bytes": 4980,
+      "sha256": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d"
+    },
+    {
+      "path": "/src/worker/staged-brent-source.js",
+      "bytes": 23641,
+      "sha256": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23"
+    },
+    {
+      "path": "/src/worker/staged-ecm-source.js",
+      "bytes": 638816,
+      "sha256": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642"
+    },
+    {
+      "path": "/src/worker/staged-siqs-source.js",
+      "bytes": 156165,
+      "sha256": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf"
+    },
+    {
+      "path": "/src/worker/staged-staged-source.js",
+      "bytes": 771340,
+      "sha256": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/engine/staged-plan.js",
+      "bytes": 1465,
+      "sha256": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f"
+    },
+    {
+      "path": "/src/ui/session.js",
+      "bytes": 2385,
+      "sha256": "7b30989701f315a3cf69d88e423377430c20bd3f55c80a3d01af52bb0257aebb"
+    },
+    {
+      "path": "/src/engine/staged-dispatch.js",
+      "bytes": 2822,
+      "sha256": "9e2645ad763606e8772f32411726fe383601740f85dd0f4c1df9cd13facaf3a9"
+    },
+    {
+      "path": "/src/engine/staged-result.js",
+      "bytes": 3655,
+      "sha256": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/result.js",
+      "bytes": 3916,
+      "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+    },
+    {
+      "path": "/src/core/integer-input.js",
+      "bytes": 1753,
+      "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+    },
+    {
+      "path": "/src/ui/result-view.js",
+      "bytes": 2496,
+      "sha256": "6f1bc4709f74d6355315ef366a7eec57e81e222023f77a2416c331ddba693f4b"
+    },
+    {
+      "path": "/src/engine/staged-budget.js",
+      "bytes": 1886,
+      "sha256": "07b75107b2f42e32428665ea4a0c4629624fc9ee0ef9fb1ed9963677cc64ce6e"
+    },
+    {
+      "path": "/src/core/factor-powers.js",
+      "bytes": 949,
+      "sha256": "d5cef19229ebf8ef64cd0b4acaa78095ec84a671eaedc1713c4c6eb633c7c21a"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-private-ui.mjs": "4da41c0cbcfad7feecf598b236ddc8ca540478d0b11412d5c2e2c989a91a98c7",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+    "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+    "bench/private-ui.html": "0b9c47c73f6295a18c474503c9d4757ea00a1902939e691c4b7381b92cfeb814",
+    "bench/private-ui.js": "3bc2fafbc4fb23eb162e7d249457d2dca7d622bb4aa40cfa2ef2082d925004a4",
+    "app/main.js": "9fa82ef51ef48d3a003eca0fc88a400381a7180f061d723d43e4a3d5b4619bf4",
+    "src/ui/page-lifecycle.js": "cdf248604aa9a13df50c7b1bcf45747a4390a94d98073f61837cca291a681582",
+    "src/ui/mount.js": "5fb06ed1283ee393d676822cb713527755b0e17aa9db0011d72912ee217353cc",
+    "src/worker/staged-selected.js": "f6d7c65261fbb516d611b701553a1b39e37004aa408e097c2b76ea9ab974579c",
+    "src/worker/staged-factory.js": "9cd84184b493d8d72fe2bbe16d6687584d91fe39381df34be2ffed96e139ace4",
+    "src/engine/staged-factor.js": "87cec7caffcd316005f19c9e0821d14565edc202be77c046c2c05c7529e37da9",
+    "src/engine/staged-selected.js": "e6b11a47b2cd2beb25084e8deca059967e59c7ac079d39691364c00b7668a49b",
+    "src/worker/staged-controller.js": "c1ff82c484a2ad208f2db61c3ecda973c73cc7e371deef8cc32e744241006a2d",
+    "src/worker/staged-brent-source.js": "394bf163d66cf6bbfcdebfafdf93e96dfba6cff9e7298459f58e3f57d1dd3b23",
+    "src/worker/staged-ecm-source.js": "d0742d1af540bc5fbb13c8b29a76df7a7aa5801265a9b2899d2dab7a8c15a642",
+    "src/worker/staged-siqs-source.js": "c7329bde33f68304e3957d65d431166da9c794c8ece4cfb2b4f7bf9d7b89b0cf",
+    "src/worker/staged-staged-source.js": "c352123baa42bf47944ca8303d7af6712fe023a48210ba23c8729d6d727d8719",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/engine/staged-plan.js": "38297cc39326bf5d589e4cdbe16ad1906c9704759d58dee4229ce16564666e2f",
+    "src/ui/session.js": "7b30989701f315a3cf69d88e423377430c20bd3f55c80a3d01af52bb0257aebb",
+    "src/engine/staged-dispatch.js": "9e2645ad763606e8772f32411726fe383601740f85dd0f4c1df9cd13facaf3a9",
+    "src/engine/staged-result.js": "d1c552cfe5dfa7b1402ea1d21ad67f06ede9ff030a5a9485835efc1eea672ab7",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+    "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+    "src/ui/result-view.js": "6f1bc4709f74d6355315ef366a7eec57e81e222023f77a2416c331ddba693f4b",
+    "src/engine/staged-budget.js": "07b75107b2f42e32428665ea4a0c4629624fc9ee0ef9fb1ed9963677cc64ce6e",
+    "src/core/factor-powers.js": "d5cef19229ebf8ef64cd0b4acaa78095ec84a671eaedc1713c4c6eb633c7c21a"
+  },
+  "records": [
+    {
+      "checks": [
+        {
+          "name": "exact decimal, powers and repeated factors",
+          "pass": true
+        },
+        {
+          "name": "labels, invalid range, zero and one",
+          "pass": true
+        },
+        {
+          "name": "probable is explicit and copied",
+          "pass": true
+        },
+        {
+          "name": "partial residual has a distinct label",
+          "pass": true
+        },
+        {
+          "name": "copy success and rejection fallback",
+          "pass": true
+        },
+        {
+          "name": "old clipboard completion cannot change a newer result",
+          "pass": true
+        },
+        {
+          "name": "loading and running cancellation own at most one Worker",
+          "pass": true
+        },
+        {
+          "name": "persisted page lifecycle retires a running owner and restores a usable draft",
+          "pass": true
+        },
+        {
+          "name": "fatal UI recovers on a new explicit request",
+          "pass": true
+        }
+      ],
+      "clipboardRoundtrip": true,
+      "keyboard": true,
+      "mathAccessibleName": true,
+      "mobile320": true,
+      "nativeOverlongRejected": true
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 1
+  },
+  "sampledRam": {
+    "samples": 41,
+    "first": {
+      "atMs": 272.909468,
+      "rssBytes": 385024,
+      "pssBytes": 167936,
+      "processes": 1
+    },
+    "peakRssBytes": 1323814912,
+    "peakPssBytes": 505159680,
+    "maxProcesses": 12
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "operationBudget": 50000000,
+    "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+    "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+    "profile": "request includes Worker compile/init, computation, delivery and proof; one host deadline; unavailable terminated trace is null"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

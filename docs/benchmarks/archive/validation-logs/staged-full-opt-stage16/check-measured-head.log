@@ -1,0 +1,64 @@
+
+> browser-prime-toolkit@0.1.0 check
+> node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && npm run check:rsa-profile && npm run check:full-siqs && node scripts/check-long-history.mjs && npm run check:siqs-lab && npm run check:siqs-tuned && node scripts/check-supplement-ci.mjs && node scripts/check-full-siqs-opt.mjs && node scripts/build-full-siqs-opt-worker.mjs --check && node scripts/check.mjs
+
+Verified WASM source pins, artifact hash, imports and exports
+Historical measurement and portable builder reproduce the identical WASM
+Verified private GMP/ECM artifact, pins, source hashes and 8 compile-only SIQS objects
+Verified actual 64MiB WASM hard maximum
+Verified SIQS pins, source hashes, exact artifact and 64MiB hard maximum
+Verified bundled Worker: 106073 bytes, no runtime imports
+Verified bundled Worker: 626759 bytes, no runtime imports
+Verified bundled Worker: 139059 bytes, no runtime imports
+Verified bundled Worker: 626803 bytes, no runtime imports
+Verified 204 individual + 32 pool receipts and derived report
+Verified 136 comparison receipts, actual faults, source binding and sampled RAM report
+Verified bundled Worker: 13174 bytes, no runtime imports
+Verified 18 fresh holdout trials, fixed selection policy, proofs/source binding and report
+Verified supplementary source pins, artifact, actual 64MiB hard maximum and read-only generated checks
+Verified 18 p−1 exact congruences including gcd=n and M127 base sensitivity
+Verified supplementary report, fixed receipts and current source bindings
+Verified counted SIQS source pins, two clean artifacts, actual hard 64MiB memories and read-only generation
+Verified 40 primary, 20 separate diagnostic, 4 lifecycle receipts, fixed source bindings and matrix parity identity
+Verified 90 training + 120 unused holdout trials, fixed training choice, 4 lifecycle receipts, exact results and current source bindings
+Verified generated staged repeated-measurement report
+Verified exact private UI receipt, source hashes, native input, copy, keyboard, AX, mobile, ownership and quiet runtime
+Verified isolated RSA native Worker 18295 bytes
+
+> browser-prime-toolkit@0.1.0 check:rsa-profile
+> node scripts/check-rsa-core.mjs && node scripts/check-rsa-profile.mjs && node scripts/report-rsa.mjs --check
+
+Verified RSA-only control-layer forks, unchanged shared math/clock and immutable 50M baseline archive
+Verified 53 exact RSA moduli, primary-source hashes, published checksums, bits/digits and factor-free browser catalog
+Verified RSA contracts receipt, exact source hashes, offline positive controls and isolated Worker ownership
+{"trials":5,"successes":0,"largestObservedSuccess":null,"requestWallMs":{"median":29977,"min":29976.39999999851,"max":29977.39999999851},"stopCounts":{"timeout/time-budget":5}}
+
+> browser-prime-toolkit@0.1.0 check:full-siqs
+> node scripts/check-full-siqs.mjs && node scripts/check-full-practical.mjs && node scripts/build-full-siqs-worker.mjs --check && node scripts/report-full-siqs.mjs --check
+
+Full SIQS: two clean builds, complete source pins, fixed 512MiB and rejected growth
+Verified full corpus: 62 moduli, 124 independently checked prime certificates; runtime N only
+Full SIQS Worker bytes 217031
+{"rawTrials":46,"completeTrials":20,"largestAllFourObservedByBudget":[{"budgetMs":3000,"digits":56},{"budgetMs":30000,"digits":64},{"budgetMs":180000,"digits":72}],"rsa100":[{"budgetMs":30000,"kind":"timeout","phase":3,"relations":{"total":15,"full":15,"combined":0,"partial":1601,"target":97743}},{"budgetMs":600000,"kind":"timeout","phase":3,"relations":{"total":507,"full":498,"combined":9,"partial":36638,"target":97743}}]}
+{"historicalRsa100":"timeout","reason":"time-budget","requestWallMs":599977.1000000015,"operations":1732078899,"sampledRam":{"samples":8063,"first":{"atMs":106.624172,"rssBytes":380928,"pssBytes":162816,"processes":1},"peakRssBytes":1313423360,"peakPssBytes":498042880,"maxProcesses":13},"unchangedComputationSources":true}
+
+> browser-prime-toolkit@0.1.0 check:siqs-lab
+> node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check && node scripts/report-siqs-lab.mjs --check
+
+SIQS lab: two clean builds, complete source pins, fixed 256MiB and rejected growth
+Lab Worker bytes 213342 1f783509b1165a05f1ad6b4d47ff63cebfff38bdf48b4952157e0e776ea943c7
+{"rawTrials":38,"stopCounts":{"verified":38},"pools":[{"caseId":"RSA-100","completeWork":true,"oneMs":[9710.60000000894,9638.09999999404],"twoMs":[4986,5071.5],"ratioOfMean":1.923808103405715},{"caseId":"full-balanced-96-1","completeWork":true,"oneMs":[9390.40000000596,9329.70000000298],"twoMs":[4887.20000000298,4804.600000008941],"ratioOfMean":1.9315400647955916}]}
+
+> browser-prime-toolkit@0.1.0 check:siqs-tuned
+> node scripts/check-siqs-tuned.mjs && node scripts/build-siqs-tuned-worker.mjs --check && node scripts/report-siqs-tuned.mjs --check
+
+SIQS LTO: two clean builds, complete source pins, fixed 256MiB and rejected growth
+base 213348 b4d63b8b0418242cab9b078aaec00f189cb0f153c1553e7b04dafff091183314
+lto 285734 d4e10d1267e04563cbb6f0e5778a0ac77502ed55542baefa4c5f629f15fb458c
+{"rawTrials":28,"equalBytes":true,"groups":[{"workers":1,"engine":"base","variant":"base","wallMs":{"count":2,"min":9594.800000011921,"mean":9619.10000000149,"max":9643.39999999106},"ratioToBaseline":1,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":1,"engine":"base","variant":"clock16","wallMs":{"count":2,"min":9269.70000000298,"mean":9305.79999999702,"max":9341.89999999106},"ratioToBaseline":1.0336671753105129,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":1,"engine":"base","variant":"stride16k","wallMs":{"count":2,"min":9274.20000000298,"mean":9323.39999999851,"max":9372.59999999404},"ratioToBaseline":1.031715897634235,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":1,"engine":"lto","variant":"base","wallMs":{"count":2,"min":7829.29999999702,"mean":7833.5,"max":7837.70000000298},"ratioToBaseline":1.2279440862962265,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":1,"engine":"lto","variant":"clock16","wallMs":{"count":2,"min":7389.9000000059605,"mean":7396.85000000149,"max":7403.79999999702},"ratioToBaseline":1.300431940623313,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":1,"engine":"lto","variant":"stride16k","wallMs":{"count":2,"min":7338.20000000298,"mean":7388.10000000149,"max":7438},"ratioToBaseline":1.3019720902531842,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"base","variant":"base","wallMs":{"count":2,"min":5122.300000011921,"mean":5123.250000007451,"max":5124.20000000298},"ratioToBaseline":1,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"base","variant":"clock16","wallMs":{"count":2,"min":4953.9000000059605,"mean":4965.85000000149,"max":4977.79999999702},"ratioToBaseline":1.0316964870074434,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"base","variant":"stride16k","wallMs":{"count":2,"min":4738.29999999702,"mean":4849.29999999702,"max":4960.29999999702},"ratioToBaseline":1.0564926896687354,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"lto","variant":"base","wallMs":{"count":2,"min":4084.7999999970198,"mean":4148.44999999553,"max":4212.0999999940395},"ratioToBaseline":1.2349793296322653,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"lto","variant":"clock16","wallMs":{"count":2,"min":3930.2999999970198,"mean":3964.2999999970198,"max":3998.2999999970198},"ratioToBaseline":1.2923466942489978,"equivalentWorkAndBytes":true,"allNativeVerified":true},{"workers":2,"engine":"lto","variant":"stride16k","wallMs":{"count":2,"min":3892.1000000089407,"mean":3950.0500000044703,"max":4008},"ratioToBaseline":1.2970088986219548,"equivalentWorkAndBytes":true,"allNativeVerified":true}],"horizons":[{"engine":"base","variant":"base","work":{"count":2,"min":20406348791,"mean":20504903671,"max":20603458551},"unique":{"count":2,"min":7052,"mean":7085.5,"max":7119},"full":{"count":2,"min":100,"mean":100,"max":100},"partial":{"count":2,"min":6952,"mean":6985.5,"max":7019},"cycles":{"count":2,"min":1,"mean":1,"max":1},"allNativeVerified":true},{"engine":"lto","variant":"stride16k","work":{"count":2,"min":27765117758,"mean":27790859417,"max":27816601076},"unique":{"count":2,"min":9531,"mean":9538.5,"max":9546},"full":{"count":2,"min":146,"mean":146,"max":146},"partial":{"count":2,"min":9385,"mean":9392.5,"max":9400},"cycles":{"count":2,"min":2,"mean":2,"max":2},"allNativeVerified":true}]}
+Supplement CI profile: finite 30s startup, historical computation/audits unchanged
+Private UI CI profile: finite 30s startup, historical driver and contracts unchanged
+Full mode0 optimization: original result/lifecycle contracts, identical C patches and pinned artifacts
+base 221526
+lto 293912
+Checked syntax, UTF-8/LF and Markdown paths in 918 files

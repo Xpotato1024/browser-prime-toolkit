@@ -1,0 +1,289 @@
+{
+  "version": "0.5.0",
+  "commit": "4b150834b57636f6ebc350a81321a15c1cd901d2",
+  "upstreamSha256": "86ab9802fbd93690a053dc0630fffe33d1f3f1625d7d6345ec82d74be9d8d11c",
+  "image": "sha256:0aabc47a61c105a320b69fecbc2708a2118ec9e54a8b10946998f21bd23423d4",
+  "compiler": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+  "target": "wasm32-unknown-unknown",
+  "simd": true,
+  "cleanBuilds": 2,
+  "bytes": 437203,
+  "sha256": "1fd4ac356f508ead3c4bdb52a3c52db2a2fa10df5f7ab92f0c2c43a1dbe682df",
+  "memory": {
+    "flags": 1,
+    "minPages": 17,
+    "maxPages": 2048,
+    "shared": false,
+    "initialBytes": 1114112,
+    "maximumBytes": 134217728,
+    "exports": [
+      {
+        "name": "memory",
+        "kind": "memory"
+      },
+      {
+        "name": "qs_abi_version",
+        "kind": "function"
+      },
+      {
+        "name": "qs_max_siqs_bits",
+        "kind": "function"
+      },
+      {
+        "name": "qs_max_input_bits",
+        "kind": "function"
+      },
+      {
+        "name": "qs_alloc",
+        "kind": "function"
+      },
+      {
+        "name": "qs_dealloc",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_pointer",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_length",
+        "kind": "function"
+      },
+      {
+        "name": "qs_buffer_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_prepare",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_sieve",
+        "kind": "function"
+      },
+      {
+        "name": "qs_worker_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_new",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_target",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_relations",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_family_budget",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_submit",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_extract",
+        "kind": "function"
+      },
+      {
+        "name": "qs_coord_free",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm_default_b1",
+        "kind": "function"
+      },
+      {
+        "name": "qs_ecm_default_curves",
+        "kind": "function"
+      },
+      {
+        "name": "qs_rho",
+        "kind": "function"
+      },
+      {
+        "name": "codex_extract_status",
+        "kind": "function"
+      },
+      {
+        "name": "codex_coord_worker",
+        "kind": "function"
+      },
+      {
+        "name": "codex_coord_fb_len",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_version",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_prepare",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_new",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_coord_config",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_worker_config",
+        "kind": "function"
+      },
+      {
+        "name": "codex_dlp_stat",
+        "kind": "function"
+      },
+      {
+        "name": "codex_graph_profile",
+        "kind": "function"
+      },
+      {
+        "name": "codex_graph_columns",
+        "kind": "function"
+      },
+      {
+        "name": "codex_graph_phase",
+        "kind": "function"
+      },
+      {
+        "name": "codex_graph_roundtrip",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_live",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_peak",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_failures",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_last_failed",
+        "kind": "function"
+      },
+      {
+        "name": "codex_mem_reset_peak",
+        "kind": "function"
+      },
+      {
+        "name": "codex_builtin_remainder",
+        "kind": "function"
+      },
+      {
+        "name": "codex_reciprocal_remainder",
+        "kind": "function"
+      },
+      {
+        "name": "__data_end",
+        "kind": "global"
+      },
+      {
+        "name": "__heap_base",
+        "kind": "global"
+      }
+    ]
+  },
+  "args": [
+    "/opt/rust/bin/rustc",
+    "--crate-name",
+    "rusqsieve",
+    "--crate-type",
+    "cdylib",
+    "--edition=2024",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--cfg",
+    "feature=\"wasm-simd128\"",
+    "-Copt-level=3",
+    "-Clto=fat",
+    "-Ccodegen-units=1",
+    "-Cpanic=abort",
+    "-Ctarget-feature=+simd128",
+    "-Clink-arg=--max-memory=134217728",
+    "-Clink-arg=--strip-all",
+    "/src/src/lib.rs",
+    "-o",
+    "/build/rusqsieve.wasm"
+  ],
+  "sourceHashes": {
+    "scripts/build-graph-varint.mjs": "ffaba811289a887e742b4a6aeb85f2d8e912fc0ed16b7a4812765166ae9e3e9a",
+    "native/graph-varint/patch-source.mjs": "f14fc91478eccfc83e9e7f37097290c2e9bdc00b9fe5edb5609b6ac154eaf40a",
+    "native/graph-varint/retained-relation.rs": "14ede451cb4f2466fce01a7821467eca374f6e674408dd4fb5c078abf9611bfe",
+    "scripts/build-graph-builtin.mjs": "465818715e9f8f50517dfa80a2bd94e8a8952cdb48fcbe21ac497269d4aa6389",
+    "native/graph-builtin/patch-source.mjs": "3e8a55e3ae6583ce61aeefdb7160920c0b32f47099378459297a1621e887e75c",
+    "native/resources/memory-contract.mjs": "b145cbd2ee96773ff3cb768f626d581ec54213ef30dd4403213a23e45030fd30",
+    "native/graph-arena/patch-source.mjs": "a8eeff72e0ba0ce5a60959e9c19d0f0aaf06277fc61883db83fbe51a9e6f7e72",
+    "native/graph-arena/packed-relation.rs": "ee567e664fd945f6ce903c59ba3b1cbde9ffa86c30d01693b7177d9eb67e094a",
+    "native/graph-release/patch-source.mjs": "acdc6b216d916d9b4a234507e12b209d98a9b12f2b7c42fdade096eeaa41630c",
+    "native/graph-release/session-stop.rs": "201c8955a1b9aacabcf7595b59bd6f9b4648667a7ba46c75e3951026e4c4ed87",
+    "native/graph-profile/patch-source.mjs": "fee6b8f4cce2b32cc72bd15ac5b1d9af8f8dbe95401867dd76b3cca1e0ec0256",
+    "native/graph-profile/engine-profile.rs": "da3090a7d8cc6ab1ade307be92b718659091dfd3ef893c1041dd85a9ff614f8f",
+    "native/graph-profile/compact-root.rs": "83335243a15285897b3b0cb59ad134a48bd60bdfeffc989f31847e0769445e3f",
+    "native/graph-profile/phase.rs": "424b1c54efa90d90b219463f5e2a1c63353cbd5397ab5393b368b21772ffc1e3",
+    "scripts/container-compile.mjs": "1017296cc712538ba40f74a73b63bbaeb808ce4e97de6847ab2d84f988ade704",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve-dlp/patch-source.mjs": "528bd3bb0f0c2a93d969628b8b280f9af653792328ff1ca295d75050d862e075",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "native/rusqsieve/RustDockerfile": "6cbece4b075ab047328c5203388af2d45379cefb5894297f494609481302c3c6",
+    "native/rusqsieve/staged-toolchain.json": "ba5a22e598b3e84208fc284440105c9f8a5d8d8c830216bd8f03dcbf5df5bf3b"
+  },
+  "compiledSources": {
+    "src/README.md": "95c5641c9ab92dd4b022a262fd481b1928198772cab7b886af37a6f6b227e093",
+    "src/src/capi.rs": "96fa402a15ab2ae2caa8328badd8699ce303a38745bdd2651e58183ebb0ac61b",
+    "src/src/ecm.rs": "488fc2fd3307f551209addc692119e6a2cde14c09115f7820b2bc56e281caec3",
+    "src/src/engine.rs": "632b3722417023395f17091bc07f88cbcc1a16b059b5e970c338e01804fc8419",
+    "src/src/factor.rs": "6894ac755f114cc59b79f5129edace19abdf350fc8069fff3392d64fab99658f",
+    "src/src/factors.rs": "613fb29512da26b2dabbd9aaeb4fc8eb56b97d7c201c68bedb8f37a4db56feb9",
+    "src/src/lib.rs": "5bb24e5334aef7998ad188d379438448678259bf9465d6ae177ded0f55d896be",
+    "src/src/native.rs": "215d839bc0e17c7db55d0e106d642d6102624705677d5b0b92da5ea9d0c0f2b5",
+    "src/src/primality.rs": "3572ad3922efd7e5c941b41e54502f09ddc631c4726b9a1e75080ebb032a063b",
+    "src/src/progress.rs": "fe2a138fcd87993cf8ee2a32e55e4fcd0c1d42cb418077f84e78287a49ecad5e",
+    "src/src/smallfactor.rs": "290c95b14623ad81767b76ac85d4a3d0d24185a63b4e007ddbf0fbcd36392b45",
+    "src/src/u64math.rs": "f12b0f7c7edc386a8e0030c6f20dd486f6542ad7c2c1951a25385661a6752085",
+    "src/src/wasm.rs": "db468367441cba1f3dd55aedaef03b6037f41c70461a878cf78bebd62a60a6e0",
+    "src/src/bin/qs-factor.rs": "e24c09c983ae4d58e5992d8b46305e9258e3294f8e63548dae6344981d0d98c8",
+    "src/src/engine/extract.rs": "21dfad7815f7312ce326b5e3cfd486fe76e2d54177b1834440998d976728bacc",
+    "src/src/engine/report_simd.rs": "032d593326cdcef15021ea6f02a5212e352cea06666508d859a105f44e2e23b7",
+    "src/src/engine/report_wasm.rs": "7fce7f9769ebac3f84dffd1edc5208db15e1531498349d8af86ab1212d82bd79",
+    "src/src/engine/root_simd.rs": "339b36efa5d05a48b6c937a22ab244f5b111b017db2fddbe84b30281185624a2",
+    "src/src/engine/root_wasm.rs": "a167765765c2d3374da8a1aded1a173add56f34711511873a7f97a9d7a1081d2",
+    "src/src/engine/siqs.rs": "6dac492bfd396733af31e7ef97e5ceb53f0a24206a9f3e2b13da6dff6b557d8d",
+    "src/src/engine/wire.rs": "db689b9ee26f287777a507e4073259c3e522f860ad2c1b5c7f1f1a01fad3b754",
+    "src/src/f2/block_lanczos.rs": "a3169dbac55b7eeeb5ade2f18a710465048ca2e48dad57f34d6e9548be9448d8",
+    "src/src/f2/mod.rs": "6bf3dc3ca49170d5d38081557e6f89de503d9be588eb0f8bb71bed5b5e8601b9",
+    "src/src/natural/mod.rs": "4535f743924977c8b90963380b701cb2b51838a333f36194b2762e5c26d9898f",
+    "src/src/natural/montgomery.rs": "239798cbca8aa5bcf7686368fa81fa14e57ddcc9ce00efb2ccefb7259c659373",
+    "src/src/natural/prime.rs": "0f0a4e32df3be215abf59840b12d9e34aa70b3d7aaa5ee8065b8323b002ac5df",
+    "src/src/qs/mod.rs": "c8db30a767cb2baf66674ae42c1395bd8cf63156c8f401b7cae43e244896d337",
+    "src/src/codex_observer.rs": "99e56a408e9f61f52516f39b716f51d3e4b590b5f6f76b8ebb7ed383bc5bc605",
+    "src/src/codex_graph_phase.rs": "424b1c54efa90d90b219463f5e2a1c63353cbd5397ab5393b368b21772ffc1e3"
+  },
+  "license": "Apache-2.0 OR MPL-2.0; original observer/adapter AGPL-3.0-only",
+  "method": "direct rustc; no-default-feature equivalent for cfg-gated native-only dependencies; no cargo dependency resolution",
+  "dlpProfiles": {
+    "version": 1,
+    "baseline": 1035,
+    "half": 512,
+    "quarter": 256,
+    "scope": "321..333 bits; fixed upstream defaults otherwise; native lp_bits coupling, offset unchanged"
+  },
+  "graphVariant": "varint-128"
+}

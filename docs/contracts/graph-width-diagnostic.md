@@ -1,0 +1,7 @@
+# 関係式index差分の有限サイズ診断
+
+Stage35の事前診断。追加codecを根拠なく増やさないため、現在のvarint artifactでRSA100 family0..3のpacketを一度だけ生成し、元順序を維持するsigned差分headerの理論byte数を比較する。数学・外部packet・既存artifactは変更しない。
+
+Node child1個、WASM256MiB hardcap、同じ4×2048 patterns、親から80秒で強制終了、output64KiB以内、開始前WSL MemAvailable>=4096MiB。4packetを順に検証・集約し、生packetを保存しない。HEAD/source/artifact/packet SHA、family別power数・固定6bytes/absolute-varint/signed-delta-varintの正確なbyte数、実際のforest payload/liveを保存する。最大RSSはNode childのLinux resourceUsage値でChrome RAMと分ける。計測中の別の計算・buildはしない。
+
+deltaは隣接indexの差をzigzagの非負headerへ可逆変換した場合のサイズ見積りだけ。sorting/dedupや演算変更をしない。各sampleでabsolute payloadより20%以上小さく、実測payload/live比からの削減余地が10%以上ある場合だけ実装比較候補にする。どちらかを満たさなければ今回は保留。未保持のcycle関係式を含みうるpartial wireのpotentialと実際のforest保持量を区別し、これだけで全工程の省メモリ率を断言しない。

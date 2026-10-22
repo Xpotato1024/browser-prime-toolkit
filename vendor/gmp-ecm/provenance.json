@@ -1,0 +1,396 @@
+{
+  "source": "https://github.com/sethtroisi/gmp-ecm",
+  "commit": "8ea5e214fdf2f0ddf9415141b8dc039ed6f5874e",
+  "archiveSha256": "32339eaedca0664e20049894821d030d04d3265703d262ab38dfe6e0e6af1494",
+  "scope": "private evaluation; not a LGPL-only distribution decision",
+  "gpu": false,
+  "files": [
+    {
+      "path": "ecm.c",
+      "sha256": "391391c152b357d748e89aa16e4928cdb98deec2a7a4e20ba8aed8b0e835137f",
+      "bytes": 76585,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm2.c",
+      "sha256": "a1116884e52882a1ce7806b6b0c3c153b075bb7b624178f408790dd0d1490ef6",
+      "bytes": 29105,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "pm1.c",
+      "sha256": "8ab9c69b34556aaa536611847c857ba5c15046fdecbceeb8ce6d89b04126f6ef",
+      "bytes": 18350,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "pp1.c",
+      "sha256": "1cae08a9e8fc729def16a55b334c593bc8b29ff5d8cb0cb6d8abc2b53effe18f",
+      "bytes": 14596,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "getprime_r.c",
+      "sha256": "09693278713b61b97e7cd37ccf3abe1a35b23a53ac7136063d5c19376d0da9b7",
+      "bytes": 5962,
+      "role": "library C source",
+      "notice": "LGPL-2.1-or-later"
+    },
+    {
+      "path": "listz.c",
+      "sha256": "8a9fa57befd6a139ca9966459e394fa205c707645eb49e5c7f707e40a6a99d52",
+      "bytes": 15383,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "lucas.c",
+      "sha256": "ca7770beae29de4b7e80b5e78596d085d90aa7b191fa3bf04b740f041151b08b",
+      "bytes": 5374,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "stage2.c",
+      "sha256": "7bf3a10ceb1cc9bb0a2b6a1017ac55a4d1043ffddc361f84275692d896679c3d",
+      "bytes": 23351,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "mpmod.c",
+      "sha256": "aefe9f839083c6c579cac65fe5f97150bc9e00bbe3a2298bb54a58d136f1070b",
+      "bytes": 74538,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "mul_lo.c",
+      "sha256": "99da7733d23db47d4e558a2eced10c494f4b040898d4906f397afaf94c0f99ca",
+      "bytes": 2260,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "polyeval.c",
+      "sha256": "95fae9b7e7bd4742895d2aeda1de257bb1786158effc772c8072524dafe997f2",
+      "bytes": 8124,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "median.c",
+      "sha256": "d5ed264f7e3e7ed3ff9bea0fcd1e09e78f67b815f828090c762a746ea702ce2e",
+      "bytes": 20646,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "schoen_strass.c",
+      "sha256": "28ec902a8f5ea66a2344172c31ddde32ef818728a51e001e4a0a69ae1286f9c6",
+      "bytes": 42915,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ks-multiply.c",
+      "sha256": "6c11d6c28d300a942a7bed8aeff92606852c7011b8907e4be1de2fb65f825eb1",
+      "bytes": 18132,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "rho.c",
+      "sha256": "35cc4997fde16ebca50291f98d04b1eb58e1254c689f856b9cf61a9ae9fb5209",
+      "bytes": 28737,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "bestd.c",
+      "sha256": "bbb5fed78054a222b2f237bbc5f5e32650c4798647d183ae2f1a427a21eb87a7",
+      "bytes": 10874,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "auxlib.c",
+      "sha256": "793d827720c1fbac0f301cb462798e0f2ba1cb71908d56682a4ad56089675263",
+      "bytes": 7312,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "random.c",
+      "sha256": "3fbcdda27127d6794565559fc07273aa63a21b417c048f6ae23ce15f821587c9",
+      "bytes": 3674,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "factor.c",
+      "sha256": "1ea1fc2ff89030daa8353d998f6abb2569640778d74dbba866b01998c348d925",
+      "bytes": 5512,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "sp.c",
+      "sha256": "0932ba3804bb682fc53a08fdde300f0e4f544b14f33a4fbfcc4ac4319970f181",
+      "bytes": 2999,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "spv.c",
+      "sha256": "a2b6559dff35a5a006849cfa3c01c1c309ec2bffd14e72e01f86e8cc6261ae9e",
+      "bytes": 12692,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "spm.c",
+      "sha256": "b6096cb609224bd9d95c3e6cdc25288a79da315ec12d3a8e5671859a3046c313",
+      "bytes": 7261,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "mpzspm.c",
+      "sha256": "7e36b30c5838e693d21e348d061fb9087fa08b94177866347b0fc704cad34ae0",
+      "bytes": 12451,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "mpzspv.c",
+      "sha256": "5788b666c0d766d1b94a33fe15cac4184c22270206cb37069c3623723c25d75f",
+      "bytes": 34784,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ntt_gfp.c",
+      "sha256": "cd631110df4a86738045a7436e3552fa76d0b2a01b1dbfe8e2241e3e175ebebd",
+      "bytes": 19441,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm_ntt.c",
+      "sha256": "d077cab7d661fa3b56f1a994302a1c7bffae6eb4cac61b867cb730366e0236b8",
+      "bytes": 12066,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "pm1fs2.c",
+      "sha256": "fc36ebc016ae2f533f467205dc582b86d18143fddd13658e72740588ee717187",
+      "bytes": 145815,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "sets_long.c",
+      "sha256": "a96e2deb797006b2875f18de35f46e1ed30814ab45a66a551704055301e6174f",
+      "bytes": 18479,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "auxarith.c",
+      "sha256": "aa93a94a7e552df46b971404e33e5491da8b2804337de6b69c72b34b66cc3b3d",
+      "bytes": 2149,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "batch.c",
+      "sha256": "5b8a0e643239f981fb5161f00b479e95608e8d5961be599ba394d0f452d58a64",
+      "bytes": 12880,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "parametrizations.c",
+      "sha256": "e143ca27a7cef61389d5f2c8b1de1bb3fbd1f8e6dfa55c608dee1ac25889e926",
+      "bytes": 13797,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "cudawrapper.c",
+      "sha256": "9da7b24c87d3e701c0c45d60223cc3102eaabd647577bde2f32e82e26cb557b2",
+      "bytes": 17354,
+      "role": "library C source",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "aprtcle/mpz_aprcl.c",
+      "sha256": "95044cee87bb0d9db96d6d06f8371708b2f872048eaf4c462458cdbbbf50b22c",
+      "bytes": 37303,
+      "role": "library C source",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "addlaws.c",
+      "sha256": "7e16818895aa7468af3ebfc3c441afbfcafd46d3f6fb075809fca2ae516c0936",
+      "bytes": 36389,
+      "role": "library C source",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "torsions.c",
+      "sha256": "a705f32457a648bdef461bcb48d9ed94372521717e8a2aeb4aae152dcbeb5c3f",
+      "bytes": 39199,
+      "role": "library C source",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "basicdefs.h",
+      "sha256": "33ceb61da0257259cf2655567434eda1bf442a220e1acdcaa102e8b8c6204501",
+      "bytes": 4589,
+      "role": "header",
+      "notice": "GPL-2.0-or-later"
+    },
+    {
+      "path": "ecm-impl.h",
+      "sha256": "2e3b539135cb18c4c0eaf76a2b1d1084678b4551fd74005bd32015ade99ef27f",
+      "bytes": 29948,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm-gmp.h",
+      "sha256": "daf8575448e15fdef632e0c608821cc59ed8199d94b861277740a0d70422bb00",
+      "bytes": 6740,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm-ecm.h",
+      "sha256": "640e3d893b5162c64936aa33b5c9e604850c229593031720ab76c31170b56332",
+      "bytes": 7437,
+      "role": "header",
+      "notice": "GPL-3.0-or-later"
+    },
+    {
+      "path": "sp.h",
+      "sha256": "43bfaf19f9194c66910b5ac071895dbccaf6c6edeceae1457cc9627496e179b9",
+      "bytes": 13486,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "longlong.h",
+      "sha256": "e119ee9047a4a79603a182c0d7c9dd4e318984b232328afb9aa68f7b0288e12b",
+      "bytes": 80673,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm-params.h",
+      "sha256": "b9429ecae8981843fffaede48e79bb6defe39eb785804dc8c840c43d6094117e",
+      "bytes": 2436,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "mpmod.h",
+      "sha256": "818f6db57ea8ef2854a427e4266a876a66121ab45252954d553ba009a040c6ee",
+      "bytes": 2004,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm-gpu.h",
+      "sha256": "c36cbffa7b653e5cbafd7f39947ab8cc99bfb558e9c0259d9fdd8a853521c623",
+      "bytes": 516,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "torsions.h",
+      "sha256": "9ff93be1d19b9ee119bd94189034c52d44ab135ddc93b2f936b5009d96d4b99f",
+      "bytes": 1479,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "cudacommon.h",
+      "sha256": "4d2a44d1ae733a48dd4d293dab4530b25ea37f9eedccc72bd346e228ec9e3dad",
+      "bytes": 928,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "cgbn_stage1.h",
+      "sha256": "d4767ec51f2bbb50eee7af234f0979adcbfee48ba21396d4baba856296b402f3",
+      "bytes": 1191,
+      "role": "header",
+      "notice": "GPL-3.0-or-later"
+    },
+    {
+      "path": "addlaws.h",
+      "sha256": "4f5bc79fa9e18a1c5a54a9acc41e627c65cefd3126807a9949165cbcb9142a8b",
+      "bytes": 2672,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "getprime_r.h",
+      "sha256": "e1d0f247f4f49f0d23eaf47d0a3470e0a47edbf436120388e499f5f15747f90d",
+      "bytes": 789,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "ecm_int.h",
+      "sha256": "937306dc4afec335c4278066b4ac46b3ab87b66ff6a9fc3372a60c9b63f347b8",
+      "bytes": 528,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    },
+    {
+      "path": "aprtcle/mpz_aprcl.h",
+      "sha256": "31b8eb627fa41388fa347e79d2b4f27d780348c656dcef4bd81328fa890b7ff9",
+      "bytes": 3900,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "aprtcle/jacobi_sum.h",
+      "sha256": "df3315ebe5924dbac9211a3900a23ffbbea6e9118cc17a5bd6ed8ea796b9f433",
+      "bytes": 306269,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "ecm.h.in",
+      "sha256": "2a96425a283f76ca8edadb6de236f7bd68c32ce05393cdf6530742a7edaf1a27",
+      "bytes": 8314,
+      "role": "header",
+      "notice": "LGPL-3.0-or-later"
+    },
+    {
+      "path": "generic/params.h",
+      "sha256": "f8a9ff00b2bcdf33a5e205af90d1f6f86e17857483bcac308878b0646caefae2",
+      "bytes": 1159,
+      "role": "header",
+      "notice": "no individual notice; review project COPYING/COPYING.LIB and provenance before distribution"
+    }
+  ],
+  "noticeCopies": {
+    "COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "COPYING.LIB": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "AUTHORS": {
+      "sha256": "472018b270eee4f898571f32803c2a0e59d340493148b954fa2d524f181501e8",
+      "originalSha256": "6df52cf1a71dcea1d96ab2257da00d67112a790d37fcea85c57da41f74f35ea5",
+      "normalization": "ISO-8859-1 to UTF-8; only source byte F6 becomes U+00F6"
+    }
+  }
+}

@@ -1,0 +1,1529 @@
+{
+  "freshChromePerTrial": true,
+  "order": "case index rotates legacy/clock-gated/dense/lanczos; primary 1000ms then 10000ms",
+  "mode": "lifecycle",
+  "trials": [
+    {
+      "mode": "lifecycle",
+      "variant": "legacy",
+      "caseId": "balanced-13-0",
+      "budgetMs": 10000,
+      "lifecycle": {
+        "loading": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 6.600000001490116,
+          "initializationMs": null,
+          "computeWallMs": null,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "legacy",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "running": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 61.400000002235174,
+          "initializationMs": 30.800000000745058,
+          "computeWallMs": 30.600000001490116,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "legacy",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        }
+      },
+      "measuredHead": "dc5a568988eb2e645f773c0caedfc4a5c302b33e",
+      "measuredAt": "2026-10-19T08:35:16.331Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 125.84806400000002,
+      "initialAssets": [
+        {
+          "path": "/bench/counted.html",
+          "bytes": 158,
+          "sha256": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44"
+        },
+        {
+          "path": "/bench/counted.js",
+          "bytes": 1621,
+          "sha256": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03"
+        },
+        {
+          "path": "/src/worker/counted-factory.js",
+          "bytes": 1677,
+          "sha256": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e"
+        },
+        {
+          "path": "/bench/counted-runner.js",
+          "bytes": 4759,
+          "sha256": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe"
+        },
+        {
+          "path": "/src/worker/siqs-worker-source.js",
+          "bytes": 139519,
+          "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+        },
+        {
+          "path": "/src/worker/siqs-profile-source.js",
+          "bytes": 139905,
+          "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+        },
+        {
+          "path": "/src/worker/counted-clock-gated-source.js",
+          "bytes": 143523,
+          "sha256": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b"
+        },
+        {
+          "path": "/src/worker/counted-dense-source.js",
+          "bytes": 145928,
+          "sha256": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5"
+        },
+        {
+          "path": "/src/worker/counted-lanczos-source.js",
+          "bytes": 157482,
+          "sha256": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/worker/controller.js",
+          "bytes": 5433,
+          "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+        },
+        {
+          "path": "/src/core/integer-input.js",
+          "bytes": 1753,
+          "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        },
+        {
+          "path": "/src/worker/factory.js",
+          "bytes": 225,
+          "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+        },
+        {
+          "path": "/src/worker/worker-source.js",
+          "bytes": 106532,
+          "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-counted.mjs": "7222f66dde3ead7ac46d193367983f98053e8751da17151cf118443caffb7f9e",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/counted.html": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44",
+        "bench/counted.js": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03",
+        "src/worker/counted-factory.js": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e",
+        "bench/counted-runner.js": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe",
+        "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+        "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+        "src/worker/counted-clock-gated-source.js": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b",
+        "src/worker/counted-dense-source.js": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5",
+        "src/worker/counted-lanczos-source.js": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+        "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+        "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+        "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+      },
+      "records": [
+        {
+          "case": "balanced-13-0",
+          "input": "3012048473684349413080363",
+          "expectedFactors": [
+            "1002800426933",
+            "3003637007711"
+          ],
+          "options": {
+            "variant": "legacy",
+            "computeMs": 10000,
+            "totalMs": 15100,
+            "seed": 1
+          },
+          "result": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 7289076,
+            "elapsedMs": 1716.8999999985099,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 1743.2999999970198,
+            "initializationMs": 23.799999997019768,
+            "computeWallMs": 1719.5,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "legacy",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 3263,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          },
+          "sampledRam": {
+            "samples": 25,
+            "first": {
+              "atMs": 1579.957369,
+              "rssBytes": 1225150464,
+              "pssBytes": 425309184,
+              "processes": 12
+            },
+            "peakRssBytes": 1269960704,
+            "peakPssBytes": 467808256,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 56,
+        "first": {
+          "atMs": 136.456748,
+          "rssBytes": 364544,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1269960704,
+        "peakPssBytes": 467808256,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "separate last-split callback-interval wall, includes JS/import/budget/output validation; not pure C or primary timing"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "clock-gated",
+      "caseId": "balanced-13-0",
+      "budgetMs": 10000,
+      "lifecycle": {
+        "loading": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 8.800000000745058,
+          "initializationMs": null,
+          "computeWallMs": null,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "clock-gated",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "running": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 68,
+          "initializationMs": 37.30000000074506,
+          "computeWallMs": 30.699999999254942,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "clock-gated",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "fatal": {
+          "rejected": true,
+          "recovered": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 7289076,
+            "elapsedMs": 245.60000000149012,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 270.3999999985099,
+            "initializationMs": 22.699999999254942,
+            "computeWallMs": 247.69999999925494,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "clock-gated",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "clock-gated",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 3263,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 7288335,
+                "logical": 7288335,
+                "clockReads": 113884,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {}
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          }
+        }
+      },
+      "measuredHead": "dc5a568988eb2e645f773c0caedfc4a5c302b33e",
+      "measuredAt": "2026-10-19T08:35:18.642Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 128.39960800000017,
+      "initialAssets": [
+        {
+          "path": "/bench/counted.html",
+          "bytes": 158,
+          "sha256": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44"
+        },
+        {
+          "path": "/bench/counted.js",
+          "bytes": 1621,
+          "sha256": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03"
+        },
+        {
+          "path": "/src/worker/counted-factory.js",
+          "bytes": 1677,
+          "sha256": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e"
+        },
+        {
+          "path": "/bench/counted-runner.js",
+          "bytes": 4759,
+          "sha256": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe"
+        },
+        {
+          "path": "/src/worker/siqs-worker-source.js",
+          "bytes": 139519,
+          "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+        },
+        {
+          "path": "/src/worker/siqs-profile-source.js",
+          "bytes": 139905,
+          "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+        },
+        {
+          "path": "/src/worker/counted-clock-gated-source.js",
+          "bytes": 143523,
+          "sha256": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b"
+        },
+        {
+          "path": "/src/worker/counted-dense-source.js",
+          "bytes": 145928,
+          "sha256": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5"
+        },
+        {
+          "path": "/src/worker/counted-lanczos-source.js",
+          "bytes": 157482,
+          "sha256": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/worker/controller.js",
+          "bytes": 5433,
+          "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+        },
+        {
+          "path": "/src/core/integer-input.js",
+          "bytes": 1753,
+          "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/worker/factory.js",
+          "bytes": 225,
+          "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        },
+        {
+          "path": "/src/worker/worker-source.js",
+          "bytes": 106532,
+          "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-counted.mjs": "7222f66dde3ead7ac46d193367983f98053e8751da17151cf118443caffb7f9e",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/counted.html": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44",
+        "bench/counted.js": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03",
+        "src/worker/counted-factory.js": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e",
+        "bench/counted-runner.js": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe",
+        "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+        "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+        "src/worker/counted-clock-gated-source.js": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b",
+        "src/worker/counted-dense-source.js": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5",
+        "src/worker/counted-lanczos-source.js": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+        "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+        "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+      },
+      "records": [
+        {
+          "case": "balanced-13-0",
+          "input": "3012048473684349413080363",
+          "expectedFactors": [
+            "1002800426933",
+            "3003637007711"
+          ],
+          "options": {
+            "variant": "clock-gated",
+            "computeMs": 10000,
+            "totalMs": 15100,
+            "seed": 1
+          },
+          "result": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 7289076,
+            "elapsedMs": 217.20000000298023,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 241.69999999925494,
+            "initializationMs": 22.900000002235174,
+            "computeWallMs": 218.79999999701977,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "clock-gated",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "clock-gated",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 3263,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 7288335,
+                "logical": 7288335,
+                "clockReads": 113884,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {}
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          },
+          "sampledRam": {
+            "samples": 6,
+            "first": {
+              "atMs": 1759.573206,
+              "rssBytes": 1254297600,
+              "pssBytes": 451205120,
+              "processes": 12
+            },
+            "peakRssBytes": 1259462656,
+            "peakPssBytes": 456364032,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 39,
+        "first": {
+          "atMs": 104.421905,
+          "rssBytes": 385024,
+          "pssBytes": 167936,
+          "processes": 1
+        },
+        "peakRssBytes": 1273958400,
+        "peakPssBytes": 471113728,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "separate last-split callback-interval wall, includes JS/import/budget/output validation; not pure C or primary timing"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "dense",
+      "caseId": "balanced-13-0",
+      "budgetMs": 10000,
+      "lifecycle": {
+        "loading": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 10.5,
+          "initializationMs": null,
+          "computeWallMs": null,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "dense",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "running": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 75.5,
+          "initializationMs": 44.80000000074506,
+          "computeWallMs": 30.699999999254942,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "dense",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "fatal": {
+          "rejected": true,
+          "recovered": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 7289076,
+            "elapsedMs": 106.70000000298023,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 131.69999999925494,
+            "initializationMs": 22.899999998509884,
+            "computeWallMs": 108.80000000074506,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "dense",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 3263,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 113883,
+                "logical": 7288335,
+                "clockReads": 113884,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 7288335,
+                "nativeImports": 113883,
+                "phaseWork": [
+                  120903,
+                  44686,
+                  2507442,
+                  4417402,
+                  142745,
+                  55157
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          }
+        }
+      },
+      "measuredHead": "dc5a568988eb2e645f773c0caedfc4a5c302b33e",
+      "measuredAt": "2026-10-19T08:35:20.704Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 131.6133080000002,
+      "initialAssets": [
+        {
+          "path": "/bench/counted.html",
+          "bytes": 158,
+          "sha256": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44"
+        },
+        {
+          "path": "/bench/counted.js",
+          "bytes": 1621,
+          "sha256": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03"
+        },
+        {
+          "path": "/src/worker/counted-factory.js",
+          "bytes": 1677,
+          "sha256": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e"
+        },
+        {
+          "path": "/bench/counted-runner.js",
+          "bytes": 4759,
+          "sha256": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe"
+        },
+        {
+          "path": "/src/worker/siqs-worker-source.js",
+          "bytes": 139519,
+          "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+        },
+        {
+          "path": "/src/worker/siqs-profile-source.js",
+          "bytes": 139905,
+          "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+        },
+        {
+          "path": "/src/worker/counted-clock-gated-source.js",
+          "bytes": 143523,
+          "sha256": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b"
+        },
+        {
+          "path": "/src/worker/counted-dense-source.js",
+          "bytes": 145928,
+          "sha256": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5"
+        },
+        {
+          "path": "/src/worker/counted-lanczos-source.js",
+          "bytes": 157482,
+          "sha256": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/worker/controller.js",
+          "bytes": 5433,
+          "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+        },
+        {
+          "path": "/src/core/integer-input.js",
+          "bytes": 1753,
+          "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/worker/factory.js",
+          "bytes": 225,
+          "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        },
+        {
+          "path": "/src/worker/worker-source.js",
+          "bytes": 106532,
+          "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-counted.mjs": "7222f66dde3ead7ac46d193367983f98053e8751da17151cf118443caffb7f9e",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/counted.html": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44",
+        "bench/counted.js": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03",
+        "src/worker/counted-factory.js": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e",
+        "bench/counted-runner.js": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe",
+        "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+        "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+        "src/worker/counted-clock-gated-source.js": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b",
+        "src/worker/counted-dense-source.js": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5",
+        "src/worker/counted-lanczos-source.js": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+        "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+        "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+      },
+      "records": [
+        {
+          "case": "balanced-13-0",
+          "input": "3012048473684349413080363",
+          "expectedFactors": [
+            "1002800426933",
+            "3003637007711"
+          ],
+          "options": {
+            "variant": "dense",
+            "computeMs": 10000,
+            "totalMs": 15100,
+            "seed": 1
+          },
+          "result": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 7289076,
+            "elapsedMs": 114.59999999776483,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 135.90000000223517,
+            "initializationMs": 19.700000002980232,
+            "computeWallMs": 116.19999999925494,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "dense",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "dense",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 3263,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 113883,
+                "logical": 7288335,
+                "clockReads": 113884,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 7288335,
+                "nativeImports": 113883,
+                "phaseWork": [
+                  120903,
+                  44686,
+                  2507442,
+                  4417402,
+                  142745,
+                  55157
+                ],
+                "lanczosAttempts": 0,
+                "lanczosIterations": 0
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          },
+          "sampledRam": {
+            "samples": 5,
+            "first": {
+              "atMs": 1630.711402,
+              "rssBytes": 1250455552,
+              "pssBytes": 449881088,
+              "processes": 12
+            },
+            "peakRssBytes": 1260806144,
+            "peakPssBytes": 460170240,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 36,
+        "first": {
+          "atMs": 98.012054,
+          "rssBytes": 385024,
+          "pssBytes": 167936,
+          "processes": 1
+        },
+        "peakRssBytes": 1275949056,
+        "peakPssBytes": 475576320,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "separate last-split callback-interval wall, includes JS/import/budget/output validation; not pure C or primary timing"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    },
+    {
+      "mode": "lifecycle",
+      "variant": "lanczos",
+      "caseId": "balanced-13-0",
+      "budgetMs": 10000,
+      "lifecycle": {
+        "loading": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 6.699999999254942,
+          "initializationMs": null,
+          "computeWallMs": null,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "lanczos",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "running": {
+          "input": "3012048473684349413080363",
+          "factors": [],
+          "remaining": "3012048473684349413080363",
+          "operations": 0,
+          "elapsedMs": 0,
+          "algorithm": "siqs",
+          "seed": 1,
+          "status": "cancelled",
+          "reason": "cancelled",
+          "primality": "unknown",
+          "requestWallMs": 65.60000000149012,
+          "initializationMs": 34.900000002235174,
+          "computeWallMs": 30.699999999254942,
+          "workers": 1,
+          "kind": "siqs",
+          "variant": "lanczos",
+          "capture": false,
+          "profile": false,
+          "base": 2,
+          "totalMs": 15100,
+          "computeMs": 10000,
+          "allocatedOperations": 50000000,
+          "linearMemoryBytes": 67108864,
+          "audits": [],
+          "laneTrace": [
+            []
+          ],
+          "allLanesDisposed": true
+        },
+        "fatal": {
+          "rejected": true,
+          "recovered": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 8198174,
+            "elapsedMs": 125.79999999701977,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 150.60000000149012,
+            "initializationMs": 22.600000001490116,
+            "computeWallMs": 128,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "lanczos",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "lanczos",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 4553,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 128087,
+                "logical": 8197433,
+                "clockReads": 128088,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 8197433,
+                "nativeImports": 128087,
+                "phaseWork": [
+                  120903,
+                  44686,
+                  2507442,
+                  4417402,
+                  1053177,
+                  53823
+                ],
+                "lanczosAttempts": 1,
+                "lanczosIterations": 5
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          }
+        }
+      },
+      "measuredHead": "dc5a568988eb2e645f773c0caedfc4a5c302b33e",
+      "measuredAt": "2026-10-19T08:35:22.962Z",
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.39",
+        "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.20"
+      },
+      "browserDevice": {
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "cores": 6,
+        "memoryGiB": 8
+      },
+      "host": {
+        "platform": "linux",
+        "release": "6.18.33.2-microsoft-standard-WSL2",
+        "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+        "logicalCpus": 6,
+        "memoryBytes": 10429259776,
+        "headless": true
+      },
+      "coldReadyMs": 131.7948980000001,
+      "initialAssets": [
+        {
+          "path": "/bench/counted.html",
+          "bytes": 158,
+          "sha256": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44"
+        },
+        {
+          "path": "/bench/counted.js",
+          "bytes": 1621,
+          "sha256": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03"
+        },
+        {
+          "path": "/src/worker/counted-factory.js",
+          "bytes": 1677,
+          "sha256": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e"
+        },
+        {
+          "path": "/bench/counted-runner.js",
+          "bytes": 4759,
+          "sha256": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe"
+        },
+        {
+          "path": "/src/worker/controller.js",
+          "bytes": 5433,
+          "sha256": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5"
+        },
+        {
+          "path": "/src/core/integer-input.js",
+          "bytes": 1753,
+          "sha256": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417"
+        },
+        {
+          "path": "/src/engine/result.js",
+          "bytes": 3916,
+          "sha256": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828"
+        },
+        {
+          "path": "/src/worker/siqs-worker-source.js",
+          "bytes": 139519,
+          "sha256": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e"
+        },
+        {
+          "path": "/src/worker/siqs-profile-source.js",
+          "bytes": 139905,
+          "sha256": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc"
+        },
+        {
+          "path": "/src/worker/counted-clock-gated-source.js",
+          "bytes": 143523,
+          "sha256": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b"
+        },
+        {
+          "path": "/src/worker/counted-dense-source.js",
+          "bytes": 145928,
+          "sha256": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5"
+        },
+        {
+          "path": "/src/worker/counted-lanczos-source.js",
+          "bytes": 157482,
+          "sha256": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8"
+        },
+        {
+          "path": "/src/worker/source-factory.js",
+          "bytes": 488,
+          "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+        },
+        {
+          "path": "/src/engine/options.js",
+          "bytes": 1991,
+          "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+        },
+        {
+          "path": "/src/worker/factory.js",
+          "bytes": 225,
+          "sha256": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb"
+        },
+        {
+          "path": "/src/engine/arithmetic.js",
+          "bytes": 2524,
+          "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+        },
+        {
+          "path": "/src/worker/worker-source.js",
+          "bytes": 106532,
+          "sha256": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+        }
+      ],
+      "sourceFiles": {
+        "scripts/benchmark-counted.mjs": "7222f66dde3ead7ac46d193367983f98053e8751da17151cf118443caffb7f9e",
+        "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+        "native/siqs-v2/build-dense.json": "0fb2bf6e72d2e89b88632693d7aa832541b0b159f29294885f04aea3bb417728",
+        "native/siqs-v2/build-lanczos.json": "6c36aa5df5817727cdbbb42adb1ab6e07d5f27c9e283b3ec92ff8a3893dbfb8e",
+        "bench/counted.html": "98a2886670c1cdcbf00709f5997c2920f96b8965f03f9286c39c4d0b270d1c44",
+        "bench/counted.js": "3e52a43346c5e356cc2ed333e6d5b1e6fbd595e155c1460bd947dfcc2e8f2d03",
+        "src/worker/counted-factory.js": "0280a3b5ca7273d8de2bb9d2ca04ca4b681f94e3e631baa41256a393dbf96b4e",
+        "bench/counted-runner.js": "9fefa2be7050a3e3ef0cb668f25887883b4516299d748bbf9d0de918e37b5bbe",
+        "src/worker/controller.js": "083e31340ebbb028a9b235b97f9d429508ab5931af7f2d75629029b0eecd4ee5",
+        "src/core/integer-input.js": "1ab8914bc5143afcd4dd22d5b32b4c8bcaac874b3110bfbeb9fa36239dfee417",
+        "src/engine/result.js": "4f252f4c4ad5327a7b3acd6f1ca12afa4c70186707d8d40a025d328c30154828",
+        "src/worker/siqs-worker-source.js": "45d4e1e12c6d6167e749bb7a09b5d0fe90205e105061a3beedb123a451a8be4e",
+        "src/worker/siqs-profile-source.js": "db236e3e39b5bec13fa947effe8bd40909bf2ac8c18f8747932bfb36ea776dbc",
+        "src/worker/counted-clock-gated-source.js": "8fb6c947d5d3c1b239b1851f638cb728f25170eb441c28e2d7533e55a43bb14b",
+        "src/worker/counted-dense-source.js": "71c47079d17cf4c93466dfd79fd78b44911f87cb2776d8897ef276bc307833e5",
+        "src/worker/counted-lanczos-source.js": "2bf7869d4f79062222b3f2437e84c597b2adfb5c26153475ea2732ec001187a8",
+        "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+        "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df",
+        "src/worker/factory.js": "5e47e06929cca3063d9c7dff6758a4c2ed0c2476cfc2093bef643c00d745e6bb",
+        "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+        "src/worker/worker-source.js": "6fe37bc8bb4977b9104951704fd5f8f6ab894842f6b8b6e994233b667baa881a"
+      },
+      "records": [
+        {
+          "case": "balanced-13-0",
+          "input": "3012048473684349413080363",
+          "expectedFactors": [
+            "1002800426933",
+            "3003637007711"
+          ],
+          "options": {
+            "variant": "lanczos",
+            "computeMs": 10000,
+            "totalMs": 15100,
+            "seed": 1
+          },
+          "result": {
+            "input": "3012048473684349413080363",
+            "factors": [
+              {
+                "value": "1002800426933",
+                "certainty": "proven",
+                "method": "mr64"
+              },
+              {
+                "value": "3003637007711",
+                "certainty": "proven",
+                "method": "mr64"
+              }
+            ],
+            "remaining": "1",
+            "operations": 8198174,
+            "elapsedMs": 126.39999999850988,
+            "status": "complete",
+            "reason": null,
+            "primality": "composite",
+            "algorithm": "siqs",
+            "seed": 1,
+            "winningLane": 0,
+            "requestWallMs": 147,
+            "initializationMs": 18.299999997019768,
+            "computeWallMs": 128.70000000298023,
+            "workers": 1,
+            "kind": "siqs",
+            "variant": "lanczos",
+            "capture": false,
+            "profile": false,
+            "base": 2,
+            "totalMs": 15100,
+            "computeMs": 10000,
+            "allocatedOperations": 50000000,
+            "linearMemoryBytes": 67108864,
+            "audits": [
+              {
+                "variant": "lanczos",
+                "liveBytes": 0,
+                "peakBytes": 22614900,
+                "phaseMask": 126,
+                "allocations": 4553,
+                "reason": 0,
+                "line": 0,
+                "poisoned": false,
+                "importCalls": 128087,
+                "logical": 8197433,
+                "clockReads": 128088,
+                "maxClockGap": 64,
+                "pendingClockGap": 0,
+                "phaseIntervals": {},
+                "phaseCounts": {},
+                "nativeLogical": 8197433,
+                "nativeImports": 128087,
+                "phaseWork": [
+                  120903,
+                  44686,
+                  2507442,
+                  4417402,
+                  1053177,
+                  53823
+                ],
+                "lanczosAttempts": 1,
+                "lanczosIterations": 5
+              }
+            ],
+            "laneTrace": [
+              []
+            ],
+            "allLanesDisposed": true
+          },
+          "sampledRam": {
+            "samples": 6,
+            "first": {
+              "atMs": 1690.223918,
+              "rssBytes": 1246932992,
+              "pssBytes": 449617920,
+              "processes": 12
+            },
+            "peakRssBytes": 1259978752,
+            "peakPssBytes": 462655488,
+            "maxProcesses": 12
+          }
+        }
+      ],
+      "ownership": {
+        "live": 0,
+        "maxLive": 1
+      },
+      "sampledRam": {
+        "samples": 37,
+        "first": {
+          "atMs": 107.300946,
+          "rssBytes": 376832,
+          "pssBytes": 159744,
+          "processes": 1
+        },
+        "peakRssBytes": 1266749440,
+        "peakPssBytes": 469692416,
+        "maxProcesses": 12
+      },
+      "quiet": {
+        "networkRequests": 0,
+        "httpRequests": 0,
+        "badEvents": 0,
+        "assetServerStopped": true,
+        "cacheDisabled": true
+      },
+      "limits": {
+        "operationBudget": 50000000,
+        "wholeRam": "sampled Chrome tree RSS/PSS, not a hard bound or instantaneous peak",
+        "workerAudit": "terminal observations; cancelled worker has no terminal native audit",
+        "profile": "separate last-split callback-interval wall, includes JS/import/budget/output validation; not pure C or primary timing"
+      },
+      "detectorSelfTest": {
+        "blockedPageFetchCsp": true,
+        "pageCdpAndHttp": true,
+        "workerCdpAndHttp": true
+      }
+    }
+  ],
+  "runnerSha256": "d194bbc4b4090b552caf5e8e3eae99ea74fab87a0d87c2d850565e06ea5b4296"
+}

@@ -1,0 +1,46 @@
+# Preserve reviewed upstream source whitespace; our code keeps normal checks.
+vendor/msieve/**/*.c whitespace=-blank-at-eol,-blank-at-eof
+vendor/msieve/**/*.h whitespace=-blank-at-eol,-blank-at-eof
+vendor/msieve-siqs/**/*.c whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/msieve-siqs/**/*.h whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/gmp/COPYING* whitespace=-blank-at-eol,-blank-at-eof
+vendor/gmp-ecm/COPYING* whitespace=-blank-at-eol,-blank-at-eof
+vendor/gmp-ecm/AUTHORS whitespace=-blank-at-eol,-blank-at-eof
+vendor/build-tools/*.copyright whitespace=-blank-at-eol,-blank-at-eof
+vendor/msieve-lanczos/**/*.c whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+vendor/msieve-lanczos/**/*.h whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+# Preserve verbatim validation evidence; do not normalize original log bytes.
+docs/benchmarks/archive/validation-logs/*.log.txt whitespace=-blank-at-eol,-blank-at-eof
+docs/benchmarks/archive/validation-logs/staged-siqs-lab-stage14/native-third.log whitespace=-blank-at-eof
+
+# Preserve exact external CI/native evidence bytes; source whitespace checks stay enabled.
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-pr-full.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-failed.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/ci-fetch-push-lab.log whitespace=-blank-at-eol
+docs/benchmarks/archive/validation-logs/staged-siqs-opt-stage15/native-core.log whitespace=-blank-at-eof
+
+# Preserve the exact reviewed upstream MPL license, including its original trailing space.
+native/rusqsieve/LICENSE-MPL whitespace=-blank-at-eol
+
+# Preserve exact failing-test evidence; only these reviewed log paths opt out.
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/lifecycle-red.log whitespace=-blank-at-eol,-blank-at-eof
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/release-once-red.log whitespace=-blank-at-eol,-blank-at-eof
+docs/benchmarks/archive/validation-logs/staged-rusqsieve-stage17/unit-shared-first.log whitespace=-blank-at-eol,-blank-at-eof
+
+# Keep generated measurement originals available while focusing review on source changes.
+docs/benchmarks/staged-sustained-stage23/*.json linguist-generated=true
+docs/benchmarks/staged-sustained-stage23/*.log linguist-generated=true
+docs/benchmarks/staged-sustained-stage24/*.json linguist-generated=true
+docs/benchmarks/staged-sustained-stage24/*.log linguist-generated=true
+
+# Reversible benchmark payloads; review the manifest, verifier and generated Japanese report.
+docs/benchmarks/staged-resieve-stage41/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-prefix-stage42/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-unroll-stage43/*.gz.base64 linguist-generated=true
+
+# Reversible fixed32 raw evidence and generated selected role payloads.
+docs/benchmarks/staged-hotpath-repeat-stage44/*.gz.base64 linguist-generated=true
+docs/benchmarks/staged-selected-wide-stage44/*.gz.base64 linguist-generated=true
+src/selected-wide/worker-64.js linguist-generated=true
+src/selected-wide/worker-1024.js linguist-generated=true
+src/selected-wide/wasm-selected-64.js linguist-generated=true

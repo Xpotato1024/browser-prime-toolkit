@@ -1,0 +1,11 @@
+✔ stage grants share global operations across calls and retain budget identity (1.748998ms)
+✔ stage clock spending does not reset; root expiry remains distinguishable (1.028399ms)
+✔ finite plans reject larger inputs and account for all backend memories (0.7247ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107.700089

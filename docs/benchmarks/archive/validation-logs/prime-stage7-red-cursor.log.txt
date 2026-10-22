@@ -1,0 +1,32 @@
+✔ p−1 bounded base finds favorable factor and reports no proper gcd=n factor (79.701809ms)
+✔ same 32 sigma schedule partitions without overlap and rejects bad lanes (963.313085ms)
+✔ zero operation budget stops normally and leaves reusable instance (41.684ms)
+✔ fatal stage2 trap retires the supplementary instance (47.670685ms)
+✖ a job reserves each curve before success, across residual calls (43.306396ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1300.072276
+
+✖ failing tests:
+
+test at test/supplement.test.js:39:1
+✖ a job reserves each curve before success, across residual calls (43.306396ms)
+  AssertionError [ERR_ASSERTION]: no duplicate sigma on the same budget
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/supplement.test.js:47:14)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

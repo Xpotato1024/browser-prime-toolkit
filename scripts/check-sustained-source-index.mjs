@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{execFileSync}from'node:child_process';import{createHash}from'node:crypto';
+const x=JSON.parse(readFileSync('native/sustained/source-index.json')),sha=b=>createHash('sha256').update(b).digest('hex'),seen=new Set();
+assert.equal(x.version,1);assert.equal(x.repository,'https://github.com/Xpotato1024/browser-prime-toolkit');assert.equal(x.sourceCommit,'ed207f4a9e5aac90b914a8a21ec6b515f292a92b');
+assert.deepEqual(x.measuredCommits,['2a88e59a5740d204dda40c474fa4959db454062d',x.sourceCommit]);
+for(const f of x.files){assert.match(f.path,/^[a-zA-Z0-9._/-]+$/);assert.ok(!f.path.split('/').includes('..'));assert.ok(!seen.has(f.path));seen.add(f.path);assert.equal(f.url,x.repository+'/blob/'+x.sourceCommit+'/'+f.path);const bytes=execFileSync('git',['show',x.sourceCommit+':'+f.path],{maxBuffer:16*1024*1024});assert.equal(bytes.length,f.bytes);assert.equal(sha(bytes),f.sha256);assert.equal(sha(readFileSync(f.path)),f.sha256,'Current immutable measured source '+f.path);}
+for(const p of ['src/sustained/packet-audit.js','src/sustained/runner.js','src/sustained/NOTICE','scripts/verify-sustained.mjs','scripts/sustained-trial-record.mjs','scripts/sustained-continuation-proof.mjs','scripts/generate-sustained-continuation.mjs','scripts/benchmark-sustained-continuation.mjs','scripts/report-sustained-closure.mjs','bench/staged-sustained-plan.json','docs/contracts/sustained-evaluation.md','docs/contracts/sustained-continuation.md'])assert.ok(seen.has(p),p);
+execFileSync(process.execPath,['scripts/check-resource-source-index.mjs'],{stdio:'pipe'});
+console.log('Verified '+seen.size+' immutable sustained mappings and inherited numeric/license source closure');
+
+const logs=JSON.parse(readFileSync('docs/benchmarks/staged-sustained-logs.json'));assert.equal(logs.version,1);assert.deepEqual(logs.files.map(f=>f.path),['docs/benchmarks/staged-sustained-stage23/campaign.log','docs/benchmarks/staged-sustained-stage24/campaign.log']);for(const f of logs.files){const b=readFileSync(f.path);assert.equal(b.length,f.bytes);assert.equal(sha(b),f.sha256);}console.log('Verified byte-preserved stopped and completed campaign stdout/stderr');

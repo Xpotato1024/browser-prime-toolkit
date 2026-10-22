@@ -1,0 +1,15 @@
+# Stage14の観測と次の判断
+
+[38件の固定実測とraw](../benchmarks/llm01-siqs-lab.md)は、関係式収集と検証の短時間比較です。計測対象headは0a2d3979e038b4ae740a9bbecca3fff673352cc3です。
+
+通知実数を独立に数え、固定8億workで周期781250回とflush3回、JS受信781253回を照合しました。旧約1.07億回はfloor(work/1024)による算出値です。時計確認を16回に1回へ減らす条件で約5%短縮しました。物理callbackを16384work間隔へ減らす条件も近い結果ですが、今回の2seedだけでは優劣を確定しません。必須budget pollとCDP監査は共通で、完全に計測なしの実行との比較ではありません。
+
+coarse probeは約6〜9%の追加時間、約152万回の追加時計呼び出しを伴いました。観測されたdo_sieving_internal内ではsmall sieve約2.32〜2.37秒、bucket約1.54〜1.56秒が大きく、残余のSQUFOF計測部分は約22〜23msでした。inclusive timerは重なるため合算せず、停止時に開いたtimerも明示しています。行列処理には到達しておらず、その速度は未評価です。
+
+factor baseを80%、intervalを50%、large-prime倍率を半分にする3候補は、同じ壁時計枠でbaselineを置き換える根拠を得ませんでした。raw関係式数、full、partial、cycle、目標数を併記し、異なるparameter間のworkを同じ原始演算量とみなしていません。短時間ではcycleが0で、長時間の収束を判定できません。
+
+共通partial graphを持つ2 Workerは、同じ2seed・合計work・壁時計上限で、RSA100が約1.924倍、固定96桁1入力が約1.932倍のrequest時間比でした。各2反復でstreamの保存バイト列は1 Workerと完全一致し、全unique関係式をnativeで再検証しました。RSA100は552件中full8／partial544、96桁は974件中full11／partial963、両者ともcycle0でした。実計測で新しいcross-stream cycleの収量向上はまだ観測していませんが、別の実関係式fixtureでcross-stream cycleと再送除去を検証しています。
+
+管理対象WASMは最大512MiBです。Chrome全体のsampled PSSはpoolの1 Worker約459〜463MiB、2 Worker約514〜515MiBでした。RSSは約1.26〜1.31GiBで、これらはブラウザ・JS等も含む標本値であり全RAMの強制上限ではありません。
+
+次に検討する対象は、時計確認削減の安全性を保った採否、small sieve／bucketのsource由来改善、より多い関係式での共通graphの収量とmatrix処理です。今回のprototypeを公開selectorやUIへ接続する判断はしていません。RSA100完了時間、一般的な最大桁数、Alpertron・YAFU・GNFSとの優劣も未確定です。

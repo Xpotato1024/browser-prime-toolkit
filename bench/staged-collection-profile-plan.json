@@ -1,0 +1,69 @@
+{
+  "id": "llm01-collection-profile-stage40",
+  "baselineHead": "de9c9d7bf8987ad50de6843740d5271ce5096505",
+  "successfulReferenceHead": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "hypothesis": "Disjoint and nested Native phase clocks distinguish current relation-collection costs without changing arithmetic; validate overhead before interpreting profiles.",
+  "runtime": "LLM-01 real Headless Chrome155, one combined coordinator/compute Worker",
+  "artifacts": {
+    "baseline": {
+      "path": "src/long-window/wasm-long-1024.js",
+      "sha256": "9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037"
+    },
+    "instrumented": {
+      "path": "src/collection-profile/wasm-phase-1024.js",
+      "sha256": "ecb51666e82999e8fc9da88146c0a173cff2af89623dc42abed447639a9fdd4a"
+    }
+  },
+  "limits": {
+    "totalCampaignMs": 480000,
+    "childBudgetMs": 90000,
+    "reservePerChildMs": 30000,
+    "families": 4,
+    "workers": 1,
+    "nativeHardmaxMiB": 1024,
+    "manualBudgetMiB": 1536,
+    "slots": 8,
+    "transportMiB": 64,
+    "credit": 2,
+    "clockCalls": 2000000,
+    "phases": 16,
+    "stackDepth": 16,
+    "startAvailableMiB": 4096,
+    "stopAvailableMiB": 4096,
+    "chromePssStopMiB": 1536,
+    "childJsHeapMiB": 128,
+    "maxReceiptBytes": 2097152,
+    "maxCandidates": 2,
+    "sideFramesPerWorker": 2048,
+    "retainedFramesPerWorker": 1
+  },
+  "gates": {
+    "identicalAllPacketsColumnsCounters": true,
+    "full40And64FactorEquality": true,
+    "overheadRatioMax": 1.1,
+    "candidateTimeRatioMax": 0.95,
+    "candidatePssRatioMax": 1.1
+  },
+  "trials": [
+    {
+      "id": "1-baseline",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "2-instrumented",
+      "graph": "instrumented",
+      "budgetMs": 90000
+    },
+    {
+      "id": "3-instrumented",
+      "graph": "instrumented",
+      "budgetMs": 90000
+    },
+    {
+      "id": "4-baseline",
+      "graph": "baseline",
+      "budgetMs": 90000
+    }
+  ]
+}

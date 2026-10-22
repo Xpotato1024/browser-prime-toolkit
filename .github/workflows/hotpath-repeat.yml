@@ -1,0 +1,27 @@
+name: Selected hotpath repeat contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  hotpath-repeat-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24.19.0
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/hotpath-repeat-stats.test.js test/selected-wide.test.js test/selected-wide-proof.test.js
+      - run: npm run check:hotpath-repeat
+      - name: Selected64 four-family functional equality
+        run: timeout 240s node scripts/verify-selected-wide-helper.mjs "$RUNNER_TEMP/helper.json"
+      - name: Actual selected wide protocol, cancellation, offline and recovery
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+        run: node scripts/verify-selected-wide.mjs --engine five-drop --slots 8 --out "$RUNNER_TEMP/selected-contracts.json"
+      - run: git diff --check

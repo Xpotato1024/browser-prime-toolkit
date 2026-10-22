@@ -1,0 +1,73 @@
+✖ scientific input is normalized exactly and only the fixed profile reaches the engine (1.193999ms)
+✖ invalid or out-of-profile values fail before allocating any engine (0.2319ms)
+✖ a canceling owner blocks a replacement until its request has settled (0.1709ms)
+✖ disposed sessions ignore late responses and never allocate another engine (0.1847ms)
+✖ fatal and invalid result rejection recover on a fresh explicit request (0.2386ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.867582
+
+✖ failing tests:
+
+test at test/ui/session.test.js:6:1
+✖ scientific input is normalized exactly and only the fixed profile reaches the engine (1.193999ms)
+  Error: Not implemented
+      at createUiSession (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/session.js:1:41)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/session.test.js:7:25)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at test/ui/session.test.js:12:1
+✖ invalid or out-of-profile values fail before allocating any engine (0.2319ms)
+  Error: Not implemented
+      at createUiSession (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/session.js:1:41)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/session.test.js:13:23)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/ui/session.test.js:19:1
+✖ a canceling owner blocks a replacement until its request has settled (0.1709ms)
+  Error: Not implemented
+      at createUiSession (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/session.js:1:41)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/session.test.js:21:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/ui/session.test.js:28:1
+✖ disposed sessions ignore late responses and never allocate another engine (0.1847ms)
+  Error: Not implemented
+      at createUiSession (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/session.js:1:41)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/session.test.js:30:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/ui/session.test.js:34:1
+✖ fatal and invalid result rejection recover on a fresh explicit request (0.2386ms)
+  Error: Not implemented
+      at createUiSession (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/ui/session.js:1:41)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/ui/session.test.js:35:23)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

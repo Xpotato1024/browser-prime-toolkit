@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {longMemoryContract} from '../native/long-window/memory-contract.mjs';
+import {RUSQSIEVE_BASE64} from '../src/long-window/wasm-long-256.js';
+import {longWorkerSource} from '../src/long-window/worker-source.js';
+import {LONG_LIMITS} from '../src/long-window/budget.js';
+import {selectResourcePlan as normalPlan} from '../src/graph-multicore/policy.js';
+const sha=b=>createHash('sha256').update(b).digest('hex'),r=JSON.parse(readFileSync('native/long-window/build-long-256.json'));
+assert.equal(r.cleanBuilds,2);assert.equal(r.graphVariant,'long-256');
+assert.equal(r.commit,'4b150834b57636f6ebc350a81321a15c1cd901d2');
+assert.equal(r.upstreamSha256,'86ab9802fbd93690a053dc0630fffe33d1f3f1625d7d6345ec82d74be9d8d11c');
+assert.equal(r.image,'sha256:0aabc47a61c105a320b69fecbc2708a2118ec9e54a8b10946998f21bd23423d4');
+for(const[p,h]of Object.entries(r.sourceHashes))assert.equal(sha(readFileSync(p)),h,p);
+const b=Buffer.from(RUSQSIEVE_BASE64,'base64');assert.equal(b.length,r.bytes);assert.equal(sha(b),r.sha256);assert.deepEqual(longMemoryContract(b,256),r.memory);
+const {instance}=await WebAssembly.instantiate(b,{});assert.equal(instance.exports.codex_lpmap_selftest(),1);assert.equal(instance.exports.codex_graph_roundtrip(),1);
+assert.equal(instance.exports.codex_la_active(),0);assert.equal(instance.exports.codex_la_refusals(),0);
+for(const cap of [64,256])assert.doesNotThrow(()=>new Function(longWorkerSource(cap)));
+assert.throws(()=>longWorkerSource(1024));assert.throws(()=>normalPlan({mode:'manual',workers:5,memoryMiB:512,timeBudgetMs:600001}));
+assert.deepEqual(LONG_LIMITS,{maxMs:1800000,maxFamilies:4096,maxEvents:12288,maxGraphSnapshots:512,maxProgress:4096});
+const plan=JSON.parse(readFileSync('bench/staged-long-window-plan.json'));
+assert.equal(plan.id,'llm01-long-window-stage37');assert.equal(plan.trials.length,4);assert.equal(plan.limits.maxWasmMiB,512);
+assert.equal(plan.trials.reduce((n,t)=>n+t.budgetMs+120000,0),plan.limits.totalCampaignMs);
+for(const name of ['scripts/generate-long-window.mjs','scripts/generate-long-window-harness.mjs'])execFileSync(process.execPath,[name,'--check'],{stdio:'inherit'});
+console.log('Long fixed source, two-clean artifact, finite role/family/retention/deadline and offline harness verified');

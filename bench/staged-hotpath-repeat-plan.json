@@ -1,0 +1,443 @@
+{
+  "id": "llm01-hotpath-repeat-stage44",
+  "baselineHead": "ad8885768236f4b718171bb8aa971d242b1f477e",
+  "successfulReferenceHead": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "hypothesis": "Confirm only the two 1-2% signals in independent balanced short blocks; do not pool exploratory trials or alter source artifacts.",
+  "artifacts": {
+    "baseline": {
+      "path": "src/long-window/wasm-long-1024.js",
+      "sha256": "9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037"
+    },
+    "resieve1": {
+      "path": "src/resieve-followup/wasm-resieve1-1024.js",
+      "sha256": "21cec2f0e9631c769ad256e42d37e9b7865de1d92e4b0ba129ec1d3c5eb77a6d"
+    },
+    "prefix": {
+      "path": "src/resieve-prefix/wasm-prefix-1024.js",
+      "sha256": "3b4ca1f1db0aed131fe7283a4283aeb99185938a71119e06420fb739d8a9ab95"
+    }
+  },
+  "limits": {
+    "totalCampaignMs": 2880000,
+    "maxTrials": 32,
+    "childBudgetMs": 90000,
+    "reservePerChildMs": 30000,
+    "childTimeoutMs": 112000,
+    "families": 4,
+    "workers": 1,
+    "nativeHardmaxMiB": 1024,
+    "manualBudgetMiB": 1536,
+    "slots": 8,
+    "transportMiB": 64,
+    "credit": 2,
+    "startAvailableMiB": 4096,
+    "stopAvailableMiB": 4096,
+    "chromePssStopMiB": 1536,
+    "childJsHeapMiB": 128,
+    "maxReceiptBytes": 2097152,
+    "maxCandidates": 2,
+    "maxTotalHarnessLaunches": 33,
+    "priorPreconditionRefusals": 1
+  },
+  "gates": {
+    "minimumTimeRatio": 0.995,
+    "referenceT": 3.182446305,
+    "memoryRatio": 1.02,
+    "minimumFasterBlocks": 3,
+    "complexityAllowance": 0.005
+  },
+  "blocks": [
+    {
+      "id": 1,
+      "candidate": "resieve1",
+      "order": "ABBA"
+    },
+    {
+      "id": 2,
+      "candidate": "prefix",
+      "order": "BAAB"
+    },
+    {
+      "id": 3,
+      "candidate": "resieve1",
+      "order": "BAAB"
+    },
+    {
+      "id": 4,
+      "candidate": "prefix",
+      "order": "ABBA"
+    },
+    {
+      "id": 5,
+      "candidate": "prefix",
+      "order": "ABBA"
+    },
+    {
+      "id": 6,
+      "candidate": "resieve1",
+      "order": "BAAB"
+    },
+    {
+      "id": 7,
+      "candidate": "prefix",
+      "order": "BAAB"
+    },
+    {
+      "id": 8,
+      "candidate": "resieve1",
+      "order": "ABBA"
+    }
+  ],
+  "trials": [
+    {
+      "id": "b01-s1-baseline",
+      "block": 1,
+      "position": 1,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b01-s2-resieve1",
+      "block": 1,
+      "position": 2,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b01-s3-resieve1",
+      "block": 1,
+      "position": 3,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b01-s4-baseline",
+      "block": 1,
+      "position": 4,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b02-s1-prefix",
+      "block": 2,
+      "position": 1,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b02-s2-baseline",
+      "block": 2,
+      "position": 2,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b02-s3-baseline",
+      "block": 2,
+      "position": 3,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b02-s4-prefix",
+      "block": 2,
+      "position": 4,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b03-s1-resieve1",
+      "block": 3,
+      "position": 1,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b03-s2-baseline",
+      "block": 3,
+      "position": 2,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b03-s3-baseline",
+      "block": 3,
+      "position": 3,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b03-s4-resieve1",
+      "block": 3,
+      "position": 4,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b04-s1-baseline",
+      "block": 4,
+      "position": 1,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b04-s2-prefix",
+      "block": 4,
+      "position": 2,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b04-s3-prefix",
+      "block": 4,
+      "position": 3,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b04-s4-baseline",
+      "block": 4,
+      "position": 4,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b05-s1-baseline",
+      "block": 5,
+      "position": 1,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b05-s2-prefix",
+      "block": 5,
+      "position": 2,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b05-s3-prefix",
+      "block": 5,
+      "position": 3,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b05-s4-baseline",
+      "block": 5,
+      "position": 4,
+      "order": "ABBA",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b06-s1-resieve1",
+      "block": 6,
+      "position": 1,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b06-s2-baseline",
+      "block": 6,
+      "position": 2,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b06-s3-baseline",
+      "block": 6,
+      "position": 3,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b06-s4-resieve1",
+      "block": 6,
+      "position": 4,
+      "order": "BAAB",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b07-s1-prefix",
+      "block": 7,
+      "position": 1,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b07-s2-baseline",
+      "block": 7,
+      "position": 2,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b07-s3-baseline",
+      "block": 7,
+      "position": 3,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b07-s4-prefix",
+      "block": 7,
+      "position": 4,
+      "order": "BAAB",
+      "candidate": "prefix",
+      "profile": "resieve-prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b08-s1-baseline",
+      "block": 8,
+      "position": 1,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b08-s2-resieve1",
+      "block": 8,
+      "position": 2,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b08-s3-resieve1",
+      "block": 8,
+      "position": 3,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "resieve1",
+      "budgetMs": 90000
+    },
+    {
+      "id": "b08-s4-baseline",
+      "block": 8,
+      "position": 4,
+      "order": "ABBA",
+      "candidate": "resieve1",
+      "profile": "resieve-followup",
+      "graph": "baseline",
+      "budgetMs": 90000
+    }
+  ],
+  "reusedValidation": {
+    "resieve1": {
+      "head": "77238b1d81453815e8097d6cbc26efcfbadbac67",
+      "index": "docs/benchmarks/staged-resieve-stage41/evidence-index.json",
+      "indexSha256": "edaa8bc0e17453f8e320e2756fa4adc05257c7ab57716676a12fdb8f8183fbc7",
+      "entries": {
+        "native.json": "66b86f7e657cdd30e5f9c3416b65f05f635b978b48e9a178d01365a5aa5f6f5a",
+        "contracts-resieve1.json": "9b83605411ac567b5f5c5362be4667d7b68210a634c2a80939419c43d89915e4",
+        "oracles.json": "7818206bbd35aff95840c1ce7039a95648cff9af2f7ba2dd08fc86979bc2a377"
+      }
+    },
+    "prefix": {
+      "head": "f0f9c788d8afc04fe7ab3d6f21c9094e89ae9f2f",
+      "index": "docs/benchmarks/staged-prefix-stage42/evidence-index.json",
+      "indexSha256": "fd7440a813bbcb08dfced414e183a1add9fd71da0b29a285c858c153089bdbb3",
+      "entries": {
+        "native.json": "4d3c9044a79d3fa6c3d317864df01258bc25edfbde3c2ccec112bbd9421b45fc",
+        "contracts-prefix.json": "a0f91881468c7b262a303baabb3c597e9505b5077f5db1f35d60e4be9ad34529",
+        "oracles.json": "ac8d19cbefb3706a37bad0730e7dbb739b4ec1170d158a4636dfe6e4d16dcb4b"
+      }
+    }
+  },
+  "preMeasurementCorrection": {
+    "head": "d25e944b2fec64e377cfbb72f3fbc25df7d41173",
+    "runSha256": "ea8b8c0c16b0e583dd3a0b2c5138bdcd62c39664c97ecd7422d5277806d9cfa9",
+    "logSha256": "cefd66207589c7462e76c4be2b10caccc1032132e12c4356e1640975ca594a8f",
+    "nativeFamilies": 0,
+    "browserStarted": false,
+    "reason": "Existing verifier requires90000ms before creating Chrome; 60000 was rejected. Verifier unchanged."
+  }
+}

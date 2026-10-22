@@ -1,0 +1,2473 @@
+{
+  "mode": "rusqsieve-measurement",
+  "variant": "two-drop",
+  "caseId": "RSA-100",
+  "group": "rsa",
+  "seed": 1,
+  "budgetMs": 600000,
+  "lifecycle": null,
+  "measuredHead": "0999af2b90f458d5c6808128793f831e5e7182f2",
+  "measuredAt": "2026-10-20T10:52:39.152Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.39",
+    "revision": "@3ff7ac5a9224be9156d7f8703a06e22890aafd34",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "browserDevice": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "cores": 6,
+    "memoryGiB": 8
+  },
+  "host": {
+    "platform": "linux",
+    "release": "6.18.33.2-microsoft-standard-WSL2",
+    "cpu": "Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz",
+    "logicalCpus": 6,
+    "memoryBytes": 10429259776,
+    "headless": true
+  },
+  "assetBoundarySelfTest": [
+    {
+      "path": "/bench/staged-full/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-full/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%256fracle.json",
+      "status": 404
+    },
+    {
+      "path": "/bench/staged-practical/%6danifest.json",
+      "status": 404
+    },
+    {
+      "path": "/src/%2e%2e/bench/staged-practical/oracle.json",
+      "status": 404
+    }
+  ],
+  "coldReadyMs": 118.5171640000001,
+  "initialAssets": [
+    {
+      "path": "/bench/rusqsieve.html",
+      "bytes": 141,
+      "sha256": "1fb7e286e7f2cdd54d897e4cee81bf00c3c20c4e185840df12d77d0acdac1d47"
+    },
+    {
+      "path": "/bench/rusqsieve.js",
+      "bytes": 6236,
+      "sha256": "b31ad258473fcc34672d2798d1ac01c6834667a8f176b9740b7c10824b197f91"
+    },
+    {
+      "path": "/src/rusqsieve/runner.js",
+      "bytes": 11054,
+      "sha256": "bd521f54128c5877ce26af61b8bcce838f5faa3d28bf60196519cbd46802e758"
+    },
+    {
+      "path": "/src/worker/source-factory.js",
+      "bytes": 488,
+      "sha256": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2"
+    },
+    {
+      "path": "/src/rusqsieve/worker-source.js",
+      "bytes": 561572,
+      "sha256": "a979172b081a84e4134c9b30a7b44b93824d53380071b36d7b4abcc370fcc321"
+    },
+    {
+      "path": "/bench/staged-rsa/cases.js",
+      "bytes": 22209,
+      "sha256": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e"
+    },
+    {
+      "path": "/bench/staged-full/cases.js",
+      "bytes": 8249,
+      "sha256": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+    },
+    {
+      "path": "/src/rusqsieve/contracts.js",
+      "bytes": 3641,
+      "sha256": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e"
+    },
+    {
+      "path": "/src/engine/arithmetic.js",
+      "bytes": 2524,
+      "sha256": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66"
+    },
+    {
+      "path": "/src/engine/options.js",
+      "bytes": 1991,
+      "sha256": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+    }
+  ],
+  "sourceFiles": {
+    "scripts/verify-rusqsieve.mjs": "6494878a10c80840b2cddb8d61553c3b941f63a8cdb515025405817ad8cdf669",
+    "scripts/benchmark-rusqsieve.mjs": "b5bda6830e43d31098d2c57748eb5a094abfb052bf82ced0fcd82ab2fd858cbf",
+    "bench/staged-rusqsieve-plan.json": "23d8cd4104939e7dcf7c313319fef3890144cde326c855d2fa715f29313def66",
+    "scripts/browser-memory.mjs": "93045481a7c73478fe2899a7b69e9ea65c30de140ce539ba53500c7f9be0540b",
+    "scripts/rusqsieve-asset-route.mjs": "fda058ac8d74c74f3cb0774a8edb3a4128048866d0fc9887b0576139dc109db8",
+    "scripts/build-rusqsieve-worker.mjs": "64903c5391b3ab32bfc5b03512dda8e90e687b6190bc3f2766a96a3a1dfc6545",
+    "scripts/build-rusqsieve.mjs": "912ca7815cfbd685a66d954774a5e040d5d22c4afb8be9fb2ed1e9d3e6c8f28d",
+    "native/rusqsieve/staged-build.json": "69b2ecb4af966a40cac825e55c6806ddd9e564755c2b286662fb443900c02000",
+    "native/rusqsieve/staged-upstream.json": "a22e0d7ec750dd962065ff0a7a6894a43b004a905151ffeaeb458f11cf04ef4e",
+    "native/rusqsieve/patch-source.mjs": "01905c5dc4bdf8cb793960d5910368481cf03f3e1f8433efa6d641217f7d36e5",
+    "native/rusqsieve/codex_observer.rs": "35bd36bdc8a80fa7931617d96ab37627520a4150cfa5f12996753d9f60c52df8",
+    "native/rusqsieve/memory-contract.mjs": "e9fe304ff1d5f17a6364e1c6961ce3ac4ebd3f8baa18a2a14551c80e62b2a861",
+    "src/rusqsieve/worker-body.js": "4b774e1f55ed6ab420f51f6e7165ef765ed636b15ad673d5462f0ea933520da7",
+    "bench/staged-rsa/catalog.json": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+    "bench/staged-full/catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "bench/staged-full/oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "bench/staged-full/manifest.json": "7c4abe092dbac1ea2975fa860a0d4b292179631c5ae1977ab64cec005b7eb10b",
+    "bench/rusqsieve.html": "1fb7e286e7f2cdd54d897e4cee81bf00c3c20c4e185840df12d77d0acdac1d47",
+    "bench/rusqsieve.js": "b31ad258473fcc34672d2798d1ac01c6834667a8f176b9740b7c10824b197f91",
+    "src/rusqsieve/runner.js": "bd521f54128c5877ce26af61b8bcce838f5faa3d28bf60196519cbd46802e758",
+    "src/worker/source-factory.js": "7b29e7d436ed9b55458636e46f1f6cad6d33389fe6eeb15a7a454d6da46986b2",
+    "src/rusqsieve/worker-source.js": "a979172b081a84e4134c9b30a7b44b93824d53380071b36d7b4abcc370fcc321",
+    "bench/staged-rsa/cases.js": "873e5fea71963b6ebc7184b152ef3cfb6ce5c7968bf2d0255a64c5184af15c4e",
+    "bench/staged-full/cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b",
+    "src/rusqsieve/contracts.js": "73ad1160db3db512b7599b2d27233b64402acabba1e61689781072e8941a931e",
+    "src/engine/arithmetic.js": "93fdc11c6a61a31a3f89b0593669e229153fc74afe8077eda6cfcfde8cd30c66",
+    "src/engine/options.js": "4b6dc5f4d3b734cf5b2a60e26ca7a42a5736ae0de0f9f55b869dd8e1bdceb6df"
+  },
+  "records": [
+    {
+      "id": "RSA-100",
+      "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+      "bits": 330,
+      "digits": 100,
+      "knownFactorsUsed": false,
+      "outcome": {
+        "input": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+        "kind": "timeout",
+        "reason": "time-budget",
+        "factors": [],
+        "remaining": "1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139",
+        "certainty": null,
+        "workers": 2,
+        "peakOwners": 2,
+        "allWorkersDisposed": true,
+        "allWorkerSourcesReleased": true,
+        "retirementErrors": [],
+        "requestWallMs": 600001,
+        "initializationMs": 554.1000000089407,
+        "familiesIssued": 136,
+        "familiesSubmitted": 132,
+        "polynomialsSubmitted": 270336,
+        "rawRelationsSubmitted": 196765,
+        "bytesSubmitted": 40503657,
+        "familyBudget": 250000,
+        "relations": 3672,
+        "target": 116512,
+        "transportCapBytes": 33554432,
+        "peakTransportBytes": 1270250,
+        "maximumWasmBytes": 536870912,
+        "retainLocal": false,
+        "shareContext": true,
+        "factorBaseSize": 116448,
+        "phaseMemory": [
+          {
+            "type": "ready",
+            "owner": 0,
+            "memory": {
+              "linearBytes": 7077888,
+              "liveRequested": 3845612,
+              "peakRequested": 5766252,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "ready",
+            "owner": 1,
+            "memory": {
+              "linearBytes": 7077888,
+              "liveRequested": 3844780,
+              "peakRequested": 5766252,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          }
+        ],
+        "memoryByOwner": [
+          {
+            "owner": 0,
+            "last": {
+              "linearBytes": 117309440,
+              "liveRequested": 105937172,
+              "peakRequested": 112948377,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "peakLinearBytes": 117309440,
+            "peakRequestedBytes": 112948377
+          },
+          {
+            "owner": 1,
+            "last": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "peakLinearBytes": 13369344,
+            "peakRequestedBytes": 12087913
+          }
+        ],
+        "events": [
+          {
+            "type": "ready",
+            "elapsedMs": 548.5,
+            "owner": 0,
+            "memory": {
+              "linearBytes": 7077888,
+              "liveRequested": 3845612,
+              "peakRequested": 5766252,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "ready",
+            "elapsedMs": 554,
+            "owner": 1,
+            "memory": {
+              "linearBytes": 7077888,
+              "liveRequested": 3844780,
+              "peakRequested": 5766252,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 17323.80000001192,
+            "owner": 1,
+            "first": 2,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12049988,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2916,
+              "polynomials": 4096,
+              "bytes": 599868
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 17427.80000001192,
+            "owner": 0,
+            "first": 0,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3845660,
+              "peakRequested": 12063253,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2977,
+              "polynomials": 4096,
+              "bytes": 612696
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 17452.80000001192,
+            "families": 2,
+            "relations": 57,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 5420072,
+              "peakRequested": 12063253,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 17483.90000000596,
+            "families": 4,
+            "relations": 106,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 6981108,
+              "peakRequested": 12063253,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 33858,
+            "owner": 0,
+            "first": 4,
+            "count": 2,
+            "memory": {
+              "linearBytes": 18546688,
+              "liveRequested": 6981108,
+              "peakRequested": 15218105,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3080,
+              "polynomials": 4096,
+              "bytes": 633629
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 33865.20000000298,
+            "owner": 1,
+            "first": 6,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12049988,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2873,
+              "polynomials": 4096,
+              "bytes": 591003
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 33898.60000000894,
+            "families": 6,
+            "relations": 169,
+            "memory": {
+              "linearBytes": 18546688,
+              "liveRequested": 9280740,
+              "peakRequested": 15218105,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 33947.5,
+            "families": 8,
+            "relations": 225,
+            "memory": {
+              "linearBytes": 18546688,
+              "liveRequested": 10127396,
+              "peakRequested": 15218105,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 50263.10000000894,
+            "owner": 1,
+            "first": 10,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12066116,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2986,
+              "polynomials": 4096,
+              "bytes": 615191
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 50278,
+            "owner": 0,
+            "first": 8,
+            "count": 2,
+            "memory": {
+              "linearBytes": 23724032,
+              "liveRequested": 10127396,
+              "peakRequested": 18347221,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2980,
+              "polynomials": 4096,
+              "bytes": 611929
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 50298.5,
+            "families": 10,
+            "relations": 273,
+            "memory": {
+              "linearBytes": 23724032,
+              "liveRequested": 10771988,
+              "peakRequested": 18347221,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 50324.5,
+            "families": 12,
+            "relations": 323,
+            "memory": {
+              "linearBytes": 23724032,
+              "liveRequested": 14688244,
+              "peakRequested": 18347221,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 66556.40000000596,
+            "owner": 1,
+            "first": 14,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12066116,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2977,
+              "polynomials": 4096,
+              "bytes": 612870
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 66562.60000000894,
+            "owner": 0,
+            "first": 12,
+            "count": 2,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 14688244,
+              "peakRequested": 22917628,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2994,
+              "polynomials": 4096,
+              "bytes": 616856
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 66601.10000000894,
+            "families": 14,
+            "relations": 376,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 15821676,
+              "peakRequested": 22917628,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 66615.90000000596,
+            "families": 16,
+            "relations": 423,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 16427972,
+              "peakRequested": 22917628,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 83003.40000000596,
+            "owner": 0,
+            "first": 16,
+            "count": 2,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 16427972,
+              "peakRequested": 24647101,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2983,
+              "polynomials": 4096,
+              "bytes": 613902
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 83027,
+            "families": 18,
+            "relations": 475,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 17033412,
+              "peakRequested": 24647101,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 83149.60000000894,
+            "owner": 1,
+            "first": 18,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12066116,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2849,
+              "polynomials": 4096,
+              "bytes": 586936
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 99337.30000001192,
+            "owner": 0,
+            "first": 20,
+            "count": 2,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 17033412,
+              "peakRequested": 25230137,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2847,
+              "polynomials": 4096,
+              "bytes": 588048
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 99397.90000000596,
+            "families": 20,
+            "relations": 530,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 17693444,
+              "peakRequested": 25230137,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 99445.20000000298,
+            "families": 22,
+            "relations": 597,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 18274892,
+              "peakRequested": 25230137,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 115679.5,
+            "owner": 1,
+            "first": 24,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3016,
+              "polynomials": 4096,
+              "bytes": 621201
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 115692.80000001192,
+            "owner": 0,
+            "first": 22,
+            "count": 2,
+            "memory": {
+              "linearBytes": 28901376,
+              "liveRequested": 18274892,
+              "peakRequested": 26479448,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2922,
+              "polynomials": 4096,
+              "bytes": 600889
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 115716.10000000894,
+            "families": 24,
+            "relations": 645,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 25486524,
+              "peakRequested": 27741062,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 115732.10000000894,
+            "families": 26,
+            "relations": 697,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 26099244,
+              "peakRequested": 27741062,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 132049.70000000298,
+            "owner": 1,
+            "first": 28,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2995,
+              "polynomials": 4096,
+              "bytes": 615852
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 132130,
+            "owner": 0,
+            "first": 26,
+            "count": 2,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 26099244,
+              "peakRequested": 34351290,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3154,
+              "polynomials": 4096,
+              "bytes": 648440
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 132162.60000000894,
+            "families": 28,
+            "relations": 751,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 27787316,
+              "peakRequested": 34351290,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 132194.20000000298,
+            "families": 30,
+            "relations": 789,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 28398692,
+              "peakRequested": 34351290,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 148464.60000000894,
+            "owner": 1,
+            "first": 32,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2952,
+              "polynomials": 4096,
+              "bytes": 608682
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 148537.5,
+            "owner": 0,
+            "first": 30,
+            "count": 2,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 28398692,
+              "peakRequested": 36636586,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3067,
+              "polynomials": 4096,
+              "bytes": 631620
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 148567.60000000894,
+            "families": 32,
+            "relations": 837,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 29023180,
+              "peakRequested": 36636586,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 148591.40000000596,
+            "families": 34,
+            "relations": 899,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 29624156,
+              "peakRequested": 36636586,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 164994.60000000894,
+            "owner": 1,
+            "first": 36,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2824,
+              "polynomials": 4096,
+              "bytes": 581136
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 165042.80000001192,
+            "owner": 0,
+            "first": 34,
+            "count": 2,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 29624156,
+              "peakRequested": 37847889,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2995,
+              "polynomials": 4096,
+              "bytes": 616479
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 165067.30000001192,
+            "families": 36,
+            "relations": 952,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 30233580,
+              "peakRequested": 37847889,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 165106,
+            "families": 38,
+            "relations": 1008,
+            "memory": {
+              "linearBytes": 39976960,
+              "liveRequested": 30807812,
+              "peakRequested": 37847889,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 181471,
+            "owner": 1,
+            "first": 40,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3024,
+              "polynomials": 4096,
+              "bytes": 620800
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 181744.10000000894,
+            "owner": 0,
+            "first": 38,
+            "count": 2,
+            "memory": {
+              "linearBytes": 41091072,
+              "liveRequested": 30807812,
+              "peakRequested": 39054776,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3084,
+              "polynomials": 4096,
+              "bytes": 636727
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 181799.30000001192,
+            "families": 40,
+            "relations": 1068,
+            "memory": {
+              "linearBytes": 41091072,
+              "liveRequested": 31600052,
+              "peakRequested": 39054776,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 181818.70000000298,
+            "families": 42,
+            "relations": 1123,
+            "memory": {
+              "linearBytes": 41091072,
+              "liveRequested": 32213812,
+              "peakRequested": 39054776,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 198103.70000000298,
+            "owner": 0,
+            "first": 42,
+            "count": 2,
+            "memory": {
+              "linearBytes": 42205184,
+              "liveRequested": 32213812,
+              "peakRequested": 40423485,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2956,
+              "polynomials": 4096,
+              "bytes": 608057
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 198120.60000000894,
+            "families": 44,
+            "relations": 1179,
+            "memory": {
+              "linearBytes": 42205184,
+              "liveRequested": 32814884,
+              "peakRequested": 40423485,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 198202.5,
+            "owner": 1,
+            "first": 44,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2999,
+              "polynomials": 4096,
+              "bytes": 617403
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 214220.40000000596,
+            "owner": 0,
+            "first": 46,
+            "count": 2,
+            "memory": {
+              "linearBytes": 43319296,
+              "liveRequested": 32814884,
+              "peakRequested": 41043587,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3002,
+              "polynomials": 4096,
+              "bytes": 617795
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 214258.90000000596,
+            "families": 46,
+            "relations": 1233,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 46663404,
+              "peakRequested": 50380170,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 214276.10000000894,
+            "families": 48,
+            "relations": 1283,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 47272948,
+              "peakRequested": 50380170,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 230583.30000001192,
+            "owner": 0,
+            "first": 48,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 47272948,
+              "peakRequested": 55501794,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3015,
+              "polynomials": 4096,
+              "bytes": 620434
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 230610,
+            "families": 50,
+            "relations": 1326,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 47886020,
+              "peakRequested": 55501794,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 230660.10000000894,
+            "owner": 1,
+            "first": 50,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2945,
+              "polynomials": 4096,
+              "bytes": 606325
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 246629.10000000894,
+            "owner": 0,
+            "first": 52,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 47886020,
+              "peakRequested": 56108812,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2999,
+              "polynomials": 4096,
+              "bytes": 617811
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 246665.60000000894,
+            "families": 52,
+            "relations": 1380,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 48484924,
+              "peakRequested": 56108812,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 246680.20000000298,
+            "families": 54,
+            "relations": 1416,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 51190252,
+              "peakRequested": 56108812,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 262932.90000000596,
+            "owner": 1,
+            "first": 56,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2974,
+              "polynomials": 4096,
+              "bytes": 612436
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 263032.10000000894,
+            "owner": 0,
+            "first": 54,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 51190252,
+              "peakRequested": 59421588,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3006,
+              "polynomials": 4096,
+              "bytes": 619178
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 263071.200000003,
+            "families": 56,
+            "relations": 1480,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 51802764,
+              "peakRequested": 59421588,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 263087.200000003,
+            "families": 58,
+            "relations": 1532,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 52417892,
+              "peakRequested": 59421588,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 279334.10000000894,
+            "owner": 1,
+            "first": 60,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3004,
+              "polynomials": 4096,
+              "bytes": 618244
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 279406.40000000596,
+            "owner": 0,
+            "first": 58,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 52417892,
+              "peakRequested": 60633431,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2966,
+              "polynomials": 4096,
+              "bytes": 612280
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 279442.700000003,
+            "families": 60,
+            "relations": 1586,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 53021444,
+              "peakRequested": 60633431,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 279471.3000000119,
+            "families": 62,
+            "relations": 1641,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 53632156,
+              "peakRequested": 60633431,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 295777.8000000119,
+            "owner": 1,
+            "first": 64,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12078010,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2993,
+              "polynomials": 4096,
+              "bytes": 615995
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 295803.90000000596,
+            "owner": 0,
+            "first": 62,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 53632156,
+              "peakRequested": 61848857,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2961,
+              "polynomials": 4096,
+              "bytes": 608771
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 295811.10000000894,
+            "families": 64,
+            "relations": 1706,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 54234004,
+              "peakRequested": 61848857,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 295850.5,
+            "families": 66,
+            "relations": 1763,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 54842676,
+              "peakRequested": 61848857,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 312134.700000003,
+            "owner": 0,
+            "first": 66,
+            "count": 2,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 54842676,
+              "peakRequested": 63065179,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2998,
+              "polynomials": 4096,
+              "bytes": 616542
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 312158.90000000596,
+            "families": 68,
+            "relations": 1807,
+            "memory": {
+              "linearBytes": 65404928,
+              "liveRequested": 55452772,
+              "peakRequested": 63065179,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 312177.40000000596,
+            "owner": 1,
+            "first": 68,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3097,
+              "polynomials": 4096,
+              "bytes": 637103
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 328310.200000003,
+            "owner": 0,
+            "first": 70,
+            "count": 2,
+            "memory": {
+              "linearBytes": 66519040,
+              "liveRequested": 55452772,
+              "peakRequested": 63687176,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3072,
+              "polynomials": 4096,
+              "bytes": 633147
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 328349.60000000894,
+            "families": 70,
+            "relations": 1879,
+            "memory": {
+              "linearBytes": 66519040,
+              "liveRequested": 56082772,
+              "peakRequested": 63687176,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 328389.200000003,
+            "families": 72,
+            "relations": 1936,
+            "memory": {
+              "linearBytes": 66519040,
+              "liveRequested": 56709252,
+              "peakRequested": 63687176,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 344804.5,
+            "owner": 1,
+            "first": 74,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2981,
+              "polynomials": 4096,
+              "bytes": 613453
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 344894.90000000596,
+            "owner": 0,
+            "first": 72,
+            "count": 2,
+            "memory": {
+              "linearBytes": 67633152,
+              "liveRequested": 56709252,
+              "peakRequested": 64929635,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2994,
+              "polynomials": 4096,
+              "bytes": 616597
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 344931.90000000596,
+            "families": 74,
+            "relations": 1996,
+            "memory": {
+              "linearBytes": 67633152,
+              "liveRequested": 57318812,
+              "peakRequested": 64929635,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 344965,
+            "families": 76,
+            "relations": 2048,
+            "memory": {
+              "linearBytes": 67633152,
+              "liveRequested": 57925588,
+              "peakRequested": 64929635,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 361209,
+            "owner": 1,
+            "first": 78,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3019,
+              "polynomials": 4096,
+              "bytes": 621328
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 361589.5,
+            "owner": 0,
+            "first": 76,
+            "count": 2,
+            "memory": {
+              "linearBytes": 68747264,
+              "liveRequested": 57925588,
+              "peakRequested": 66150998,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2995,
+              "polynomials": 4096,
+              "bytes": 618442
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 361650.5,
+            "families": 78,
+            "relations": 2099,
+            "memory": {
+              "linearBytes": 68747264,
+              "liveRequested": 58863460,
+              "peakRequested": 66150998,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 361679.10000000894,
+            "families": 80,
+            "relations": 2149,
+            "memory": {
+              "linearBytes": 68747264,
+              "liveRequested": 59477028,
+              "peakRequested": 66150998,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 377986.700000003,
+            "owner": 1,
+            "first": 82,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3006,
+              "polynomials": 4096,
+              "bytes": 618766
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 378267.40000000596,
+            "owner": 0,
+            "first": 80,
+            "count": 2,
+            "memory": {
+              "linearBytes": 70975488,
+              "liveRequested": 59477028,
+              "peakRequested": 67704569,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3011,
+              "polynomials": 4096,
+              "bytes": 620345
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 378303.90000000596,
+            "families": 82,
+            "relations": 2195,
+            "memory": {
+              "linearBytes": 70975488,
+              "liveRequested": 60091340,
+              "peakRequested": 67704569,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 378354.90000000596,
+            "families": 84,
+            "relations": 2259,
+            "memory": {
+              "linearBytes": 70975488,
+              "liveRequested": 60703676,
+              "peakRequested": 67704569,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 394781.5,
+            "owner": 1,
+            "first": 86,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2914,
+              "polynomials": 4096,
+              "bytes": 600360
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 394833.200000003,
+            "owner": 0,
+            "first": 84,
+            "count": 2,
+            "memory": {
+              "linearBytes": 72089600,
+              "liveRequested": 60703676,
+              "peakRequested": 68936422,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3057,
+              "polynomials": 4096,
+              "bytes": 629342
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 394873.10000000894,
+            "families": 86,
+            "relations": 2318,
+            "memory": {
+              "linearBytes": 72089600,
+              "liveRequested": 61325508,
+              "peakRequested": 68936422,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 394921.90000000596,
+            "families": 88,
+            "relations": 2382,
+            "memory": {
+              "linearBytes": 72089600,
+              "liveRequested": 61922004,
+              "peakRequested": 68936422,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 411327.90000000596,
+            "owner": 0,
+            "first": 88,
+            "count": 2,
+            "memory": {
+              "linearBytes": 73203712,
+              "liveRequested": 61922004,
+              "peakRequested": 70138317,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2945,
+              "polynomials": 4096,
+              "bytes": 606464
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 411351.90000000596,
+            "families": 90,
+            "relations": 2428,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 84543244,
+              "peakRequested": 86012116,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 411493.8000000119,
+            "owner": 1,
+            "first": 90,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2922,
+              "polynomials": 4096,
+              "bytes": 602900
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 427421.10000000894,
+            "owner": 0,
+            "first": 92,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 84543244,
+              "peakRequested": 92754382,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2966,
+              "polynomials": 4096,
+              "bytes": 609082
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 427462.8000000119,
+            "families": 92,
+            "relations": 2494,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 85140652,
+              "peakRequested": 92754382,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 427500.200000003,
+            "families": 94,
+            "relations": 2549,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 90200980,
+              "peakRequested": 96131256,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 443912.3000000119,
+            "owner": 1,
+            "first": 96,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2913,
+              "polynomials": 4096,
+              "bytes": 598894
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 443981.8000000119,
+            "owner": 0,
+            "first": 94,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 90200980,
+              "peakRequested": 98422038,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2984,
+              "polynomials": 4096,
+              "bytes": 614905
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 444025.5,
+            "families": 96,
+            "relations": 2604,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 90811012,
+              "peakRequested": 98422038,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 444047,
+            "families": 98,
+            "relations": 2654,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 91403236,
+              "peakRequested": 98422038,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 460283.700000003,
+            "owner": 1,
+            "first": 100,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2987,
+              "polynomials": 4096,
+              "bytes": 614593
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 460377,
+            "owner": 0,
+            "first": 98,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 91403236,
+              "peakRequested": 99627361,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3015,
+              "polynomials": 4096,
+              "bytes": 620699
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 460422.40000000596,
+            "families": 100,
+            "relations": 2716,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 92017812,
+              "peakRequested": 99627361,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 460439.700000003,
+            "families": 102,
+            "relations": 2776,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 92627892,
+              "peakRequested": 99627361,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 476733.700000003,
+            "owner": 0,
+            "first": 102,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 92627892,
+              "peakRequested": 100848366,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2982,
+              "polynomials": 4096,
+              "bytes": 613722
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 476763.60000000894,
+            "families": 104,
+            "relations": 2828,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 93235172,
+              "peakRequested": 100848366,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 476801.200000003,
+            "owner": 1,
+            "first": 104,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3010,
+              "polynomials": 4096,
+              "bytes": 619571
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 492805.700000003,
+            "owner": 0,
+            "first": 106,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 93235172,
+              "peakRequested": 101469554,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3067,
+              "polynomials": 4096,
+              "bytes": 629211
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 492819.40000000596,
+            "families": 106,
+            "relations": 2884,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 93850548,
+              "peakRequested": 101469554,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 492849.40000000596,
+            "families": 108,
+            "relations": 2938,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 98669772,
+              "peakRequested": 101469554,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 509237.3000000119,
+            "owner": 1,
+            "first": 110,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3019,
+              "polynomials": 4096,
+              "bytes": 620486
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 509252.40000000596,
+            "owner": 0,
+            "first": 108,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 98669772,
+              "peakRequested": 106882266,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2954,
+              "polynomials": 4096,
+              "bytes": 607655
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 509287.10000000894,
+            "families": 110,
+            "relations": 2994,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 99274452,
+              "peakRequested": 106882266,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 509330.200000003,
+            "families": 112,
+            "relations": 3050,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 99889412,
+              "peakRequested": 106882266,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 525583.1000000089,
+            "owner": 1,
+            "first": 114,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2990,
+              "polynomials": 4096,
+              "bytes": 616428
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 525661.200000003,
+            "owner": 0,
+            "first": 112,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 99889412,
+              "peakRequested": 108098940,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2940,
+              "polynomials": 4096,
+              "bytes": 605617
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 525691.1000000089,
+            "families": 114,
+            "relations": 3106,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 100504420,
+              "peakRequested": 108098940,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 525717.200000003,
+            "families": 116,
+            "relations": 3167,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 101115756,
+              "peakRequested": 108098940,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 542051.400000006,
+            "owner": 0,
+            "first": 116,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 101115756,
+              "peakRequested": 109316633,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2895,
+              "polynomials": 4096,
+              "bytes": 595721
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 542074.3000000119,
+            "owner": 1,
+            "first": 118,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2919,
+              "polynomials": 4096,
+              "bytes": 600158
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 542075.700000003,
+            "families": 118,
+            "relations": 3231,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 101706860,
+              "peakRequested": 109316633,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 542106.8000000119,
+            "families": 120,
+            "relations": 3287,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 102302436,
+              "peakRequested": 109316633,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 558400.5,
+            "owner": 1,
+            "first": 122,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2972,
+              "polynomials": 4096,
+              "bytes": 610831
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 558480.3000000119,
+            "owner": 0,
+            "first": 120,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 102302436,
+              "peakRequested": 110525943,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3018,
+              "polynomials": 4096,
+              "bytes": 621959
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 558499.6000000089,
+            "families": 122,
+            "relations": 3361,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 102919980,
+              "peakRequested": 110525943,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 558520.6000000089,
+            "families": 124,
+            "relations": 3416,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 103525212,
+              "peakRequested": 110525943,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 574730.200000003,
+            "owner": 1,
+            "first": 126,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2933,
+              "polynomials": 4096,
+              "bytes": 602262
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 575068,
+            "owner": 0,
+            "first": 124,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 103525212,
+              "peakRequested": 111732753,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2931,
+              "polynomials": 4096,
+              "bytes": 604963
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 575112.5,
+            "families": 126,
+            "relations": 3474,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 104124692,
+              "peakRequested": 111732753,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 575132.6000000089,
+            "families": 128,
+            "relations": 3531,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 104722708,
+              "peakRequested": 111732753,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 591321,
+            "owner": 1,
+            "first": 130,
+            "count": 2,
+            "memory": {
+              "linearBytes": 13369344,
+              "liveRequested": 3844828,
+              "peakRequested": 12087913,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 2933,
+              "polynomials": 4096,
+              "bytes": 603139
+            }
+          },
+          {
+            "type": "batch",
+            "elapsedMs": 591486.6000000089,
+            "owner": 0,
+            "first": 128,
+            "count": 2,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 104722708,
+              "peakRequested": 112948377,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            },
+            "stats": {
+              "families": 2,
+              "relations": 3011,
+              "polynomials": 4096,
+              "bytes": 619489
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 591528.1000000089,
+            "families": 130,
+            "relations": 3598,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 105338468,
+              "peakRequested": 112948377,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          },
+          {
+            "type": "submitted",
+            "elapsedMs": 591544.6000000089,
+            "families": 132,
+            "relations": 3672,
+            "memory": {
+              "linearBytes": 117309440,
+              "liveRequested": 105937172,
+              "peakRequested": 112948377,
+              "allocationFailures": 0,
+              "lastFailed": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ownership": {
+    "live": 0,
+    "maxLive": 2,
+    "liveSources": 0,
+    "maxLiveSources": 2
+  },
+  "sampledRam": {
+    "samples": 8055,
+    "first": {
+      "atMs": 111.584273,
+      "rssBytes": 372736,
+      "pssBytes": 154624,
+      "processes": 1
+    },
+    "peakRssBytes": 1356341248,
+    "peakPssBytes": 570617856,
+    "maxProcesses": 13
+  },
+  "quiet": {
+    "networkRequests": 0,
+    "httpRequests": 0,
+    "badEvents": 0,
+    "assetServerStopped": true,
+    "cacheDisabled": true
+  },
+  "limits": {
+    "wasmBytesPerOwner": 268435456,
+    "totalWasmBytes": 536870912,
+    "maxOwners": 2,
+    "packetBytes": 16777216,
+    "transportBytes": 33554432,
+    "initializationMs": 10000,
+    "wallMs": 600000,
+    "extractAttempts": 1,
+    "workUnit": "input-dependent finite SIQS families, not C checkpoint work",
+    "wholeRam": "sampled Chrome tree RSS/PSS; requested allocation sizes exclude metadata/fragmentation/stack/static; not a hard total RAM cap"
+  },
+  "detectorSelfTest": {
+    "blockedPageFetchCsp": true,
+    "pageCdpAndHttp": true,
+    "workerCdpAndHttp": true
+  }
+}

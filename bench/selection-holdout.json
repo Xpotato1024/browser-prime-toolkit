@@ -1,0 +1,92 @@
+[
+  {
+    "id": "holdout-small-32",
+    "input": "2672663593",
+    "factors": [
+      "48593",
+      "55001"
+    ],
+    "bits": 32,
+    "factorBits": [
+      16,
+      16
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial"
+  },
+  {
+    "id": "holdout-native-63",
+    "input": "7267227852335132417",
+    "factors": [
+      "1907613529",
+      "3809591273"
+    ],
+    "bits": 63,
+    "factorBits": [
+      31,
+      32
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial"
+  },
+  {
+    "id": "holdout-native-64",
+    "input": "11742771915462595913",
+    "factors": [
+      "3283320961",
+      "3576492233"
+    ],
+    "bits": 64,
+    "factorBits": [
+      32,
+      32
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial"
+  },
+  {
+    "id": "holdout-balanced-80",
+    "input": "908228588958112076066773",
+    "factors": [
+      "909536624993",
+      "998561865461"
+    ],
+    "bits": 80,
+    "factorBits": [
+      40,
+      40
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial"
+  },
+  {
+    "id": "holdout-balanced-112",
+    "input": "2720469325557637940256367847086393",
+    "factors": [
+      "50751572209658171",
+      "53603646293344283"
+    ],
+    "bits": 112,
+    "factorBits": [
+      56,
+      56
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "independent-uint64-trial"
+  },
+  {
+    "id": "holdout-unbalanced-m127",
+    "input": "132557166175235038911389310012349022656011427",
+    "factors": [
+      "779101",
+      "170141183460469231731687303715884105727"
+    ],
+    "bits": 147,
+    "factorBits": [
+      20,
+      127
+    ],
+    "source": "stage6-policy-frozen-holdout",
+    "factorProof": "uint64-trial-small-factor; M127 runtime probable only"
+  }
+]

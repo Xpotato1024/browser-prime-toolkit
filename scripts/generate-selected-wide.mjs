@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {wideWorkerSource} from '../src/wide-window/worker-source.js';
+import {RUSQSIEVE_BASE64 as helper} from '../src/selected-wide/wasm-selected-64.js';
+import {RUSQSIEVE_BASE64 as owner} from '../src/resieve-followup/wasm-resieve1-1024.js';
+import {resourceMemoryContract} from '../native/resources/memory-contract.mjs';
+import {longMemoryContract} from '../native/long-window/memory-contract.mjs';
+const read=p=>readFileSync(p,'utf8'),sha=b=>createHash('sha256').update(b).digest('hex');
+const write=(p,t)=>process.argv.includes('--check')?assert.equal(read(p),t,p):writeFileSync(p,t);
+const pattern=/const RUSQSIEVE_BASE64="[^"]+";/g,roles={};
+for(const cap of [64,1024]){
+ const old=wideWorkerSource(cap),wasm=cap===64?helper:owner;
+ assert.equal([...old.matchAll(pattern)].length,1);
+ const source=old.replace(pattern,()=> 'const RUSQSIEVE_BASE64='+JSON.stringify(wasm)+';');
+ const normalized=source.replace(pattern,'const RUSQSIEVE_BASE64="SELECTED_NATIVE";');
+ assert.equal(normalized,old.replace(pattern,'const RUSQSIEVE_BASE64="SELECTED_NATIVE";'));
+ const bytes=Buffer.from(wasm,'base64'),nativeReceipt=cap===64?'native/selected-wide/build-selected-64.json':'native/resieve-followup/build-resieve1-1024.json',receipt=JSON.parse(read(nativeReceipt));
+ assert.equal(sha(bytes),receipt.sha256);assert.equal(receipt.cleanBuilds,2);
+ const memory=cap===64?resourceMemoryContract(bytes,64):longMemoryContract(bytes,1024);
+ assert.deepEqual(memory,receipt.memory);
+ roles[cap]={sourceSha256:sha(source),normalizedSha256:sha(normalized),nativeReceipt,nativeSha256:sha(bytes),memory};
+ write('src/selected-wide/worker-'+cap+'.js','// Generated selected role; upstream Apache-2.0 OR MPL-2.0; local AGPL-3.0-only. See native/rusqsieve notices.\nexport const SELECTED_WIDE_WORKER_SOURCE='+JSON.stringify(source)+';\n');
+}
+write('src/selected-wide/worker-source.js',"// SPDX-License-Identifier: AGPL-3.0-only\nimport{SELECTED_WIDE_WORKER_SOURCE as helper}from'./worker-64.js';\nimport{SELECTED_WIDE_WORKER_SOURCE as owner}from'./worker-1024.js';\nexport function selectedWideWorkerSource(cap){if(cap!==64&&cap!==1024)throw Error('Selected wide role cap');return cap===64?helper:owner;}\n");
+const replacement=(s,a,b)=>{assert.equal(s.split(a).length,2,a);return s.replace(a,b);};
+let runner=read('src/wide-window/runner.js');
+runner=replacement(runner,"import{wideWorkerSource as workerSourceForCap}from'./worker-source.js';","import{selectedWideWorkerSource as workerSourceForCap}from'./worker-source.js';");
+for(const part of ["./budget.js","./memory.js"])runner=runner.replaceAll(part,'../wide-window/'+part.slice(2));
+write('src/selected-wide/runner.js',runner);
+let h=read('bench/wide-window.js').replaceAll('../src/wide-window/','../src/selected-wide/');
+h=replacement(h,"import {wideWorkerSource as graphWorkerSource} from '../src/selected-wide/worker-source.js';","import {selectedWideWorkerSource as graphWorkerSource} from '../src/selected-wide/worker-source.js';");
+write('bench/selected-wide.js',h);
+write('bench/selected-wide.html',read('bench/wide-window.html').replace('./wide-window.js','./selected-wide.js'));
+let route=read('scripts/wide-window-asset-route.mjs');
+const extra=['bench/selected-wide.html','bench/selected-wide.js','src/selected-wide/index.js','src/selected-wide/runner.js','src/selected-wide/policy.js','src/selected-wide/worker-source.js','src/selected-wide/worker-64.js','src/selected-wide/worker-1024.js'];
+route=replacement(route,'const assets=new Set([','const assets=new Set(['+extra.map(JSON.stringify).join(',')+',').replace('wideAsset','selectedWideAsset');
+write('scripts/selected-wide-asset-route.mjs',route);
+let verifier=read('scripts/verify-wide-window.mjs');
+verifier=replacement(verifier,"import {wideAsset as coordinatorAsset} from './wide-window-asset-route.mjs';","import {selectedWideAsset as coordinatorAsset} from './selected-wide-asset-route.mjs';").replaceAll('/bench/wide-window.html','/bench/selected-wide.html');
+const extraProof=['scripts/generate-selected-wide.mjs','scripts/verify-selected-wide.mjs','scripts/selected-wide-asset-route.mjs','scripts/build-selected-wide.mjs','native/selected-wide/patch-source.mjs','native/selected-wide/build-selected-64.json','native/selected-wide/worker-sources.json','docs/contracts/selected-wide.md'];
+verifier=replacement(verifier,'  receipt.graphSourceFiles={};','  receipt.graphSourceFiles={};\n  for(const p of '+JSON.stringify(extraProof)+')receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");');
+write('scripts/verify-selected-wide.mjs',verifier);
+write('native/selected-wide/worker-sources.json',JSON.stringify({method:'Only Native constant changed from frozen wide source; generated runner changes factory import and relative budget/memory imports only',generatorSha256:sha(read('scripts/generate-selected-wide.mjs')),roles},null,2)+'\n');
+console.log('Selected wide64/1024 Native roles; identical normalized protocol and generated runner');

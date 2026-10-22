@@ -1,0 +1,275 @@
+{
+  "plan": "llm01-graph-builtin-20261021-v1",
+  "planSha256": "bad79a628ce46830ae0cedf439238615ed0e3848e857f73f7f6a611ee471abe8",
+  "driverSha256": "bff62d45eb242fca782c39d3d5f72c48ab0852135625528c0e109217a90b1768",
+  "head": "14a3ac3ef36f25212d901a406d0b47c5c455208b",
+  "startedAt": "2026-10-21T03:49:18.536Z",
+  "trials": [
+    {
+      "id": "contracts-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "budgetMs": 30000,
+      "availableMiB": 9228.40625,
+      "args": [
+        "scripts/verify-graph-builtin.mjs",
+        "--graph",
+        "builtin",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign6-builtin/contracts-builtin.json"
+      ],
+      "startedAt": "2026-10-21T03:49:18.630Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:49:28.068Z",
+      "logSha256": "873d3393fb128f87aa1f02e21d6437dde15a10ca3a51dc124736aaae6c32dfe4",
+      "bytes": 31408,
+      "sha256": "0afd20e6fbcad290a565990f2627b1d2b3de325e5bcc2330976c89aec8598619",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "fixed-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000,
+      "availableMiB": 9096.4375,
+      "args": [
+        "scripts/verify-graph-builtin.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--budget-ms",
+        "120000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign6-builtin/fixed-1-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T03:49:28.173Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:50:38.792Z",
+      "logSha256": "a580bc2392ccc42643c683f8f996fb42654ee82e408d17f54478e1d154ce3f26",
+      "bytes": 76452,
+      "sha256": "8d6ec8d0b589c734d0a005713cf05411810e9104590a07abff465f9c69549870",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 68711.59999999404,
+        "peakPssBytes": 584430592
+      }
+    },
+    {
+      "id": "fixed-2-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000,
+      "availableMiB": 9227.1015625,
+      "args": [
+        "scripts/verify-graph-builtin.mjs",
+        "--graph",
+        "builtin",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--budget-ms",
+        "120000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign6-builtin/fixed-2-builtin.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T03:50:38.893Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:51:43.678Z",
+      "logSha256": "e12f3a82a73c6f64c25b3b96b4e550591024dc5b81059187d46e60656206d43c",
+      "bytes": 73831,
+      "sha256": "9eb8c92191ca73cc5b9633f94d417b78b3ecc8393605af1964250562ba8e5d46",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 62822.30000001192,
+        "peakPssBytes": 593807360
+      }
+    },
+    {
+      "id": "fixed-3-builtin",
+      "graph": "builtin",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000,
+      "availableMiB": 9229.34375,
+      "args": [
+        "scripts/verify-graph-builtin.mjs",
+        "--graph",
+        "builtin",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--budget-ms",
+        "120000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign6-builtin/fixed-3-builtin.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T03:51:43.781Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:52:48.962Z",
+      "logSha256": "ff8f701d0958c53f92c25b7b8d04b7558a40e22d93247730a29ff2f63cd89d6f",
+      "bytes": 73975,
+      "sha256": "d5147b15fd6f77f615368ef0d4ebcd52aa3adfb252e1ed9bbeece03662678c3e",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 63094.39999997616,
+        "peakPssBytes": 592995328
+      }
+    },
+    {
+      "id": "fixed-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000,
+      "availableMiB": 9231.22265625,
+      "args": [
+        "scripts/verify-graph-builtin.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--budget-ms",
+        "120000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign6-builtin/fixed-4-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T03:52:49.064Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T03:54:01.242Z",
+      "logSha256": "eb8af506bb842324f0b246acf645a5bd37fa0c670b5a0cebc3da1b5fdb99658f",
+      "bytes": 76430,
+      "sha256": "000ed48488e657b1055c9c9219e353515d8583f9a7156d35e874bfab09f4aa00",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 70069.60000002384,
+        "peakPssBytes": 590279680
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T03:54:01.254Z"
+}

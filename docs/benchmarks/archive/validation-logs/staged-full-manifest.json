@@ -1,0 +1,14 @@
+{
+  "coreHead": "a07f66faca240af443548e5ae8fc71cf3cb4c244",
+  "scope": "actual red/green and core-freeze logs; final-head CI is reported separately",
+  "files": {
+    "staged-full-red-native-cleanup.log.txt": "6ced1634f389d52517e0ac2bc9587d2f3365049daa9b9cf367eab3c35a696e43",
+    "staged-full-native-valid-red.log.txt": "ccbd46be6bb1a0490b96ffe8db61a6ef5efb5a95bc786ae4a4aa3c94c91636f4",
+    "staged-full-red-full-failure.log.txt": "06560497f3521048c9350ed8d9ffb605c5f7244adbb2bedc16343911c4221d8d",
+    "staged-full-green-full-failure.log.txt": "10a4a28da03c2a832a99a93b8c58b0b30bb687e35751f1474ba632bad856105d",
+    "staged-full-native-freeze.log.txt": "0f3aeec46b8140fb151c4a6e4bd96532dfbad76a3b4d6c6d087ded00a5802de5",
+    "staged-full-full-freeze-build.log.txt": "614a70297b8dbf277c26c7bb335cc21e16661e08b8a55bedf5f1d84eb49985c9",
+    "staged-full-unit-freeze.log.txt": "176dbb5a67ad38f72ded79585162a599228ffdc88004517f4020ee0179c8b648",
+    "staged-full-check-freeze.log.txt": "ceb9cc600fd501d5269c17642f5317ea9f0a098509d8b6b5fc8e165421fb47f1"
+  }
+}

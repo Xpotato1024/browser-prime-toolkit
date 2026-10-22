@@ -1,0 +1,10 @@
+{
+  "seed": "llm01-full-siqs-balanced-20261019-v1",
+  "count": 62,
+  "generatorSha256": "08a4e6c077e72a4ed4237051e7349382f6e916423d2a8499167af870a6dfdd1d",
+  "files": {
+    "catalog.json": "428547c27249d9d3570e3f4159978e8a74c65c8ae7d855d37262c0bfb0b65af8",
+    "oracle.json": "30e87a22e893684d2cec67ec72b1147359d9ed5bf5a9768e9e4d3bebe8321792",
+    "cases.js": "65dc9d79ba39a692f888ecb3f779707ba858624ed76a5837ba545990b041393b"
+  }
+}

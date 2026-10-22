@@ -1,0 +1,15 @@
+✔ recheck deadline: late-ready (2.571099ms)
+✔ recheck deadline: release-late (0.3551ms)
+✔ recheck deadline: late-extract (0.9003ms)
+✔ recheck deadline: retirement-late (0.579699ms)
+✔ retirement isolates exceptions: terminate-throws (0.7782ms)
+✔ retirement isolates exceptions: release-throws (0.2924ms)
+✔ normal owners are terminated and every Blob source is released (0.4858ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.173405

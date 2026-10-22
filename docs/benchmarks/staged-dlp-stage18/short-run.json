@@ -1,0 +1,348 @@
+{
+  "plan": "stage18-dlp-only-v1",
+  "planSha256": "e2706e9ec325335b1c1d26d1f591a76b01744e08ec0e6f2b0b0ff47aac4520cf",
+  "stage": "short",
+  "measuredHead": "dc0458547b2d104eff31af6b39074281ecb4c210",
+  "startedAt": "2026-10-20T12:38:59.549Z",
+  "trials": [
+    {
+      "id": "short-baseline-w1-r1",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "baseline",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-baseline-w1-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "a645798de1b9a64594541ac7c4a00f98c8d22de0e7dd214dc7b28151a603cff6",
+      "logSha256": "2e77f83666e612f004bb49508e4a1ec7fd0e26de6c642eafb7d5c1dcb8521b48"
+    },
+    {
+      "id": "short-half-w1-r1",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "half",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-half-w1-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "c9aba3874d7c9c3ddf29035fc10c8e672cdc325cb6092524bc31663be7f52554",
+      "logSha256": "eb9bdbafe2d1237abb329734cb3aa00cffadfecb14e2bd9b9a97d330c422db27"
+    },
+    {
+      "id": "short-quarter-w1-r1",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "quarter",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-quarter-w1-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "28ef69e166efbb7c37db782d2ae07c55c15fdc66c914cef37419b81415cc66ea",
+      "logSha256": "ea41e50e6061acf6b3d3623db7f6b10f961ece3484206772d183520861cd3d56"
+    },
+    {
+      "id": "short-quarter-w2-r1",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "quarter",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-quarter-w2-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "6c07a8e27e0647f0785620a96586e5844dbd4fad9c56913d96a55d91c80a2f0c",
+      "logSha256": "bcebbf4f42e10f8b9a2b8b64338b3c16f1b3f188806bed5c4ac88083b5fd5651"
+    },
+    {
+      "id": "short-half-w2-r1",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "half",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-half-w2-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "e3bd0d53ba89a36fe8b77a3041d3b5ddcd4158dd9e06b8ea4692d2f1d19bcb45",
+      "logSha256": "ad549ce0254086ee4601fd64f6d46cc0d41a656d2508cbeb9c27034129cc8065"
+    },
+    {
+      "id": "short-baseline-w2-r1",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "baseline",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-baseline-w2-r1.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "d2963c069df87b81636266e598d3579e267b08417d15d30162cc20427e5bd29d",
+      "logSha256": "607cc808b08634796234d4949f58d5dd6247778e6f95d0501917238467c21d2b"
+    },
+    {
+      "id": "short-quarter-w1-r2",
+      "profile": "quarter",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "quarter",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-quarter-w1-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "b3f22a2ac028e6506f6072b80d5eb45ed032c1e308a60ab119dd0201e6e193be",
+      "logSha256": "f845e136244a4d646ec7c571058e6b5cfe1905ff42fb83af95638b129b1cb4e1"
+    },
+    {
+      "id": "short-half-w1-r2",
+      "profile": "half",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "half",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-half-w1-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "16bc533885112dd6f5318f09bf5162a30f6eb41032c04f37561cd18fc20bdfeb",
+      "logSha256": "7bc364ec9894305f65609136677fa73c7b973b3a67241793e15e5ba48586a5c1"
+    },
+    {
+      "id": "short-baseline-w1-r2",
+      "profile": "baseline",
+      "workers": 1,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--profile",
+        "baseline",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-baseline-w1-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "86c35f3970a44e8f8074e3e8f6948e7622445e86920c80cf9cebbe37dda17942",
+      "logSha256": "3920f3aa74ac32d04291349c79e05acf4a8ebdb89817e01e5af041d5159cc312"
+    },
+    {
+      "id": "short-baseline-w2-r2",
+      "profile": "baseline",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "baseline",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-baseline-w2-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "d7991bd7aeb3b75b0d0c5f60ddc369718335c70a93fd5ef6457c68cf2b8c11e8",
+      "logSha256": "8d4075add117994be15b11e534c684a30be67a033aaf5ba792af45e3c8156c11"
+    },
+    {
+      "id": "short-half-w2-r2",
+      "profile": "half",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "half",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-half-w2-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "b42bf3ea9a8dd372d7c0e33bc439490449cdae7847a0b3da6314121cd2b6f13c",
+      "logSha256": "bb1f5f87dcfc4e0c377bdb3e61142b0db4cd78d614d4ba3a01eee4a38bc95cc4"
+    },
+    {
+      "id": "short-quarter-w2-r2",
+      "profile": "quarter",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 60000,
+      "args": [
+        "scripts/verify-dlp.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--profile",
+        "quarter",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-dlp-stage18/docs/benchmarks/staged-dlp-stage18/short-quarter-w2-r2.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "rawSha256": "35bfce1cc026d91ae01d6fb88856a696bbbbce3ce8318eaf298cee927bad959f",
+      "logSha256": "6bbd530b0327b96aec569e47a81d173c88e5ad02ffb629aae1be222a83d8f2f4"
+    }
+  ],
+  "screen": null,
+  "completedAt": "2026-10-20T12:51:30.580Z",
+  "decision": {
+    "candidate": null,
+    "reason": "no-reproducible-short-improvement",
+    "requiredLongTrials": 0,
+    "profiles": [
+      {
+        "profile": "half",
+        "oneRatios": [
+          1,
+          1
+        ],
+        "twoRatios": [
+          0.8452012383900929,
+          0.8452012383900929
+        ],
+        "score": 0.8452012383900929,
+        "minYield": 273,
+        "minBaseline": 323,
+        "qualifies": false
+      },
+      {
+        "profile": "quarter",
+        "oneRatios": [
+          1,
+          1
+        ],
+        "twoRatios": [
+          0.8452012383900929,
+          0.8452012383900929
+        ],
+        "score": 0.8452012383900929,
+        "minYield": 273,
+        "minBaseline": 323,
+        "qualifies": false
+      }
+    ]
+  }
+}

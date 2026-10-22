@@ -1,0 +1,31 @@
+{
+  "measuredHead": "b25dfa54af9c0b585ee7e14cd6e3466e7cfca4be",
+  "scope": "Historical core acceptance and exact measured-head browser contracts. Final acceptance is recorded separately.",
+  "files": {
+    "fetch-red.log": "78aacfbfa0483032d961fa6168678162eecce1479d51277dc3255e06289eb870",
+    "fetch-final-unit.log": "82d5e5b8440d4cfdd41342628c99ff92b3b058f602b8262edaa107db9d448b41",
+    "fetch-fresh.log": "8284cb02c32daded263bcb48b6bf2e466f75ccc2e3774efb0716ff2386b74fbf",
+    "fetch-cache-verified.log": "50a1632b9f38c65476bd9bb492001888a0443333a49f4ef5b72e1bca9d844f1c",
+    "tests-core.log": "72bb18f9eee26a350234c98b603d56a5c0b4e46402c8b280105be5e909788c2e",
+    "check-core.log": "0661d48cc681c1b77447ceac995be2981dfd3d19c70f9171cd144f6928877e2a",
+    "native-core.log": "f16569207d657213f3ab86b273379296297c7804ba1d32197f791f66a3ff5a7f",
+    "browser-base-head.json": "3a343cbdac7273793344288547fafc7d08930f2471d1934be8d8e1b5707fd30f",
+    "browser-base-head.log": "92d20effe383e3fd1ccb9cdfedb5e325633a6031bef6ceba6effcfa3d1da050f",
+    "browser-lto-head.json": "211d7afb6936cea2276aa47b72a60699a53adb063cf8b9a7a87e2d2fbc68cb3e",
+    "browser-lto-head.log": "8a7a7757cbab097a34dbff24de31041fedca80796da832d841156a11fdaac1ae",
+    "benchmark-all.log": "269284ddaf5de0194882e75994f14209fef555bc28f11d3bbfe51d7478624209",
+    "ci-fetch-pr.json": "6e3a116b4280115193fc0738fcaf352fff85d306e09e306a773080f9064f559d",
+    "ci-fetch-push.json": "0a1cdd67828235562f26db555ca3885328b7d0dbd8d8032662fdce5f109f2b6d",
+    "ci-fetch-pr-full.log": "a7ce44a33a112c90b1df4b9df993699f06247dac3c85686568591c57dd0b66e4",
+    "ci-fetch-push-lab.log": "1466e3f8a837d7d0f05c2853ce764faa86b5f2a6b13e05ff69b3652ec6d522a2",
+    "ci-fetch-push-failed.log": "54b8d565045cf80d4bbfa37959fc2c7856c5dc6a059e4058c01ada3aa791f354",
+    "build-lto.log": "f84fc61291014c18ee52e38055696228ac7878e77d37887141581c433a431978",
+    "bundle-final.log": "04962a19643123482bbfffbb10dfec3ab20103f82b5ca6c574c76049c58aa848",
+    "transport-probes.json": "69f2e2dc593c29ee4d1e4eca7d86744f9d02cf5f848b14791ae30955eb49f6a5",
+    "tests-final-pre.log": "4a84b6ceb3029923013f9919cc719821e1e8d7d74f9d6bfa1dff229f7b78703d",
+    "check-final-pre.log": "a6da87f9cfee7cd71e3186e262ed7c44d1bad1ec5a1ba6586c185fc9af370dfe",
+    "supplement-ci-local.json": "237b5439c6a437b2896f23f92bc59954c1df9e374a3158c5a99baa7646fcd00e",
+    "supplement-ci-local.log": "c3a0ec5c89cee5a9ea723f08f01b3429af413b37b51107300b7c45cb32b1a99d",
+    "fetch-candidate-fresh.log": "b84dfd614ece5bbf3f979c50458e5afc2efb14e57d301c1f9dab8338689868d4"
+  }
+}

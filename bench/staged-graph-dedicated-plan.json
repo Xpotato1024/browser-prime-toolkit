@@ -1,0 +1,62 @@
+{
+  "id": "llm01-graph-dedicated-20261021-v1",
+  "source": "fixed campaign HEAD; builtin acceptedStage30 .907303727time1.010294PSS exact32proof",
+  "hypothesis": "same5compute roles:5combinedvs6dedicated;median>=5%fasterPSS<=1.10x",
+  "limits": {
+    "totalCalculationMs": 540000,
+    "startAvailableMiB": 4096,
+    "maxWasmMiB": 576,
+    "maxTransportMiB": 64,
+    "maxOutstanding": 8
+  },
+  "trials": [
+    {
+      "id": "contracts-six-dedicated",
+      "graph": "optimized",
+      "engine": "six-drop",
+      "slots": 8,
+      "coordinator": "dedicated",
+      "budgetMs": 30000
+    },
+    {
+      "id": "fixed-1-combined",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-2-dedicated",
+      "graph": "optimized",
+      "engine": "six-drop",
+      "slots": 8,
+      "coordinator": "dedicated",
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-3-dedicated",
+      "graph": "optimized",
+      "engine": "six-drop",
+      "slots": 8,
+      "coordinator": "dedicated",
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    },
+    {
+      "id": "fixed-4-combined",
+      "graph": "optimized",
+      "engine": "five-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "budgetMs": 120000
+    }
+  ]
+}

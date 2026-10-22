@@ -1,0 +1,2 @@
+{"id":"full-balanced-96-1","options":{"variant":"base","timeBudgetMs":15000,"seed":1,"workers":1,"streams":2,"operationBudget":2000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":9390.40000000596,"graph":{"rawRelations":974,"uniqueRelations":974,"duplicates":0,"full":11,"partial":963,"combined":0,"total":11,"polynomials":2,"vertices":1697,"components":734,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/pool-full-balanced-96-1-r0-w1.json

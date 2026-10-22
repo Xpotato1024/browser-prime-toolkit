@@ -1,0 +1,21 @@
+# 縮約行列構築前の不要filter配列解放（Stage39）
+
+固定基準はPR22報告head e1dae4b、実測head d1e0b865。RSA100は2220.175秒でproper divisor/independent probable判定まで成立した。peak requested482.72MiBはgraph marker22→23、縮約行列構築とfilter配列解放の重複中に現れ、Native quota solver stage5→6では増えていない。この具体的な保持重複だけを最後の低コスト候補として検証する。
+
+reduced_colsはVec<Vec<u32>>として値をコピーして所有する。その構築完了後、SparseBinaryMatrix::from_columns前へrow_cols/col_rows/col_alive/stack/row_mapのdropを移す。後段の同変数dropは除き、reduced_cols自身の解放は行列構築成功後のまま。fallback分岐、元matrix/columns、dependency復元のeliminations/alive_colsは保全する。関係式の損失・並べ替え・指数/LP情報の変更はしない。
+
+旧Native/patch/builder/測定原本は一切追随させない。別patch/receipt/moduleを作り、upstream/source/compiler/flags/hardcap/抽出quotaはStage38と同一。compiled source差分はf2/mod.rsの寿命移動と有限markerだけであることを検査する。Native1024は2clean一致、小さい初期memory/unshared max1024を維持する。
+
+## 先に固定する比較と採否
+
+第一段階はNode24.19.0上のNative WASM単体比較で、製品の実行環境変更や実ブラウザ性能値ではない。40/64桁の既存対照を各baseline/candidate/candidate/baselineの4回、1 childあたり30秒・最大1024family、8 child合計240秒＋起動/退役reserve合計120秒（外枠360秒）とする。1 childずつ直列、別build/test負荷なし、出力exclusive、head/source固定、開始WSL available4096MiB以上。Native mathは全packet・最終column bytes/counter/proper divisor一致を確認する。
+
+採否gateは64桁の同一受理prefixで全工程peak requested中央値10%以上減、request時間中央値10%超悪化なし、allocator失敗0。40桁は全math一致・非悪化を確認し、fallback経路に改善を強要しない。Native markerで早期解放の実live減を確認する。縮約構築区間の下限74.52MiBという容量見積りを、全工程peak削減の保証や速度予測には使わない。gate不成立なら負の結果を保持して不採用とし、追加の長時間比較へ進まない。
+
+第一gate成立時だけ、別の実Chrome固定headでRSA100を最大3600秒1回まで検証する。Stage38と同じco1024＋helper64×4、WASM合計1280/manual1536、5owner/8枠/64MiB輸送、Native quota640/linear事前832、Windows/WSL開始8192・実行中4096MiB、PSS3072MiB停止、鮮度30秒、cancel/deadline/全退役を維持する。巨大割当による限界探索はしない。
+
+大きい比較は既存成功prefix1280に固定してから抽出する計測専用host経路とし、全1280packet/counter、列・proper factorを基準へ照合する。通常入口や旧fixed-family収集専用contractは変えない。全工程peak requested10%以上減が大きい入力でも成立するかを確認する。1回ずつのwall timeから速度向上を断定しない。未達・失敗でも設定延長や再試行の拡大はしない。
+
+この候補を閉じた後に、既存採否一覧・正しさ・資源制限・最終headCI/独立reviewと合わせて実用上の停止判断を行う。新しい篩kernel/大型方式/無限パラメータ探索を増やさない。Ready/merge/releaseはその条件成立を確認するまで保留、サイト受入と本番切替は別工程である。
+
+原本と失敗をローカル保持し、repoは各2MiB以下の可逆gzip/base64＋SHA。Node core測定・実Chrome・要求heap/linear・Chrome RSS/PSSを明確に区別する。実機スマホの確認を代替したと主張しない。

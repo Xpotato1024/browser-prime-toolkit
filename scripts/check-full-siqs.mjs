@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {FULL_SIQS_BASE64} from '../src/full-siqs/bytes.js';
+const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),sha=b=>createHash('sha256').update(b).digest('hex');
+const receipt=JSON.parse(read('native/siqs-full/staged-build.json')),bytes=Buffer.from(FULL_SIQS_BASE64,'base64');
+assert.deepEqual(receipt.upstreams,JSON.parse(read('native/siqs-full/staged-upstreams.json')));assert.equal(sha(read('native/siqs-full/staged-link-map.txt')),receipt.linkMapSha256);
+assert.ok(!/libgmp|aprcl/.test(read('native/siqs-full/staged-link-map.txt').toString()));
+assert.equal(receipt.cleanBuilds,2);assert.equal(bytes.length,receipt.wasmBytes);assert.equal(sha(bytes),receipt.wasmSha256);
+assert.equal(sha(read('src/full-siqs/module.js')),receipt.glueSha256);
+for(const[p,h]of Object.entries(receipt.sourceHashes))assert.equal(sha(read(p)),h,'Full SIQS source pin '+p);
+const module=new WebAssembly.Module(bytes),imports=WebAssembly.Module.imports(module),exports=WebAssembly.Module.exports(module);
+assert.deepEqual(imports,receipt.imports);
+assert.ok(imports.every(i=>i.module==='a'&&i.kind==='function'&&/^[a-z]$/.test(i.name)));
+assert.equal(receipt.memoryBytes,536870912);assert.equal(receipt.saveBytes,134217728);assert.equal(receipt.stackBytes,4194304);assert.equal(receipt.growth,false);assert.equal(receipt.threads,1);
+const denied={};for(const i of imports){denied[i.module]??={};denied[i.module][i.name]=()=>{throw Error('Unexpected probe import');};}
+const instance=new WebAssembly.Instance(module,denied),memories=exports.filter(e=>e.kind==='memory');
+assert.equal(memories.length,1);const memory=instance.exports[memories[0].name];
+assert.equal(memory.buffer.byteLength,536870912);
+assert.throws(()=>memory.grow(1),RangeError);
+assert.ok(Object.hasOwn(receipt.patched,'common/lanczos/lanczos.c'));
+assert.ok(Object.hasOwn(receipt.patched,'mpqs/gf2.c'));
+console.log('Full SIQS: two clean builds, complete source pins, fixed 512MiB and rejected growth');

@@ -1,0 +1,79 @@
+✖ large perfect powers retain their full input and proven factorization (11.065393ms)
+✖ probable remains unproven after an independent host check (2.190099ms)
+✖ timeouts, operation limits, primes and neither have distinct classifications (0.6524ms)
+✖ identity, source methods, oversized snapshots and expired proof cannot become successes (1.503599ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.023309
+
+✖ failing tests:
+
+test at test/rsa/result.test.js:6:1
+✖ large perfect powers retain their full input and proven factorization (11.065393ms)
+  Error: Not implemented
+      at verifyRsaWorkerResult (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/result.js:1:47)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:7:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at test/rsa/result.test.js:10:1
+✖ probable remains unproven after an independent host check (2.190099ms)
+  Error: Not implemented
+      at verifyRsaWorkerResult (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/result.js:1:47)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:12:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/rsa/result.test.js:17:1
+✖ timeouts, operation limits, primes and neither have distinct classifications (0.6524ms)
+  Error: Not implemented
+      at verifyRsaWorkerResult (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/result.js:1:47)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:19:33)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/result.test.js:24:1
+✖ identity, source methods, oversized snapshots and expired proof cannot become successes (1.503599ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /proof expired/. Input:
+  
+  'Error: Not implemented'
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:29:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Not implemented
+        at verifyRsaWorkerResult (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/result.js:1:47)
+        at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:29:20
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/result.test.js:29:9)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12),
+    expected: /proof expired/,
+    operator: 'throws',
+    diff: 'simple'
+  }

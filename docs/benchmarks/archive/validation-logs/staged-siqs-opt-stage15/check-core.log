@@ -1,0 +1,58 @@
+
+> browser-prime-toolkit@0.1.0 check
+> node scripts/check-wasm.mjs && node scripts/check-candidates.mjs && node scripts/check-siqs.mjs && node scripts/build-worker.mjs --check && node scripts/build-worker.mjs --candidate --check && node scripts/build-worker.mjs --siqs --check && node scripts/build-worker.mjs --ecm-audit --check && node scripts/report-candidates.mjs --check && node scripts/report-siqs.mjs --check && node scripts/build-worker.mjs --native-only --check && node scripts/report-selection.mjs --check && node scripts/check-supplement.mjs && python3 scripts/certify-pm1-order.py --check && node scripts/report-supplement.mjs --check && node scripts/check-counted.mjs && node scripts/report-counted.mjs --check && node scripts/check-staged.mjs && node scripts/report-staged.mjs --check && node scripts/check-private-ui.mjs && node scripts/build-rsa-worker.mjs --check && npm run check:rsa-profile && npm run check:full-siqs && node scripts/check-long-history.mjs && npm run check:siqs-lab && npm run check:siqs-tuned && node scripts/check.mjs
+
+Verified WASM source pins, artifact hash, imports and exports
+Historical measurement and portable builder reproduce the identical WASM
+Verified private GMP/ECM artifact, pins, source hashes and 8 compile-only SIQS objects
+Verified actual 64MiB WASM hard maximum
+Verified SIQS pins, source hashes, exact artifact and 64MiB hard maximum
+Verified bundled Worker: 106073 bytes, no runtime imports
+Verified bundled Worker: 626759 bytes, no runtime imports
+Verified bundled Worker: 139059 bytes, no runtime imports
+Verified bundled Worker: 626803 bytes, no runtime imports
+Verified 204 individual + 32 pool receipts and derived report
+Verified 136 comparison receipts, actual faults, source binding and sampled RAM report
+Verified bundled Worker: 13174 bytes, no runtime imports
+Verified 18 fresh holdout trials, fixed selection policy, proofs/source binding and report
+Verified supplementary source pins, artifact, actual 64MiB hard maximum and read-only generated checks
+Verified 18 p−1 exact congruences including gcd=n and M127 base sensitivity
+Verified supplementary report, fixed receipts and current source bindings
+Verified counted SIQS source pins, two clean artifacts, actual hard 64MiB memories and read-only generation
+Verified 40 primary, 20 separate diagnostic, 4 lifecycle receipts, fixed source bindings and matrix parity identity
+Verified 90 training + 120 unused holdout trials, fixed training choice, 4 lifecycle receipts, exact results and current source bindings
+Verified generated staged repeated-measurement report
+Verified exact private UI receipt, source hashes, native input, copy, keyboard, AX, mobile, ownership and quiet runtime
+Verified isolated RSA native Worker 18295 bytes
+
+> browser-prime-toolkit@0.1.0 check:rsa-profile
+> node scripts/check-rsa-core.mjs && node scripts/check-rsa-profile.mjs && node scripts/report-rsa.mjs --check
+
+Verified RSA-only control-layer forks, unchanged shared math/clock and immutable 50M baseline archive
+Verified 53 exact RSA moduli, primary-source hashes, published checksums, bits/digits and factor-free browser catalog
+Verified RSA contracts receipt, exact source hashes, offline positive controls and isolated Worker ownership
+{"trials":5,"successes":0,"largestObservedSuccess":null,"requestWallMs":{"median":29977,"min":29976.39999999851,"max":29977.39999999851},"stopCounts":{"timeout/time-budget":5}}
+
+> browser-prime-toolkit@0.1.0 check:full-siqs
+> node scripts/check-full-siqs.mjs && node scripts/check-full-practical.mjs && node scripts/build-full-siqs-worker.mjs --check && node scripts/report-full-siqs.mjs --check
+
+Full SIQS: two clean builds, complete source pins, fixed 512MiB and rejected growth
+Verified full corpus: 62 moduli, 124 independently checked prime certificates; runtime N only
+Full SIQS Worker bytes 217031
+{"rawTrials":46,"completeTrials":20,"largestAllFourObservedByBudget":[{"budgetMs":3000,"digits":56},{"budgetMs":30000,"digits":64},{"budgetMs":180000,"digits":72}],"rsa100":[{"budgetMs":30000,"kind":"timeout","phase":3,"relations":{"total":15,"full":15,"combined":0,"partial":1601,"target":97743}},{"budgetMs":600000,"kind":"timeout","phase":3,"relations":{"total":507,"full":498,"combined":9,"partial":36638,"target":97743}}]}
+{"historicalRsa100":"timeout","reason":"time-budget","requestWallMs":599977.1000000015,"operations":1732078899,"sampledRam":{"samples":8063,"first":{"atMs":106.624172,"rssBytes":380928,"pssBytes":162816,"processes":1},"peakRssBytes":1313423360,"peakPssBytes":498042880,"maxProcesses":13},"unchangedComputationSources":true}
+
+> browser-prime-toolkit@0.1.0 check:siqs-lab
+> node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check && node scripts/report-siqs-lab.mjs --check
+
+SIQS lab: two clean builds, complete source pins, fixed 256MiB and rejected growth
+Lab Worker bytes 213342 1f783509b1165a05f1ad6b4d47ff63cebfff38bdf48b4952157e0e776ea943c7
+{"rawTrials":38,"stopCounts":{"verified":38},"pools":[{"caseId":"RSA-100","completeWork":true,"oneMs":[9710.60000000894,9638.09999999404],"twoMs":[4986,5071.5],"ratioOfMean":1.923808103405715},{"caseId":"full-balanced-96-1","completeWork":true,"oneMs":[9390.40000000596,9329.70000000298],"twoMs":[4887.20000000298,4804.600000008941],"ratioOfMean":1.9315400647955916}]}
+
+> browser-prime-toolkit@0.1.0 check:siqs-tuned
+> node scripts/check-siqs-tuned.mjs && node scripts/build-siqs-tuned-worker.mjs --check
+
+SIQS LTO: two clean builds, complete source pins, fixed 256MiB and rejected growth
+base 213348 b4d63b8b0418242cab9b078aaec00f189cb0f153c1553e7b04dafff091183314
+lto 285734 d4e10d1267e04563cbb6f0e5778a0ac77502ed55542baefa4c5f629f15fb458c
+Checked syntax, UTF-8/LF and Markdown paths in 802 files

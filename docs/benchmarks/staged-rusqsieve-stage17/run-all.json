@@ -1,0 +1,261 @@
+{
+  "plan": "rusqsieve-simd-stage17-v1",
+  "planSha256": "23d8cd4104939e7dcf7c313319fef3890144cde326c855d2fa715f29313def66",
+  "measuredHead": "0999af2b90f458d5c6808128793f831e5e7182f2",
+  "startedAt": "2026-10-20T10:29:29.883Z",
+  "trials": [
+    {
+      "id": "control-40-one-copy",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-40-1",
+        "--engine",
+        "one-copy",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-40-one-copy.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-40-one-drop",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-40-1",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-40-one-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-40-two-copy",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-40-1",
+        "--engine",
+        "two-copy",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-40-two-copy.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-40-two-drop",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-40-1",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-40-two-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-one-copy",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "one-copy",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-one-copy.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-one-drop",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-one-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-one-retain",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "one-retain",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-one-retain.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-two-copy",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "two-copy",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-two-copy.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-two-drop",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-two-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "control-64-two-retain",
+      "stage": "control",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "full-balanced-64-1",
+        "--engine",
+        "two-retain",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/control-64-two-retain.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-60s-two-copy",
+      "stage": "short",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-copy",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/rsa100-60s-two-copy.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-60s-two-drop",
+      "stage": "short",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "60000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/rsa100-60s-two-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-600s-one-drop",
+      "stage": "long",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "one-drop",
+        "--budget-ms",
+        "600000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/rsa100-600s-one-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    },
+    {
+      "id": "rsa100-600s-two-drop",
+      "stage": "long",
+      "args": [
+        "scripts/verify-rusqsieve.mjs",
+        "--case",
+        "RSA-100",
+        "--engine",
+        "two-drop",
+        "--budget-ms",
+        "600000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/docs/benchmarks/staged-rusqsieve-stage17/rsa100-600s-two-drop.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null
+    }
+  ],
+  "completedAt": "2026-10-20T10:52:39.289Z"
+}

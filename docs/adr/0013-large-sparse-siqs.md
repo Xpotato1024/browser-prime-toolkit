@@ -1,0 +1,20 @@
+# ADR0013: 大整数向けの独立full SIQS
+状態: private Draftの実装・検証段階。本人の大整数SIQS改善を優先し、Brentの追加RSA-100長時間試験を停止した。旧profile、原記録、source/artifactは変更しない。
+
+専用profileは0〜332bit・100十進桁までとする。0/1はWorkerなし、前処理後64bit未満は既存native Brent、64〜332bitの奇数compositeはfull SIQSへ渡す。332bitと100桁はAND条件で、333bitになる上側の100桁入力を拒否する。RSA-100は330bitで対象内。2048bit SIQS対応を主張しない。
+
+CrypTool msieve-wasmのcommit 2e46b2683be8f425e4fbb947d195d786cc4f866aのbuild構成を調査し、固定archiveのmsieve1.53を採用する。提供dist、式parser、時刻seed、暗黙rho/ECM/NFS dispatchを使用しない。canonical decimalと明示seedからfactor_mpqsへ直接入り、nontrivial divisorだけを返す。GMP6.1.2は元recipeとの再build材料として保全する。主要msieveはpublic domainだが、APR-CL/GMP等のlicenseは別記し、実link mapと原本の採用範囲を区別する。
+
+旧1.46のmp_t30 words/960bitに対し、1.53原本は32 words/1024bitである。最大multiplier73後のNは339bit未満。sqrtのA/B実bit長を各384以下へ検査し、offset31bitを含む再構成平方は832bit未満とする。mp_mul/単語乗算も格納容量を先に検査する。旧poly・factor append・line/token/parser・X²≡Y² guardをstrict counted patchで再利用する。
+
+relation filter、double-large-prime、post-processing、packed/unpacked block Lanczosを原本から保持する。旧1024列のdense snapshotは使わない。行100000、列150000、初期nnz16000000、cycle8192、原relation検算256000000項を有限上限とし、黙って切り詰めない。返却dependency64本を原relationのfactor-offsetから行ごとのuint64 XORで同時再検算する。Lanczos disk dump/restartは除去し、独立poll/stopと原cleanupを維持する。
+
+WASM initial=max512MiB、growth/pthreads無効、stack4MiB、C内save128MiBを含む。旧案の独自384MiB割当台帳を採用せず、固定線形memoryで封じ、MEMFSを使用しない。全Chrome RAMの標本RSS/PSSは別に記録する。OOM/unknown trap/中断後の同instance再利用を禁止し、単発Workerを退役させる。
+
+1 request/1 Worker、3/30/180/600秒の初期化込みhost deadline、初期化5秒、proof/cleanup余裕250msを置く。Cはuint64の有限1兆checkpoint、1024ステップとphase境界で時計確認する。細粒度C loopをBrentの100億へ機械的に揃えず、時間上限より早い停止もreasonと実countで報告する。hostは独立terminateし、自動再起動しない。tailも請求する。
+
+native ASan/UBSanで100桁/333bit/unterminated、2³²超counter、10万行のparityと偽dependency、各phase停止、通常cleanup/新規要求での回復を確認する。固定imageのnetworkなしclean build2回を一致させ、原本/patch/recipe/artifact/imports/memoryを保存する。非公開auditで実OOM/trap退役も検証する。
+
+40〜100桁の均衡半素数を2桁刻み・各2入力で先に固定し、hostだけにMR64/Pocklington証明付きoracleを保管する。runtimeへはNのみ配る。構成法による標本偏りと小標本を明記し、RSA-100も既知因数を与えず測る。toolのprobableはprovenへ変換せず、積と素数確度を分ける。
+
+Alpertronは95桁自動切替をhard capと解釈せず、10¹¹⁰想定の別候補として原本を保持する。今回のfull msieve実装を先に検証し、未計測の候補を速度で除外しない。公開/配布license採否/Ready/merge/deploy/site統合は含めない。

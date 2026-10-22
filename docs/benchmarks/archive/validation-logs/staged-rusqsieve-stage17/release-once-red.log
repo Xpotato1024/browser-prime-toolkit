@@ -1,0 +1,35 @@
+✔ recheck deadline: late-ready (2.787598ms)
+✔ recheck deadline: release-late (0.4086ms)
+✔ recheck deadline: late-extract (0.897399ms)
+✔ recheck deadline: retirement-late (0.6029ms)
+✔ retirement isolates exceptions: terminate-throws (0.828199ms)
+✔ retirement isolates exceptions: release-throws (0.2776ms)
+✖ retirement isolates exceptions: release-throws-once (0.9983ms)
+✔ normal owners are terminated and every Blob source is released (0.5611ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 212.031387
+
+✖ failing tests:
+
+test at test/rusqsieve-lifecycle.test.js:28:79
+✖ retirement isolates exceptions: release-throws-once (0.9983ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rusqsieve-stage17/test/rusqsieve-lifecycle.test.js:31:84)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

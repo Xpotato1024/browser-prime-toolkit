@@ -1,0 +1,5 @@
+Graph-release experiment derives from reviewed rusqsieve 0.5.0, commit 4b150834b57636f6ebc350a81321a15c1cd901d2.
+Upstream: Apache-2.0 OR MPL-2.0; see native/rusqsieve/LICENSE-APACHE and LICENSE-MPL.
+Original profiling, terminal extraction and buffer-lifetime patches: AGPL-3.0-only.
+Copyright (C) 2026 Xpotato.net / Xpotato1024.
+No public site integration or upstream affiliation is implied.

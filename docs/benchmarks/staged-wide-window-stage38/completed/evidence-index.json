@@ -1,0 +1,38 @@
+{
+  "encoding": "gzip+canonical-base64-lines76",
+  "head": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "files": {
+    "contracts-wide.json": {
+      "file": "contracts-wide.json.gz.base64",
+      "originalBytes": 40919,
+      "originalSha256": "83d855a9dd1417d8498dfd2ecac172f67386ce4eedcb362609698a9c1b69bdb0",
+      "compressedBytes": 14448,
+      "compressedSha256": "4efa66ec6c02f36c6b542a5922f995ce668a5c95089db3a0f4b43a59a8377759",
+      "encodedBytes": 19518
+    },
+    "contracts-wide.log": {
+      "file": "contracts-wide.log.gz.base64",
+      "originalBytes": 3277,
+      "originalSha256": "ed95e55878d1180e5cfe590172f00ead54d029d445061c97f955d0021ff669fa",
+      "compressedBytes": 509,
+      "compressedSha256": "4412e57f3fbf4958f465eefe51f857c141b51b962f6ca241af37fa5588d9660d",
+      "encodedBytes": 689
+    },
+    "wide-1024.json": {
+      "file": "wide-1024.json.gz.base64",
+      "originalBytes": 1090337,
+      "originalSha256": "d79e353bc8e056a999f09aeae047f4da21cfca8477bbbd389e2a1ce3c3118e6d",
+      "compressedBytes": 199250,
+      "compressedSha256": "035efc66d3548c057fb6e1b1d6c66006c1d936fbdfc4f2b9c84f9dcd4d05b76a",
+      "encodedBytes": 269164
+    },
+    "wide-1024.log": {
+      "file": "wide-1024.log.gz.base64",
+      "originalBytes": 195,
+      "originalSha256": "9c7ad9e2a5cdec95ceeb0b26343aa28931878c15d42a1ad9f02dd90618524465",
+      "compressedBytes": 180,
+      "compressedSha256": "f905f58690a446d39c8d4891d4d0e2e12c6bf177a7b4a264538e1460c6348bcc",
+      "encodedBytes": 244
+    }
+  }
+}

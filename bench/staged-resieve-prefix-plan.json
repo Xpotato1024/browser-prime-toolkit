@@ -1,0 +1,73 @@
+{
+  "id": "llm01-resieve-prefix-stage42",
+  "baselineHead": "81fa1bb886207335444e9e20d2daddd1e37b03c4",
+  "successfulReferenceHead": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "hypothesis": "Prime-outer prefix loop hoists roots, prime and inverse without extra scratch; exact factor ordering and non-short-circuit overflow remain.",
+  "runtime": "LLM-01 real Headless Chrome155, one combined coordinator/compute Worker",
+  "artifacts": {
+    "baseline": {
+      "path": "src/long-window/wasm-long-1024.js",
+      "sha256": "9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037"
+    },
+    "prefix": {
+      "path": "src/resieve-prefix/wasm-prefix-1024.js",
+      "sha256": "3b4ca1f1db0aed131fe7283a4283aeb99185938a71119e06420fb739d8a9ab95"
+    }
+  },
+  "limits": {
+    "totalCampaignMs": 480000,
+    "childBudgetMs": 90000,
+    "reservePerChildMs": 30000,
+    "families": 4,
+    "workers": 1,
+    "nativeHardmaxMiB": 1024,
+    "manualBudgetMiB": 1536,
+    "slots": 8,
+    "transportMiB": 64,
+    "credit": 2,
+    "clockCalls": 2000000,
+    "phases": 16,
+    "stackDepth": 16,
+    "startAvailableMiB": 4096,
+    "stopAvailableMiB": 4096,
+    "chromePssStopMiB": 1536,
+    "childJsHeapMiB": 128,
+    "maxReceiptBytes": 2097152,
+    "maxCandidates": 1,
+    "sideFramesPerWorker": 2048,
+    "retainedFramesPerWorker": 1
+  },
+  "gates": {
+    "identicalAllPacketsColumnsCounters": true,
+    "full40And64FactorEquality": true,
+    "overheadRatioMax": 1.1,
+    "candidateTimeRatioMax": 0.95,
+    "candidatePssRatioMax": 1.1
+  },
+  "trials": [
+    {
+      "id": "prefix-1-baseline",
+      "candidate": "prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "prefix-2-prefix",
+      "candidate": "prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "prefix-3-prefix",
+      "candidate": "prefix",
+      "graph": "prefix",
+      "budgetMs": 90000
+    },
+    {
+      "id": "prefix-4-baseline",
+      "candidate": "prefix",
+      "graph": "baseline",
+      "budgetMs": 90000
+    }
+  ]
+}

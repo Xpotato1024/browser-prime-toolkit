@@ -1,0 +1,18 @@
+✔ exact decimals survive Number boundaries and large prime values (15.000689ms)
+✔ perfect powers and duplicate factors have one structured exponent (1.395399ms)
+✔ probable factors stay unproven in visible and copied descriptions (0.563099ms)
+✔ partial and cancelled residuals never become prime factors (0.5537ms)
+✔ zero/one retain neither and the submitted identity is checked (0.4166ms)
+✔ scientific input is normalized exactly and only the fixed profile reaches the engine (5.758695ms)
+✔ invalid or out-of-profile values fail before allocating any engine (0.4381ms)
+✔ a canceling owner blocks a replacement until its request has settled (0.7855ms)
+✔ disposed sessions ignore late responses and never allocate another engine (0.504899ms)
+✔ fatal and invalid result rejection recover on a fresh explicit request (0.7694ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.775729

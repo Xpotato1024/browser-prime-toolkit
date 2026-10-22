@@ -1,0 +1,101 @@
+{
+  "id": "llm01-collection-hotpath-stage40",
+  "baselineHead": "de9c9d7bf8987ad50de6843740d5271ce5096505",
+  "successfulReferenceHead": "d1e0b865d14b702bd633fd739e05b2d3c772a1c1",
+  "hypothesis": "Resieve crossover 4 and sparse valid-root writes independently reduce the current measured hot paths; require exact arithmetic and uninstrumented comparisons.",
+  "runtime": "LLM-01 real Headless Chrome155, one combined coordinator/compute Worker",
+  "artifacts": {
+    "baseline": {
+      "path": "src/long-window/wasm-long-1024.js",
+      "sha256": "9db5ac2f3d70ae61c6a277ddbfbe6386775f575f29e8c1312298d0be7e269037"
+    },
+    "resieve4": {
+      "path": "src/collection-hotpath/wasm-resieve4-1024.js",
+      "sha256": "6c9d9d9fc85fc22be318863f7ec9b7641253b07b0d3aad5fe623d981c5ed4540"
+    },
+    "sparse": {
+      "path": "src/collection-hotpath/wasm-sparse-1024.js",
+      "sha256": "9b73c8787f9ee4328f9bfdebba84c2cf0e7ff9af38501931bc0f35ca3670ccd5"
+    }
+  },
+  "limits": {
+    "totalCampaignMs": 960000,
+    "childBudgetMs": 90000,
+    "reservePerChildMs": 30000,
+    "families": 4,
+    "workers": 1,
+    "nativeHardmaxMiB": 1024,
+    "manualBudgetMiB": 1536,
+    "slots": 8,
+    "transportMiB": 64,
+    "credit": 2,
+    "clockCalls": 2000000,
+    "phases": 16,
+    "stackDepth": 16,
+    "startAvailableMiB": 4096,
+    "stopAvailableMiB": 4096,
+    "chromePssStopMiB": 1536,
+    "childJsHeapMiB": 128,
+    "maxReceiptBytes": 2097152,
+    "maxCandidates": 2,
+    "sideFramesPerWorker": 2048,
+    "retainedFramesPerWorker": 1
+  },
+  "gates": {
+    "identicalAllPacketsColumnsCounters": true,
+    "full40And64FactorEquality": true,
+    "overheadRatioMax": 1.1,
+    "candidateTimeRatioMax": 0.95,
+    "candidatePssRatioMax": 1.1
+  },
+  "trials": [
+    {
+      "id": "resieve4-1-baseline",
+      "candidate": "resieve4",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve4-2-resieve4",
+      "candidate": "resieve4",
+      "graph": "resieve4",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve4-3-resieve4",
+      "candidate": "resieve4",
+      "graph": "resieve4",
+      "budgetMs": 90000
+    },
+    {
+      "id": "resieve4-4-baseline",
+      "candidate": "resieve4",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "sparse-1-baseline",
+      "candidate": "sparse",
+      "graph": "baseline",
+      "budgetMs": 90000
+    },
+    {
+      "id": "sparse-2-sparse",
+      "candidate": "sparse",
+      "graph": "sparse",
+      "budgetMs": 90000
+    },
+    {
+      "id": "sparse-3-sparse",
+      "candidate": "sparse",
+      "graph": "sparse",
+      "budgetMs": 90000
+    },
+    {
+      "id": "sparse-4-baseline",
+      "candidate": "sparse",
+      "graph": "baseline",
+      "budgetMs": 90000
+    }
+  ]
+}

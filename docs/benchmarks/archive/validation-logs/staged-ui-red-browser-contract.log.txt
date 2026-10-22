@@ -1,0 +1,17 @@
+{"tests":[{"name":"exact decimal, powers and repeated factors","pass":false,"error":"Missing UI element #integer-input"},{"name":"labels, invalid range, zero and one","pass":false,"error":"Missing UI element label[for=\"integer-input\"]"},{"name":"probable is explicit and copied","pass":false,"error":"Missing UI element #integer-input"},{"name":"partial residual has a distinct label","pass":false,"error":"Missing UI element #integer-input"},{"name":"copy success and rejection fallback","pass":false,"error":"Missing UI element #integer-input"},{"name":"old clipboard completion cannot change a newer result","pass":false,"error":"Missing UI element #integer-input"},{"name":"loading and running cancellation own at most one Worker","pass":false,"error":"Missing UI element #integer-input"},{"name":"fatal UI recovers on a new explicit request","pass":false,"error":"Missing UI element #integer-input"}],"created":0,"maxLive":0}
+{"fatal":[],"badEvents":[],"requests":[],"attached":[{"sessionId":"1C1F01E43AB8EF7A283C0A99A07F7F97","type":"page","url":"about:blank"}],"pending":[]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: [{"name":"exact decimal, powers and repeated factors","pass":false,"error":"Missing UI element #integer-input"},{"name":"labels, invalid range, zero and one","pass":false,"error":"Missing UI element label[for=\"integer-input\"]"},{"name":"probable is explicit and copied","pass":false,"error":"Missing UI element #integer-input"},{"name":"partial residual has a distinct label","pass":false,"error":"Missing UI element #integer-input"},{"name":"copy success and rejection fallback","pass":false,"error":"Missing UI element #integer-input"},{"name":"old clipboard completion cannot change a newer result","pass":false,"error":"Missing UI element #integer-input"},{"name":"loading and running cancellation own at most one Worker","pass":false,"error":"Missing UI element #integer-input"},{"name":"fatal UI recovers on a new explicit request","pass":false,"error":"Missing UI element #integer-input"}]
+    at file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/scripts/verify-private-ui.mjs:141:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

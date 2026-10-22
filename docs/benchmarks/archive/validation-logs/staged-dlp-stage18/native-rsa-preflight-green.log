@@ -1,0 +1,14 @@
+{"preflightOnly":true,"profile":"baseline","polynomials":2048,"raw":1448,"collector":{"full":29,"slp":350,"dlp":1069,"cycles":0,"vertices":2485,"treeEdges":1419,"usable":29,"ingested":1448},"configuration":{"version":1,"profile":"baseline","bits":330,"factorBaseBound":3250000,"intervalHalfWidth":524288,"singleLimit":"471250000","doubleLimit":"10932187500000000","lpBits":54,"thresholdAdjustment":-23,"factorBaseSize":116448}}
+{"preflightOnly":true,"profile":"half","polynomials":2048,"raw":1278,"collector":{"full":29,"slp":349,"dlp":900,"cycles":0,"vertices":2146,"treeEdges":1249,"usable":29,"ingested":1278},"configuration":{"version":1,"profile":"half","bits":330,"factorBaseBound":3250000,"intervalHalfWidth":524288,"singleLimit":"471250000","doubleLimit":"5408000000000000","lpBits":53,"thresholdAdjustment":-23,"factorBaseSize":116448}}
+{"preflightOnly":true,"profile":"quarter","polynomials":2048,"raw":1099,"collector":{"full":29,"slp":349,"dlp":721,"cycles":0,"vertices":1791,"treeEdges":1070,"usable":29,"ingested":1099},"configuration":{"version":1,"profile":"quarter","bits":330,"factorBaseBound":3250000,"intervalHalfWidth":524288,"singleLimit":"471250000","doubleLimit":"2704000000000000","lpBits":52,"thresholdAdjustment":-23,"factorBaseSize":116448}}
+✔ actual native profiles use identical coord/helper settings and fixed target (1357.791795ms)
+✔ actual serialized ingestion counters describe full and cycle yield (57.422213ms)
+✔ real RSA DLP packets reach the original collector for every named cutoff (24100.625765ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25614.033091

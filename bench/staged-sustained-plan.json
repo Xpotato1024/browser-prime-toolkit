@@ -1,0 +1,167 @@
+{
+  "id": "coordinator-sustained-stage23-20261020",
+  "baseline": "c1d91e7d0f9b53ea324de3df654b51c94c597288",
+  "case": "RSA-100",
+  "scheduler": "credit1",
+  "profile": "baseline",
+  "memoryMiB": 512,
+  "geometry": {
+    "factorBaseBound": 3250000,
+    "intervalHalfWidth": 524288,
+    "singleMultiplier": 145,
+    "doubleMultiplier": 1035,
+    "thresholdAdjustment": -23
+  },
+  "harness": {
+    "navigationMs": 30000,
+    "otherCdpMs": 5000,
+    "chromeStartupMs": 30000,
+    "automaticRetries": 0,
+    "streamAuditPendingBytes": 8388608,
+    "streamAuditPendingCalls": 4,
+    "maxDigestFamilies": 4096,
+    "maxProgressRows": 4096,
+    "ramSampleMs": 250,
+    "maxRamSamples": 4000
+  },
+  "fixedFamilies": 4,
+  "fixedBudgetMs": 60000,
+  "coordinatorTrials": [
+    {
+      "id": "coord-combined-r1",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "coord-dedicated-r1",
+      "coordinator": "dedicated",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 60000
+    },
+    {
+      "id": "coord-dedicated-r2",
+      "coordinator": "dedicated",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 60000
+    },
+    {
+      "id": "coord-combined-r2",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 60000
+    }
+  ],
+  "sustainedTrials": [
+    {
+      "id": "long-w2-r1",
+      "coordinator": "combined",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 300000
+    },
+    {
+      "id": "long-w4-r1",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 300000
+    },
+    {
+      "id": "long-w4-r2",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 300000
+    },
+    {
+      "id": "long-w2-r2",
+      "coordinator": "combined",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 300000
+    }
+  ],
+  "cancelControls": [
+    {
+      "id": "grown-cancel-w2",
+      "coordinator": "combined",
+      "workers": 2,
+      "budgetMs": 300000,
+      "cancelAfterMs": 120000
+    },
+    {
+      "id": "grown-cancel-w4",
+      "coordinator": "combined",
+      "workers": 4,
+      "budgetMs": 300000,
+      "cancelAfterMs": 120000
+    }
+  ],
+  "extensionTrials": [
+    {
+      "id": "extended-w2-r1",
+      "coordinator": "combined",
+      "workers": 2,
+      "repeat": 1,
+      "budgetMs": 600000
+    },
+    {
+      "id": "extended-w4-r1",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 1,
+      "budgetMs": 600000
+    },
+    {
+      "id": "extended-w4-r2",
+      "coordinator": "combined",
+      "workers": 4,
+      "repeat": 2,
+      "budgetMs": 600000
+    },
+    {
+      "id": "extended-w2-r2",
+      "coordinator": "combined",
+      "workers": 2,
+      "repeat": 2,
+      "budgetMs": 600000
+    }
+  ],
+  "selection": {
+    "pairedNumerator": 110,
+    "pairedDenominator": 100,
+    "claim": "collection only; no completion-time extrapolation",
+    "automaticAdoption": false
+  },
+  "budget": {
+    "fixedMaximumMs": 180000,
+    "coordinatorMs": 240000,
+    "sustainedMs": 1200000,
+    "cancelMs": 240000,
+    "conditionalExtensionMs": 2400000,
+    "totalMaximumMs": 4260000
+  },
+  "extensionGate": {
+    "all300Safe": true,
+    "allGrownCancelsSafe": true,
+    "both4vs2AtLeastRatio": "110/100",
+    "maxCoordinatorLinearRatio": "3/4",
+    "minAvailableHostMiB": 4096,
+    "mustStartBeforeUTC": "2026-10-20T20:30:00Z",
+    "noNewExplorationAfterUTC": "2026-10-20T22:00:00Z"
+  },
+  "memoryInvestigationGate": {
+    "wasmOOM": true,
+    "orCoordinatorLinearRatio": "9/10",
+    "mustHaveAllocationOrGrownLinearEvidence": true,
+    "allowedDesignCandidateMiB": 768,
+    "coordinatorCandidateMiB": 512,
+    "helpersMiB": 64,
+    "automaticBudgetIncrease": false
+  }
+}

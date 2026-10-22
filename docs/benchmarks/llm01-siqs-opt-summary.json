@@ -1,0 +1,5530 @@
+{
+  "plan": "siqs-opt-stage15-v1",
+  "measuredHead": "b25dfa54af9c0b585ee7e14cd6e3466e7cfca4be",
+  "rawTrials": 28,
+  "allFixedWork": true,
+  "equalBytes": true,
+  "byteEquivalence": {
+    "1": {
+      "observed": 24,
+      "hashes": [
+        "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721"
+      ]
+    },
+    "11": {
+      "observed": 24,
+      "hashes": [
+        "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769"
+      ]
+    }
+  },
+  "fullFactorizationClaim": false,
+  "groups": [
+    {
+      "workers": 1,
+      "engine": "base",
+      "variant": "base",
+      "wallMs": {
+        "count": 2,
+        "min": 9594.800000011921,
+        "mean": 9619.10000000149,
+        "max": 9643.39999999106
+      },
+      "ratioToBaseline": 1,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 1,
+      "engine": "base",
+      "variant": "clock16",
+      "wallMs": {
+        "count": 2,
+        "min": 9269.70000000298,
+        "mean": 9305.79999999702,
+        "max": 9341.89999999106
+      },
+      "ratioToBaseline": 1.0336671753105129,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 1,
+      "engine": "base",
+      "variant": "stride16k",
+      "wallMs": {
+        "count": 2,
+        "min": 9274.20000000298,
+        "mean": 9323.39999999851,
+        "max": 9372.59999999404
+      },
+      "ratioToBaseline": 1.031715897634235,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 1,
+      "engine": "lto",
+      "variant": "base",
+      "wallMs": {
+        "count": 2,
+        "min": 7829.29999999702,
+        "mean": 7833.5,
+        "max": 7837.70000000298
+      },
+      "ratioToBaseline": 1.2279440862962265,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 1,
+      "engine": "lto",
+      "variant": "clock16",
+      "wallMs": {
+        "count": 2,
+        "min": 7389.9000000059605,
+        "mean": 7396.85000000149,
+        "max": 7403.79999999702
+      },
+      "ratioToBaseline": 1.300431940623313,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 1,
+      "engine": "lto",
+      "variant": "stride16k",
+      "wallMs": {
+        "count": 2,
+        "min": 7338.20000000298,
+        "mean": 7388.10000000149,
+        "max": 7438
+      },
+      "ratioToBaseline": 1.3019720902531842,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "base",
+      "variant": "base",
+      "wallMs": {
+        "count": 2,
+        "min": 5122.300000011921,
+        "mean": 5123.250000007451,
+        "max": 5124.20000000298
+      },
+      "ratioToBaseline": 1,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "base",
+      "variant": "clock16",
+      "wallMs": {
+        "count": 2,
+        "min": 4953.9000000059605,
+        "mean": 4965.85000000149,
+        "max": 4977.79999999702
+      },
+      "ratioToBaseline": 1.0316964870074434,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "base",
+      "variant": "stride16k",
+      "wallMs": {
+        "count": 2,
+        "min": 4738.29999999702,
+        "mean": 4849.29999999702,
+        "max": 4960.29999999702
+      },
+      "ratioToBaseline": 1.0564926896687354,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "lto",
+      "variant": "base",
+      "wallMs": {
+        "count": 2,
+        "min": 4084.7999999970198,
+        "mean": 4148.44999999553,
+        "max": 4212.0999999940395
+      },
+      "ratioToBaseline": 1.2349793296322653,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "lto",
+      "variant": "clock16",
+      "wallMs": {
+        "count": 2,
+        "min": 3930.2999999970198,
+        "mean": 3964.2999999970198,
+        "max": 3998.2999999970198
+      },
+      "ratioToBaseline": 1.2923466942489978,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    },
+    {
+      "workers": 2,
+      "engine": "lto",
+      "variant": "stride16k",
+      "wallMs": {
+        "count": 2,
+        "min": 3892.1000000089407,
+        "mean": 3950.0500000044703,
+        "max": 4008
+      },
+      "ratioToBaseline": 1.2970088986219548,
+      "equivalentWorkAndBytes": true,
+      "allNativeVerified": true
+    }
+  ],
+  "horizons": [
+    {
+      "engine": "base",
+      "variant": "base",
+      "work": {
+        "count": 2,
+        "min": 20406348791,
+        "mean": 20504903671,
+        "max": 20603458551
+      },
+      "unique": {
+        "count": 2,
+        "min": 7052,
+        "mean": 7085.5,
+        "max": 7119
+      },
+      "full": {
+        "count": 2,
+        "min": 100,
+        "mean": 100,
+        "max": 100
+      },
+      "partial": {
+        "count": 2,
+        "min": 6952,
+        "mean": 6985.5,
+        "max": 7019
+      },
+      "cycles": {
+        "count": 2,
+        "min": 1,
+        "mean": 1,
+        "max": 1
+      },
+      "allNativeVerified": true
+    },
+    {
+      "engine": "lto",
+      "variant": "stride16k",
+      "work": {
+        "count": 2,
+        "min": 27765117758,
+        "mean": 27790859417,
+        "max": 27816601076
+      },
+      "unique": {
+        "count": 2,
+        "min": 9531,
+        "mean": 9538.5,
+        "max": 9546
+      },
+      "full": {
+        "count": 2,
+        "min": 146,
+        "mean": 146,
+        "max": 146
+      },
+      "partial": {
+        "count": 2,
+        "min": 9385,
+        "mean": 9392.5,
+        "max": 9400
+      },
+      "cycles": {
+        "count": 2,
+        "min": 2,
+        "mean": 2,
+        "max": 2
+      },
+      "allNativeVerified": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "short-w1-r0-base-base",
+      "stage": "short",
+      "engine": "base",
+      "variant": "base",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9643.39999999106,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.900000005960464,
+          "computeWallMs": 4737.0999999940395,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 27.299999997019768,
+          "computeWallMs": 4667.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 23.900000005960464,
+          "computeWallMs": 135.79999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 144,
+        "first": {
+          "atMs": 109.361833,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1355366400,
+        "peakPssBytes": 483739648,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-base-base.json",
+      "sha256": "fa3a2e9deb78f71e548c884ba031ef45c9e0fefa303ad432b13382d35d82290f",
+      "logSha256": "11e1f64228f2b72b994c3cadc40a1f0021cfaf72d2c5a33eb64a7350000689a7"
+    },
+    {
+      "id": "short-w1-r0-base-clock16",
+      "stage": "short",
+      "engine": "base",
+      "variant": "clock16",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9269.70000000298,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 47,
+          "computeWallMs": 4550.70000000298,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 26.5,
+          "computeWallMs": 4481.70000000298,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 26.700000002980232,
+          "computeWallMs": 135.29999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 138,
+        "first": {
+          "atMs": 116.057657,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1354854400,
+        "peakPssBytes": 486241280,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-base-clock16.json",
+      "sha256": "67885748c3866196b7c01a09b7f99deeda3d26bff1c13d44b9cea9caff28d8fe",
+      "logSha256": "bd78923a7121c71108c04a9a1fae7777640d6eda60cc3fbfd46b802b6318d0e0"
+    },
+    {
+      "id": "short-w1-r0-base-stride16k",
+      "stage": "short",
+      "engine": "base",
+      "variant": "stride16k",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9372.59999999404,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.19999998807907,
+          "computeWallMs": 4530.100000008941,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 26.799999997019768,
+          "computeWallMs": 4606.4000000059605,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 25.30000001192093,
+          "computeWallMs": 132.5,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 138,
+        "first": {
+          "atMs": 111.44996,
+          "rssBytes": 380928,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1354895360,
+        "peakPssBytes": 483482624,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-base-stride16k.json",
+      "sha256": "d16de0c9c59f1c22f95e055126d23e31947fc00fa2fd74eaaa85590775074c1c",
+      "logSha256": "4cfda86c4839dd9304bec5f12fd024eae2b5f07354eee0a4b54cfcd3f87ed222"
+    },
+    {
+      "id": "short-w1-r0-lto-base",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "base",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7837.70000000298,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 56.599999994039536,
+          "computeWallMs": 3790.800000011921,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 31.19999998807907,
+          "computeWallMs": 3769.800000011921,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 34.099999994039536,
+          "computeWallMs": 153.1000000089407,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 121,
+        "first": {
+          "atMs": 109.149539,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1356783616,
+        "peakPssBytes": 488929280,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-lto-base.json",
+      "sha256": "8ea7c731ae5bda922d123d720ca0afc489139d7ac2cf8da5eaebf1a9dc039cee",
+      "logSha256": "1ee1628fe284d4a4fae4a71e4c5799673f988dc567818989864146835e2c208d"
+    },
+    {
+      "id": "short-w1-r0-lto-clock16",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "clock16",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7403.79999999702,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 54,
+          "computeWallMs": 3579,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 32.20000000298023,
+          "computeWallMs": 3576.8999999910593,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.400000005960464,
+          "computeWallMs": 129.5,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 117,
+        "first": {
+          "atMs": 106.259256,
+          "rssBytes": 368640,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1355857920,
+        "peakPssBytes": 487405568,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-lto-clock16.json",
+      "sha256": "58b194c3ab0c2fe3ed3c06bfef049d5eb0d592138492b9bd8cb38eae87c484db",
+      "logSha256": "9b9fc7abc79a5aa8d89e8ed35758985a4d549f6831963dda94ae2e998bf8192f"
+    },
+    {
+      "id": "short-w1-r0-lto-stride16k",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7338.20000000298,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 56.6000000089407,
+          "computeWallMs": 3540.8999999910593,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 31.5,
+          "computeWallMs": 3550.800000011921,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 28.600000008940697,
+          "computeWallMs": 128,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 114,
+        "first": {
+          "atMs": 107.338823,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1352179712,
+        "peakPssBytes": 483246080,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r0-lto-stride16k.json",
+      "sha256": "e4d485e268dc8bfc073a8002822e87c29bcdf1cfefb79db5b729360286554ecb",
+      "logSha256": "640f1ea94027d441a32527369260cbf7b27b3b97e629962c495c758d8e68ad0c"
+    },
+    {
+      "id": "short-w1-r1-lto-stride16k",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7438,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 51.099999994039536,
+          "computeWallMs": 3549.9000000059605,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.799999997019768,
+          "computeWallMs": 3642.2999999970198,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.5,
+          "computeWallMs": 131.29999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 117,
+        "first": {
+          "atMs": 108.481852,
+          "rssBytes": 364544,
+          "pssBytes": 146432,
+          "processes": 1
+        },
+        "peakRssBytes": 1355378688,
+        "peakPssBytes": 485545984,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-lto-stride16k.json",
+      "sha256": "510c66e52b7deea27f62977e541ffddc8d4702f4c072ea2089918e14c32b2e57",
+      "logSha256": "a73e38b484edb419d0de995c8bbf7a1586068cdf6cdb946e7daa0897fd1c8bcb"
+    },
+    {
+      "id": "short-w1-r1-lto-clock16",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "clock16",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7389.9000000059605,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 53.79999999701977,
+          "computeWallMs": 3574.1000000089407,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.399999991059303,
+          "computeWallMs": 3569.300000011921,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 28.299999997019768,
+          "computeWallMs": 128.8999999910593,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 117,
+        "first": {
+          "atMs": 111.999335,
+          "rssBytes": 356352,
+          "pssBytes": 149504,
+          "processes": 1
+        },
+        "peakRssBytes": 1360068608,
+        "peakPssBytes": 491470848,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-lto-clock16.json",
+      "sha256": "462847173e77de55f7a157cd548e87d7c698da6fd84a9dd37fe434924c837a97",
+      "logSha256": "cc81e142bf0a60a56029263c2eb6172d7edef2615e877f59b02a7da3d6b36cb4"
+    },
+    {
+      "id": "short-w1-r1-lto-base",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "base",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 7829.29999999702,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 56.29999999701977,
+          "computeWallMs": 3797,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 29.899999991059303,
+          "computeWallMs": 3774.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 33.20000000298023,
+          "computeWallMs": 136.59999999403954,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 123,
+        "first": {
+          "atMs": 136.528415,
+          "rssBytes": 327680,
+          "pssBytes": 113664,
+          "processes": 1
+        },
+        "peakRssBytes": 1358630912,
+        "peakPssBytes": 488580096,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-lto-base.json",
+      "sha256": "5d7b304020f9fddd3e3030ccbbee1b3d777d1bc967f51044f01aa82c85e94032",
+      "logSha256": "f4fb9bb7209336e8424f9b9d5e2a0e7178b59d4b6e0b234e93a58471f8e81b86"
+    },
+    {
+      "id": "short-w1-r1-base-stride16k",
+      "stage": "short",
+      "engine": "base",
+      "variant": "stride16k",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9274.20000000298,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.20000000298023,
+          "computeWallMs": 4558,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 28.200000002980232,
+          "computeWallMs": 4477.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 24,
+          "computeWallMs": 133.90000000596046,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 135,
+        "first": {
+          "atMs": 108.173633,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1351553024,
+        "peakPssBytes": 482072576,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-base-stride16k.json",
+      "sha256": "c6476c9fe7c72ac618ce6934b01007bbfbb66d67d3968b0b43e98eab3c1fc895",
+      "logSha256": "16531396daba56c6dd958c7b116a8644c2db26c8ad34ef498327b8476bdf9d6f"
+    },
+    {
+      "id": "short-w1-r1-base-clock16",
+      "stage": "short",
+      "engine": "base",
+      "variant": "clock16",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9341.89999999106,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 54.400000005960464,
+          "computeWallMs": 4516.5,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 24.799999997019768,
+          "computeWallMs": 4586.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 24.700000002980232,
+          "computeWallMs": 132.79999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 138,
+        "first": {
+          "atMs": 110.918043,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1352794112,
+        "peakPssBytes": 485056512,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-base-clock16.json",
+      "sha256": "fdde35fb7bc4cedd7e2121f333db82b02225f9a893afee72737a685cd8a1b39b",
+      "logSha256": "35c9c76e6230cd8006c3cecd57d2786fd311b2b3ec7a938f54bfc85a4eb6325b"
+    },
+    {
+      "id": "short-w1-r1-base-base",
+      "stage": "short",
+      "engine": "base",
+      "variant": "base",
+      "workers": 1,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 9594.800000011921,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.29999999701977,
+          "computeWallMs": 4685.70000000298,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 25.799999997019768,
+          "computeWallMs": 4673.4000000059605,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 24.200000002980232,
+          "computeWallMs": 134.40000000596046,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 143,
+        "first": {
+          "atMs": 112.862922,
+          "rssBytes": 360448,
+          "pssBytes": 142336,
+          "processes": 1
+        },
+        "peakRssBytes": 1347678208,
+        "peakPssBytes": 482942976,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w1-r1-base-base.json",
+      "sha256": "ecbb0cdc6c9c780e82a068b1d950b4c2d129901c80785b14fb0855d878802709",
+      "logSha256": "84468f158c8ef93e7cb7c50c26bd180888f7d923ce22ab6188bf2a381a977e2e"
+    },
+    {
+      "id": "short-w2-r0-base-base",
+      "stage": "short",
+      "engine": "base",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 5124.20000000298,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 52.70000000298023,
+          "computeWallMs": 4892.70000000298,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 47.79999999701977,
+          "computeWallMs": 4908.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 26.599999994039536,
+          "computeWallMs": 134.90000000596046,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 85,
+        "first": {
+          "atMs": 106.138677,
+          "rssBytes": 389120,
+          "pssBytes": 171008,
+          "processes": 1
+        },
+        "peakRssBytes": 1404571648,
+        "peakPssBytes": 541120512,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-base-base.json",
+      "sha256": "2ce74ada95168ddf62ab39cf1b1c279bfa7b3d7b1fc2e4611f3e14cd7a6d585a",
+      "logSha256": "d65e272566849543b013419f7f27bd82e3f5f42df405ee53678796e722449cb3"
+    },
+    {
+      "id": "short-w2-r0-base-clock16",
+      "stage": "short",
+      "engine": "base",
+      "variant": "clock16",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4977.79999999702,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 58.5,
+          "computeWallMs": 4755.399999991059,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 52.900000005960464,
+          "computeWallMs": 4760,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 25.200000002980232,
+          "computeWallMs": 133.20000000298023,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 84,
+        "first": {
+          "atMs": 109.028537,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1410617344,
+        "peakPssBytes": 543031296,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-base-clock16.json",
+      "sha256": "ac5bf9c50d3eaaa9b38bc9887c463292696b860f6738fa951f2dc0a6cadefc3c",
+      "logSha256": "09034c5180043cd8b06eb344fbe8ec1cb8643f837f5ad5a964c11bf4fc182476"
+    },
+    {
+      "id": "short-w2-r0-base-stride16k",
+      "stage": "short",
+      "engine": "base",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4738.29999999702,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 57.70000000298023,
+          "computeWallMs": 4500.4000000059605,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 63.79999999701977,
+          "computeWallMs": 4515,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 24.400000005960464,
+          "computeWallMs": 133,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 86,
+        "first": {
+          "atMs": 119.11743,
+          "rssBytes": 385024,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1405333504,
+        "peakPssBytes": 536926208,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        },
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-base-stride16k.json",
+      "sha256": "08a8d24e22939e3878ead74c9d3b346b96a43cacb57f2c731a4df0a5977d759e",
+      "logSha256": "5dfdd38b9f03d1bc2f21f7ca840afafc745b0699e08902239e7d4756ea2e8779"
+    },
+    {
+      "id": "short-w2-r0-lto-base",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4084.7999999970198,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 59.3999999910593,
+          "computeWallMs": 3855.5,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 54.599999994039536,
+          "computeWallMs": 3865.7000000029802,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 28.400000005960464,
+          "computeWallMs": 130,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 75,
+        "first": {
+          "atMs": 107.89874,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1417121792,
+        "peakPssBytes": 547627008,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-lto-base.json",
+      "sha256": "a13fb8129a4d2bb692b1b0637d2abe66daa9b3a273337b46ba41c09ff2805b0e",
+      "logSha256": "9a14df6dd978359339158859c0eac68d3826ca72b405a99e33259633581cc129"
+    },
+    {
+      "id": "short-w2-r0-lto-clock16",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "clock16",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 3930.2999999970198,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 62.400000005960464,
+          "computeWallMs": 3695.0999999940395,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 55.20000000298023,
+          "computeWallMs": 3698,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 32.20000000298023,
+          "computeWallMs": 135.1000000089407,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 73,
+        "first": {
+          "atMs": 106.732056,
+          "rssBytes": 376832,
+          "pssBytes": 158720,
+          "processes": 1
+        },
+        "peakRssBytes": 1414766592,
+        "peakPssBytes": 547488768,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-lto-clock16.json",
+      "sha256": "47741d586d9716ce5da17c9d7e38cb189545f629103447bb2b0a41ce5ef93294",
+      "logSha256": "f780e551ed6f09574ddea64120ff48650448a61975bc129b5d33c13f40d950d6"
+    },
+    {
+      "id": "short-w2-r0-lto-stride16k",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 3892.1000000089407,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 53.19999998807907,
+          "computeWallMs": 3674.4000000059605,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49,
+          "computeWallMs": 3675.2999999970198,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 34,
+          "computeWallMs": 128.5,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 72,
+        "first": {
+          "atMs": 106.855358,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1410977792,
+        "peakPssBytes": 542854144,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r0-lto-stride16k.json",
+      "sha256": "1e6245fe7526863705703f766c70e25f1739a284603a063faafbe6f7e5d344bd",
+      "logSha256": "e42b472d6beceab41faae044c8ef8d8bbf7f3c0030af7db3c70ae78538914c1c"
+    },
+    {
+      "id": "short-w2-r1-lto-stride16k",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4008,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 58.79999999701977,
+          "computeWallMs": 3769.9000000059605,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 54.70000000298023,
+          "computeWallMs": 3789.4000000059605,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 29.100000008940697,
+          "computeWallMs": 129.5,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 73,
+        "first": {
+          "atMs": 114.975551,
+          "rssBytes": 385024,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1406029824,
+        "peakPssBytes": 543296512,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-lto-stride16k.json",
+      "sha256": "80b1d1bc8d7b0aeaa115db0342ab3c48743a535ce8a8cc56b411515347df9d5c",
+      "logSha256": "1ea92c74c431290e04cb10f2495ddb636be0f2793e9799d526a32e1331dca78d"
+    },
+    {
+      "id": "short-w2-r1-lto-clock16",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "clock16",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 3998.2999999970198,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 60.400000005960464,
+          "computeWallMs": 3769.5,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 63.1000000089407,
+          "computeWallMs": 3773.3999999910593,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 32,
+          "computeWallMs": 127.90000000596046,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 73,
+        "first": {
+          "atMs": 115.033143,
+          "rssBytes": 372736,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1417220096,
+        "peakPssBytes": 546689024,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        },
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-lto-clock16.json",
+      "sha256": "061669086289702adcbdd12cf95607bb4693396425316b03db54e4aa1e69fd90",
+      "logSha256": "1fd6aaa06a431a4b4a901a652a1dbe447987f12caa45833ab330ab67f31e1cb7"
+    },
+    {
+      "id": "short-w2-r1-lto-base",
+      "stage": "short",
+      "engine": "lto",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4212.0999999940395,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 56.599999994039536,
+          "computeWallMs": 3980.7000000029802,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 51.79999999701977,
+          "computeWallMs": 3981.2999999970198,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 34,
+          "computeWallMs": 138.20000000298023,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 74,
+        "first": {
+          "atMs": 114.887743,
+          "rssBytes": 372736,
+          "pssBytes": 154624,
+          "processes": 1
+        },
+        "peakRssBytes": 1408696320,
+        "peakPssBytes": 544992256,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-lto-base.json",
+      "sha256": "a4c58d682894b28ebc0a7072c80961f7559424b77e32d06571621682fb2b502c",
+      "logSha256": "0c5e57f31af8f61f43ad50629f8e87bcf0eb4e18f6fb3f3b254a806f7a3d3704"
+    },
+    {
+      "id": "short-w2-r1-base-stride16k",
+      "stage": "short",
+      "engine": "base",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4960.29999999702,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 60.900000005960464,
+          "computeWallMs": 4724.20000000298,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 48828,
+            "observedPeriodic": 48828,
+            "observedFlush": 4,
+            "observedDeliveries": 48832,
+            "clockCalls": 48831,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 65.09999999403954,
+          "computeWallMs": 4732.70000000298,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 528,
+            "observedPeriodic": 528,
+            "observedFlush": 3,
+            "observedDeliveries": 531,
+            "clockCalls": 531,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 27.100000008940697,
+          "computeWallMs": 133.69999998807907,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 83,
+        "first": {
+          "atMs": 109.139147,
+          "rssBytes": 389120,
+          "pssBytes": 171008,
+          "processes": 1
+        },
+        "peakRssBytes": 1407463424,
+        "peakPssBytes": 538432512,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        },
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-base-stride16k.json",
+      "sha256": "8c9ab5ec5b540d8726cb44b628fff8505d9a9a78358e9d1f79efe34e4d862766",
+      "logSha256": "48e8413af82db23f4ab9114bb73458e1a176b3c3b24d21cdc4b64e914a6d0741"
+    },
+    {
+      "id": "short-w2-r1-base-clock16",
+      "stage": "short",
+      "engine": "base",
+      "variant": "clock16",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 4953.9000000059605,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 50.400000005960464,
+          "computeWallMs": 4698,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 48828,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 45.1000000089407,
+          "computeWallMs": 4706.29999999702,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 528,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.899999991059303,
+          "computeWallMs": 164.90000000596046,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 83,
+        "first": {
+          "atMs": 106.269538,
+          "rssBytes": 376832,
+          "pssBytes": 162816,
+          "processes": 1
+        },
+        "peakRssBytes": 1412366336,
+        "peakPssBytes": 544344064,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-base-clock16.json",
+      "sha256": "98434be3f6d650c33d0e206222cf4f75d1e5de3eafabf37c8c8ffb0477b7bb23",
+      "logSha256": "626204ca0a8ea6d498af42c9fb046f35d7e3205e401c3292465639483b9173e8"
+    },
+    {
+      "id": "short-w2-r1-base-base",
+      "stage": "short",
+      "engine": "base",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 15000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 5122.300000011921,
+      "chargedOperations": 1608654222,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 552,
+        "uniqueRelations": 552,
+        "duplicates": 0,
+        "full": 8,
+        "partial": 544,
+        "combined": 0,
+        "total": 8,
+        "polynomials": 2,
+        "vertices": 970,
+        "components": 426
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20507,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760759,
+            787805327,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 64.79999999701977,
+          "computeWallMs": 4845.70000000298,
+          "blocks": 24861,
+          "basePolynomials": 1,
+          "derivedPolynomials": 691
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "operation-budget",
+          "normal": false,
+          "work": 800000000,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 20001,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            3760851,
+            787805235,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 781250,
+            "observedPeriodic": 781250,
+            "observedFlush": 3,
+            "observedDeliveries": 781253,
+            "clockCalls": 781252,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 61.29999999701977,
+          "computeWallMs": 4893.20000000298,
+          "blocks": 24840,
+          "basePolynomials": 1,
+          "derivedPolynomials": 690
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 8653198,
+          "graphWork": 1024,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 40424,
+          "verifiedRelations": 552,
+          "phaseWork": [
+            0,
+            8653197,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 8450,
+            "observedPeriodic": 8450,
+            "observedFlush": 3,
+            "observedDeliveries": 8453,
+            "clockCalls": 8453,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 25.700000002980232,
+          "computeWallMs": 134.8999999910593,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 88,
+        "first": {
+          "atMs": 114.614238,
+          "rssBytes": 380928,
+          "pssBytes": 166912,
+          "processes": 1
+        },
+        "peakRssBytes": 1411919872,
+        "peakPssBytes": 543222784,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20507,
+          "sha256": "3a613aa26fe51884f810f8dc8b68f7d219fc305313dd6c12d83b6ae26e3c8721",
+          "localGraph": {
+            "rawRelations": 279,
+            "uniqueRelations": 279,
+            "duplicates": 0,
+            "full": 2,
+            "partial": 277,
+            "combined": 0,
+            "total": 2,
+            "polynomials": 1,
+            "vertices": 487,
+            "components": 210
+          }
+        },
+        {
+          "seed": 11,
+          "work": 800000000,
+          "allowance": 800000000,
+          "stop": "operation-budget",
+          "bytes": 20001,
+          "sha256": "c036365d47c8b1edd85bfa2dd59d49bc706ec70d2267ecc4fa693f620b2b0769",
+          "localGraph": {
+            "rawRelations": 273,
+            "uniqueRelations": 273,
+            "duplicates": 0,
+            "full": 6,
+            "partial": 267,
+            "combined": 0,
+            "total": 6,
+            "polynomials": 1,
+            "vertices": 484,
+            "components": 217
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/short-w2-r1-base-base.json",
+      "sha256": "fa8b828caceb766a22d4d15721a1cb6ac44e4388b8693be6ab40a6978731988d",
+      "logSha256": "4daeaa32f03d9fb615eaeab6b6f9fd99d6c144e79174ca0594256436fc1f0291"
+    },
+    {
+      "id": "long-r0-base-base",
+      "stage": "long",
+      "engine": "base",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 59159.5,
+      "chargedOperations": 20406348791,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 7052,
+        "uniqueRelations": 7052,
+        "duplicates": 0,
+        "full": 100,
+        "partial": 6952,
+        "combined": 1,
+        "total": 101,
+        "polynomials": 6,
+        "vertices": 12233,
+        "components": 5282
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 10181764096,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 261379,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11283636,
+            10162046546,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 9943129,
+            "observedPeriodic": 9943129,
+            "observedFlush": 7,
+            "observedDeliveries": 9943136,
+            "clockCalls": 9943136,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.6000000089407,
+          "computeWallMs": 58873.20000000298,
+          "blocks": 320832,
+          "basePolynomials": 3,
+          "derivedPolynomials": 8912
+        },
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 10213836800,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 256308,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11280273,
+            10194122613,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 9974450,
+            "observedPeriodic": 9974450,
+            "observedFlush": 7,
+            "observedDeliveries": 9974457,
+            "clockCalls": 9974457,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 53.30000001192093,
+          "computeWallMs": 58874.09999999404,
+          "blocks": 322091,
+          "basePolynomials": 3,
+          "derivedPolynomials": 8947
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 10730971,
+          "graphWork": 16924,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 517603,
+          "verifiedRelations": 7052,
+          "phaseWork": [
+            0,
+            10730970,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 10479,
+            "observedPeriodic": 10479,
+            "observedFlush": 3,
+            "observedDeliveries": 10482,
+            "clockCalls": 10482,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 26.400000005960464,
+          "computeWallMs": 200.09999999403954,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 728,
+        "first": {
+          "atMs": 107.614041,
+          "rssBytes": 364544,
+          "pssBytes": 146432,
+          "processes": 1
+        },
+        "peakRssBytes": 1412276224,
+        "peakPssBytes": 542712832,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 11,
+          "work": 10181764096,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 261379,
+          "sha256": "3c68a3873fd49882157fb27ed3595d339085e407b66a816b770b8a84c7c29355",
+          "localGraph": {
+            "rawRelations": 3562,
+            "uniqueRelations": 3562,
+            "duplicates": 0,
+            "full": 59,
+            "partial": 3503,
+            "combined": 0,
+            "total": 59,
+            "polynomials": 3,
+            "vertices": 6175,
+            "components": 2672
+          }
+        },
+        {
+          "seed": 1,
+          "work": 10213836800,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 256308,
+          "sha256": "167cb76e2ee44b43e0ed0e65fb02570be1c265782575eed5e7391ddf7211f4f5",
+          "localGraph": {
+            "rawRelations": 3490,
+            "uniqueRelations": 3490,
+            "duplicates": 0,
+            "full": 41,
+            "partial": 3449,
+            "combined": 0,
+            "total": 41,
+            "polynomials": 3,
+            "vertices": 6081,
+            "components": 2632
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/long-r0-base-base.json",
+      "sha256": "6ef5d600b0773b6a1f26a371f624cdbc79a19fab3a5054b94567f591ff859931",
+      "logSha256": "eb66e0d70037b211993a95b73ad7d282a24bd6ef217f502b0dd45f125f584cb8"
+    },
+    {
+      "id": "long-r1-lto-stride16k",
+      "stage": "long",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 59172.79999999702,
+      "chargedOperations": 27816601076,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 9546,
+        "uniqueRelations": 9546,
+        "duplicates": 0,
+        "full": 146,
+        "partial": 9400,
+        "combined": 2,
+        "total": 148,
+        "polynomials": 6,
+        "vertices": 16551,
+        "components": 7153
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 13912031232,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 353925,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11283636,
+            13892313682,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 849123,
+            "observedPeriodic": 849123,
+            "observedFlush": 7,
+            "observedDeliveries": 849130,
+            "clockCalls": 849130,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 62.80000001192093,
+          "computeWallMs": 58863.09999999404,
+          "blocks": 438608,
+          "basePolynomials": 3,
+          "derivedPolynomials": 12184
+        },
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 13893058560,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 346784,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11280273,
+            13873344373,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 847965,
+            "observedPeriodic": 847965,
+            "observedFlush": 7,
+            "observedDeliveries": 847972,
+            "clockCalls": 847972,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 65.59999999403954,
+          "computeWallMs": 58864,
+          "blocks": 438174,
+          "basePolynomials": 3,
+          "derivedPolynomials": 12172
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 11488824,
+          "graphWork": 22460,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 700625,
+          "verifiedRelations": 9546,
+          "phaseWork": [
+            0,
+            11488823,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 701,
+            "observedPeriodic": 701,
+            "observedFlush": 3,
+            "observedDeliveries": 704,
+            "clockCalls": 704,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 31.600000008940697,
+          "computeWallMs": 206.79999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 751,
+        "first": {
+          "atMs": 111.916739,
+          "rssBytes": 368640,
+          "pssBytes": 150528,
+          "processes": 1
+        },
+        "peakRssBytes": 1408278528,
+        "peakPssBytes": 544175104,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 11,
+          "work": 13912031232,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 353925,
+          "sha256": "6452cb686ce4430f65df03d0bc3aed6cd416e4c365f93c50b137a38cb9132fa6",
+          "localGraph": {
+            "rawRelations": 4821,
+            "uniqueRelations": 4821,
+            "duplicates": 0,
+            "full": 88,
+            "partial": 4733,
+            "combined": 1,
+            "total": 89,
+            "polynomials": 3,
+            "vertices": 8357,
+            "components": 3625
+          }
+        },
+        {
+          "seed": 1,
+          "work": 13893058560,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 346784,
+          "sha256": "9eb1a9a07fb5f3121ebb7e6ef4cc6ed44274a4d116e307708c26cf190c707ef9",
+          "localGraph": {
+            "rawRelations": 4725,
+            "uniqueRelations": 4725,
+            "duplicates": 0,
+            "full": 58,
+            "partial": 4667,
+            "combined": 0,
+            "total": 58,
+            "polynomials": 3,
+            "vertices": 8234,
+            "components": 3567
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/long-r1-lto-stride16k.json",
+      "sha256": "0e918413db475a203eaf9c3bdceed62b78af89e1a8da8cd5c44e7048330e4b02",
+      "logSha256": "9c952ce540223ede8bb7b6495b6d3585e50be944d6232e8b3884f81817d520cb"
+    },
+    {
+      "id": "long-r2-lto-stride16k",
+      "stage": "long",
+      "engine": "lto",
+      "variant": "stride16k",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 59177.40000000596,
+      "chargedOperations": 27765117758,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 9531,
+        "uniqueRelations": 9531,
+        "duplicates": 0,
+        "full": 146,
+        "partial": 9385,
+        "combined": 2,
+        "total": 148,
+        "polynomials": 6,
+        "vertices": 16526,
+        "components": 7143
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 13881147392,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 346562,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11280273,
+            13861433205,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 847238,
+            "observedPeriodic": 847238,
+            "observedFlush": 7,
+            "observedDeliveries": 847245,
+            "clockCalls": 847245,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 67.90000000596046,
+          "computeWallMs": 58860.70000000298,
+          "blocks": 437823,
+          "basePolynomials": 3,
+          "derivedPolynomials": 12162
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 13872463872,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 353021,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11283636,
+            13852746322,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 846708,
+            "observedPeriodic": 846708,
+            "observedFlush": 7,
+            "observedDeliveries": 846715,
+            "clockCalls": 846715,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 60.900000005960464,
+          "computeWallMs": 58861.69999998808,
+          "blocks": 437400,
+          "basePolynomials": 3,
+          "derivedPolynomials": 12150
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 11484071,
+          "graphWork": 22423,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 699499,
+          "verifiedRelations": 9531,
+          "phaseWork": [
+            0,
+            11484070,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 700,
+            "observedPeriodic": 700,
+            "observedFlush": 3,
+            "observedDeliveries": 703,
+            "clockCalls": 703,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 30.900000005960464,
+          "computeWallMs": 212.79999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 752,
+        "first": {
+          "atMs": 115.617736,
+          "rssBytes": 372736,
+          "pssBytes": 161792,
+          "processes": 1
+        },
+        "peakRssBytes": 1412030464,
+        "peakPssBytes": 543649792,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 13881147392,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 346562,
+          "sha256": "1ff04d4295ca6180e38ba41c56ebbf95d85004bb1e968418e01e7bc5abdf6857",
+          "localGraph": {
+            "rawRelations": 4722,
+            "uniqueRelations": 4722,
+            "duplicates": 0,
+            "full": 58,
+            "partial": 4664,
+            "combined": 0,
+            "total": 58,
+            "polynomials": 3,
+            "vertices": 8229,
+            "components": 3565
+          }
+        },
+        {
+          "seed": 11,
+          "work": 13872463872,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 353021,
+          "sha256": "c4154d02a683d6c56425da935710c57ca6512c335d6ecc3d4238a9e34eebb5c7",
+          "localGraph": {
+            "rawRelations": 4809,
+            "uniqueRelations": 4809,
+            "duplicates": 0,
+            "full": 88,
+            "partial": 4721,
+            "combined": 1,
+            "total": 89,
+            "polynomials": 3,
+            "vertices": 8337,
+            "components": 3617
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/long-r2-lto-stride16k.json",
+      "sha256": "eab8b8d36caee899796aaece0b313c8fc73f35fc626c3aa7d585de662729eeeb",
+      "logSha256": "498a26c2a44949d60b8be51dcc3c89bf4138ddda99de4005e8eb9f4343c39a7c"
+    },
+    {
+      "id": "long-r3-base-base",
+      "stage": "long",
+      "engine": "base",
+      "variant": "base",
+      "workers": 2,
+      "budgetMs": 60000,
+      "kind": "verified",
+      "error": null,
+      "elapsedMs": 59155,
+      "chargedOperations": 20603458551,
+      "hostStops": [],
+      "graph": {
+        "rawRelations": 7119,
+        "uniqueRelations": 7119,
+        "duplicates": 0,
+        "full": 100,
+        "partial": 7019,
+        "combined": 1,
+        "total": 101,
+        "polynomials": 6,
+        "vertices": 12355,
+        "components": 5337
+      },
+      "nativeVerified": true,
+      "target": 97743,
+      "phases": [
+        {
+          "phase": "collect",
+          "seed": 1,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 10296568832,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 258132,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11280273,
+            10276854645,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 10055243,
+            "observedPeriodic": 10055243,
+            "observedFlush": 7,
+            "observedDeliveries": 10055250,
+            "clockCalls": 10055250,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 55,
+          "computeWallMs": 58873.60000000894,
+          "blocks": 324720,
+          "basePolynomials": 3,
+          "derivedPolynomials": 9020
+        },
+        {
+          "phase": "collect",
+          "seed": 11,
+          "stop": "time-budget",
+          "normal": false,
+          "work": 10296121344,
+          "graphWork": 0,
+          "nativePhase": 3,
+          "nnz": 0,
+          "saveBytes": 264483,
+          "verifiedRelations": 0,
+          "phaseWork": [
+            0,
+            8433914,
+            11283636,
+            10276403794,
+            0,
+            0,
+            0
+          ],
+          "notifications": {
+            "derivedPeriodic": 10054806,
+            "observedPeriodic": 10054806,
+            "observedFlush": 7,
+            "observedDeliveries": 10054813,
+            "clockCalls": 10054813,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 49.79999999701977,
+          "computeWallMs": 58874.40000000596,
+          "blocks": 324485,
+          "basePolynomials": 3,
+          "derivedPolynomials": 9014
+        },
+        {
+          "phase": "merge",
+          "seed": 1,
+          "stop": "collected",
+          "normal": true,
+          "work": 10751330,
+          "graphWork": 17045,
+          "nativePhase": 6,
+          "nnz": 0,
+          "saveBytes": 522531,
+          "verifiedRelations": 7119,
+          "phaseWork": [
+            0,
+            10751329,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "notifications": {
+            "derivedPeriodic": 10499,
+            "observedPeriodic": 10499,
+            "observedFlush": 3,
+            "observedDeliveries": 10502,
+            "clockCalls": 10502,
+            "probeClockCalls": 0
+          },
+          "initializationMs": 25.799999997019768,
+          "computeWallMs": 195.29999999701977,
+          "blocks": 0,
+          "basePolynomials": 0,
+          "derivedPolynomials": 0
+        }
+      ],
+      "sampledRam": {
+        "samples": 753,
+        "first": {
+          "atMs": 110.677744,
+          "rssBytes": 364544,
+          "pssBytes": 149504,
+          "processes": 1
+        },
+        "peakRssBytes": 1408978944,
+        "peakPssBytes": 541432832,
+        "maxProcesses": 13
+      },
+      "streams": [
+        {
+          "seed": 1,
+          "work": 10296568832,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 258132,
+          "sha256": "af623bbd7e39a521d379aa2701da63ed55f501cca126aa0e48e5aadffe037ec1",
+          "localGraph": {
+            "rawRelations": 3515,
+            "uniqueRelations": 3515,
+            "duplicates": 0,
+            "full": 41,
+            "partial": 3474,
+            "combined": 0,
+            "total": 41,
+            "polynomials": 3,
+            "vertices": 6128,
+            "components": 2654
+          }
+        },
+        {
+          "seed": 11,
+          "work": 10296121344,
+          "allowance": 400000000000,
+          "stop": "time-budget",
+          "bytes": 264483,
+          "sha256": "f3429efd237422c7f886648b2472ff2464534e6ffd5355c6251fed832a25846e",
+          "localGraph": {
+            "rawRelations": 3604,
+            "uniqueRelations": 3604,
+            "duplicates": 0,
+            "full": 59,
+            "partial": 3545,
+            "combined": 0,
+            "total": 59,
+            "polynomials": 3,
+            "vertices": 6250,
+            "components": 2705
+          }
+        }
+      ],
+      "file": "docs/benchmarks/staged-siqs-opt-stage15/long-r3-base-base.json",
+      "sha256": "2338a90b783ffc06f639367f759debee8c4f733f79f59dfd8b627951b8b63696",
+      "logSha256": "014a719da21e21a6ecbb21ad044c65cceeb41b716bcc3b8af289a2ed7d686c7c"
+    }
+  ]
+}

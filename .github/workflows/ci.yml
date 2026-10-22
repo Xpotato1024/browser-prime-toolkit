@@ -1,0 +1,380 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # Two offline engine rebuilds plus native/browser regressions exceeded 15m.
+    # This finite job budget does not change individual calculation/retirement limits.
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          # Reports verify immutable measured commits as well as current sources.
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: test "$(npm --version)" = 11.19.0
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Rebuild reviewed WASM twice without network
+        run: npm run build:wasm -- --check
+      - name: Set isolated candidate source cache
+        run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
+      - name: Fetch and verify fixed candidate source and build tools
+        run: node scripts/fetch-reviewed-candidates.mjs
+      - name: Rebuild GMP and ECM twice offline; compile true SIQS objects
+        run: npm run build:candidates -- --check
+      - name: Rebuild bounded SIQS twice offline
+        run: npm run build:siqs -- --check
+      - run: npm run verify:siqs-native
+      - run: npm run verify:candidate-native
+      - run: npm run verify:candidate-primes
+      - run: npm run verify:selection-primes
+      - run: npm run verify:native
+      - run: npm test
+      - run: npm run check
+      - run: git diff --check
+      - name: Verify real browser worker, cancellation and quiet runtime
+        run: npm run verify:browser -- --out "$RUNNER_TEMP/prime-browser.json"
+        env:
+          CHROME_BIN: google-chrome
+      - name: Verify bounded SIQS and fatal ECM Worker retirement offline
+        run: npm run verify:siqs-browser -- --out "$RUNNER_TEMP/prime-siqs.json"
+        env:
+          CHROME_BIN: google-chrome
+      - name: Verify conservative selector and native-only Worker offline
+        run: npm run verify:selection-browser -- --out "$RUNNER_TEMP/prime-selection.json"
+        env:
+          CHROME_BIN: google-chrome
+      - name: Verify candidate browser worker and quiet offline runtime
+        run: npm run verify:candidate-browser -- --out "$RUNNER_TEMP/prime-candidates.json"
+        env:
+          CHROME_BIN: google-chrome
+  supplementary-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
+      - run: node scripts/fetch-reviewed-candidates.mjs
+      - run: node scripts/build-supplement.mjs
+      - run: git diff --exit-code -- src/engine/supplement-bytes.js native/gmp/supplement-build.json
+      - run: node scripts/build-supplement.mjs --native
+      - run: node scripts/check-supplement.mjs
+      - run: npm test
+      - run: node scripts/verify-supplement-ci.mjs --out "$RUNNER_TEMP/supplement.json"
+        env:
+          CHROME_BIN: google-chrome
+  counted-siqs-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/build-siqs-v2.mjs --check
+      - run: node scripts/build-siqs-v2.mjs --lanczos --check
+      - run: node scripts/build-siqs-v2.mjs --native
+      - run: node scripts/build-siqs-v2.mjs --lanczos --native
+      - run: npm test
+      - run: node scripts/check-counted.mjs
+      - run: |
+          for variant in legacy clock-gated dense lanczos; do
+            node scripts/benchmark-counted.mjs --mode lifecycle --variant "$variant" --out "$RUNNER_TEMP/counted-$variant.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+  staged-selection-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: node scripts/check-staged.mjs
+      - run: node scripts/report-staged.mjs --check
+      - run: |
+          for mode in brent ecm siqs p64; do
+            node scripts/benchmark-staged.mjs --mode lifecycle --variant "$mode" --out "$RUNNER_TEMP/staged-$mode.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+  private-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run check:private-ui
+      - name: Exact decimal UI, copy, lifecycle and quiet browser integration
+        run: node scripts/verify-private-ui-ci.mjs --out "$RUNNER_TEMP/private-ui.json"
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+  rsa-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run build:rsa-worker -- --check
+      - run: npm run check:rsa-profile
+      - name: RSA native profile contracts and offline Worker lifecycle
+        run: npm run verify:rsa-profile -- --out "$RUNNER_TEMP/rsa-profile.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check
+
+  full-siqs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/full-siqs" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs
+      - run: npm run build:full-siqs -- --check
+      - run: npm run verify:full-siqs-native
+      - run: npm test
+      - run: npm run check:full-siqs
+      - run: npm run verify:full-siqs -- --out "$RUNNER_TEMP/full-siqs.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check
+
+  siqs-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs
+      - run: node scripts/generate-siqs-lab-runtime.mjs --check
+      - run: node scripts/build-siqs-lab.mjs --check
+      - run: node scripts/build-siqs-lab-worker.mjs --check
+      - run: npm run verify:siqs-lab-native
+      - run: npm test
+      - run: npm run check:siqs-lab
+      - name: Bounded profiling and shared relation graph contracts offline
+        run: npm run verify:siqs-lab -- --out "$RUNNER_TEMP/siqs-lab.json"
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check
+
+  siqs-tuned:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-tuned" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs
+      - run: node scripts/build-siqs-tuned.mjs --check
+      - run: node scripts/build-siqs-tuned-worker.mjs --check
+      - run: node scripts/build-siqs-tuned.mjs --native
+      - run: npm test
+      - run: npm run check:siqs-tuned
+      - name: Fixed-memory baseline and LTO lifecycle, proof and quiet runtime
+        run: |
+          for engine in base lto; do
+            node scripts/verify-siqs-tuned.mjs --engine "$engine" --out "$RUNNER_TEMP/tuned-$engine.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+          PRIME_MEASURED_HEAD: ${{ github.sha }}
+      - run: git diff --check
+
+  dlp-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/dlp-*.test.js
+      - run: node scripts/check-dlp.mjs
+      - name: DLP profile/config/counters and original browser lifecycle offline
+        run: |
+          for profile in baseline half quarter; do
+            for engine in one-drop two-drop; do
+              node scripts/verify-dlp.mjs --profile "$profile" --engine "$engine" --out "$RUNNER_TEMP/dlp-$profile-$engine.json"
+            done
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+
+  scheduler-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/scheduler-*.test.js
+      - run: node scripts/check-scheduler.mjs
+      - name: Finite scheduler credits, real WASM lifecycle and quiet runtime
+        run: |
+          for scheduler in batch2 batch1 credit1; do
+            for engine in one-drop two-drop; do
+              node scripts/verify-scheduler.mjs --scheduler "$scheduler" --engine "$engine" --out "$RUNNER_TEMP/scheduler-$scheduler-$engine.json"
+            done
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+
+  geometry-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/geometry-*.test.js
+      - run: node scripts/check-geometry.mjs
+      - name: Named native geometry and bounded offline real Worker contracts
+        run: |
+          for profile in b325-m524 b250-m524 b325-m262 b250-m262; do
+            node scripts/verify-geometry.mjs --profile "$profile" --engine two-drop --out "$RUNNER_TEMP/geometry-$profile.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+  device-resource-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/resource-*.test.js
+      - run: npm run check:resources
+      - name: Finite1..4-owner real Worker contracts and private settings UI
+        run: |
+          for engine in one-drop two-drop three-drop four-drop; do
+            node scripts/verify-resources.mjs --engine "$engine" --out "$RUNNER_TEMP/resources-$engine.json"
+          done
+          node scripts/verify-resource-ui.mjs --out "$RUNNER_TEMP/resource-ui.json"
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check
+
+  coordinator-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test test/coordinator-*.test.js
+      - run: npm run check:coordinator
+      - run: node scripts/generate-coordinator-ci.mjs --check
+      - run: node scripts/report-coordinator-aborted.mjs --check
+      - run: node scripts/check-resource-source-index.mjs
+      - name: Dedicated coordinator offline contracts without performance trials
+        run: |
+          node scripts/verify-coordinator-ci.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
+          for engine in two-drop three-drop four-drop; do
+            node scripts/verify-coordinator-ci.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
+          done
+        env:
+          CHROME_BIN: google-chrome
+      - run: git diff --check

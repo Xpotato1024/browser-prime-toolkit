@@ -1,0 +1,112 @@
+✖ fixed 30-second deadline charges loading before the core grant and retires its owner (1.041499ms)
+✖ unsupported and neither results allocate nothing and keep the exact input (0.2577ms)
+✖ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.2391ms)
+✖ initialization and total timeouts are distinct, including a late-ready timer race (0.2289ms)
+✖ late terminal and proof work cannot report success beyond the same host deadline (0.2179ms)
+✖ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.2298ms)
+✖ oversized packet and source-release failure are fatal and never leak an owned Worker (0.205099ms)
+✖ failed termination closes the evaluator and disposal never accepts another job (0.206ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.409611
+
+✖ failing tests:
+
+test at test/rsa/evaluator.test.js:19:1
+✖ fixed 30-second deadline charges loading before the core grant and retires its owner (1.041499ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:20:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at test/rsa/evaluator.test.js:25:1
+✖ unsupported and neither results allocate nothing and keep the exact input (0.2577ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:26:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/rsa/evaluator.test.js:32:1
+✖ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.2391ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:34:23)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/evaluator.test.js:40:1
+✖ initialization and total timeouts are distinct, including a late-ready timer race (0.2289ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:41:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/evaluator.test.js:46:1
+✖ late terminal and proof work cannot report success beyond the same host deadline (0.2179ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:47:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/evaluator.test.js:50:1
+✖ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.2298ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:52:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/evaluator.test.js:60:1
+✖ oversized packet and source-release failure are fatal and never leak an owned Worker (0.205099ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:61:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/rsa/evaluator.test.js:65:1
+✖ failed termination closes the evaluator and disposal never accepts another job (0.206ms)
+  Error: Not implemented
+      at createRsaEvaluator (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/src/rsa/evaluator.js:1:44)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-rsa-stage11/test/rsa/evaluator.test.js:66:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

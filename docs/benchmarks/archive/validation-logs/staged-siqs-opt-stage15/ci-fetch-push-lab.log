@@ -1,0 +1,544 @@
+siqs-lab	Set up job	﻿2026-10-20T07:32:28.0056678Z Current runner version: '2.337.0'
+siqs-lab	Set up job	2026-10-20T07:32:28.0135293Z ##[group]Runner Image Provisioner
+siqs-lab	Set up job	2026-10-20T07:32:28.0136609Z Hosted Compute Agent
+siqs-lab	Set up job	2026-10-20T07:32:28.0137806Z Version: 20261012.601
+siqs-lab	Set up job	2026-10-20T07:32:28.0139035Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+siqs-lab	Set up job	2026-10-20T07:32:28.0151188Z Build Date: 2026-10-12T17:48:21Z
+siqs-lab	Set up job	2026-10-20T07:32:28.0152505Z Worker ID: {c0973a2b-bb04-4087-a9d1-418a42d0b2e1}
+siqs-lab	Set up job	2026-10-20T07:32:28.0153821Z Region: centralus
+siqs-lab	Set up job	2026-10-20T07:32:28.0154889Z Cloud: Azure
+siqs-lab	Set up job	2026-10-20T07:32:28.0155808Z ##[endgroup]
+siqs-lab	Set up job	2026-10-20T07:32:28.0158442Z ##[group]Operating System
+siqs-lab	Set up job	2026-10-20T07:32:28.0160029Z Ubuntu
+siqs-lab	Set up job	2026-10-20T07:32:28.0161023Z 24.04.5
+siqs-lab	Set up job	2026-10-20T07:32:28.0162158Z LTS
+siqs-lab	Set up job	2026-10-20T07:32:28.0163095Z ##[endgroup]
+siqs-lab	Set up job	2026-10-20T07:32:28.0163979Z ##[group]Runner Image
+siqs-lab	Set up job	2026-10-20T07:32:28.0165630Z Image: ubuntu-24.04
+siqs-lab	Set up job	2026-10-20T07:32:28.0166672Z Version: 20261012.334.1
+siqs-lab	Set up job	2026-10-20T07:32:28.0168698Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+siqs-lab	Set up job	2026-10-20T07:32:28.0192432Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+siqs-lab	Set up job	2026-10-20T07:32:28.0194424Z ##[endgroup]
+siqs-lab	Set up job	2026-10-20T07:32:28.0196276Z ##[group]GITHUB_TOKEN Permissions
+siqs-lab	Set up job	2026-10-20T07:32:28.0209708Z Contents: read
+siqs-lab	Set up job	2026-10-20T07:32:28.0210777Z Metadata: read
+siqs-lab	Set up job	2026-10-20T07:32:28.0211955Z ##[endgroup]
+siqs-lab	Set up job	2026-10-20T07:32:28.0215222Z Secret source: Actions
+siqs-lab	Set up job	2026-10-20T07:32:28.0217170Z Cache mode: write
+siqs-lab	Set up job	2026-10-20T07:32:28.0219043Z Prepare workflow directory
+siqs-lab	Set up job	2026-10-20T07:32:28.1225865Z Prepare all required actions
+siqs-lab	Set up job	2026-10-20T07:32:28.1296710Z Getting action download info
+siqs-lab	Set up job	2026-10-20T07:32:28.3686259Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+siqs-lab	Set up job	2026-10-20T07:32:28.4810214Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+siqs-lab	Set up job	2026-10-20T07:32:28.6868559Z Complete job name: siqs-lab
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-20T07:32:28.7679859Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7681082Z with:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7681548Z   persist-credentials: false
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7682127Z   repository: Xpotato1024/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7685822Z   token: ***
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7686248Z   ssh-strict: true
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7686684Z   ssh-user: git
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7687096Z   clean: true
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7687533Z   sparse-checkout-cone-mode: true
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7688061Z   fetch-depth: 1
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7688495Z   fetch-tags: false
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7688980Z   show-progress: true
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7689846Z   lfs: false
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7690274Z   submodules: false
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7690731Z   set-safe-directory: true
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7691245Z   allow-unsafe-pr-checkout: false
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.7692086Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.8942549Z Syncing repository: Xpotato1024/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.8948921Z ##[group]Getting Git version info
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.8951173Z Working directory is '/home/runner/work/browser-prime-toolkit/browser-prime-toolkit'
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.8953371Z [command]/usr/bin/git version
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9011653Z git version 2.55.0
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9054320Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9090906Z Temporarily overriding HOME='/home/runner/work/_temp/0ee86476-0a97-46a0-8ca6-ecbbb429c7f4' before making global git config changes
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9093957Z Adding repository directory to the temporary git global config as a safe directory
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9096530Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/browser-prime-toolkit/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9191712Z Deleting the contents of '/home/runner/work/browser-prime-toolkit/browser-prime-toolkit'
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9210713Z ##[group]Initializing the repository
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9219039Z [command]/usr/bin/git init /home/runner/work/browser-prime-toolkit/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9346145Z hint: Using 'master' as the name for the initial branch. This default branch name
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9558615Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9568156Z hint: to use in all of your new repositories, which will suppress this warning,
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9570024Z hint: call:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9570872Z hint:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9571873Z hint: 	git config --global init.defaultBranch <name>
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9573051Z hint:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9574116Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9575757Z hint: 'development'. The just-created branch can be renamed via this command:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9577126Z hint:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9578011Z hint: 	git branch -m <name>
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9578964Z hint:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9580656Z hint: Disable this message with "git config set advice.defaultBranchName false"
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9583097Z Initialized empty Git repository in /home/runner/work/browser-prime-toolkit/browser-prime-toolkit/.git/
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9587125Z [command]/usr/bin/git remote add origin https://github.com/Xpotato1024/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9591072Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9592502Z ##[group]Disabling automatic garbage collection
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9593759Z [command]/usr/bin/git config --local gc.auto 0
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9596733Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9598325Z ##[group]Setting up auth
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9600416Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:28.9627170Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1226381Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1231800Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1237175Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1241398Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1420109Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1465261Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1467065Z ##[group]Fetching the repository
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:29.1478801Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4d3a896e8f8e3d9dd30d76f04b694058e2bb6bb6:refs/remotes/origin/codex/siqs-lab-20261020
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2251385Z From https://github.com/Xpotato1024/browser-prime-toolkit
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2280985Z  * [new ref]         4d3a896e8f8e3d9dd30d76f04b694058e2bb6bb6 -> origin/codex/siqs-lab-20261020
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2311075Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2337622Z ##[group]Determining the checkout info
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2339651Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2340685Z [command]/usr/bin/git sparse-checkout disable
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2369587Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2433925Z ##[group]Checking out the ref
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.2436101Z [command]/usr/bin/git checkout --progress --force -B codex/siqs-lab-20261020 refs/remotes/origin/codex/siqs-lab-20261020
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3767096Z Switched to a new branch 'codex/siqs-lab-20261020'
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3770889Z branch 'codex/siqs-lab-20261020' set up to track 'origin/codex/siqs-lab-20261020'.
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3788196Z ##[endgroup]
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3838959Z [command]/usr/bin/git log -1 --format=%H
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3868787Z 4d3a896e8f8e3d9dd30d76f04b694058e2bb6bb6
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3883680Z ##[group]Removing auth
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3886676Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.3926764Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4194316Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4217318Z http.https://github.com/.extraheader
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4238065Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4281289Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4520420Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4556390Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+siqs-lab	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:32:30.4821388Z ##[endgroup]
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-20T07:32:30.5196085Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5197899Z with:
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5198827Z   node-version-file: .node-version
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5200236Z   always-auth: false
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5201240Z   check-latest: false
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5211029Z   token: ***
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.5211955Z ##[endgroup]
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.6821541Z Node version file is not JSON file
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.6840886Z Resolved .node-version as 24.19.0
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.6871270Z Attempting to download 24.19.0...
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.6971209Z (node:2155) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:30.6977455Z (Use `node --trace-deprecation ...` to show where the warning was created)
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:31.4840120Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-linux-x64.tar.gz
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:32.1748466Z Extracting ...
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:32.1916085Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/0d9d2cfd-36fd-4b7a-b681-ff8a63d73910 -f /home/runner/work/_temp/03b970ed-46fa-4643-b90f-98a0d0795919
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:33.5940747Z Adding to the cache ...
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:36.2361229Z ##[group]Environment details
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:36.5320330Z node: v24.19.0
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:36.5321266Z npm: 11.17.0
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:36.5329841Z yarn: 1.22.22
+siqs-lab	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:32:36.5359326Z ##[endgroup]
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	﻿2026-10-20T07:32:36.5525346Z ##[group]Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:36.5526098Z [36;1mnpm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund[0m
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:36.5824211Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:36.5824647Z ##[endgroup]
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.2213174Z 
+siqs-lab	Run npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.2224033Z changed 19 packages in 5s
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	﻿2026-10-20T07:32:41.2750360Z ##[group]Run npm ci --ignore-scripts --no-audit --no-fund
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.2750858Z [36;1mnpm ci --ignore-scripts --no-audit --no-fund[0m
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.2818896Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.2819457Z ##[endgroup]
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.6431210Z 
+siqs-lab	Run npm ci --ignore-scripts --no-audit --no-fund	2026-10-20T07:32:41.6432155Z up to date in 292ms
+siqs-lab	Run echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"	﻿2026-10-20T07:32:41.6576592Z ##[group]Run echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
+siqs-lab	Run echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"	2026-10-20T07:32:41.6577194Z [36;1mecho "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"[0m
+siqs-lab	Run echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"	2026-10-20T07:32:41.6641559Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"	2026-10-20T07:32:41.6641839Z ##[endgroup]
+siqs-lab	Run npm run fetch:reviewed-full-siqs	﻿2026-10-20T07:32:41.6765295Z ##[group]Run npm run fetch:reviewed-full-siqs
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.6765674Z [36;1mnpm run fetch:reviewed-full-siqs[0m
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.6823323Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.6823807Z env:
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.6824088Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.6824423Z ##[endgroup]
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.7909964Z 
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.7910941Z > browser-prime-toolkit@0.1.0 fetch:reviewed-full-siqs
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.7911775Z > node scripts/fetch-reviewed-full-siqs.mjs
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:41.7912225Z 
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:42.8423895Z {"file":"msieve153_src.tar.gz","bytes":976135,"sha256":"c5fcbaaff266a43aa8bca55239d5b087d3e3f138d1a95d75b776c04ce4d93bb4","source":"verified-download","url":"https://sourceforge.net/projects/msieve/files/msieve/Msieve%20v1.53/msieve153_src.tar.gz/download","attempts":[{"url":"https://sourceforge.net/projects/msieve/files/msieve/Msieve%20v1.53/msieve153_src.tar.gz/download","status":0,"http":"200","detail":""}]}
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:46.9235605Z {"file":"gmp-6.1.2.tar.lz","bytes":1939430,"sha256":"12fed0532d440d2dc902e64f016aa89a33af6044b90bd1f7bca7396635105dbb","source":"verified-download","url":"https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz","attempts":[{"url":"https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz","status":0,"http":"200","detail":""}]}
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:47.7253004Z {"file":"m4_1.4.18-5ubuntu2_amd64.deb","bytes":198836,"sha256":"572a544d2c18bf49d25c465720c570cd8e6e38731386ac9c0a7f29bed2486f3e","source":"verified-download","url":"https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb","attempts":[{"url":"https://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.18-5ubuntu2_amd64.deb","status":0,"http":"200","detail":""}]}
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:47.8852526Z {"file":"libsigsegv2_2.13-1ubuntu3_amd64.deb","bytes":14612,"sha256":"894fcb0804df54dca59edbd0860d6f3eeac25d1555aebd3fa99d80665969f891","source":"verified-download","url":"https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb","attempts":[{"url":"https://archive.ubuntu.com/ubuntu/pool/main/libs/libsigsegv/libsigsegv2_2.13-1ubuntu3_amd64.deb","status":0,"http":"200","detail":""}]}
+siqs-lab	Run npm run fetch:reviewed-full-siqs	2026-10-20T07:32:47.8856501Z Verified all 4 fixed full SIQS sources
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	﻿2026-10-20T07:32:47.8996588Z ##[group]Run node scripts/generate-siqs-lab-runtime.mjs --check
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	2026-10-20T07:32:47.8997110Z [36;1mnode scripts/generate-siqs-lab-runtime.mjs --check[0m
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	2026-10-20T07:32:47.9060733Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	2026-10-20T07:32:47.9061008Z env:
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	2026-10-20T07:32:47.9061282Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run node scripts/generate-siqs-lab-runtime.mjs --check	2026-10-20T07:32:47.9061639Z ##[endgroup]
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	﻿2026-10-20T07:32:47.9451135Z ##[group]Run node scripts/build-siqs-lab.mjs --check
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:32:47.9451618Z [36;1mnode scripts/build-siqs-lab.mjs --check[0m
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:32:47.9514083Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:32:47.9514382Z env:
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:32:47.9514680Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:32:47.9515068Z ##[endgroup]
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:35:22.7447455Z Clean SIQS lab build 1 138700 e02d16c6ed59382ace994f1af573cf3a41bff0d35879b40f7b7eebad779f074d
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8221182Z Clean SIQS lab build 2 138700 e02d16c6ed59382ace994f1af573cf3a41bff0d35879b40f7b7eebad779f074d
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8267830Z SIQS lab artifact e02d16c6ed59382ace994f1af573cf3a41bff0d35879b40f7b7eebad779f074d [
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8271111Z   { module: 'a', name: 'a', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8276062Z   { module: 'a', name: 'b', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8277192Z   { module: 'a', name: 'c', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8278073Z   { module: 'a', name: 'd', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8279019Z   { module: 'a', name: 'e', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8280292Z   { module: 'a', name: 'f', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8281068Z   { module: 'a', name: 'g', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8281874Z   { module: 'a', name: 'h', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8282718Z   { module: 'a', name: 'i', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8283502Z   { module: 'a', name: 'j', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8284293Z   { module: 'a', name: 'k', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8285469Z   { module: 'a', name: 'l', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8286262Z   { module: 'a', name: 'm', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8287056Z   { module: 'a', name: 'n', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8287885Z   { module: 'a', name: 'o', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8288689Z   { module: 'a', name: 'p', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8289801Z   { module: 'a', name: 'q', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8290642Z   { module: 'a', name: 'r', kind: 'function' },
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8291480Z   { module: 'a', name: 's', kind: 'function' }
+siqs-lab	Run node scripts/build-siqs-lab.mjs --check	2026-10-20T07:37:26.8292242Z ]
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	﻿2026-10-20T07:37:26.8442122Z ##[group]Run node scripts/build-siqs-lab-worker.mjs --check
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.8442592Z [36;1mnode scripts/build-siqs-lab-worker.mjs --check[0m
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.8504406Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.8504649Z env:
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.8504898Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.8505217Z ##[endgroup]
+siqs-lab	Run node scripts/build-siqs-lab-worker.mjs --check	2026-10-20T07:37:26.9271287Z Lab Worker bytes 213342 1f783509b1165a05f1ad6b4d47ff63cebfff38bdf48b4952157e0e776ea943c7
+siqs-lab	Run npm run verify:siqs-lab-native	﻿2026-10-20T07:37:26.9336162Z ##[group]Run npm run verify:siqs-lab-native
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:26.9336553Z [36;1mnpm run verify:siqs-lab-native[0m
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:26.9399323Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:26.9399602Z env:
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:26.9399881Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:26.9400234Z ##[endgroup]
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:27.0728027Z 
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:27.0728843Z > browser-prime-toolkit@0.1.0 verify:siqs-lab-native
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:27.0729979Z > node scripts/build-siqs-lab.mjs --native
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:37:27.0730367Z 
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:38:29.3837176Z lab native verified=106 total=14 partial=92
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:38:29.3843599Z lab native verified=106 total=14 partial=92
+siqs-lab	Run npm run verify:siqs-lab-native	2026-10-20T07:38:29.3879789Z 
+siqs-lab	Run npm test	﻿2026-10-20T07:38:29.4012293Z ##[group]Run npm test
+siqs-lab	Run npm test	2026-10-20T07:38:29.4012743Z [36;1mnpm test[0m
+siqs-lab	Run npm test	2026-10-20T07:38:29.4094828Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm test	2026-10-20T07:38:29.4095107Z env:
+siqs-lab	Run npm test	2026-10-20T07:38:29.4095369Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run npm test	2026-10-20T07:38:29.4095691Z ##[endgroup]
+siqs-lab	Run npm test	2026-10-20T07:38:29.5331405Z 
+siqs-lab	Run npm test	2026-10-20T07:38:29.5332135Z > browser-prime-toolkit@0.1.0 test
+siqs-lab	Run npm test	2026-10-20T07:38:29.5332859Z > node --test
+siqs-lab	Run npm test	2026-10-20T07:38:29.5333236Z 
+siqs-lab	Run npm test	2026-10-20T07:38:30.1437964Z ✔ bounded SIQS finds an exact divisor and releases every job allocation (310.974841ms)
+siqs-lab	Run npm test	2026-10-20T07:38:30.1605346Z ✔ SIQS rejects range and seed before work (25.262009ms)
+siqs-lab	Run npm test	2026-10-20T07:38:30.3038465Z ✔ SIQS unwinds an interrupted job and can then factor exactly (139.479143ms)
+siqs-lab	Run npm test	2026-10-20T07:38:30.7671728Z ✔ SIQS uses the common verification and resource-result contract (466.867874ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.7377710Z ✔ every reached SIQS phase can stop and release before a later successful job (979.827383ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.8508069Z ✔ reviewed WASM MPQS returns an exact nontrivial divisor (32.55797ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.8670036Z ✔ WASM bridge rejects out of bound, even and malformed values (29.928766ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.8811387Z ✔ checkpoint exhaustion cleans up and allows the next WASM job (21.865168ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.8830393Z ✔ invalid WASM bytes cannot initialize a calculator (2.359361ms)
+siqs-lab	Run npm test	2026-10-20T07:38:31.9567773Z ✔ RAM sampler includes children created by a non-main task once (2.089068ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0179579Z ✔ logical operations keep the original cap regardless of batching (2.322062ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0191306Z ✔ phase change, bounded clock gap, finish and shared prework are accounted (0.604395ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0193136Z ✔ deadline and pulse remain live; unnotified remainder can sync without a clock (2.443187ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0199369Z ✔ short native phase-tail imports force a deadline check before another native batch (0.309797ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0810290Z ✔ sorts and groups without mutating supplied factors (1.844874ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0825511Z ✔ compares beyond safe Number precision exactly (0.256818ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0837724Z ✔ empty and singleton values have explicit representation (0.239393ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0839682Z ✔ grouping does not assert that bases are prime (0.176619ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0842327Z ✔ accepts maximum factor size and count (1.303696ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0843574Z ✔ rejects invalid container and element types (0.874037ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0844769Z ✔ rejects domain and resource boundaries (0.347487ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.0846081Z ✔ grouped powers reconstruct the supplied product (1.929751ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1598822Z ✔ exact parse: 0 (1.802605ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1600262Z ✔ exact parse: 1 (0.324814ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1616271Z ✔ exact parse:  +00042
+siqs-lab	Run npm test	2026-10-20T07:38:32.1617099Z  (0.29021ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1618007Z ✔ exact parse: 9007199254740993 (0.187249ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1619019Z ✔ exact parse: 1e3 (0.346925ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1620241Z ✔ exact parse: 1.25E+3 (0.120173ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1621253Z ✔ exact parse: 100e-2 (0.170898ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1635759Z ✔ exact parse: 1.20e1 (0.139609ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1636801Z ✔ exact parse: 000.001e3 (1.497026ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1668060Z ✔ exact parse: 0e-10000 (0.305188ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1685707Z ✔ exact parse: 0.000E+10000 (0.240087ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1687827Z ✔ exact parse: 1e0000003 (0.104474ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1688826Z ✔ exact parse: 10e-1 (0.068598ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1690113Z ✔ exact parse: 1e1023 (0.080219ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1691219Z ✔ exact parse: 999999999999999999999999 (0.06997ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1692374Z ✔ exact parse: 000000000000000000000000 (0.056706ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1696156Z ✔ reject INVALID_TYPE: null (0.437825ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1697262Z ✔ reject INVALID_TYPE: 4 (0.073166ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1698420Z ✔ reject INVALID_TYPE: [object Object] (0.061214ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1714260Z ✔ reject INVALID_SYNTAX:  (0.062236ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1741778Z ✔ reject INVALID_SYNTAX:   (0.056325ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1743109Z ✔ reject INVALID_SYNTAX: -1 (0.057346ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1769805Z ✔ reject INVALID_SYNTAX: -0 (0.056305ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1771819Z ✔ reject INVALID_SYNTAX: .5 (0.054972ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1772797Z ✔ reject INVALID_SYNTAX: 1. (0.115695ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1773705Z ✔ reject INVALID_SYNTAX: 1e (0.094215ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1774648Z ✔ reject INVALID_SYNTAX: 1e+ (0.061665ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1793362Z ✔ reject INVALID_SYNTAX: 1 2 (0.068527ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1817682Z ✔ reject INVALID_SYNTAX: 1,000 (0.054692ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1834936Z ✔ reject INVALID_SYNTAX: 0xff (0.054672ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1853437Z ✔ reject INVALID_SYNTAX: NaN (0.107821ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1854535Z ✔ reject INVALID_SYNTAX: Infinity (0.082914ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1855576Z ✔ reject INVALID_SYNTAX: １ (0.111327ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1856591Z ✔ reject INVALID_SYNTAX: <img> (0.097121ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1857637Z ✔ reject INVALID_SYNTAX: 2^3 (0.130964ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1858779Z ✔ reject INVALID_SYNTAX: 1e1.5 (0.105697ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1860127Z ✔ reject NOT_AN_INTEGER: 1e-3 (0.071543ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1861139Z ✔ reject NOT_AN_INTEGER: 1.5 (0.056545ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1862156Z ✔ reject NOT_AN_INTEGER: 1.01e1 (0.057467ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1863193Z ✔ reject NOT_AN_INTEGER: 1001e-3 (0.053841ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1864303Z ✔ reject EXPONENT_OUT_OF_RANGE: 1e10001 (0.051837ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1865447Z ✔ reject EXPONENT_OUT_OF_RANGE: 0e-10001 (0.050364ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1874723Z ✔ reject EXPONENT_OUT_OF_RANGE: 1e999999999999999999 (0.054522ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1875909Z ✔ reject VALUE_TOO_LARGE: 1e1024 (0.055944ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1877155Z ✔ reject VALUE_TOO_LARGE: 999999999999999999999999 (0.196867ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1878463Z ✔ reject INPUT_TOO_LONG: 000000000000000000000000 (0.105978ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1879882Z ✔ reject INPUT_TOO_LONG:                          (0.105747ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1881084Z ✔ exact cancellation of a long decimal fraction (0.171328ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.1882345Z ✔ small exhaustive integer scientific notation round trips (5.778272ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.2588585Z ✔ shared total deadline includes loading and disposes the lane (12.956756ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.2686065Z ✔ cancel and fatal retire the lane without a replacement (10.456663ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.3754686Z ✔ inner computation timeout never creates replacement lanes (106.373161ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.3819147Z ✔ large total envelope respects the core 60000ms cap (6.920541ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.4385335Z ✔ candidate corpus retains hard historical cases and exact new size/proof boundaries (4.679049ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.4998280Z ✔ gmp-brent: common proof and product contract with trusted splitter (3.590092ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.5008882Z ✔ gmp-brent: explicit exhaustion never silently falls back (0.357626ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.5019349Z ✔ gmp-brent: untrusted divisor rejected (0.594275ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.5020916Z ✔ gmp-ecm: common proof and product contract with trusted splitter (0.421755ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.5022067Z ✔ gmp-ecm: explicit exhaustion never silently falls back (0.308665ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.5023035Z ✔ gmp-ecm: untrusted divisor rejected (0.243423ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.8020960Z ✔ actual stage2 cooperative stop cleans up and permits exact reuse (136.083119ms)
+siqs-lab	Run npm test	2026-10-20T07:38:32.9678026Z ✔ fatal stage2 fault poisons this instance: {"trap":5} (231.946211ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.0769094Z ✔ fatal stage2 fault poisons this instance: {"domain":1,"allocation":1} (112.930426ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.1462961Z ✔ fatal stage2 fault poisons this instance: {"domain":2,"allocation":3} (107.390991ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3177403Z ✔ zero and one are neither prime nor composite (3.277628ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3195155Z ✔ small exhaustive factors agree with an independent trial oracle (76.00844ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3222427Z ✔ brent factors a balanced semiprime and repeated large factors (2.159047ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3240628Z ✔ floyd factors a balanced semiprime and repeated large factors (6.311092ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3257674Z ✔ deterministic 64-bit policy handles primes and strong pseudoprimes (6.69151ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3259302Z ✔ above 64 bits passing fixed bases remains explicitly probable (1.047168ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3260499Z ✔ operation exhaustion retains exact unresolved cofactor (0.378735ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3261552Z ✔ deadline is checked inside arithmetic loops (0.340784ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3270366Z ✔ zero budgets return a verified unresolved result (0.370038ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3272093Z ✔ progress snapshots remain reconstructable and isolated (3.670179ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3277481Z ✔ invalid domain and options are rejected without work (1.140843ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3279624Z ✔ result verification rejects wrong products, certainty and completion (0.685115ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3282637Z ✔ seeded runs reproduce factors and work counts (2.210153ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.3284094Z ✔ a forged mr64 composite cannot become proven prime (0.276254ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.5610025Z ✔ gmp-brent: exact divisor and all input/config boundaries (75.019169ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.6294295Z ✔ gmp-brent: latched budget failure unwinds, then reuses the instance (114.253941ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.7528389Z ✔ gmp-ecm: exact divisor and all input/config boundaries (110.043171ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.8048269Z ✔ gmp-ecm: latched budget failure unwinds, then reuses the instance (125.576648ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.8060644Z ✔ GMP loader rejects invalid WASM before becoming ready (1.041158ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.8731662Z ✔ selector uses exact canonical input at the 64/256bit boundaries (3.25821ms)
+siqs-lab	Run npm test	2026-10-20T07:38:33.8743999Z ✔ selector freezes one global compute budget and phase envelope without adding wire options (2.376432ms)
+siqs-lab	Run npm test	2026-10-20T07:38:34.6972622Z ✔ WASM SIQS early, middle and last allocation failures release, then recover (758.300074ms)
+siqs-lab	Run npm test	2026-10-20T07:38:34.9865848Z ✔ unsupported 64bit polynomial selection is a clean capacity stop, with later recovery (236.426743ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.0950998Z ✔ MPQS integration proves factors and keeps the exact input product (39.157222ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.0980584Z ✔ unsupported MPQS range and exhausted search remain incomplete (3.051898ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.0982477Z ✔ advanced adapter cannot supply a fake divisor or silently run without initialization (1.057287ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.2138472Z ✔ shared total deadline includes loading and disposes both lanes (12.939345ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.2229720Z ✔ cancel and fatal retire all lanes without a replacement (8.81439ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.3302706Z ✔ inner computation timeout never creates replacement lanes (107.501493ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.3380287Z ✔ large total envelope respects the core 60000ms cap (7.261411ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.3853242Z ✔ full native loop checkpoints use a safe finite budget sized for long trials (0.828652ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.4380585Z ✔ unknown native trap and invalid algebra keep fatal identity after compute expiry (1.270384ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.4395565Z ✔ recognized native stops preserve their explicit reason (0.283347ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.4853028Z ✔ large SIQS exposes a finite independent backend and exact boundary (1.301572ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.5433525Z ✔ full SIQS validates cycle merge before addition and keeps packed implementation (1.616146ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.5443010Z ✔ full SIQS rejects changed source guard anchors (0.448644ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.5926910Z ✔ only explicit decoded runtime assets can be served; factor oracles never resolve (0.896778ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6890849Z ✔ long evaluation accepts only the four named finite budgets and leaves the 30s profile fixed (1.625704ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6920882Z ✔ long counter metadata is exact past both old caps and stays finitely bounded (0.617268ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6922707Z ✔ the same shared clock stops a high finite budget at the minute deadline (0.41945ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6927868Z ✔ all named host deadlines charge initialization and cancellation retires one owner (2.331849ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6931592Z ✔ the long Worker accepts its exact finite grant, bounds packets and retires as one shot (2.030167ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6933537Z ✔ long host deadline, initialization cap and late success all fail closed (0.67686ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.6935373Z ✔ the long bundle is a valid module and contains no oracle or runtime import (28.712053ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.7399823Z ✔ two-digit refinements cover all three time thresholds with fixed inputs (1.556857ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.7963301Z ✔ fixed four pairs count retries once and exclude timeouts from successful time statistics (7.377567ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.8573382Z ✔ the RSA-only finite operation cap leaves legacy options unchanged (1.342809ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.8582231Z ✔ RSA result metadata crosses 50M exactly without changing legacy proof contracts (0.588014ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.8597020Z ✔ RSA high operation budget still checks the clock on each checkpoint (1.837168ms)
+siqs-lab	Run npm test	2026-10-20T07:38:35.9433608Z ✔ the generated Worker is valid as an ES module, including flattened private bindings (34.539704ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0155362Z ✔ fixed 30-second deadline charges loading before the core grant and retires its owner (5.66456ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0165889Z ✔ unsupported and neither results allocate nothing and keep the exact input (1.525849ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0187090Z ✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (0.735628ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0189637Z ✔ initialization and total timeouts are distinct, including a late-ready timer race (0.577414ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0191567Z ✔ late terminal and proof work cannot report success beyond the same host deadline (0.864508ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0193568Z ✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (1.185165ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0197931Z ✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.281975ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0201474Z ✔ failed termination closes the evaluator and disposal never accepts another job (0.366822ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0203772Z ✔ source release time is still inside the five-second initialization cap (0.425321ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0206463Z ✔ terminal cleanup cannot turn a result delivered after the total deadline into a success (0.700033ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0851991Z ✔ Worker announces the exact bounded native profile and factors a full 2048-bit input (12.123467ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0867026Z ✔ Worker rejects out-of-profile inputs and changed algorithm, budget or packet contract (1.279341ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.0868662Z ✔ Worker is one-shot and emits an explicit CSP audit signal (0.6988ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.1471673Z ✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (3.459807ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.1478295Z ✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.289418ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.1487904Z ✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.266977ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.1490475Z ✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (0.560713ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.1493105Z ✔ the previous 128-bit staged profile is unchanged (1.642717ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.2187454Z ✔ large perfect powers retain their full input and proven factorization (10.936551ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.2220817Z ✔ probable remains unproven after an independent host check (3.701637ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.2234802Z ✔ timeouts, operation limits, primes and neither have distinct classifications (0.949577ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.2240494Z ✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.966488ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.2242042Z ✔ partial progress cannot retain a forged probable composite factor (0.321839ms)
+siqs-lab	Run npm test	2026-10-20T07:38:36.7891296Z ✔ clock-gated preserves remaining operation limit, resource recovery and exact divisor (499.657931ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.0472222Z ✔ dense preserves remaining operation limit, resource recovery and exact divisor (261.701646ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.3706865Z ✔ lanczos preserves remaining operation limit, resource recovery and exact divisor (324.210378ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.7091586Z ✔ counted dense and Lanczos consume identical matrix-relevant factor offsets, cycle order and parity (333.352627ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.8112308Z ✔ a trapped counted instance retires permanently while a fresh instance recovers (113.852671ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.8891230Z ✔ lab cancellation retires loading and running workers once (24.327133ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9177306Z ✔ independent host deadline retires a non-cooperative worker (25.815822ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9178756Z ✔ unsupported input and invalid total budgets allocate no workers (0.964044ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9201874Z ✔ late ready and late result cannot beat an undispatched host timer (0.98894ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9243027Z ✔ retirement exceptions settle fatally and disable reuse (6.161705ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9244284Z ✔ valid late merge results and slow retirement are timeouts (1.180667ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9301708Z ✔ release failure still terminates and settles without claiming reuse (5.517336ms)
+siqs-lab	Run npm test	2026-10-20T07:38:37.9822636Z ✔ budget stop between header and newline preserves an ineligible prefix (1.643939ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.0372077Z ✔ lab budgets are shared across sequential and concurrent lanes (1.734888ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.0374045Z ✔ derived periodic count is distinguished from observed flushes and clocks (0.308624ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.0390944Z ✔ partial relations join one graph across A contexts and duplicate lanes (1.113231ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.0392425Z ✔ polynomial identity, bounds and compatibility are required before merge (1.846937ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.5252368Z serialization budget returned and released
+siqs-lab	Run npm test	2026-10-20T07:38:38.5322099Z ✔ late SIQS budget returns after decimal serialization (446.199095ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.5862411Z ✔ stage grants share global operations across calls and retain budget identity (1.607551ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.5866866Z ✔ stage clock spending does not reset; root expiry remains distinguishable (0.378565ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.5874491Z ✔ finite plans reject larger inputs and account for all backend memories (1.435941ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.6737351Z ✔ prefix exhaustion advances with one global operation total and stable ECM curve-budget identity (19.136913ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.6745929Z ✔ probable, global exhaustion and SIQS resource exhaustion retain their meanings (2.45102ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.6750082Z ✔ fatal backend failure is never hidden by another method (12.088452ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.7390921Z ✔ training-selected entry point fixes its policy without widening input bounds (2.711184ms)
+siqs-lab	Run npm test	2026-10-20T07:38:38.9513238Z ✔ p−1 bounded base finds favorable factor and reports no proper gcd=n factor (76.584489ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.1897456Z ✔ same 32 sigma schedule partitions without overlap and rejects bad lanes (1280.101193ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.2413674Z ✔ zero operation budget stops normally and leaves reusable instance (53.973082ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.3055839Z ✔ fatal stage2 trap retires the supplementary instance (58.945247ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.7136661Z ✔ a job reserves each curve before success, across residual calls (451.795754ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.7919920Z ✔ pagehide retires its owner and persisted pageshow remounts the draft without executing (1.749016ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.7929938Z ✔ ordinary pageshow does not remount and duplicate pagehide is idempotent (0.364749ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.7934938Z ✔ explicit disposal removes lifecycle listeners and never restores a closed page (0.304326ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.9163417Z ✔ private preview binds to loopback and serves only the UI entry and source (45.057146ms)
+siqs-lab	Run npm test	2026-10-20T07:38:40.9883928Z ✔ repository metadata, artifacts and path escapes are never served (64.333143ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0039472Z ✔ preview has no upload route and HEAD sends no document body (29.194603ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0840734Z ✔ exact decimals survive Number boundaries and large prime values (9.417309ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0850370Z ✔ perfect powers and duplicate factors have one structured exponent (1.368688ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0870549Z ✔ probable factors stay unproven in visible and copied descriptions (0.645922ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0871782Z ✔ partial and cancelled residuals never become prime factors (0.704271ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.0872936Z ✔ zero/one retain neither and the submitted identity is checked (0.590579ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.1618222Z ✔ scientific input is normalized exactly and only the fixed profile reaches the engine (7.119292ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.1635352Z ✔ invalid or out-of-profile values fail before allocating any engine (0.596871ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.1638704Z ✔ a canceling owner blocks a replacement until its request has settled (1.007906ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.1658493Z ✔ disposed sessions ignore late responses and never allocate another engine (0.643648ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.1663077Z ✔ fatal and invalid result rejection recover on a fresh explicit request (0.877553ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.2271639Z ✔ transport timeout falls back once and publishes only the exact pinned bytes (2.865764ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.2292934Z ✔ a bad hash fails closed without trying a mirror or publishing (1.131125ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.2294838Z ✔ truncation, TLS refusal and exhausted transport never publish (1.315939ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.2314172Z ✔ cached mismatches and non-HTTPS candidates fail before network (0.637066ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.2317802Z ✔ external cache guard rejects repo children including colon names (1.333502ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.4225377Z ✔ actual GMP/ECM candidate bundle preserves jobs, proofs and rejects unsupported MPQS (138.830122ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5003588Z ✔ initialization rejects early work and readiness releases source URL (1.66554ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5007523Z ✔ one job binds a result to submitted input and options (2.262952ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5013793Z ✔ cancel terminates immediately, retains verified factors and ignores old generation (2.026903ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5017580Z ✔ host deadline kills a worker even without cooperative messages (0.366863ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5031981Z ✔ dispose stops active work, clears timers and prevents restart (0.3707ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5036158Z ✔ stale job responses are ignored on a reused worker (0.527803ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5039041Z ✔ wrong product, version, seed and regressing work counts are fatal for current job (0.985294ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5041173Z ✔ load timeout, worker error, messageerror and post failure clean up and can restart (0.396108ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5043048Z ✔ bundled worker URL is released on normal ownership cleanup or construction failure (1.485495ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5044791Z ✔ timer dependencies are called without a controller receiver (0.453985ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5046416Z ✔ a CSP audit from the current worker fails even when no job is active (0.292204ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.5621372Z ✔ an invalid message cannot release another job while its asynchronous audit is pending (3.145855ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.6554726Z ✔ harness admission remains exclusive across await ready: pool/pool (41.153732ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.6821789Z ✔ harness admission remains exclusive across await ready: run/pool (26.089684ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.7191595Z ✔ harness admission remains exclusive across await ready: pool/run (36.368694ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.7542167Z ✔ cancellation helper owns admission through its delayed cancel: cancel/pool (35.834038ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.7897607Z ✔ cancellation helper owns admission through its delayed cancel: cancel/run (35.385554ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.8152763Z ✔ cancellation helper owns admission through its delayed cancel: run/cancel (25.665463ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.8523934Z ✔ cancellation helper owns admission through its delayed cancel: pool/cancel (36.309203ms)
+siqs-lab	Run npm test	2026-10-20T07:38:41.9395208Z ✔ native-only Worker is ready and exact with WebAssembly unavailable (40.179358ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.0066403Z ✔ Rho portfolio uses unique seeds, a shared operation cap and disposes every lane (10.961623ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1106588Z ✔ pool failure and global timeout always stop every lane (101.603157ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1120282Z ✔ fixed-seed MPQS duplication and excessive worker counts are rejected (0.900446ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1129056Z ✔ individual host deadlines remain incomplete and preserve the submitted product (0.876411ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1130851Z ✔ gmp-brent: candidate lanes keep identity, seeds and total work cap (1.423479ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1132224Z ✔ gmp-brent: 4 lanes fail the linear-memory cap before allocating workers (0.372925ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1133606Z ✔ gmp-ecm: candidate lanes keep identity, seeds and total work cap (0.70926ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1134983Z ✔ gmp-ecm: 4 lanes fail the linear-memory cap before allocating workers (0.272958ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.1144421Z ✔ trusted candidate factory memory profile limits native Brent too, before allocation (0.391909ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.2235036Z ✔ the actual bundled source runs jobs, budgets and invalid requests in an isolated worker (59.706073ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3065166Z ✔ one request deadline includes loading and never boots a replacement (12.038748ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3076040Z ✔ loading and running cancellation retire exactly one owner (1.917749ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3171218Z ✔ invalid ready profile and fatal error retire; a new request recovers (9.866315ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3293659Z ✔ initialization is charged before granting core time and bounds fail before allocation (10.828919ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3296940Z ✔ zero/one are neither without workers (1.057829ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3348073Z ✔ result proof time stays inside the request deadline (4.157489ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3361601Z ✔ initialization keeps its five-second cap inside a longer total deadline (0.895587ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3456268Z ✔ source-release failure still terminates the single Worker owner (10.523054ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3520757Z ✔ every host and Worker outcome has an explicit validated trace contract (5.637032ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3522488Z ✔ late ready cannot race past the initialization cap before its timer dispatches (0.471187ms)
+siqs-lab	Run npm test	2026-10-20T07:38:42.3586943Z ℹ tests 251
+siqs-lab	Run npm test	2026-10-20T07:38:42.3587682Z ℹ suites 0
+siqs-lab	Run npm test	2026-10-20T07:38:42.3588290Z ℹ pass 251
+siqs-lab	Run npm test	2026-10-20T07:38:42.3588829Z ℹ fail 0
+siqs-lab	Run npm test	2026-10-20T07:38:42.3589868Z ℹ cancelled 0
+siqs-lab	Run npm test	2026-10-20T07:38:42.3590479Z ℹ skipped 0
+siqs-lab	Run npm test	2026-10-20T07:38:42.3591029Z ℹ todo 0
+siqs-lab	Run npm test	2026-10-20T07:38:42.3591694Z ℹ duration_ms 12790.933476
+siqs-lab	Run npm run check:siqs-lab	﻿2026-10-20T07:38:42.3748620Z ##[group]Run npm run check:siqs-lab
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.3749057Z [36;1mnpm run check:siqs-lab[0m
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.3815321Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.3815593Z env:
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.3815869Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.3816217Z ##[endgroup]
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.4957753Z 
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.4958872Z > browser-prime-toolkit@0.1.0 check:siqs-lab
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.4963244Z > node scripts/generate-siqs-lab-runtime.mjs --check && node scripts/check-siqs-lab.mjs && node scripts/build-siqs-lab-worker.mjs --check && node scripts/report-siqs-lab.mjs --check
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.4964569Z 
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.5736601Z SIQS lab: two clean builds, complete source pins, fixed 256MiB and rejected growth
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:42.6788246Z Lab Worker bytes 213342 1f783509b1165a05f1ad6b4d47ff63cebfff38bdf48b4952157e0e776ea943c7
+siqs-lab	Run npm run check:siqs-lab	2026-10-20T07:38:43.0407045Z {"rawTrials":38,"stopCounts":{"verified":38},"pools":[{"caseId":"RSA-100","completeWork":true,"oneMs":[9710.60000000894,9638.09999999404],"twoMs":[4986,5071.5],"ratioOfMean":1.923808103405715},{"caseId":"full-balanced-96-1","completeWork":true,"oneMs":[9390.40000000596,9329.70000000298],"twoMs":[4887.20000000298,4804.600000008941],"ratioOfMean":1.9315400647955916}]}
+siqs-lab	Bounded profiling and shared relation graph contracts offline	﻿2026-10-20T07:38:43.0750234Z ##[group]Run npm run verify:siqs-lab -- --out "$RUNNER_TEMP/siqs-lab.json"
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0750795Z [36;1mnpm run verify:siqs-lab -- --out "$RUNNER_TEMP/siqs-lab.json"[0m
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0813376Z shell: /usr/bin/bash -e {0}
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0813624Z env:
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0813894Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0814226Z   CHROME_BIN: google-chrome
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0814537Z   PRIME_MEASURED_HEAD: 4d3a896e8f8e3d9dd30d76f04b694058e2bb6bb6
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.0814869Z ##[endgroup]
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.1904034Z 
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.1904877Z > browser-prime-toolkit@0.1.0 verify:siqs-lab
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.1906365Z > node scripts/verify-siqs-lab.mjs --out /home/runner/work/_temp/siqs-lab.json
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:43.1907304Z 
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:55.7165709Z [{"name":"all collected relations pass native polynomial verification","pass":true},{"name":"two collectors rebuild one graph within the total budgets","pass":true},{"name":"both notification strides preserve the native work ceiling","pass":true},{"name":"loading and running cancellation retire all owners; fresh job recovers","pass":true},{"name":"host deadline terminates a worker with no cooperative clock","pass":true},{"name":"wrong ready memory fails closed before posting","pass":true},{"name":"unsupported inputs allocate no Worker","pass":true},{"name":"graph budget is a known incomplete result; forged native relation is fatal","pass":true},{"name":"actual partials from different streams form a shared native cycle","pass":true},{"name":"known stop between native header and newline stays incomplete","pass":true},{"name":"actual fixed-memory OOM and unknown trap retire; fresh request recovers","pass":true}]
+siqs-lab	Bounded profiling and shared relation graph contracts offline	2026-10-20T07:38:55.9013399Z Receipt /home/runner/work/_temp/siqs-lab.json
+siqs-lab	Run git diff --check	﻿2026-10-20T07:38:56.1271135Z ##[group]Run git diff --check
+siqs-lab	Run git diff --check	2026-10-20T07:38:56.1271694Z [36;1mgit diff --check[0m
+siqs-lab	Run git diff --check	2026-10-20T07:38:56.1352393Z shell: /usr/bin/bash -e {0}
+siqs-lab	Run git diff --check	2026-10-20T07:38:56.1352653Z env:
+siqs-lab	Run git diff --check	2026-10-20T07:38:56.1352910Z   PRIME_FULL_SOURCE_DIR: /home/runner/work/_temp/siqs-lab
+siqs-lab	Run git diff --check	2026-10-20T07:38:56.1353231Z ##[endgroup]
+siqs-lab	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-10-20T07:38:56.2401487Z Post job cleanup.
+siqs-lab	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:38:56.3728556Z (node:58055) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+siqs-lab	Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-10-20T07:38:56.3731195Z (Use `node --trace-deprecation ...` to show where the warning was created)
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-20T07:38:56.4003532Z Post job cleanup.
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5074505Z [command]/usr/bin/git version
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5135010Z git version 2.55.0
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5212636Z Temporarily overriding HOME='/home/runner/work/_temp/1a9494a2-95cb-4764-acaf-f3fc5c546fe9' before making global git config changes
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5214323Z Adding repository directory to the temporary git global config as a safe directory
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5215993Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/browser-prime-toolkit/browser-prime-toolkit
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5262289Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5331214Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5746526Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.5826455Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.6200463Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+siqs-lab	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-20T07:38:56.6247639Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+siqs-lab	Complete job	﻿2026-10-20T07:38:56.7009747Z Cleaning up orphan processes
+siqs-lab	Complete job	2026-10-20T07:38:56.7371389Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

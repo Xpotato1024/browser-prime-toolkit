@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-10-19T11:40:23.496781+00:00",
+  "coverage": "53 moduli: 45 from the official administrator mail and 8 from official RSA Labs pages; RSA-129 omitted pending its separate original source",
+  "catalogSha256": "664227d9182143bda1d6638da2a8e528ad212dbc92c681ed71a26728df9e30f6",
+  "knownFactorsIncluded": false,
+  "sources": [
+    {
+      "file": "rsa-2001.html",
+      "url": "https://web.archive.org/web/20010805210445/http://www.rsa.com/rsalabs/challenges/factoring/numbers.html",
+      "resolved": "https://web.archive.org/web/20010805210445/http://www.rsa.com/rsalabs/challenges/factoring/numbers.html",
+      "bytes": 39234,
+      "sha256": "9e28bf4fed2b657b2ab83c981113c7de177640ec8fcc30d4b40c1bb91ff819cb",
+      "id": "rsa-2001",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-2001.html"
+    },
+    {
+      "file": "rsa-2013.html",
+      "url": "https://web.archive.org/web/20130921041734/http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm",
+      "resolved": "https://web.archive.org/web/20130921041734/http://www.emc.com/emc-plus/rsa-labs/historical/the-rsa-challenge-numbers.htm",
+      "bytes": 148294,
+      "sha256": "334940c773774c40f5d424497aea61a7f16c5e3969867ac401abdb26285dfc4b",
+      "id": "rsa-2013",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-2013.html"
+    },
+    {
+      "url": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+      "resolved": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+      "bytes": 18744,
+      "sha256": "b95abde40f0995490ceef092c47b6ad472e306f5a3eb04fd018991ce0352a2dc",
+      "id": "rsa-admin-1997",
+      "author": "RSA Factoring Challenge Administrator <challenge-administrator@RSA.COM>",
+      "publication": "original automatic reply dated 1997-10-12, mirrored with mail headers by recipient Ray Ontko",
+      "file": "rsa-admin-1997.html",
+      "rawSnapshotLocation": "outside repository: task/prime-stage11/rsa-admin-1997.html"
+    }
+  ],
+  "publishedChecksums": {
+    "RSA-100": {
+      "kind": "mod-991889",
+      "value": 294805
+    },
+    "RSA-110": {
+      "kind": "mod-991889",
+      "value": 366155
+    },
+    "RSA-120": {
+      "kind": "mod-991889",
+      "value": 693288
+    },
+    "RSA-130": {
+      "kind": "mod-991889",
+      "value": 13100
+    },
+    "RSA-140": {
+      "kind": "mod-991889",
+      "value": 920056
+    },
+    "RSA-150": {
+      "kind": "mod-991889",
+      "value": 990834
+    },
+    "RSA-160": {
+      "kind": "mod-991889",
+      "value": 970704
+    },
+    "RSA-170": {
+      "kind": "mod-991889",
+      "value": 463921
+    },
+    "RSA-180": {
+      "kind": "mod-991889",
+      "value": 568663
+    },
+    "RSA-190": {
+      "kind": "mod-991889",
+      "value": 622397
+    },
+    "RSA-200": {
+      "kind": "mod-991889",
+      "value": 213598
+    },
+    "RSA-210": {
+      "kind": "mod-991889",
+      "value": 65861
+    },
+    "RSA-220": {
+      "kind": "mod-991889",
+      "value": 151252
+    },
+    "RSA-230": {
+      "kind": "mod-991889",
+      "value": 562136
+    },
+    "RSA-240": {
+      "kind": "mod-991889",
+      "value": 279523
+    },
+    "RSA-250": {
+      "kind": "mod-991889",
+      "value": 509331
+    },
+    "RSA-260": {
+      "kind": "mod-991889",
+      "value": 327430
+    },
+    "RSA-270": {
+      "kind": "mod-991889",
+      "value": 10237
+    },
+    "RSA-280": {
+      "kind": "mod-991889",
+      "value": 422082
+    },
+    "RSA-290": {
+      "kind": "mod-991889",
+      "value": 25878
+    },
+    "RSA-300": {
+      "kind": "mod-991889",
+      "value": 230717
+    },
+    "RSA-310": {
+      "kind": "mod-991889",
+      "value": 735719
+    },
+    "RSA-320": {
+      "kind": "mod-991889",
+      "value": 790065
+    },
+    "RSA-330": {
+      "kind": "mod-991889",
+      "value": 530312
+    },
+    "RSA-340": {
+      "kind": "mod-991889",
+      "value": 762546
+    },
+    "RSA-350": {
+      "kind": "mod-991889",
+      "value": 862664
+    },
+    "RSA-360": {
+      "kind": "mod-991889",
+      "value": 62489
+    },
+    "RSA-370": {
+      "kind": "mod-991889",
+      "value": 660901
+    },
+    "RSA-380": {
+      "kind": "mod-991889",
+      "value": 496047
+    },
+    "RSA-390": {
+      "kind": "mod-991889",
+      "value": 833091
+    },
+    "RSA-400": {
+      "kind": "mod-991889",
+      "value": 844947
+    },
+    "RSA-410": {
+      "kind": "mod-991889",
+      "value": 405716
+    },
+    "RSA-420": {
+      "kind": "mod-991889",
+      "value": 413419
+    },
+    "RSA-430": {
+      "kind": "mod-991889",
+      "value": 68317
+    },
+    "RSA-440": {
+      "kind": "mod-991889",
+      "value": 792668
+    },
+    "RSA-450": {
+      "kind": "mod-991889",
+      "value": 119784
+    },
+    "RSA-460": {
+      "kind": "mod-991889",
+      "value": 396755
+    },
+    "RSA-470": {
+      "kind": "mod-991889",
+      "value": 785771
+    },
+    "RSA-480": {
+      "kind": "mod-991889",
+      "value": 104482
+    },
+    "RSA-490": {
+      "kind": "mod-991889",
+      "value": 649001
+    },
+    "RSA-500": {
+      "kind": "mod-991889",
+      "value": 119871
+    },
+    "RSA-155": {
+      "kind": "mod-991889",
+      "value": 627068
+    },
+    "RSA-232": {
+      "kind": "mod-991889",
+      "value": 841707
+    },
+    "RSA-309": {
+      "kind": "mod-991889",
+      "value": 827458
+    },
+    "RSA-617": {
+      "kind": "mod-991889",
+      "value": 909408
+    },
+    "RSA-576": {
+      "kind": "digit-sum",
+      "value": 785
+    },
+    "RSA-640": {
+      "kind": "digit-sum",
+      "value": 806
+    },
+    "RSA-704": {
+      "kind": "digit-sum",
+      "value": 1009
+    },
+    "RSA-768": {
+      "kind": "digit-sum",
+      "value": 1018
+    },
+    "RSA-896": {
+      "kind": "digit-sum",
+      "value": 1222
+    },
+    "RSA-1024": {
+      "kind": "digit-sum",
+      "value": 1369
+    },
+    "RSA-1536": {
+      "kind": "digit-sum",
+      "value": 2153
+    },
+    "RSA-2048": {
+      "kind": "digit-sum",
+      "value": 2738
+    }
+  }
+}

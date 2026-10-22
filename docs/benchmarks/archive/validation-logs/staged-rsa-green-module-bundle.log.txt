@@ -1,0 +1,32 @@
+✔ the generated Worker is valid as an ES module, including flattened private bindings (49.469488ms)
+✔ fixed 30-second deadline charges loading before the core grant and retires its owner (5.764999ms)
+✔ unsupported and neither results allocate nothing and keep the exact input (0.7197ms)
+✔ cancellation in loading or running blocks replacement until retirement and ignores late messages (1.5331ms)
+✔ initialization and total timeouts are distinct, including a late-ready timer race (0.4504ms)
+✔ late terminal and proof work cannot report success beyond the same host deadline (0.6588ms)
+✔ bad profile, fatal and forged result retire without reboot; explicit fresh request recovers (0.882199ms)
+✔ oversized packet and source-release failure are fatal and never leak an owned Worker (1.2017ms)
+✔ failed termination closes the evaluator and disposal never accepts another job (0.2645ms)
+✔ source release time is still inside the five-second initialization cap (0.3135ms)
+✔ terminal cleanup cannot turn a result delivered after the total deadline into a success (0.5413ms)
+✔ Worker announces the exact bounded native profile and factors a full 2048-bit input (15.610796ms)
+✔ Worker rejects out-of-profile inputs and changed algorithm, budget or packet contract (1.3753ms)
+✔ Worker is one-shot and emits an explicit CSP audit signal (4.601899ms)
+✔ all 53 primary-source moduli retain decimal identity and fit the independent input profile (3.528599ms)
+✔ the 2048-bit boundary is exact and unsupported values allocate no Worker (0.255ms)
+✔ legacy WASM ranges are reported as unsupported rather than silently widened or substituted (0.2603ms)
+✔ public profile rejects altered budgets, arbitrary backends and noncanonical integers (1.026599ms)
+✔ the previous 128-bit staged profile is unchanged (7.008299ms)
+✔ large perfect powers retain their full input and proven factorization (10.395598ms)
+✔ probable remains unproven after an independent host check (5.791498ms)
+✔ timeouts, operation limits, primes and neither have distinct classifications (0.7127ms)
+✔ identity, source methods, oversized snapshots and expired proof cannot become successes (0.7734ms)
+✔ partial progress cannot retain a forged probable composite factor (0.2402ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 166.660359

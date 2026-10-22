@@ -1,0 +1,17 @@
+# Stage17 検証記録
+
+固定core headは0999af2b90f458d5c6808128793f831e5e7182f2です。公式0.5.0のcommit/crate/全fileを固定し、Rust1.90.0／SIMD／unshared最大256MiBで2clean build一致を確認しました。無変更上流の対照は390,155 bytes、observer／typed status／共有accessorを含む候補は413,563 bytesです。上流配布binaryと同一だとは主張しません。
+
+入力・framingの最初のREDは未作成moduleのimport失敗でした。実装後のGREENを保存しています。sourceレビューで正常packetのpowers非昇順を誤拒否するP2を検出し、Setによる重複拒否へ修正して正例／重複／FB端境界の回帰を追加しました。FB長はrelation targetとは別のnative accessorで照合します。
+
+共有contextは、同じfamilyのbyte同値、coordinator／worker両方の解放順、無効・古いhandle、解放後の要求量基準復帰を検査しました。最初の共有試験は不適切な任意fixtureがprepareで拒否され、固定balanced40桁fixtureへ訂正した経緯も保存しています。この失敗を算術実装の欠陥とは扱いません。
+
+独立レビューで期限再検査と退役時例外の2P2、maxExtracts値の1P3を検出しました。遅いready／結果／退役、terminate／source解放例外等の7件を実RED→GREENで修正し、初回だけ解放APIがthrowする第8条件も実RED→GREENで追加しました。最終core再レビューはP1/P2/P3各0です。成功したterminate／source解放だけを完了数へ計上します。
+
+core headで既存込み単体275件、check997ファイル、1／2 Worker各12件の実Chrome契約を確認しました。実allocator失敗とunknown trapの区別、計算中取消、非協調extractのdeadline、改ざんpacket退役、stale無視、hostの独立proper-divisor／MR検算、fresh全工程復帰を含みます。実Blob URL残数0と通信0、検出器の正例も確認しています。
+
+固定14試行はこの検査とsourceレビュー後に開始しました。10 controlの完了と退役後oracle照合が成功するまでRSA試行へ進みません。family／多項式／raw relation／bytesの投入累計は検証済packetから計上します。C checkpointと同じwork単位ではありません。
+
+観測されるheap最大値はallocatorの要求量です。中断したnative callの最終telemetryは届かない可能性があり、その場合の値は最後に届いたhigh-waterです。phaseごとの集計はcollectionとextractを分けますが、extract内のfilter／行列／平方根を個別には測っていません。ChromeのサンプルPSS/RSSとも区別します。
+
+最終報告headの検査・独立レビューと、全raw/log/source結合の結果は別途記録します。CIはprivate Actions枠の確認待ちで未実行です。公開・Ready・merge・release・deploy・site統合は未実施です。

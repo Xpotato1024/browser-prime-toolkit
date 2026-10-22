@@ -1,0 +1,13 @@
+✔ transport timeout falls back once and publishes only the exact pinned bytes (3.400098ms)
+✔ a bad hash fails closed without trying a mirror or publishing (1.550099ms)
+✔ truncation, TLS refusal and exhausted transport never publish (1.826099ms)
+✔ cached mismatches and non-HTTPS candidates fail before network (1.493999ms)
+✔ external cache guard rejects repo children including colon names (0.366ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.74255

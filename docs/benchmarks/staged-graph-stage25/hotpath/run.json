@@ -1,0 +1,570 @@
+{
+  "plan": "llm01-graph-hotpath-20261021-v1",
+  "planSha256": "120bbc191ca2025a4f763312bf9f39d5bcb701a0e7b5d627d4346bfa290731e1",
+  "driverSha256": "3d23b06e6b9727c86a1a6374f30973f09e9788c5b2e3f58efe7a5396b29d436d",
+  "head": "65e8f9f8a011ae60f6498cd30c999bbfa77667db",
+  "startedAt": "2026-10-21T04:52:32.978Z",
+  "trials": [
+    {
+      "id": "contracts-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "availableMiB": 9227.89453125,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "skip",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/contracts-skip.json"
+      ],
+      "startedAt": "2026-10-21T04:52:33.072Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:52:42.607Z",
+      "logSha256": "e4d15b7aaa74cc8b57f98ba25b31beb3d40fe36af2d03ce9939f417817f4436d",
+      "bytes": 38825,
+      "sha256": "ba286b3d4713fd332e2d4f63628ab0bd81e032703791d04c8f6448ab6c1916fd",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "skip-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9106.72265625,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/skip-1-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:52:42.709Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:53:47.203Z",
+      "logSha256": "626f817241fa3d102a1cb98d5b41ea1fdf7cf1eb07e2267d3213e320d99eace5",
+      "bytes": 81649,
+      "sha256": "dd30c2c2c07ebb090897c206ed5ec78f6eb7ee8eb5ca2862c38c8ecffa30ef77",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 62459.40000000596,
+        "peakPssBytes": 595632128
+      }
+    },
+    {
+      "id": "skip-2-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9224.62109375,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "skip",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/skip-2-skip.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:53:47.306Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:54:52.023Z",
+      "logSha256": "a1ee54abaa3b677fe923c1eb4d20c645898366b661e3e700bb00133e949856ec",
+      "bytes": 81985,
+      "sha256": "426cd139841777dab821b170d72ffca8464cf38ba0b0f183d31dce8ca64bb78b",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 62394.5,
+        "peakPssBytes": 596160512
+      }
+    },
+    {
+      "id": "skip-3-skip",
+      "graph": "skip",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9228.1640625,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "skip",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/skip-3-skip.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:54:52.124Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:55:57.574Z",
+      "logSha256": "b49bcababe98d33fd5f163423f23d7ed80d0b7aa1d6ec21ab750e6c120d25dfb",
+      "bytes": 81983,
+      "sha256": "7453231c7564c2e593593dfece86051cde732b6f7159233d70110b9446bf5b0d",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 63159.70000001788,
+        "peakPssBytes": 596576256
+      }
+    },
+    {
+      "id": "skip-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9237.703125,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/skip-4-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:55:57.678Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:57:03.476Z",
+      "logSha256": "d605cb806b2d0f33f721fab45e50760f39ead7205bd8bcf38ba9159becfcc753",
+      "bytes": 82047,
+      "sha256": "c2994e20916d7f5cb2f6e74e5a6b4344c03381617c3849e4136b3bf52d3bf7b1",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 63459.09999999404,
+        "peakPssBytes": 595607552
+      }
+    },
+    {
+      "id": "contracts-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 30000,
+      "availableMiB": 9234.05859375,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "block16",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "30000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/contracts-block16.json"
+      ],
+      "startedAt": "2026-10-21T04:57:03.578Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:57:13.121Z",
+      "logSha256": "4101c9be57d6daa6115fedb619ed0af70c51e84ed01b9b7e7060d51f37690a04",
+      "bytes": 38828,
+      "sha256": "d2f8469305c354c39356ef7da7e86f2bc3fa1cf31b3123d610df63dfc6d2631e",
+      "summary": {
+        "tests": [
+          {
+            "name": "profile-before-worker",
+            "pass": true
+          },
+          {
+            "name": "configuration-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "counter-forgery-retired",
+            "pass": true
+          },
+          {
+            "name": "unsupported-before-worker",
+            "pass": true
+          },
+          {
+            "name": "budget-before-worker",
+            "pass": true
+          },
+          {
+            "name": "cancel-during-sieve",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-deadline",
+            "pass": true
+          },
+          {
+            "name": "worker-cap-before-allocation",
+            "pass": true
+          },
+          {
+            "name": "bounded-known-allocator-refusal",
+            "pass": true
+          },
+          {
+            "name": "unknown-trap-is-not-oom",
+            "pass": true
+          },
+          {
+            "name": "forged-native-frame-retired",
+            "pass": true
+          },
+          {
+            "name": "stale-generation-ignored",
+            "pass": true
+          },
+          {
+            "name": "proper-divisor-independent-check",
+            "pass": true
+          },
+          {
+            "name": "noncooperative-extraction-deadline",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-64-path",
+            "pass": true
+          },
+          {
+            "name": "fresh-full-path",
+            "pass": true
+          }
+        ],
+        "performanceMeasurement": false
+      }
+    },
+    {
+      "id": "block16-1-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9016.5,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/block16-1-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:57:13.219Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:58:18.855Z",
+      "logSha256": "036bbb85e69af4101cc145f1443f42d4692df7e6401ac195cf10ea2cee78ec2c",
+      "bytes": 81534,
+      "sha256": "7a984216cc7885a02f0266b2380b18b2a1a1987cbec640c4c688eb68296306f1",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 63315,
+        "peakPssBytes": 597004288
+      }
+    },
+    {
+      "id": "block16-2-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9236.93359375,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "block16",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/block16-2-block16.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:58:18.959Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T04:59:27.872Z",
+      "logSha256": "e0ed5d30a338de74c1e54df1d95e0ca1d8a7a2e65f7696c38a5e7d58a10756b2",
+      "bytes": 83381,
+      "sha256": "572ac224eda2432c9f4437193f50f8283c9e4ece53220e40082b1593242269e4",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 66663.5,
+        "peakPssBytes": 595581952
+      }
+    },
+    {
+      "id": "block16-3-block16",
+      "graph": "block16",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9232.7734375,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "block16",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/block16-3-block16.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T04:59:27.973Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:00:36.502Z",
+      "logSha256": "0559597ce27d258e27edb840303b6e156ecbb39dd7902ec596addfb36a138ba2",
+      "bytes": 82550,
+      "sha256": "b213ca97482df9f0db5984a209a3945666f6bea4958c6535ecd10d8b30bdc797",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 66268.80000001192,
+        "peakPssBytes": 593904640
+      }
+    },
+    {
+      "id": "block16-4-baseline",
+      "graph": "baseline",
+      "engine": "four-drop",
+      "slots": 8,
+      "coordinator": "combined",
+      "budgetMs": 90000,
+      "case": "RSA-100",
+      "fixedFamilies": 32,
+      "availableMiB": 9230.56640625,
+      "args": [
+        "scripts/verify-graph-hotpath.mjs",
+        "--graph",
+        "baseline",
+        "--engine",
+        "four-drop",
+        "--slots",
+        "8",
+        "--coordinator",
+        "combined",
+        "--budget-ms",
+        "90000",
+        "--out",
+        "/mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/prime-stage25/campaign10-hotpath/block16-4-baseline.json",
+        "--case",
+        "RSA-100",
+        "--fixed-families",
+        "32"
+      ],
+      "startedAt": "2026-10-21T05:00:36.605Z",
+      "state": "completed",
+      "exitCode": 0,
+      "finishedAt": "2026-10-21T05:01:42.352Z",
+      "logSha256": "f309a8c5370aaa877454520005d15903d130d565fcbed70ddba50c89663df35d",
+      "bytes": 82242,
+      "sha256": "1ece60f66d16649467c323db2e82bf964421c52a280305d67acfbbf060cc74f6",
+      "summary": {
+        "kind": "incomplete",
+        "reason": "fixed-family-bound",
+        "families": 32,
+        "usable": 837,
+        "wallMs": 63468.70000001788,
+        "peakPssBytes": 594251776
+      }
+    }
+  ],
+  "completedAt": "2026-10-21T05:01:42.363Z"
+}

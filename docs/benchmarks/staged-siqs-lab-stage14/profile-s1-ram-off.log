@@ -1,0 +1,2 @@
+{"id":"RSA-100","options":{"variant":"base","timeBudgetMs":10000,"seed":1,"workers":1,"streams":1,"operationBudget":1000000000,"blockQuota":0},"kind":"verified","error":null,"elapsedMs":4874.300000011921,"graph":{"rawRelations":279,"uniqueRelations":279,"duplicates":0,"full":2,"partial":277,"combined":0,"total":2,"polynomials":1,"vertices":487,"components":210,"verified":true}}
+Receipt /mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/docs/benchmarks/siqs-lab-stage14/profile-s1-ram-off.json

@@ -1,0 +1,35 @@
+✔ one request deadline includes loading and never boots a replacement (13.504991ms)
+✔ loading and running cancellation retire exactly one owner (1.262999ms)
+✔ invalid ready profile and fatal error retire; a new request recovers (9.115695ms)
+✔ initialization is charged before granting core time and bounds fail before allocation (11.668593ms)
+✔ zero/one are neither without workers (0.504199ms)
+✔ result proof time stays inside the request deadline (6.697596ms)
+✔ initialization keeps its five-second cap inside a longer total deadline (0.7185ms)
+✖ source-release failure still terminates the single Worker owner (10.653593ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.857363
+
+✖ failing tests:
+
+test at test/worker/staged-controller.test.js:65:1
+✖ source-release failure still terminates the single Worker owner (10.653593ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/worker/staged-controller.test.js:68:46)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

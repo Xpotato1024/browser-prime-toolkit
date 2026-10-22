@@ -1,0 +1,18 @@
+# ADR0016: LTO候補をfull SIQS全工程で有限評価する
+
+Status: local-only experiment; Actions追加利用は停止中。Stage15成果は別worktreeで保全。
+Base: dbd1eb5c92c871edc8f0c07532a93fc93fa260ed。
+
+Stage15は収集と輸入関係式証明の比較です。次は既存full SIQSのfactor/evaluator契約を別copyへ載せ、同じStage14／15 artifactのlab_mode0でfilter・Lanczos・sqrtまで進めます。C数学・patch・buildを変えず、原本mode0が全工程へ通ることを独立source確認しました。
+
+新経路は1 Worker、固定256MiB WASM、save16MiB、stack4MiB、grow/pthreadsなしです。元fullと同じ初期化5秒、初期化込み最大600000ms、delivery250ms、合計1兆work、cancel/fatal退役を使います。baselineは旧lab artifactとstride1024、候補はLTO artifactとstride16384です。双方probes0/audit1/parameter0/seed1、同じ新wrapperです。600s比較はcompilerとcallbackの複合候補です。
+
+境界回帰と両engineの実WASM10契約を先に確認し、40桁／64桁の固定oracleを退役後に照合します。matrix nnzとphase work、proper divisor・最終積・確度・native dependency parity／合同式の検算を確認してから、RSA100を各600秒でbase→候補の固定順に各1回実行します。失敗を残し、探索比較の1観測を一般保証にしません。初回asset後はserver停止・offline監査と正対照を維持します。
+
+mode0はmode2の全輸入R証明を呼びません。全輸入R verifiedを継承した報告にはせず、元full契約の最終因子検証を使います。native統計はsplitごとにresetされるため最終splitと明示し、root resultの合計workと混同しません。
+
+旧Stage13 RSA100600秒は別artifact、512MiB／save128MiBです。歴史的関係式進捗として併記し、同条件速度比にはしません。比較する新base／候補には同じ256MiB／save16MiB上限を適用します。上限到達、deadline、未完了を成功時間に入れません。
+
+採否は実oracle全工程成功、安全契約、同枠での最終因子／effective full+cycleとtarget・work・RAMです。unique partial収量だけで採用しません。未完了ならmatrix到達や完了時間を外挿せず、その時点の律速と次の必要工程を示します。
+
+Alpertronの固定commit4854656aは別候補として保全します。Makefileのecm targetは約35 Cと共有header/UI frontendを含むnative構成で、有限反復、完全冪、算術UB、純計算入口、再現WASMとmemoryの作業が残ります。今回同条件の速度値は作らず、専用adapterが必要な移植候補として記録します。公開・merge・サイト接続・請求設定変更は行いません。

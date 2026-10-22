@@ -1,0 +1,19 @@
+{
+  "measuredHead": "0a2d3979e038b4ae740a9bbecca3fff673352cc3",
+  "note": "Precommit TDD/debug logs are historical evidence; browser-core-head receipt binds the committed measured source. Final-head acceptance is separately recorded by CI.",
+  "files": {
+    "contracts-red.log": "d0cbf02cc476a93f8b34d6a311405b163fff67cfffbf305df473d0efc399d97f",
+    "runner-red.log": "2bd0377458674fbcfa0117b94a92421c6c1bb56d7769e906eab9640ce3c4319c",
+    "review-races-red.log": "9951def7f880398462afe70372c92f1a40a899af404f5049852ee5955ec96645",
+    "header-stop-red.log": "7d4aa96e3f9b1575679cc427ff33c0331bec459e5b1f4f128c8f71c867122bc2",
+    "native-first.log": "975fc57fadcc5c8e333bba41f79f8ba7ca548ca31d86530a5ca5e0180495a09b",
+    "unit-core-final.log": "64ab7115dd8d0b2b93592c5ca46f114cdb5edc6fd8c1de6f9b7d86f580424b50",
+    "native-third.log": "f16569207d657213f3ab86b273379296297c7804ba1d32197f791f66a3ff5a7f",
+    "build-two-clean.log": "848c0dbc061269a5af771e2627bab065d35389fdc8cdecdd7c28b3cc23a5505e",
+    "tests-core.log": "b25694de461817a4ce1c9d604b8c44697facacd0b36c351da97f3b142345f120",
+    "check-core.log": "55a1ee3e57bb1cc5a7eac7fc2a07199313eecb8dc98b0fbd06c1f1e24aee86dd",
+    "browser-core-head.log": "d9d938d7da5c7b28b6f959c6e4cac228c6661dc26d75c9d7dd852e191ba611f5",
+    "browser-core-head.json": "e607c90a91122465b36ddfe5136e64e04103342bc936fe63d526fc53edb99934",
+    "benchmark-all.log": "df651547e2785cee44de9553997a85cd6227e34fbc46a199446bdfb28ea83a13"
+  }
+}

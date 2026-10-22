@@ -1,0 +1,27 @@
+✔ lab cancellation retires loading and running workers once (23.056985ms)
+✔ independent host deadline retires a non-cooperative worker (25.475583ms)
+✔ unsupported input and invalid total budgets allocate no workers (0.6111ms)
+✔ late ready and late result cannot beat an undispatched host timer (4.057397ms)
+✖ retirement exceptions settle fatally and disable reuse (5.691697ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 749.734112
+
+✖ failing tests:
+
+test at test/siqs-lab-runner.test.js:39:1
+✖ retirement exceptions settle fatally and disable reuse (5.691697ms)
+  Error: terminate failed once
+      at Object.terminate (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/test/siqs-lab-runner.test.js:41:79)
+      at retire (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/src/siqs-lab/runner.js:46:61)
+      at stop (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/src/siqs-lab/runner.js:47:69)
+      at Object.finish (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/src/siqs-lab/runner.js:34:36)
+      at Object.cancel (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/src/siqs-lab/runner.js:15:27)
+      at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-siqs-lab-stage14/test/siqs-lab-runner.test.js:43:4)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

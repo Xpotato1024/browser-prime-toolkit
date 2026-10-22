@@ -1,0 +1,46 @@
+✔ one request deadline includes loading and never boots a replacement (13.311391ms)
+✔ loading and running cancellation retire exactly one owner (2.599298ms)
+✔ invalid ready profile and fatal error retire; a new request recovers (9.958294ms)
+✔ initialization is charged before granting core time and bounds fail before allocation (11.011994ms)
+✔ zero/one are neither without workers (0.4769ms)
+✔ result proof time stays inside the request deadline (7.815795ms)
+✔ initialization keeps its five-second cap inside a longer total deadline (0.7533ms)
+✔ source-release failure still terminates the single Worker owner (10.133293ms)
+✔ every host and Worker outcome has an explicit validated trace contract (5.066697ms)
+✖ late ready cannot race past the initialization cap before its timer dispatches (0.922099ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 249.850342
+
+✖ failing tests:
+
+test at test/worker/staged-controller.test.js:88:1
+✖ late ready cannot race past the initialization cap before its timer dispatches (0.922099ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /initialization-timeout/. Input:
+  
+  'Error: worker-error'
+  
+      at async TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/worker/staged-controller.test.js:94:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: worker-error
+        at fail (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/worker/staged-controller.js:28:32)
+        at worker.onerror (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/src/worker/staged-controller.js:40:52)
+        at TestContext.<anonymous> (file:///mnt/c/Users/miyut/Documents/Codex/2026-10-15/task/browser-prime-toolkit/test/worker/staged-controller.test.js:93:20)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: /initialization-timeout/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
