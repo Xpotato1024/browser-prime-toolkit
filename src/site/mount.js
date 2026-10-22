@@ -36,7 +36,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const settings=()=>({mode:mode.value,workers:Number(workers.value),memoryMiB:Number(memory.value),timeBudgetMs:Number(time.value),...(engine.value==='wide'?{outstandingSlots:8}:{})});
  const estimateNext=()=>{try{const p=selectSitePlan(engine.value,settings(),hints);estimate.textContent=p.workers+' Worker、WASM上限合計 '+p.totalWasmBytes/1048576+' MiB（予算 '+p.budgetBytes/1048576+' MiB）、'+p.timeBudgetMs/1000+'秒。';}catch{estimate.textContent='この設定の組合せは実行できません。';}};
  const render=s=>{
-  if(disposed)return;const cancelFocused=doc.activeElement===cancel;if(s.phase==='loading')prepared=false;if(s.phase==='ready')prepared=true;busy=['loading','running','cancelling','blocked'].includes(s.phase);
+  if(disposed)return;const cancelFocused=doc.activeElement===cancel,runFocused=doc.activeElement===input||doc.activeElement===start;if(s.phase==='loading')prepared=false;if(s.phase==='ready')prepared=true;busy=['loading','running','cancelling','blocked'].includes(s.phase);
   for(const n of [input,engine,mode,time])n.disabled=busy;
   workers.disabled=memory.disabled=busy||mode.value!=='manual';form.setAttribute('aria-busy',String(busy));
   start.disabled=busy||!prepared||s.phase==='unprepared';cancel.disabled=s.phase!=='running';reset.disabled=busy;
@@ -46,7 +46,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
   input.setAttribute('aria-describedby',help.id+(s.error?' '+error.id:''));
   error.textContent=s.error??'';input.setAttribute('aria-invalid',String(s.phase==='invalid'));
   status.textContent=s.phase==='loading'?'ファイルを準備しています。':s.phase==='ready'?'準備完了。以後の計算に通信は不要です。':s.phase==='running'?'計算しています。':s.phase==='cancelling'?'中止してWorkerを解放しています。':s.view?.statusText??'入力と設定を確認してください。';
-  root.dataset.phase=s.phase;output.value=s.view?.copyText??'';if(cancel.hidden&&cancelFocused)status.focus();
+  root.dataset.phase=s.phase;output.value=s.view?.copyText??'';if(cancel.hidden&&cancelFocused)status.focus();else if(s.phase==='running'&&runFocused)cancel.focus();
   const r=s.resources;actual.textContent=r?'今回: '+r.route+'、'+r.actualWorkers+' Worker、WASM上限 '+r.actualWasmBytes/1048576+' MiB、'+r.actualTimeBudgetMs/1000+'秒。':'';
   estimateNext();
  };
