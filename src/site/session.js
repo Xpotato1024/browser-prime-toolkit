@@ -19,6 +19,7 @@ export const heavyView=(r,input,{now,deadline})=>{
   if(d<previous||f.certainty==='proven'&&d>=UINT64_CEILING||f.certainty==='probable'&&d<UINT64_CEILING||assessPrime(d,budget)!==f.certainty)throw Error('Prime certainty');previous=d;
   product*=d;terms.push(f.value+(f.certainty==='probable'?'（未証明）':''));
  }
+ if(r.factors.length===2&&r.factors[0].value===r.factors[1].value)terms.splice(0,terms.length,r.factors[0].value+'^2'+(r.factors[0].certainty==='probable'?'（未証明）':''));
  if(product!==n||['factorized','probable'].includes(r.kind)&&(r.remaining!=='1'||r.factors.length!==2)||r.kind==='factorized'&&r.factors.some(f=>f.certainty!=='proven')||r.kind==='probable'&&!r.factors.some(f=>f.certainty==='probable'))throw Error('Factor product');
  if(r.factors.length&&now()>=deadline)throw Error('Display proof deadline');
  const complete=['factorized','probable'].includes(r.kind);

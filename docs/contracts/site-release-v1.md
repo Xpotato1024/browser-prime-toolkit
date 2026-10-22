@@ -13,3 +13,5 @@ readyは配布moduleと埋込Worker/WASMがローカルで利用可能な状態�
 siteの既存v1は維持し、分解機の固定source/pinに限定した別profileを追加する。AGPL-3.0-only本体・Apache選択rusqsieve・既存staged runtimeの権利/対応ソースを保持し、静的版/出典/条件表示からアクセス可能にする。worker-src blob: とWASM compile用の限定CSPだけを当該routeへ追加し、connect-src none/通常navigationを維持する。Worker内のrequestも実ブラウザとHTTP traceで確認する。
 
 受入は実配布distで整数/指数/境界/不正入力/因子積/残余、online/offline、ready後通信、取消/再開/reset/unmount/2instance/画面遷移/worker終了、desktop/mobile viewportの低桁入力、license/source表示を対象とする。実機mobile未測定はviewport試験と区別する。既存5Worker全工程改善率を新規主張しない。
+
+UI内部は端末標準fontを用い、結果文字の変化によるwebfont追加取得を必要としない。大きい同一因子2件も累乗と未証明表示を保つ。

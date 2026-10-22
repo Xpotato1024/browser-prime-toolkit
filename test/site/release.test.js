@@ -32,3 +32,11 @@ test('document scope retains unknown retirement and prevents overlapping jobs',a
  const document={};assert.equal(documentComputeScope(document),documentComputeScope(document));
  assert.notEqual(documentComputeScope({}),documentComputeScope(document));
 });
+
+test('repeated high factors use powers while keeping probable status and product verification',async()=>{
+ const {heavyView}=await import('../../src/site/session.js');
+ const p=(1n<<89n)-1n,input=(p*p).toString();
+ const value={input,kind:'probable',factors:[{value:p.toString(),certainty:'probable'},{value:p.toString(),certainty:'probable'}],remaining:'1',allWorkersDisposed:true,allWorkerSourcesReleased:true};
+ const view=heavyView(value,input,{now:()=>0,deadline:1000});assert.ok(view.copyText.includes(p.toString()+'^2'));assert.match(view.statusText,/未証明/);
+ assert.throws(()=>heavyView({...value,remaining:'2'},input,{now:()=>0,deadline:1000}));
+});
