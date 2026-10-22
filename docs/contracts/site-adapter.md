@@ -17,11 +17,19 @@ siteはroute、registry、hydration、immutable vendor/pin、CSP、version/licen
 
 ## profileと配布
 
-既定の同期v1はWorker/WASMなし・短時間処理・permissive限定のままです。この分解機だけ prime-factorizer-async-v1、固定source repo、AGPL-3.0-onlyと対応source/第三者条件、有限時間/Worker/WASM/輸送量を使います。別ツールへこの例外をコピーしません。
+既定の同期v1と公開v0.1.0の prime-factorizer-async-v1 は互換性のため保持します。今回の0.1.1候補はsite Draft PR113の共通 bounded-browser-v2 を使います。Worker/WASMとクリック時のclipboard書込を明示宣言し、固定同梱資産・有限時間/Worker/WASM/輸送量・AGPL対応source/第三者条件を維持します。一般のツールも用途に必要なcapabilityを宣言できますが、公開CSPや採用承認が自動で広がるものではありません。
 
 prepareが初回資産を使えるようにした後、入力・結果はmemory内、再試行・取消後も通信なし。WASM上限はJS/ブラウザRSSの上限ではなく、OSによるタブ強制終了を防げるとはしません。通常移動、複数instance、unmount、cancel/deadline後のWorker退役を実distで確認します。
 
 GUI変更候補はsource version 0.1.1。公開・tag・npm・site採用は未実施です。旧v0.1.0 bytes/pin/測定SHAは保持します。新candidate builderはmusl COPYRIGHTも配布exact-setへ含めます。既存v0.1.0の対応補遺を上書きするものではありません。
+
+## 結果と操作
+
+src/site/presentation.js は画面の式・短い状態・コピー文字列を分けます。完了はstatusで一度だけ表示し、因子の個別確度はdetailsへまとめます。probable/未完了/取消と停止理由は要約とコピーから失わせません。コピーはクリック時だけwriteTextを試み、非対応・拒否では状態付き全文を選択する手動コピー欄へ切り替えます。clipboard読取・自動書込・execCommandは使いません。
+
+実経過はstartから初期化・結果検証・退役完了まで。資産prepareは除外し、上限の秒数とは別にmsまたは小数秒で表示します。表示timerはunmount/完了で停止します。サンプルは用途・難易度の目安を表示して入力するだけで、選択による計算開始や重い設定変更はしません。桁数だけで所要時間を保証しません。
+
+SEO、document head、canonical/OG、routeと意味的なページ見出しはsiteが所有します。入力・結果をURLやmetadataへ入れません。
 
 ## 確認手順
 

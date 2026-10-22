@@ -77,3 +77,9 @@ test('disposed pending job holds the shared lease until retirement resolves',asy
  done(finished('32'));await pending;
  assert.equal(await next.s.start('64'),true);assert.equal(next.calls.length,1);
 });
+test('elapsed time excludes asset preparation, retains fractions and freezes after retirement',async()=>{
+ let at=100;
+ const {s}=fixture({now:()=>at,loadLight:async()=>{at=500;return{selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{at+=12.25;return finished(i);}};}});
+ await s.prepare();await s.start('32');assert.equal(s.getState().resources.elapsedMs,12.25);
+ at=900;assert.equal(s.getElapsedMs(),12.25);assert.equal(s.getState().resources.actualTimeBudgetMs,1000);
+});

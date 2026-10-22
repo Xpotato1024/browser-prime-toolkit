@@ -14,8 +14,9 @@ test('release generator has a fixed exact-set, license/source files and reproduc
   assert.equal(results[0].artifactSha256,results[1].artifactSha256);
   const m=JSON.parse(await readFile(join(outputs[0],'browser-tool.json'),'utf8'));
   assert.ok((await readFile(join(outputs[0],m.integration.entry),'utf8')).includes("'data-prime-tool-version':'"+m.version+"'"),'runtime label matches release version');
-  assert.equal(m.runtime.profile,'prime-factorizer-async-v1');
-  assert.equal(m.runtime.capabilities.clipboard,false);
+  assert.equal(m.runtime.profile,'bounded-browser-v2');
+  assert.equal(m.runtime.capabilities.clipboard,true);
+  assert.equal(m.runtime.clipboardPolicy,'user-gesture-write-only');assert.equal(m.runtime.assetMode,'fixed-bundled');
   for(const f of m.files){
    const b=await readFile(join(outputs[0],f.path));
    assert.equal(b.length,f.bytes);assert.equal(createHash('sha256').update(b).digest('hex'),f.sha256);
