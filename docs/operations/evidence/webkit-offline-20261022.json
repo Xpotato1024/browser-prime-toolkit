@@ -1,0 +1,14 @@
+{
+  "version": "26.5",
+  "appCodeLoaded": false,
+  "probes": [
+    {
+      "offline": false,
+      "outcome": "ok"
+    },
+    {
+      "offline": true,
+      "outcome": "error: undefined"
+    }
+  ]
+}
