@@ -34,7 +34,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  root.replaceChildren(form,error,retry,status,result,el('p',{'class':'bt-help',text:'入力・結果を保存・送信しません。準備完了後は通信なしで計算します。'}),note);
  let disposed=false,busy=false,prepared=false,session;
  const settings=()=>({mode:mode.value,workers:Number(workers.value),memoryMiB:Number(memory.value),timeBudgetMs:Number(time.value),...(engine.value==='wide'?{outstandingSlots:8}:{})});
- const estimateNext=()=>{try{const p=selectSitePlan(engine.value,settings(),hints);estimate.textContent=p.workers+' Worker、WASM上限合計 '+p.totalWasmBytes/1048576+' MiB（予算 '+p.budgetBytes/1048576+' MiB）、'+p.timeBudgetMs/1000+'秒。';}catch{estimate.textContent='この設定の組合せは実行できません。';}};
+ const estimateNext=()=>{try{const p=selectSitePlan(engine.value,settings(),hints,engine.value==='standard');if(mode.value==='auto'){workers.value=String(p.workers);memory.value=String(p.budgetBytes/1048576);}estimate.textContent='このモードの設定上限: '+p.workers+' Worker、WASM上限合計 '+p.totalWasmBytes/1048576+' MiB（予算 '+p.budgetBytes/1048576+' MiB）、'+p.timeBudgetMs/1000+'秒。';}catch{estimate.textContent='この設定の組合せは実行できません。';}};
  const render=s=>{
   if(disposed)return;const cancelFocused=doc.activeElement===cancel,runFocused=doc.activeElement===input||doc.activeElement===start;if(s.phase==='loading')prepared=false;if(s.phase==='ready')prepared=true;busy=['loading','running','cancelling','blocked'].includes(s.phase);
   for(const n of [input,engine,mode,time])n.disabled=busy;
