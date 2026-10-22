@@ -11,7 +11,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const listen=(target,event,fn)=>{target.addEventListener(event,fn);listeners.push(()=>target.removeEventListener(event,fn));};
  const select=(id,items)=>{const n=el('select',{id});for(const[v,t]of items)n.append(el('option',{value:String(v),text:t}));return n;};
  const field=(parent,text,node)=>{const p=el('div',{'class':'bt-field'});p.append(el('label',{for:node.id,text}),node);parent.append(p);};
- const form=el('form'),fields=el('fieldset');form.noValidate=true;fields.append(el('legend',{text:'整数を入力して分解'}));
+ const form=el('form'),fields=el('fieldset');form.noValidate=true;
  const input=el('input',{id:'input',type:'text',inputmode:'decimal',autocomplete:'off',spellcheck:'false',maxlength:'4096','aria-label':'0以上の整数'});input.required=true;
  field(fields,'0以上の整数',input);
  const help=el('p',{id:'help','class':'bt-help',text:'例: 360、3.2e1。全桁を保持します。通常は2^128未満。大きな入力は詳細設定から選べます。'});fields.append(help);input.setAttribute('aria-describedby',help.id);
@@ -36,7 +36,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const proof=el('details'),proofText=el('p');proof.append(el('summary',{text:'因子の判定と停止理由'}),proofText);
  result.append(outputLabel,output,copy,copyStatus,manual,proof);
  const note=el('details',{'class':'bt-limits'});note.append(el('summary',{text:'計算範囲と端末への負荷について'}),el('p',{text:'最大332bit・100桁。桁数だけでは難易度は決まりません。通常経路は最大1 Worker・WASM128 MiB・60秒、自動は最大2 Worker。大メモリは明示手動・WASM予算1536 MiB・最大5 Worker・1時間です。WASM上限はブラウザ全体のRAM上限ではなく、端末によるタブ終了を防ぐ保証はありません。未完了・未証明を区別して表示し、同じページでは同時計算を1件に制限します。'}));
- root.replaceChildren(form,error,retry,status,actual,result,el('p',{'class':'bt-help',text:'入力・結果を保存・送信しません。準備完了後は通信なしで計算します。'}),note);
+ root.replaceChildren(form,error,retry,status,actual,result,el('p',{'class':'bt-help',text:'入力・結果を保存・送信しません。'}),note);
  let disposed=false,busy=false,prepared=false,session,clock=null,currentResources=null,currentCopy='',copyGeneration=0;
  const stopClock=()=>{if(clock!==null){doc.defaultView.clearInterval(clock);clock=null;}};
  const showActual=()=>{const r=currentResources;actual.textContent=r?'実経過: '+formatElapsed(session?.getElapsedMs()??r.elapsedMs??0)+'（初期化・検証・解放を含む）。時間上限: '+r.actualTimeBudgetMs/1000+'秒。'+r.route+'、'+r.actualWorkers+' Worker、WASM上限 '+r.actualWasmBytes/1048576+' MiB。':'';};
@@ -62,18 +62,18 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
   result.hidden=!s.view;error.hidden=!s.error;
   input.setAttribute('aria-describedby',help.id+(s.error?' '+error.id:''));
   error.textContent=s.error??'';input.setAttribute('aria-invalid',String(s.phase==='invalid'));
-  status.textContent=s.phase==='loading'?'ファイルを準備しています。':s.phase==='ready'?'準備完了。以後の計算に通信は不要です。':s.phase==='running'?'計算しています。':s.phase==='cancelling'?'中止してWorkerを解放しています。':s.phase==='blocked'?'計算を停止しました。ページを開き直してください。':s.view?.statusText??'入力と設定を確認してください。';
-  root.dataset.phase=s.phase;const presentation=s.view?sitePresentation(s.view):null;output.value=presentation?.equation??'';currentCopy=presentation?.copyText??'';proofText.textContent=[presentation?.details,s.view?.reasonText].filter(Boolean).join('。');proof.hidden=!proofText.textContent;copy.disabled=!currentCopy;copyGeneration++;copyStatus.textContent='';manual.hidden=true;if((cancel.hidden||s.phase==='cancelling')&&cancelFocused)status.focus();else if(s.phase==='running'&&runFocused)cancel.focus();
+  status.textContent=s.phase==='loading'?'ファイルを準備しています。':s.phase==='ready'?'準備完了。':s.phase==='running'?'計算しています。':s.phase==='cancelling'?'中止してWorkerを解放しています。':s.phase==='blocked'?'計算を停止しました。ページを開き直してください。':s.view?.statusText??'入力と設定を確認してください。';
+  root.dataset.phase=s.phase;const presentation=s.view?sitePresentation(s.view):null;output.value=presentation?.equation??'';currentCopy=presentation?.copyText??'';proofText.textContent=[presentation?.details,s.view?.reasonText].filter(Boolean).join('。');proof.hidden=!proofText.textContent;copy.disabled=!currentCopy;copyGeneration++;copyStatus.textContent='';manual.hidden=true;if((cancel.hidden||s.phase==='cancelling')&&cancelFocused)status.focus({preventScroll:true});else if(s.phase==='running'&&runFocused)cancel.focus({preventScroll:true});
   currentResources=s.resources;showActual();if(['running','cancelling'].includes(s.phase)){if(clock===null&&doc.defaultView)clock=doc.defaultView.setInterval(showActual,100);}else stopClock();
   estimateNext();
  };
  const prepare=()=>session.prepare(engine.value);
- const makeSession=(focusInput=false)=>{prepared=false;session=createSiteSession({...sessionOptions,scope,hints,onChange:render});render(session.getState());void prepare().then(()=>{if(focusInput&&!disposed&&!input.disabled)input.focus();});};
+ const makeSession=(restoreReset=false)=>{prepared=false;session=createSiteSession({...sessionOptions,scope,hints,onChange:render});render(session.getState());void prepare().then(()=>{if(restoreReset&&!disposed&&!reset.disabled)reset.focus({preventScroll:true});});};
  listen(form,'submit',e=>{e.preventDefault();void session.start(input.value,settings());});
- listen(sample,'change',()=>{if(!busy){input.value=sample.value;input.focus();}});
- listen(copy,'click',async()=>{if(!currentCopy)return;const generation=++copyGeneration,text=currentCopy;let clipboard;try{clipboard=doc.defaultView?.navigator?.clipboard;}catch{}const ok=await copyResult(text,clipboard);if(disposed||generation!==copyGeneration)return;if(ok)copyStatus.textContent='結果と計算状態をコピーしました。';else{manual.value=text;manual.hidden=false;manual.focus();manual.select();copyStatus.textContent='自動コピーを利用できません。選択された文字列を手動でコピーしてください。';}});
+ listen(sample,'change',()=>{if(!busy){input.value=sample.value;}});
+ listen(copy,'click',async()=>{if(!currentCopy)return;const generation=++copyGeneration,text=currentCopy;let clipboard;try{clipboard=doc.defaultView?.navigator?.clipboard;}catch{}const ok=await copyResult(text,clipboard);if(disposed||generation!==copyGeneration)return;if(ok)copyStatus.textContent='結果と計算状態をコピーしました。';else{manual.value=text;manual.hidden=false;manual.focus({preventScroll:true});manual.select();copyStatus.textContent='自動コピーを利用できません。選択された文字列を手動でコピーしてください。';}});
  listen(cancel,'click',()=>session.cancel());
- listen(retry,'click',()=>{const restore=doc.activeElement===retry;void prepare().then(()=>{if(restore&&!disposed)(prepared?start:retry).focus();});});
+ listen(retry,'click',()=>{const restore=doc.activeElement===retry;void prepare().then(()=>{if(restore&&!disposed)(prepared?start:retry).focus({preventScroll:true});});});
  listen(reset,'click',()=>{session.dispose();input.value='';sample.value='';makeSession(true);});
  listen(engine,'change',()=>{
   if(engine.value==='wide'){mode.value='manual';memory.value='1536';workers.value=String(Math.min(5,Math.max(1,(hints.hardwareConcurrency??2)-1)));time.value='60000';details.open=true;}

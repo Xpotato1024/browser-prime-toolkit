@@ -12,7 +12,9 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 24.19.0
+          node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/wide-window-*.test.js test/long-window-memory*.test.js test/windows-memory-receipt.test.js
       - run: npm run check:wide-window

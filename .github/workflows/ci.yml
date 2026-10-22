@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: test "$(npm --version)" = 11.19.0
       - run: npm ci --ignore-scripts --no-audit --no-fund
@@ -66,6 +68,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
@@ -88,6 +92,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node scripts/build-siqs-v2.mjs --check
@@ -113,6 +119,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
@@ -136,6 +144,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
@@ -156,6 +166,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
@@ -178,6 +190,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/full-siqs" >> "$GITHUB_ENV"
@@ -202,6 +216,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
@@ -229,6 +245,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-tuned" >> "$GITHUB_ENV"
@@ -259,6 +277,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/dlp-*.test.js
@@ -286,6 +306,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/scheduler-*.test.js
@@ -313,6 +335,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/geometry-*.test.js
@@ -337,6 +361,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/resource-*.test.js
@@ -362,6 +388,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/coordinator-*.test.js

@@ -10,7 +10,7 @@ import {RUSQSIEVE_BASE64 as baseline} from '../src/graph-builtin/wasm-builtin-64
 import {RUSQSIEVE_BASE64 as selected} from '../src/selected-wide/wasm-selected-64.js';
 import {captureSourceGuard,checkSourceGuard} from './source-guard.mjs';
 import {createHash} from 'node:crypto';
-const output=process.argv[2];assert.ok(output);assert.equal(process.version,'v24.19.0');
+const output=process.argv[2];assert.ok(output);assert.equal(process.version,'v'+readFileSync(new URL('../.node-version',import.meta.url),'utf8').trim());
 const guard=captureSourceGuard(process.cwd()),started=performance.now(),rows=[];
 const reference=JSON.parse(gunzipSync(Buffer.from(readFileSync('docs/benchmarks/staged-wide-window-stage38/completed/wide-1024.json.gz.base64','utf8').replaceAll('\n',''),'base64'),{maxOutputLength:16777216})).records[0];
 const input=reference.input,sha=b=>createHash('sha256').update(b).digest('hex');
