@@ -26,3 +26,14 @@ test('every workflow setup-node uses project file and records its actual checkou
   assert.ok(!/node-version:/.test(text),name);
  }
 });
+test('current functional proof helpers retain an exact project Node precondition',()=>{
+ const names=['collection-native','collection-hotpath-native','resieve-followup-native','resieve-prefix-native','score-unroll-native','selected-wide-helper'];
+ for(const name of names){
+  const source=readFileSync('scripts/verify-'+name+'.mjs','utf8');
+  assert.ok(source.includes("assert.equal(process.version,'v'+readFileSync(new URL('../.node-version',import.meta.url),'utf8').trim())"),name);
+  assert.ok(!source.includes("assert.equal(process.version,'v24.19.0')"),name);
+ }
+ // Immutable historical evidence and its benchmark entry remain on their measured runtime.
+ assert.ok(readFileSync('scripts/report-hotpath-repeat.mjs','utf8').includes("assert.equal(run.nodeVersion,'v24.19.0')"));
+ assert.ok(readFileSync('scripts/benchmark-hotpath-repeat.mjs','utf8').includes("assert.equal(process.version,'v24.19.0')"));
+});

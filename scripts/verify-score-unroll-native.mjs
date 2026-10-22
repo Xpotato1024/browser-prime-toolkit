@@ -9,7 +9,7 @@ import {RUSQSIEVE_BASE64 as unroll4} from '../src/score-unroll/wasm-unroll4-1024
 import {longMemoryContract} from '../native/long-window/memory-contract.mjs';
 import {captureSourceGuard,checkSourceGuard} from './source-guard.mjs';
 const sha=b=>createHash('sha256').update(b).digest('hex'),rows=[];
-assert.equal(process.version,'v24.19.0');
+assert.equal(process.version,'v'+readFileSync(new URL('../.node-version',import.meta.url),'utf8').trim());
 const guard=captureSourceGuard(process.cwd()),startedAt=new Date().toISOString();
 for(const b of [unroll4])longMemoryContract(Buffer.from(b,'base64'),1024);
 const cases=[['digits40','8156172677439289108635319830552518815109'],['digits64','8505664162359734566676378490297194387200285122470917324701475577']];
