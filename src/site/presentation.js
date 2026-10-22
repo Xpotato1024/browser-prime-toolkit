@@ -9,7 +9,7 @@ export function formatElapsed(ms){
 }
 export function sitePresentation(view){
  return {equation:view.equation,details:view.certaintyText??'',
-  copyText:[view.equation,view.statusText,view.reasonText].filter(Boolean).join('\n')};
+  copyText:[view.equation,view.statusText,view.reasonText,view.certaintyText?'因子の確度: '+view.certaintyText:''].filter(Boolean).join('\n')};
 }
 // Selection changes input only. No engine/resource setting or auto-start.
 export const sampleInputs=Object.freeze([

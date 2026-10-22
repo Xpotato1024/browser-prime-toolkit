@@ -6,7 +6,7 @@ test('actual duration preserves subsecond resolution and differs from a budget',
 });
 test('visible equation contains no repeated completion and copied partial result keeps its state',()=>{
  const p=sitePresentation({equation:'35 = 5 × [未解決: 7]',statusText:'未完了です。',reasonText:'時間制限',certaintyText:'5: 確定判定'});
- assert.equal(p.equation,'35 = 5 × [未解決: 7]');assert.equal(p.copyText,'35 = 5 × [未解決: 7]\n未完了です。\n時間制限');
+ assert.equal(p.equation,'35 = 5 × [未解決: 7]');assert.equal(p.copyText,'35 = 5 × [未解決: 7]\n未完了です。\n時間制限\n因子の確度: 5: 確定判定');
  assert.equal(p.details,'5: 確定判定');
 });
 test('samples are finite exact strings and only specify an input, not execution',()=>{
