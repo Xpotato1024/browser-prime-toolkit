@@ -9,6 +9,7 @@ import { tmpdir, cpus, totalmem, platform, release } from 'node:os';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { WideMemorySampler as BrowserMemorySampler } from './wide-window-memory.mjs';
+import {observeChromeStartup,openChromeTransport,createCdpSender} from './chrome-startup.mjs';
 import{createChromeRetirement,cleanupLongHarness}from'./long-window-cleanup.mjs';
 import{stopForMemoryGuard}from'./long-window-memory-stop.mjs';
 import {resieveAsset as coordinatorAsset} from './resieve-followup-asset-route.mjs';
@@ -37,16 +38,11 @@ const temporary = await mkdtemp(join(tmpdir(), 'prime-browser-'));
 const http = [], requests = [], badEvents = [], localBlobs = [], sessions = new Set(), fatal = [];
 const startupTrace=[];let startupTraceOpen=true,chromeStderr='',nodeMeasurementStart=null;
 const setupFailures=[],setupTasks=[],detached=new Set();
-let chrome, socket, server, pageSession, memory, hardTimer, sequence = 0;
+let chrome, socket, server, pageSession, memory, hardTimer, startup, sequence = 0;
 const retireChrome=createChromeRetirement(()=>chrome,{beforeClose:async()=>{if(socket?.readyState===WebSocket.OPEN)try{await send('Browser.close');}catch{}}});
 const pending = new Map(), attached = [];
 process.once('SIGTERM',()=>{const error=Error('Owned profile trial timeout');for(const p of pending.values()){clearTimeout(p.timer);p.reject(error);}pending.clear();socket?.close();void retireChrome().catch(e=>fatal.push(e.message));setTimeout(()=>{try{if(chrome&&Number.isSafeInteger(chrome.pid)&&chrome.pid>0)process.kill(-chrome.pid,'SIGKILL');}catch(e){if(e.code!=='ESRCH')fatal.push(e.message);}process.exit(143);},8000).unref();});
-const send = (method, params = {}, sessionId) => new Promise((resolveCall, rejectCall) => {
-  const id = ++sequence;
-  const timer = setTimeout(() => { pending.delete(id); rejectCall(Error('CDP timeout: ' + method)); }, method==='Page.navigate'?30000:method === 'Runtime.evaluate' ? budgetMs+20000 : 5000);
-  pending.set(id, { sessionId, method, resolve: resolveCall, reject: rejectCall, timer });
-  socket.send(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }));
-});
+const send=createCdpSender({getSocket:()=>socket,pending,nextId:()=>++sequence,timeoutForMethod:method=>method==='Page.navigate'?30000:method==='Runtime.evaluate'?budgetMs+20000:5000});
 const evaluate = async expression => {
   const value = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true, timeout: budgetMs+15000 }, pageSession);
   if (value.exceptionDetails) throw Error(JSON.stringify(value.exceptionDetails));
@@ -103,22 +99,12 @@ try {
     '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-first-run',
     '--disable-background-timer-throttling', '--remote-debugging-port=0', '--user-data-dir=' + temporary, 'about:blank'],
     { detached:true, stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true });
+  startup=observeChromeStartup(chrome,temporary);
   hardTimer=setTimeout(()=>{const error=Error('Long harness total watchdog');for(const call of pending.values()){clearTimeout(call.timer);call.reject(error);}pending.clear();void retireChrome().catch(error=>fatal.push(error.message));socket?.close();},budgetMs+20000);
   memory = new BrowserMemorySampler(chrome.pid);const originalSample=memory.sample.bind(memory);let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop("memory-observer-failed")'),retireChrome});else await retireChrome();};memory.sample=async()=>{const row=await originalSample();if(nodeMeasurementStart!==null&&(row.pssBytes>=1536*1048576||row.stopReason)&&!hostMemoryStopped){hostMemoryStopped=true;await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')'),retireChrome});}return row;}; await memory.start();
-  const debuggingUrl = await new Promise((resolveUrl, rejectUrl) => {
-    let stderr = '';
-    const timer = setTimeout(() => rejectUrl(Error('Chrome startup timed out: ' + stderr.slice(-1000))), 30000);
-    chrome.once('error', error => { clearTimeout(timer); rejectUrl(error); });
-    chrome.once('exit', code => { clearTimeout(timer); rejectUrl(Error('Chrome exited: ' + code + ' ' + stderr.slice(-1000))); });
-    chrome.stderr.on('data', data => {
-      stderr = (stderr + data.toString()).slice(-10000);chromeStderr=stderr;
-      const match = /DevTools listening on (ws:\/\/\S+)/.exec(stderr);
-      if (match) { clearTimeout(timer); resolveUrl(match[1]); }
-    });
-  });
-  socket = new WebSocket(debuggingUrl);
-  await new Promise((resolveOpen, rejectOpen) => { socket.addEventListener('open', resolveOpen, { once: true });
-    socket.addEventListener('error', rejectOpen, { once: true }); });
+  const debuggingUrl=await startup.ready;
+  socket=new WebSocket(debuggingUrl);
+  await openChromeTransport(socket,{timeoutMs:Math.max(0,30000-startup.diagnostics().elapsedMs)});
   socket.addEventListener('message', ({ data }) => {
     const message = JSON.parse(String(data));
     if (message.id) {
@@ -238,7 +224,9 @@ try {
   await evaluate('new Promise((yes,no)=>{const url=URL.createObjectURL(new Blob(['+JSON.stringify(probe)+'],{type:"text/javascript"}));const w=new Worker(url);w.onmessage=e=>{URL.revokeObjectURL(url);w.terminate();e.data==="observed"?yes(true):no(Error("probe"));};w.onerror=e=>no(Error(e.message));})');
   assert.ok(http.includes('/worker-probe'));assert.ok(requests.some(r=>r.url===origin+'/worker-probe'&&r.sessionId!==pageSession));
   receipt.detectorSelfTest={blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true};
+  receipt.chromeStartup=startup.diagnostics();
   receipt.graphSourceFiles={};
+  receipt.graphSourceFiles['scripts/chrome-startup.mjs']=createHash('sha256').update(await readFile(join(root,'scripts/chrome-startup.mjs'))).digest('hex');
   for(const p of ["scripts/generate-resieve-followup.mjs","scripts/verify-resieve-followup.mjs","scripts/resieve-followup-asset-route.mjs","scripts/build-resieve-followup.mjs","native/resieve-followup/patch-source.mjs","native/resieve-followup/oracle.rs","native/resieve-followup/build-resieve1-1024.json","native/resieve-followup/build-rank-1024.json","src/resieve-followup/worker-source.js","docs/contracts/resieve-followup.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
   for(const p of ["scripts/generate-collection-harness.mjs","scripts/verify-collection-profile.mjs","scripts/collection-profile-asset-route.mjs","scripts/build-collection-profile.mjs","native/collection-profile/patch-source.mjs","native/collection-profile/timing.rs","native/collection-profile/memory-contract.mjs","native/collection-profile/build-phase-1024.json","src/collection-profile/worker-source.js","src/collection-profile/bridge.js","docs/contracts/collection-profile.md","docs/contracts/collection-candidates.md","scripts/build-collection-hotpath.mjs","native/collection-hotpath/patch-source.mjs","native/collection-hotpath/build-resieve4-1024.json","native/collection-hotpath/build-sparse-1024.json"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
   for(const p of ["scripts/generate-wide-window.mjs","scripts/generate-wide-window-harness.mjs","scripts/verify-wide-window.mjs","scripts/wide-window-asset-route.mjs","scripts/wide-window-memory.mjs","scripts/windows-memory-receipt.mjs","src/wide-window/policy.js","src/wide-window/budget.js","src/wide-window/memory.js","src/wide-window/worker-source.js","src/wide-window/runner.js","src/wide-window/index.js","native/long-window/build-long-1024.json","docs/contracts/wide-window.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");
@@ -259,18 +247,19 @@ try {
 } catch (error) {
   try{
     let sampledRam=null;try{sampledRam=memory?.summary();}catch{}
-    const failure={kind:'harness-failure',measuredHead:process.env.PRIME_MEASURED_HEAD??null,failedAt:new Date().toISOString(),error:String(error.stack??error).slice(0,4000),sampledRam,ramTimeline:memory?.samples??[]};
+    const failure={chromeStartup:startup?.diagnostics()??null,kind:'harness-failure',measuredHead:process.env.PRIME_MEASURED_HEAD??null,failedAt:new Date().toISOString(),error:String(error.stack??error).slice(0,4000),sampledRam,ramTimeline:memory?.samples??[]};
     const text=JSON.stringify(failure)+'\n';assert.ok(Buffer.byteLength(text)<=16777216);await writeFile(output+'.failed.json',text,{flag:'wx'});
   }catch(writeError){console.error('Failure receipt write: '+String(writeError));}
   let diagnostic;
-  try { diagnostic = await evaluate('({phase:globalThis.evaluationHarness?.state,violations:globalThis.evaluationHarness?.violations,errors:globalThis.evaluationHarness?.errors})'); } catch {}
-  console.error(JSON.stringify({startupTrace,chromeStderr,fatal,badEvents,requests,diagnostic,attached,pending:[...pending.values()].map(v=>v.method)}));
+  try { if(socket?.readyState===WebSocket.OPEN&&pageSession)diagnostic = await evaluate('({phase:globalThis.evaluationHarness?.state,violations:globalThis.evaluationHarness?.violations,errors:globalThis.evaluationHarness?.errors})'); } catch {}
+  console.error(JSON.stringify({chromeStartup:startup?.diagnostics()??null,startupTrace,chromeStderr,fatal,badEvents,requests,diagnostic,attached,pending:[...pending.values()].map(v=>v.method)}));
   throw error;
 } finally {
   await cleanupLongHarness({
     retireChrome,clearWatchdog:()=>clearTimeout(hardTimer),
     stopMemory:async()=>{if(memory?.running)await memory.stop();},
     closeTransport:async()=>{
+      startup?.dispose();
       if(socket?.readyState===WebSocket.OPEN)socket.close();
       for(const call of pending.values()){clearTimeout(call.timer);call.reject(Error('Browser closed'));}
       pending.clear();
