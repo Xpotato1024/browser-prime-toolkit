@@ -122,3 +122,5 @@ Stage41: [resieve倍率1・bitmap rankの全8試行](benchmarks/llm01-resieve-fo
 Stage42/43の[prefix](benchmarks/llm01-resieve-prefix.md)・[score展開](benchmarks/llm01-score-unroll.md)を独立比較した。[候補群の採否・停止判断](architecture/hotpath-candidate-closeout.md)、[最終検証の入口](operations/stage41-43-outcome.md)を参照。小幅短縮も事前5%gate未達として未採用で、改善余地ゼロとは扱わない。
 
 Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.md)、[選定反映契約](contracts/selected-wide.md)、[追加機能試験](benchmarks/llm01-selected-wide.md)、[採否と残件](operations/stage44-outcome.md)。係数1を専用wide入口へ反映し、通常UI・公開を変更しない。
+
+[サイト配布0.1.0の有限計算・受入契約](contracts/site-release-v1.md)は、本人承認を受けた公開用adapterと専用profileを定義します。過去研究の測定SHA・原本・通常入口を保持します。
