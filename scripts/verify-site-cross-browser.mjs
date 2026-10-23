@@ -61,11 +61,12 @@ try{
    const equation=()=>page.locator('textarea[id$="output"]').inputValue();
    const run=async value=>{await input.fill(value);await input.press('Enter');await phase('result');return equation();};
    const test=async(label,fn)=>{console.log(name+': '+label);try{const evidence=await fn();result.cases.push({label,passed:true,...evidence});}catch(e){result.cases.push({label,passed:false,error:String(e)});result.failures.push(label);}};
-   await test('sample changes only input and restores focus',async()=>{
-    const before=await metrics();await page.getByLabel('入力例と用途').selectOption('360');
+   await test('sample changes only input and preserves select focus',async()=>{
+    const sample=page.getByLabel('入力例と用途');await sample.focus();
+    const before=await metrics();await sample.selectOption('360');
     assert.equal(await input.inputValue(),'360');assert.equal(await page.locator('#tool').getAttribute('data-phase'),'ready');
-    assert.equal((await metrics()).created,before.created);assert.equal(await input.evaluate(n=>n===document.activeElement),true);
-    return{workersCreated:0};
+    assert.equal((await metrics()).created,before.created);assert.equal(await sample.evaluate(n=>n===document.activeElement),true);
+    return{workersCreated:0,focus:'sample'};
    });
    await test('invalid decimal, negative, oversized exponent are rejected without Workers',async()=>{
     const before=await metrics();for(const value of ['2.5','-1','1e10000']){await input.fill(value);await start.click();await phase('invalid');assert.equal(await input.getAttribute('aria-invalid'),'true');assert.equal(await page.getByRole('alert').isVisible(),true);}
@@ -103,9 +104,10 @@ try{
     assert.equal(await run('360'),'360 = 2^3 × 3^2 × 5');return{focus:focused,afterCancel:after};
    });
    await test('reset and keyboard tab order',async()=>{
-    await page.locator('[data-action=reset]').click();await phase('ready');assert.equal(await input.inputValue(),'');assert.equal(await input.evaluate(n=>n===document.activeElement),true);
-    await input.press('Tab');assert.equal(await page.getByLabel('入力例と用途').evaluate(n=>n===document.activeElement),true);
-    return{};
+    const reset=page.locator('[data-action=reset]');await reset.click();await phase('ready');assert.equal(await input.inputValue(),'');
+    await page.waitForFunction(()=>document.activeElement?.dataset.action==='reset');assert.equal(await reset.evaluate(n=>n===document.activeElement),true);
+    await input.focus();await input.press('Tab');assert.equal(await page.getByLabel('入力例と用途').evaluate(n=>n===document.activeElement),true);
+    return{focusAfterReset:'reset',tabFromInput:'sample'};
    });
    await test('390px viewport has no horizontal overflow',async()=>{await page.setViewportSize({width:390,height:844});await run('9007199254740993');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.screenshot({path:out+'.'+name+'.png',fullPage:true});return{viewport:'390x844 (desktop engine, no physical iPhone)'};});
    await test('unmount during work retires Workers and Blob URLs',async()=>{
