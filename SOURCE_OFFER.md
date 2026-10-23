@@ -34,3 +34,7 @@ The candidate is mapped by licensing/site-release-candidate.json. Its adapter so
 ## Compatibility release 0.1.2
 
 The sections above and licensing/site-release-candidate.json preserve the original preparation history. The v0.1.2 tag and its RELEASE-PROVENANCE.json identify the exact current adapter source and distribution hash. The release provides the complete tracked repository source ZIP alongside the runtime ZIP, checksums and browser acceptance evidence. The selected kernels, their notices, source archives and rebuild/relink recipes remain mapped by licensing/site-release-v0.1.0.json and licensing/artifact-index.json; no kernel or numerical policy changes are introduced by 0.1.2. PR30 adds reproducible Firefox/WebKit acceptance tools and records. Version labels are aligned to 0.1.2. Site integration and deployment are separate from this repository release.
+
+## Flat presentation release 0.1.3
+
+For 0.1.3, use the exact v0.1.3 tag target and its RELEASE-PROVENANCE.json for the adapter source, runtime file hashes and complete tracked repository source ZIP. Earlier release tags/assets, source offers and kernel mappings remain historical records and are not overwritten. PR31 changes presentation and focus, together with CI-only Node/Chrome startup verification; the selected numerical kernels, runtime limits, dependencies and their rebuild/relink recipes are unchanged. Package, lock and adapter labels are aligned to 0.1.3. Preparing these sources does not publish a tag, admit a Site pin or deploy a host.
