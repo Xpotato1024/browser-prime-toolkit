@@ -7,9 +7,10 @@ import {join} from 'node:path';
 export function observeChromeStartup(child,profile,{timeoutMs=30000,pollMs=50}={}){
  if(!Number.isFinite(timeoutMs)||timeoutMs<=0||!Number.isFinite(pollMs)||pollMs<=0)throw Error('Invalid startup deadline');
  const started=performance.now(),deadline=started+timeoutMs,trace=[];
- let settledAt=null,state='starting',stderr='',bannerSeen=false,lastProbeError=null,polls=0,disposed=false,pollTimer,deadlineTimer,controller,resolveReady,rejectReady;
+ let settledAt=null,state='starting',stderr='',stderrLine='',stderrOverflow=false,bannerSeen=false,lastProbeError=null,polls=0,disposed=false,pollTimer,deadlineTimer,controller,resolveReady,rejectReady;
+ const redact=text=>text.replace(/wss?:\/\/[^\s]+|\/devtools\/browser\/[^\s]+/g,'<redacted-cdp-endpoint>');
  const record=event=>{if(trace.length<32)trace.push({event,elapsedMs:Math.round(performance.now()-started)});};
- const diagnostics=()=>({state,elapsedMs:Math.round((settledAt??performance.now())-started),polls,bannerSeen,lastProbeError,stderr,trace:[...trace]});
+ const diagnostics=()=>({state,elapsedMs:Math.round((settledAt??performance.now())-started),polls,bannerSeen,lastProbeError,stderr:(stderr+(stderrLine||stderrOverflow?'<incomplete stderr line>':'')).slice(-10000),trace:[...trace]});
  const alive=()=>child.exitCode===null&&child.signalCode===null;
  const stopTimers=()=>{clearTimeout(pollTimer);clearTimeout(deadlineTimer);controller?.abort();};
  const finish=(next,error,url)=>{
@@ -19,8 +20,16 @@ export function observeChromeStartup(child,profile,{timeoutMs=30000,pollMs=50}={
  const onError=error=>finish('spawn-error',Error('Chrome spawn failed: '+error.message));
  const onExit=(code,signal)=>finish('exited',Error('Chrome exited before readiness: '+String(code)+' '+String(signal)));
  const onStderr=data=>{
-  const text=data.toString();if(text.includes('DevTools listening on'))bannerSeen=true;
-  stderr=(stderr+text).replace(/ws:\/\/[^\s]+/g,'<redacted-cdp-endpoint>').slice(-10000);
+  // Do not expose partial lines: a capability URL can cross any chunk boundary.
+  // Overlong unfinished lines are discarded through the next newline, not tailed.
+  const parts=data.toString().split('\n');
+  for(let i=0;i<parts.length;i++){
+   if(!stderrOverflow){
+    stderrLine+=parts[i];if(stderrLine.includes('DevTools listening on'))bannerSeen=true;
+    if(stderrLine.length>10000){stderrLine='';stderrOverflow=true;}
+   }
+   if(i<parts.length-1){stderr=(stderr+(stderrOverflow?'<oversized stderr line>':redact(stderrLine))+'\n').slice(-10000);stderrLine='';stderrOverflow=false;}
+  }
  };
  const ready=new Promise((res,rej)=>{resolveReady=res;rejectReady=rej;});
  // The caller may still be starting its memory observer when Chrome exits.
@@ -54,7 +63,7 @@ export function observeChromeStartup(child,profile,{timeoutMs=30000,pollMs=50}={
    }finally{clearTimeout(probeTimer);controller=null;}
   }catch(error){
    // Do not retain response text or capability-bearing websocket paths.
-   if(error.name!=='AbortError'||lastProbeError===null)lastProbeError=error.code==='ENOENT'?'owned port file not yet present':String(error.message).replace(/ws:\/\/[^\s]+/g,'<redacted-cdp-endpoint>').slice(0,240);
+   if(error.name!=='AbortError'||lastProbeError===null)lastProbeError=error.code==='ENOENT'?'owned port file not yet present':redact(String(error.message)).slice(0,240);
   }
   if(!disposed&&state==='starting')pollTimer=setTimeout(poll,Math.min(pollMs,Math.max(0,deadline-performance.now())));
  }

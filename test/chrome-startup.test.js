@@ -44,6 +44,21 @@ test('stderr alone does not authorize endpoint; child exit is immediate',async t
  assert.equal(o.diagnostics().state,'exited');assert.equal(o.diagnostics().bannerSeen,true);
  assert.ok(!JSON.stringify(o.diagnostics()).includes('aaaaaaaa'));
 });
+test('stderr endpoints stay redacted across every chunk boundary and truncated lines',async t=>{
+ const {profile,c}=await fixture(t);
+ const o=observeChromeStartup(c,profile,{timeoutMs:800,pollMs:5});t.after(()=>o.dispose());
+ const banner='DevTools listening on ws://127.0.0.1:12345'+path+'\n';
+ for(let split=1;split<banner.length;split++){
+  c.stderr.write(banner.slice(0,split));
+  assert.ok(!o.diagnostics().stderr.includes('ws://')&&!o.diagnostics().stderr.includes('/devtools/browser/')&&!o.diagnostics().stderr.includes('aaaaaaaa'),'first chunk '+split);
+  c.stderr.write(banner.slice(split));
+  assert.ok(!o.diagnostics().stderr.includes('ws://')&&!o.diagnostics().stderr.includes('/devtools/browser/')&&!o.diagnostics().stderr.includes('aaaaaaaa'),'second chunk '+split);
+ }
+ c.stderr.write('x'.repeat(10010)+'ws://127.0.0.1:12345');c.stderr.write(path+'\nordinary diagnostic\n');
+ assert.ok(!o.diagnostics().stderr.includes('aaaaaaaa'));assert.match(o.diagnostics().stderr,/ordinary diagnostic/);
+ assert.ok(o.diagnostics().stderr.length<=10000);assert.equal(o.diagnostics().bannerSeen,true);
+ o.dispose();await assert.rejects(o.ready,/disposed/);
+});
 test('spawn failure rejects and removes listeners on disposal',async t=>{
  const {profile,c}=await fixture(t);
  const o=observeChromeStartup(c,profile,{timeoutMs:800});

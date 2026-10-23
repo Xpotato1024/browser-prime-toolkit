@@ -20,3 +20,7 @@ PR30の受入runnerはサンプルとreset後に入力へfocusする旧仕様を
 Firefoxはoffline emulationを使用。WebKitは既存のapp-independent Blob Worker/offline制約を維持し、restrictive CSPと静穏なonline HTTP traceで検査した。native copyはクリック後のwrite promise/UIの観測であり、OSへのpasteやnative拒否dialogの保証ではない。実機iOS/Android、Safariアプリ、soft keyboard/autozoom、実BFCache、screen reader、長時間/多Worker性能は未検証。Siteの実host統合、新版配布、最終head CI、本番配信は別の確認対象である。
 
 既存v0.1.2のタグCIでNative validation初回失敗・同条件再実行成功となった履歴と原因未確定という状態は、このUI変更によって解消したとは扱わない。
+
+## 独立レビュー後の診断修正
+
+head `1f1164506db81a1b0f30df33dd077fd3e11db7ac` の独立レビューはP0/P1=0、P2=1。Chrome stderrの接続URLがchunk境界で分かれると、置換済みprefixの後にbrowser pathが残ることをin-memory fixtureで再現した。新規回帰テストを修正前に失敗させ、完全な行を組み立ててから接続URL/pathを伏せ、未完了行の内容を診断へ出さず、長い行は改行まで捨てるよう修正した。診断の保持上限10000文字と起動の単一期限は維持する。全分割位置・長い行の後の通常診断保持・既存の接続/終了/focus関連16試験が成功。これは検証用Chrome起動コードの修正で、配布runtimeと上記browser受入の対象bytesは不変である。
