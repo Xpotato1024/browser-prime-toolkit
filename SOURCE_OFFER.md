@@ -30,3 +30,7 @@ The site archive includes both licensing/artifact-index.json (historical library
 ## GUI candidate 0.1.1 (unreleased)
 
 The candidate is mapped by licensing/site-release-candidate.json. Its adapter source is the exact reviewed candidate commit, not the v0.1.0 tag target. The preserved licensing/site-release-v0.1.0.json still maps unchanged embedded kernels and is historical for the old adapter. The candidate builder includes MUSL-COPYRIGHT.txt directly. No new release/site pin is established by preparing this source. Use the candidate source/release review for its exact commit and artifact hash.
+
+## Compatibility release 0.1.2
+
+The sections above and licensing/site-release-candidate.json preserve the original preparation history. The v0.1.2 tag and its RELEASE-PROVENANCE.json identify the exact current adapter source and distribution hash. The release provides the complete tracked repository source ZIP alongside the runtime ZIP, checksums and browser acceptance evidence. The selected kernels, their notices, source archives and rebuild/relink recipes remain mapped by licensing/site-release-v0.1.0.json and licensing/artifact-index.json; no kernel or numerical policy changes are introduced by 0.1.2. PR30 adds reproducible Firefox/WebKit acceptance tools and records. Version labels are aligned to 0.1.2. Site integration and deployment are separate from this repository release.
