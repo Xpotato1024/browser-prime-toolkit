@@ -11,6 +11,8 @@
 .bt-prime-factorizer summary { min-height:max(2.75rem,44px); box-sizing:border-box; padding:.55rem 0; font-weight:600; cursor:pointer; }
 .bt-prime-factorizer details[open] summary { margin-bottom:.65rem; }
 .bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0 0; }
+.bt-prime-factorizer .bt-quick-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 0; }
+.bt-prime-factorizer .bt-quick-actions button { max-inline-size:100%; overflow-wrap:anywhere; }
 .bt-prime-factorizer button { min-height:max(2.75rem,44px); margin:0; padding:.65rem 1rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); font-weight:600; line-height:1.4; cursor:pointer; }
 .bt-prime-factorizer button[data-action="start"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); }
 .bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer button[data-action="retry"] { background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); border-color:var(--bt-border,#736a7b); }

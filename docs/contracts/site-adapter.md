@@ -47,6 +47,14 @@ hostの[視覚規約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs
 
 document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択前後・focus/blur・文字200%を確認します。OS の native popup の幅、入力フォーカス時の zoom、DOM overflow は別の現象です。desktop WebKit の検証を実 iOS の受入とは呼びません。
 
+### 2026-10-24 入力から結果までの操作距離
+
+入力の直後に primary 実行操作を置き、進行状況と結果をその直下に表示します。入力例・詳細設定は結果より後に置き、展開状態でも結果との間に入りません。汎用の入力例は引き続き入力だけを変更します。
+
+「360 を入力して分解（1秒上限）」は明示的な実行ボタンです。固定値 360 のみを通常の小入力経路・1000ms 上限で開始し、次回の実行設定は変更しません。入力例の選択を自動実行へ変えたり、大入力・高負荷経路へ自動変更したりしません。
+
+結果への移動は専用ボタンを押した場合だけ行い、結果の全桁欄に focus を移して表示位置を合わせます。計算完了時の自動スクロールは追加しません。既存の実行・取消ボタンに対する focus 引継ぎは保ち、別の control を操作中なら完了時もその focus を維持します。
+
 ## 確認手順
 
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。

@@ -68,6 +68,22 @@ try{
     assert.equal((await metrics()).created,before.created);assert.equal(await sample.evaluate(n=>n===document.activeElement),true);
     assert.equal(await page.locator('select[id$="-sample"]').count(),0);return{workersCreated:0,focus:'sample button',choiceSurface:'in-page native details and buttons'};
    });
+   await test('explicit quick example fills and executes only 360 with a one-second cap',async()=>{
+    await page.locator('.bt-settings').evaluate(n=>n.open=true);await page.locator('select[id$="-time"]').selectOption('5000');
+    const quick=page.locator('[data-action=quick-example]');await quick.focus();await quick.press('Enter');await phase('result');
+    assert.equal(await equation(),'360 = 2^3 × 3^2 × 5');assert.equal(await input.inputValue(),'360');
+    const state=await page.evaluate(()=>app.getState());assert.equal(state.resources.actualTimeBudgetMs,1000);assert.equal(state.resources.actualWorkers,1);assert.equal(state.resources.actualWasmBytes,0);
+    assert.equal(await page.locator('select[id$="-time"]').inputValue(),'5000');assert.equal(await quick.isEnabled(),true);
+    await page.locator('select[id$="-time"]').selectOption('1000');await page.locator('.bt-settings').evaluate(n=>n.open=false);
+    return{input:'360',capMs:1000,wasmBytes:0,nextRunSettingsRetained:true};
+   });
+   await test('results precede optional controls and explicit keyboard navigation reaches the output',async()=>{
+    await run('360');await page.locator('.bt-samples').evaluate(n=>n.open=true);
+    const order=await page.evaluate(()=>{const root=document.querySelector('#tool'),nodes=[...root.children];return {result:nodes.indexOf(root.querySelector('.bt-result')),samples:nodes.indexOf(root.querySelector('.bt-samples')),settings:nodes.indexOf(root.querySelector('.bt-settings')),formContainsSample:root.querySelector('form').contains(root.querySelector('.bt-samples'))};});
+    assert.ok(order.result<order.samples&&order.result<order.settings);assert.equal(order.formContainsSample,false);
+    const jump=page.locator('[data-action=result]');await jump.focus();await jump.press('Enter');assert.equal(await page.locator('textarea[id$="output"]').evaluate(n=>n===document.activeElement),true);
+    const position=await page.locator('.bt-result').boundingBox();assert.ok(position.y>=0&&position.y<850,JSON.stringify(position));return{order,explicitResultJump:true};
+   });
    await test('invalid decimal, negative, oversized exponent are rejected without Workers',async()=>{
     const before=await metrics();for(const value of ['2.5','-1','1e10000']){await input.fill(value);await start.click();await phase('invalid');assert.equal(await input.getAttribute('aria-invalid'),'true');assert.equal(await page.getByRole('alert').isVisible(),true);}
     assert.equal((await metrics()).created,before.created);return{workersCreated:0};
@@ -113,9 +129,10 @@ try{
    await test('reset and keyboard tab order',async()=>{
     const reset=page.locator('[data-action=reset]');await reset.click();await phase('ready');assert.equal(await input.inputValue(),'');
     await page.waitForFunction(()=>document.activeElement?.dataset.action==='reset');assert.equal(await reset.evaluate(n=>n===document.activeElement),true);
-    await page.locator('.bt-samples').evaluate(n=>n.open=false);await input.focus();await input.press('Tab');assert.equal(await page.locator('.bt-samples summary').evaluate(n=>n===document.activeElement),true);
+    await page.locator('.bt-samples').evaluate(n=>n.open=false);await input.focus();await input.press('Tab');assert.equal(await start.evaluate(n=>n===document.activeElement),true);
+    await page.locator('.bt-samples summary').focus();
     await page.keyboard.press('Enter');await page.keyboard.press('Tab');assert.equal(await page.locator('[data-sample-value="360"]').evaluate(n=>n===document.activeElement),true);
-    return{focusAfterReset:'reset',tabFromInput:'sample disclosure, then native choice button'};
+    return{focusAfterReset:'reset',tabFromInput:'primary start action; optional sample disclosure follows result area'};
    });
    await test('narrow widths and 200 percent text resize keep choices and results inside DOM bounds',async()=>{
     const observations=[];await run('9007199254740993');await page.locator('.bt-samples').evaluate(n=>n.open=true);
