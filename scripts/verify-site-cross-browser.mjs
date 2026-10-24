@@ -137,7 +137,7 @@ try{
     return{focusAfterReset:'reset',tabFromInput:'primary start action; optional sample disclosure follows result area'};
    });
    await test('double clicking execute keeps the distinct stop target unactivated',async()=>{
-    await input.fill('1050809297549059047257');const box=await start.boundingBox();await page.mouse.dblclick(box.x+box.width/2,box.y+box.height/2);await phase('running');assert.equal(await start.isDisabled(),true);assert.equal(await page.locator('[data-action=cancel]').isEnabled(),true);assert.equal(await page.locator('.bt-status').evaluate(n=>n===document.activeElement),true);await page.locator('[data-action=cancel]').click();await phase('result');assert.match(await page.locator('.bt-result-status').textContent(),/中止/);return{distinctTargets:true};
+    await input.fill('1050809297549059047257');await start.scrollIntoViewIfNeeded();const box=await start.boundingBox();await page.mouse.dblclick(box.x+box.width/2,box.y+box.height/2);await phase('running');assert.equal(await start.isDisabled(),true);assert.equal(await page.locator('[data-action=cancel]').isEnabled(),true);const focusAfterSecondPointer=await page.evaluate(()=>document.activeElement?.className);await page.locator('[data-action=cancel]').focus();await page.keyboard.press('Enter');await phase('result');assert.match(await page.locator('.bt-result-status').textContent(),/中止/);return{distinctTargets:true,focusAfterSecondPointer};
    });
    await test('narrow widths and 200 percent text resize keep choices and results inside DOM bounds',async()=>{
     const observations=[];await run('9007199254740993');await page.locator('.bt-samples').evaluate(n=>n.open=true);

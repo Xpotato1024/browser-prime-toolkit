@@ -2,6 +2,7 @@
 .bt-prime-factorizer form, .bt-prime-factorizer .bt-field { min-inline-size:0; max-inline-size:100%; }
 .bt-prime-factorizer form, .bt-prime-factorizer fieldset, .bt-prime-factorizer .bt-work, .bt-prime-factorizer .bt-input-area { inline-size:100%; box-sizing:border-box; }
 .bt-prime-factorizer .bt-layout { display:block; }
+.bt-prime-factorizer form { display:block; }
 .bt-prime-factorizer .bt-work { min-inline-size:0; }
 .bt-prime-factorizer .bt-input-area { min-inline-size:0; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); }
 .bt-prime-factorizer .bt-field .bt-input-area input { border:0; background:transparent; }
