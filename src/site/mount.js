@@ -5,6 +5,9 @@ import {siteInputLimit} from './policy.js';
 import {executionPresentation,sitePresentation,sampleInputs,copyResult} from './presentation.js';
 import {createSettingsState} from './settings-state.js';
 import {createModal} from './modal.js';
+import {inputGuidance} from './guidance.js';
+import {prepareSiteFonts} from './fonts.js';
+import * as lightModule from '../resources/light-adapter.js';
 let serial=0;
 export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.navigator?.hardwareConcurrency,deviceMemory:globalThis.navigator?.deviceMemory},sessionOptions={}}={}){
  if(!root?.ownerDocument)throw TypeError('DOM root required');
@@ -36,7 +39,9 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const metrics=el('section',{'class':'bt-metrics','aria-label':'実測結果'}),metricList=el('dl'),metricRow=el('div'),elapsedLabel=el('dt',{id:'elapsed-label',text:'実経過'}),elapsed=el('dd',{'data-elapsed':'','aria-labelledby':elapsedLabel.id});metricRow.append(elapsedLabel,elapsed);metricList.append(metricRow);metrics.append(metricList);
  const execution=el('details',{'class':'bt-execution'}),measurementNote=el('p',{'class':'bt-help'}),limits=el('dl',{'class':'bt-execution-limits'}),limitsNote=el('p',{'class':'bt-help'});execution.append(el('summary',{text:'実経過の測定範囲・今回の設定上限'}),measurementNote,limits,limitsNote);
  resultBody.append(resultStatus,equation,residualText,reasonText,proof);result.append(resultTitle,resultBody,copyActions,copyStatus,execution);work.append(status,runtimeError,retry,metrics,result);actions.append(start,cancel,reset);fields.append(actions);form.append(work);layout.append(form);
- const note=el('details',{id:'input-rules','class':'bt-limits'});note.append(el('summary',{text:'入力の表記・計算範囲・端末の負荷について'}),el('p',{text:'計算は端末内で行い、入力と結果を外部へ送信・永続保存しません。整数と、整数になる科学表記（例：3.2e1）に対応します。先頭の0は値の桁数に含めません。通常は2^128未満、高精度／大メモリは最大100桁かつ332bit以下。入力表記は4096文字までで、超過は切り詰めずエラーにします。桁数から所要時間は分かりません。通常経路は最大1 Worker・WASM128 MiB・60秒、高精度は最大2 Worker。大メモリは明示設定・WASM予算1536 MiB・最大5 Worker・1時間です。WASM上限はブラウザ全体のRAM上限ではなく、タブ終了を防ぐ保証もありません。未分解・未証明を区別し、同じページの計算は1件に制限します。'}));
+ const note=el('details',{id:'input-rules','class':'bt-limits'}),guidanceList=el('ul',{'class':'bt-guidance-list'});note.append(el('summary',{text:'入力の表記・計算範囲・端末の負荷について'}),guidanceList);
+ for(const group of inputGuidance){const item=el('li');item.append(el('strong',{text:group.title}));if(group.items){const list=el('ul');list.append(...group.items.map(text=>el('li',{text})));item.append(list);}item.append(el('p',{text:group.text}));guidanceList.append(item);}
+
  input.setAttribute('aria-details',note.id);
  root.replaceChildren(layout,note,samples,details);
  let disposed=false,busy=false,prepared=false,session,clock=null,compositionEndTimer=null,currentResources=null,currentCopy='',copyGeneration=0,limitsKey='',lastOutcome=null,activeJob=null,navigateStart=false,composing=false,finishingComposition=false,suppressSubmit=false;
@@ -78,7 +83,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
   else if((cancel.hidden||s.phase==='cancelling')&&cancelFocused)status.focus({preventScroll:true});
  };
  const prepare=()=>session.prepare(settingsState.applied().engine);
- const makeSession=(restoreReset=false)=>{prepared=false;session=createSiteSession({...sessionOptions,scope,hints,onChange:render});render(session.getState());void prepare().then(()=>{if(restoreReset&&!disposed&&!reset.disabled)reset.focus({preventScroll:true});});};
+ const makeSession=(restoreReset=false)=>{prepared=false;session=createSiteSession({...sessionOptions,loadLight:async()=>{await prepareSiteFonts(root);return sessionOptions.loadLight?sessionOptions.loadLight():lightModule;},scope,hints,onChange:render});render(session.getState());void prepare().then(()=>{if(restoreReset&&!disposed&&!reset.disabled)reset.focus({preventScroll:true});});};
  listen(form,'submit',e=>{e.preventDefault();if(modalOpen()||composing||suppressSubmit||busy||!prepared)return;navigateStart=true;void session.start(input.value,settings()).then(()=>{navigateStart=false;});});
  listen(input,'compositionstart',()=>{composing=true;});listen(input,'compositionend',()=>{clearCompositionTimer();finishingComposition=composing;composing=false;if(finishingComposition)compositionEndTimer=doc.defaultView.setTimeout(()=>{finishingComposition=false;compositionEndTimer=null;},0);});
  listen(input,'keydown',e=>{if(e.key==='Enter'){suppressSubmit=composing||finishingComposition||e.isComposing||e.keyCode===229||e.repeat;if(suppressSubmit)e.preventDefault();}else finishingComposition=false;});listen(input,'keyup',e=>{if(e.key==='Enter')suppressSubmit=finishingComposition=false;});listen(input,'blur',()=>{clearCompositionTimer();composing=finishingComposition=suppressSubmit=false;});

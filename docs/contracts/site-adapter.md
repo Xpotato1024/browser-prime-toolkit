@@ -33,7 +33,7 @@ SEO、document head、canonical/OG、routeと意味的なページ見出しはsi
 
 ## サイトの視覚規約とfocus
 
-hostの[視覚規約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/design/visual-design-reference.md)へ合わせ、固有GUIも反復するカード・影・塗り面を使わず、detailsは細い上罫線で区切ります。文字の寸法・色をhostへ合わせ、入力枠とprimary/補助/取消の階層を保ちます。GUIのfont-familyは端末内のsystem-uiを使います。hostのunicode-range付きWebフォントを継承すると、結果で初めて現れた文字にready後の追加取得が発生しうるためです。controlは16pxまたはrem以上、操作領域は44pxまたはrem以上です。
+hostの[視覚規約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/design/visual-design-reference.md)へ合わせ、固有GUIも反復するカード・影・塗り面を使わず、detailsは細い上罫線で区切ります。文字の寸法・色をhostへ合わせ、入力枠とprimary/補助/取消の階層を保ちます。GUIの通常書体はhostの `--bt-font-family` を継承し、単体ではsystem-uiへfallbackします。Siteは既存の本文書体を渡し、見出し・form・button・dialogも継承します。コードとcommit IDの等幅表記はhostが保持します。固定UI文字のFontFaceSet.loadを初回prepareへ含め、後出しの字形取得によるready後通信を避けます。新しいfont-faceやURLは追加しません。controlは16pxまたはrem以上、操作領域は44pxまたはrem以上です。
 
 サンプルとresetで入力へ強制focusせず、必要な実行・取消・再試行・コピーのfocus移動は preventScroll を使います。手動コピー欄の選択や内容の開閉は実ブラウザでも確認します。文書が短くなった時の末尾位置への自然なclampと、focusによる意図しない移動は分けて記録します。ピンチ拡大の禁止で対処しません。実機iOSのキーボード・autozoom挙動はChrome viewport emulationから保証しません。
 
@@ -81,7 +81,7 @@ document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択
 
 native showModalのtop layerと背景のinertnessを使い、初期見出し・Tab境界・Escape・focusと元のページ位置の復帰を確認する。長い内容や短い画面ではdialog自体をスクロールし、global clipping、body style、ズーム禁止、portal、CSP拡大で対処しない。unmountでは開いたdialogも閉じる。
 
-buttonの文字色と背景は一組でscopedに定義し、Siteのprose/form ruleとの合成後に通常・focus・hover・active・disabledのコントラストを検査する。結果見出しも端末フォントを明示し、動的な「前回」表示でhost Webフォントを追加取得させない。OSの色設定とSiteが対応するthemeを区別し、実機iOSや支援技術をdesktop WebKitから保証しない。
+buttonの文字色と背景は一組でscopedに定義し、Siteのprose/form ruleとの合成後に通常・focus・hover・active・disabledのコントラストを検査する。結果見出しもhostの本文書体を継承し、固定UI文字の初回準備で動的な「前回」表示によるready後の追加取得を防ぐ。OSの色設定とSiteが対応するthemeを区別し、実機iOSや支援技術をdesktop WebKitから保証しない。
 
 ### 2026-10-24 モーダルの視覚調整
 
@@ -102,3 +102,9 @@ Siteの細い境界・2px角丸・端末内フォントに合わせ、分解と�
 実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。
 
 merge/release/本番配信は今回のDraft作成許可に含まれません。
+
+### 見出し付きの説明と書体の責務
+
+入力規則は入力形式・計算範囲・実行資源と端末負荷・結果の扱いのnative ul/liへ整理する。raw4096文字、数値39桁かつ2^128未満／100桁かつ332bit以下、配布物の入力16384bytesは別の上限とする。高精度は自動最大2 Worker、手動最大6 Workerで、既存policyと照合する。WASM予算と実使用量を混同せず、RAM全体／タブ終了に関する注意を保持する。
+
+font-textは固定UIソースから生成し、builderで一致を検査する。入力値・結果・任意DOM本文を収集しない。hostの配布説明は明示的な `data-bt-font-text` の固定公開文言だけを4096文字以内で渡す。既存CSSの書体を400/500/600/700で準備してからreadyにする。失敗は既存load-error／retryへ戻し、失敗promiseを永続cacheしない。

@@ -1,4 +1,4 @@
-.bt-prime-factorizer { min-inline-size:0; inline-size:100%; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; color:var(--bt-text,#24212b); font-family:system-ui,sans-serif; line-height:1.6; }
+.bt-prime-factorizer { min-inline-size:0; inline-size:100%; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; color:var(--bt-text,#24212b); font-family:var(--bt-font-family,system-ui,sans-serif); line-height:1.6; }
 .bt-prime-factorizer form, .bt-prime-factorizer .bt-field { min-inline-size:0; max-inline-size:100%; }
 .bt-prime-factorizer form, .bt-prime-factorizer fieldset, .bt-prime-factorizer .bt-work, .bt-prime-factorizer .bt-input-area { inline-size:100%; box-sizing:border-box; }
 .bt-prime-factorizer .bt-layout { display:block; }
@@ -70,3 +70,8 @@
 .bt-prime-factorizer .bt-residual, .bt-prime-factorizer .bt-stop-reason, .bt-prime-factorizer .bt-estimate { margin:.35rem 0; }
 .bt-prime-factorizer .bt-limits { font-size:.9rem; }
 .bt-prime-factorizer .bt-limits p { margin:.4rem 0; }
+
+.bt-prime-factorizer .bt-guidance-list { margin:.5rem 0; padding-inline-start:1.25rem; list-style:disc; }
+.bt-prime-factorizer .bt-guidance-list > li { margin:.75rem 0; }
+.bt-prime-factorizer .bt-guidance-list ul { margin:.35rem 0; padding-inline-start:1.2rem; list-style:circle; }
+.bt-prime-factorizer .bt-guidance-list ul li { margin:.35rem 0; }

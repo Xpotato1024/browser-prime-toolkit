@@ -2,7 +2,9 @@
 import {readFile,mkdir,writeFile,stat} from 'node:fs/promises';
 import {resolve,relative,dirname,isAbsolute,sep} from 'node:path';
 import {createHash} from 'node:crypto';
+import {siteFontModule} from './site-font-text.mjs';
 const root=resolve(import.meta.dirname,'..'),out=resolve(process.argv[2]??'');
+if(await readFile(resolve(root,'src/site/font-text.js'),'utf8')!==await siteFontModule(root))throw Error('UI font corpus is stale');
 const inside=relative(root,out);
 if(process.argv.length!==3||inside===''||(!isAbsolute(inside)&&inside!=='..'&&!inside.startsWith('..'+sep)))throw Error('Fresh external output directory required');
 try{await stat(out);throw Error('Output already exists');}catch(e){if(e.code!=='ENOENT')throw e;}
