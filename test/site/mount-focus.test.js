@@ -13,7 +13,7 @@ function fixture(){const doc={activeElement:null,focuses:[],scrolls:[]};class El
 const nodes=root=>{const all=[];const visit=n=>{all.push(n);for(const c of n.children)visit(c);};visit(root);return all;};
 const settle=async()=>{for(let i=0;i<20;i++)await Promise.resolve();};
 const finished=input=>({...factorStaged(BigInt(input)),origin:'worker',traceAvailable:true});
-async function setup(options={}){const f=fixture();f.app=mountSiteFactorizer(f.root,{sessionOptions:{loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>finished(i)}),...options}});await settle();f.find=predicate=>nodes(f.root).find(predicate);f.action=name=>f.find(n=>n.attrs['data-action']===name);f.input=f.find(n=>n.tagName==='INPUT');f.form=f.find(n=>n.tagName==='FORM');return f;}
+async function setup(options={},f=fixture()){f.app=mountSiteFactorizer(f.root,{sessionOptions:{loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>finished(i)}),...options}});await settle();f.find=predicate=>nodes(f.root).find(predicate);f.action=name=>f.find(n=>n.attrs['data-action']===name);f.input=f.find(n=>n.tagName==='INPUT');f.form=f.find(n=>n.tagName==='FORM');return f;}
 
 test('all examples only fill the common input, collapse and return focus to the one start action',async()=>{
  let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{runs++;return finished(i);}})});
@@ -63,9 +63,9 @@ test('a failed result verification cannot attach an old job snapshot to a succes
  f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*64/);assert.equal(f.find(n=>n.attrs['class']==='bt-draft-note').hidden,false);f.app.dispose();
 });
 
-test('another instance holding the lease is a runtime wait, not an input error or hidden scroll target',async()=>{
- const {makeComputeScope}=await import('../../src/site/document-scope.js');const scope=makeComputeScope();let finish;
- const first=await setup({scope,loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve(finished(input));})})}),second=await setup({scope});
+test('another instance holding the lease is a runtime wait, not an input error or hidden scroll target',async t=>{
+ const shared=fixture();let finish;
+ const first=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve(finished(input));})})},shared),second=await setup({},{doc:shared.doc,root:shared.doc.createElement('div')});t.after(()=>{first.app.dispose();second.app.dispose();});
  first.input.value='32';first.form.fire('submit');second.input.value='64';second.form.fire('submit');await settle();
  assert.equal(second.app.getState().errorField,'runtime');assert.equal(second.input.attrs['aria-invalid'],'false');const destination=second.doc.scrolls.at(-1).node;assert.equal(destination.attrs.role,'alert');assert.equal(destination.hidden,false);assert.doesNotMatch(second.find(n=>n.attrs['class']==='bt-status').textContent,/入力|設定/);assert.equal(second.doc.activeElement.attrs.role,'status');
  finish();await settle();second.form.fire('submit');await settle();assert.equal(second.app.getState().phase,'result');first.app.dispose();second.app.dispose();
