@@ -108,3 +108,20 @@ test('settings cancel and invalid apply leave current result and applied input c
  f.action('settings').fire('click');engine.value='optimized';engine.fire('change');const mode=f.find(n=>n.id?.endsWith('-mode')),memory=f.find(n=>n.id?.endsWith('-memory'));mode.value='manual';mode.fire('change');memory.value='1536';memory.fire('change');f.action('apply-settings').fire('click');assert.equal(f.find(n=>n.attrs['class']==='bt-settings').open,true);assert.equal(f.app.getState().engine,'standard');assert.match(f.doc.activeElement.textContent,/まだ適用していません/);f.form.fire('submit');await settle();assert.equal(f.app.getState().input,'32');f.app.dispose();
 });
 test('a pending clipboard denial cannot take focus from a newly opened modal',async()=>{const f=await setup();f.input.value='32';f.form.fire('submit');await settle();let rejectCopy;f.doc.defaultView.navigator.clipboard={writeText:()=>new Promise((resolve,reject)=>{rejectCopy=reject;})};f.action('copy').fire('click');f.action('examples').fire('click');const focused=f.doc.activeElement;rejectCopy(Error('denied'));await settle();assert.equal(f.doc.activeElement,focused);assert.equal(focused.tagName,'H2');f.app.dispose();});
+
+test('ready, sample selection and completion leave no stale input announcement or duplicate completion',async t=>{
+ const f=await setup(),status=f.find(n=>n.attrs['class']==='bt-status');t.after(()=>f.app.dispose());assert.equal(status.textContent,'');
+ f.action('examples').fire('click');f.find(n=>n.attrs['data-sample-value']==='9007199254740993').fire('click');
+ assert.equal(f.input.value,'9007199254740993');assert.equal(f.app.getState().phase,'ready');
+ assert.equal(nodes(f.root).some(n=>/を入力しました|まだ実行していません|入力を用意して/.test(n.textContent??'')),false);
+ f.form.fire('submit');await settle();assert.equal(status.textContent,'');const summary=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(summary.textContent,/分解完了/);assert.equal(summary.attrs.role,'status');assert.equal(summary.attrs['aria-live'],'polite');
+ assert.equal(nodes(f.root).some(n=>/計算が終了しました|中止処理が完了しました/.test(n.textContent??'')),false);
+ f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);f.form.fire('submit');await settle();assert.equal(status.textContent,'');
+ f.action('reset').fire('click');await settle();assert.equal(status.textContent,'');assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,true);f.app.dispose();
+});
+
+test('necessary live progress and cancellation transfer focus to one qualified final status',async t=>{
+ let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve({...finished(input),origin:'host',traceAvailable:false,stages:null,grants:null,status:'cancelled',reason:'cancelled',factors:[],remaining:input,primality:'unknown'});})})});t.after(()=>f.app.dispose());
+ const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');assert.equal(status.textContent,'計算しています。');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.match(status.textContent,/解放/);finish();await settle();
+ const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
+});
