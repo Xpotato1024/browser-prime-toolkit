@@ -27,7 +27,8 @@ export const heavyView=(r,input,{now,deadline})=>{
  if(r.remaining!=='1')terms.push('[未解決: '+r.remaining+']');
  const equation=input+' = '+terms.join(' × ');
  const reasonText=r.reason?'停止理由: '+String(r.reason).slice(0,80):'';
- return{equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
+ const groups=[];for(const f of r.factors){const last=groups.at(-1);if(last?.base===f.value)last.exponent++;else groups.push({base:f.value,exponent:1,certainty:f.certainty});}
+ return{groups,residual:r.remaining==='1'?null:r.remaining,equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
 };
 export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=async()=>lightModule,loadHeavy=async name=>name==='wide'?wideModule:optimizedModule,onChange=()=>{},now=()=>performance.now()}={}){
  let light=null,heavy=null,engine='standard',preparing=false,active=null,closed=false,blocked=false,generation=0;

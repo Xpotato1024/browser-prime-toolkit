@@ -59,6 +59,7 @@ test('display certainty proof shares the finite request deadline',async()=>{
  const result={input,kind:'probable',factors:[{value:'3',certainty:'proven'},{value:p.toString(),certainty:'probable'}],remaining:'1',allWorkersDisposed:true,allWorkerSourcesReleased:true};
  const {s}=fixture({now:()=>at,loadHeavy:async()=>({runRusqsieve:async()=>result})});
  await s.prepare('optimized');await s.start(input);assert.equal(s.getState().phase,'result');
+ assert.deepEqual(s.getState().view.groups,[{base:'3',exponent:1,certainty:'proven'},{base:p.toString(),exponent:1,certainty:'probable'}]);assert.equal(s.getState().view.residual,null);
  const late=fixture({now:()=>at,loadHeavy:async()=>({runRusqsieve:async()=>{at+=1001;return result;}})});
  await late.s.prepare('optimized');await late.s.start(input);assert.equal(late.s.getState().phase,'error');assert.equal(late.s.getState().view,null);
 });

@@ -8,8 +8,18 @@ export function formatElapsed(ms){
  return (ms/1000).toFixed(2)+' 秒';
 }
 export function sitePresentation(view){
- return {equation:view.equation,details:view.certaintyText??'',
-  copyText:[view.equation,view.statusText,view.reasonText,view.certaintyText?'因子の確度: '+view.certaintyText:''].filter(Boolean).join('\n')};
+ const factorRows=(view.groups??[]).map(g=>({value:g.base,exponent:g.exponent,certainty:g.certainty,
+  text:g.base+(g.exponent===1?'':'（'+g.exponent+'乗）')+': '+(g.certainty==='proven'?'確定判定':g.certainty==='probable'?'未証明（probable）':'判定未確認')}));
+ const residual=view.residual??null;
+ return {equation:view.equation,details:view.certaintyText??'',factorRows,residual,
+  copyText:[view.equation,view.statusText,view.reasonText,factorRows.length?'因子の判定:\n'+factorRows.map(r=>r.text).join('\n'):view.certaintyText?'因子の確度: '+view.certaintyText:'',residual!==null?'未解決の余因子: '+residual:''].filter(Boolean).join('\n')};
+}
+export function executionPresentation(resources,elapsedMs){
+ if(!resources)return null;
+ return {elapsed:formatElapsed(elapsedMs),
+  measurementNote:'この計算のWorker初期化・結果検証・解放処理を含みます。ページ初回の読込・準備時間は含みません。',
+  limits:[['時間上限',resources.actualTimeBudgetMs/1000+'秒'],['計算経路',resources.route],['Worker上限',String(resources.actualWorkers)],['WASM上限',resources.actualWasmBytes/1048576+' MiB']],
+  limitsNote:'Worker数とWASM量はこの経路の上限設定であり、測定した使用量ではありません。'};
 }
 // Selection changes input only. No engine/resource setting or auto-start.
 export const sampleInputs=Object.freeze([

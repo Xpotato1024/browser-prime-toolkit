@@ -1,10 +1,11 @@
-.bt-prime-factorizer { max-width:100%; color:var(--bt-text,#24212b); font-family:system-ui,sans-serif; line-height:1.6; }
+.bt-prime-factorizer { min-inline-size:0; inline-size:100%; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; color:var(--bt-text,#24212b); font-family:system-ui,sans-serif; line-height:1.6; }
+.bt-prime-factorizer form, .bt-prime-factorizer .bt-field { min-inline-size:0; max-inline-size:100%; }
 .bt-prime-factorizer fieldset { min-width:0; margin:0; padding:0; border:0; }
 .bt-prime-factorizer .bt-field { display:flex; flex-direction:column; gap:.35rem; margin:0 0 .85rem; }
 .bt-prime-factorizer label { display:block; margin:0; font-weight:600; }
 .bt-prime-factorizer .bt-field input, .bt-prime-factorizer .bt-field select, .bt-prime-factorizer .bt-result textarea { display:block; width:100%; max-width:100%; min-width:0; min-height:max(2.75rem,44px); box-sizing:border-box; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); line-height:1.5; }
 .bt-prime-factorizer select { appearance:auto; }
-.bt-prime-factorizer textarea { min-height:8rem; resize:vertical; white-space:pre-wrap; overflow-wrap:anywhere; }
+.bt-prime-factorizer textarea { min-height:4rem; resize:vertical; white-space:pre-wrap; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-help { margin:.4rem 0 .9rem; color:var(--bt-muted,#514b5b); font-size:.9rem; }
 .bt-prime-factorizer details { margin:.9rem 0; padding:0; border:0; border-top:1px solid var(--bt-border,#736a7b); border-radius:0; background:transparent; }
 .bt-prime-factorizer summary { min-height:max(2.75rem,44px); box-sizing:border-box; padding:.55rem 0; font-weight:600; cursor:pointer; }
@@ -21,5 +22,21 @@
 .bt-prime-factorizer .bt-error { padding:.65rem .75rem; border-left:4px solid var(--bt-danger,#a32232); color:var(--bt-danger,#a32232); overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-result { margin:1rem 0; }
 .bt-prime-factorizer .bt-result label { margin-bottom:.4rem; }
+.bt-prime-factorizer .bt-copy-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+.bt-prime-factorizer .bt-sample-list { display:grid; gap:.4rem; list-style:none; margin:.35rem 0; padding:0; }
+.bt-prime-factorizer .bt-sample-list li { min-inline-size:0; margin:0; }
+.bt-prime-factorizer .bt-sample-choice { inline-size:100%; white-space:normal; text-align:start; overflow-wrap:anywhere; }
+.bt-prime-factorizer .bt-metrics { margin:.65rem 0; }
+.bt-prime-factorizer .bt-metrics dl { margin:0; }
+.bt-prime-factorizer .bt-metrics dl > div { display:flex; flex-wrap:wrap; gap:.35rem .75rem; align-items:baseline; }
+.bt-prime-factorizer .bt-metrics dt { font-weight:600; }
+.bt-prime-factorizer .bt-metrics dd { margin:0; font-size:1.15rem; font-variant-numeric:tabular-nums; }
+.bt-prime-factorizer .bt-metrics .bt-help { margin:.3rem 0 0; }
+.bt-prime-factorizer .bt-execution-limits { display:grid; gap:.35rem; margin:.35rem 0; }
+.bt-prime-factorizer .bt-execution-limits > div { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:.35rem .75rem; }
+.bt-prime-factorizer .bt-execution-limits dd { margin:0; }
+.bt-prime-factorizer .bt-factor-list { margin:.35rem 0; padding-inline-start:1.25rem; list-style:disc; }
+.bt-prime-factorizer .bt-factor-list li + li { margin-top:.25rem; }
+.bt-prime-factorizer .bt-residual, .bt-prime-factorizer .bt-stop-reason, .bt-prime-factorizer .bt-estimate { margin:.35rem 0; }
 .bt-prime-factorizer .bt-limits { font-size:.9rem; }
 .bt-prime-factorizer .bt-limits p { margin:.4rem 0; }

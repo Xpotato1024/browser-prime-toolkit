@@ -39,6 +39,14 @@ hostの[視覚規約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs
 
 通信方針はsiteの導入説明、保存・送信しない旨はGUIの一文にまとめ、状態行は状態だけを表示します。version/license/対応ソースはhostの末尾表示を使います。
 
+### 2026-10-24 狭幅と結果表示の補足
+
+長い説明付きサンプルは OS の選択ポップアップへ渡さず、ページ内の native details と通常のボタンで折り返して表示します。選択は入力だけを変更し、計算・設定変更・入力への強制フォーカスは行いません。短い技術設定の native select は維持します。root と内側の control は最小幅を抑え、global overflow clipping やズーム禁止を追加しません。
+
+実経過は独立した実測結果、実行上限・計算経路・Worker/WASM 上限は別の開示項目にします。実経過はこの計算の初期化・結果検証・解放を含み、初回ファイル準備を含みません。因子判定は native ul/li で1因子1項目にし、重複度・確度・未解決の余因子・停止理由を保持します。コピー本文にも同じ情報を含めます。
+
+document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択前後・focus/blur・文字200%を確認します。OS の native popup の幅、入力フォーカス時の zoom、DOM overflow は別の現象です。desktop WebKit の検証を実 iOS の受入とは呼びません。
+
 ## 確認手順
 
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。

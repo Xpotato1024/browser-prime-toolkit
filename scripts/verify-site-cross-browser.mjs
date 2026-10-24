@@ -61,21 +61,28 @@ try{
    const equation=()=>page.locator('textarea[id$="output"]').inputValue();
    const run=async value=>{await input.fill(value);await input.press('Enter');await phase('result');return equation();};
    const test=async(label,fn)=>{console.log(name+': '+label);try{const evidence=await fn();result.cases.push({label,passed:true,...evidence});}catch(e){result.cases.push({label,passed:false,error:String(e)});result.failures.push(label);}};
-   await test('sample changes only input and preserves select focus',async()=>{
-    const sample=page.getByLabel('入力例と用途');await sample.focus();
-    const before=await metrics();await sample.selectOption('360');
+   await test('inline sample changes only input and preserves button focus',async()=>{
+    await page.locator('.bt-samples summary').click();const sample=page.locator('[data-sample-value="360"]');await sample.focus();
+    const before=await metrics();await sample.press('Enter');
     assert.equal(await input.inputValue(),'360');assert.equal(await page.locator('#tool').getAttribute('data-phase'),'ready');
     assert.equal((await metrics()).created,before.created);assert.equal(await sample.evaluate(n=>n===document.activeElement),true);
-    return{workersCreated:0,focus:'sample'};
+    assert.equal(await page.locator('select[id$="-sample"]').count(),0);return{workersCreated:0,focus:'sample button',choiceSurface:'in-page native details and buttons'};
    });
    await test('invalid decimal, negative, oversized exponent are rejected without Workers',async()=>{
     const before=await metrics();for(const value of ['2.5','-1','1e10000']){await input.fill(value);await start.click();await phase('invalid');assert.equal(await input.getAttribute('aria-invalid'),'true');assert.equal(await page.getByRole('alert').isVisible(),true);}
     assert.equal((await metrics()).created,before.created);return{workersCreated:0};
    });
    await test('scientific input, exact integer, zero and subsecond display',async()=>{
-    assert.equal(await run('3.2e1'),'32 = 2^5');const elapsed=await page.locator('p.bt-help').filter({hasText:'実経過:'}).textContent();assert.match(elapsed,/実経過: (?:<1|\d+) ms/);
+    assert.equal(await run('3.2e1'),'32 = 2^5');const elapsed=await page.locator('[data-elapsed]').textContent();assert.match(elapsed,/^(?:<1|\d+) ms$/);assert.doesNotMatch(elapsed,/上限|Worker|WASM/);
+    assert.equal(await page.locator('.bt-execution-limits div').filter({hasText:'時間上限'}).locator('dd').textContent(),'1秒');
     assert.match(await run('9007199254740993'),/^9007199254740993 = /);assert.equal(await run('0'),'0 = 0');assert.match(await page.locator('.bt-status').textContent(),/素数でも合成数でもありません/);
     return{elapsed};
+   });
+   await test('one semantic row per factor preserves a many-factor result',async()=>{
+    const primes=[2n,3n,5n,7n,11n,13n,17n,19n,23n,29n],n=primes.reduce((a,b)=>a*b,1n).toString();await run(n);
+    const rows=page.locator('.bt-factor-list li');assert.equal(await rows.count(),10);for(let i=0;i<primes.length;i++)assert.equal(await rows.nth(i).textContent(),primes[i]+': 確定判定');
+    await page.locator('.bt-result details summary').click();
+    const tree=await page.locator('.bt-factor-list').ariaSnapshot();assert.match(tree,/listitem/);return{rows:10,equation:await equation(),semantics:'native ul/li; no physical screen-reader claim'};
    });
    await test('native user-gesture copy outcome',async()=>{
     await run('360');await page.locator('[data-action=copy]').click();
@@ -106,10 +113,21 @@ try{
    await test('reset and keyboard tab order',async()=>{
     const reset=page.locator('[data-action=reset]');await reset.click();await phase('ready');assert.equal(await input.inputValue(),'');
     await page.waitForFunction(()=>document.activeElement?.dataset.action==='reset');assert.equal(await reset.evaluate(n=>n===document.activeElement),true);
-    await input.focus();await input.press('Tab');assert.equal(await page.getByLabel('入力例と用途').evaluate(n=>n===document.activeElement),true);
-    return{focusAfterReset:'reset',tabFromInput:'sample'};
+    await page.locator('.bt-samples').evaluate(n=>n.open=false);await input.focus();await input.press('Tab');assert.equal(await page.locator('.bt-samples summary').evaluate(n=>n===document.activeElement),true);
+    await page.keyboard.press('Enter');await page.keyboard.press('Tab');assert.equal(await page.locator('[data-sample-value="360"]').evaluate(n=>n===document.activeElement),true);
+    return{focusAfterReset:'reset',tabFromInput:'sample disclosure, then native choice button'};
    });
-   await test('390px viewport has no horizontal overflow',async()=>{await page.setViewportSize({width:390,height:844});await run('9007199254740993');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.screenshot({path:out+'.'+name+'.png',fullPage:true});return{viewport:'390x844 (desktop engine, no physical iPhone)'};});
+   await test('narrow widths and 200 percent text resize keep choices and results inside DOM bounds',async()=>{
+    const observations=[];await run('9007199254740993');await page.locator('.bt-samples').evaluate(n=>n.open=true);
+    await page.locator('.bt-sample-choice').first().evaluate(n=>{const extra=document.createElement('span');extra.textContent='9'.repeat(100)+' 長い選択肢の説明'.repeat(8);n.append(extra);});
+    for(const width of [280,320,393])for(const textZoom of [1,2]){
+     await page.setViewportSize({width,height:844});await page.evaluate(z=>document.documentElement.style.fontSize=z*100+'%',textZoom);
+     await input.fill('9'.repeat(100));await input.blur();await page.locator('.bt-samples button').first().focus();
+     const m=await page.evaluate(()=>{const r=document.querySelector('#tool');return {documentWidth:document.documentElement.clientWidth,documentScroll:document.documentElement.scrollWidth,pluginWidth:r.clientWidth,pluginScroll:r.scrollWidth,scale:visualViewport?.scale,font:parseFloat(getComputedStyle(r.querySelector('input')).fontSize)};});
+     assert.ok(m.documentScroll<=m.documentWidth+1,JSON.stringify(m));assert.ok(m.pluginScroll<=m.pluginWidth+1,JSON.stringify(m));assert.ok(m.font>=16);observations.push({width,textZoom,...m});
+    }
+    await page.evaluate(()=>{document.documentElement.style.fontSize='100%';document.querySelector('.bt-samples').open=false;document.querySelector('.bt-settings').open=false;});await page.setViewportSize({width:390,height:844});await run('9007199254740993');await page.screenshot({path:out+'.'+name+'.png',fullPage:true});return{observations,scope:'desktop engine text resize; no OS picker geometry or physical iOS zoom guarantee'};
+   });
    await test('unmount during work retires Workers and Blob URLs',async()=>{
     await input.fill('1050809297549059047257');await input.press('Enter');await phase('running');await page.evaluate(()=>app.dispose());
     await page.waitForFunction(()=>metric.created===metric.terminated&&metric.urlsCreated===metric.urlsRevoked,null,{timeout:4000});return{metrics:await metrics()};
