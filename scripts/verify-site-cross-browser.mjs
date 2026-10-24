@@ -58,7 +58,7 @@ try{
    const input=page.getByLabel('0以上の整数',{exact:true}),start=page.locator('[data-action=start]');
    const phase=async p=>page.waitForFunction(p=>document.querySelector('#tool').dataset.phase===p,p,{timeout:8000});
    const metrics=()=>page.evaluate(()=>structuredClone(metric));
-   const equation=()=>page.locator('textarea[id$="output"]').inputValue();
+   const equation=()=>page.locator('.bt-equation').textContent();
    const run=async value=>{await input.fill(value);await input.press('Enter');await phase('result');return equation();};
    const test=async(label,fn)=>{console.log(name+': '+label);try{const evidence=await fn();result.cases.push({label,passed:true,...evidence});}catch(e){result.cases.push({label,passed:false,error:String(e)});result.failures.push(label);}};
    await test('all examples fill only, collapse and focus the common execution action',async()=>{
@@ -80,6 +80,12 @@ try{
     await page.locator('.bt-settings').evaluate(n=>n.open=true);await page.locator('select[id$="-time"]').selectOption('5000');assert.match(await page.locator('.bt-result-title').textContent(),/前回.*32/);await page.locator('select[id$="-time"]').selectOption('1000');await page.locator('.bt-settings').evaluate(n=>n.open=false);
     await page.locator('[data-action=result]').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.bt-result-title').evaluate(n=>n===document.activeElement),true);return{previousInput:'104729',draft:'32',currentResult:'32',explicitResultAccess:true};
    });
+   await test('one vertical flow, saved hidden settings and composition-aware Enter',async()=>{
+    const structure=await page.evaluate(()=>{const form=document.querySelector('#tool form'),work=form.querySelector('.bt-work'),settings=form.querySelector('.bt-settings');return {workBeforeSettings:!!(work.compareDocumentPosition(settings)&Node.DOCUMENT_POSITION_FOLLOWING),textareas:form.querySelectorAll('textarea').length,layout:getComputedStyle(document.querySelector('.bt-layout')).display,liveBusyAncestor:document.querySelector('.bt-status').closest('[aria-busy=true]')!==null};});assert.equal(structure.workBeforeSettings,true);assert.equal(structure.textareas,0);assert.equal(structure.layout,'block');assert.equal(structure.liveBusyAncestor,false);
+    await page.locator('.bt-settings').evaluate(n=>n.open=true);const engine=page.locator('select[id$="-engine"]'),mode=page.locator('select[id$="-mode"]'),workers=page.locator('select[id$="-workers"]'),memory=page.locator('select[id$="-memory"]');assert.equal(await workers.isVisible(),false);
+    await engine.selectOption('optimized');await phase('ready');await mode.selectOption('manual');await memory.selectOption('512');await workers.selectOption('3');await mode.selectOption('auto');assert.equal(await workers.isVisible(),false);await mode.selectOption('manual');assert.equal(await workers.inputValue(),'3');await engine.selectOption('standard');await phase('ready');await engine.selectOption('optimized');await phase('ready');assert.equal(await workers.inputValue(),'3');assert.equal(await memory.inputValue(),'512');await engine.selectOption('standard');await phase('ready');await page.locator('.bt-settings').evaluate(n=>n.open=false);
+    await input.fill('32');const before=await metrics();await input.dispatchEvent('compositionstart');await input.dispatchEvent('keydown',{key:'Enter',isComposing:true});await page.locator('form').evaluate(n=>n.requestSubmit());assert.equal((await metrics()).created,before.created);await input.evaluate(n=>{n.dispatchEvent(new CompositionEvent('compositionend'));n.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));n.form.requestSubmit();});assert.equal((await metrics()).created,before.created);await input.dispatchEvent('keyup',{key:'Enter'});await input.dispatchEvent('keydown',{key:'Enter',repeat:true});await page.locator('form').evaluate(n=>n.requestSubmit());assert.equal((await metrics()).created,before.created);await input.dispatchEvent('keyup',{key:'Enter'});await input.dispatchEvent('compositionstart');await input.dispatchEvent('compositionend');await page.waitForTimeout(20);assert.equal(await run('32'),'32 = 2^5');return{...structure,composition:'synthetic event-order/229/repeat guards; physical IME unverified'};
+   });
    await test('invalid decimal, negative, oversized exponent are rejected without Workers',async()=>{
     const before=await metrics();for(const value of ['2.5','-1','1e10000']){await input.fill(value);await start.click();await phase('invalid');assert.equal(await input.getAttribute('aria-invalid'),'true');assert.equal(await page.getByRole('alert').isVisible(),true);}
     assert.equal((await metrics()).created,before.created);return{workersCreated:0};
@@ -92,7 +98,7 @@ try{
    });
    await test('one semantic row per factor preserves a many-factor result',async()=>{
     const primes=[2n,3n,5n,7n,11n,13n,17n,19n,23n,29n],n=primes.reduce((a,b)=>a*b,1n).toString();await run(n);
-    const rows=page.locator('.bt-factor-list li');assert.equal(await rows.count(),10);for(let i=0;i<primes.length;i++)assert.equal(await rows.nth(i).textContent(),primes[i]+': 確定判定');
+    const rows=page.locator('.bt-factor-list li');assert.equal(await rows.count(),10);for(let i=0;i<primes.length;i++)assert.equal(await rows.nth(i).locator('span').textContent(),primes[i]+': 確定判定');
     await page.locator('.bt-proof summary').click();
     const tree=await page.locator('.bt-factor-list').ariaSnapshot();assert.match(tree,/listitem/);return{rows:10,equation:await equation(),semantics:'native ul/li; no physical screen-reader claim'};
    });
@@ -103,9 +109,9 @@ try{
    });
    for(const mode of ['success','denied','unavailable'])await test('controlled clipboard '+mode,async()=>{
     await page.evaluate(mode=>{window.copyWrites=[];Object.defineProperty(navigator,'clipboard',{configurable:true,value:mode==='unavailable'?undefined:{writeText:async text=>{copyWrites.push(text);if(mode==='denied')throw new DOMException('Denied for acceptance test','NotAllowedError');}}});},mode);
-    await page.locator('[data-action=copy]').click();const manual=page.getByLabel('手動コピー用（計算状態を含む）');
-    if(mode==='success'){await page.waitForFunction(()=>document.querySelector('.bt-result [role=status]').textContent.includes('コピーしました'));assert.equal(await manual.isVisible(),false);}
-    else{await manual.waitFor({state:'visible'});assert.equal(await manual.evaluate(n=>n===document.activeElement&&n.selectionStart===0&&n.selectionEnd===n.value.length),true);assert.match(await manual.inputValue(),/360 = 2\^3 × 3\^2 × 5\n分解完了/);}
+    await page.locator('[data-action=copy]').click();const body=page.locator('.bt-result-body');
+    if(mode==='success'){await page.waitForFunction(()=>document.querySelector('.bt-result [role=status]').textContent.includes('コピーしました'));assert.equal(await page.locator('textarea').count(),0);}
+    else{await page.waitForFunction(()=>document.activeElement?.classList.contains('bt-result-body'));assert.equal(await body.evaluate(n=>n===document.activeElement),true);const selected=await page.evaluate(()=>getSelection().toString());assert.match(selected,/360 = 2\^3 × 3\^2 × 5/);assert.match(selected,/分解完了/);assert.match(selected,/64bit/);assert.equal(await page.locator('textarea').count(),0);}
     return{writes:await page.evaluate(()=>copyWrites)};
    });
    await test('finite WASM calculation and release',async()=>{
@@ -117,7 +123,7 @@ try{
    await test('keyboard start/cancel, release and fresh rerun',async()=>{
     await page.locator('.bt-settings summary').click();await page.locator('select[id$=\"-time\"]').selectOption('5000');
     await input.fill('1050809297549059047257');await input.press('Enter');await phase('running');assert.equal(await input.isEditable(),false);
-    const focused=await page.evaluate(()=>document.activeElement?.dataset.action);assert.equal(focused,'cancel');await page.keyboard.press('Enter');await phase('result');
+    const focused=await page.evaluate(()=>document.activeElement?.className);assert.equal(focused,'bt-status');assert.equal(await page.locator('[data-elapsed]').isVisible(),true);await page.keyboard.press('Enter');assert.equal(await page.locator('#tool').getAttribute('data-phase'),'running');await page.locator('[data-action=cancel]').focus();await page.keyboard.press('Enter');await phase('result');
     assert.match(await page.locator('.bt-result-status').textContent(),/中止/);assert.equal(await page.locator('.bt-status').evaluate(n=>n===document.activeElement),true);
     const after=await metrics();assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
     assert.equal(await run('360'),'360 = 2^3 × 3^2 × 5');return{focus:focused,afterCancel:after};
@@ -129,6 +135,9 @@ try{
     await page.locator('.bt-samples summary').focus();
     await page.keyboard.press('Enter');await page.keyboard.press('Tab');assert.equal(await page.locator('[data-sample-value="360"]').evaluate(n=>n===document.activeElement),true);await page.keyboard.press('Enter');assert.equal(await start.evaluate(n=>n===document.activeElement),true);
     return{focusAfterReset:'reset',tabFromInput:'primary start action; optional sample disclosure follows result area'};
+   });
+   await test('double clicking execute keeps the distinct stop target unactivated',async()=>{
+    await input.fill('1050809297549059047257');const box=await start.boundingBox();await page.mouse.dblclick(box.x+box.width/2,box.y+box.height/2);await phase('running');assert.equal(await start.isDisabled(),true);assert.equal(await page.locator('[data-action=cancel]').isEnabled(),true);assert.equal(await page.locator('.bt-status').evaluate(n=>n===document.activeElement),true);await page.locator('[data-action=cancel]').click();await phase('result');assert.match(await page.locator('.bt-result-status').textContent(),/中止/);return{distinctTargets:true};
    });
    await test('narrow widths and 200 percent text resize keep choices and results inside DOM bounds',async()=>{
     const observations=[];await run('9007199254740993');await page.locator('.bt-samples').evaluate(n=>n.open=true);

@@ -65,6 +65,14 @@ document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択
 
 ## 確認手順
 
+### 案Aへの表示整理（2026-10-24、限定プレビュー候補）
+
+全幅で入力→実行・中止→一つの進行／結果領域→実行条件の順にする。実行前にモードと時間上限を短く示し、資源設定は結果の後へ置く。全入力例は補助操作として入力だけを行う。実行と中止のクリック位置は別にし、実行連打・Enter長押し・IME確定を中止や重複実行へ変えない。実行開始時のfocusは状態行とし、完了時には別controlのfocusを奪わない。状態のlive領域をaria-busy配下に置かず、更新timerの実経過はlive通知しない。
+
+結果本文は一つだけとし、全文の式・状態・余因子・停止理由と因子ごとの判定説明を保持する。コピー失敗時は因子詳細を開き、その本文自体をRangeで選択する。別の結果textareaは生成しない。手動選択が使えない環境では本文の長押し／選択を案内する。HTTP上の機能制限を隠さず、コピー読取やexecCommandは使わない。
+
+欄内の最大桁数・数値範囲は維持し、短い常時説明と下部の詳しい入力規則を分ける。資源設定は適用されるcontrolだけを説明付きで表示し、モード間・自動／手動の切替でも保存した手動値を失わせない。選択したWASM予算と入力で選ばれた経路のWASM上限を区別し、不要な経路は「この計算では使わない」と表す。0 MiBを実測使用量として表示しない。実経過の計測範囲と未検証の実機条件は従来通りとする。
+
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。
 
 実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。

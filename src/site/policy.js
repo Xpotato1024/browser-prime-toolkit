@@ -18,7 +18,7 @@ export function siteInputLimit(engine='standard'){
  const standard=engine==='standard';
  return {maxDigits:standard?(STANDARD_BOUNDARY-1n).toString().length:MAX_SITE_DIGITS,maxTextLength:MAX_INPUT_LENGTH,
   text:standard?'通常：最大39桁・2^128未満':'高精度／大メモリ：最大100桁・332bit以下',
-  note:'先頭の0を除いた値の上限です。分解完了を保証する桁数ではありません。入力表記は'+MAX_INPUT_LENGTH+'文字まで。'};
+  note:'分解完了を保証する桁数ではありません。'};
 }
 export function siteInputErrorMessage(error,engine){
  if(error?.code==='INPUT_TOO_LONG')return '入力表記は'+MAX_INPUT_LENGTH+'文字以内にしてください。入力内容は切り詰めず残しています。';

@@ -14,14 +14,15 @@ test('samples are finite exact strings and only specify an input, not execution'
 });
 test('measured elapsed is separate from route limits, never measured memory or worker usage',()=>{
  const p=executionPresentation({actualTimeBudgetMs:1000,route:'brent',actualWorkers:1,actualWasmBytes:0},30);
- assert.equal(p.elapsed,'30 ms');assert.deepEqual(p.limits,[['時間上限','1秒'],['計算経路','brent'],['Worker上限','1'],['WASM上限','0 MiB']]);
- assert.match(p.measurementNote,/初期化.*検証.*解放/);assert.match(p.measurementNote,/初回.*含みません/);assert.match(p.limitsNote,/測定.*ではありません/);
+ assert.equal(p.elapsed,'30 ms');assert.deepEqual(p.limits,[['時間上限','1秒'],['計算経路','brent'],['経路のWorker上限','1'],['経路のWASM上限','この計算では使わない']]);
+ assert.match(p.measurementNote,/初期化.*検証.*解放/);assert.match(p.measurementNote,/初回.*含みません/);assert.match(p.limitsNote,/測定値ではありません/);
+ const configured=executionPresentation({configuredPlan:{budgetBytes:134217728},actualTimeBudgetMs:1000,route:'brent',actualWorkers:1,actualWasmBytes:0},30);assert.deepEqual(configured.limits[0],['選択したWASM予算','128 MiB']);assert.deepEqual(configured.limits.at(-1),['経路のWASM上限','この計算では使わない']);
  assert.equal(executionPresentation(null,30),null);
 });
 test('factor rows preserve multiplicities, probable status, residual and stop reason in copy',()=>{
  const value='9'.repeat(100),p=sitePresentation({equation:'input = result',statusText:'未完了',reasonText:'時間制限',groups:[{base:'2',exponent:12,certainty:'proven'},{base:value,exponent:1,certainty:'probable'}],residual:'35'});
  assert.equal(p.factorRows.length,2);assert.equal(p.factorRows[0].text,'2（12乗）: 確定判定');assert.equal(p.factorRows[1].value,value);assert.match(p.factorRows[1].text,/未証明（probable）/);assert.equal(p.residual,'35');
- assert.match(p.copyText,/時間制限\n因子の判定:\n2（12乗）: 確定判定\n/);assert.ok(p.copyText.includes(value));assert.match(p.copyText,/未解決の余因子: 35/);
+ assert.match(p.copyText,/時間制限\n因子の判定:\n2（12乗）: 確定判定 — /);assert.ok(p.copyText.includes(value));assert.match(p.copyText,/未解決の余因子: 35/);assert.match(p.factorRows[1].reason,/素数証明はしていません/);
 });
 test('many groups stay separate and neither-prime-nor-composite has no invented factor',()=>{
  const groups=Array.from({length:20},(_,i)=>({base:String(i+2),exponent:1,certainty:'proven'}));

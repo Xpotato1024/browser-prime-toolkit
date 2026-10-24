@@ -19,3 +19,7 @@ test('input errors and resource errors have separate targets before dispatch',as
  assert.equal(await s.start((1n<<128n).toString()),false);assert.match(s.getState().error,/2\^128/);
  await s.prepare('optimized');assert.equal(await s.start((1n<<128n).toString(),{mode:'manual',workers:6,memoryMiB:128,timeBudgetMs:1000}),false);assert.equal(s.getState().errorField,'settings');assert.match(s.getState().error,/設定/);assert.equal(dispatch,0);s.dispose();
 });
+
+test('invalid selected manual budget is not rewritten as a valid small-route budget',async()=>{
+ let plans=0;const s=createSiteSession({loadLight:async()=>({selectValidatedStagedPlan(){plans++;throw Error('must reject selected settings first');}}),loadHeavy:async()=>({})});await s.prepare('optimized');assert.equal(await s.start('32',{mode:'manual',workers:1,memoryMiB:1536,timeBudgetMs:1000}),false);assert.equal(s.getState().errorField,'settings');assert.equal(s.getState().resources,null);assert.equal(plans,0);s.dispose();
+});

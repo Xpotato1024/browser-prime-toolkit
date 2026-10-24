@@ -50,16 +50,17 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
   },
   async start(raw,settings={}){
    if(closed||blocked||active||preparing||!light||engine!=='standard'&&!heavy)return false;
-   let input,resourcePlan,stagedPlan,experimental,options,resources;
+   let input,configuredPlan,resourcePlan,stagedPlan,experimental,options,resources;
    try{
     input=validateSiteInput(raw,engine);
    }catch(error){emit({...state,phase:'invalid',input:null,view:null,resources:null,error:siteInputErrorMessage(error,engine),errorField:'input'});return false;}
    try{
+    configuredPlan=selectSitePlan(engine,settings,hints);
     const n=BigInt(input);experimental=n>=boundary;resourcePlan=selectSitePlan(engine,settings,hints,!experimental);
     if(experimental&&(engine==='standard'||input.length>100||n.toString(2).length>332))throw Error('Experimental input range');
     options={seed:1,timeBudgetMs:Math.min(60000,resourcePlan.timeBudgetMs),operationBudget:resourcePlan.operationBudget};
     if(!experimental)stagedPlan=light.selectValidatedStagedPlan(input,options);
-    resources={plan:resourcePlan,route:experimental?engine:stagedPlan.engineMode,actualWorkers:experimental?resourcePlan.workers:n<2n?0:1,actualWasmBytes:experimental?resourcePlan.totalWasmBytes:stagedPlan.linearMemoryBytes,actualTimeBudgetMs:experimental?resourcePlan.timeBudgetMs:options.timeBudgetMs};
+    resources={configuredPlan,plan:resourcePlan,route:experimental?engine:stagedPlan.engineMode,actualWorkers:experimental?resourcePlan.workers:n<2n?0:1,actualWasmBytes:experimental?resourcePlan.totalWasmBytes:stagedPlan.linearMemoryBytes,actualTimeBudgetMs:experimental?resourcePlan.timeBudgetMs:options.timeBudgetMs};
    }catch{emit({...state,phase:'invalid',input:null,view:null,resources:null,error:'Worker数・WASM予算・時間上限の設定を見直してください。この組み合わせでは実行できません。',errorField:'settings'});return false;}
    const id=++generation,control=new AbortController(),token={};
    if(!scope.acquire(token)){emit({phase:scope.isQuarantined()?'blocked':'invalid',engine,input:null,view:null,resources:null,errorField:'runtime',error:scope.isQuarantined()?'Workerの解放を確認できません。ページを再読み込みしてください。':'同じページの別の計算が終了してから実行してください。'});return false;}

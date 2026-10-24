@@ -8,8 +8,8 @@ function fixture(){const doc={activeElement:null,focuses:[],scrolls:[]};class El
  setAttribute(k,v){this.attrs[k]=String(v);if(['id','value'].includes(k))this[k]=String(v);}
  append(...nodes){this.children.push(...nodes);if(this.tagName==='SELECT'&&!this.value)this.value=this.children[0]?.value??'';}
  replaceChildren(...nodes){this.children=[...nodes];}addEventListener(k,f){this.events.set(k,f);}removeEventListener(k){this.events.delete(k);}
- focus(options){doc.activeElement=this;doc.focuses.push({node:this,options});}scrollIntoView(options){doc.scrolls.push({node:this,options});}select(){this.selected=true;}fire(k){this.events.get(k)?.({preventDefault(){}});}
- }doc.createElement=tag=>new Element(tag);doc.defaultView={setInterval,clearInterval,addEventListener(){},removeEventListener(){},navigator:{}};return {doc,root:new Element('div')};}
+ focus(options){doc.activeElement=this;doc.focuses.push({node:this,options});}scrollIntoView(options){doc.scrolls.push({node:this,options});}select(){this.selected=true;}fire(k,event={}){this.events.get(k)?.({preventDefault(){},...event});}
+ }doc.createElement=tag=>new Element(tag);doc.createRange=()=>({selectNodeContents(n){this.node=n;}});doc.defaultView={setInterval,clearInterval,setTimeout,clearTimeout,addEventListener(){},removeEventListener(){},navigator:{},getSelection:()=>({removeAllRanges(){doc.selected=null;},addRange(r){doc.selected=r.node;}})};return {doc,root:new Element('div')};}
 const nodes=root=>{const all=[];const visit=n=>{all.push(n);for(const c of n.children)visit(c);};visit(root);return all;};
 const settle=async()=>{for(let i=0;i<20;i++)await Promise.resolve();};
 const finished=input=>({...factorStaged(BigInt(input)),origin:'worker',traceAvailable:true});
@@ -25,7 +25,7 @@ test('all examples only fill the common input, collapse and return focus to the 
 test('edited input is unexecuted and the previous result and copy remain bound to their original input',async()=>{
  const f=await setup();f.input.value='104729';f.form.fire('submit');await settle();f.input.value='32';f.input.fire('input');
  assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*104729/);assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/未実行/);
- f.action('copy').fire('click');await settle();assert.match(f.find(n=>n.attrs['aria-label']?.startsWith('手動')).value,/104729 = 104729/);
+ f.action('copy').fire('click');await settle();assert.equal(f.doc.selected,f.find(n=>n.attrs['class']==='bt-result-body'));assert.equal(f.find(n=>n.attrs['class']==='bt-equation').textContent,'104729 = 104729');
  f.form.fire('submit');await settle();assert.equal(f.find(n=>n.attrs['class']==='bt-result-title').textContent,'32 の結果');assert.equal(f.find(n=>n.attrs['class']==='bt-equation').textContent,'32 = 2^5');
  f.input.value='2.5';f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.app.getState().errorField,'input');assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*32/);assert.equal(f.doc.activeElement,f.input);f.app.dispose();
 });
@@ -36,7 +36,7 @@ test('settings edits mark previous output without replacing its measured duratio
 
 test('start navigates once, input is read-only during work, and completion preserves another active control',async()=>{
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve(finished(input));})})});
- f.input.value='360';f.input.focus();f.form.fire('submit');assert.equal(f.input.readOnly,true);assert.equal(f.doc.activeElement,f.action('cancel'));assert.equal(f.doc.scrolls.length,1);
+ f.input.value='360';f.input.focus();f.form.fire('submit');assert.equal(f.input.readOnly,true);assert.equal(f.doc.activeElement,f.find(n=>n.attrs['class']==='bt-status'));assert.equal(f.doc.scrolls.length,1);
  f.input.focus();f.doc.focuses=[];finish();await settle();assert.equal(f.doc.activeElement,f.input);assert.equal(f.doc.focuses.length,0);assert.equal(f.doc.scrolls.length,1);assert.equal(f.input.readOnly,false);
  f.action('result').fire('click');assert.equal(f.doc.activeElement,f.find(n=>n.attrs['class']==='bt-result-title'));f.app.dispose();
 });
@@ -49,7 +49,7 @@ test('cancel retains the lease until retirement and then permits a fresh run',as
 test('paste text is never truncated and copying keeps rows, status and full precision',async()=>{
  const f=await setup();f.input.value='0'.repeat(4097);f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.input.value.length,4097);assert.match(f.app.getState().error,/4096/);
  f.input.value='000360';f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.input.value,'000360');const factors=f.find(n=>n.attrs['class']==='bt-factor-list');assert.equal(factors.tagName,'UL');assert.equal(factors.children.length,3);assert.ok(factors.children.every(n=>n.tagName==='LI'));
- f.action('copy').fire('click');await settle();const manual=f.find(n=>n.attrs['aria-label']?.startsWith('手動'));assert.equal(f.doc.activeElement,manual);assert.equal(manual.selected,true);assert.match(manual.value,/360 = 2\^3/);assert.match(manual.value,/因子の判定/);f.action('reset').focus();f.action('reset').fire('click');await settle();assert.equal(f.input.value,'');assert.equal(f.doc.activeElement,f.action('reset'));f.app.dispose();assert.equal(f.root.children.length,0);
+ f.action('copy').fire('click');await settle();const body=f.find(n=>n.attrs['class']==='bt-result-body');assert.equal(f.doc.activeElement,body);assert.equal(f.doc.selected,body);assert.equal(f.find(n=>n.attrs['class']==='bt-proof').open,true);assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/360 = 2\^3/);f.action('reset').focus();f.action('reset').fire('click');await settle();assert.equal(f.input.value,'');assert.equal(f.doc.activeElement,f.action('reset'));f.app.dispose();assert.equal(f.root.children.length,0);
 });
 
 test('asset failure is distinct from invalid input and retries retain the typed input',async()=>{
@@ -69,4 +69,35 @@ test('another instance holding the lease is a runtime wait, not an input error o
  first.input.value='32';first.form.fire('submit');second.input.value='64';second.form.fire('submit');await settle();
  assert.equal(second.app.getState().errorField,'runtime');assert.equal(second.input.attrs['aria-invalid'],'false');const destination=second.doc.scrolls.at(-1).node;assert.equal(destination.attrs.role,'alert');assert.equal(destination.hidden,false);assert.doesNotMatch(second.find(n=>n.attrs['class']==='bt-status').textContent,/入力|設定/);assert.equal(second.doc.activeElement.attrs.role,'status');
  finish();await settle();second.form.fire('submit');await settle();assert.equal(second.app.getState().phase,'result');first.app.dispose();second.app.dispose();
+});
+
+test('one vertical form places the work before detailed settings and has no duplicate text output',async()=>{
+ const f=await setup(),work=f.find(n=>n.attrs['class']==='bt-work'),details=f.find(n=>n.attrs['class']==='bt-settings');
+ assert.ok(f.form.children.includes(work));assert.ok(f.form.children.indexOf(work)<f.form.children.indexOf(details));assert.equal(nodes(f.root).filter(n=>n.tagName==='TEXTAREA').length,0);
+ const workers=f.find(n=>n.id?.endsWith('-workers'));assert.equal(f.find(n=>n.children.includes(workers)).hidden,true);f.app.dispose();
+});
+
+test('composition confirmation and repeated Enter never dispatch; deliberate next Enter does',async()=>{
+ let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{runs++;return finished(i);}})});f.input.value='32';
+ f.input.fire('compositionstart');f.form.fire('submit');await settle();assert.equal(runs,0);f.input.fire('compositionend');
+ let prevented=false;f.input.fire('keydown',{key:'Enter',preventDefault(){prevented=true;}});f.form.fire('submit');assert.equal(runs,0);assert.equal(prevented,true);f.input.fire('keyup',{key:'Enter'});
+ f.input.fire('keydown',{key:'Enter',repeat:true});f.form.fire('submit');assert.equal(runs,0);f.input.fire('keyup',{key:'Enter'});
+ f.input.fire('keydown',{key:'Enter',keyCode:229});f.form.fire('submit');assert.equal(runs,0);f.input.fire('keyup',{key:'Enter'});
+ f.input.fire('keydown',{key:'Enter'});f.form.fire('submit');await settle();assert.equal(runs,1);f.app.dispose();
+});
+
+test('composition ending without an Enter allows the next deliberate Enter after the event turn',async()=>{
+ const f=await setup();f.input.value='32';f.input.fire('compositionend');f.input.fire('keydown',{key:'Enter'});f.form.fire('submit');await settle();assert.equal(f.app.getState().phase,'result');
+ f.input.fire('compositionstart');f.input.fire('compositionend');await new Promise(resolve=>setTimeout(resolve,15));f.input.value='64';f.input.fire('keydown',{key:'Enter'});f.form.fire('submit');await settle();assert.equal(f.find(n=>n.attrs['class']==='bt-result-title').textContent,'64 の結果');f.app.dispose();
+});
+
+test('manual values survive auto allocation and engine changes with applicability explained',async()=>{
+ const f=await setup(),engine=f.find(n=>n.id?.endsWith('-engine')),mode=f.find(n=>n.id?.endsWith('-mode')),workers=f.find(n=>n.id?.endsWith('-workers')),memory=f.find(n=>n.id?.endsWith('-memory'));
+ engine.value='optimized';engine.fire('change');await settle();mode.value='manual';mode.fire('change');workers.value='3';memory.value='512';workers.fire('change');mode.value='auto';mode.fire('change');assert.equal(f.find(n=>n.children.includes(workers)).hidden,true);
+ mode.value='manual';mode.fire('change');assert.equal(workers.value,'3');assert.equal(memory.value,'512');engine.value='standard';engine.fire('change');await settle();engine.value='optimized';engine.fire('change');await settle();assert.equal(mode.value,'manual');assert.equal(workers.value,'3');assert.equal(memory.value,'512');assert.equal(f.find(n=>n.children.includes(workers)).hidden,false);
+ memory.value='1536';memory.fire('change');mode.value='auto';mode.fire('change');assert.doesNotMatch(f.find(n=>n.attrs['class']==='bt-next-plan').textContent,/組み合わせ/);assert.equal(memory.value,'1536');f.app.dispose();
+});
+
+test('configured WASM budget remains distinct from the small route that does not use WASM',async()=>{
+ const f=await setup({loadHeavy:async()=>({})}),engine=f.find(n=>n.id?.endsWith('-engine')),mode=f.find(n=>n.id?.endsWith('-mode')),memory=f.find(n=>n.id?.endsWith('-memory'));engine.value='optimized';engine.fire('change');await settle();mode.value='manual';mode.fire('change');memory.value='512';memory.fire('change');f.input.value='32';f.form.fire('submit');await settle();assert.equal(f.app.getState().resources.configuredPlan.budgetBytes,512*1048576);assert.equal(f.app.getState().resources.actualWasmBytes,0);const limits=f.find(n=>n.attrs['class']==='bt-execution-limits');assert.equal(limits.children[0].children[1].textContent,'512 MiB');assert.equal(limits.children.at(-1).children[1].textContent,'この計算では使わない');f.app.dispose();
 });
