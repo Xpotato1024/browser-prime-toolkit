@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-import {parseIntegerInput,MAX_INPUT_LENGTH,IntegerInputError} from '../core/integer-input.js';
+import {parseIntegerInput,IntegerInputError} from '../core/integer-input.js';
 import {selectResourcePlan as normalPlan} from '../graph-multicore/policy.js';
 import {selectResourcePlan as widePlan} from '../selected-wide/policy.js';
-const STANDARD_BOUNDARY=1n<<128n,MAX_SITE_BITS=332,MAX_SITE_DIGITS=100;
+// Mirror the frozen parser's raw-text cap; boundary tests enforce equality without changing its pinned bytes.
+const MAX_INPUT_LENGTH=4096,STANDARD_BOUNDARY=1n<<128n,MAX_SITE_BITS=332,MAX_SITE_DIGITS=100;
 export function parseSiteInput(raw){
  const input=parseIntegerInput(raw).canonical;
  if(input.length>MAX_SITE_DIGITS||BigInt(input).toString(2).length>MAX_SITE_BITS)throw RangeError('Maximum 332 bits / 100 digits');
