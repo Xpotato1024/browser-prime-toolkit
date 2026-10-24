@@ -61,28 +61,24 @@ try{
    const equation=()=>page.locator('textarea[id$="output"]').inputValue();
    const run=async value=>{await input.fill(value);await input.press('Enter');await phase('result');return equation();};
    const test=async(label,fn)=>{console.log(name+': '+label);try{const evidence=await fn();result.cases.push({label,passed:true,...evidence});}catch(e){result.cases.push({label,passed:false,error:String(e)});result.failures.push(label);}};
-   await test('inline sample changes only input and preserves button focus',async()=>{
-    await page.locator('.bt-samples summary').click();const sample=page.locator('[data-sample-value="360"]');await sample.focus();
-    const before=await metrics();await sample.press('Enter');
-    assert.equal(await input.inputValue(),'360');assert.equal(await page.locator('#tool').getAttribute('data-phase'),'ready');
-    assert.equal((await metrics()).created,before.created);assert.equal(await sample.evaluate(n=>n===document.activeElement),true);
-    assert.equal(await page.locator('select[id$="-sample"]').count(),0);return{workersCreated:0,focus:'sample button',choiceSurface:'in-page native details and buttons'};
+   await test('all examples fill only, collapse and focus the common execution action',async()=>{
+    assert.equal(await page.locator('[data-action=quick-example]').count(),0);const before=await metrics();
+    for(const value of ['360','104729','9007199254740993','1000036000099']){await page.locator('.bt-samples').evaluate(n=>n.open=true);const sample=page.locator('[data-sample-value="'+value+'"]');await sample.focus();await sample.press('Enter');assert.equal(await input.inputValue(),value);assert.equal(await page.locator('#tool').getAttribute('data-phase'),'ready');assert.equal(await page.locator('.bt-samples').evaluate(n=>n.open),false);assert.equal(await start.evaluate(n=>n===document.activeElement),true);}
+    assert.equal((await metrics()).created,before.created);return{workersCreated:0,examples:4,focus:'common start button'};
    });
-   await test('explicit quick example fills and executes only 360 with a one-second cap',async()=>{
-    await page.locator('.bt-settings').evaluate(n=>n.open=true);await page.locator('select[id$="-time"]').selectOption('5000');
-    const quick=page.locator('[data-action=quick-example]');await quick.focus();await quick.press('Enter');await phase('result');
-    assert.equal(await equation(),'360 = 2^3 × 3^2 × 5');assert.equal(await input.inputValue(),'360');
-    const state=await page.evaluate(()=>app.getState());assert.equal(state.resources.actualTimeBudgetMs,1000);assert.equal(state.resources.actualWorkers,1);assert.equal(state.resources.actualWasmBytes,0);
-    assert.equal(await page.locator('select[id$="-time"]').inputValue(),'5000');assert.equal(await quick.isEnabled(),true);
-    await page.locator('select[id$="-time"]').selectOption('1000');await page.locator('.bt-settings').evaluate(n=>n.open=false);
-    return{input:'360',capMs:1000,wasmBytes:0,nextRunSettingsRetained:true};
+   await test('persistent numeric limits and bulk input are exact and never silently truncated',async()=>{
+    const limit=page.locator('.bt-input-limit');assert.match(await limit.textContent(),/39.*2\^128/);assert.equal(await input.getAttribute('maxlength'),null);assert.ok((await input.getAttribute('aria-describedby')).includes(await limit.getAttribute('id')));
+    const before=await metrics();await input.fill('');await input.focus();await page.keyboard.insertText('0'.repeat(4097));assert.equal((await input.inputValue()).length,4097);await start.click();await phase('invalid');assert.match(await page.getByRole('alert').textContent(),/4096/);assert.equal((await input.inputValue()).length,4097);
+    await input.fill((1n<<128n).toString());await start.click();await phase('invalid');assert.match(await page.getByRole('alert').textContent(),/2\^128/);
+    await page.locator('.bt-settings').evaluate(n=>n.open=true);await page.locator('select[id$="-engine"]').selectOption('optimized');await phase('ready');assert.match(await limit.textContent(),/100.*332/);await input.fill((1n<<332n).toString());await start.click();await phase('invalid');assert.match(await page.getByRole('alert').textContent(),/332/);
+    await page.locator('select[id$="-engine"]').selectOption('standard');await phase('ready');assert.equal((await metrics()).created,before.created);await page.locator('.bt-settings').evaluate(n=>n.open=false);assert.equal(await run('000032'),'32 = 2^5');assert.equal(await input.inputValue(),'000032');
+    return{rawTextLength:4097,rawTextRetained:true,modeDigits:[39,100],scientificAndExactBounds:'also covered by pure parser tests; boundary-sized factorization not run',insertion:'keyboard.insertText bulk insertion; OS clipboard paste not claimed'};
    });
-   await test('results precede optional controls and explicit keyboard navigation reaches the output',async()=>{
-    await run('360');await page.locator('.bt-samples').evaluate(n=>n.open=true);
-    const order=await page.evaluate(()=>{const root=document.querySelector('#tool'),nodes=[...root.children];return {result:nodes.indexOf(root.querySelector('.bt-result')),samples:nodes.indexOf(root.querySelector('.bt-samples')),settings:nodes.indexOf(root.querySelector('.bt-settings')),formContainsSample:root.querySelector('form').contains(root.querySelector('.bt-samples'))};});
-    assert.ok(order.result<order.samples&&order.result<order.settings);assert.equal(order.formContainsSample,false);
-    const jump=page.locator('[data-action=result]');await jump.focus();await jump.press('Enter');assert.equal(await page.locator('textarea[id$="output"]').evaluate(n=>n===document.activeElement),true);
-    const position=await page.locator('.bt-result').boundingBox();assert.ok(position.y>=0&&position.y<850,JSON.stringify(position));return{order,explicitResultJump:true};
+   await test('editing input and settings labels the previous result without changing its copy identity',async()=>{
+    await run('104729');await input.fill('32');assert.match(await page.locator('.bt-result-title').textContent(),/前回.*104729/);assert.match(await page.locator('.bt-draft-note').textContent(),/未実行/);assert.equal(await equation(),'104729 = 104729');
+    await input.press('Enter');await phase('result');assert.equal(await page.locator('.bt-result-title').textContent(),'32 の結果');assert.equal(await equation(),'32 = 2^5');
+    await page.locator('.bt-settings').evaluate(n=>n.open=true);await page.locator('select[id$="-time"]').selectOption('5000');assert.match(await page.locator('.bt-result-title').textContent(),/前回.*32/);await page.locator('select[id$="-time"]').selectOption('1000');await page.locator('.bt-settings').evaluate(n=>n.open=false);
+    await page.locator('[data-action=result]').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.bt-result-title').evaluate(n=>n===document.activeElement),true);return{previousInput:'104729',draft:'32',currentResult:'32',explicitResultAccess:true};
    });
    await test('invalid decimal, negative, oversized exponent are rejected without Workers',async()=>{
     const before=await metrics();for(const value of ['2.5','-1','1e10000']){await input.fill(value);await start.click();await phase('invalid');assert.equal(await input.getAttribute('aria-invalid'),'true');assert.equal(await page.getByRole('alert').isVisible(),true);}
@@ -91,13 +87,13 @@ try{
    await test('scientific input, exact integer, zero and subsecond display',async()=>{
     assert.equal(await run('3.2e1'),'32 = 2^5');const elapsed=await page.locator('[data-elapsed]').textContent();assert.match(elapsed,/^(?:<1|\d+) ms$/);assert.doesNotMatch(elapsed,/上限|Worker|WASM/);
     assert.equal(await page.locator('.bt-execution-limits div').filter({hasText:'時間上限'}).locator('dd').textContent(),'1秒');
-    assert.match(await run('9007199254740993'),/^9007199254740993 = /);assert.equal(await run('0'),'0 = 0');assert.match(await page.locator('.bt-status').textContent(),/素数でも合成数でもありません/);
+    assert.match(await run('9007199254740993'),/^9007199254740993 = /);assert.equal(await run('0'),'0 = 0');assert.match(await page.locator('.bt-result-status').textContent(),/素数でも合成数でもありません/);
     return{elapsed};
    });
    await test('one semantic row per factor preserves a many-factor result',async()=>{
     const primes=[2n,3n,5n,7n,11n,13n,17n,19n,23n,29n],n=primes.reduce((a,b)=>a*b,1n).toString();await run(n);
     const rows=page.locator('.bt-factor-list li');assert.equal(await rows.count(),10);for(let i=0;i<primes.length;i++)assert.equal(await rows.nth(i).textContent(),primes[i]+': 確定判定');
-    await page.locator('.bt-result details summary').click();
+    await page.locator('.bt-proof summary').click();
     const tree=await page.locator('.bt-factor-list').ariaSnapshot();assert.match(tree,/listitem/);return{rows:10,equation:await equation(),semantics:'native ul/li; no physical screen-reader claim'};
    });
    await test('native user-gesture copy outcome',async()=>{
@@ -119,19 +115,19 @@ try{
     return{equation:value,elapsedMs:state.resources.elapsedMs,wasmBytes:state.resources.actualWasmBytes};
    });
    await test('keyboard start/cancel, release and fresh rerun',async()=>{
-    await page.locator('.bt-settings summary').click();await page.getByLabel('計算時間（初期化を含む）').selectOption('5000');
-    await input.fill('1050809297549059047257');await input.press('Enter');await phase('running');
+    await page.locator('.bt-settings summary').click();await page.locator('select[id$=\"-time\"]').selectOption('5000');
+    await input.fill('1050809297549059047257');await input.press('Enter');await phase('running');assert.equal(await input.isEditable(),false);
     const focused=await page.evaluate(()=>document.activeElement?.dataset.action);assert.equal(focused,'cancel');await page.keyboard.press('Enter');await phase('result');
-    assert.match(await page.locator('.bt-status').textContent(),/中止/);assert.equal(await page.locator('.bt-status').evaluate(n=>n===document.activeElement),true);
+    assert.match(await page.locator('.bt-result-status').textContent(),/中止/);assert.equal(await page.locator('.bt-status').evaluate(n=>n===document.activeElement),true);
     const after=await metrics();assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
     assert.equal(await run('360'),'360 = 2^3 × 3^2 × 5');return{focus:focused,afterCancel:after};
    });
    await test('reset and keyboard tab order',async()=>{
     const reset=page.locator('[data-action=reset]');await reset.click();await phase('ready');assert.equal(await input.inputValue(),'');
     await page.waitForFunction(()=>document.activeElement?.dataset.action==='reset');assert.equal(await reset.evaluate(n=>n===document.activeElement),true);
-    await page.locator('.bt-samples').evaluate(n=>n.open=false);await input.focus();await input.press('Tab');assert.equal(await start.evaluate(n=>n===document.activeElement),true);
+    await page.locator('.bt-samples').evaluate(n=>n.open=false);await input.focus();await input.press('Tab');assert.equal(await page.locator('.bt-samples summary').evaluate(n=>n===document.activeElement),true);
     await page.locator('.bt-samples summary').focus();
-    await page.keyboard.press('Enter');await page.keyboard.press('Tab');assert.equal(await page.locator('[data-sample-value="360"]').evaluate(n=>n===document.activeElement),true);
+    await page.keyboard.press('Enter');await page.keyboard.press('Tab');assert.equal(await page.locator('[data-sample-value="360"]').evaluate(n=>n===document.activeElement),true);await page.keyboard.press('Enter');assert.equal(await start.evaluate(n=>n===document.activeElement),true);
     return{focusAfterReset:'reset',tabFromInput:'primary start action; optional sample disclosure follows result area'};
    });
    await test('narrow widths and 200 percent text resize keep choices and results inside DOM bounds',async()=>{

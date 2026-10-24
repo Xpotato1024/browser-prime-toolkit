@@ -1,4 +1,4 @@
-const MAX_INPUT_LENGTH = 4096;
+export const MAX_INPUT_LENGTH = 4096;
 const MAX_VALUE_DIGITS = 1024;
 const MAX_EXPONENT = '10000';
 const INPUT_GRAMMAR = /^\+?([0-9]+)(?:\.([0-9]+))?(?:[eE]([+-]?[0-9]+))?$/;

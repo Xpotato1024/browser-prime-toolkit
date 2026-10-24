@@ -1,5 +1,15 @@
 .bt-prime-factorizer { min-inline-size:0; inline-size:100%; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; color:var(--bt-text,#24212b); font-family:system-ui,sans-serif; line-height:1.6; }
 .bt-prime-factorizer form, .bt-prime-factorizer .bt-field { min-inline-size:0; max-inline-size:100%; }
+.bt-prime-factorizer .bt-layout { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr)); gap:1rem; align-items:start; }
+.bt-prime-factorizer .bt-work { min-inline-size:0; }
+.bt-prime-factorizer .bt-input-area { min-inline-size:0; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); }
+.bt-prime-factorizer .bt-input-area input { border:0; background:transparent; }
+.bt-prime-factorizer .bt-input-limit { margin:0; padding:.25rem .75rem .5rem; font-size:.9rem; color:var(--bt-muted,#514b5b); overflow-wrap:anywhere; }
+.bt-prime-factorizer .bt-draft-note { margin:.5rem 0; padding:.5rem; border-left:3px solid var(--bt-border,#736a7b); }
+.bt-prime-factorizer .bt-next-plan { margin:.5rem 0; font-weight:600; }
+.bt-prime-factorizer .bt-result-title { margin:.5rem 0; font-size:1.2rem; }
+.bt-prime-factorizer .bt-result-status { margin:.35rem 0; font-weight:600; }
+.bt-prime-factorizer .bt-equation { margin:.5rem 0; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); background:var(--bt-surface,#fff); overflow-wrap:anywhere; }
 .bt-prime-factorizer fieldset { min-width:0; margin:0; padding:0; border:0; }
 .bt-prime-factorizer .bt-field { display:flex; flex-direction:column; gap:.35rem; margin:0 0 .85rem; }
 .bt-prime-factorizer label { display:block; margin:0; font-weight:600; }
@@ -11,11 +21,10 @@
 .bt-prime-factorizer summary { min-height:max(2.75rem,44px); box-sizing:border-box; padding:.55rem 0; font-weight:600; cursor:pointer; }
 .bt-prime-factorizer details[open] summary { margin-bottom:.65rem; }
 .bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0 0; }
-.bt-prime-factorizer .bt-quick-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 0; }
-.bt-prime-factorizer .bt-quick-actions button { max-inline-size:100%; overflow-wrap:anywhere; }
 .bt-prime-factorizer button { min-height:max(2.75rem,44px); margin:0; padding:.65rem 1rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); font-weight:600; line-height:1.4; cursor:pointer; }
 .bt-prime-factorizer button[data-action="start"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); }
 .bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer button[data-action="retry"] { background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); border-color:var(--bt-border,#736a7b); }
+.bt-prime-factorizer button[data-action="result"], .bt-prime-factorizer button[data-action="copy"] { background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); border-color:var(--bt-border,#736a7b); }
 .bt-prime-factorizer button[data-action="cancel"] { background:var(--bt-surface,#fff); color:var(--bt-danger,#a32232); border-color:var(--bt-danger,#a32232); }
 .bt-prime-factorizer button:disabled, .bt-prime-factorizer select:disabled, .bt-prime-factorizer input:disabled { opacity:.6; cursor:default; }
 .bt-prime-factorizer input:focus-visible, .bt-prime-factorizer select:focus-visible, .bt-prime-factorizer textarea:focus-visible, .bt-prime-factorizer button:focus-visible, .bt-prime-factorizer summary:focus-visible { outline:3px solid var(--bt-focus,#215fba); outline-offset:3px; }
