@@ -83,6 +83,12 @@ native showModalのtop layerと背景のinertnessを使い、初期見出し・T
 
 buttonの文字色と背景は一組でscopedに定義し、Siteのprose/form ruleとの合成後に通常・focus・hover・active・disabledのコントラストを検査する。結果見出しも端末フォントを明示し、動的な「前回」表示でhost Webフォントを追加取得させない。OSの色設定とSiteが対応するthemeを区別し、実機iOSや支援技術をdesktop WebKitから保証しない。
 
+### 2026-10-24 モーダルの視覚調整
+
+承認済みの共通フローを維持し、隣接する結果への専用移動ボタンは撤去する。専用の見出しtabindexとクリック処理も残さない。開始時の状態行、中止完了、コピー失敗時の同じ結果本文、モーダルのfocus復帰と読み上げは維持する。
+
+Siteの細い境界・2px角丸・端末内フォントに合わせ、分解と設定の適用だけを塗りの主操作にする。設定の取消は適用より前に置き、下部の細い境界で本文と区切る。閉じると消去は控えめにするが、文字のコントラストと44px以上の操作領域を維持する。モーダルは短い画面や文字拡大で内容に従ってスクロールし、固定フッターで本文を覆わない。背景はnative dialogのbackdropだけで暗くする。操作や装飾・アニメーションは増やさない。
+
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。
 
 実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。

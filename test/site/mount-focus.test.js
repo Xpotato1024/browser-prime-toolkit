@@ -39,7 +39,7 @@ test('start navigates once, input is read-only during work, and completion prese
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve(finished(input));})})});
  f.input.value='360';f.input.focus();f.form.fire('submit');assert.equal(f.input.readOnly,true);assert.equal(f.doc.activeElement,f.find(n=>n.attrs['class']==='bt-status'));assert.equal(f.doc.scrolls.length,1);
  f.input.focus();f.doc.focuses=[];finish();await settle();assert.equal(f.doc.activeElement,f.input);assert.equal(f.doc.focuses.length,0);assert.equal(f.doc.scrolls.length,1);assert.equal(f.input.readOnly,false);
- f.action('result').fire('click');assert.equal(f.doc.activeElement,f.find(n=>n.attrs['class']==='bt-result-title'));f.app.dispose();
+ assert.equal(f.action('result'),undefined);f.app.dispose();
 });
 
 test('cancel retains the lease until retirement and then permits a fresh run',async()=>{
@@ -74,7 +74,7 @@ test('another instance holding the lease is a runtime wait, not an input error o
 
 test('one vertical form keeps two modal triggers and no expanded settings or duplicate result text',async()=>{
  const f=await setup(),work=f.find(n=>n.attrs['class']==='bt-work'),details=f.find(n=>n.attrs['class']==='bt-settings');
- assert.ok(f.form.children.includes(work));assert.equal(details.tagName,'DIALOG');assert.ok(f.root.children.includes(details));assert.equal(f.form.children.includes(details),false);assert.equal(nodes(f.root).filter(n=>n.tagName==='TEXTAREA').length,0);assert.equal(f.action('examples').attrs['aria-haspopup'],'dialog');
+ assert.ok(f.form.children.includes(work));assert.equal(details.tagName,'DIALOG');assert.ok(f.root.children.includes(details));assert.equal(f.form.children.includes(details),false);assert.equal(nodes(f.root).filter(n=>n.tagName==='TEXTAREA').length,0);assert.equal(f.action('examples').attrs['aria-haspopup'],'dialog');assert.equal(f.action('result'),undefined);
  const workers=f.find(n=>n.id?.endsWith('-workers'));assert.equal(f.find(n=>n.children.includes(workers)).hidden,true);f.app.dispose();
 });
 

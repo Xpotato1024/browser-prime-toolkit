@@ -8,7 +8,7 @@
 .bt-prime-factorizer .bt-field .bt-input-area input { border:0; background:transparent; }
 .bt-prime-factorizer .bt-input-limit { margin:0; padding:.25rem .75rem .5rem; font-size:.9rem; color:var(--bt-muted,#514b5b); overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-draft-note { margin:.5rem 0; padding:.5rem; border-left:3px solid var(--bt-border,#736a7b); }
-.bt-prime-factorizer .bt-next-plan { margin:.5rem 0; font-weight:600; }
+.bt-prime-factorizer .bt-next-plan { margin:.5rem 0; font-size:.9rem; color:var(--bt-muted,#514b5b); }
 .bt-prime-factorizer .bt-result-title { margin:.5rem 0; font-family:inherit; font-size:1.2rem; }
 .bt-prime-factorizer .bt-result-status { margin:.35rem 0; font-weight:600; }
 .bt-prime-factorizer .bt-equation { margin:.5rem 0; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); background:var(--bt-surface,#fff); overflow-wrap:anywhere; }
@@ -22,19 +22,18 @@
 .bt-prime-factorizer details { margin:.9rem 0; padding:0; border:0; border-top:1px solid var(--bt-border,#736a7b); border-radius:0; background:transparent; }
 .bt-prime-factorizer summary { min-height:max(2.75rem,44px); box-sizing:border-box; padding:.55rem 0; font-weight:600; cursor:pointer; }
 .bt-prime-factorizer details[open] summary { margin-bottom:.65rem; }
-.bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0 0; }
-.bt-prime-factorizer button[type] { min-height:max(2.75rem,44px); margin:0; padding:.65rem 1rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); font-weight:600; line-height:1.4; cursor:pointer; }
-.bt-prime-factorizer button[data-action="start"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); }
-.bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer button[data-action="retry"] { background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); border-color:var(--bt-border,#736a7b); }
-.bt-prime-factorizer button[data-action="result"], .bt-prime-factorizer button[data-action="copy"] { background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); border-color:var(--bt-border,#736a7b); }
+.bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin:.75rem 0 0; }
+.bt-prime-factorizer button[type] { min-height:max(2.75rem,44px); margin:0; padding:.6rem .85rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); font-weight:500; line-height:1.4; cursor:pointer; }
+.bt-prime-factorizer button[data-action="start"], .bt-prime-factorizer button[data-action="apply-settings"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); font-weight:600; }
+.bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer .bt-modal-header button[type] { background:var(--bt-surface,#fff); color:var(--bt-muted,#514b5b); border-color:transparent; }
 .bt-prime-factorizer button[data-action="cancel"] { background:var(--bt-surface,#fff); color:var(--bt-danger,#a32232); border-color:var(--bt-danger,#a32232); }
 .bt-prime-factorizer button:disabled, .bt-prime-factorizer select:disabled, .bt-prime-factorizer input:disabled { opacity:.6; cursor:default; }
 .bt-prime-factorizer button[type]:enabled:hover, .bt-prime-factorizer button[type]:enabled:active { color:var(--bt-text,#24212b); background:var(--bt-surface,#fff); border-color:var(--bt-focus,#215fba); }
-.bt-prime-factorizer button[data-action="start"]:enabled:hover, .bt-prime-factorizer button[data-action="start"]:enabled:active { color:var(--bt-on-accent,#fff); background:var(--bt-accent,#62418b); border-color:var(--bt-accent,#62418b); }
+.bt-prime-factorizer button[data-action="start"]:enabled:hover, .bt-prime-factorizer button[data-action="start"]:enabled:active, .bt-prime-factorizer button[data-action="apply-settings"]:enabled:hover, .bt-prime-factorizer button[data-action="apply-settings"]:enabled:active { color:var(--bt-on-accent,#fff); background:var(--bt-focus,#215fba); border-color:var(--bt-focus,#215fba); }
 .bt-prime-factorizer button[data-action="cancel"]:enabled:hover, .bt-prime-factorizer button[data-action="cancel"]:enabled:active { color:var(--bt-danger,#a32232); background:var(--bt-surface,#fff); border-color:var(--bt-danger,#a32232); }
 .bt-prime-factorizer button[type]:disabled { opacity:1; color:var(--bt-muted,#514b5b); background:var(--bt-surface,#fff); border-style:dashed; cursor:default; }
 .bt-prime-factorizer input:focus-visible, .bt-prime-factorizer select:focus-visible, .bt-prime-factorizer textarea:focus-visible, .bt-prime-factorizer button:focus-visible, .bt-prime-factorizer summary:focus-visible { outline:3px solid var(--bt-focus,#215fba); outline-offset:3px; }
-.bt-prime-factorizer .bt-result-body:focus-visible, .bt-prime-factorizer .bt-status:focus-visible, .bt-prime-factorizer .bt-result-title:focus-visible { outline:3px solid var(--bt-focus,#215fba); outline-offset:3px; }
+.bt-prime-factorizer .bt-result-body:focus-visible, .bt-prime-factorizer .bt-status:focus-visible { outline:3px solid var(--bt-focus,#215fba); outline-offset:3px; }
 .bt-prime-factorizer [hidden], .bt-prime-factorizer .bt-result [hidden] { display:none; }
 .bt-prime-factorizer .bt-status { margin:.9rem 0; }
 .bt-prime-factorizer .bt-error { padding:.65rem .75rem; border-left:4px solid var(--bt-danger,#a32232); color:var(--bt-danger,#a32232); overflow-wrap:anywhere; }
@@ -42,15 +41,18 @@
 .bt-prime-factorizer .bt-result-body { user-select:text; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-result label { margin-bottom:.4rem; }
 .bt-prime-factorizer .bt-copy-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
-.bt-prime-factorizer .bt-sample-list { display:grid; gap:.4rem; list-style:none; margin:.35rem 0; padding:0; }
+.bt-prime-factorizer .bt-sample-list { display:grid; gap:.5rem; list-style:none; margin:.75rem 0 0; padding:0; }
 .bt-prime-factorizer .bt-sample-list li { min-inline-size:0; margin:0; }
-.bt-prime-factorizer .bt-sample-choice { inline-size:100%; white-space:normal; text-align:start; overflow-wrap:anywhere; font-weight:400; }
+.bt-prime-factorizer button.bt-sample-choice { inline-size:100%; white-space:normal; text-align:start; overflow-wrap:anywhere; font-weight:400; }
 .bt-prime-factorizer .bt-menu { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; }
 .bt-prime-factorizer dialog { inline-size:min(36rem,100%); max-inline-size:calc(100vw - 2rem); max-block-size:calc(100dvh - 2rem); margin:auto; padding:1rem; box-sizing:border-box; overflow:auto; overscroll-behavior:contain; border:1px solid var(--bt-border,#736a7b); border-radius:2px; color:var(--bt-text,#24212b); background:var(--bt-surface,#fff); font:inherit; }
-.bt-prime-factorizer dialog::backdrop { background:rgba(0,0,0,.45); }
-.bt-prime-factorizer .bt-modal-header { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; justify-content:space-between; margin-bottom:.5rem; }
+.bt-prime-factorizer dialog::backdrop { background:rgba(21,20,29,.45); }
+.bt-prime-factorizer .bt-modal-header { display:flex; flex-wrap:wrap; gap:.5rem .75rem; align-items:center; justify-content:space-between; margin-bottom:.75rem; padding-bottom:.5rem; border-bottom:1px solid var(--bt-border,#736a7b); }
 .bt-prime-factorizer dialog h2 { min-inline-size:0; margin:0; font-family:inherit; font-size:1.2rem; font-weight:600; }
 .bt-prime-factorizer dialog h2:focus-visible { outline:3px solid var(--bt-focus,#215fba); outline-offset:3px; }
+.bt-prime-factorizer .bt-modal-footer { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.5rem; margin-top:1rem; padding-top:.75rem; border-top:1px solid var(--bt-border,#736a7b); }
+.bt-prime-factorizer dialog .bt-field { margin-bottom:.75rem; }
+.bt-prime-factorizer dialog .bt-estimate { font-size:.9rem; color:var(--bt-muted,#514b5b); }
 .bt-prime-factorizer .bt-metrics { margin:.65rem 0; }
 .bt-prime-factorizer .bt-metrics dl { margin:0; }
 .bt-prime-factorizer .bt-metrics dl > div { display:flex; flex-wrap:wrap; gap:.35rem .75rem; align-items:baseline; }
