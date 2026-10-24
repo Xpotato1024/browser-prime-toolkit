@@ -28,6 +28,8 @@ Windows Node 24.14.0 / Playwright Core 1.61.0 で desktop Firefox 151.0 と WebK
 
 ## 未検証・公開保留
 
+最初の候補は2 clean buildで全ファイル一致したが、Siteのcanonical artifact checkerが `li + li` を既存のCSS許可文法に反するとして拒否した。余白指定を `li` と `li:first-child` に置き換え、validatorの許可範囲は拡大しない。上記artifact hashはこの最初の候補の履歴であり、修正後の配布hashには使用しない。
+
 実 iOS/Android、iOS Brave の native popup / soft keyboard / autozoom、BFCache、実読み上げソフト、OS clipboard paste と native 拒否ダイアログは未検証。accessibility tree の確認を実 screen reader の受入とは呼ばない。WebKit の物理的ネット切断も未検証で、restrictive CSP と通信観測を用いた。
 
 新修正の独立レビュー、正式版の最終 CI・2 clean build・source/provenance・ライセンス・公開hash・Site結合の受入は別の完了条件。Cloudflare 側の自動配信設定もまだ読み取れていない。push / merge / tag / Release / 配信は保留する。

@@ -36,7 +36,8 @@
 .bt-prime-factorizer .bt-execution-limits > div { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:.35rem .75rem; }
 .bt-prime-factorizer .bt-execution-limits dd { margin:0; }
 .bt-prime-factorizer .bt-factor-list { margin:.35rem 0; padding-inline-start:1.25rem; list-style:disc; }
-.bt-prime-factorizer .bt-factor-list li + li { margin-top:.25rem; }
+.bt-prime-factorizer .bt-factor-list li { margin-top:.25rem; }
+.bt-prime-factorizer .bt-factor-list li:first-child { margin-top:0; }
 .bt-prime-factorizer .bt-residual, .bt-prime-factorizer .bt-stop-reason, .bt-prime-factorizer .bt-estimate { margin:.35rem 0; }
 .bt-prime-factorizer .bt-limits { font-size:.9rem; }
 .bt-prime-factorizer .bt-limits p { margin:.4rem 0; }
