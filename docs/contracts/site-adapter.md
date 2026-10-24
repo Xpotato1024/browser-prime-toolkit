@@ -73,6 +73,16 @@ document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択
 
 欄内の最大桁数・数値範囲は維持し、短い常時説明と下部の詳しい入力規則を分ける。資源設定は適用されるcontrolだけを説明付きで表示し、モード間・自動／手動の切替でも保存した手動値を失わせない。選択したWASM予算と入力で選ばれた経路のWASM上限を区別し、不要な経路は「この計算では使わない」と表す。0 MiBを実測使用量として表示しない。実経過の計測範囲と未検証の実機条件は従来通りとする。
 
+### 入力例と設定のモーダル化
+
+通常画面は欄内の数値上限、二つの補助メニュー、短い適用済みモード／時間上限、明示的な実行・中止と一つの結果に絞る。分解完了を保証する桁数ではない旨はSite下部のライセンス・配布情報・処理上限へ置く。入力例はnative dialogで選択し、入力だけを変更して共通実行へfocusを返す。
+
+設定はappliedとdraft、モードごとの記憶値を分離する。開く／編集ではprepare、入力の上限表示、前回結果の関連付けを変更しない。妥当なApplyだけをcommitし、取消・閉じる・Escapeは下書きを捨てる。計算と退役中は両メニューを無効にする。Apply後は必要ファイルの準備を行うが、因数分解は開始しない。
+
+native showModalのtop layerと背景のinertnessを使い、初期見出し・Tab境界・Escape・focusと元のページ位置の復帰を確認する。長い内容や短い画面ではdialog自体をスクロールし、global clipping、body style、ズーム禁止、portal、CSP拡大で対処しない。unmountでは開いたdialogも閉じる。
+
+buttonの文字色と背景は一組でscopedに定義し、Siteのprose/form ruleとの合成後に通常・focus・hover・active・disabledのコントラストを検査する。結果見出しも端末フォントを明示し、動的な「前回」表示でhost Webフォントを追加取得させない。OSの色設定とSiteが対応するthemeを区別し、実機iOSや支援技術をdesktop WebKitから保証しない。
+
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。
 
 実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。
