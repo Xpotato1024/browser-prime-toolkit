@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
+import {SITE_CAPABILITIES,SITE_MODES} from './capabilities.js';
 // Explanation only; input parsing and resource selection remain in their policies.
 export const inputGuidance=Object.freeze([
- {title:'入力形式',text:'0以上の整数と、整数になる科学表記（例：3.2e1）に対応します。先頭の0は値の桁数に含めません。入力表記は4096文字までで、超過は切り詰めずエラーにします。'},
- {title:'計算範囲',text:'通常は2^128未満（最大39桁）。高精度／大メモリは最大100桁、かつ332bit以下です。桁数だけで所要時間は分かりません。'},
+ {title:'入力形式',text:'0以上の整数と、整数になる科学表記（例：3.2e1）に対応します。先頭の0は値の桁数に含めません。入力表記は'+SITE_CAPABILITIES.input.maxTextLength+'文字までで、超過は切り詰めずエラーにします。'},
+ {title:'計算範囲',text:'通常は2^'+SITE_MODES.standard.maxBits+'未満（最大'+SITE_MODES.standard.maxDigits+'桁）。高精度／大メモリは最大'+SITE_MODES.optimized.maxDigits+'桁、かつ'+SITE_MODES.optimized.maxBits+'bit以下です。桁数だけで所要時間は分かりません。'},
  {title:'実行資源と端末の負荷',items:[
   '通常・小入力の経路：最大1 Worker・WASM 128 MiB・60秒。WASMを使わない経路もあります。',
   '高精度：自動配分は最大2 Worker。手動配分は最大6 Worker・WASM予算128〜768 MiB・10分で、予算に収まる組み合わせだけを使えます。',

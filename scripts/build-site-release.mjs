@@ -2,6 +2,7 @@
 import {readFile,mkdir,writeFile,stat} from 'node:fs/promises';
 import {resolve,relative,dirname,isAbsolute,sep} from 'node:path';
 import {createHash} from 'node:crypto';
+import {SITE_CAPABILITIES} from '../src/site/capabilities.js';
 import {siteFontModule} from './site-font-text.mjs';
 const root=resolve(import.meta.dirname,'..'),out=resolve(process.argv[2]??'');
 if(await readFile(resolve(root,'src/site/font-text.js'),'utf8')!==await siteFontModule(root))throw Error('UI font corpus is stale');
@@ -36,7 +37,7 @@ const pkg=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
 files.set('package.json',Buffer.from(JSON.stringify({name:pkg.name,version:pkg.version,type:'module',license:pkg.license,main:'./src/site/index.mjs',exports:{'.':'./src/site/index.mjs'},peerDependencies:pkg.peerDependencies},null,2)+'\n'));
 const embeddedWorkerModules=[...files].filter(([p,b])=>p.endsWith('.mjs')&&/(?:STAGED_SOURCE|[A-Z_]*WORKER_SOURCE)\s*=\s*"/u.test(b.toString())).map(([p])=>p).sort();
 const embeddedWasmModules=embeddedWorkerModules.filter(p=>files.get(p).toString().includes('AGFzbQE'));
-const manifest={schemaVersion:1,toolId:'prime-factorizer',version:pkg.version,integration:{kind:'react-island',apiVersion:1,entry:'src/site/index.mjs',styles:['tool.css']},
+const manifest={schemaVersion:1,toolId:'prime-factorizer',version:pkg.version,uiCapabilities:SITE_CAPABILITIES,integration:{kind:'react-island',apiVersion:1,entry:'src/site/index.mjs',styles:['tool.css']},
  runtime:{profile:'bounded-browser-v2',network:'none-after-ready',storage:'memory',clipboardPolicy:'user-gesture-write-only',assetMode:'fixed-bundled',embeddedWorkerModules,embeddedWasmModules,workerLoaderModules:['src/worker/source-factory.mjs'],capabilities:{fileInput:false,download:false,clipboard:true,worker:true,wasm:true},maxInputBytes:16384,maxOutputBytes:262144,maxComputeMs:100,jobMaxMs:3600000,maxWorkers:6,maxWasmBytes:1610612736,maxTransportBytes:67108864},
  license:{spdx:pkg.license,file:'LICENSE',notice:'NOTICE',additional:extraLicenseFiles},files:[...files].sort(([a],[b])=>a.localeCompare(b,'en')).map(([path,b])=>({path,bytes:b.length,sha256:hash(b)}))};
 files.set('browser-tool.json',Buffer.from(JSON.stringify(manifest,null,2)+'\n'));

@@ -108,3 +108,13 @@ merge/release/本番配信は今回のDraft作成許可に含まれません。
 入力規則は入力形式・計算範囲・実行資源と端末負荷・結果の扱いのnative ul/liへ整理する。raw4096文字、数値39桁かつ2^128未満／100桁かつ332bit以下、配布物の入力16384bytesは別の上限とする。高精度は自動最大2 Worker、手動最大6 Workerで、既存policyと照合する。WASM予算と実使用量を混同せず、RAM全体／タブ終了に関する注意を保持する。
 
 font-textは固定UIソースから生成し、builderで一致を検査する。入力値・結果・任意DOM本文を収集しない。hostの配布説明は明示的な `data-bt-font-text` の固定公開文言だけを4096文字以内で渡す。既存CSSの書体を400/500/600/700で準備してからreadyにする。失敗は既存load-error／retryへ戻し、失敗promiseを永続cacheしない。
+
+## 2026-10-25 限定候補の表示境界
+
+TailwindはSiteのbuildだけが所有し、toolkitへ導入しない。toolkitのrootは`data-browser-tool-root`を明示する。Siteの`.prose`子孫規則はこのroot自身と内部を除外し、書体・色と限られた文字サイズを`--bt-*`で渡す。これはShadow DOMや全global resetの遮断ではない。toolkitは段落・リスト・見出し・フォームの基本値とfallbackを自分のscoped CSSで定義し、summaryをSite selectorの偶然の勝ち負けで揃えない。
+
+既存color tokenに加え、`--bt-font-family`、`--bt-font-size`、`--bt-line-height`、`--bt-summary-font-size`、`--bt-summary-font-weight`、`--bt-help-font-size`、`--bt-heading-font-size`、`--bt-control-min-size`を表示契約とする。min操作高は44px未満にしない。配置や計算hardcapをhost設定化しない。
+
+`src/site/capabilities.js`がadapterの入力範囲・対応モード・設定時間上限の固定定義で、policyと表示が同じ値を参照する。凍結parser/backendの境界とはテストで照合する。builderはこのobjectを配布manifestの任意`uiCapabilities`へ出力し、Siteは選択したmanifestのhash確認後だけ説明に使う。生の文字数と配布byte上限、入力可能範囲と完了保証、設定予算と実測を混同しない。旧manifestに情報が無ければ未提供として扱い、新しい候補の値を古い版へ補わない。
+
+これは未公開候補の契約追加であり、正式な新version/release、既存vendor/pinの置換やSite本番採用を行った記録ではない。

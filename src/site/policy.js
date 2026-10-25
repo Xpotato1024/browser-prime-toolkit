@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
+import {SITE_CAPABILITIES,SITE_MODES} from './capabilities.js';
 import {parseIntegerInput,IntegerInputError} from '../core/integer-input.js';
 import {selectResourcePlan as normalPlan} from '../graph-multicore/policy.js';
 import {selectResourcePlan as widePlan} from '../selected-wide/policy.js';
 // Mirror the frozen parser's raw-text cap; boundary tests enforce equality without changing its pinned bytes.
-const MAX_INPUT_LENGTH=4096,STANDARD_BOUNDARY=1n<<128n,MAX_SITE_BITS=332,MAX_SITE_DIGITS=100;
+const MAX_INPUT_LENGTH=SITE_CAPABILITIES.input.maxTextLength,STANDARD_BOUNDARY=1n<<BigInt(SITE_MODES.standard.maxBits),MAX_SITE_BITS=Math.max(...SITE_CAPABILITIES.modes.map(m=>m.maxBits)),MAX_SITE_DIGITS=Math.max(...SITE_CAPABILITIES.modes.map(m=>m.maxDigits));
 export function parseSiteInput(raw){
  const input=parseIntegerInput(raw).canonical;
  if(input.length>MAX_SITE_DIGITS||BigInt(input).toString(2).length>MAX_SITE_BITS)throw RangeError('Maximum 332 bits / 100 digits');
@@ -15,9 +16,9 @@ export function validateSiteInput(raw,engine='standard'){
  return input;
 }
 export function siteInputLimit(engine='standard'){
- const standard=engine==='standard';
- return {maxDigits:standard?(STANDARD_BOUNDARY-1n).toString().length:MAX_SITE_DIGITS,maxTextLength:MAX_INPUT_LENGTH,
-  text:standard?'通常：最大39桁・2^128未満':'高精度／大メモリ：最大100桁・332bit以下',
+ const standard=engine==='standard',mode=SITE_MODES[engine]??SITE_MODES.optimized;
+ return {maxDigits:mode.maxDigits,maxTextLength:MAX_INPUT_LENGTH,
+  text:standard?mode.label+'：最大'+mode.maxDigits+'桁・2^'+mode.maxBits+'未満':'高精度／大メモリ：最大'+mode.maxDigits+'桁・'+mode.maxBits+'bit以下',
   note:'分解完了を保証する桁数ではありません。'};
 }
 export function siteInputErrorMessage(error,engine){
@@ -29,6 +30,6 @@ export function siteInputErrorMessage(error,engine){
 }
 export function selectSitePlan(engine,settings={},hints={},small=false){
  if(!['standard','optimized','wide'].includes(engine))throw Error('Named engine required');
- if(small||engine==='standard')return normalPlan({timeBudgetMs:Math.min(settings.timeBudgetMs??1000,60000)},hints);
+ if(small||engine==='standard')return normalPlan({timeBudgetMs:Math.min(settings.timeBudgetMs??1000,SITE_MODES.standard.timeBudgetMaxMs)},hints);
  return engine==='wide'?widePlan(settings):normalPlan(settings,hints);
 }

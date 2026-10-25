@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {documentComputeScope} from './document-scope.js';
 import {createSiteSession} from './session.js';
+import {SITE_CAPABILITIES} from './capabilities.js';
 import {siteInputLimit} from './policy.js';
 import {executionPresentation,sitePresentation,sampleInputs,copyResult} from './presentation.js';
 import {createSettingsState} from './settings-state.js';
@@ -11,6 +12,7 @@ import * as lightModule from '../resources/light-adapter.js';
 let serial=0;
 export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.navigator?.hardwareConcurrency,deviceMemory:globalThis.navigator?.deviceMemory},sessionOptions={}}={}){
  if(!root?.ownerDocument)throw TypeError('DOM root required');
+ root.setAttribute('data-browser-tool-root','');
  const doc=root.ownerDocument,scope=documentComputeScope(doc),prefix='bt-prime-'+(++serial)+'-',listeners=[],settingsState=createSettingsState(hints);
  const el=(tag,attrs={})=>{const n=doc.createElement(tag);for(const[k,v]of Object.entries(attrs))k==='text'?n.textContent=v:n.setAttribute(k,k==='id'?prefix+v:v);return n;};
  const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
@@ -24,7 +26,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const inputError=el('p',{id:'input-error',role:'alert','class':'bt-error'}),draftNote=el('p',{'class':'bt-draft-note',role:'status'});inputError.hidden=draftNote.hidden=true;fields.append(inputError,draftNote);
  const samples=el('dialog',{id:'examples-dialog','class':'bt-samples'}),sampleSummary=el('button',{type:'button',text:'入力例','data-action':'examples','aria-haspopup':'dialog','aria-controls':samples.id}),sampleTitle=el('h2',{id:'examples-title',text:'入力例を選ぶ',tabindex:'-1'}),sampleClose=el('button',{type:'button',text:'閉じる','data-action':'close-examples'}),sampleHeader=el('div',{'class':'bt-modal-header'}),sampleList=el('ul',{'class':'bt-sample-list'});samples.setAttribute('aria-labelledby',sampleTitle.id);sampleHeader.append(sampleTitle,sampleClose);
  samples.append(sampleHeader,el('p',{'class':'bt-help',text:'選ぶと共通の入力欄へ入ります。計算は「分解する」を押したときだけ始まります。'}),sampleList);const sampleButtons=sampleInputs.map(x=>{const button=el('button',{type:'button','class':'bt-sample-choice','data-sample-value':x.value,text:x.label}),item=el('li');item.append(button);sampleList.append(item);return button;});
- const engine=select('engine',[['standard','通常（小さい入力）'],['optimized','高精度（有界SIQS）'],['wide','大メモリ（明示設定）']]),mode=select('mode',[['auto','自動（保守的）'],['manual','手動設定']]);
+ const engine=select('engine',SITE_CAPABILITIES.modes.map(m=>[m.id,m.uiLabel])),mode=select('mode',[['auto','自動（保守的）'],['manual','手動設定']]);
  const workers=select('workers',[1,2,3,4,5,6].map(x=>[x,String(x)])),memory=select('memory',[128,256,384,512,768,1536].map(x=>[x,x+' MiB']));
  const time=select('time',[[1000,'1秒'],[5000,'5秒'],[15000,'15秒'],[60000,'1分'],[300000,'5分'],[600000,'10分'],[1800000,'30分'],[3600000,'1時間']]);
  const details=el('dialog',{id:'settings-dialog','class':'bt-settings'}),settingsSummary=el('button',{type:'button',text:'実行条件','data-action':'settings','aria-haspopup':'dialog','aria-controls':details.id}),settingsTitle=el('h2',{id:'settings-title',text:'実行条件を変更',tabindex:'-1'}),settingsClose=el('button',{type:'button',text:'閉じる','data-action':'close-settings'}),settingsHeader=el('div',{'class':'bt-modal-header'}),settingsError=el('p',{id:'settings-error',role:'alert','class':'bt-error',tabindex:'-1'});settingsError.hidden=true;details.setAttribute('aria-labelledby',settingsTitle.id);settingsHeader.append(settingsTitle,settingsClose);details.append(settingsHeader,el('p',{'class':'bt-help',text:'変更は「適用する」まで反映されません。適用しても計算は始まりません。'}),settingsError);
