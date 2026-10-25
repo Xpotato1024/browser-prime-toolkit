@@ -16,4 +16,6 @@ v0.1.4タグ `27cdda99c68f84972e15d763f94dd115a3a4d9ad` はsource `835f152ec8cf0
 
 追加回帰では独立したローカルorigin／checkout間でこのrefspec順序を再現する。元tag objectが保持され、ローカルrefだけがcommitになることを確認してからCLIを実行する。元イベントSHA・タグ名・元objectとローカルref双方の解決先、型、workflow SHA・実checkoutをすべて保持する。別タグ名、第三の参照object、異なるcommitを拒否し、Git replacementで元objectの読取を変えないことも確認する。reportには元イベントSHAとローカルref SHA、参照表現を別々に残す。
 
+既定depth 1のjobでは最初から `--no-tags --depth=1 +commit:refs/tags/...` を取得し、元tag objectがない。freshな浅いcheckoutでもこれを再現する。必要な場合だけ、workflowと一致するclean checkout・固定Nodeを先に確認し、既存originからイベントSHAを一回・15秒上限・depth 1で取得する。ref／HEAD／FETCH_HEADは更新せず、submoduleも辿らない。元objectを取得できない場合は停止し、checkout commitで代用しない。この上限はCIのGit metadata転送だけで、分解の資源・実行上限や既存GMP取得設定を変更しない。取得の有無を記録し、objectが既にある場合は通信しないことも検査する。
+
 このCI修正は既存v0.1.3／v0.1.4タグの削除・付替えやRelease公開を許可しない。公開対象source／tag／版の扱いは、修正のreview・CI後に本人の判断へ合わせる。古いtag CIの失敗を成功扱いにして公開しない。

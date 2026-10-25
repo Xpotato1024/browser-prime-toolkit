@@ -47,6 +47,17 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   tagIdentity.eventRefSha=git('rev-parse','--verify',payload.ref);
   tagIdentity.eventRefType=git('cat-file','-t',tagIdentity.eventRefSha);
   tagIdentity.eventRefCommitSha=git('rev-parse','--verify',payload.ref+'^{commit}');
+  const probe=execFileSync('git',['cat-file','--batch-check'],{encoding:'utf8',input:payload.after+'\n',env:{...env,GIT_NO_REPLACE_OBJECTS:'1',GIT_OPTIONAL_LOCKS:'0'}}).trim().split(' ');
+  assert.equal(probe[0],payload.after,'event object probe must retain exact SHA');
+  tagIdentity.eventObjectFetched=probe[1]==='missing';
+  if(tagIdentity.eventObjectFetched){
+   assert.equal(probe.length,2,'missing event object probe');
+   assert.equal(git('rev-parse','HEAD'),env.GITHUB_SHA,'metadata fetch requires exact workflow checkout');
+   assert.equal(process.versions.node,readFileSync('.node-version','utf8').trim(),'metadata fetch requires pinned Node');
+   assert.equal(git('status','--porcelain','--untracked-files=no'),'','metadata fetch requires tracked clean checkout');
+   // Existing checkout origin, one immutable object, no ref/FETCH_HEAD update or submodules.
+   execFileSync('git',['fetch','--no-tags','--no-recurse-submodules','--no-write-fetch-head','--depth=1','origin',payload.after],{encoding:'utf8',timeout:15000,stdio:['ignore','pipe','pipe'],env:{...env,GIT_NO_REPLACE_OBJECTS:'1',GIT_OPTIONAL_LOCKS:'0'}});
+  }else {assert.equal(probe.length,3,'existing event object probe');assert.match(probe[2],/^\d+$/,'event object size');}
   tagIdentity.eventHeadType=git('cat-file','-t',payload.after);
   tagIdentity.eventCommitSha=git('rev-parse','--verify',payload.after+'^{commit}');
   tagIdentity.eventTagName=tagIdentity.eventHeadType==='tag'?git('cat-file','-p',payload.after).split('\n\n',1)[0].match(/^tag (.+)$/m)?.[1]??null:null;

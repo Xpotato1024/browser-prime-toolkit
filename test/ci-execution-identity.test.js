@@ -57,6 +57,20 @@ test('CLI verifies the two-stage checkout fetch that normalizes an annotated tag
   git(checkout,'replace',raw,other);identity=run();assert.equal(identity.eventTagName,'v0.1.4','replacement objects must not alter raw event identity');
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('CLI retrieves a missing event object after a fresh depth-one tag checkout without moving refs',()=>{
+ const root=mkdtempSync(join(tmpdir(),'prime-shallow-tag-')),origin=join(root,'origin'),checkout=join(root,'checkout'),script=resolve('scripts/ci-execution-identity.mjs');
+ const git=(dir,...args)=>execFileSync('git',['-C',dir,'-c','user.name=Identity test','-c','user.email=identity-test@example.invalid','-c','commit.gpgSign=false','-c','tag.gpgSign=false',...args],{encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+ try{
+  mkdirSync(origin);mkdirSync(checkout);git(origin,'init','--initial-branch=main');writeFileSync(join(origin,'.node-version'),process.versions.node+'\n');git(origin,'add','.node-version');git(origin,'commit','-m','fixture');git(origin,'tag','-a','v0.1.4','-m','shallow fixture');
+  const commit=git(origin,'rev-parse','HEAD'),raw=git(origin,'rev-parse','refs/tags/v0.1.4');git(checkout,'init');git(checkout,'remote','add','origin',origin);git(checkout,'fetch','--no-tags','--prune','--no-recurse-submodules','--depth=1','origin','+'+commit+':refs/tags/v0.1.4');git(checkout,'checkout','--force','refs/tags/v0.1.4');assert.throws(()=>git(checkout,'cat-file','-t',raw));
+  const path=join(root,'event.json');writeFileSync(path,JSON.stringify({ref:'refs/tags/v0.1.4',after:raw}));const env={...process.env,GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'push',GITHUB_SHA:commit,GITHUB_REF:'refs/tags/v0.1.4',GITHUB_EVENT_PATH:path,GITHUB_STEP_SUMMARY:'',GITHUB_RUN_ID:'shallow-fixture',GITHUB_RUN_ATTEMPT:'1'};
+  const run=()=>JSON.parse(execFileSync(process.execPath,[script],{cwd:checkout,env,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim().slice('CI_EXECUTION_IDENTITY '.length));
+  let identity=run();assert.equal(identity.eventObjectFetched,true);assert.equal(identity.eventHeadSha,raw);assert.equal(identity.eventRefSha,commit);assert.equal(identity.eventTagName,'v0.1.4');assert.equal(identity.checkoutSha,commit);assert.equal(git(checkout,'rev-parse','HEAD'),commit);assert.equal(git(checkout,'rev-parse','refs/tags/v0.1.4'),commit);
+  git(checkout,'remote','set-url','origin',join(root,'unavailable'));identity=run();assert.equal(identity.eventObjectFetched,false,'present object requires no network');
+  writeFileSync(path,JSON.stringify({ref:'refs/tags/v0.1.4',after:'c'.repeat(40)}));assert.throws(run,'missing event object must never fall back to checkout identity');assert.equal(git(checkout,'rev-parse','HEAD'),commit);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});
 test('push and PR merge execution identities remain distinct',()=>{
  assert.deepEqual(executionIdentity(base),{...base,schema:1});
  const pr=executionIdentity({...base,event:'pull_request',workflowSha:b,checkoutSha:b});
