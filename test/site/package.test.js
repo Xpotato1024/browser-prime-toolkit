@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import test from 'node:test';
+import {SITE_CAPABILITIES} from '../../src/site/capabilities.js';
 import assert from 'node:assert/strict';
 import {mkdtemp,readFile,readdir,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 test('release generator has a fixed exact-set, license/source files and reproducible bytes',async()=>{
@@ -15,6 +17,8 @@ test('release generator has a fixed exact-set, license/source files and reproduc
   const m=JSON.parse(await readFile(join(outputs[0],'browser-tool.json'),'utf8'));
   assert.ok((await readFile(join(outputs[0],m.integration.entry),'utf8')).includes("'data-prime-tool-version':'"+m.version+"'"),'runtime label matches release version');
   assert.equal(m.runtime.profile,'bounded-browser-v2');
+  assert.deepEqual(m.uiCapabilities,SITE_CAPABILITIES,'shipped metadata and runtime policy share one definition');
+  const distributed=await import(pathToFileURL(join(outputs[0],'src/site/capabilities.mjs')).href);assert.deepEqual(distributed.SITE_CAPABILITIES,m.uiCapabilities);
   assert.equal(m.runtime.capabilities.clipboard,true);
   assert.equal(m.runtime.clipboardPolicy,'user-gesture-write-only');assert.equal(m.runtime.assetMode,'fixed-bundled');
   for(const f of m.files){

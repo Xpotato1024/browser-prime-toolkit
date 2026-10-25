@@ -17,7 +17,7 @@
 .bt-prime-factorizer fieldset { min-width:0; margin:0; padding:0; border:0; }
 .bt-prime-factorizer .bt-field { display:flex; flex-direction:column; gap:.35rem; margin:0 0 .85rem; }
 .bt-prime-factorizer label { display:block; margin:0; font-weight:600; }
-.bt-prime-factorizer .bt-field input, .bt-prime-factorizer .bt-field select, .bt-prime-factorizer .bt-result textarea { display:block; width:100%; max-width:100%; min-width:0; min-height:max(var(--bt-control-min-size,2.75rem),44px); box-sizing:border-box; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); line-height:1.5; }
+.bt-prime-factorizer .bt-field input, .bt-prime-factorizer .bt-field select, .bt-prime-factorizer .bt-result textarea { display:block; width:100%; max-width:100%; min-width:0; min-height:max(var(--bt-control-min-size,2.75rem),44px); box-sizing:border-box; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(var(--bt-font-size,1rem),16px); line-height:1.5; }
 .bt-prime-factorizer select { appearance:auto; }
 .bt-prime-factorizer textarea { min-height:4rem; resize:vertical; white-space:pre-wrap; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-help { margin:.4rem 0 .9rem; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
@@ -25,7 +25,7 @@
 .bt-prime-factorizer summary { min-height:max(var(--bt-control-min-size,2.75rem),44px); box-sizing:border-box; padding:.55rem 0; font-size:var(--bt-summary-font-size,1rem); font-weight:var(--bt-summary-font-weight,600); line-height:var(--bt-line-height,1.6); cursor:pointer; }
 .bt-prime-factorizer details[open] summary { margin-bottom:.65rem; }
 .bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin:.75rem 0 0; }
-.bt-prime-factorizer button[type] { min-height:max(var(--bt-control-min-size,2.75rem),44px); margin:0; padding:.6rem .85rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(1rem,16px); font-weight:500; line-height:1.4; cursor:pointer; }
+.bt-prime-factorizer button[type] { min-height:max(var(--bt-control-min-size,2.75rem),44px); margin:0; padding:.6rem .85rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(var(--bt-font-size,1rem),16px); font-weight:500; line-height:1.4; cursor:pointer; }
 .bt-prime-factorizer button[data-action="start"], .bt-prime-factorizer button[data-action="apply-settings"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); font-weight:600; }
 .bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer .bt-modal-header button[type] { background:var(--bt-surface,#fff); color:var(--bt-muted,#514b5b); border-color:transparent; }
 .bt-prime-factorizer button[data-action="cancel"] { background:var(--bt-surface,#fff); color:var(--bt-danger,#a32232); border-color:var(--bt-danger,#a32232); }
