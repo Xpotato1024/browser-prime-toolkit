@@ -17,7 +17,9 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 24.19.0
+          node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node --test test/collection-*.test.js
@@ -28,6 +30,10 @@ jobs:
       - name: Reversible fixed-family and oracle evidence
         if: matrix.graph == 'resieve1'
         run: npm run check:resieve-results
+      - name: Actual Chrome readiness without stderr notification
+        env:
+          CHROME_BIN: google-chrome
+        run: node scripts/verify-chrome-startup.mjs "$RUNNER_TEMP/chrome-startup.json"
       - name: Actual browser protocol, diagnostic port retirement and fresh recovery
         env:
           CHROME_BIN: google-chrome

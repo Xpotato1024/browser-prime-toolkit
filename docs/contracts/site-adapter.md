@@ -1,8 +1,8 @@
 # site adapter の現行契約と管理境界
 
-確認日: 2026-10-22。v0.1.0はsite PR112で固定版として採用・配信済みです。旧案の「PR110未統合」「Worker/WASM禁止」「site未変更」は [歴史資料](../history/site-adapter-2026-10-18.md) に保持します。
+確認日: 2026-10-22。v0.1.0はsite PR112、v0.1.1はsite PR114で固定版として採用・配信済みです。旧案の「PR110未統合」「Worker/WASM禁止」「site未変更」は [歴史資料](../history/site-adapter-2026-10-18.md) に保持します。
 
-共通の正本はsiteの [作成契約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/contracts/browser-tool-authoring.md)、machine schemaは [browser-tool.ts](https://github.com/Xpotato1024/xpotato-site/blob/main/packages/content-contracts/src/browser-tool.ts) です。このrepoへ仕様・生成器・Skillの別コピーを作りません。正本の作成契約は今回のDraft候補であり、そのmerge前は該当site PRを参照してください。
+共通の正本はsiteの [作成契約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/contracts/browser-tool-authoring.md)、machine schemaは [browser-tool.ts](https://github.com/Xpotato1024/xpotato-site/blob/main/packages/content-contracts/src/browser-tool.ts) です。このrepoへ仕様・生成器・Skillの別コピーを作りません。作成契約はsite PR113で統合済みです。以後の候補変更は該当Draft PRの差分として確認します。
 
 ## このrepoが所有するもの
 
@@ -17,11 +17,11 @@ siteはroute、registry、hydration、immutable vendor/pin、CSP、version/licen
 
 ## profileと配布
 
-既定の同期v1と公開v0.1.0の prime-factorizer-async-v1 は互換性のため保持します。今回の0.1.1候補はsite Draft PR113の共通 bounded-browser-v2 を使います。Worker/WASMとクリック時のclipboard書込を明示宣言し、固定同梱資産・有限時間/Worker/WASM/輸送量・AGPL対応source/第三者条件を維持します。一般のツールも用途に必要なcapabilityを宣言できますが、公開CSPや採用承認が自動で広がるものではありません。
+既定の同期v1と公開v0.1.0の prime-factorizer-async-v1 は互換性のため保持します。公開v0.1.1はsite PR113の共通 bounded-browser-v2 を使います。Worker/WASMとクリック時のclipboard書込を明示宣言し、固定同梱資産・有限時間/Worker/WASM/輸送量・AGPL対応source/第三者条件を維持します。一般のツールも用途に必要なcapabilityを宣言できますが、公開CSPや採用承認が自動で広がるものではありません。
 
 prepareが初回資産を使えるようにした後、入力・結果はmemory内、再試行・取消後も通信なし。WASM上限はJS/ブラウザRSSの上限ではなく、OSによるタブ強制終了を防げるとはしません。通常移動、複数instance、unmount、cancel/deadline後のWorker退役を実distで確認します。
 
-GUI変更候補はsource version 0.1.1。公開・tag・npm・site採用は未実施です。旧v0.1.0 bytes/pin/測定SHAは保持します。新candidate builderはmusl COPYRIGHTも配布exact-setへ含めます。既存v0.1.0の対応補遺を上書きするものではありません。
+公開v0.1.1は固定済みです。今回のフラット表示候補は次回採用前の別差分であり、新release/tag/site採用は未実施です。旧v0.1.0 bytes/pin/測定SHAは保持します。v0.1.1以降のbuilderはmusl COPYRIGHTも配布exact-setへ含めます。既存v0.1.0の対応補遺を上書きするものではありません。
 
 ## 結果と操作
 
@@ -31,10 +31,90 @@ src/site/presentation.js は画面の式・短い状態・コピー文字列を�
 
 SEO、document head、canonical/OG、routeと意味的なページ見出しはsiteが所有します。入力・結果をURLやmetadataへ入れません。
 
+## サイトの視覚規約とfocus
+
+hostの[視覚規約](https://github.com/Xpotato1024/xpotato-site/blob/main/docs/design/visual-design-reference.md)へ合わせ、固有GUIも反復するカード・影・塗り面を使わず、detailsは細い上罫線で区切ります。文字の寸法・色をhostへ合わせ、入力枠とprimary/補助/取消の階層を保ちます。GUIの通常書体はhostの `--bt-font-family` を継承し、単体ではsystem-uiへfallbackします。Siteは既存の本文書体を渡し、見出し・form・button・dialogも継承します。コードとcommit IDの等幅表記はhostが保持します。固定UI文字のFontFaceSet.loadを初回prepareへ含め、後出しの字形取得によるready後通信を避けます。新しいfont-faceやURLは追加しません。controlは16pxまたはrem以上、操作領域は44pxまたはrem以上です。
+
+サンプルとresetで入力へ強制focusせず、必要な実行・取消・再試行・コピーのfocus移動は preventScroll を使います。手動コピー欄の選択や内容の開閉は実ブラウザでも確認します。文書が短くなった時の末尾位置への自然なclampと、focusによる意図しない移動は分けて記録します。ピンチ拡大の禁止で対処しません。実機iOSのキーボード・autozoom挙動はChrome viewport emulationから保証しません。
+
+通信方針はsiteの導入説明、保存・送信しない仕様は下部の入力規則の詳細にまとめ、操作付近に常設の重複文を置きません。状態行は状態だけを表示します。version/license/対応ソースはhostの末尾表示を使います。
+
+### 2026-10-24 狭幅と結果表示の補足
+
+長い説明付きサンプルは OS の選択ポップアップへ渡さず、ページ内の native details と通常のボタンで折り返して表示します。選択は入力だけを変更し、計算・設定変更・入力への強制フォーカスは行いません。短い技術設定の native select は維持します。root と内側の control は最小幅を抑え、global overflow clipping やズーム禁止を追加しません。
+
+実経過は独立した実測結果、実行上限・計算経路・Worker/WASM 上限は別の開示項目にします。実経過はこの計算の初期化・結果検証・解放を含み、初回ファイル準備を含みません。因子判定は native ul/li で1因子1項目にし、重複度・確度・未解決の余因子・停止理由を保持します。コピー本文にも同じ情報を含めます。
+
+document/tool の横幅は別々に計測し、狭幅・長い選択肢・選択前後・focus/blur・文字200%を確認します。OS の native popup の幅、入力フォーカス時の zoom、DOM overflow は別の現象です。desktop WebKit の検証を実 iOS の受入とは呼びません。
+
+### 2026-10-24 入力から結果までの操作距離
+
+入力の直後に primary 実行操作を置き、進行状況と結果をその直下に表示します。入力例・詳細設定は結果より後に置き、展開状態でも結果との間に入りません。汎用の入力例は引き続き入力だけを変更します。
+
+「360 を入力して分解（1秒上限）」は明示的な実行ボタンです。固定値 360 のみを通常の小入力経路・1000ms 上限で開始し、次回の実行設定は変更しません。入力例の選択を自動実行へ変えたり、大入力・高負荷経路へ自動変更したりしません。
+
+結果への移動は専用ボタンを押した場合だけ行い、結果の全桁欄に focus を移して表示位置を合わせます。計算完了時の自動スクロールは追加しません。既存の実行・取消ボタンに対する focus 引継ぎは保ち、別の control を操作中なら完了時もその focus を維持します。
+
+### 承認後の共通フローと入力上限
+
+同日の専用360実行案は取り下げ、この節を現行の表示契約とする。手入力と全入力例は共通の入力欄へ合流し、実行は「分解する」だけにする。例は入力のみで、一覧を閉じて共通実行ボタンへfocusを戻す。開始操作時に共通の進行／結果領域を見える位置へ置き、完了時には自動スクロールしない。実行中の入力は読取専用、設定は無効にし、取消・解放完了後に編集と再実行を可能にする。
+
+数値の受入範囲は変えない。通常は2^128未満で最大39桁だが、39桁すべての値が入るわけではない。高精度／大メモリは最大100桁かつ332bit以下。桁数は先頭の0を除いた正規化値について判定する。科学表記は整数になる場合のみ受理し、入力表記は4096文字まで。欄の枠内にモード別の数値上限を常時表示し、aria-describedbyで入力中も参照できる説明を結ぶ。数値上限と分解完了の保証は区別する。maxlengthによる切り詰めを使わず、上限超過の元の表記を残してエラーにする。
+
+実行済み結果は入力値・入力表記・設定snapshotと対応させる。入力または設定の編集後は「未実行」「前回の結果」と示し、コピー対象もその実行済み結果に固定する。検証失敗からの再実行でも別のjobのsnapshotを流用しない。小数・範囲等の入力エラー、資源設定、読込失敗、実行／解放失敗は表示先と復旧操作を分ける。実経過は実測値、次回設定と今回の設定上限は別の文脈で表示する。
+
 ## 確認手順
+
+### 案Aへの表示整理（2026-10-24、限定プレビュー候補）
+
+全幅で入力→実行・中止→一つの進行／結果領域→実行条件の順にする。実行前にモードと時間上限を短く示し、資源設定は結果の後へ置く。全入力例は補助操作として入力だけを行う。実行と中止のクリック位置は別にし、実行連打・Enter長押し・IME確定を中止や重複実行へ変えない。実行開始時のfocusは状態行とし、完了時には別controlのfocusを奪わない。状態のlive領域をaria-busy配下に置かず、更新timerの実経過はlive通知しない。
+
+結果本文は一つだけとし、全文の式・状態・余因子・停止理由と因子ごとの判定説明を保持する。コピー失敗時は因子詳細を開き、その本文自体をRangeで選択する。別の結果textareaは生成しない。手動選択が使えない環境では本文の長押し／選択を案内する。HTTP上の機能制限を隠さず、コピー読取やexecCommandは使わない。
+
+欄内の最大桁数・数値範囲は維持し、短い常時説明と下部の詳しい入力規則を分ける。資源設定は適用されるcontrolだけを説明付きで表示し、モード間・自動／手動の切替でも保存した手動値を失わせない。選択したWASM予算と入力で選ばれた経路のWASM上限を区別し、不要な経路は「この計算では使わない」と表す。0 MiBを実測使用量として表示しない。実経過の計測範囲と未検証の実機条件は従来通りとする。
+
+### 入力例と設定のモーダル化
+
+通常画面は欄内の数値上限、二つの補助メニュー、短い適用済みモード／時間上限、明示的な実行・中止と一つの結果に絞る。分解完了を保証する桁数ではない旨はSite下部のライセンス・配布情報・処理上限へ置く。入力例はnative dialogで選択し、入力だけを変更して共通実行へfocusを返す。
+
+設定はappliedとdraft、モードごとの記憶値を分離する。開く／編集ではprepare、入力の上限表示、前回結果の関連付けを変更しない。妥当なApplyだけをcommitし、取消・閉じる・Escapeは下書きを捨てる。計算と退役中は両メニューを無効にする。Apply後は必要ファイルの準備を行うが、因数分解は開始しない。
+
+native showModalのtop layerと背景のinertnessを使い、初期見出し・Tab境界・Escape・focusと元のページ位置の復帰を確認する。長い内容や短い画面ではdialog自体をスクロールし、global clipping、body style、ズーム禁止、portal、CSP拡大で対処しない。unmountでは開いたdialogも閉じる。
+
+buttonの文字色と背景は一組でscopedに定義し、Siteのprose/form ruleとの合成後に通常・focus・hover・active・disabledのコントラストを検査する。結果見出しもhostの本文書体を継承し、固定UI文字の初回準備で動的な「前回」表示によるready後の追加取得を防ぐ。OSの色設定とSiteが対応するthemeを区別し、実機iOSや支援技術をdesktop WebKitから保証しない。
+
+### 2026-10-24 モーダルの視覚調整
+
+承認済みの共通フローを維持し、隣接する結果への専用移動ボタンは撤去する。専用の見出しtabindexとクリック処理も残さない。開始時の状態行、中止完了、コピー失敗時の同じ結果本文、モーダルのfocus復帰と読み上げは維持する。
+
+Siteの細い境界・2px角丸・端末内フォントに合わせ、分解と設定の適用だけを塗りの主操作にする。設定の取消は適用より前に置き、下部の細い境界で本文と区切る。閉じると消去は控えめにするが、文字のコントラストと44px以上の操作領域を維持する。モーダルは短い画面や文字拡大で内容に従ってスクロールし、固定フッターで本文を覆わない。背景はnative dialogのbackdropだけで暗くする。操作や装飾・アニメーションは増やさない。
+
+### 冗長な操作案内と完了状態の整理
+
+初期状態の実行案内と、入力例選択の「入力した／まだ実行していない」通知を生成しない。選択は共通入力への反映と実行ボタンへのfocus復帰だけとする。計算後まで残る選択通知や長い整数の繰返しlive通知を防ぐ。
+
+進行状態のlive領域は準備・実行・中止処理・失敗に使い、ready／resultでは空にして余白も0にする。計算中は整数を繰り返さず短く通知する。完了は結果本文内の確度付き状態だけをpoliteに通知し、別の「計算終了」行を加えない。旧結果を再表示するready／invalidでは結果のlive通知をoffにし、新しい計算の完了と誤解させない。中止・開始状態にfocusが留まっていた場合だけ、完了後の状態へpreventScrollで引き継ぐ。別controlの操作中には移さない。
+
+入力エラー・計算失敗・退役不明・前回結果と現在入力の相違・コピー失敗は維持する。結果本文・コピーの確度・未分解部分・停止理由も維持する。単体表示の保存・送信の仕様は下部の既存詳細で参照可能とし、Siteの導入説明やmetadataをtoolkitから書き換えない。
 
 指定Node/npmで npm test と npm run check。fresh外部directoryへ npm run build:site-release -- <output> を2回実行しhash一致、siteのcanonical artifact checkerで検査します。未知のsource builderを検査器に自動実行させません。
 
 実distを非公開hostへ接続し、desktop/mobile、入力→結果、詳細設定、error/retry、keyboard/focus、tap/contrast、長い因子、cancel/unmount/複数instance/移動、ready後通信/offline/Worker退役を確認します。合成試験・emulationと実機、公開済み版と候補版の結果を区別します。
 
 merge/release/本番配信は今回のDraft作成許可に含まれません。
+
+### 見出し付きの説明と書体の責務
+
+入力規則は入力形式・計算範囲・実行資源と端末負荷・結果の扱いのnative ul/liへ整理する。raw4096文字、数値39桁かつ2^128未満／100桁かつ332bit以下、配布物の入力16384bytesは別の上限とする。高精度は自動最大2 Worker、手動最大6 Workerで、既存policyと照合する。WASM予算と実使用量を混同せず、RAM全体／タブ終了に関する注意を保持する。
+
+font-textは固定UIソースから生成し、builderで一致を検査する。入力値・結果・任意DOM本文を収集しない。hostの配布説明は明示的な `data-bt-font-text` の固定公開文言だけを4096文字以内で渡す。既存CSSの書体を400/500/600/700で準備してからreadyにする。失敗は既存load-error／retryへ戻し、失敗promiseを永続cacheしない。
+
+## 2026-10-25 限定候補の表示境界
+
+TailwindはSiteのbuildだけが所有し、toolkitへ導入しない。toolkitのrootは`data-bt`を明示する。Siteの`.prose`子孫規則はこのroot自身と内部を除外し、書体・色と限られた文字サイズを`--bt-*`で渡す。これはShadow DOMや全global resetの遮断ではない。toolkitは段落・リスト・見出し・フォームの基本値とfallbackを自分のscoped CSSで定義し、summaryをSite selectorの偶然の勝ち負けで揃えない。
+
+既存color tokenに加え、`--bt-font-family`、`--bt-font-size`、`--bt-line-height`、`--bt-summary-font-size`、`--bt-summary-font-weight`、`--bt-help-font-size`、`--bt-heading-font-size`、`--bt-control-min-size`を表示契約とする。min操作高は44px未満にしない。配置や計算hardcapをhost設定化しない。
+
+`src/site/capabilities.js`がadapterの入力範囲・対応モード・設定時間上限の固定定義で、policyと表示が同じ値を参照する。凍結parser/backendの境界とはテストで照合する。builderはこのobjectを配布manifestの任意`uiCapabilities`へ出力し、Siteは選択したmanifestのhash確認後だけ説明に使う。生の文字数と配布byte上限、入力可能範囲と完了保証、設定予算と実測を混同しない。旧manifestに情報が無ければ未提供として扱い、新しい候補の値を古い版へ補わない。
+
+これは未公開候補の契約追加であり、正式な新version/release、既存vendor/pinの置換やSite本番採用を行った記録ではない。

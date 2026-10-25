@@ -17,5 +17,22 @@ v=rep(v,"import {collectionAsset as coordinatorAsset} from './collection-profile
 v=rep(v,"['baseline','instrumented','resieve4','sparse'].includes(graphVariant)","['baseline','resieve1','rank'].includes(graphVariant)");
 v=v.replaceAll('/bench/collection-profile.html','/bench/resieve-followup.html');
 v=rep(v,'  receipt.graphSourceFiles={};','  receipt.graphSourceFiles={};\n  for(const p of ["scripts/generate-resieve-followup.mjs","scripts/verify-resieve-followup.mjs","scripts/resieve-followup-asset-route.mjs","scripts/build-resieve-followup.mjs","native/resieve-followup/patch-source.mjs","native/resieve-followup/oracle.rs","native/resieve-followup/build-resieve1-1024.json","native/resieve-followup/build-rank-1024.json","src/resieve-followup/worker-source.js","docs/contracts/resieve-followup.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");');
+
+// Keep numeric/generated ancestors frozen; harden only this diagnostic consumer.
+v=rep(v,"import { WideMemorySampler as BrowserMemorySampler } from './wide-window-memory.mjs';","import { WideMemorySampler as BrowserMemorySampler } from './wide-window-memory.mjs';\nimport {observeChromeStartup,openChromeTransport,createCdpSender} from './chrome-startup.mjs';");
+v=rep(v,"let chrome, socket, server, pageSession, memory, hardTimer, sequence = 0;","let chrome, socket, server, pageSession, memory, hardTimer, startup, sequence = 0;");
+const sendStart=v.indexOf('const send = (method, params = {}, sessionId) => new Promise('),sendEnd=v.indexOf('const evaluate = async expression =>',sendStart);
+assert.ok(sendStart>=0&&sendEnd>sendStart);
+v=v.slice(0,sendStart)+"const send=createCdpSender({getSocket:()=>socket,pending,nextId:()=>++sequence,timeoutForMethod:method=>method==='Page.navigate'?30000:method==='Runtime.evaluate'?budgetMs+20000:5000});\n"+v.slice(sendEnd);
+v=rep(v,"  hardTimer=setTimeout(","  startup=observeChromeStartup(chrome,temporary);\n  hardTimer=setTimeout(");
+const readyStart=v.indexOf('  const debuggingUrl = await new Promise('),readyEnd=v.indexOf("  socket.addEventListener('message'",readyStart);
+assert.ok(readyStart>=0&&readyEnd>readyStart);
+v=v.slice(0,readyStart)+"  const debuggingUrl=await startup.ready;\n  socket=new WebSocket(debuggingUrl);\n  await openChromeTransport(socket,{timeoutMs:Math.max(0,30000-startup.diagnostics().elapsedMs)});\n"+v.slice(readyEnd);
+v=rep(v,"  receipt.graphSourceFiles={};","  receipt.chromeStartup=startup.diagnostics();\n  receipt.graphSourceFiles={};\n  receipt.graphSourceFiles['scripts/chrome-startup.mjs']=createHash('sha256').update(await readFile(join(root,'scripts/chrome-startup.mjs'))).digest('hex');");
+v=rep(v,"const failure={kind:'harness-failure',","const failure={chromeStartup:startup?.diagnostics()??null,kind:'harness-failure',");
+v=rep(v,"  try { diagnostic = await evaluate(","  try { if(socket?.readyState===WebSocket.OPEN&&pageSession)diagnostic = await evaluate(");
+v=rep(v,"JSON.stringify({startupTrace,chromeStderr,fatal","JSON.stringify({chromeStartup:startup?.diagnostics()??null,startupTrace,chromeStderr,fatal");
+v=rep(v,"    closeTransport:async()=>{","    closeTransport:async()=>{\n      startup?.dispose();");
+
 write('scripts/verify-resieve-followup.mjs',v);
 console.log('Derived uninstrumented resieve variants; source, resource, offline and retirement contracts preserved');
