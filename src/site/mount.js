@@ -12,7 +12,7 @@ import * as lightModule from '../resources/light-adapter.js';
 let serial=0;
 export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.navigator?.hardwareConcurrency,deviceMemory:globalThis.navigator?.deviceMemory},sessionOptions={}}={}){
  if(!root?.ownerDocument)throw TypeError('DOM root required');
- root.setAttribute('data-browser-tool-root','');
+ root.setAttribute('data-bt','');
  const doc=root.ownerDocument,scope=documentComputeScope(doc),prefix='bt-prime-'+(++serial)+'-',listeners=[],settingsState=createSettingsState(hints);
  const el=(tag,attrs={})=>{const n=doc.createElement(tag);for(const[k,v]of Object.entries(attrs))k==='text'?n.textContent=v:n.setAttribute(k,k==='id'?prefix+v:v);return n;};
  const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};

@@ -111,7 +111,7 @@ font-textは固定UIソースから生成し、builderで一致を検査する�
 
 ## 2026-10-25 限定候補の表示境界
 
-TailwindはSiteのbuildだけが所有し、toolkitへ導入しない。toolkitのrootは`data-browser-tool-root`を明示する。Siteの`.prose`子孫規則はこのroot自身と内部を除外し、書体・色と限られた文字サイズを`--bt-*`で渡す。これはShadow DOMや全global resetの遮断ではない。toolkitは段落・リスト・見出し・フォームの基本値とfallbackを自分のscoped CSSで定義し、summaryをSite selectorの偶然の勝ち負けで揃えない。
+TailwindはSiteのbuildだけが所有し、toolkitへ導入しない。toolkitのrootは`data-bt`を明示する。Siteの`.prose`子孫規則はこのroot自身と内部を除外し、書体・色と限られた文字サイズを`--bt-*`で渡す。これはShadow DOMや全global resetの遮断ではない。toolkitは段落・リスト・見出し・フォームの基本値とfallbackを自分のscoped CSSで定義し、summaryをSite selectorの偶然の勝ち負けで揃えない。
 
 既存color tokenに加え、`--bt-font-family`、`--bt-font-size`、`--bt-line-height`、`--bt-summary-font-size`、`--bt-summary-font-weight`、`--bt-help-font-size`、`--bt-heading-font-size`、`--bt-control-min-size`を表示契約とする。min操作高は44px未満にしない。配置や計算hardcapをhost設定化しない。
 
