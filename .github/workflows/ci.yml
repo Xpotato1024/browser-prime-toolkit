@@ -126,9 +126,10 @@ jobs:
       - run: npm test
       - run: node scripts/check-staged.mjs
       - run: node scripts/report-staged.mjs --check
+      - run: node scripts/generate-staged-ci.mjs --check
       - run: |
           for mode in brent ecm siqs p64; do
-            node scripts/benchmark-staged.mjs --mode lifecycle --variant "$mode" --out "$RUNNER_TEMP/staged-$mode.json"
+            node scripts/verify-staged-ci.mjs --mode lifecycle --variant "$mode" --out "$RUNNER_TEMP/staged-$mode.json"
           done
         env:
           CHROME_BIN: google-chrome
