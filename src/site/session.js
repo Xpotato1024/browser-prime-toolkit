@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Copyright (C) 2026 Xpotato.net / Xpotato1024
 import {makeComputeScope} from './document-scope.js';
-import {parseSiteInput,selectSitePlan} from './policy.js';
+import {validateSiteInput,siteInputErrorMessage,selectSitePlan} from './policy.js';
 import * as lightModule from '../resources/light-adapter.js';
 import * as optimizedModule from '../optimized/index.js';
 import * as wideModule from '../selected-wide/index.js';
@@ -27,40 +27,44 @@ export const heavyView=(r,input,{now,deadline})=>{
  if(r.remaining!=='1')terms.push('[未解決: '+r.remaining+']');
  const equation=input+' = '+terms.join(' × ');
  const reasonText=r.reason?'停止理由: '+String(r.reason).slice(0,80):'';
- return{equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
+ const groups=[];for(const f of r.factors){const last=groups.at(-1);if(last?.base===f.value)last.exponent++;else groups.push({base:f.value,exponent:1,certainty:f.certainty});}
+ return{groups,residual:r.remaining==='1'?null:r.remaining,equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
 };
 export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=async()=>lightModule,loadHeavy=async name=>name==='wide'?wideModule:optimizedModule,onChange=()=>{},now=()=>performance.now()}={}){
  let light=null,heavy=null,engine='standard',preparing=false,active=null,closed=false,blocked=false,generation=0;
- let state={phase:'unprepared',engine,input:null,view:null,error:null,resources:null};
+ let state={phase:'unprepared',engine,input:null,view:null,error:null,errorField:null,resources:null};
  const emit=next=>{state=next;if(!closed)onChange(structuredClone(state));};
  return{
   getState:()=>structuredClone(state),
   getElapsedMs:()=>active?Math.max(0,now()-active.startedAt):state.resources?.elapsedMs??0,
   async prepare(next='standard'){
    if(closed||blocked||active||preparing)return false;
-   if(scope.isQuarantined()){blocked=true;emit({...state,phase:'blocked',error:'Workerの解放を確認できないため、このページでは再実行できません。ページを再読み込みしてください。'});return false;}
+   if(scope.isQuarantined()){blocked=true;emit({...state,phase:'blocked',errorField:'runtime',error:'Workerの解放を確認できないため、このページでは再実行できません。ページを再読み込みしてください。'});return false;}
    if(!['standard','optimized','wide'].includes(next))throw Error('Named engine required');
-   preparing=true;const id=++generation;emit({...state,phase:'loading',view:null,error:null});
+   preparing=true;const id=++generation;emit({...state,phase:'loading',view:null,error:null,errorField:null});
    try{
     light??=await loadLight();if(next!=='standard')heavy=await loadHeavy(next);
-    if(closed||id!==generation)return false;engine=next;emit({phase:'ready',engine,input:null,view:null,error:null,resources:null});return true;
-   }catch{if(!closed&&id===generation)emit({...state,phase:'error',error:'必要ファイルを準備できませんでした。準備をやり直してください。'});return false;}
+    if(closed||id!==generation)return false;engine=next;emit({phase:'ready',engine,input:null,view:null,error:null,errorField:null,resources:null});return true;
+   }catch{if(!closed&&id===generation)emit({...state,phase:'error',errorField:'load',error:'必要ファイルを準備できませんでした。準備をやり直してください。'});return false;}
    finally{preparing=false;}
   },
   async start(raw,settings={}){
    if(closed||blocked||active||preparing||!light||engine!=='standard'&&!heavy)return false;
-   let input,resourcePlan,stagedPlan,experimental,options,resources;
+   let input,configuredPlan,resourcePlan,stagedPlan,experimental,options,resources;
    try{
-    input=parseSiteInput(raw);
+    input=validateSiteInput(raw,engine);
+   }catch(error){emit({...state,phase:'invalid',input:null,view:null,resources:null,error:siteInputErrorMessage(error,engine),errorField:'input'});return false;}
+   try{
+    configuredPlan=selectSitePlan(engine,settings,hints);
     const n=BigInt(input);experimental=n>=boundary;resourcePlan=selectSitePlan(engine,settings,hints,!experimental);
     if(experimental&&(engine==='standard'||input.length>100||n.toString(2).length>332))throw Error('Experimental input range');
     options={seed:1,timeBudgetMs:Math.min(60000,resourcePlan.timeBudgetMs),operationBudget:resourcePlan.operationBudget};
     if(!experimental)stagedPlan=light.selectValidatedStagedPlan(input,options);
-    resources={plan:resourcePlan,route:experimental?engine:stagedPlan.engineMode,actualWorkers:experimental?resourcePlan.workers:n<2n?0:1,actualWasmBytes:experimental?resourcePlan.totalWasmBytes:stagedPlan.linearMemoryBytes,actualTimeBudgetMs:experimental?resourcePlan.timeBudgetMs:options.timeBudgetMs};
-   }catch{emit({...state,phase:'invalid',input:null,view:null,resources:null,error:'入力範囲または資源設定を確認してください。通常は2^128未満、高難度は最大332bit・100桁です。Worker数とWASM予算の組合せにも上限があります。'});return false;}
+    resources={configuredPlan,plan:resourcePlan,route:experimental?engine:stagedPlan.engineMode,actualWorkers:experimental?resourcePlan.workers:n<2n?0:1,actualWasmBytes:experimental?resourcePlan.totalWasmBytes:stagedPlan.linearMemoryBytes,actualTimeBudgetMs:experimental?resourcePlan.timeBudgetMs:options.timeBudgetMs};
+   }catch{emit({...state,phase:'invalid',input:null,view:null,resources:null,error:'Worker数・WASM予算・時間上限の設定を見直してください。この組み合わせでは実行できません。',errorField:'settings'});return false;}
    const id=++generation,control=new AbortController(),token={};
-   if(!scope.acquire(token)){emit({phase:scope.isQuarantined()?'blocked':'invalid',engine,input:null,view:null,resources:null,error:scope.isQuarantined()?'Workerの解放を確認できません。ページを再読み込みしてください。':'同じページの別の計算が終了してから実行してください。'});return false;}
-   const startedAt=now();active={id,control,startedAt};resources.elapsedMs=0;emit({phase:'running',engine,input,view:null,error:null,resources});let terminal,runReturned=false;const deadline=startedAt+resources.actualTimeBudgetMs;
+   if(!scope.acquire(token)){emit({phase:scope.isQuarantined()?'blocked':'invalid',engine,input:null,view:null,resources:null,errorField:'runtime',error:scope.isQuarantined()?'Workerの解放を確認できません。ページを再読み込みしてください。':'同じページの別の計算が終了してから実行してください。'});return false;}
+   const startedAt=now();active={id,control,startedAt};resources.elapsedMs=0;emit({phase:'running',engine,input,view:null,error:null,errorField:null,resources});let terminal,runReturned=false;const deadline=startedAt+resources.actualTimeBudgetMs;
    try{
     let view;
     if(experimental){
@@ -70,8 +74,8 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
      if(result.policy!==stagedPlan.mode||result.seed!==1)throw Error('Result identity');
      view=makeResultView(result,input);if(['complete','probable'].includes(view.status)&&now()>=deadline)throw Error('Display proof deadline');
     }
-    terminal={phase:'result',engine,input,view,error:null,resources};
-   }catch{if(!runReturned)blocked=true;terminal={phase:blocked?'blocked':'error',engine,input,view:null,error:blocked?'Workerの解放を確認できませんでした。この画面では次の計算を開始できません。タブを閉じて開き直してください。':'計算結果の検証を完了できませんでした。新しい計算を開始できます。',resources};}
+    terminal={phase:'result',engine,input,view,error:null,errorField:null,resources};
+   }catch{if(!runReturned)blocked=true;terminal={phase:blocked?'blocked':'error',engine,input,view:null,errorField:'runtime',error:blocked?'Workerの解放を確認できませんでした。この画面では次の計算を開始できません。タブを閉じて開き直してください。':'計算結果の検証を完了できませんでした。新しい計算を開始できます。',resources};}
    finally{resources.elapsedMs=Math.max(0,now()-startedAt);if(blocked)scope.quarantine();else scope.release(token);if(!closed&&id===generation){active=null;emit(terminal);}}
    return true;
   },
