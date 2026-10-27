@@ -36,3 +36,9 @@ test('clipboard writes only on explicit request; unsupported and denial preserve
  assert.equal(await copyResult(text,undefined),false);
  assert.equal(await copyResult(text,{writeText:async()=>{throw Error('denied');}}),false);
 });
+
+test('localized stopping reason is shared by result display and copied partial outcome',()=>{
+ const p=sitePresentation({equation:'35 = [未解決: 35]',statusText:'未完了',reasonCode:'native-memory-budget',reasonText:'legacy raw code',groups:[],residual:'35'});
+ assert.match(p.reasonText,/割当予算.*拒否/);assert.ok(p.copyText.includes(p.reasonText));assert.match(p.copyText,/未解決の余因子: 35/);assert.doesNotMatch(p.copyText,/legacy raw code/);
+ const unknown=sitePresentation({equation:'x',reasonCode:'wasm-trap',groups:[]});assert.match(unknown.reasonText,/原因.*特定できていません/);assert.doesNotMatch(unknown.copyText,/メモリ上限/);
+});

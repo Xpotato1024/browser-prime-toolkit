@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
+import {createProgressView} from './progress-view.js';
 import {documentComputeScope} from './document-scope.js';
 import {createSiteSession} from './session.js';
 import {SITE_CAPABILITIES} from './capabilities.js';
@@ -37,10 +38,11 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const result=el('section',{'class':'bt-result','aria-label':'計算結果'}),resultTitle=el('h3',{'class':'bt-result-title'}),resultStatus=el('p',{'class':'bt-result-status',role:'status','aria-live':'off','aria-atomic':'true',tabindex:'-1'}),equation=el('p',{'class':'bt-equation'}),residualText=el('p',{'class':'bt-residual'}),reasonText=el('p',{'class':'bt-stop-reason'});
  const copy=el('button',{type:'button',text:'結果をコピー','data-action':'copy'}),copyActions=el('div',{'class':'bt-copy-actions'}),copyStatus=el('p',{role:'status','class':'bt-help bt-copy-status'}),resultBody=el('div',{'class':'bt-result-body',role:'group',tabindex:'-1','aria-label':'結果本文（全桁・計算状態・因子判定）'});copyActions.append(copy);copyStatus.hidden=true;
 
+ const progressView=createProgressView(doc,prefix,{stageElement:status});
  const proof=el('details',{'class':'bt-proof'}),factorList=el('ul',{'class':'bt-factor-list'});proof.append(el('summary',{text:'因子ごとの判定理由'}),factorList);
  const metrics=el('section',{'class':'bt-metrics','aria-label':'実測結果'}),metricList=el('dl'),metricRow=el('div'),elapsedLabel=el('dt',{id:'elapsed-label',text:'実経過'}),elapsed=el('dd',{'data-elapsed':'','aria-labelledby':elapsedLabel.id});metricRow.append(elapsedLabel,elapsed);metricList.append(metricRow);metrics.append(metricList);
  const execution=el('details',{'class':'bt-execution'}),measurementNote=el('p',{'class':'bt-help'}),limits=el('dl',{'class':'bt-execution-limits'}),limitsNote=el('p',{'class':'bt-help'});execution.append(el('summary',{text:'実経過の測定範囲・今回の設定上限'}),measurementNote,limits,limitsNote);
- resultBody.append(resultStatus,equation,residualText,reasonText,proof);result.append(resultTitle,resultBody,copyActions,copyStatus,execution);work.append(status,runtimeError,retry,metrics,result);actions.append(start,cancel,reset);fields.append(actions);form.append(work);layout.append(form);
+ resultBody.append(resultStatus,equation,residualText,reasonText,proof);result.append(resultTitle,resultBody,copyActions,copyStatus,execution);work.append(status,runtimeError,retry,progressView.root,metrics,result);actions.append(start,cancel,reset);fields.append(actions);form.append(work);layout.append(form);
  const note=el('details',{id:'input-rules','class':'bt-limits'}),guidanceList=el('ul',{'class':'bt-guidance-list'});note.append(el('summary',{text:'入力の表記・計算範囲・端末の負荷について'}),guidanceList);
  for(const group of inputGuidance){const item=el('li');item.append(el('strong',{text:group.title}));if(group.items){const list=el('ul');list.append(...group.items.map(text=>el('li',{text})));item.append(list);}item.append(el('p',{text:group.text}));guidanceList.append(item);}
 
@@ -52,7 +54,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const settings=()=>settingsState.effective();
  const settingsKey=()=>JSON.stringify([settingsState.applied().engine,settings()]);
  const changed=()=>!!lastOutcome&&(input.value!==lastOutcome.raw||settingsKey()!==lastOutcome.settingsKey);
- const updateDraft=()=>{const dirty=changed();draftNote.hidden=!dirty;setText(draftNote,dirty?'入力・設定の変更は未実行です。表示中の結果は前回の計算です。':'');if(lastOutcome)resultTitle.textContent=(dirty?'前回：':'')+lastOutcome.input+' の結果';};
+ const updateDraft=()=>{const dirty=!busy&&changed();draftNote.hidden=!dirty;setText(draftNote,dirty?'入力・設定の変更は未実行です。表示中の結果は前回の計算です。':'');if(lastOutcome)resultTitle.textContent=(dirty?'前回：':'')+lastOutcome.input+' の結果';};
  const updateGuidance=()=>{inputLimit.textContent=siteInputLimit(settingsState.applied().engine).text;input.setAttribute('aria-describedby',[inputLimit.id,...(!inputError.hidden?[inputError.id]:[])].join(' '));};
  const updateSummary=()=>{const p=settingsState.plan(),engine=settingsState.applied().engine,name=engine==='standard'?'通常':engine==='wide'?'大メモリ':'高精度';nextPlan.textContent='次の計算：'+name+'・時間上限 '+p.timeBudgetMs/1000+'秒'+(p.timeBudgetMs>60000?'（小入力は最大60秒）':'');updateGuidance();};
  const updateControls=()=>{const d=settingsState.draft();engine.value=d.engine;mode.value=d.mode;workers.value=d.workers;memory.value=d.memory;time.value=d.time;try{const p=settingsState.validateDraft();estimate.textContent='設定予算：WASM '+p.budgetBytes/1048576+' MiB。計画上限 '+p.workers+' Worker・WASM '+p.totalWasmBytes/1048576+' MiB。小入力は通常経路を使い、WASMを使わない場合もあります。使用量の測定値ではありません。';}catch{estimate.textContent=settingsModal.isOpen()?'Worker数・WASM予算・時間上限の組み合わせを確認してください。':'';}
@@ -68,15 +70,17 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
   if(disposed)return;const cancelFocused=doc.activeElement===cancel,statusFocused=doc.activeElement===status;if(s.phase==='loading')prepared=false;if(s.phase==='ready')prepared=true;busy=['loading','running','cancelling','blocked'].includes(s.phase);
   input.readOnly=busy;for(const n of [...sampleButtons,engine,time,sampleSummary,settingsSummary,settingsApply])n.disabled=busy;updateControls();
   start.disabled=busy||!prepared||s.phase==='unprepared';reset.disabled=busy;cancel.disabled=s.phase!=='running';cancel.hidden=!['running','cancelling'].includes(s.phase);retry.hidden=s.errorField!=='load';
-  start.textContent=s.phase==='loading'?'準備中…':s.phase==='running'?'計算中…':s.phase==='cancelling'?'中止処理中…':'分解する';
+  start.textContent=s.phase==='loading'?'準備中…':s.phase==='running'?'計算中…':s.phase==='cancelling'?'中止中…':'分解する';
   inputError.hidden=s.errorField!=='input';runtimeError.hidden=!s.error||!['load','runtime'].includes(s.errorField);inputError.textContent=inputError.hidden?'':s.error;runtimeError.textContent=runtimeError.hidden?'':s.error;input.setAttribute('aria-invalid',String(!inputError.hidden));
   for(const n of [engine,mode,workers,memory,time])n.setAttribute('aria-describedby',settingsError.id);
   if(['error','blocked','invalid','ready'].includes(s.phase))activeJob=null;
   if(s.phase==='running')activeJob={raw:input.value,settingsKey:settingsKey()};
   if(s.view){lastOutcome={input:s.input,view:s.view,...activeJob??{raw:input.value,settingsKey:settingsKey()},resources:s.resources};activeJob=null;}
-  setText(status,s.phase==='loading'?'必要なファイルを準備しています。':s.phase==='running'?'計算しています。':s.phase==='cancelling'?'中止してWorkerを解放しています。':s.phase==='blocked'?'解放を確認できないため次の計算を開始できません。':s.phase==='invalid'?(s.errorField==='input'?'実行していません。入力を修正してください。':s.errorField==='settings'?'実行していません。実行条件を修正してください。':'まだ開始できません。下の実行状況を確認してください。'):s.phase==='error'?'計算または準備を完了できませんでした。':'');
+  const progressSnapshot=['running','cancelling','result','blocked','error'].includes(s.phase)?s.progress:null;
+  progressView.update(progressSnapshot??null);
+  if(!progressSnapshot)setText(status,s.phase==='loading'?'必要なファイルを準備しています。':s.phase==='running'?'計算しています。':s.phase==='cancelling'?'中止してWorkerを解放しています。':s.phase==='blocked'?'解放を確認できないため次の計算を開始できません。':s.phase==='invalid'?(s.errorField==='input'?'実行していません。入力を修正してください。':s.errorField==='settings'?'実行していません。実行条件を修正してください。':'まだ開始できません。下の実行状況を確認してください。'):s.phase==='error'?'計算または準備を完了できませんでした。':'');
   root.dataset.phase=s.phase;result.hidden=busy||!lastOutcome;
-  if(lastOutcome){const p=sitePresentation(lastOutcome.view);resultTitle.textContent=lastOutcome.input+' の結果';resultStatus.setAttribute('aria-live',s.phase==='result'?'polite':'off');setText(resultStatus,result.hidden?'':lastOutcome.view.statusText);equation.textContent=p.equation;currentCopy=p.copyText;factorList.replaceChildren(...p.factorRows.map(row=>{const item=el('li');item.append(el('span',{text:row.text}),el('p',{'class':'bt-factor-reason',text:row.reason}));return item;}));proof.hidden=!p.factorRows.length;residualText.textContent=p.residual!==null?'未解決の余因子：'+p.residual:'';residualText.hidden=!residualText.textContent;reasonText.textContent=lastOutcome.view.reasonText??'';reasonText.hidden=!reasonText.textContent;}else currentCopy='';
+  if(lastOutcome){const p=sitePresentation(lastOutcome.view);resultTitle.textContent=lastOutcome.input+' の結果';resultStatus.setAttribute('aria-live',s.phase==='result'?'polite':'off');setText(resultStatus,result.hidden?'':lastOutcome.view.statusText);equation.textContent=p.equation;currentCopy=p.copyText;factorList.replaceChildren(...p.factorRows.map(row=>{const item=el('li');item.append(el('span',{text:row.text}),el('p',{'class':'bt-factor-reason',text:row.reason}));return item;}));proof.hidden=!p.factorRows.length;residualText.textContent=p.residual!==null?'未解決の余因子：'+p.residual:'';residualText.hidden=!residualText.textContent;reasonText.textContent=p.reasonText;reasonText.hidden=!reasonText.textContent;}else currentCopy='';
   copy.disabled=!currentCopy||busy;copyGeneration++;copyStatus.textContent='';copyStatus.hidden=true;currentResources=['running','cancelling'].includes(s.phase)?s.resources:busy?null:lastOutcome?.resources??null;showActual();updateSummary();updateDraft();
   if(['running','cancelling'].includes(s.phase)){if(clock===null&&doc.defaultView)clock=doc.defaultView.setInterval(showActual,100);}else stopClock();
   if(navigateStart&&s.phase==='running'){navigateStart=false;status.focus({preventScroll:true});status.scrollIntoView({block:'center',behavior:'instant'});}
@@ -100,7 +104,7 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  listen(engine,'change',()=>{if(settingsModal.isOpen()){settingsState.edit('engine',engine.value);settingsError.hidden=true;updateControls();}});
  for(const[key,n]of [['mode',mode],['workers',workers],['memory',memory],['time',time]])listen(n,'change',()=>{if(settingsModal.isOpen()){settingsState.edit(key,n.value);settingsError.hidden=true;updateControls();}});
  updateControls();makeSession();
- const dispose=()=>{if(disposed)return;disposed=true;copyGeneration++;stopClock();clearCompositionTimer();samplesModal.dispose();settingsModal.dispose();session.dispose();lastOutcome=activeJob=null;currentCopy='';for(const remove of listeners)remove();root.replaceChildren();root.dataset.phase='disposed';};
+ const dispose=()=>{if(disposed)return;disposed=true;copyGeneration++;progressView.dispose();stopClock();clearCompositionTimer();samplesModal.dispose();settingsModal.dispose();session.dispose();lastOutcome=activeJob=null;currentCopy='';for(const remove of listeners)remove();root.replaceChildren();root.dataset.phase='disposed';};
  if(doc.defaultView)listen(doc.defaultView,'pagehide',dispose);
  return{dispose,getState:()=>session.getState()};
 }

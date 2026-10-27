@@ -77,3 +77,12 @@
 .bt-prime-factorizer .bt-guidance-list > li { margin:.75rem 0; }
 .bt-prime-factorizer .bt-guidance-list ul { margin:.35rem 0; padding-inline-start:1.2rem; list-style:circle; }
 .bt-prime-factorizer .bt-guidance-list ul li { margin:.35rem 0; }
+
+/* A stable, flat progress region: counters never create cards or move focus. */
+.bt-prime-factorizer .bt-progress { min-block-size:8rem; margin:.75rem 0; overflow-wrap:anywhere; }
+.bt-prime-factorizer .bt-progress-stage { min-block-size:1.6em; font-weight:600; }
+.bt-prime-factorizer .bt-progress progress { display:block; inline-size:100%; block-size:.65rem; margin:.5rem 0; accent-color:var(--bt-accent,#62418b); }
+.bt-prime-factorizer .bt-progress-counts { min-block-size:1.6em; font-variant-numeric:tabular-nums; }
+.bt-prime-factorizer .bt-progress-summary { min-block-size:3.2em; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
+.bt-prime-factorizer .bt-progress progress[data-terminal="true"] { visibility:hidden; }
+.bt-prime-factorizer .bt-actions button[data-action="cancel"][hidden] { display:block; visibility:hidden; pointer-events:none; }

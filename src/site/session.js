@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Copyright (C) 2026 Xpotato.net / Xpotato1024
+import {createProgressTracker,stopReasonPresentation} from './progress.js';
 import {makeComputeScope} from './document-scope.js';
 import {validateSiteInput,siteInputErrorMessage,selectSitePlan} from './policy.js';
 import * as lightModule from '../resources/light-adapter.js';
@@ -26,14 +27,15 @@ export const heavyView=(r,input,{now,deadline})=>{
  const status=r.kind==='cancelled'?'中止しました。':complete?r.kind==='probable'?'未証明の因子を含みます。素数証明ではありません。':'分解完了（確定判定）。':'未完了です。未解決部分は素数とは限りません。';
  if(r.remaining!=='1')terms.push('[未解決: '+r.remaining+']');
  const equation=input+' = '+terms.join(' × ');
- const reasonText=r.reason?'停止理由: '+String(r.reason).slice(0,80):'';
+ const reasonText=stopReasonPresentation(r.reason)?.text??'';
  const groups=[];for(const f of r.factors){const last=groups.at(-1);if(last?.base===f.value)last.exponent++;else groups.push({base:f.value,exponent:1,certainty:f.certainty});}
- return{groups,residual:r.remaining==='1'?null:r.remaining,equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
+ return{reasonCode:r.reason,groups,residual:r.remaining==='1'?null:r.remaining,equation,reasonText,certaintyText:r.factors.map(f=>f.value+': '+(f.certainty==='proven'?'確定判定':'未証明（probable）')).join('、'),copyText:[equation,status,reasonText].filter(Boolean).join('\n'),statusText:status};
 };
 export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=async()=>lightModule,loadHeavy=async name=>name==='wide'?wideModule:optimizedModule,onChange=()=>{},now=()=>performance.now()}={}){
  let light=null,heavy=null,engine='standard',preparing=false,active=null,closed=false,blocked=false,generation=0;
+ const progress=createProgressTracker();
  let state={phase:'unprepared',engine,input:null,view:null,error:null,errorField:null,resources:null};
- const emit=next=>{state=next;if(!closed)onChange(structuredClone(state));};
+ const emit=next=>{state={...next,progress:progress.get()};if(!closed)onChange(structuredClone(state));};
  return{
   getState:()=>structuredClone(state),
   getElapsedMs:()=>active?Math.max(0,now()-active.startedAt):state.resources?.elapsedMs??0,
@@ -41,7 +43,7 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
    if(closed||blocked||active||preparing)return false;
    if(scope.isQuarantined()){blocked=true;emit({...state,phase:'blocked',errorField:'runtime',error:'Workerの解放を確認できないため、このページでは再実行できません。ページを再読み込みしてください。'});return false;}
    if(!['standard','optimized','wide'].includes(next))throw Error('Named engine required');
-   preparing=true;const id=++generation;emit({...state,phase:'loading',view:null,error:null,errorField:null});
+   progress.reset();preparing=true;const id=++generation;emit({...state,phase:'loading',view:null,error:null,errorField:null});
    try{
     light??=await loadLight();if(next!=='standard')heavy=await loadHeavy(next);
     if(closed||id!==generation)return false;engine=next;emit({phase:'ready',engine,input:null,view:null,error:null,errorField:null,resources:null});return true;
@@ -64,22 +66,26 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
    }catch{emit({...state,phase:'invalid',input:null,view:null,resources:null,error:'Worker数・WASM予算・時間上限の設定を見直してください。この組み合わせでは実行できません。',errorField:'settings'});return false;}
    const id=++generation,control=new AbortController(),token={};
    if(!scope.acquire(token)){emit({phase:scope.isQuarantined()?'blocked':'invalid',engine,input:null,view:null,resources:null,errorField:'runtime',error:scope.isQuarantined()?'Workerの解放を確認できません。ページを再読み込みしてください。':'同じページの別の計算が終了してから実行してください。'});return false;}
-   const startedAt=now();active={id,control,startedAt};resources.elapsedMs=0;emit({phase:'running',engine,input,view:null,error:null,errorField:null,resources});let terminal,runReturned=false;const deadline=startedAt+resources.actualTimeBudgetMs;
+   const startedAt=now();let lastProgressAt=startedAt-200;progress.begin(id);active={id,control,startedAt};resources.elapsedMs=0;emit({phase:'running',engine,input,view:null,error:null,errorField:null,resources});let terminal,runReturned=false;const deadline=startedAt+resources.actualTimeBudgetMs;
    try{
     let view;
     if(experimental){
-     const result=await heavy.runRusqsieve(input,{resourcePlan,signal:control.signal});runReturned=true;if(result?.allWorkersDisposed!==true||result?.allWorkerSourcesReleased!==true)blocked=true;view=heavyView(result,input,{now,deadline});
+     const result=await heavy.runRusqsieve(input,{resourcePlan,signal:control.signal,onProgress:data=>{
+      if(closed||active?.id!==id||control.signal.aborted)return;
+      const before=progress.get();if(!progress.collect(id,data))return;
+      const sampledAt=now();if(sampledAt-lastProgressAt>=200||before.stage!=='collecting'||before.value!==null&&progress.get().value===null){lastProgressAt=sampledAt;emit({...state});}
+     }});runReturned=true;progress.verify(id);emit({...state});if(result?.allWorkersDisposed!==true||result?.allWorkerSourcesReleased!==true)blocked=true;view=heavyView(result,input,{now,deadline});
     }else{
      const result=await light.runSelectedStagedRequest(input,options,{signal:control.signal});runReturned=true;
      if(result.policy!==stagedPlan.mode||result.seed!==1)throw Error('Result identity');
-     view=makeResultView(result,input);if(['complete','probable'].includes(view.status)&&now()>=deadline)throw Error('Display proof deadline');
+     progress.verify(id);emit({...state});view={...makeResultView(result,input),reasonCode:result.reason};if(['complete','probable'].includes(view.status)&&now()>=deadline)throw Error('Display proof deadline');
     }
     terminal={phase:'result',engine,input,view,error:null,errorField:null,resources};
-   }catch{if(!runReturned)blocked=true;terminal={phase:blocked?'blocked':'error',engine,input,view:null,errorField:'runtime',error:blocked?'Workerの解放を確認できませんでした。この画面では次の計算を開始できません。タブを閉じて開き直してください。':'計算結果の検証を完了できませんでした。新しい計算を開始できます。',resources};}
-   finally{resources.elapsedMs=Math.max(0,now()-startedAt);if(blocked)scope.quarantine();else scope.release(token);if(!closed&&id===generation){active=null;emit(terminal);}}
+   }catch{if(!runReturned)blocked=true;const reason=stopReasonPresentation(blocked?(runReturned?'worker-retirement':'worker-outcome-unknown'):'verification-failed');terminal={phase:blocked?'blocked':'error',engine,input,view:null,errorField:'runtime',error:(reason?.text??'')+(blocked?'Workerの解放を確認できませんでした。この画面では次の計算を開始できません。タブを閉じて開き直してください。':'新しい計算を開始できます。'),resources};}
+   finally{progress.finish(id,terminal?.phase);resources.elapsedMs=Math.max(0,now()-startedAt);if(blocked)scope.quarantine();else scope.release(token);if(!closed&&id===generation){active=null;emit(terminal);}}
    return true;
   },
-  cancel(){if(closed||!active||active.control.signal.aborted)return false;emit({...state,phase:'cancelling'});active.control.abort();return true;},
-  dispose(){if(closed)return;closed=true;generation++;active?.control.abort();active=null;state={...state,phase:'disposed',view:null};}
+  cancel(){if(closed||!active||active.control.signal.aborted)return false;progress.cancel(active.id);emit({...state,phase:'cancelling'});active.control.abort();return true;},
+  dispose(){if(closed)return;closed=true;generation++;progress.close();active?.control.abort();active=null;state={...state,phase:'disposed',view:null,progress:null};}
  };
 }
