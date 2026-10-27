@@ -5,3 +5,17 @@ test('advertised time caps agree with actual plans without increasing any budget
 test('tool CSS owns body/summary typography and exposes finite sizing fallbacks',async()=>{let css=await readFile(new URL('../../src/site/tool.css',import.meta.url),'utf8');for(const v of ['--bt-font-size','--bt-line-height','--bt-summary-font-size','--bt-summary-font-weight','--bt-help-font-size','--bt-control-min-size'])assert.ok(css.includes('var('+v+','),v);assert.match(css,/\.bt-prime-factorizer summary[^}]*font-size:var\(--bt-summary-font-size,1rem\)/);});
 
 test('small-input routing metadata describes the existing clamp without inferring a different engine',()=>{assert.deepEqual(SITE_CAPABILITIES.smallInputRoute,{modeId:'standard',exclusiveUpperPowerOfTwo:128,timeBudgetMaxMs:60000});assert.equal(selectSitePlan('optimized',{timeBudgetMs:600000},{},true).timeBudgetMs,SITE_CAPABILITIES.smallInputRoute.timeBudgetMaxMs);});
+
+test('raw text, parser normalization and public numeric acceptance remain separate',async()=>{
+ const {parseIntegerInput}=await import('../../src/core/integer-input.js');
+ assert.equal(parseIntegerInput('1e100').canonical.length,101);
+ assert.equal(parseIntegerInput('1e1023').canonical.length,1024);
+ for(const mode of ['standard','optimized','wide']){
+  assert.throws(()=>validateSiteInput('1e100',mode));
+  assert.throws(()=>validateSiteInput('1'+'0'.repeat(100),mode));
+  assert.equal(validateSiteInput('0'.repeat(4096),mode),'0');
+  assert.equal(validateSiteInput('0'.repeat(4000)+'3.2e1',mode),'32');
+  assert.throws(()=>validateSiteInput('0'.repeat(4097),mode),{code:'INPUT_TOO_LONG'});
+  assert.throws(()=>validateSiteInput('1e10001',mode),{code:'EXPONENT_OUT_OF_RANGE'});
+ }
+});

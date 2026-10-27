@@ -42,3 +42,9 @@ push・PR・release・Site採用はしていません。隔離による既存欠
 - scripts/verify-progress-ui-fixture.mjs と scripts/fixtures/progress-ui-provider.mjs は公開配布graphへimportしないUI専用harnessです。
 - 既存のplaywright-core/index.mjs、対応browser cache、保存先を明示し、node scripts/verify-progress-ui-fixture.mjs --playwright <module> --browsers <cache> --out <new-output> で使います。依存やbrowserを自動取得しません。
 - sourceの読取allowlistはharness内に固定し、実engineや任意folderをserverから読める実装にしません。report.jsonと画像は指定した非公開出力先へ保存します。
+
+## 停止理由と既存入力仕様の追補
+
+既存Workerのwasm-oomはallocationFailures>0という累積報告から付くコードです。割当失敗の報告として表示し、停止の直接原因、設定予算拒否、端末全体のRAM不足とは区別します。fatal-unknown/native-unknown/missing-session/composite-divisorも既存producerに対応する説明を持ちます。
+入力・設定のpure policyだけを追加allowlistにして確認し、parserが受け付ける科学表記101/1024桁と、public adapterが拒否する範囲を分けます。4096文字のゼロ、先頭ゼロ、指数境界、39/100桁・128/332bit、60秒/10分/1時間の既存値は変更していません。
+この追補のmock/表示/font/policy試験はNode24.22.1で30件成功しました。engineの完走・入力上限拡張を示すものではありません。

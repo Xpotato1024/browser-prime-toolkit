@@ -42,3 +42,9 @@ test('localized stopping reason is shared by result display and copied partial o
  assert.match(p.reasonText,/割当予算.*拒否/);assert.ok(p.copyText.includes(p.reasonText));assert.match(p.copyText,/未解決の余因子: 35/);assert.doesNotMatch(p.copyText,/legacy raw code/);
  const unknown=sitePresentation({equation:'x',reasonCode:'wasm-trap',groups:[]});assert.match(unknown.reasonText,/原因.*特定できていません/);assert.doesNotMatch(unknown.copyText,/メモリ上限/);
 });
+
+test('allocation failure report keeps its uncertainty in both display and copy',()=>{
+ const p=sitePresentation({equation:'35 = [未解決: 35]',statusText:'未完了',reasonCode:'wasm-oom',groups:[],residual:'35'});
+ assert.match(p.reasonText,/割当失敗.*報告/);assert.match(p.copyText,/直接原因.*未確定/);assert.ok(p.copyText.includes('未解決の余因子: 35'));
+ assert.doesNotMatch(p.copyText,/メモリ上限に達しました/);
+});

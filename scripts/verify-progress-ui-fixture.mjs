@@ -102,7 +102,7 @@ try{
    if(await page.evaluate(()=>['running','cancelling'].includes(app.getState().phase))){await page.evaluate(()=>uiFixture.finish());await phase('result');}
   }
   await check(name+' all stopping categories/residual/copy',async()=>{
-   const reasons=['time-budget','initialization-timeout','coordinator-memory-soft-stop','native-memory-budget','operation-budget','algorithm-resource','worker-error','worker-creation','message-error','protocol-failure','verification-failed','unknown-reason'],observations=[];
+   const reasons=['time-budget','initialization-timeout','coordinator-memory-soft-stop','native-memory-budget','wasm-oom','fatal-unknown','native-unknown','missing-session','composite-divisor','operation-budget','algorithm-resource','worker-error','worker-creation','message-error','protocol-failure','verification-failed','unknown-reason'],observations=[];
    for(const reason of reasons){await begin('9'.repeat(99));await page.evaluate(reason=>uiFixture.finish({reason}),reason);await phase('result');
     const text=await page.locator('.bt-stop-reason').textContent();assert.ok(text);assert.ok((await page.locator('.bt-residual').textContent()).includes('9'.repeat(99)));
     await page.locator('[data-action=copy]').click();await page.waitForFunction(text=>fixtureCopied.includes(text),text);

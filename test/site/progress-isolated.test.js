@@ -94,3 +94,14 @@ test('shared status announces once per stage and preparation restores its live s
  t.finish(1,'result');v.update(t.get());assert.equal(status.attrs['aria-live'],'off');
  v.update(null);assert.equal(status.attrs['aria-live'],'polite');
 });
+
+test('reported WASM allocation failure differs from a quota refusal and unknown fatal error',()=>{
+ const observed=stopReasonPresentation('wasm-oom');
+ assert.equal(observed.category,'wasm-allocation-failure-reported');
+ assert.match(observed.text,/割当失敗.*報告/);assert.match(observed.text,/直接原因.*未確定/);
+ assert.notEqual(observed.category,stopReasonPresentation('native-memory-budget').category);
+ assert.equal(stopReasonPresentation('fatal-unknown').category,'worker');
+ assert.equal(stopReasonPresentation('native-unknown').category,'native');
+ assert.equal(stopReasonPresentation('missing-session').category,'protocol');
+ assert.equal(stopReasonPresentation('composite-divisor').category,'verification');
+});
