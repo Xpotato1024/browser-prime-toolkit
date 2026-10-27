@@ -126,3 +126,4 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 [サイト配布0.1.0の有限計算・受入契約](contracts/site-release-v1.md)は、本人承認を受けた公開用adapterと専用profileを定義します。過去研究の測定SHA・原本・通常入口を保持します。
 
 - [工程別進捗と停止理由のローカル表示候補・未検証範囲](contracts/progress-display.md)
+- [生成WASM/JSの限定静的監査と未確認範囲](operations/wasm-source-static-audit-20261027.md)
