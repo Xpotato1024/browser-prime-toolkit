@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {runExtendedInput} from '../../src/extended/runner.js';
+import {runExtendedInput,isVerifiedExtendedProgress} from '../../src/extended/runner.js';
 import {factorInteger} from '../../src/engine/factor.js';
 import {makeComputeScope} from '../../src/site/document-scope.js';
 function transport({stall=false,corrupt=false,throwTerminate=false,throwRelease=false,events=[]}={}){
@@ -112,4 +112,12 @@ test('a verified whole-input prime progress snapshot is never labeled composite 
   assert.equal(r.status,'error');assert.equal(r.reason,'verification-failed');
   assert.equal(r.primality,n===7n?'proven-prime':'probable-prime');
  }
+});
+
+test('accepted progress has its own immutable provenance and preserves prefix on callback cancellation',async()=>{
+ const t=transport({events:[{input:'12',factors:[{value:'2',certainty:'proven',method:'small-prime'}],remaining:'6',operations:1,elapsedMs:0}]}),control=new AbortController(),seen=[];
+ const r=await runExtendedInput('12',{signal:control.signal,onAccepted:s=>{
+  seen.push(s);assert.equal(isVerifiedExtendedProgress(s,'12'),true);assert.equal(isVerifiedExtendedProgress({...s},'12'),false);assert.equal(Object.isFrozen(s.factors),true);control.abort();
+ }},t);
+ assert.equal(r.status,'cancelled');assert.equal(r.remaining,'6');assert.equal(seen.length,1);assert.equal(r.allWorkersDisposed,true);assert.equal(r.allWorkerSourcesReleased,true);
 });

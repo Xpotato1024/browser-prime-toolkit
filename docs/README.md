@@ -141,3 +141,4 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 
 - [400bitの単一family実観測と進捗粒度](benchmarks/llm01-siqs400-family.md)
 - [残余・共通deadline・資源／work台帳によるルーティング候補](contracts/common-routing.md)
+- [共通ルーティングの実エンジン接続・限定試験と残件](operations/common-routing-integration.md)

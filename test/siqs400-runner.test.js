@@ -71,3 +71,22 @@ test('stale-generation packets are ignored until a current cancellation',async()
  const r=await runSiqs400(input,{resourcePlan:plan(100),createWorker:f.createWorker,signal:control.signal,now:()=>0});
  assert.equal(r.reason,'cancelled');assert.deepEqual(r.factors,[]);
 });
+
+test('familyLimit bounds issued work while retaining normal release/extraction behavior',async()=>{
+ let issued=0,released=0,extracted=0,terminated=0;const createWorker=()=>{
+  const worker={releaseSource(){},terminate(){terminated++;},postMessage(d){queueMicrotask(()=>{
+   const send=data=>worker.onmessage?.({data:{version:21,generation:d.generation,timings,...data}});
+   if(d.type==='init')send({type:'ready',role:'coord',maxMiB:1024,config,memory,dlpStats:counters,target:200064,factorBaseSize:200000,familyBudget:750000});
+   if(d.type==='job'){
+    issued+=d.count;const b=new Uint8Array(40),v=new DataView(b.buffer);b.set([81,83,86,49]);v.setUint16(4,10,true);v.setUint16(6,1,true);v.setUint32(8,28,true);v.setUint32(12,1,true);v.setUint32(16,20,true);v.setBigUint64(20,BigInt(d.first),true);
+    send({type:'batch',jobId:d.jobId,first:d.first,count:d.count,buffer:b.buffer,memory});
+   }
+   if(d.type==='submit')send({type:'submitted',jobId:d.jobId,relations:0,dlpStats:counters,memory});
+   if(d.type==='release'){released++;send({type:'released',before:memory,after:memory});}
+   if(d.type==='extract'){extracted++;send({type:'extracted',status:2,divisor:null,before:memory,after:memory,nativeQuota:{extracting:true,active:0,preflightRefused:0,refusals:0,stages:[]}});}
+  });}};return worker;
+ };
+ const r=await runSiqs400(input,{resourcePlan:plan(100),familyLimit:1,createWorker,now:()=>0});
+ assert.equal(r.reason,'insufficient-relations');assert.equal(r.familiesIssued,1);assert.equal(r.familiesSubmitted,1);assert.equal(issued,1);assert.equal(released,1);assert.equal(extracted,1);assert.equal(terminated,1);
+ for(const cap of [0,4097,NaN,'1'])assert.throws(()=>runSiqs400(input,{resourcePlan:plan(100),familyLimit:cap,createWorker(){throw Error('must not create');}}));
+});

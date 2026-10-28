@@ -175,3 +175,18 @@ test('an invalid synchronous snapshot closes the stream before a later valid pac
  const r=await createRoutingSession({ports:{native:f}}).run('60');
  assert.equal(r.reason,'invalid-result');assert.equal(r.snapshot.remaining,'30');
 });
+
+test('wide routing keeps one job deadline and never replaces the1024MiB profile with600-second normal',async()=>{
+ let time=0;const calls=[],native=port(r=>{calls.push(r);time+=10;return exhausted(r);}),wide=port(r=>{calls.push(r);return exhausted(r);}),normal=port(()=>{throw Error('normal profile must not replace selected wide');});
+ const r=await createRoutingSession({ports:{native,siqs332:normal,siqsWide332:wide},now:()=>time}).run(((1n<<329n)+1n).toString(),{jobTimeMs:3600000,wasmMiB:1536,maxWorkers:5});
+ assert.deepEqual(calls.map(c=>c.stage),['native','siqsWide332']);assert.equal(calls[1].resourcePlan.ownerCapsMiB[0],1024);
+ assert.equal(calls[1].timeBudgetMs,3599990);assert.equal(r.deadline,3600000);
+});
+
+test('a final stage phase/work stop is not hidden by the stage-count cap',async()=>{
+ for(const reason of ['phase-time-budget','operation-budget']){
+  const native=port(r=>({reason,packet:packet(r)}));
+  const r=await createRoutingSession({ports:{native},now:()=>0}).run('91',{maxStages:1});
+  assert.equal(r.reason,reason);assert.equal(r.trace[0].stop,reason);assert.equal(r.allStagesDisposed,true);assert.equal(r.factorizationComplete,false);
+ }
+});

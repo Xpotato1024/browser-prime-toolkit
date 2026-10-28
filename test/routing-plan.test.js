@@ -63,3 +63,16 @@ test('SIQS allocations reuse actual role policies and shrink worker count to the
  const wide=chooseStage({remaining,available:['siqs400'],policy:makeRoutingPolicy({wasmMiB:1536,maxWorkers:5,experimental400:true}),remainingMs:5000});
  assert.deepEqual(wide.resourcePlan.ownerCapsMiB,[1024,64,64,64,64]);assert.equal(wide.wasmAllocationBytes,1280*1048576);
 });
+
+test('existing wide332 profile keeps1024MiB coordinator and a one-hour capability without400 opt-in',()=>{
+ const remaining=((1n<<329n)+1n).toString(),p=makeRoutingPolicy({jobTimeMs:3600000,wasmMiB:1536,maxWorkers:5,experimental400:false});
+ const r=chooseStage({remaining,available:['siqs332','siqsWide332','siqs400'],policy:p,remainingMs:3600000});
+ assert.equal(r.stage,'siqsWide332');assert.equal(r.timeBudgetMs,3600000);assert.equal(r.resourcePlan.timeBudgetMs,3600000);
+ assert.deepEqual(r.resourcePlan.ownerCapsMiB,[1024,64,64,64,64]);assert.equal(r.experimental,false);
+});
+test('wide332 is resource-dependent, capped at332bits, and shares same-residual SIQS deduplication',()=>{
+ const low=((1n<<329n)+1n).toString(),high=((1n<<332n)+1n).toString(),available=['siqs332','siqsWide332','siqs400'];
+ assert.equal(chooseStage({remaining:low,available,policy:makeRoutingPolicy({wasmMiB:128}),remainingMs:3600000}).stage,'siqs332');
+ assert.equal(chooseStage({remaining:high,available,policy:makeRoutingPolicy({wasmMiB:1536}),remainingMs:3600000}).terminal,'enabled-engines-exhausted');
+ assert.equal(chooseStage({remaining:low,available,attempted:['siqsWide332:'+low],policy:makeRoutingPolicy({wasmMiB:1536,experimental400:true}),remainingMs:1000}).terminal,'enabled-engines-exhausted');
+});

@@ -1,8 +1,10 @@
 # 残余と共通予算に基づくルーティング候補
 
-2026-10-28。設計・独立実装段階です。公開GUI／実エンジン接続ではありません。
+2026-10-28。ローカルの共通計画・実エンジンadapter・限定統合試験までです。
+公開GUIには未接続で、Site採用・公開版の変更は行いません。
 入力は既存の309桁かつ1024bit候補契約で正規化します。
-元入力・受理済み因子・残余を保存し、各段階の終了後は残余から再計画します。
+元入力・受理済み因子・残余を保存し、各段階の終了後は未分解の値から再計画します。
+proper divisorも合成数になり得るため、返された因子の群も素数性を確認して再処理します。
 
 ## 暫定判断表
 
@@ -13,7 +15,7 @@
 | r < 2^128（bit長128以下） | 既存staged128、利用不可ならnative→ECM | 既存入口の能力境界。2^128自体は含まない |
 | r ≥ 2^128 | nativeの有限前処理 | 小因子・素数／平方判定とBrentを含む既存portの想定 |
 | 奇数5以上、r < 2^256 | ECM前処理候補 | 現行GMP bridgeの能力。総入力幅より見つける因子の大きさが重要 |
-| 残余が332bit以下 | SIMD SIQS候補（前段の後） | 既存hostの能力。最適な切替点の実測値ではない |
+| 残余が332bit以下 | SIMD SIQS候補（前段の後） | 通常／明示wideの既存能力。最適な切替点の実測値ではない |
 | 残余が400bit以下 | 明示opt-inの実験的SIQS400（332版の後） | 準備・単一familyまでの検証。全工程完走は未検証 |
 | それより大きい未解決合成残余 | 未対応を返す | GNFS未実装。無期限Brentや未実装ECM400へ流さない |
 
@@ -37,10 +39,16 @@ logical operation counterとSIQS family数を足しません。
 native／staged／ECMの論理work台帳と、共通SIQS family台帳を別々に減らします。
 途中停止で消費workを確定できなければ要求枠全量を保守的に課金し、
 実行済み数とは表示しません。全stage数にも有限上限を持ちます。
-同じstage／同じ残余を重複実行せず、既知因子を後段へ再投入しません。
+同じstage／同じ値を重複実行せず、確認済みprimeを後段へ再投入しません。
+合成因子群を再分解するときは元の重複度を掛け、既知の厳密な分割を再利用します。
+1つの合成因子の候補を使い尽くしても、ほかの未分解因子に有限の処理を続けます。
 同時に実行するportは1つで、退役確認前に次へ進みません。
 SIQSの具体的な役割別割当は既存のnormal／wide資源policyで作成します。
-たとえば128MiBでは1 Worker、384MiBでは最大3 Workerに縮めます。
+たとえば通常128MiBでは1 Worker、384MiBでは最大3 Workerに縮めます。
+既存wide332は1536MiB枠・coordinator1024MiB・helper64MiB・最大5 Worker・
+最大3600000msを維持します。通常SIQSの600000ms枠へ黙って置換しません。
+400bitの実験opt-inと既存wide332の利用は別条件です。
+WASM割当上限はJS／転送／Chrome RSSを含む総メモリ値ではありません。
 単にmaxWorkersとメモリ上限を別々に渡して、合計割当を超過させません。
 
 ## 部分結果と停止
@@ -53,8 +61,14 @@ snapshotは既存のengine-freeな厳密積検算を使います。
 
 本候補の積検算は素数性の検証ではありません。
 probableというengineの申告も、検証前の申告として未分解残余と区別して保持します。
-残余1でもfactorizationComplete:false、primalityVerified:falseを維持し、
-実engine別の検証済みattestation接続前はfactor-proof-requiredで止めます。
+engine-freeなcreateRoutingSessionは残余1でもfactorizationComplete:falseを維持します。
+createVerifiedRoutingSessionは既存assessPrimeで計画対象を分類し、
+verifyRoutingResultで厳密積と各項の素数性を独立に再確認します。
+固定MRで64bit以上はprobableのままで、decompositionComplete:trueでも
+allFactorsProven／factorizationComplete:trueにはしません。
+検算は1回最大25ms（明示設定時も100msまで）、共有100000論理tick以下、
+共通job deadline内です。0／1は素数としません。
+proof時間・work上限、実行時の停止理由、取消を別フィールドで保持します。
 
 取消・job期限・phase期限・work上限・メモリ保護・Worker異常・不正結果・検算の時間上限を区別します。
 portは有限disposeでWorker／URL退役を返す必要があります。
@@ -63,16 +77,18 @@ portは有限disposeでWorker／URL退役を返す必要があります。
 
 ## 実装・検証の境界
 
-src/routingの計画とport制御は算術engineをimportしません。
-mock portで境界、残余再計画、引継ぎ、検算、取消と資源解放を検証します。
-これは実Brent→ECM→SIQSの統合成功とは別です。
-arithmetic.js読取と全体test/checkの既存拒否を迂回しません。
-実portの接続・素数性証明／probable検証・GUI採用・長時間400bit分解は未実施です。
+src/routing/index.jsの計画と制御はengine-freeのままです。
+実engineのimportは各portとverification.jsに分離します。
+mock/protocol試験と実ChromeのBrent→ECM→SIQS試験を区別して記録します。
+arithmetic.jsは対象を限定した本人許可後の正規読取で確認でき、既存関数へ接続しました。
+全体test/checkの既存拒否は再試行しません。隔離資産の復元や別コピーは使用しません。
+[実接続・限定試験と残件](../operations/common-routing-integration.md)を参照してください。
+GUI採用・公開・長時間400bit全分解は未実施です。
 
-## Port境界と残る接続作業
+## Port境界
 
 入口はsrc/routing/index.jsです。registryは作成時に固定します。
-start(request,{signal,onSnapshot})は同期的に所有leaseを返します。
+start(request,{signal,onSnapshot,scope,scopeToken})は同期的に所有leaseを返します。
 lease.resultは{reason,packet}のPromise、
 lease.disposeは{allWorkersDisposed,allWorkerSourcesReleased}を返す有限処理です。
 packetはversion:1、jobId、stage、input、seq、work、snapshot、
@@ -92,9 +108,12 @@ SIQS4096familiesを別の台帳として保持します。値は有限な設定�
 各engine固有の検算・prime certainty・work単位・停止理由・資源解放を
 検証して変換するadapterが必要です。既存のverified outcomeを
 単に任意objectへコピーして検証済みとすることはしません。
-本候補はそのadapterをまだ提供・束縛していません。
+native-port.jsは既存runExtendedInputの検証済み進捗／最終結果を変換し、
+staged-port.jsは既存p64選定API、ecm-port.jsは既存GMP splitterを専用64MiB Workerで使います。
+siqs-ports.jsは通常332／wide332／実験400の既存APIを用い、familyLimitで発行数を有限にします。
+registryは利用側が明示的に組み立てます。未知資産の自動取得は行いません。
 メモリ停止もportの報告理由であり、実測OOMと断定しません。
-実engine接続、定数の性能調整、GUI採用と公開は別の未完工程です。
+定数の性能調整、GUI採用と公開は別の未完工程です。
 
 work台帳はportごとの論理単位で、CPU命令数の共通計ではありません。
 staged macro内部のBrent／ECM消費を別portの観測値へ推定加算しません。

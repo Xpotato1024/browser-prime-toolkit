@@ -8,21 +8,22 @@ import {SMALL_PRIMES} from '../engine/options.js';
 import {makeComputeScope} from '../site/document-scope.js';
 import {EXTENDED_RUNNER_LIMITS as limits} from './policy.js';
 class ExtendedBudgetStop extends Error{constructor(reason){super(reason);this.reason=reason;}}
-const privateScope=makeComputeScope(),outcomes=new WeakSet();
+const privateScope=makeComputeScope(),outcomes=new WeakSet(),progressOutcomes=new WeakSet();
 function certify(result){
  const outcome=Object.freeze({...result,factors:Object.freeze(result.factors.map(f=>Object.freeze({...f})))});
  outcomes.add(outcome);return outcome;
 }
 // Certifies this module's verified prefix/status, not successful completion.
 export const isVerifiedExtendedOutcome=(result,input)=>outcomes.has(result)&&result.input===input;
+export const isVerifiedExtendedProgress=(result,input)=>progressOutcomes.has(result)&&result.input===input;
 export async function runExtendedInput(raw,options={},{
  createWorker=makeNativeWorker,scope=privateScope,scopeToken,now=()=>performance.now()
 }={}){
  const {canonical:input}=inspectExtendedInput(raw);
- if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(k=>!['timeBudgetMs','operationBudget','signal','onProgress'].includes(k)))throw TypeError('Extended options');
- const {timeBudgetMs=limits.defaultTimeMs,operationBudget=limits.defaultOperations,signal,onProgress=()=>{}}=options;
+ if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(k=>!['timeBudgetMs','operationBudget','signal','onProgress','onAccepted'].includes(k)))throw TypeError('Extended options');
+ const {timeBudgetMs=limits.defaultTimeMs,operationBudget=limits.defaultOperations,signal,onProgress=()=>{},onAccepted=()=>{}}=options;
  if(!Number.isSafeInteger(timeBudgetMs)||timeBudgetMs<1||timeBudgetMs>limits.maxTimeMs||!Number.isSafeInteger(operationBudget)||operationBudget<1||operationBudget>limits.maxOperations)throw RangeError('Finite extended budget');
- if(typeof createWorker!=='function'||typeof now!=='function'||typeof onProgress!=='function'||signal&&(typeof signal.aborted!=='boolean'||typeof signal.addEventListener!=='function'||typeof signal.removeEventListener!=='function'))throw TypeError('Extended dependencies');
+ if(typeof createWorker!=='function'||typeof now!=='function'||typeof onProgress!=='function'||typeof onAccepted!=='function'||signal&&(typeof signal.aborted!=='boolean'||typeof signal.addEventListener!=='function'||typeof signal.removeEventListener!=='function'))throw TypeError('Extended dependencies');
  const started=now();if(!Number.isFinite(started)||started<0)throw TypeError('Clock');
  let lastTime=started;
  const clock=()=>{const t=now();if(!Number.isFinite(t)||t<lastTime)throw Error('Clock');lastTime=t;return t;};
@@ -35,6 +36,10 @@ export async function runExtendedInput(raw,options={},{
  if(borrowed?!scope.owns?.(token):!scope.acquire(token))return certify(bare('blocked',scope.isQuarantined()?'scope-quarantined':'scope-busy'));
  return new Promise(resolve=>{
   let worker=null,done=false,ready=false,timer,sourceReleased=false,sourceAttempted=false,factoryAttempted=false,constructing=false,cancelQueued=false;
+  const reportAccepted=()=>{
+   const snapshot=Object.freeze({...accepted,factors:Object.freeze(accepted.factors.map(f=>Object.freeze({...f})))});
+   progressOutcomes.add(snapshot);try{onAccepted(snapshot);}catch{}
+  };
   const notify=stage=>onProgress({stage,fraction:null,acceptedFactors:accepted.factors.length});
   const release=()=>{
    if(sourceAttempted)return sourceReleased;sourceAttempted=true;
@@ -127,10 +132,10 @@ export async function runExtendedInput(raw,options={},{
      if(data.type==='result'){notify('verifying');if(done)return;}
      const candidate=data.type==='result'?data.result:data.snapshot;
      const checked=checkSnapshot(candidate,data.type==='result');
-     if(data.type==='progress'){accepted=checked.result;inspection=checked.checked;notify('computing');return;}
+     if(data.type==='progress'){accepted=checked.result;inspection=checked.checked;reportAccepted();if(done)return;notify('computing');return;}
      const result=checked.result;
      if(clock()>=deadline){finish('incomplete','time-budget');return;}
-     accepted={...checked.result,primality:result.primality};inspection=checked.checked;finish(result.status,result.reason);
+     accepted={...checked.result,primality:result.primality};inspection=checked.checked;reportAccepted();if(done)return;finish(result.status,result.reason);
     }catch(error){finish(error instanceof ExtendedBudgetStop?'incomplete':'error',error instanceof ExtendedBudgetStop?error.reason:'verification-failed');}
    };
   }catch{finish('error','worker-create-error');}
