@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Presentation state only: never imports an engine, verifies factors, or changes budgets.
+export const routingStageLabels=Object.freeze({staged128:'小入力の分解',native:'前処理・Brent',ecm:'ECM・小因子探索',siqs332:'SIQS・関係収集',siqsWide332:'大メモリSIQS・関係収集',siqs400:'実験SIQS400・関係収集'});
 const stages={
  running:['計算中','この工程の割合は未計測です。'],
  collecting:['関係収集','収集量の割合です。計算全体の完了率ではありません。'],
@@ -11,8 +12,8 @@ const stages={
 function snapshot(state){
  if(!state)return null;
  const [label,summary]=stages[state.stage],atTarget=state.stage==='collecting'&&state.relations>=state.target;
- return {...state,label:atTarget?'収集目標到達・後続処理':label,summary:atTarget?'収集目標に到達。検算を含む後続処理は未完了です。':summary,
-  value:state.stage==='collecting'&&!atTarget?state.relations/state.target:null};
+ return {...state,summary:atTarget?'収集目標に到達。検算を含む後続処理は未完了です。':summary,
+  label:atTarget?'収集目標到達・後続処理':state.stage==='running'&&state.engineLabel?state.engineLabel:label,value:state.stage==='collecting'&&!atTarget?state.relations/state.target:null};
 }
 export function createProgressTracker(){
  let state=null,closed=false,lastJob=0;
@@ -20,12 +21,13 @@ export function createProgressTracker(){
  return{
   get:()=>snapshot(state),
   begin(job){if(closed||!Number.isSafeInteger(job)||job<=lastJob)return false;lastJob=job;state={job,stage:'running',families:null,relations:null,target:null};return true;},
+  engine(job,stageJob,stage){if(!current(job)||state.stage==='cancelling'||!Number.isSafeInteger(stageJob)||stageJob<1||stageJob<=(state.stageJob??0)||!Object.hasOwn(routingStageLabels,stage))return false;state={job,stage:'running',stageJob,engineLabel:routingStageLabels[stage],families:null,relations:null,target:null};return true;},
   collect(job,data){
    if(!current(job)||!['running','collecting'].includes(state.stage)||!data)return false;
    const {families,relations,target}=data;
    if(![families,relations,target].every(x=>Number.isSafeInteger(x)&&x>=0&&x<=1000000)||target<1)return false;
    if(state.target!==null&&(target!==state.target||relations<state.relations||families<state.families))return false;
-   state={job,stage:'collecting',families,relations,target};return true;
+   state={...state,job,stage:'collecting',families,relations,target};return true;
   },
   verify(job){if(!current(job)||!['running','collecting'].includes(state.stage))return false;state={...state,stage:'verifying'};return true;},
   cancel(job){if(!current(job)||state.stage==='cancelling')return false;state={...state,stage:'cancelling'};return true;},
@@ -35,6 +37,17 @@ export function createProgressTracker(){
  };
 }
 const reasons={
+ 'job-time-budget':['time','設定した計算全体の時間上限に達しました。'],
+ 'phase-time-budget':['time','この工程に割り当てた時間上限に達しました。'],
+ 'proof-time-budget':['verification-budget','最終確認の時間上限に達しました。未確認の項は確定因子として表示しません。'],
+ 'proof-operation-budget':['verification-budget','素数性確認の計算量上限に達しました。'],
+ 'memory-budget':['memory','計算側のメモリ保護条件により停止しました。端末全体のRAM不足とは限りません。'],
+ 'gnfs-unavailable':['range','残る合成数は現在のエンジンの対応範囲外です。GNFSは未実装です。'],
+ 'enabled-engines-exhausted':['search','利用可能な方式の有限探索を終了しました。'],
+ 'stage-count-budget':['work','段階数の上限に達しました。'],
+ 'simd-unavailable':['capability','このブラウザでは必要なWASM SIMDを利用できません。'],
+ 'invalid-result':['verification','返却された結果の整合性を確認できませんでした。'],
+ 'factor-proof-required':['verification','因子の最終確認が必要です。'],
  'verification-time-budget':['verification-budget','検算の時間上限に達しました。検算済みの結果だけを表示しています。'],
  'verification-work-budget':['verification-budget','検算の計算量上限に達しました。検算済みの結果だけを表示しています。'],
  'worker-create-error':['worker','Workerを準備できませんでした。原因がメモリ不足かは確認できません。'],

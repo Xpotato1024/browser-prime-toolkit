@@ -6,7 +6,7 @@ import {RoutingStop} from './session.js';
 const apis=Object.freeze({siqs332:normal,siqsWide332:wide,siqs400:extended});
 export function createSiqsPort(stage,{api=apis[stage],now=()=>performance.now()}={}){
  if(!api||!Object.hasOwn(apis,stage))throw Error('SIQS port profile');
- return Object.freeze({start(request,{signal,onSnapshot=()=>{}}={}){
+ return Object.freeze({start(request,{signal,onSnapshot=()=>{},onProgress=()=>{}}={}){
   if(request.stage!==stage||request.workKey!=='siqs'||!request.resourcePlan||!Number.isSafeInteger(request.workBudget)||request.workBudget<1||request.workBudget>4096)throw Error('SIQS routing request');
   const run=stage==='siqs400'?api.runSiqs400:api.runRusqsieve;
   if(typeof run!=='function')throw Error('SIQS entry');
@@ -20,6 +20,7 @@ export function createSiqsPort(stage,{api=apis[stage],now=()=>performance.now()}
     try{
      if(!Number.isSafeInteger(p.families)||p.families<work||p.families>request.workBudget)throw Error('SIQS progress work');
      work=p.families;latest=packet(empty());onSnapshot(latest);
+      if([p.relations,p.target].every(x=>Number.isSafeInteger(x)&&x>=0&&x<=1000000)&&p.target>0)onProgress({families:work,relations:p.relations,target:p.target});
     }catch{bad=true;control.abort();}
    }});
    if(bad||raw?.input!==request.input||!Number.isSafeInteger(raw.familiesSubmitted)||raw.familiesSubmitted<work||raw.familiesSubmitted>request.workBudget)throw new RoutingStop('invalid-result');

@@ -190,3 +190,11 @@ test('a final stage phase/work stop is not hidden by the stage-count cap',async(
   assert.equal(r.reason,reason);assert.equal(r.trace[0].stop,reason);assert.equal(r.allStagesDisposed,true);assert.equal(r.factorizationComplete,false);
  }
 });
+
+test('measured callbacks cannot forge a stage identity or publish after retirement',async()=>{
+ const events=[];let late;
+ const siqs332=port((r,ctx)=>{late=ctx.onProgress;ctx.onProgress({families:1,relations:2,target:10,phase:'complete',stage:'forged',jobId:999});return exhausted(r);});
+ const result=await createRoutingSession({ports:{siqs332},now:()=>0}).run(big.toString(),{onChange:e=>events.push(e),maxStages:1});
+ const measured=events.find(e=>e.phase==='collecting');assert.equal(measured.stage,'siqs332');assert.equal(measured.jobId,result.trace[0].jobId);assert.equal(measured.relations,2);
+ const size=events.length;late({families:2,relations:3,target:10});assert.equal(events.length,size);
+});

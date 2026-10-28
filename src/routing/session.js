@@ -112,7 +112,7 @@ export function createRoutingSession({ports={},scope=makeComputeScope(),now=()=>
     const onSnapshot=packet=>{try{accept(packet);}catch(e){if(!(e instanceof RoutingStop))packetError=e;closeStage();failSnapshot?.({stop:e instanceof RoutingStop?e.reason:'invalid-result'});}};
     let timeout,abortListener,outcome=null,stop=null,startAttempted=false,finalValidated=false;
     try{
-     emit({stage:plan.stage,phase:'starting',jobId,progressFraction:null});
+     emit({stage:plan.stage,phase:'starting',jobId,workerLimit:plan.maxWorkers,wasmAllocationBytes:plan.wasmAllocationBytes,progressFraction:null});
      if(control.signal.aborted){stop='cancelled';throw new Error('Cancelled before start');}
      checkDeadline();
      const stopped=new Promise(resolve=>{
@@ -120,7 +120,7 @@ export function createRoutingSession({ports={},scope=makeComputeScope(),now=()=>
       abortListener=()=>{closeStage();resolve({stop:'cancelled'});};control.signal.addEventListener('abort',abortListener,{once:true});
      });
      const snapshotFailed=new Promise(resolve=>{failSnapshot=resolve;});
-     startAttempted=true;lease=registry[plan.stage].start(request,{signal:stageControl.signal,onSnapshot,scope,scopeToken:token});
+     startAttempted=true;lease=registry[plan.stage].start(request,{signal:stageControl.signal,onSnapshot,scope,scopeToken:token,onProgress:data=>{if(!plan.stage.startsWith('siqs')||!live||control.signal.aborted)return;try{checkDeadline();if(!data||![data.families,data.relations,data.target].every(x=>Number.isSafeInteger(x)&&x>=0&&x<=1000000)||data.families>plan.workBudget||data.target<1)return;emit({stage:plan.stage,phase:'collecting',jobId,families:data.families,relations:data.relations,target:data.target,progressFraction:null});}catch{}}});
      if(!lease||typeof lease.dispose!=='function'||!lease.result||typeof lease.result.then!=='function')throw Error('Routing port lease');
      const result=Promise.resolve(lease.result).then(value=>({value}),error=>({stop:error instanceof RoutingStop&&['cancelled','phase-time-budget','job-time-budget','operation-budget','proof-time-budget','proof-operation-budget','algorithm-resource','memory-budget','invalid-result','worker-error'].includes(error.reason)?error.reason:'worker-error'}));
      const raced=await Promise.race([result,stopped,snapshotFailed]);

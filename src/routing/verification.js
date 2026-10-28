@@ -3,7 +3,8 @@ import {inspectExtendedDecomposition} from '../core/extended-input-contract.js';
 import {assessPrime} from '../engine/arithmetic.js';
 import {SMALL_PRIMES} from '../engine/options.js';
 import {isRoutingOutcome,createRoutingSession,RoutingStop} from './session.js';
-const verified=new WeakSet(),contexts=new WeakMap();
+const verified=new WeakSet(),presentable=new WeakSet(),contexts=new WeakMap();
+export const isRoutingPresentationResult=(result,input)=>presentable.has(result)&&result.input===input;
 export const isVerifiedRoutingResult=(result,input)=>verified.has(result)&&result.input===input;
 
 export function createRoutingTargetSelector({input,deadline,now,signal}){
@@ -36,7 +37,7 @@ export const createVerifiedRoutingSession=options=>createRoutingSession({...opti
 export function verifyRoutingResult(raw,{now=()=>performance.now(),signal,maxMs=25,maxOperations=100000}={}){
  if(!isRoutingOutcome(raw,raw?.input))throw Error('Routing result provenance');
  if(!Number.isSafeInteger(maxMs)||maxMs<1||maxMs>100||!Number.isSafeInteger(maxOperations)||maxOperations<1||maxOperations>100000)throw Error('Routing proof limits');
- const stop=(reason)=>Object.freeze({...raw,executionStatus:raw.status,executionReason:raw.reason,verificationReason:reason,status:raw.status==='blocked'?'blocked':raw.status==='cancelled'||reason==='cancelled'?'cancelled':'incomplete',reason,certaintyVerified:false,allFactorsProven:false,primalityVerified:false,factorizationComplete:false,decompositionComplete:false,verifiedFactors:Object.freeze([]),pendingGroups:Object.freeze([...raw.snapshot.factors,...(raw.snapshot.remaining!=='0'&&raw.snapshot.remaining!=='1'?[Object.freeze({value:raw.snapshot.remaining,exponent:1,certainty:'unknown'})]:[])])});
+ const stop=(reason)=>{const result=Object.freeze({...raw,executionStatus:raw.status,executionReason:raw.reason,verificationReason:reason,status:raw.status==='blocked'?'blocked':raw.status==='cancelled'||reason==='cancelled'?'cancelled':'incomplete',reason,certaintyVerified:false,allFactorsProven:false,primalityVerified:false,factorizationComplete:false,decompositionComplete:false,verifiedFactors:Object.freeze([]),pendingGroups:Object.freeze([...raw.snapshot.factors,...(raw.snapshot.remaining!=='0'&&raw.snapshot.remaining!=='1'?[Object.freeze({value:raw.snapshot.remaining,exponent:1,certainty:'unknown'})]:[])])});presentable.add(result);return result;};
  if(raw.status==='blocked'||!raw.allStagesDisposed)return stop(raw.reason??'worker-retirement');
  if(signal?.aborted||raw.status==='cancelled')return stop('cancelled');
  const started=now();if(!Number.isFinite(started)||started<0)throw Error('Proof clock');
@@ -45,7 +46,7 @@ export function verifyRoutingResult(raw,{now=()=>performance.now(),signal,maxMs=
  const budget={tick(){clock();if(operations>=maxOperations)throw Error('proof-operation-budget');operations++;if(context)context.operations=operations;}};
  try{
   const checked=inspectExtendedDecomposition(raw.input,raw.snapshot,{now:clock,budgetMs:maxMs}),n=BigInt(raw.input);
-  if(n<2n){const result=Object.freeze({...raw,status:'neither',reason:null,executionStatus:raw.status,executionReason:raw.reason,certaintyVerified:true,allFactorsProven:false,primalityVerified:false,factorizationComplete:false,decompositionComplete:false,verifiedFactors:Object.freeze([]),pendingGroups:Object.freeze([]),proofOperations:operations});verified.add(result);return result;}
+  if(n<2n){const result=Object.freeze({...raw,status:'neither',reason:null,executionStatus:raw.status,executionReason:raw.reason,certaintyVerified:true,allFactorsProven:false,primalityVerified:false,factorizationComplete:false,decompositionComplete:false,verifiedFactors:Object.freeze([]),pendingGroups:Object.freeze([]),proofOperations:operations});verified.add(result);presentable.add(result);return result;}
   const terms=[...checked.factors];if(checked.remaining!=='1')terms.push({value:checked.remaining,exponent:1});
   const groups=new Map();for(const f of terms)groups.set(f.value,(groups.get(f.value)??0)+f.exponent);
   const prime=[],pending=[];
@@ -60,6 +61,6 @@ export function verifyRoutingResult(raw,{now=()=>performance.now(),signal,maxMs=
   const result=Object.freeze({...raw,status:allProven?'complete':complete?'probable':'incomplete',reason:complete?null:raw.reason,
    executionStatus:raw.status,executionReason:raw.reason,certaintyVerified:true,allFactorsProven:allProven,primalityVerified:allProven,factorizationComplete:allProven,decompositionComplete:complete,
    verifiedFactors:Object.freeze(prime),pendingGroups:Object.freeze(pending),proofOperations:operations,proofElapsedMs:last-started});
-  verified.add(result);return result;
+  verified.add(result);presentable.add(result);return result;
  }catch(error){return stop(['proof-time-budget','proof-operation-budget','cancelled','proof-clock'].includes(error.message)?error.message:error.code==='VALIDATION_TIME_BUDGET'?'proof-time-budget':'verification-failed');}
 }

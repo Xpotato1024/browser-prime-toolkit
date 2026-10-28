@@ -6,7 +6,7 @@ import {createSiteSession} from '../../src/site/session.js';
 test('visible mode guidance matches exact numeric acceptance at boundaries',()=>{
  const standard=(1n<<1024n)-1n,high=(1n<<332n)-1n;
  assert.equal(siteInputLimit('standard').maxDigits,309);assert.equal(siteInputLimit('standard').maxTextLength,4096);assert.match(siteInputLimit('standard').text,/309.*1024/);
- for(const engine of ['optimized','wide']){assert.equal(siteInputLimit(engine).maxDigits,100);assert.match(siteInputLimit(engine).text,/100.*332/);assert.equal(validateSiteInput(high.toString(),engine),high.toString());assert.throws(()=>validateSiteInput((high+1n).toString(),engine));assert.throws(()=>validateSiteInput('9'.repeat(100),engine));}
+ for(const [engine,bits,digits]of [['optimized',332,100],['wide',400,121]]){const max=(1n<<BigInt(bits))-1n;assert.equal(siteInputLimit(engine).maxDigits,digits);assert.ok(siteInputLimit(engine).text.includes(String(bits)));assert.equal(validateSiteInput(max.toString(),engine),max.toString());assert.throws(()=>validateSiteInput((max+1n).toString(),engine));assert.throws(()=>validateSiteInput('9'.repeat(digits),engine));}
  assert.equal(validateSiteInput(standard.toString(),'standard'),standard.toString());assert.throws(()=>validateSiteInput((standard+1n).toString(),'standard'));
  assert.equal(validateSiteInput('0'.repeat(4000)+'32','standard'),'32');assert.equal(validateSiteInput('0'.repeat(4096),'standard'),'0');assert.throws(()=>validateSiteInput('0'.repeat(4097),'standard'),{code:'INPUT_TOO_LONG'});
  assert.equal(validateSiteInput('  +3.20e1  ','standard'),'32');assert.throws(()=>validateSiteInput('2.5','standard'),{code:'NOT_AN_INTEGER'});assert.equal(validateSiteInput('9007199254740993','standard'),'9007199254740993');

@@ -19,7 +19,7 @@ export function validateSiteInput(raw,engine='standard'){
 export function siteInputLimit(engine='standard'){
  const standard=engine==='standard',mode=SITE_MODES[engine]??SITE_MODES.optimized;
  return {maxDigits:mode.maxDigits,maxTextLength:MAX_INPUT_LENGTH,
-  text:standard?mode.label+'：最大'+mode.maxDigits+'桁・'+mode.maxBits+'bitまで受付':'高精度／大メモリ：最大'+mode.maxDigits+'桁・'+mode.maxBits+'bit以下',
+  text:standard?mode.label+'：最大'+mode.maxDigits+'桁・'+mode.maxBits+'bitまで受付':mode.label+'：最大'+mode.maxDigits+'桁・'+mode.maxBits+'bit以下'+(mode.experimentalAboveBits?'（333〜400bitは実験的・全分解未検証）':''),
   note:'分解完了を保証する桁数ではありません。'};
 }
 export function siteInputErrorMessage(error,engine){
@@ -27,7 +27,7 @@ export function siteInputErrorMessage(error,engine){
  if(error?.code==='NOT_AN_INTEGER')return '小数部が残らない整数を入力してください（例：32、3.2e1）。';
  if(error?.code==='EXPONENT_OUT_OF_RANGE')return '科学表記の指数は-10000から10000の範囲で入力してください。数値自体にもモード別の上限があります。';
  if(error?.code==='INVALID_SYNTAX'||error?.code==='INVALID_TYPE')return '0以上の整数を入力してください。半角数字または科学表記（例：3.2e1）を使えます。';
- return engine==='standard'?'通常モードの受付は最大309桁、かつ1024bit以下です。受付上限は分解完了の保証ではありません。':'高精度／大メモリの入力は最大100桁、かつ332bit以下にしてください。100桁でも上限を超える値は入力できません。';
+ return siteInputLimit(engine).text+'。桁数・bit数の両方を満たす必要があります。受付は完走保証ではありません。';
 }
 export function selectSitePlan(engine,settings={},hints={},small=false){
  if(!['standard','optimized','wide'].includes(engine))throw Error('Named engine required');

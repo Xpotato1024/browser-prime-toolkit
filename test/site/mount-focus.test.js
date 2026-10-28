@@ -39,13 +39,13 @@ test('settings edits mark previous output without replacing its measured duratio
 test('start navigates once, input is read-only during work, and completion preserves another active control',async()=>{
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve(finished(input));})})});
  f.input.value='360';f.input.focus();f.form.fire('submit');assert.equal(f.input.readOnly,true);assert.equal(f.doc.activeElement,f.find(n=>n.attrs['class']==='bt-status'));assert.equal(f.doc.scrolls.length,1);
- f.input.focus();f.doc.focuses=[];finish();await settle();assert.equal(f.doc.activeElement,f.input);assert.equal(f.doc.focuses.length,0);assert.equal(f.doc.scrolls.length,1);assert.equal(f.input.readOnly,false);
+ await settle();f.input.focus();f.doc.focuses=[];finish();await settle();assert.equal(f.doc.activeElement,f.input);assert.equal(f.doc.focuses.length,0);assert.equal(f.doc.scrolls.length,1);assert.equal(f.input.readOnly,false);
  assert.equal(f.action('result'),undefined);f.app.dispose();
 });
 
 test('cancel retains the lease until retirement and then permits a fresh run',async()=>{
  let finish,signal,runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:(input,options,d)=>{runs++;signal=d.signal;return new Promise(resolve=>{finish=()=>resolve(finished(input));});}})});
- f.input.value='32';f.form.fire('submit');f.action('cancel').fire('click');assert.equal(signal.aborted,true);assert.equal(f.app.getState().phase,'cancelling');assert.equal(f.action('start').disabled,true);assert.equal(f.input.readOnly,true);f.form.fire('submit');assert.equal(runs,1);finish();await settle();assert.equal(f.action('start').disabled,false);f.form.fire('submit');assert.equal(runs,2);finish();await settle();f.app.dispose();
+ f.input.value='32';f.form.fire('submit');await settle();f.action('cancel').fire('click');assert.equal(signal.aborted,true);assert.equal(f.app.getState().phase,'cancelling');assert.equal(f.action('start').disabled,true);assert.equal(f.input.readOnly,true);f.form.fire('submit');assert.equal(runs,1);finish();await settle();assert.equal(f.action('start').disabled,false);f.form.fire('submit');await settle();assert.equal(runs,2);finish();await settle();f.app.dispose();
 });
 
 test('paste text is never truncated and copying keeps rows, status and full precision',async()=>{
@@ -60,7 +60,7 @@ test('asset failure is distinct from invalid input and retries retain the typed 
 
 test('a failed result verification cannot attach an old job snapshot to a successful retry',async()=>{
  let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async input=>{const result=finished(input);return ++runs===1?{...result,policy:'forged'}:result;}})});
- f.input.value='32';f.form.fire('submit');await settle();assert.equal(f.app.getState().phase,'error');
+ f.input.value='32';f.form.fire('submit');await settle();assert.equal(f.app.getState().phase,'result');assert.match(f.app.getState().view.reasonText,/整合性/);assert.match(f.app.getState().view.statusText,/未完了/);
  f.input.value='64';f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.find(n=>n.attrs['class']==='bt-result-title').textContent,'64 の結果');assert.equal(f.find(n=>n.attrs['class']==='bt-draft-note').hidden,true);
  f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*64/);assert.equal(f.find(n=>n.attrs['class']==='bt-draft-note').hidden,false);f.app.dispose();
 });
@@ -123,7 +123,7 @@ test('ready, sample selection and completion leave no stale input announcement o
 
 test('necessary live progress and cancellation transfer focus to one qualified final status',async t=>{
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve({...finished(input),origin:'host',traceAvailable:false,stages:null,grants:null,status:'cancelled',reason:'cancelled',factors:[],remaining:input,primality:'unknown'});})})});t.after(()=>f.app.dispose());
- const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');assert.equal(status.textContent,'計算中');assert.equal(status.attrs['aria-live'],'polite');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.equal(status.textContent,'中止処理');assert.match(f.find(n=>n.attrs['class']==='bt-progress-summary').textContent,/解放/);finish();await settle();
+ const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');await settle();assert.equal(status.textContent,'小入力の分解');assert.equal(status.attrs['aria-live'],'polite');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.equal(status.textContent,'中止処理');assert.match(f.find(n=>n.attrs['class']==='bt-progress-summary').textContent,/解放/);finish();await settle();
  const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
 });
 
@@ -137,7 +137,7 @@ test('a certified stopped result stays visible and copyable while unsafe replace
  f.input.value='1e100';f.form.fire('submit');await settle();
  assert.equal(f.app.getState().phase,'blocked');
  assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,false);
- assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/2\^100 × 5\^100/);
+ assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/2\^100.*5\^100/);
  assert.equal(f.action('copy').disabled,false);assert.equal(f.find(n=>n.attrs['class']==='bt-execution').hidden,false);assert.equal(f.action('start').disabled,true);
  assert.equal(f.action('reset').disabled,true);assert.equal(f.action('settings').disabled,true);assert.equal(f.input.readOnly,true);
  f.action('copy').fire('click');await settle();assert.match(f.find(n=>(n.attrs['class']??'').includes('bt-copy-status')).textContent,/手動でコピー/);

@@ -24,14 +24,14 @@ test('standard acceptance1024 is separate from small128 and unchanged SIQS332',(
  for(const mode of ['optimized','wide'])assert.throws(()=>validateSiteInput(max,mode));
  assert.throws(()=>validateSiteInput((1n<<1024n).toString(),'standard'));assert.match(siteInputLimit('standard').note,/保証/);
 });
-test('adapter runs scientific101digits and shows actual finite Brent resources',async()=>{
+test('adapter runs scientific101digits within shared job budget and reports Native stage resources',async()=>{
  const f=fixture();await f.session.prepare();await f.session.start('1e100',{timeBudgetMs:60000});
  const state=f.session.getState();assert.equal(state.phase,'result',JSON.stringify(state));assert.match(state.view.equation,/2\^100 × 5\^100/);
- assert.equal(state.resources.route,'extended-brent');assert.equal(state.resources.actualTimeBudgetMs,5000);
- assert.equal(state.resources.actualWorkers,1);assert.equal(state.resources.actualWasmBytes,0);assert.equal(state.resources.actualOperationBudget,50000);
+ assert.equal(state.resources.route,'共通ルーティング');assert.equal(state.resources.actualTimeBudgetMs,60000);
+ assert.equal(state.resources.actualWorkers,1);assert.equal(state.resources.actualWasmBytes,0);assert.equal(state.resources.trace[0].workKey,'native');assert.ok(state.resources.trace[0].timeBudgetMs<=5000);
  assert.equal(f.calls[0].options.timeBudgetMs<=5000,true);assert.equal(f.calls[0].options.operationBudget,50000);
  assert.equal(f.scope.isQuarantined(),false);assert.equal(f.metrics.terminated,1);
- assert.match(JSON.stringify(executionPresentation(state.resources,1).limits),/有限Brent/);
+ assert.match(JSON.stringify(executionPresentation(state.resources,1).limits),/共通ルーティング/);
 });
 test('certified outcomes are immutable and cannot be forged or attached to another input',async()=>{
  const f=fixture(),result=await runExtendedInput('1e100',{}, {createWorker:f.createWorker,scope:f.scope});
@@ -52,7 +52,7 @@ test('borrowed lease remains owned through display and cannot be borrowed with a
 test('cancel/unmount and uncertain retirement preserve the document scope boundary',async()=>{
  const f=fixture({stall:true});await f.session.prepare();const pending=f.session.start('1e100');
  assert.equal(f.session.cancel(),true);await pending;const state=f.session.getState();
- assert.equal(state.phase,'result',JSON.stringify(state));assert.match(state.view.statusText,/中止/);assert.equal(f.metrics.terminated,1);
+ assert.equal(state.phase,'result',JSON.stringify(state));assert.match(state.view.statusText,/中止/);assert.equal(f.metrics.terminated,f.metrics.created);
  const bad=fixture({throwTerminate:true});await bad.session.prepare();await bad.session.start('1e100');
  assert.equal(bad.session.getState().phase,'blocked');assert.equal(bad.scope.isQuarantined(),true);
  assert.equal(await bad.session.start('32'),false);

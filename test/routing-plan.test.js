@@ -76,3 +76,11 @@ test('wide332 is resource-dependent, capped at332bits, and shares same-residual 
  assert.equal(chooseStage({remaining:high,available,policy:makeRoutingPolicy({wasmMiB:1536}),remainingMs:3600000}).terminal,'enabled-engines-exhausted');
  assert.equal(chooseStage({remaining:low,available,attempted:['siqsWide332:'+low],policy:makeRoutingPolicy({wasmMiB:1536,experimental400:true}),remainingMs:1000}).terminal,'enabled-engines-exhausted');
 });
+
+test('normal six-owner allocation remains finite while wide still caps at five',()=>{
+ const policy=makeRoutingPolicy({maxWorkers:6,wasmMiB:768});
+ const normal=chooseStage({remaining:((1n<<200n)+1n).toString(),available:['siqs332'],policy,remainingMs:1000});
+ assert.equal(normal.resourcePlan.workers,6);assert.ok(normal.wasmAllocationBytes<=768*1048576);
+ const wide=chooseStage({remaining:((1n<<200n)+1n).toString(),available:['siqsWide332'],policy:makeRoutingPolicy({maxWorkers:6,wasmMiB:1536}),remainingMs:3600000});
+ assert.equal(wide.resourcePlan.workers,5);assert.equal(wide.resourcePlan.ownerCapsMiB[0],1024);
+});
