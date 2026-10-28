@@ -12,7 +12,7 @@ const stages={
 function snapshot(state){
  if(!state)return null;
  const [label,summary]=stages[state.stage],atTarget=state.stage==='collecting'&&state.relations>=state.target;
- return {...state,summary:atTarget?'収集目標に到達。検算を含む後続処理は未完了です。':summary,
+ return {...state,factorCandidates:(state.factorCandidates??[]).map(f=>({...f})),summary:atTarget?'収集目標に到達。検算を含む後続処理は未完了です。':summary,
   label:atTarget?'収集目標到達・後続処理':state.stage==='running'&&state.engineLabel?state.engineLabel:label,value:state.stage==='collecting'&&!atTarget?state.relations/state.target:null};
 }
 export function createProgressTracker(){
@@ -20,8 +20,14 @@ export function createProgressTracker(){
  const current=job=>!closed&&state?.job===job&&!['settled','stopped'].includes(state.stage);
  return{
   get:()=>snapshot(state),
-  begin(job){if(closed||!Number.isSafeInteger(job)||job<=lastJob)return false;lastJob=job;state={job,stage:'running',families:null,relations:null,target:null};return true;},
-  engine(job,stageJob,stage){if(!current(job)||state.stage==='cancelling'||!Number.isSafeInteger(stageJob)||stageJob<1||stageJob<=(state.stageJob??0)||!Object.hasOwn(routingStageLabels,stage))return false;state={job,stage:'running',stageJob,engineLabel:routingStageLabels[stage],families:null,relations:null,target:null};return true;},
+  begin(job){if(closed||!Number.isSafeInteger(job)||job<=lastJob)return false;lastJob=job;state={job,stage:'running',families:null,relations:null,target:null,factorCandidates:[]};return true;},
+  engine(job,stageJob,stage){if(!current(job)||state.stage==='cancelling'||!Number.isSafeInteger(stageJob)||stageJob<1||stageJob<=(state.stageJob??0)||!Object.hasOwn(routingStageLabels,stage))return false;state={...state,job,stage:'running',stageJob,engineLabel:routingStageLabels[stage],families:null,relations:null,target:null};return true;},
+  prefix(job,factors){
+   if(!current(job)||!['running','collecting'].includes(state.stage)||!Array.isArray(factors)||factors.length>1024)return false;
+   if(factors.some(f=>typeof f?.value!=='string'||f.value.length>309||!/^[1-9][0-9]*$/.test(f.value)||!Number.isSafeInteger(f.exponent)||f.exponent<1||f.exponent>1023))return false;
+   const next=factors.map(f=>({value:f.value,exponent:f.exponent}));if(JSON.stringify(next)===JSON.stringify(state.factorCandidates??[]))return false;
+   state={...state,factorCandidates:next};return true;
+  },
   collect(job,data){
    if(!current(job)||!['running','collecting'].includes(state.stage)||!data)return false;
    const {families,relations,target}=data;

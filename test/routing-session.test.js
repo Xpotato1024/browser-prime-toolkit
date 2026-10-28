@@ -14,7 +14,7 @@ test('Brent→ECM→SIQS uses one deadline, retained work ledger and phase reser
  const f=port(r=>{calls.push(r);time+=10;return exhausted(r);});
  const result=await createRoutingSession({ports:{native:f,ecm:f,siqs332:f},now:()=>time}).run(big.toString(),{jobTimeMs:10000,wasmMiB:128});
  assert.deepEqual(calls.map(c=>c.stage),['native','ecm','siqs332']);
- assert.deepEqual(calls.map(c=>c.timeBudgetMs),[250,1000,9980]);
+ assert.deepEqual(calls.map(c=>c.timeBudgetMs),[250,250,9980]);
  assert.equal(result.deadline,10000);assert.equal(result.workRemaining.native,49999);assert.equal(result.workRemaining.ecm,499999);assert.equal(result.workRemaining.siqs,4095);
  assert.equal(result.factorizationComplete,false);assert.equal(result.allStagesDisposed,true);
 });

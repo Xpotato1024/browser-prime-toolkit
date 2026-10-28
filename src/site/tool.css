@@ -86,3 +86,5 @@
 .bt-prime-factorizer .bt-progress-summary { min-block-size:3.2em; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer .bt-progress progress[data-terminal="true"] { visibility:hidden; }
 .bt-prime-factorizer .bt-actions button[data-action="cancel"][hidden] { display:block; visibility:hidden; pointer-events:none; }
+
+.bt-prime-factorizer .bt-progress-partial-value{overflow-wrap:anywhere;}

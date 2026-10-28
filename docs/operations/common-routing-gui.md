@@ -75,3 +75,5 @@ served CSSのtool.cssはsrc/site/tool.cssのaliasで、他のsourceは同名path
 既定の高精度GUIでも133bit対照がNativeのwork停止→ECMのphase停止→SIQSへ進み、
 2因子をprobableとして返す経路を確認しました。所要時間の優位性は比較していません。
 このharnessはローカルの最小hostです。Site本番テーマ／CSP／配布artifactの受入とは別です。
+
+後続の[分岐予算実測と方式横断UI](../benchmarks/llm01-routing-micro.md)で、ECM前処理枠と途中因子候補表示を追加評価しました。本ページの12ケースはその前の固定証跡です。

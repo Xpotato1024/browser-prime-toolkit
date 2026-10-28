@@ -31,7 +31,7 @@ proper divisorも合成数になり得るため、返された因子の群も素
 
 job開始時に単調なdeadlineを一度決め、前処理・分割・残余変更で延長しません。
 各段階へmin(phase cap, remaining time)を渡します。
-native prefix250ms、ECM prefix1000ms、後段がある場合は残り時間の最大1/4を
+native prefix250ms、ECM prefix250ms、後段がある場合は残り時間の最大1/4を
 前段へ配る値を暫定設定とし、最適値や成功率の保証ではありません。
 設定として検証可能にし、能力上限のbit数とは区別します。
 
@@ -128,3 +128,8 @@ staged macro内部のBrent／ECM消費を別portの観測値へ推定加算し�
 小入力のstagedは最大60秒、以後もjob deadlineは延長しません。
 GUIは工程開始と受理された関係収集量だけを進捗へ変換し、
 最終確認前に全体完了を表示しません。modeは別アルゴリズムではありません。
+
+後段がある時のECM prefixは、[小規模実測](../benchmarks/llm01-routing-micro.md)の
+1000ms対250ms ABBA比較に基づき250msへ変更しました。
+Nativeの250msと5万操作枠は維持します。最適なbit閾値を確定したものではありません。
+受理済み分割はGUIの開閉表示へ因子候補として転送し、素数性の最終確認前と明示します。

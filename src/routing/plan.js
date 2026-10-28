@@ -14,7 +14,7 @@ export const ENGINE_CAPABILITIES=Object.freeze({
 export function makeRoutingPolicy(options={}){
  const allowed=['jobTimeMs','wasmMiB','maxWorkers','wasmSupported','simdSupported','experimental400','nativePrefixMs','ecmPrefixMs','reserveDivisor','maxStages','retirementGraceMs','work'];
  if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(k=>!allowed.includes(k)))throw TypeError('Routing policy');
- const p={jobTimeMs:1000,wasmMiB:128,maxWorkers:1,wasmSupported:true,simdSupported:true,experimental400:false,nativePrefixMs:250,ecmPrefixMs:1000,reserveDivisor:4,maxStages:32,retirementGraceMs:100,...options};
+ const p={jobTimeMs:1000,wasmMiB:128,maxWorkers:1,wasmSupported:true,simdSupported:true,experimental400:false,nativePrefixMs:250,ecmPrefixMs:250,reserveDivisor:4,maxStages:32,retirementGraceMs:100,...options};
  for(const[k,min,max]of [['jobTimeMs',1,3600000],['maxWorkers',1,6],['nativePrefixMs',1,5000],['ecmPrefixMs',1,60000],['reserveDivisor',2,16],['maxStages',1,64],['retirementGraceMs',1,1000]])if(!Number.isSafeInteger(p[k])||p[k]<min||p[k]>max)throw RangeError('Routing '+k);
  if(![0,64,128,256,384,512,768,1536].includes(p.wasmMiB))throw RangeError('Routing WASM budget');
  for(const k of ['wasmSupported','simdSupported','experimental400'])if(typeof p[k]!=='boolean')throw TypeError('Routing '+k);

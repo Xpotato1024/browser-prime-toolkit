@@ -45,7 +45,8 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
       progress.engine(id,event.jobId,event.stage);resources.activeStage=event.stage;
       resources.actualWorkers=Math.max(resources.actualWorkers,event.workerLimit??0);resources.actualWasmBytes=Math.max(resources.actualWasmBytes,event.wasmAllocationBytes??0);
       emit({...state,resources});
-     }else if(event.phase==='collecting'&&progress.collect(id,event)){emit({...state,resources});}
+     }else if(event.phase==='accepted-prefix'&&progress.prefix(id,event.factors)){emit({...state,resources});}
+     else if(event.phase==='collecting'&&progress.collect(id,event)){emit({...state,resources});}
     }});
     if(rawResult.reason==='scope-busy'){terminal={phase:'invalid',engine,input:null,view:null,error:'同じページの別の計算が終了してから実行してください。',errorField:'runtime',resources:null};}
     else{

@@ -105,3 +105,15 @@ test('reported WASM allocation failure differs from a quota refusal and unknown 
  assert.equal(stopReasonPresentation('missing-session').category,'protocol');
  assert.equal(stopReasonPresentation('composite-divisor').category,'verification');
 });
+
+test('partial factor candidates persist across methods but never become prime claims or leak into a fresh job',()=>{
+ const t=createProgressTracker();t.begin(1);t.engine(1,1,'native');
+ assert.equal(t.prefix(1,[{value:'2',exponent:3}]),true);assert.equal(t.prefix(1,[{value:'2',exponent:3}]),false);
+ const copy=t.get();copy.factorCandidates[0].value='7';assert.equal(t.get().factorCandidates[0].value,'2');
+ t.engine(1,2,'ecm');assert.equal(t.get().factorCandidates[0].value,'2');assert.equal(t.get().value,null);
+ const f=fixture(),v=createProgressView(f.doc,'partial-');v.update(t.get());
+ const detail=f.nodes.find(n=>n.attrs.class==='bt-progress-partial');assert.equal(detail.hidden,false);
+ assert.ok(f.nodes.some(n=>n.textContent.includes('2^3')));assert.ok(f.nodes.some(n=>n.textContent.includes('最終確認前')));
+ t.cancel(1);assert.equal(t.prefix(1,[{value:'5',exponent:1}]),false);t.finish(1,'result');v.update(t.get());assert.equal(detail.hidden,true);
+ t.begin(2);assert.equal(t.get().factorCandidates.length,0);assert.equal(t.prefix(1,[{value:'7',exponent:1}]),false);
+});

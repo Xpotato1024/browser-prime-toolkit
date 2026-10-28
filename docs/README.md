@@ -143,3 +143,4 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [残余・共通deadline・資源／work台帳によるルーティング候補](contracts/common-routing.md)
 - [共通ルーティングの実エンジン接続・限定試験と残件](operations/common-routing-integration.md)
 \n- [共通routingのローカルGUI採用・予算・限定ブラウザ受入](operations/common-routing-gui.md)\n
+- [入力幅・最小因子幅別の方式比較、ECM予算ABBAと方式横断UI](benchmarks/llm01-routing-micro.md)

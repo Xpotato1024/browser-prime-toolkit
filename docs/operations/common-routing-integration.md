@@ -98,3 +98,5 @@ arithmetic.jsは本人の対象限定許可後に正規の読取で確認しま�
 GUI候補の共通routing接続は[次段階](common-routing-gui.md)で実装しました。公開前の全体試験・CIは残ります。
 400bit単一familyの過去観測と、この短い期限停止試験は
 [別の実測](../benchmarks/llm01-siqs400-family.md)として扱います。
+
+この段階のECM暫定1000msは、[後続の有限比較](../benchmarks/llm01-routing-micro.md)で250msへ改めました。過去の試験・測定SHAは保持します。
