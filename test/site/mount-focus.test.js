@@ -6,6 +6,7 @@ import {factorStaged} from '../../src/engine/staged-factor.js';
 function fixture(){const doc={activeElement:null,focuses:[],scrolls:[]};class Element{
  constructor(tag){this.tagName=tag.toUpperCase();this.ownerDocument=doc;this.children=[];this.attrs={};this.events=new Map();this.dataset={};this.value='';this.style={};}
  setAttribute(k,v){this.attrs[k]=String(v);if(['id','value'].includes(k))this[k]=String(v);}
+ removeAttribute(k){delete this.attrs[k];}
  append(...nodes){this.children.push(...nodes);if(this.tagName==='SELECT'&&!this.value)this.value=this.children[0]?.value??'';}
  replaceChildren(...nodes){this.children=[...nodes];}addEventListener(k,f){this.events.set(k,f);}removeEventListener(k){this.events.delete(k);}
  showModal(){this.open=true;}close(){this.open=false;}
@@ -114,14 +115,14 @@ test('ready, sample selection and completion leave no stale input announcement o
  f.action('examples').fire('click');f.find(n=>n.attrs['data-sample-value']==='9007199254740993').fire('click');
  assert.equal(f.input.value,'9007199254740993');assert.equal(f.app.getState().phase,'ready');
  assert.equal(nodes(f.root).some(n=>/を入力しました|まだ実行していません|入力を用意して/.test(n.textContent??'')),false);
- f.form.fire('submit');await settle();assert.equal(status.textContent,'');const summary=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(summary.textContent,/分解完了/);assert.equal(summary.attrs.role,'status');assert.equal(summary.attrs['aria-live'],'polite');
+ f.form.fire('submit');await settle();assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');const summary=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(summary.textContent,/分解完了/);assert.equal(summary.attrs.role,'status');assert.equal(summary.attrs['aria-live'],'polite');
  assert.equal(nodes(f.root).some(n=>/計算が終了しました|中止処理が完了しました/.test(n.textContent??'')),false);
- f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);f.form.fire('submit');await settle();assert.equal(status.textContent,'');
+ f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);f.form.fire('submit');await settle();assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');
  f.action('reset').fire('click');await settle();assert.equal(status.textContent,'');assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,true);f.app.dispose();
 });
 
 test('necessary live progress and cancellation transfer focus to one qualified final status',async t=>{
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve({...finished(input),origin:'host',traceAvailable:false,stages:null,grants:null,status:'cancelled',reason:'cancelled',factors:[],remaining:input,primality:'unknown'});})})});t.after(()=>f.app.dispose());
- const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');assert.equal(status.textContent,'計算しています。');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.match(status.textContent,/解放/);finish();await settle();
- const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
+ const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');assert.equal(status.textContent,'計算中');assert.equal(status.attrs['aria-live'],'polite');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.equal(status.textContent,'中止処理');assert.match(f.find(n=>n.attrs['class']==='bt-progress-summary').textContent,/解放/);finish();await settle();
+ const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
 });
