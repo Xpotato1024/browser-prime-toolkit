@@ -130,3 +130,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [生成元・生成工程・配布物の監査性を高める構成案](architecture/artifact-auditability-plan.md)
 - [ベンダー確認用の非秘密metadataと未解決手続き](operations/vendor-review-brief.md)
 - [1024bit受付・400bit余因子の独立候補契約と検証範囲](contracts/extended-input-candidate.md)
+
+- [配布ファイルと元ソースを結ぶ監査receiptの実装・検証範囲](operations/artifact-provenance.md)
