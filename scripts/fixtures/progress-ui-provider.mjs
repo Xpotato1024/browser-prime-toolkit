@@ -20,3 +20,7 @@ export const selectValidatedStagedPlan=()=>({mode:'ui-fixture-only',engineMode:'
 export const runSelectedStagedRequest=(input,options,context)=>request(input,{...options,...context},false);
 export const runRusqsieve=(input,options)=>request(input,options,true);
 export const loadFixtureLight=async()=>{if(control.loadFailures>0){control.loadFailures--;throw Error('UI fixture load error');}return{selectValidatedStagedPlan,runSelectedStagedRequest};};
+
+// New production import remains an inert boundary in this UI-only fixture.
+export const runExtendedInput=()=>{throw Error('Extended engine forbidden in UI fixture');};
+export const isVerifiedExtendedOutcome=()=>false;

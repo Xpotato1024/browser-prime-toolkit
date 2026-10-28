@@ -21,7 +21,7 @@ export function executionPresentation(resources,elapsedMs){
  const configured=resources.configuredPlan??resources.plan;
  return {elapsed:formatElapsed(elapsedMs),
   measurementNote:'この計算のWorker初期化・結果検証・解放処理を含みます。ページ初回の読込・準備時間は含みません。',
-  limits:[...(configured?[['選択したWASM予算',configured.budgetBytes/1048576+' MiB']]:[]),['時間上限',resources.actualTimeBudgetMs/1000+'秒'],['計算経路',resources.route],['経路のWorker上限',resources.actualWorkers?String(resources.actualWorkers):'この計算では使わない'],['経路のWASM上限',resources.actualWasmBytes?resources.actualWasmBytes/1048576+' MiB':'この計算では使わない']],
+  limits:[...(configured?[['選択したWASM予算',configured.budgetBytes/1048576+' MiB']]:[]),['時間上限',resources.actualTimeBudgetMs/1000+'秒'],['計算経路',resources.route==='extended-brent'?'大きい入力（有限Brent）':resources.route],['経路のWorker上限',resources.actualWorkers?String(resources.actualWorkers):'この計算では使わない'],['経路のWASM上限',resources.actualWasmBytes?resources.actualWasmBytes/1048576+' MiB':'この計算では使わない'],...(resources.actualOperationBudget!==undefined?[['計算量上限',String(resources.actualOperationBudget)+' 操作']]:[])],
   limitsNote:'設定予算と、入力に応じた計算経路の上限を分けて表示しています。WASMを使わない経路でも設定予算は保持します。いずれも実メモリ使用量の測定値ではありません。'};
 }
 // Selection changes input only. No engine/resource setting or auto-start.

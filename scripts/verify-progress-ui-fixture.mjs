@@ -12,7 +12,7 @@ const pw=await import(pathToFileURL(resolve(arg('--playwright'))));await mkdir(o
 const sourcePaths=['src/site/mount.js','src/site/session.js','src/site/progress.js','src/site/progress-view.js',
  'src/site/presentation.js','src/site/document-scope.js','src/site/capabilities.js','src/site/policy.js',
  'src/site/settings-state.js','src/site/modal.js','src/site/guidance.js','src/site/fonts.js','src/site/font-text.js',
- 'src/site/tool.css','src/core/integer-input.js','src/graph-multicore/policy.js','src/selected-wide/policy.js','src/wide-window/policy.js'];
+ 'src/site/tool.css','src/extended/policy.js','src/extended/result-view.js','src/core/extended-input-contract.js','src/core/integer-input.js','src/graph-multicore/policy.js','src/selected-wide/policy.js','src/wide-window/policy.js'];
 const routes=new Map(await Promise.all(sourcePaths.map(async p=>['/'+p,await readFile(join(repo,p))])));
 routes.set('/fixtures/provider.mjs',await readFile(join(repo,'scripts/fixtures/progress-ui-provider.mjs')));
 routes.set('/fixtures/no-arithmetic.mjs',Buffer.from("export function assessPrime(){uiFixture.mathCalls++;throw Error('Arithmetic forbidden in UI fixture');}"));
@@ -20,7 +20,7 @@ routes.set('/fixtures/constants.mjs',Buffer.from('export const UINT64_CEILING=18
 routes.set('/fixtures/view.mjs',Buffer.from("export function makeResultView(result,input){if(result.input!==input||!result.fixtureView)throw Error('UI fixture view required');return result.fixtureView;}"));
 const imports=Object.fromEntries([
  ['/src/resources/light-adapter.js','/fixtures/provider.mjs'],['/src/optimized/index.js','/fixtures/provider.mjs'],
- ['/src/selected-wide/index.js','/fixtures/provider.mjs'],['/src/engine/arithmetic.js','/fixtures/no-arithmetic.mjs'],
+ ['/src/extended/runner.js','/fixtures/provider.mjs'],['/src/selected-wide/index.js','/fixtures/provider.mjs'],['/src/engine/arithmetic.js','/fixtures/no-arithmetic.mjs'],
  ['/src/engine/options.js','/fixtures/constants.mjs'],['/src/ui/result-view.js','/fixtures/view.mjs']]);
 routes.set('/fixture.mjs',Buffer.from([
  "import {mountSiteFactorizer} from '/src/site/mount.js';",

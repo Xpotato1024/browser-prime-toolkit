@@ -49,3 +49,7 @@ Node24.22.1で、実engineを許可しないexact module allowlistを使い、�
 ## 2026-10-28 の実engine接続
 
 既存候補契約を使う[非公開のnative-only Brent入口](extended-engine.md)を追加しました。公開経路とSIQS400bitは未接続のままです。上記の独立契約試験と、新環境での実engine試験を区別します。
+
+## 通常adapterへのローカル採用
+
+[採用契約](adapter-extended-input.md)に従い、通常受付と有限Brentへ接続しました。pure checkerのexecutionEnabled=falseはchecker自体が計算を起動しないことを示し、hostのdispatch可否とは別です。SIQS400bitは有効化せず、公開版/Siteも未変更です。

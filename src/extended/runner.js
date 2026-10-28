@@ -1,31 +1,38 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-// Private bounded integration. Public adapter/capabilities and SIQS limits are unchanged.
+// Internal bounded controller. SIQS limits are independent of input acceptance.
 import {inspectExtendedInput,inspectExtendedDecomposition} from '../core/extended-input-contract.js';
 import {makeNativeWorker} from '../worker/native-factory.js';
 import {verifySnapshot,verifyFactorResult,resolvedPrimality} from '../engine/result.js';
 import {assessPrime} from '../engine/arithmetic.js';
 import {SMALL_PRIMES} from '../engine/options.js';
 import {makeComputeScope} from '../site/document-scope.js';
+import {EXTENDED_RUNNER_LIMITS as limits} from './policy.js';
 class ExtendedBudgetStop extends Error{constructor(reason){super(reason);this.reason=reason;}}
-const privateScope=makeComputeScope();
+const privateScope=makeComputeScope(),outcomes=new WeakSet();
+function certify(result){
+ const outcome=Object.freeze({...result,factors:Object.freeze(result.factors.map(f=>Object.freeze({...f})))});
+ outcomes.add(outcome);return outcome;
+}
+// Certifies this module's verified prefix/status, not successful completion.
+export const isVerifiedExtendedOutcome=(result,input)=>outcomes.has(result)&&result.input===input;
 export async function runExtendedInput(raw,options={},{
- createWorker=makeNativeWorker,scope=privateScope,now=()=>performance.now()
+ createWorker=makeNativeWorker,scope=privateScope,scopeToken,now=()=>performance.now()
 }={}){
  const {canonical:input}=inspectExtendedInput(raw);
  if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(k=>!['timeBudgetMs','operationBudget','signal','onProgress'].includes(k)))throw TypeError('Extended options');
- const {timeBudgetMs=1000,operationBudget=50000,signal,onProgress=()=>{}}=options;
- if(!Number.isSafeInteger(timeBudgetMs)||timeBudgetMs<1||timeBudgetMs>5000||!Number.isSafeInteger(operationBudget)||operationBudget<1||operationBudget>1000000)throw RangeError('Finite extended budget');
+ const {timeBudgetMs=limits.defaultTimeMs,operationBudget=limits.defaultOperations,signal,onProgress=()=>{}}=options;
+ if(!Number.isSafeInteger(timeBudgetMs)||timeBudgetMs<1||timeBudgetMs>limits.maxTimeMs||!Number.isSafeInteger(operationBudget)||operationBudget<1||operationBudget>limits.maxOperations)throw RangeError('Finite extended budget');
  if(typeof createWorker!=='function'||typeof now!=='function'||typeof onProgress!=='function'||signal&&(typeof signal.aborted!=='boolean'||typeof signal.addEventListener!=='function'||typeof signal.removeEventListener!=='function'))throw TypeError('Extended dependencies');
  const started=now();if(!Number.isFinite(started)||started<0)throw TypeError('Clock');
  let lastTime=started;
  const clock=()=>{const t=now();if(!Number.isFinite(t)||t<lastTime)throw Error('Clock');lastTime=t;return t;};
- const deadline=started+timeBudgetMs,token={};
+ const deadline=started+timeBudgetMs,borrowed=scopeToken!==undefined,token=scopeToken??{};
  let accepted={input,factors:[],remaining:input,operations:0,elapsedMs:0},inspection=null;
  const bare=(status,reason)=>({...accepted,inspection,status,reason,primality:status==='neither'?'neither':accepted.primality??(accepted.factors.length?resolvedPrimality(accepted):'unknown'),profile:'private-extended-brent-v1',wasmBytes:0,
   allWorkersDisposed:true,allWorkerSourcesReleased:true,requestWallMs:Math.max(0,lastTime-started)});
- if(signal?.aborted)return bare('cancelled','cancelled');
- if(BigInt(input)<2n)return bare('neither',null);
- if(!scope.acquire(token))return bare('blocked',scope.isQuarantined()?'scope-quarantined':'scope-busy');
+ if(signal?.aborted)return certify(bare('cancelled','cancelled'));
+ if(BigInt(input)<2n)return certify(bare('neither',null));
+ if(borrowed?!scope.owns?.(token):!scope.acquire(token))return certify(bare('blocked',scope.isQuarantined()?'scope-quarantined':'scope-busy'));
  return new Promise(resolve=>{
   let worker=null,done=false,ready=false,timer,sourceReleased=false,sourceAttempted=false,factoryAttempted=false,constructing=false,cancelQueued=false;
   const notify=stage=>onProgress({stage,fraction:null,acceptedFactors:accepted.factors.length});
@@ -41,11 +48,11 @@ export async function runExtendedInput(raw,options={},{
     worker.onmessage=null;worker.onerror=null;worker.onmessageerror=null;released=release();
     try{worker.terminate();retired=true;}catch{}
    }
-   if(!retired||!released){status='blocked';reason='worker-retirement';scope.quarantine();}else scope.release(token);
+   if(!retired||!released){status='blocked';reason='worker-retirement';scope.quarantine();}else if(!borrowed)scope.release(token);
    try{clock();}catch{if(status!=='blocked'){status='error';reason='invalid-clock';}}
    const result={...bare(status,reason),calculationStatus,stopCause,allWorkersDisposed:retired,allWorkerSourcesReleased:released};
    try{notify('finished');}catch{}
-   resolve(result);
+   resolve(certify(result));
   };
   const cancel=()=>{if(constructing){cancelQueued=true;return;}finish('cancelled','cancelled');};
   function checkSnapshot(snapshot,final=false){

@@ -14,8 +14,8 @@ test('assets are prepared before calculation and light input keeps existing exac
  await s.prepare('standard');await s.start('3.2e1');assert.deepEqual(loads,['light']);assert.equal(calls[0].i,'32');assert.equal(s.getState().view.copyText.split('\n')[0],'32 = 2^5');assert.equal(s.getState().resources.actualWasmBytes,0);assert.equal(s.getState().resources.actualWorkers,1);
  await s.start('0');assert.equal(s.getState().resources.actualWorkers,0);
 });
-test('experimental assets and explicit mode are required for large integers',async()=>{
- const {s,calls,loads}=fixture();await s.prepare('standard');assert.equal(await s.start(big),false);assert.equal(calls.length,0);
+test('SIQS assets and explicit mode remain required for that processing profile',async()=>{
+ const {s,calls,loads}=fixture();await s.prepare('standard');assert.equal(await s.start((1n<<1024n).toString()),false);assert.equal(calls.length,0);
  await s.prepare('optimized');await s.start(big,{mode:'manual',workers:4,memoryMiB:512,timeBudgetMs:60000});
  assert.deepEqual(loads,['light','heavy']);assert.equal(calls[0].o.resourcePlan.workers,4);assert.equal(s.getState().resources.actualWasmBytes,448*1048576);assert.match(s.getState().view.copyText,/未完了/);
  await s.start('32');assert.equal(calls[1].i,'32');assert.equal(calls[1].d.signal.aborted,false);

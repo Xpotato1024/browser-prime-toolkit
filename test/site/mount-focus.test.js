@@ -21,7 +21,7 @@ test('all examples only fill the common input, collapse and return focus to the 
  let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{runs++;return finished(i);}})});
  assert.equal(f.action('quick-example'),undefined);const samples=f.find(n=>n.attrs['class']==='bt-samples');
  for(const sample of nodes(f.root).filter(n=>'data-sample-value' in n.attrs)){f.action('examples').fire('click');sample.focus();sample.fire('click');assert.equal(f.input.value,sample.attrs['data-sample-value']);assert.equal(samples.open,false);assert.equal(f.doc.activeElement,f.action('start'));assert.equal(f.app.getState().phase,'ready');}
- assert.equal(runs,0);assert.equal(f.input.attrs.maxlength,undefined);const area=f.find(n=>n.attrs['class']==='bt-input-area'),limit=f.find(n=>n.attrs['class']==='bt-input-limit');assert.ok(area.children.includes(limit));assert.match(limit.textContent,/39.*2\^128/);assert.ok(f.input.attrs['aria-describedby'].includes(limit.id));f.app.dispose();
+ assert.equal(runs,0);assert.equal(f.input.attrs.maxlength,undefined);const area=f.find(n=>n.attrs['class']==='bt-input-area'),limit=f.find(n=>n.attrs['class']==='bt-input-limit');assert.ok(area.children.includes(limit));assert.match(limit.textContent,/309.*1024/);assert.ok(f.input.attrs['aria-describedby'].includes(limit.id));f.app.dispose();
 });
 
 test('edited input is unexecuted and the previous result and copy remain bound to their original input',async()=>{
@@ -105,7 +105,7 @@ test('configured WASM budget remains distinct from the small route that does not
 });
 
 test('settings cancel and invalid apply leave current result and applied input ceiling unchanged',async()=>{
- const f=await setup();f.input.value='32';f.form.fire('submit');await settle();f.action('settings').fire('click');const engine=f.find(n=>n.id?.endsWith('-engine'));engine.value='wide';engine.fire('change');assert.match(f.find(n=>n.attrs['class']==='bt-input-limit').textContent,/39/);f.action('cancel-settings').fire('click');assert.equal(f.doc.activeElement,f.action('settings'));assert.equal(engine.value,'standard');assert.equal(f.find(n=>n.attrs['class']==='bt-result-title').textContent,'32 の結果');
+ const f=await setup();f.input.value='32';f.form.fire('submit');await settle();f.action('settings').fire('click');const engine=f.find(n=>n.id?.endsWith('-engine'));engine.value='wide';engine.fire('change');assert.match(f.find(n=>n.attrs['class']==='bt-input-limit').textContent,/309/);f.action('cancel-settings').fire('click');assert.equal(f.doc.activeElement,f.action('settings'));assert.equal(engine.value,'standard');assert.equal(f.find(n=>n.attrs['class']==='bt-result-title').textContent,'32 の結果');
  f.action('settings').fire('click');engine.value='optimized';engine.fire('change');const mode=f.find(n=>n.id?.endsWith('-mode')),memory=f.find(n=>n.id?.endsWith('-memory'));mode.value='manual';mode.fire('change');memory.value='1536';memory.fire('change');f.action('apply-settings').fire('click');assert.equal(f.find(n=>n.attrs['class']==='bt-settings').open,true);assert.equal(f.app.getState().engine,'standard');assert.match(f.doc.activeElement.textContent,/まだ適用していません/);f.form.fire('submit');await settle();assert.equal(f.app.getState().input,'32');f.app.dispose();
 });
 test('a pending clipboard denial cannot take focus from a newly opened modal',async()=>{const f=await setup();f.input.value='32';f.form.fire('submit');await settle();let rejectCopy;f.doc.defaultView.navigator.clipboard={writeText:()=>new Promise((resolve,reject)=>{rejectCopy=reject;})};f.action('copy').fire('click');f.action('examples').fire('click');const focused=f.doc.activeElement;rejectCopy(Error('denied'));await settle();assert.equal(f.doc.activeElement,focused);assert.equal(focused.tagName,'H2');f.app.dispose();});
@@ -125,4 +125,21 @@ test('necessary live progress and cancellation transfer focus to one qualified f
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve({...finished(input),origin:'host',traceAvailable:false,stages:null,grants:null,status:'cancelled',reason:'cancelled',factors:[],remaining:input,primality:'unknown'});})})});t.after(()=>f.app.dispose());
  const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');assert.equal(status.textContent,'計算中');assert.equal(status.attrs['aria-live'],'polite');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.equal(status.textContent,'中止処理');assert.match(f.find(n=>n.attrs['class']==='bt-progress-summary').textContent,/解放/);finish();await settle();
  const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
+});
+
+test('a certified stopped result stays visible and copyable while unsafe replacement is blocked',async()=>{
+ const {runExtendedInput}=await import('../../src/extended/runner.js');
+ const {factorInteger}=await import('../../src/engine/factor.js');
+ const createWorker=()=>{const worker={releaseSource(){},terminate(){throw Error('retire');},
+  postMessage(message){queueMicrotask(()=>worker.onmessage?.({data:{protocolVersion:1,type:'result',jobId:1,result:factorInteger(BigInt(message.input),message.options)}}));}
+ };queueMicrotask(()=>worker.onmessage?.({data:{protocolVersion:1,type:'ready'}}));return worker;};
+ const f=await setup({loadExtended:async()=>({runExtendedInput:(input,options,deps)=>runExtendedInput(input,options,{...deps,createWorker})})});
+ f.input.value='1e100';f.form.fire('submit');await settle();
+ assert.equal(f.app.getState().phase,'blocked');
+ assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,false);
+ assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/2\^100 × 5\^100/);
+ assert.equal(f.action('copy').disabled,false);assert.equal(f.find(n=>n.attrs['class']==='bt-execution').hidden,false);assert.equal(f.action('start').disabled,true);
+ assert.equal(f.action('reset').disabled,true);assert.equal(f.action('settings').disabled,true);assert.equal(f.input.readOnly,true);
+ f.action('copy').fire('click');await settle();assert.match(f.find(n=>(n.attrs['class']??'').includes('bt-copy-status')).textContent,/手動でコピー/);
+ f.app.dispose();
 });

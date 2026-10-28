@@ -134,3 +134,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [配布ファイルと元ソースを結ぶ監査receiptの実装・検証範囲](operations/artifact-provenance.md)
 
 - [非公開1024bit入力と既存BigInt Workerの有限接続](contracts/extended-engine.md)
+
+- [通常adapter/GUIの309桁受付・有限Brent採用と未充足条件](contracts/adapter-extended-input.md)

@@ -35,6 +35,14 @@ export function createProgressTracker(){
  };
 }
 const reasons={
+ 'verification-time-budget':['verification-budget','検算の時間上限に達しました。検算済みの結果だけを表示しています。'],
+ 'verification-work-budget':['verification-budget','検算の計算量上限に達しました。検算済みの結果だけを表示しています。'],
+ 'worker-create-error':['worker','Workerを準備できませんでした。原因がメモリ不足かは確認できません。'],
+ 'computation-error':['worker','計算処理がエラーを報告しました。検算済みの結果だけを表示しています。'],
+ 'worker-csp-violation':['worker','Workerのセキュリティ方針違反が報告されたため停止しました。'],
+ 'invalid-clock':['clock','経過時間の測定に異常があったため停止しました。'],
+ 'scope-busy':['resource','同じページの計算が終了してから実行してください。'],
+ 'scope-quarantined':['cleanup','資源解放を確認できないため、このページでは再実行できません。'],
  'time-budget':['time','設定した実行時間の上限に達しました。'],
  'host-timeout':['time','初期化を含む実行時間の上限に達しました。'],
  'initialization-timeout':['initialization','Workerの初期化時間の上限に達しました。'],

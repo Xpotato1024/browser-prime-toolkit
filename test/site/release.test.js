@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 import {selectSitePlan,parseSiteInput} from '../../src/site/policy.js';
 test('public parsing preserves integers and bounds expansion',()=>{
  assert.equal(parseSiteInput('9007199254740993'),'9007199254740993');
- assert.equal(parseSiteInput('3.2e1'),'32');
- for(const x of ['2.5','-1','<img>','1e10000','9'.repeat(101)])assert.throws(()=>parseSiteInput(x));
+ assert.equal(parseSiteInput('3.2e1'),'32');assert.equal(parseSiteInput('1e100'),'1'+'0'.repeat(100));
+ for(const x of ['2.5','-1','<img>','1e10000',(1n<<1024n).toString()])assert.throws(()=>parseSiteInput(x));
 });
 test('wide is explicit, finite and keeps role and queue bounds',()=>{
  assert.throws(()=>selectSitePlan('wide',{},{}));
