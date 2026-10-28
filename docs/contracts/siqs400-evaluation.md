@@ -9,11 +9,11 @@
 
 | 選択と入力 | 実際の処理 |
 | --- | --- |
-| 全モードの n < 2^128 | 共通の選定p64経路。小因子2〜97の抽出→素数性判定→平方判定→未解決合成数の分割 |
+| 全モードの n < 2^128（bit長128以下） | 共通の選定p64経路。小因子2〜97の抽出→素数性判定→平方判定→未解決合成数の分割 |
 | p64の残余が64bit以下 | native BigInt Brent |
 | p64のそれ以上の残余 | Brent前処理（共有20ms／5万操作）→GMP-ECM前処理（共有80ms／50万操作）→旧SIQS。残余は2^128未満に限定 |
 | 通常の 2^128 ≤ n < 2^1024 | 309桁かつ1024bit以下を受付。既存native BigInt Workerの小因子抽出・素数性／平方判定・Brent。GUIでは最大5秒／5万操作／1 Worker／WASMなし |
-| 高精度・大メモリの128〜332bit | rusqsieve由来のSIMD SIQS。関係式収集→filter→疎行列Lanczos→GCD→host検算。Brent／ECMの自動前処理ではない |
+| 高精度・大メモリの2^128以上・332bit以下 | rusqsieve由来のSIMD SIQS。関係式収集→filter→疎行列Lanczos→GCD→host検算。Brent／ECMの自動前処理ではない |
 | 新しい内部入口の400bit以下 | 同じSIQS host／Nativeを再利用。公開GUIには未接続 |
 | GNFS | 未実装。自動切替なし |
 
@@ -106,7 +106,8 @@ fixtureは固定上流corpusの因子から作った積で、均衡半素数の�
 400bitの計算中取消とfreshなWorker準備、URL／Worker退役も確認します。
 
 最初の上流400bit境界fixtureで1family返却を10秒待った試行は期限で退役し、
-packetを受け取れませんでした。負の原本を保存し、時間を延ばして成功扱いにしません。
+packetを受け取れませんでした。負の原本を保存し、全分解成功とは扱いません。後続の明示許可による同条件・単一family最大60秒観測では、
+約10.46秒でpacket返却と受理が成立しました。[単一familyの記録](../benchmarks/llm01-siqs400-family.md)を参照します。
 さらにhost＋実Nativeの1.5秒枠停止と、job発行後25ms取消をNode Workerで確認します。
 この停止専用試験では算術JS importを拒否するloaderを使い、
 検算関数が呼ばれたら例外にします。代替算術engineや分解成功の試験ではありません。
@@ -117,7 +118,8 @@ src/engine/arithmetic.jsの限定再読は、400bit検算調査の依頼を根�
 本人の後続明示承認がないという自動承認理由で実行前に拒否されました。
 再試行や別経路読取は行いません。以前拒否された全体npm test/checkも再実行しません。
 
-400bitの関係式収集→行列→GCD→最終素数性検算の通し成功、
+400bitの単一family packetと受理までは確認済みです。
+必要量までの関係式収集→行列→GCD→最終素数性検算の通し成功、
 実GUI／配布adapterへの接続、Site採用、実機mobile、性能比較は未検証／未実装です。
 特にGUIのheavyViewは100桁制限を持ち、単にmode metadataを400へ変更してはなりません。
 小因子前処理・合成残余dispatch・部分結果・最終検算を一体で検証してから採用します。

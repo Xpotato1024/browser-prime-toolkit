@@ -138,3 +138,6 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [通常adapter/GUIの309桁受付・有限Brent採用と未充足条件](contracts/adapter-extended-input.md)
 
 - [入力別の実経路・400bit SIQSの独立入口と限定検証](contracts/siqs400-evaluation.md)
+
+- [400bitの単一family実観測と進捗粒度](benchmarks/llm01-siqs400-family.md)
+- [残余・共通deadline・資源／work台帳によるルーティング候補](contracts/common-routing.md)
