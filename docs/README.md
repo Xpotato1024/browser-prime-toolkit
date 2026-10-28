@@ -136,3 +136,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [非公開1024bit入力と既存BigInt Workerの有限接続](contracts/extended-engine.md)
 
 - [通常adapter/GUIの309桁受付・有限Brent採用と未充足条件](contracts/adapter-extended-input.md)
+
+- [入力別の実経路・400bit SIQSの独立入口と限定検証](contracts/siqs400-evaluation.md)
