@@ -144,3 +144,6 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [共通ルーティングの実エンジン接続・限定試験と残件](operations/common-routing-integration.md)
 \n- [共通routingのローカルGUI採用・予算・限定ブラウザ受入](operations/common-routing-gui.md)\n
 - [入力幅・最小因子幅別の方式比較、ECM予算ABBAと方式横断UI](benchmarks/llm01-routing-micro.md)
+
+- [ローカル候補とリモートCIの対象・必要な次操作](operations/ci-routing-status-20261028.md)
+- [ブラウザ完結GNFSの工程別適合性・有限実証の前提](architecture/gnfs-browser-feasibility.md)
