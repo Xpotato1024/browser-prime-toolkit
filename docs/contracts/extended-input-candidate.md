@@ -45,3 +45,7 @@ Node24.22.1で、実engineを許可しないexact module allowlistを使い、�
 境界、0/1、科学表記、600bit超の既知ledger fixture、指数1023、算術不一致、取消/期限、値とlengthのcallback変更を確認しました。これらは因数探索や大きな半素数の実測ではありません。
 独立数値レビューを行い、検査後の元データ再読による不整合を修正して回帰試験を追加しました。
 実engine、Worker、WASM、隔離生成物、拒否済みarithmetic.jsを読み込んでいません。全体test/check・CI・実ブラウザでの拡張入力は未実施です。
+
+## 2026-10-28 の実engine接続
+
+既存候補契約を使う[非公開のnative-only Brent入口](extended-engine.md)を追加しました。公開経路とSIQS400bitは未接続のままです。上記の独立契約試験と、新環境での実engine試験を区別します。

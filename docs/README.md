@@ -132,3 +132,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [1024bit受付・400bit余因子の独立候補契約と検証範囲](contracts/extended-input-candidate.md)
 
 - [配布ファイルと元ソースを結ぶ監査receiptの実装・検証範囲](operations/artifact-provenance.md)
+
+- [非公開1024bit入力と既存BigInt Workerの有限接続](contracts/extended-engine.md)
