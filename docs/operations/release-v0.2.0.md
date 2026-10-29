@@ -28,3 +28,9 @@ npm公開、Siteコード編集/merge/deploy、資格情報/権限/CSP/監視変
 manifestのembeddedWorkerModulesは組立て元、embeddedWasmModulesは配布graph全体のWASM bytes保持moduleを列挙する。
 ECM_WORKER_SOURCEが別のgmp-bytesをimportする場合も後者に含め、source/provenanceのhashと対応させる。
 この在庫修正は新しいbinaryやWASM権限の追加ではない。
+
+実配布dist受入のcross-browser harnessは、旧単独Brentの5000msをjob予算とみなす期待を、
+共通job60000ms＋native段階5000ms＋有限workのtraceへ整合させる。
+取消時の未確認項は旧residualではなくpendingGroupsとcopy/equationで検査する。
+開始直後の取消はWorker生成前にも成立するため、実active Workerを1本起動して取り消す
+別ケースで厳密に退役・URL解放・次計算を確認する。数学engineや実行予算をこの検査修正で変えない。

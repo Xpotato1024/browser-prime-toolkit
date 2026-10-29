@@ -82,9 +82,11 @@ try{
    await test('extended acceptance, probable result, copy and actual finite route',async()=>{
     await config({engine:'standard',time:'60000'});assert.match(await page.locator('.bt-input-limit').textContent(),/309.*1024/);
     assert.match(await run('1e100'),/2\^100 × 5\^100/);
-    let state=await page.evaluate(()=>app.getState());assert.equal(state.resources.actualTimeBudgetMs,5000);assert.equal(state.resources.actualOperationBudget,50000);
+    let state=await page.evaluate(()=>app.getState());assert.equal(state.resources.actualTimeBudgetMs,60000);assert.equal(state.resources.route,'共通ルーティング');
+    assert.equal(state.resources.trace[0].stage,'native');assert.equal(state.resources.trace[0].timeBudgetMs,5000);assert.equal(state.resources.trace[0].workKey,'native');
+    assert.ok(state.resources.trace[0].workChargedUpperBound<=1000000);assert.ok(state.resources.workRemaining.native>=0&&state.resources.workRemaining.native<=1000000);
     assert.equal(state.resources.configuredPlan.timeBudgetMs,60000);assert.equal(state.resources.actualWasmBytes,0);assert.equal(state.resources.actualWorkers,1);
-    await page.locator('.bt-execution').evaluate(n=>n.open=true);assert.match(await page.locator('.bt-execution-limits').textContent(),/有限Brent/);
+    await page.locator('.bt-execution').evaluate(n=>n.open=true);assert.match(await page.locator('.bt-execution-limits').textContent(),/共通ルーティング/);
     const prime=((1n<<521n)-1n).toString();await run(prime);assert.match(await page.locator('.bt-result-status').textContent(),/未証明/);
     state=await page.evaluate(()=>app.getState());assert.equal(state.view.groups[0].certainty,'probable');
     await page.evaluate(()=>{window.extendedCopyWrites=[];Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>extendedCopyWrites.push(text)}});});
@@ -100,8 +102,19 @@ try{
     const hard=(((1n<<521n)-1n)*((1n<<127n)-1n)).toString();const before=await metrics();
     await input.fill(hard);await page.evaluate(()=>{document.querySelector('#tool form').requestSubmit();document.querySelector('[data-action=cancel]').click();});
     await phase('result');assert.match(await page.locator('.bt-result-status').textContent(),/中止/);
-    const state=await page.evaluate(()=>app.getState());assert.equal(state.view.residual,hard);assert.match(state.view.copyText,/中止/);
-    assert.equal(state.resources.actualWasmBytes,0);const after=await metrics();assert.equal(after.created-before.created,1);assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
+    const state=await page.evaluate(()=>app.getState());assert.ok(state.view.pendingGroups.some(g=>g.value===hard&&g.exponent===1));assert.equal(state.view.groups.length,0);assert.match(state.view.copyText,/中止/);assert.match(state.view.copyText,/未分解・未確認/);assert.ok(state.view.copyText.includes(hard));
+    assert.equal(state.resources.actualWasmBytes,0);const after=await metrics();assert.ok(after.created-before.created<=1);assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
+    assert.equal(await run('32'),'32 = 2^5');
+   });
+   await test('active common-route cancellation retires exactly one native Worker',async()=>{
+    await config({engine:'standard',time:'60000'});
+    const hard=(((1n<<521n)-1n)*((1n<<127n)-1n)).toString(),before=await metrics();
+    await input.fill(hard);await start.click();await page.waitForFunction(n=>metric.created>n,before.created);
+    await page.locator('[data-action=cancel]').click();await phase('result');
+    const s=await page.evaluate(()=>app.getState()),after=await metrics();
+    assert.equal(s.view.status,'cancelled');assert.equal(after.created-before.created,1);
+    assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
+    assert.ok(s.view.copyText.includes(hard));assert.match(s.view.copyText,/中止/);assert.match(s.view.copyText,/未分解・未確認/);
     assert.equal(await run('32'),'32 = 2^5');
    });
    await test('extended unmount holds retirement boundary before a fresh mount',async()=>{
