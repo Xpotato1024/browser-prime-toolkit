@@ -84,7 +84,7 @@ try{
     assert.match(await run('1e100'),/2\^100 × 5\^100/);
     let state=await page.evaluate(()=>app.getState());assert.equal(state.resources.actualTimeBudgetMs,60000);assert.equal(state.resources.route,'共通ルーティング');
     assert.equal(state.resources.trace[0].stage,'native');assert.equal(state.resources.trace[0].timeBudgetMs,5000);assert.equal(state.resources.trace[0].workKey,'native');
-    assert.ok(state.resources.trace[0].workChargedUpperBound<=1000000);assert.ok(state.resources.workRemaining.native>=0&&state.resources.workRemaining.native<=1000000);
+    assert.ok(state.resources.trace[0].workChargedUpperBound<=50000);assert.ok(state.resources.workRemaining.native>=0&&state.resources.workRemaining.native<=50000);
     assert.equal(state.resources.configuredPlan.timeBudgetMs,60000);assert.equal(state.resources.actualWasmBytes,0);assert.equal(state.resources.actualWorkers,1);
     await page.locator('.bt-execution').evaluate(n=>n.open=true);assert.match(await page.locator('.bt-execution-limits').textContent(),/共通ルーティング/);
     const prime=((1n<<521n)-1n).toString();await run(prime);assert.match(await page.locator('.bt-result-status').textContent(),/未証明/);
@@ -96,7 +96,7 @@ try{
     assert.equal(await page.locator('progress').getAttribute('value'),null);
     await page.screenshot({path:resolve(dirname(out),'extended-mobile.png'),fullPage:true});
     await page.setViewportSize({width:1000,height:850});await config({engine:'standard',time:'1000'});
-    return{inputDigits:101,probableBits:521,actualBudgetMs:5000,physicalMobile:false};
+    return{inputDigits:101,probableBits:521,jobBudgetMs:60000,nativeStageBudgetMs:5000,nativeWorkBudget:50000,physicalMobile:false};
    });
    await test('extended cancellation retains status and permits a fresh small run',async()=>{
     const hard=(((1n<<521n)-1n)*((1n<<127n)-1n)).toString();const before=await metrics();
