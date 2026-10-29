@@ -8,7 +8,7 @@ const dec=n=>n.toString();
 const verify=(input,snapshot,options={})=>inspectExtendedDecomposition(String(input),snapshot,{now:()=>0,...options});
 const empty=n=>({factors:[],remaining:String(n)});
 const max=(1n<<1024n)-1n;
-test('1024 bit acceptance is a dual bound, not a new public or executable capability',()=>{
+test('candidate inspection stays engine-free while GUI mode bounds follow adopted capabilities',()=>{
  const a=inspectExtendedInput(dec(max));
  assert.equal(a.bits,1024);assert.equal(a.digits,309);assert.equal(a.executionEnabled,false);
  assert.equal(a.canonical,dec(max));assert.ok(Object.isFrozen(a));
@@ -16,7 +16,11 @@ test('1024 bit acceptance is a dual bound, not a new public or executable capabi
  assert.throws(()=>inspectExtendedInput('1e309'),{code:'CANDIDATE_INPUT_RANGE'});
  assert.throws(()=>validateSiteInput(dec(max),'wide'));
  assert.equal(validateSiteInput(dec((1n<<332n)-1n),'wide'),dec((1n<<332n)-1n));
- assert.throws(()=>validateSiteInput(dec(1n<<332n),'wide'));
+ assert.equal(validateSiteInput(dec((1n<<400n)-1n),'wide'),dec((1n<<400n)-1n));
+ assert.throws(()=>validateSiteInput(dec(1n<<400n),'wide'));
+ assert.throws(()=>validateSiteInput(dec(1n<<332n),'optimized'));
+ assert.equal(validateSiteInput(dec(max),'standard'),dec(max));
+ assert.throws(()=>validateSiteInput(dec(1n<<1024n),'standard'));
  assert.equal(selectSitePlan('optimized',{timeBudgetMs:600000}).timeBudgetMs,600000);
  assert.equal(selectSitePlan('wide',{mode:'manual',workers:1,memoryMiB:1536,timeBudgetMs:3600000}).timeBudgetMs,3600000);
  assert.equal(EXTENDED_INPUT_CANDIDATE.maxMultiplicity,1023);
