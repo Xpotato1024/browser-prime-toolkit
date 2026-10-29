@@ -68,7 +68,7 @@ export function observeChromeStartup(child,profile,{timeoutMs=30000,pollMs=50}={
   if(!disposed&&state==='starting')pollTimer=setTimeout(poll,Math.min(pollMs,Math.max(0,deadline-performance.now())));
  }
  void poll();
- return {ready,diagnostics,dispose(){
+ return {ready,diagnostics,remainingMs:()=>disposed?0:Math.max(0,deadline-performance.now()),dispose(){
   if(disposed)return;disposed=true;
   if(state==='starting')finish('disposed',Error('Chrome startup observer disposed'));
   stopTimers();child.removeListener('error',onError);child.removeListener('exit',onExit);child.stderr.removeListener('data',onStderr);
@@ -88,15 +88,21 @@ export function createCdpSender({getSocket,pending,nextId,timeoutForMethod}){
 }
 
 // Transport opening uses only the remainder of the original startup deadline.
-export function openChromeTransport(socket,{timeoutMs}){
+export function openChromeTransport(socket,{timeoutMs,remainingMs}){
  return new Promise((resolve,reject)=>{
+  const deadline=performance.now()+timeoutMs;
+  const remaining=remainingMs??(()=>deadline-performance.now());
   let timer;
   const cleanup=()=>{clearTimeout(timer);socket.removeEventListener('open',opened);socket.removeEventListener('error',failed);socket.removeEventListener('close',closed);};
-  const opened=()=>{cleanup();resolve();};
+  const timedOut=()=>{cleanup();try{socket.close();}catch{}reject(Error('Chrome CDP transport startup timed out'));};
+  const readRemaining=()=>{const left=remaining();if(!Number.isFinite(left))throw Error('Invalid startup remaining time');return left;};
+  const opened=()=>{try{if(readRemaining()<=0){timedOut();return;}}catch(error){cleanup();reject(error);return;}cleanup();resolve();};
   const failed=()=>{cleanup();reject(Error('Chrome CDP transport failed before open'));};
   const closed=()=>{cleanup();reject(Error('Chrome CDP transport closed before open'));};
+  let left;try{left=readRemaining();}catch(error){reject(error);return;}
+  if(left<=0){timedOut();return;}
   socket.addEventListener('open',opened,{once:true});socket.addEventListener('error',failed,{once:true});socket.addEventListener('close',closed,{once:true});
-  timer=setTimeout(()=>{cleanup();try{socket.close();}catch{}reject(Error('Chrome CDP transport startup timed out'));},Math.max(0,timeoutMs));
+  timer=setTimeout(timedOut,left);
   if(socket.readyState===1)opened();else if(socket.readyState>=2)closed();
  });
 }

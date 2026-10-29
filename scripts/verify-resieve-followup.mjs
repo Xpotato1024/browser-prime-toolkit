@@ -104,7 +104,7 @@ try {
   memory = new BrowserMemorySampler(chrome.pid);const originalSample=memory.sample.bind(memory);let hostMemoryStopped=false;memory.onFailure=async()=>{if(nodeMeasurementStart!==null)await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop("memory-observer-failed")'),retireChrome});else await retireChrome();};memory.sample=async()=>{const row=await originalSample();if(nodeMeasurementStart!==null&&(row.pssBytes>=1536*1048576||row.stopReason)&&!hostMemoryStopped){hostMemoryStopped=true;await stopForMemoryGuard({requestStop:()=>evaluate('evaluationHarness.stop('+JSON.stringify(row.stopReason??"chrome-pss-soft-stop")+')'),retireChrome});}return row;}; await memory.start();
   const debuggingUrl=await startup.ready;
   socket=new WebSocket(debuggingUrl);
-  await openChromeTransport(socket,{timeoutMs:Math.max(0,30000-startup.diagnostics().elapsedMs)});
+  await openChromeTransport(socket,{remainingMs:startup.remainingMs});
   socket.addEventListener('message', ({ data }) => {
     const message = JSON.parse(String(data));
     if (message.id) {

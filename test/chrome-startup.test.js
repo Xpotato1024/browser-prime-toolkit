@@ -104,3 +104,22 @@ test('CDP open wait rejects a close or absence of open within remaining startup 
  await assert.rejects(openChromeTransport(socket,{timeoutMs:10}),/startup timed out/);
  const opening=openChromeTransport(socket,{timeoutMs:100});socket.dispatchEvent(new Event('open'));await opening;
 });
+test('ready duration is fixed but remaining startup time includes later sampler delay',async t=>{
+ const {profile,c,port}=await fixture(t);
+ await writeFile(join(profile,'DevToolsActivePort'),port+'\n'+path);
+ const o=observeChromeStartup(c,profile,{timeoutMs:1000,pollMs:5});t.after(()=>o.dispose());
+ await o.ready;const readyElapsed=o.diagnostics().elapsedMs,left=o.remainingMs();
+ await new Promise(r=>setTimeout(r,25));
+ assert.equal(o.diagnostics().elapsedMs,readyElapsed);assert.ok(o.remainingMs()<left-10);
+});
+test('expired original deadline cannot accept an already-open or queued transport',async()=>{
+ const {openChromeTransport}=await import('../scripts/chrome-startup.mjs');
+ let remaining=1000,closed=0;
+ const socket=new EventTarget();socket.readyState=0;socket.close=()=>{closed++;};
+ const waiting=openChromeTransport(socket,{remainingMs:()=>remaining});
+ remaining=0;socket.dispatchEvent(new Event('open'));
+ await assert.rejects(waiting,/startup timed out/);
+ socket.readyState=1;
+ await assert.rejects(openChromeTransport(socket,{remainingMs:()=>0}),/startup timed out/);
+ assert.equal(closed,2);
+});
