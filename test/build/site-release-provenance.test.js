@@ -28,7 +28,8 @@ test('real packager hashes provenance into manifest using only closed byte fixtu
   'native/rusqsieve/toolchain-notices/wasm-std-LICENSE-APACHE','native/rusqsieve/toolchain-notices/wasm-std-LICENSE-MIT']);
  const source=new Map([
   ['src/site/index.js',b("import {value} from './value.js'; export {value};")],
-  ['src/site/value.js',b('export const value=7;')],
+  ['src/site/value.js',b("import {BYTES} from './wasm-bytes.js'; export const WORKER_SOURCE=\"use strict;\"+BYTES; export const value=7;")],
+  ['src/site/wasm-bytes.js',b('export const BYTES="AGFzbQE="; // inert fixture, never loaded or instantiated')],
   ['src/site/font-text.js',b('// fixture font')],
   ['src/site/tool.css',b('.fixture { color: black; }')],
   ['src/site/capabilities.js',b('// fixture capabilities')],
@@ -86,4 +87,7 @@ test('real packager hashes provenance into manifest using only closed byte fixtu
  assert.equal(writes.get(resolve(fixtureOut,'src/site/index.mjs')).toString(),"import {value} from './value.mjs'; export {value};");
  assert.equal(manifest.runtime.maxWasmBytes,1610612736);assert.equal(manifest.runtime.maxWorkers,6);
  assert.equal(manifest.runtime.network,'none-after-ready');
+ assert.ok(manifest.runtime.embeddedWorkerModules.includes('src/site/value.mjs'));
+ assert.ok(!manifest.runtime.embeddedWorkerModules.includes('src/site/wasm-bytes.mjs'));
+ assert.ok(manifest.runtime.embeddedWasmModules.includes('src/site/wasm-bytes.mjs'),'Imported WASM bytes must be inventoried independently of worker assembly');
 });

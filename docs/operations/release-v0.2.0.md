@@ -24,3 +24,7 @@ npm公開、Siteコード編集/merge/deploy、資格情報/権限/CSP/監視変
 
 成果はversion、target commit/tree、dist/source ZIP、checksums、manifest/capability/source/provenanceの
 正確なURLとhash、CI、受入証跡をSite担当へ渡す。実機mobile/400bit完走/最速・最大級は主張しない。
+
+manifestのembeddedWorkerModulesは組立て元、embeddedWasmModulesは配布graph全体のWASM bytes保持moduleを列挙する。
+ECM_WORKER_SOURCEが別のgmp-bytesをimportする場合も後者に含め、source/provenanceのhashと対応させる。
+この在庫修正は新しいbinaryやWASM権限の追加ではない。

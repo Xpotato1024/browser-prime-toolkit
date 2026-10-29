@@ -46,7 +46,8 @@ const sourceRevision=execFileSync('git',['rev-parse','--verify','HEAD^{commit}']
 const provenance=createArtifactProvenance({sourceRevision,nodeVersion:process.version,inputs,files,origins,recipes,sourceOffer:['SOURCE_OFFER.md','THIRD_PARTY_NOTICES.md','LICENSING.md']});
 files.set('artifact-provenance.json',Buffer.from(JSON.stringify(provenance,null,2)+'\n'));
 const embeddedWorkerModules=[...files].filter(([p,b])=>p.endsWith('.mjs')&&/(?:STAGED_SOURCE|[A-Z_]*WORKER_SOURCE)\s*=\s*"/u.test(b.toString())).map(([p])=>p).sort();
-const embeddedWasmModules=embeddedWorkerModules.filter(p=>files.get(p).toString().includes('AGFzbQE'));
+// Literal WASM containers can be separate imports used to assemble a Worker (e.g. ECM).
+const embeddedWasmModules=[...files].filter(([p,b])=>p.endsWith('.mjs')&&b.toString().includes('AGFzbQE')).map(([p])=>p).sort();
 const manifest={schemaVersion:1,toolId:'prime-factorizer',version:pkg.version,uiCapabilities:SITE_CAPABILITIES,integration:{kind:'react-island',apiVersion:1,entry:'src/site/index.mjs',styles:['tool.css']},
  runtime:{profile:'bounded-browser-v2',network:'none-after-ready',storage:'memory',clipboardPolicy:'user-gesture-write-only',assetMode:'fixed-bundled',embeddedWorkerModules,embeddedWasmModules,workerLoaderModules:['src/worker/source-factory.mjs'],capabilities:{fileInput:false,download:false,clipboard:true,worker:true,wasm:true},maxInputBytes:16384,maxOutputBytes:262144,maxComputeMs:100,jobMaxMs:3600000,maxWorkers:6,maxWasmBytes:1610612736,maxTransportBytes:67108864},
  license:{spdx:pkg.license,file:'LICENSE',notice:'NOTICE',additional:extraLicenseFiles},files:[...files].sort(([a],[b])=>a.localeCompare(b,'en')).map(([path,b])=>({path,bytes:b.length,sha256:hash(b)}))};
