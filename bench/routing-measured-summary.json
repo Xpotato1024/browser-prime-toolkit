@@ -1,0 +1,753 @@
+{
+  "measurementSourceHead": "62443141f8afbbb96a1c2e3e8d1846117b5fd3d9",
+  "environment": {
+    "cpu": "Intel Core i7-9700K",
+    "windowsLogicalProcessors": 8,
+    "windowsTotalVisibleMemoryKiB": 33416032,
+    "windowsFreePhysicalMemoryKiBBefore": 15610596,
+    "wslLogicalProcessors": 6,
+    "wslMemoryMiBBefore": 9946,
+    "wslAvailableMiBBefore": 9173,
+    "wslLoadBefore": [
+      0.03,
+      0.04,
+      0.01
+    ],
+    "chrome": "155.0.8059.39",
+    "browser": {
+      "hardwareConcurrency": 6,
+      "deviceMemory": 8,
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    "node": "24.22.1"
+  },
+  "timeDefinition": "elapsedMs includes fresh Worker startup, preprocessing, search, partial validation and retirement; excludes initial asset load and final verifyRoutingResult. elapsedWithFinalProofMs is retained separately in raw data.",
+  "referenceDefinition": "pair recovered is post-return match to exact reference factors, not an extra primality proof",
+  "stage1": [
+    {
+      "id": "balanced64",
+      "bits": 64,
+      "smallFactorBits": 31,
+      "shape": "balanced nonsquare",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            45.2,
+            26.4
+          ],
+          "medianMs": 35.8,
+          "referencePairs": 0,
+          "stops": [
+            "operation-budget",
+            "operation-budget"
+          ],
+          "stageStops": [
+            "operation-budget",
+            "operation-budget"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            113.4,
+            92.8
+          ],
+          "medianMs": 103.1,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            124.4,
+            128.5
+          ],
+          "medianMs": 126.45,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced96",
+      "bits": 96,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            16.7,
+            22.4
+          ],
+          "medianMs": 19.55,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            65.4,
+            79.4
+          ],
+          "medianMs": 72.4,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            138.1,
+            101
+          ],
+          "medianMs": 119.55,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "balanced96",
+      "bits": 96,
+      "smallFactorBits": 48,
+      "shape": "balanced nonsquare",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            26.3,
+            25.5
+          ],
+          "medianMs": 25.9,
+          "referencePairs": 0,
+          "stops": [
+            "operation-budget",
+            "operation-budget"
+          ],
+          "stageStops": [
+            "operation-budget",
+            "operation-budget"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            87.7,
+            78.3
+          ],
+          "medianMs": 83.0,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            113.8,
+            104.3
+          ],
+          "medianMs": 109.05,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "balanced133",
+      "bits": 133,
+      "smallFactorBits": 67,
+      "shape": "balanced nonsquare",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            28.9,
+            52
+          ],
+          "medianMs": 40.45,
+          "referencePairs": 0,
+          "stops": [
+            "operation-budget",
+            "operation-budget"
+          ],
+          "stageStops": [
+            "operation-budget",
+            "operation-budget"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            500.7,
+            499.4
+          ],
+          "medianMs": 500.05,
+          "referencePairs": 0,
+          "stops": [
+            "job-time-budget",
+            "phase-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            359.3,
+            343.6
+          ],
+          "medianMs": 351.45,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced193",
+      "bits": 193,
+      "smallFactorBits": 24,
+      "shape": "unbalanced",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            24.6,
+            24.7
+          ],
+          "medianMs": 24.65,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            71.6,
+            66.7
+          ],
+          "medianMs": 69.15,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            501.8,
+            499.4
+          ],
+          "medianMs": 500.6,
+          "referencePairs": 0,
+          "stops": [
+            "job-time-budget",
+            "phase-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        }
+      }
+    },
+    {
+      "id": "balanced192",
+      "bits": 192,
+      "smallFactorBits": 96,
+      "shape": "balanced nonsquare",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            33.3,
+            25.5
+          ],
+          "medianMs": 29.4,
+          "referencePairs": 0,
+          "stops": [
+            "operation-budget",
+            "operation-budget"
+          ],
+          "stageStops": [
+            "operation-budget",
+            "operation-budget"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            500.3,
+            500.4
+          ],
+          "medianMs": 500.35,
+          "referencePairs": 0,
+          "stops": [
+            "job-time-budget",
+            "job-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            500.3,
+            500.3
+          ],
+          "medianMs": 500.3,
+          "referencePairs": 0,
+          "stops": [
+            "job-time-budget",
+            "job-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced255",
+      "bits": 255,
+      "smallFactorBits": 48,
+      "shape": "unbalanced",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            26.2,
+            26.1
+          ],
+          "medianMs": 26.15,
+          "referencePairs": 0,
+          "stops": [
+            "operation-budget",
+            "operation-budget"
+          ],
+          "stageStops": [
+            "operation-budget",
+            "operation-budget"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            500.6,
+            499.4
+          ],
+          "medianMs": 500.0,
+          "referencePairs": 0,
+          "stops": [
+            "job-time-budget",
+            "phase-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            499.5,
+            500.5
+          ],
+          "medianMs": 500.0,
+          "referencePairs": 0,
+          "stops": [
+            "phase-time-budget",
+            "job-time-budget"
+          ],
+          "stageStops": [
+            "phase-time-budget",
+            "phase-time-budget"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced333",
+      "bits": 333,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            13.2,
+            12.3
+          ],
+          "medianMs": 12.75,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "ecm": {
+          "unsupported": true
+        },
+        "siqs332": {
+          "unsupported": true
+        }
+      }
+    },
+    {
+      "id": "unbalanced400",
+      "bits": 400,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            12.9,
+            13.8
+          ],
+          "medianMs": 13.35,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "ecm": {
+          "unsupported": true
+        },
+        "siqs332": {
+          "unsupported": true
+        }
+      }
+    },
+    {
+      "id": "square122",
+      "bits": 122,
+      "smallFactorBits": 61,
+      "shape": "square control",
+      "methods": {
+        "native": {
+          "elapsedMs": [
+            8.8,
+            8.4
+          ],
+          "medianMs": 8.6,
+          "referencePairs": 2,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "ecm": {
+          "elapsedMs": [
+            453.5,
+            453.9
+          ],
+          "medianMs": 453.7,
+          "referencePairs": 0,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        },
+        "siqs332": {
+          "elapsedMs": [
+            224.5,
+            224.6
+          ],
+          "medianMs": 224.55,
+          "referencePairs": 0,
+          "stops": [
+            "stage-count-budget",
+            "stage-count-budget"
+          ],
+          "stageStops": [
+            "exhausted",
+            "exhausted"
+          ]
+        }
+      }
+    }
+  ],
+  "stage2": [
+    {
+      "id": "balanced133",
+      "policies": {
+        "baseline": {
+          "elapsedMs": [
+            781.5,
+            744.9
+          ],
+          "medianMs": 763.2,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            627.6,
+            601.9
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        },
+        "ecm250": {
+          "elapsedMs": [
+            506.1,
+            500.1
+          ],
+          "medianMs": 503.1,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            359.6,
+            353.6
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced193",
+      "policies": {
+        "baseline": {
+          "elapsedMs": [
+            16.3,
+            15
+          ],
+          "medianMs": 15.65,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            null,
+            null
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        },
+        "ecm250": {
+          "elapsedMs": [
+            15.4,
+            15.5
+          ],
+          "medianMs": 15.45,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            null,
+            null
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        }
+      }
+    },
+    {
+      "id": "balanced192",
+      "policies": {
+        "baseline": {
+          "elapsedMs": [
+            2001.2,
+            2000.2
+          ],
+          "medianMs": 2000.7,
+          "referencePairs": 0,
+          "verifiedDecompositions": 0,
+          "firstCollectMs": [
+            597,
+            596.2
+          ],
+          "stops": [
+            "job-time-budget",
+            "job-time-budget"
+          ]
+        },
+        "ecm250": {
+          "elapsedMs": [
+            1999,
+            1999.4
+          ],
+          "medianMs": 1999.2,
+          "referencePairs": 0,
+          "verifiedDecompositions": 0,
+          "firstCollectMs": [
+            360.3,
+            354.1
+          ],
+          "stops": [
+            "phase-time-budget",
+            "job-time-budget"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced255",
+      "policies": {
+        "baseline": {
+          "elapsedMs": [
+            1999.8,
+            2000.2
+          ],
+          "medianMs": 2000.0,
+          "referencePairs": 0,
+          "verifiedDecompositions": 0,
+          "firstCollectMs": [
+            714.1,
+            712
+          ],
+          "stops": [
+            "job-time-budget",
+            "job-time-budget"
+          ]
+        },
+        "ecm250": {
+          "elapsedMs": [
+            2000.3,
+            1999.9
+          ],
+          "medianMs": 2000.1,
+          "referencePairs": 0,
+          "verifiedDecompositions": 0,
+          "firstCollectMs": [
+            469.3,
+            468.2
+          ],
+          "stops": [
+            "job-time-budget",
+            "job-time-budget"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unbalanced400",
+      "policies": {
+        "baseline": {
+          "elapsedMs": [
+            14.3,
+            13.7
+          ],
+          "medianMs": 14.0,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            null,
+            null
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        },
+        "ecm250": {
+          "elapsedMs": [
+            14,
+            13.5
+          ],
+          "medianMs": 13.75,
+          "referencePairs": 2,
+          "verifiedDecompositions": 2,
+          "firstCollectMs": [
+            null,
+            null
+          ],
+          "stops": [
+            "factor-proof-required",
+            "factor-proof-required"
+          ]
+        }
+      }
+    }
+  ],
+  "adoption": {
+    "nativePrefixMs": 250,
+    "ecmPrefixMs": 250,
+    "previousEcmPrefixMs": 1000,
+    "condition": "only when a following engine is available",
+    "scope": "provisional host-specific budget adjustment; no optimized input-bit switch inferred",
+    "noLostRecoveredPairsInThisSample": true
+  },
+  "rawFiles": [
+    "stage1.json",
+    "stage2.json"
+  ],
+  "limitations": [
+    "two repetitions",
+    "single CPU/runtime",
+    "unequal actual WASM allocation inside same128MiB cap",
+    "first-run/caching and Worker startup included",
+    "no hard400 completion",
+    "no optimal/fastest threshold claim"
+  ]
+}

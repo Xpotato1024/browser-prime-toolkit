@@ -26,7 +26,7 @@ try{
  };
  observer=observeChromeStartup(owned,profile);
  const url=await observer.ready;
- socket=new WebSocket(url);await openChromeTransport(socket,{timeoutMs:Math.max(0,30000-observer.diagnostics().elapsedMs)});
+ socket=new WebSocket(url);await openChromeTransport(socket,{remainingMs:observer.remainingMs});
  const version=await new Promise((resolve,reject)=>{
   const timer=setTimeout(()=>reject(Error('Browser version timeout')),5000);
   socket.addEventListener('message',({data})=>{const m=JSON.parse(String(data));if(m.id===1){clearTimeout(timer);if(m.error)reject(Error(m.error.message));else resolve(m.result);}});

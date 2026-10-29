@@ -124,3 +124,26 @@ Stage42/43の[prefix](benchmarks/llm01-resieve-prefix.md)・[score展開](benchm
 Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.md)、[選定反映契約](contracts/selected-wide.md)、[追加機能試験](benchmarks/llm01-selected-wide.md)、[採否と残件](operations/stage44-outcome.md)。係数1を専用wide入口へ反映し、通常UI・公開を変更しない。
 
 [サイト配布0.1.0の有限計算・受入契約](contracts/site-release-v1.md)は、本人承認を受けた公開用adapterと専用profileを定義します。過去研究の測定SHA・原本・通常入口を保持します。
+
+- [工程別進捗と停止理由のローカル表示候補・未検証範囲](contracts/progress-display.md)
+- [生成WASM/JSの限定静的監査と未確認範囲](operations/wasm-source-static-audit-20261027.md)
+- [生成元・生成工程・配布物の監査性を高める構成案](architecture/artifact-auditability-plan.md)
+- [ベンダー確認用の非秘密metadataと未解決手続き](operations/vendor-review-brief.md)
+- [1024bit受付・400bit余因子の独立候補契約と検証範囲](contracts/extended-input-candidate.md)
+
+- [配布ファイルと元ソースを結ぶ監査receiptの実装・検証範囲](operations/artifact-provenance.md)
+
+- [非公開1024bit入力と既存BigInt Workerの有限接続](contracts/extended-engine.md)
+
+- [通常adapter/GUIの309桁受付・有限Brent採用と未充足条件](contracts/adapter-extended-input.md)
+
+- [入力別の実経路・400bit SIQSの独立入口と限定検証](contracts/siqs400-evaluation.md)
+
+- [400bitの単一family実観測と進捗粒度](benchmarks/llm01-siqs400-family.md)
+- [残余・共通deadline・資源／work台帳によるルーティング候補](contracts/common-routing.md)
+- [共通ルーティングの実エンジン接続・限定試験と残件](operations/common-routing-integration.md)
+\n- [共通routingのローカルGUI採用・予算・限定ブラウザ受入](operations/common-routing-gui.md)\n
+- [入力幅・最小因子幅別の方式比較、ECM予算ABBAと方式横断UI](benchmarks/llm01-routing-micro.md)
+
+- [ローカル候補とリモートCIの対象・必要な次操作](operations/ci-routing-status-20261028.md)
+- [ブラウザ完結GNFSの工程別適合性・有限実証の前提](architecture/gnfs-browser-feasibility.md)

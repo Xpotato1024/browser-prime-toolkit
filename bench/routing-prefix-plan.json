@@ -1,0 +1,41 @@
+{
+  "sourceHead": "62443141f8afbbb96a1c2e3e8d1846117b5fd3d9",
+  "basis": "stage1 fixed500ms comparison; keep Native250 because50k work ends earlier; compare shorter ECM prefix only",
+  "cases": [
+    "balanced133",
+    "unbalanced193",
+    "balanced192",
+    "unbalanced255",
+    "unbalanced400"
+  ],
+  "order": [
+    "baseline",
+    "ecm250",
+    "ecm250",
+    "baseline"
+  ],
+  "policies": {
+    "baseline": {
+      "nativePrefixMs": 250,
+      "ecmPrefixMs": 1000
+    },
+    "ecm250": {
+      "nativePrefixMs": 250,
+      "ecmPrefixMs": 250
+    }
+  },
+  "jobTimeMs": 2000,
+  "wasmBudgetMiB": 128,
+  "maxWorkers": 1,
+  "maxStages": 32,
+  "work": {
+    "native": 50000,
+    "ecm": 500000,
+    "siqs": 4096
+  },
+  "maxRuns": 20,
+  "maximumJobTimeSeconds": 40,
+  "maximumWallSeconds": 120,
+  "adoption": "no lost reference pair/proven-or-probable decomposition in either repeat; >=100ms reproducible earlier measured SIQS collection or >10% lower matched completion latency; keep baseline otherwise",
+  "unknowns": "one CPU, two repetitions per policy, no optimality or longer ECM success-rate inference"
+}

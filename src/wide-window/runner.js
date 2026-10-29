@@ -12,13 +12,16 @@ import {validateWideMemory} from './memory.js';
 import {makeWorkerFromSource} from '../worker/source-factory.js';
 import {assessPrime} from '../engine/arithmetic.js';
 import {SMALL_PRIMES} from '../engine/options.js';
-let nextGeneration=0;
-export function runRusqsieve(input,options={}){
- const {coordinatorCompute=true,scheduler='credit1',fixedFamilies=null,capturePackets=false,profile='baseline',resourcePlan=selectResourcePlan(),workers=resourcePlan.workers,timeBudgetMs=resourcePlan.timeBudgetMs,retainLocal=false,shareContext=true,signal,createWorker=(index,cap)=>makeWorkerFromSource(workerSourceForCap(cap)),onProgress=()=>{},now=()=>performance.now()}=options;
+// Internal factory; public index.js exports only the fixed runRusqsieve binding.
+export function createRusqsieveRunner({inputValidator=validateInput,sourceForCap=workerSourceForCap,configurationValidator=validateDlpConfiguration}={}){
+ let nextGeneration=0;
+ return function runRusqsieve(input,options={}){
+ const {coordinatorCompute=true,scheduler='credit1',fixedFamilies=null,familyLimit=null,capturePackets=false,profile='baseline',resourcePlan=selectResourcePlan(),workers=resourcePlan.workers,timeBudgetMs=resourcePlan.timeBudgetMs,retainLocal=false,shareContext=true,signal,createWorker=(index,cap)=>makeWorkerFromSource(sourceForCap(cap)),onProgress=()=>{},now=()=>performance.now()}=options;
  const LIMITS={...BASE_LIMITS,maxMs:LONG_LIMITS.maxMs,transportBytes:resourcePlan.transportBytes};
  validateResourcePlan(resourcePlan);if(typeof coordinatorCompute!=='boolean'||!coordinatorCompute&&workers<2)throw Error('Dedicated coordinator requires helpers');if(workers!==resourcePlan.workers||timeBudgetMs!==resourcePlan.timeBudgetMs)throw Error('Resource request identity');
+ if(familyLimit!==null&&(!Number.isSafeInteger(familyLimit)||familyLimit<1||familyLimit>4096))throw Error('Finite family limit');
  const policy=schedulerProfile(scheduler);if(profile!=='baseline'||typeof capturePackets!=='boolean'||fixedFamilies!==null&&(!Number.isInteger(fixedFamilies)||fixedFamilies<4||fixedFamilies>LONG_LIMITS.maxFamilies))throw Error('Frozen scheduler limits');
- const inputInfo=validateInput(input);dlpProfile(profile);if(retainLocal!==false||shareContext!==true)throw Error("Fixed DLP ownership");
+ const inputInfo=inputValidator(input);dlpProfile(profile);if(retainLocal!==false||shareContext!==true)throw Error("Fixed DLP ownership");
  if(![1,2,3,4,5,6].includes(workers)||!Number.isSafeInteger(timeBudgetMs)||timeBudgetMs<1||timeBudgetMs>LIMITS.maxMs||typeof retainLocal!=='boolean')throw Error('Invalid evaluation limits');
  const started=now(),generation=++nextGeneration,deadline=started+timeBudgetMs,initDeadline=started+Math.min(timeBudgetMs,LIMITS.initMs);
  return new Promise(resolve=>{
@@ -89,9 +92,9 @@ export function runRusqsieve(input,options={}){
     record('fatal',{owner:owner.index,...d});finish('incomplete',d.reason,{fatal:d,nativeQuota:q});return;
    }
    if(d.type==='ready'){
-    if(owner.command!=='init'||d.role!==(owner.index===0?'coord':'sieve')||d.maxMiB!==resourcePlan.ownerCapsMiB[owner.index])throw Error('Unexpected ready role/cap');validateDlpConfiguration(d.config,profile,inputInfo.bits);owner.config=d.config;if(!releaseSource(owner)){finish('incomplete','worker-retirement');return;}owner.command=null;owner.ready=true;record('ready',{owner:owner.index,memory:d.memory,config:d.config,timings:d.timings});
+    if(owner.command!=='init'||d.role!==(owner.index===0?'coord':'sieve')||d.maxMiB!==resourcePlan.ownerCapsMiB[owner.index])throw Error('Unexpected ready role/cap');configurationValidator(d.config,profile,inputInfo.bits);owner.config=d.config;if(!releaseSource(owner)){finish('incomplete','worker-retirement');return;}owner.command=null;owner.ready=true;record('ready',{owner:owner.index,memory:d.memory,config:d.config,timings:d.timings});
     if(owner.index===0){validateDlpStats(d.dlpStats,null,0,0);collectorStats=d.dlpStats;target=d.target;factorBaseSize=d.factorBaseSize;familyBudget=d.familyBudget;if(!Number.isInteger(target)||target<1||target>1000000||!Number.isInteger(factorBaseSize)||factorBaseSize<1||target!==factorBaseSize+64||familyBudget!==(inputInfo.bits<=288?100000:inputInfo.bits<=368?250000:750000))throw Error('Coordinator limits');}
-    if(owners.length===workers&&owners.every(o=>o.ready)){for(const o of owners)if(JSON.stringify(o.config)!==JSON.stringify(owners[0].config))throw Error('Owner configuration mismatch');if(owners[0].config.factorBaseSize!==factorBaseSize)throw Error('Configured factor-base mismatch');if(now()>=initDeadline){finish('timeout',now()>=deadline?'time-budget':'initialization-timeout');return;}clearTimeout(initTimer);initializedMs=now()-started;ledger=new CreditLedger(workers,scheduler,Math.min(familyBudget,LONG_LIMITS.maxFamilies,fixedFamilies??familyBudget),pending,{slots:resourcePlan.outstandingSlots});clock=new OwnerClock(workers,now(),resourcePlan.transportBytes);phase='collecting';pump();}return;
+    if(owners.length===workers&&owners.every(o=>o.ready)){for(const o of owners)if(JSON.stringify(o.config)!==JSON.stringify(owners[0].config))throw Error('Owner configuration mismatch');if(owners[0].config.factorBaseSize!==factorBaseSize)throw Error('Configured factor-base mismatch');if(now()>=initDeadline){finish('timeout',now()>=deadline?'time-budget':'initialization-timeout');return;}clearTimeout(initTimer);initializedMs=now()-started;ledger=new CreditLedger(workers,scheduler,Math.min(familyBudget,LONG_LIMITS.maxFamilies,familyLimit??familyBudget,fixedFamilies??familyBudget),pending,{slots:resourcePlan.outstandingSlots});clock=new OwnerClock(workers,now(),resourcePlan.transportBytes);phase='collecting';pump();}return;
    }
    if(d.type==='batch'){
     if(owner.command!=='job'||!owner.job||d.jobId!==owner.job.jobId||d.first!==owner.job.first||d.count!==owner.job.count||!(d.buffer instanceof ArrayBuffer))throw Error('Unissued batch');
@@ -135,3 +138,5 @@ export function runRusqsieve(input,options={}){
   }}catch(error){finish('incomplete','worker-creation',{error:String(error.message)});}
  });
 }
+}
+export const runRusqsieve=createRusqsieveRunner();

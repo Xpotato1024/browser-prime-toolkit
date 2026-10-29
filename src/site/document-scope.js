@@ -4,6 +4,7 @@ export function makeComputeScope(){
  let active=null,quarantined=false;
  return Object.freeze({
   isQuarantined:()=>quarantined,
+  owns(token){return !quarantined&&active===token;},
   acquire(token){if(quarantined||active!==null)return false;active=token;return true;},
   release(token){if(!quarantined&&active===token)active=null;},
   quarantine(){quarantined=true;},

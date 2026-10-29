@@ -1,0 +1,300 @@
+{
+  "kind": "fixedKnownFactorFixtures",
+  "generatedWith": "existing assessPrime; no factors supplied to measured engines",
+  "generated": [
+    {
+      "value": "2147483647",
+      "bits": 31,
+      "certainty": "proven",
+      "attempts": 1
+    },
+    {
+      "value": "8589934583",
+      "bits": 33,
+      "certainty": "proven",
+      "attempts": 5
+    },
+    {
+      "value": "131071",
+      "bits": 17,
+      "certainty": "proven",
+      "attempts": 1
+    },
+    {
+      "value": "604462909807314587353021",
+      "bits": 79,
+      "certainty": "probable",
+      "attempts": 34
+    },
+    {
+      "value": "281474976710597",
+      "bits": 48,
+      "certainty": "proven",
+      "attempts": 30
+    },
+    {
+      "value": "211106232532961",
+      "bits": 48,
+      "certainty": "proven",
+      "attempts": 16
+    },
+    {
+      "value": "16777213",
+      "bits": 24,
+      "certainty": "proven",
+      "attempts": 2
+    },
+    {
+      "value": "748288838313422294120286634350736906063837462003069",
+      "bits": 169,
+      "certainty": "probable",
+      "attempts": 322
+    },
+    {
+      "value": "79228162514264337593543950319",
+      "bits": 96,
+      "certainty": "probable",
+      "attempts": 9
+    },
+    {
+      "value": "59421121885698253195157962531",
+      "bits": 96,
+      "certainty": "probable",
+      "attempts": 111
+    },
+    {
+      "value": "205688069665150755269371147819668813122841983204197482918576037",
+      "bits": 207,
+      "certainty": "probable",
+      "attempts": 46
+    },
+    {
+      "value": "133499189745056880149688856635597007162669032647290798121690100488888732861290034376435130433479",
+      "bits": 316,
+      "certainty": "probable",
+      "attempts": 29
+    },
+    {
+      "value": "19701003098197239606139520050071806902539869635232723333974146702122860885748605305707133127442457820403313995153377",
+      "bits": 383,
+      "certainty": "probable",
+      "attempts": 16
+    },
+    {
+      "value": "2305843009213693951",
+      "bits": 61,
+      "certainty": "proven",
+      "attempts": 1
+    }
+  ],
+  "cases": [
+    {
+      "id": "balanced64",
+      "input": "18446744045792264201",
+      "bits": 64,
+      "smallFactorBits": 31,
+      "shape": "balanced nonsquare",
+      "reference": [
+        {
+          "value": "2147483647",
+          "bits": 31,
+          "certainty": "proven",
+          "attempts": 1
+        },
+        {
+          "value": "8589934583",
+          "bits": 33,
+          "certainty": "proven",
+          "attempts": 5
+        }
+      ]
+    },
+    {
+      "id": "unbalanced96",
+      "input": "79227558051354530278947815491",
+      "bits": 96,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "reference": [
+        {
+          "value": "131071",
+          "bits": 17,
+          "certainty": "proven",
+          "attempts": 1
+        },
+        {
+          "value": "604462909807314587353021",
+          "bits": 79,
+          "certainty": "probable",
+          "attempts": 34
+        }
+      ]
+    },
+    {
+      "id": "balanced96",
+      "input": "59421121885677072203160487717",
+      "bits": 96,
+      "smallFactorBits": 48,
+      "shape": "balanced nonsquare",
+      "reference": [
+        {
+          "value": "281474976710597",
+          "bits": 48,
+          "certainty": "proven",
+          "attempts": 30
+        },
+        {
+          "value": "211106232532961",
+          "bits": 48,
+          "certainty": "proven",
+          "attempts": 16
+        }
+      ]
+    },
+    {
+      "id": "balanced133",
+      "input": "8156172677439289108635319830552518815109",
+      "bits": 133,
+      "smallFactorBits": 67,
+      "shape": "balanced nonsquare",
+      "reference": [
+        {
+          "value": "76512746975961690313",
+          "bits": 67,
+          "certainty": "probable"
+        },
+        {
+          "value": "106598874041233232093",
+          "bits": 67,
+          "certainty": "probable"
+        }
+      ]
+    },
+    {
+      "id": "unbalanced193",
+      "input": "12554201225906846587404696485555429779993992697404895266697",
+      "bits": 193,
+      "smallFactorBits": 24,
+      "shape": "unbalanced",
+      "reference": [
+        {
+          "value": "16777213",
+          "bits": 24,
+          "certainty": "proven",
+          "attempts": 2
+        },
+        {
+          "value": "748288838313422294120286634350736906063837462003069",
+          "bits": 169,
+          "certainty": "probable",
+          "attempts": 322
+        }
+      ]
+    },
+    {
+      "id": "balanced192",
+      "input": "4707826301540010572876842048886166824367477670857127497389",
+      "bits": 192,
+      "smallFactorBits": 96,
+      "shape": "balanced nonsquare",
+      "reference": [
+        {
+          "value": "79228162514264337593543950319",
+          "bits": 96,
+          "certainty": "probable",
+          "attempts": 9
+        },
+        {
+          "value": "59421121885698253195157962531",
+          "bits": 96,
+          "certainty": "probable",
+          "attempts": 111
+        }
+      ]
+    },
+    {
+      "id": "unbalanced255",
+      "input": "57896044618645962115675248609783061028913631872846034342719718738241488164089",
+      "bits": 255,
+      "smallFactorBits": 48,
+      "shape": "unbalanced",
+      "reference": [
+        {
+          "value": "281474976710597",
+          "bits": 48,
+          "certainty": "proven",
+          "attempts": 30
+        },
+        {
+          "value": "205688069665150755269371147819668813122841983204197482918576037",
+          "bits": 207,
+          "certainty": "probable",
+          "attempts": 46
+        }
+      ]
+    },
+    {
+      "id": "unbalanced333",
+      "input": "17497872299074350338099868128084335325818192778113052200608043161179135104862146095753728981046526009",
+      "bits": 333,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "reference": [
+        {
+          "value": "131071",
+          "bits": 17,
+          "certainty": "proven",
+          "attempts": 1
+        },
+        {
+          "value": "133499189745056880149688856635597007162669032647290798121690100488888732861290034376435130433479",
+          "bits": 316,
+          "certainty": "probable",
+          "attempts": 29
+        }
+      ]
+    },
+    {
+      "id": "unbalanced400",
+      "input": "2582230177083810392416313032482961802522803252959588280107325382393945499155955446024339646147010388978082768658748276767",
+      "bits": 400,
+      "smallFactorBits": 17,
+      "shape": "unbalanced",
+      "reference": [
+        {
+          "value": "131071",
+          "bits": 17,
+          "certainty": "proven",
+          "attempts": 1
+        },
+        {
+          "value": "19701003098197239606139520050071806902539869635232723333974146702122860885748605305707133127442457820403313995153377",
+          "bits": 383,
+          "certainty": "probable",
+          "attempts": 16
+        }
+      ]
+    },
+    {
+      "id": "square122",
+      "input": "5316911983139663487003542222693990401",
+      "bits": 122,
+      "smallFactorBits": 61,
+      "shape": "square control",
+      "reference": [
+        {
+          "value": "2305843009213693951",
+          "bits": 61,
+          "certainty": "proven",
+          "attempts": 1
+        },
+        {
+          "value": "2305843009213693951",
+          "bits": 61,
+          "certainty": "proven",
+          "attempts": 1
+        }
+      ]
+    }
+  ]
+}

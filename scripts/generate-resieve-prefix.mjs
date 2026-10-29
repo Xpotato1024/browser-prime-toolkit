@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import assert from 'node:assert/strict';
+import {hardenChromeHarness} from './harden-chrome-harness.mjs';
 import {readFileSync,writeFileSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8'),write=(p,t)=>{if(process.argv.includes('--check'))assert.equal(read(p),t,p);else writeFileSync(p,t);};
 const rep=(s,a,b)=>{assert.equal(s.split(a).length,2,'Resieve harness anchor '+a.slice(0,100));return s.replace(a,b);};
@@ -17,5 +18,6 @@ v=rep(v,"import {collectionAsset as coordinatorAsset} from './collection-profile
 v=rep(v,"['baseline','instrumented','resieve4','sparse'].includes(graphVariant)","['baseline','prefix'].includes(graphVariant)");
 v=v.replaceAll('/bench/collection-profile.html','/bench/resieve-prefix.html');
 v=rep(v,'  receipt.graphSourceFiles={};','  receipt.graphSourceFiles={};\n  for(const p of ["scripts/generate-resieve-prefix.mjs","scripts/verify-resieve-prefix.mjs","scripts/resieve-prefix-asset-route.mjs","scripts/build-resieve-prefix.mjs","native/resieve-prefix/patch-source.mjs","native/resieve-prefix/oracle.rs","native/resieve-prefix/build-prefix-1024.json","src/resieve-prefix/worker-source.js","docs/contracts/resieve-prefix.md"])receipt.graphSourceFiles[p]=createHash("sha256").update(await readFile(join(root,p))).digest("hex");');
+v=hardenChromeHarness(v);
 write('scripts/verify-resieve-prefix.mjs',v);
 console.log('Derived uninstrumented resieve variants; source, resource, offline and retirement contracts preserved');

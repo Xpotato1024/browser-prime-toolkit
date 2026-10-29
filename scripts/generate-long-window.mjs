@@ -9,10 +9,13 @@ s=rep(s,"import{optimizedWorkerSource as workerSourceForCap}from'./worker-source
 s=rep(s,",validateDlpTimings} from '../rusqsieve-dlp/contracts.js';","} from '../rusqsieve-dlp/contracts.js';");
 s=rep(s,"from '../graph-multicore/policy.js'","from './policy.js'");
 s=rep(s,"const LIMITS={...BASE_LIMITS,transportBytes:resourcePlan.transportBytes};","const LIMITS={...BASE_LIMITS,maxMs:LONG_LIMITS.maxMs,transportBytes:resourcePlan.transportBytes};");
+// The ordinary evaluator has a 4096-family option; long/wide retain their own cap.
+s=rep(s,'fixedFamilies=null,familyLimit=null,','fixedFamilies=null,');
+s=rep(s," if(familyLimit!==null&&(!Number.isSafeInteger(familyLimit)||familyLimit<1||familyLimit>4096))throw Error('Finite family limit');\n","");
 s=rep(s,'fixedFamilies>128','fixedFamilies>LONG_LIMITS.maxFamilies');
 s=rep(s,'events.length>4096','events.length>LONG_LIMITS.maxEvents');
 s=rep(s,'validateDlpTimings(d.timings,owner.timings)','validateLongTimings(d.timings,owner.timings)');
-s=rep(s,'Math.min(familyBudget,fixedFamilies??familyBudget)','Math.min(familyBudget,LONG_LIMITS.maxFamilies,fixedFamilies??familyBudget)');
+s=rep(s,'Math.min(familyBudget,familyLimit??familyBudget,fixedFamilies??familyBudget)','Math.min(familyBudget,LONG_LIMITS.maxFamilies,fixedFamilies??familyBudget)');
 s=rep(s,"release();return;}","if(submitted>=LONG_LIMITS.maxFamilies&&relations<target){finish('incomplete','family-budget');return;}release();return;}");
 s=rep(s,"if(d.type==='fatal'){record('fatal',{owner:owner.index,...d});finish('incomplete',d.reason,{fatal:d});return;}",`if(d.type==='fatal'){
     const q=validateQuotaTelemetry(d.nativeQuota);

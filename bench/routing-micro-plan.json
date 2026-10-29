@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "62443141f8afbbb96a1c2e3e8d1846117b5fd3d9",
+  "purpose": "bounded adapter-level routing evidence, not fastest/optimal-threshold claim",
+  "stage1": {
+    "cases": 10,
+    "repetitions": 2,
+    "methods": [
+      "native",
+      "ecm",
+      "siqs332"
+    ],
+    "order": [
+      "native",
+      "ecm",
+      "siqs332",
+      "siqs332",
+      "ecm",
+      "native"
+    ],
+    "jobTimeMs": 500,
+    "maxWorkers": 1,
+    "wasmBudgetMiB": 128,
+    "work": {
+      "native": 50000,
+      "ecm": 500000,
+      "siqs": 4096
+    },
+    "maxEligibleTrials": 60,
+    "maximumJobTimeSeconds": 30,
+    "captureTimeoutAndUnsupported": true,
+    "timeIncludes": "Worker startup, existing preprocessing, algorithm and retirement; assets excluded",
+    "factorOracle": "reference factors used after return only, never passed to engine"
+  },
+  "fixtureGeneration": {
+    "fixedBitPairs": [
+      [
+        31,
+        33
+      ],
+      [
+        17,
+        79
+      ],
+      [
+        48,
+        48
+      ],
+      [
+        24,
+        169
+      ],
+      [
+        96,
+        96
+      ],
+      [
+        48,
+        207
+      ],
+      [
+        17,
+        316
+      ],
+      [
+        17,
+        383
+      ]
+    ],
+    "maxPrimeCandidatesPerBit": 1024,
+    "primality": "existing assessPrime, under64 proven; larger probable; reference product exact",
+    "balanced133": "reuse previous actual known-factor fixture",
+    "squareControl": "M61 squared, explicitly separate from balanced nonsquare",
+    "preparationNegative": "256-candidate cap exhausted at169bit before measuring; raised finite fixture-only cap to1024",
+    "balancedDistinctStart": "for second same-width prime: 3*2^(bits-2)-1 descending, avoiding near-square neighboring primes"
+  },
+  "stage2": {
+    "condition": "after stage1, choose at most two justified prefix policies; no new algorithms",
+    "jobTimeMs": 2000,
+    "maxCases": 5,
+    "maxRunsPerCase": 4,
+    "order": "ABBA",
+    "maximumJobTimeSeconds": 40,
+    "wasmBudgetMiB": 128,
+    "maxWorkers": 1,
+    "adoption": "no loss of verified/accepted factor progress; reproducible completion-latency reduction or >=100ms earlier measured collection, no inferred full completion rate; otherwise keep baseline"
+  },
+  "ui": {
+    "boundedJobMs": 2000,
+    "singleMethodsAndTransitions": true,
+    "cancelAndFresh": true,
+    "staleJobIsolation": true,
+    "noOverallPercent": true
+  },
+  "maximumWholeExperimentWallSeconds": 300,
+  "notMeasured": [
+    "long balanced400 completion",
+    "physical mobile",
+    "matched competitor speed"
+  ],
+  "publicOperations": false
+}

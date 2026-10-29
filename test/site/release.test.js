@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 import {selectSitePlan,parseSiteInput} from '../../src/site/policy.js';
 test('public parsing preserves integers and bounds expansion',()=>{
  assert.equal(parseSiteInput('9007199254740993'),'9007199254740993');
- assert.equal(parseSiteInput('3.2e1'),'32');
- for(const x of ['2.5','-1','<img>','1e10000','9'.repeat(101)])assert.throws(()=>parseSiteInput(x));
+ assert.equal(parseSiteInput('3.2e1'),'32');assert.equal(parseSiteInput('1e100'),'1'+'0'.repeat(100));
+ for(const x of ['2.5','-1','<img>','1e10000',(1n<<1024n).toString()])assert.throws(()=>parseSiteInput(x));
 });
 test('wide is explicit, finite and keeps role and queue bounds',()=>{
  assert.throws(()=>selectSitePlan('wide',{},{}));
@@ -34,9 +34,24 @@ test('document scope retains unknown retirement and prevents overlapping jobs',a
 });
 
 test('repeated high factors use powers while keeping probable status and product verification',async()=>{
- const {heavyView}=await import('../../src/site/session.js');
+ const {createVerifiedRoutingSession,verifyRoutingResult}=await import('../../src/routing/verification.js');
+ const {makeRoutingView}=await import('../../src/site/routing-view.js');
  const p=(1n<<89n)-1n,input=(p*p).toString();
- const value={input,kind:'probable',factors:[{value:p.toString(),certainty:'probable'},{value:p.toString(),certainty:'probable'}],remaining:'1',allWorkersDisposed:true,allWorkerSourcesReleased:true};
- const view=heavyView(value,input,{now:()=>0,deadline:1000});assert.ok(view.copyText.includes(p.toString()+'^2'));assert.match(view.statusText,/未証明/);
- assert.throws(()=>heavyView({...value,remaining:'2'},input,{now:()=>0,deadline:1000}));
+ const run=async remaining=>{
+  const port={start(r){return{result:Promise.resolve({reason:'exhausted',
+   packet:{version:1,jobId:r.jobId,stage:r.stage,input:r.input,seq:1,work:1,
+    snapshot:{factors:[{value:p.toString(),exponent:2}],remaining},reportedPrimality:'unknown'}}),
+   dispose:()=>({allWorkersDisposed:true,allWorkerSourcesReleased:true})};}};
+  return createVerifiedRoutingSession({ports:{native:port,ecm:port,siqs332:port},now:()=>0}).run(input,{jobTimeMs:1000});
+ };
+ const raw=await run('1'),result=verifyRoutingResult(raw,{now:()=>0});
+ const view=makeRoutingView(result,input);
+ assert.equal(result.status,'probable');assert.equal(result.decompositionComplete,true);
+ assert.equal(result.factorizationComplete,false);assert.equal(view.groups[0].exponent,2);
+ assert.ok(view.copyText.includes(p.toString()+'^2'));assert.match(view.statusText,/未証明/);
+ const bad=await run('2');
+ assert.deepEqual(bad.snapshot,{factors:[],remaining:input});
+ const badView=makeRoutingView(verifyRoutingResult(bad,{now:()=>0}),input);
+ assert.equal(badView.groups.length,0);assert.notEqual(badView.status,'probable');
+ assert.throws(()=>makeRoutingView({...result,snapshot:{factors:[],remaining:'2'}},input));
 });
