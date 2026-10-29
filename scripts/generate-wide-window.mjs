@@ -9,6 +9,16 @@ s=rep(s,"import{LONG_LIMITS,validateLongTimings,validateQuotaTelemetry}from'./bu
 s=rep(s,"validateInput,validatePacket,validateMemory}","validateInput,validatePacket}");
 s=rep(s,"import {selectResourcePlan,validateResourcePlan} from './policy.js';","import {selectResourcePlan,validateResourcePlan} from './policy.js';\nimport {validateWideMemory} from './memory.js';");
 s=rep(s,"validateMemory(m);","validateWideMemory(m,resourcePlan.ownerCapsMiB[owner.index]);");
+// Preserve the reviewed internal factory used by the experimental 400-bit port.
+s=rep(s,'let nextGeneration=0;\nexport function runRusqsieve(input,options={}){',
+ "// Internal factory; public index.js exports only the fixed runRusqsieve binding.\nexport function createRusqsieveRunner({inputValidator=validateInput,sourceForCap=workerSourceForCap,configurationValidator=validateDlpConfiguration}={}){\n let nextGeneration=0;\n return function runRusqsieve(input,options={}){");
+s=rep(s,'fixedFamilies=null,','fixedFamilies=null,familyLimit=null,');
+s=rep(s," const policy=schedulerProfile(scheduler);"," if(familyLimit!==null&&(!Number.isSafeInteger(familyLimit)||familyLimit<1||familyLimit>4096))throw Error('Finite family limit');\n const policy=schedulerProfile(scheduler);");
+s=rep(s,'workerSourceForCap(cap)','sourceForCap(cap)');
+s=rep(s,'const inputInfo=validateInput(input)','const inputInfo=inputValidator(input)');
+s=rep(s,'validateDlpConfiguration(d.config,profile,inputInfo.bits)','configurationValidator(d.config,profile,inputInfo.bits)');
+s=rep(s,'Math.min(familyBudget,LONG_LIMITS.maxFamilies,fixedFamilies??familyBudget)','Math.min(familyBudget,LONG_LIMITS.maxFamilies,familyLimit??familyBudget,fixedFamilies??familyBudget)');
+s+='}\nexport const runRusqsieve=createRusqsieveRunner();\n';
 write('src/wide-window/runner.js',s);
 write('src/wide-window/index.js',"// SPDX-License-Identifier: AGPL-3.0-only\nexport{runRusqsieve}from'./runner.js';\nexport{selectResourcePlan,validateResourcePlan}from'./policy.js';\n");
 console.log('Derived explicit wide runner; ordinary and Stage37 namespaces preserved');
