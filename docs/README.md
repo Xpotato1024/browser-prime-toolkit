@@ -147,3 +147,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 
 - [ローカル候補とリモートCIの対象・必要な次操作](operations/ci-routing-status-20261028.md)
 - [ブラウザ完結GNFSの工程別適合性・有限実証の前提](architecture/gnfs-browser-feasibility.md)
+
+- [入力・操作・進捗のGUI整理（未公開候補）](operations/gui-streamline-20261030.md)

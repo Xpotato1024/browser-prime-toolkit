@@ -43,7 +43,7 @@ try{
    const router=window.onlySiqs?createVerifiedRoutingSession({scope:options.scope,now:options.now,ports:isolated[window.onlySiqs]()}):createSiteRouter(options);
    return {cancel:()=>router.cancel(),run:(input,runOptions)=>router.run(input,{...runOptions,onChange:e=>{runOptions.onChange(e);window.events.push(e);
     const state=window.app.getState(),partial=document.querySelector('.bt-progress-partial'),candidate=document.querySelector('.bt-progress-partial-value');
-    window.timeline.push({caseId:window.currentCase,event:e,atMs:performance.now(),elapsedText:document.querySelector('[data-elapsed]').textContent,label:document.querySelector('.bt-status').textContent,uiStage:state.progress?.stage,bar:document.querySelector('progress').getAttribute('value'),summary:document.querySelector('.bt-progress-summary').textContent,partialVisible:!partial.hidden,partialText:candidate.textContent});
+    window.timeline.push({caseId:window.currentCase,event:e,atMs:performance.now(),elapsedText:document.querySelector('[data-elapsed]').textContent,label:document.querySelector('.bt-status').textContent,uiStage:state.progress?.stage,bar:document.querySelector('progress').getAttribute('value'),summary:document.querySelector('.bt-progress-summary').textContent,barMeaning:document.querySelector('progress').getAttribute('aria-valuetext'),partialVisible:!partial.hidden,partialText:candidate.textContent});
     if(e.phase==='accepted-prefix'&&e.factors.length){window.prefixHistory.push({callback:runOptions.onChange,event:e});if(window.cancelOnPrefix){window.cancelOnPrefix=false;window.cancelledHistory=window.prefixHistory.at(-1);document.querySelector('[data-action=cancel]').click();}}
 if(e.phase==='collecting')window.snapshots.push({event:e,bar:document.querySelector('progress').getAttribute('value'),label:document.querySelector('.bt-status').textContent,inputRect:document.querySelector('input').getBoundingClientRect().toJSON(),documentY:document.querySelector('input').getBoundingClientRect().y+scrollY,scale:visualViewport?.scale??1});}})};
   }}});
@@ -76,7 +76,7 @@ if(e.phase==='collecting')window.snapshots.push({event:e,bar:document.querySelec
  const routeTimeline=await page.evaluate(()=>window.timeline.filter(x=>x.caseId==='default-shared133'));
  assert.ok(routeTimeline.some(x=>x.label.includes('Brent')));assert.ok(routeTimeline.some(x=>x.label.includes('ECM')));assert.ok(routeTimeline.some(x=>x.uiStage==='collecting'&&x.bar!==null));
  const elapsedValue=s=>s.startsWith('<1')?0.5:s.endsWith('ms')?Number.parseFloat(s):Number.parseFloat(s)*1000;const samples=routeTimeline.map(x=>elapsedValue(x.elapsedText));assert.ok(samples.every((n,i)=>Number.isFinite(n)&&(i===0||n>=samples[i-1])));assert.ok(Math.max(...samples)>0);
- assert.ok(routeTimeline.filter(x=>x.bar!==null).every(x=>x.uiStage==='collecting'&&x.summary.includes('全体')));
+ assert.ok(routeTimeline.filter(x=>x.bar!==null&&x.uiStage==='collecting').every(x=>x.summary.includes('この工程')&&x.barMeaning.includes('計算全体の完了率ではありません')));assert.ok(routeTimeline.filter(x=>x.bar!==null&&x.uiStage!=='collecting').every(x=>x.bar==='0'&&!x.barMeaning.includes('%')));
  await page.evaluate(()=>window.cancelOnPrefix=true);
  const prefixCancel=await run('native-partial-cancel',(2n*((1n<<521n)-1n)*((1n<<127n)-1n)).toString(),{mode:'standard',only:'native'});
  assert.equal(prefixCancel.view.status,'cancelled');assert.ok(prefixCancel.view.equation.includes('2'));assert.ok(prefixCancel.view.copyText.includes('中止'));
