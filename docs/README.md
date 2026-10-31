@@ -153,3 +153,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 [GUI改善0.2.1の配布](operations/release-v0.2.1.md)は既存の数値・資源契約を維持し、新版の対応ソースと検証を確認します。
 
 [ECM Workerのhost bundle回帰](operations/ecm-host-bundle-regression.md)は、minify後のWorker初期化と既知入力の停止を検証します。
+
+[0.2.2 ECM Worker修正版の配布](operations/release-v0.2.2.md)は、最終ソース・生成入力・host minify受入と配布物の対応を確認します。
