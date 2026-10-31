@@ -21,6 +21,13 @@ test('release generator has a fixed exact-set, license/source files and reproduc
   const distributed=await import(pathToFileURL(join(outputs[0],'src/site/capabilities.mjs')).href);assert.deepEqual(distributed.SITE_CAPABILITIES,m.uiCapabilities);
   assert.equal(m.runtime.capabilities.clipboard,true);
   assert.equal(m.runtime.clipboardPolicy,'user-gesture-write-only');assert.equal(m.runtime.assetMode,'fixed-bundled');
+  assert.ok(m.runtime.embeddedWorkerModules.includes('src/routing/ecm-source.mjs'));
+  assert.ok(m.runtime.embeddedWasmModules.includes('src/routing/ecm-source.mjs'),'The fixed ECM worker contains its reviewed bundled WASM');
+  const provenance=JSON.parse(await readFile(join(outputs[0],'artifact-provenance.json'),'utf8'));
+  for(const path of ['scripts/build-routing-ecm-worker.mjs','src/routing/ecm-worker-runtime.js','src/engine/gmp.js','src/engine/gmp-bytes.js']){
+   const recipe=provenance.recipes.find(r=>r.path===path);assert.ok(recipe);
+   assert.equal(recipe.sha256,createHash('sha256').update(await readFile(path)).digest('hex'));
+  }
   for(const f of m.files){
    const b=await readFile(join(outputs[0],f.path));
    assert.equal(b.length,f.bytes);assert.equal(createHash('sha256').update(b).digest('hex'),f.sha256);
