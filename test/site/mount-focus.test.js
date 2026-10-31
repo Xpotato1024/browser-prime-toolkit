@@ -21,7 +21,7 @@ test('all examples only fill the common input, collapse and return focus to the 
  let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{runs++;return finished(i);}})});
  assert.equal(f.action('quick-example'),undefined);const samples=f.find(n=>n.attrs['class']==='bt-samples');
  for(const sample of nodes(f.root).filter(n=>'data-sample-value' in n.attrs)){f.action('examples').fire('click');sample.focus();sample.fire('click');assert.equal(f.input.value,sample.attrs['data-sample-value']);assert.equal(samples.open,false);assert.equal(f.doc.activeElement,f.action('start'));assert.equal(f.app.getState().phase,'ready');}
- assert.equal(runs,0);assert.equal(f.input.attrs.maxlength,undefined);const area=f.find(n=>n.attrs['class']==='bt-input-area'),limit=f.find(n=>n.attrs['class']==='bt-input-limit');assert.ok(area.children.includes(limit));assert.match(limit.textContent,/309.*1024/);assert.ok(f.input.attrs['aria-describedby'].includes(limit.id));f.app.dispose();
+ assert.equal(runs,0);assert.equal(f.input.attrs.maxlength,undefined);const area=f.find(n=>n.attrs['class']==='bt-input-area'),limit=f.find(n=>n.attrs['class']==='bt-input-limit');assert.equal(area.children.includes(limit),false);assert.ok(nodes(f.root).some(n=>n.children.includes(area)&&n.children.includes(limit)));assert.match(limit.textContent,/309.*1024/);assert.ok(f.input.attrs['aria-describedby'].includes(limit.id));f.app.dispose();
 });
 
 test('edited input is unexecuted and the previous result and copy remain bound to their original input',async()=>{
@@ -51,7 +51,7 @@ test('cancel retains the lease until retirement and then permits a fresh run',as
 test('paste text is never truncated and copying keeps rows, status and full precision',async()=>{
  const f=await setup();f.input.value='0'.repeat(4097);f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.input.value.length,4097);assert.match(f.app.getState().error,/4096/);
  f.input.value='000360';f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.input.value,'000360');const factors=f.find(n=>n.attrs['class']==='bt-factor-list');assert.equal(factors.tagName,'UL');assert.equal(factors.children.length,3);assert.ok(factors.children.every(n=>n.tagName==='LI'));
- f.action('copy').fire('click');await settle();const body=f.find(n=>n.attrs['class']==='bt-result-body');assert.equal(f.doc.activeElement,body);assert.equal(f.doc.selected,body);assert.equal(f.find(n=>n.attrs['class']==='bt-proof').open,true);assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/360 = 2\^3/);f.action('reset').focus();f.action('reset').fire('click');await settle();assert.equal(f.input.value,'');assert.equal(f.doc.activeElement,f.action('reset'));f.app.dispose();assert.equal(f.root.children.length,0);
+ f.action('copy').fire('click');await settle();const body=f.find(n=>n.attrs['class']==='bt-result-body');assert.equal(f.doc.activeElement,body);assert.equal(f.doc.selected,body);assert.equal(f.find(n=>n.attrs['class']==='bt-proof').open,true);assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/360 = 2\^3/);f.input.focus();f.input.value='';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);assert.equal(f.doc.activeElement,f.input);f.app.dispose();assert.equal(f.root.children.length,0);
 });
 
 test('asset failure is distinct from invalid input and retries retain the typed input',async()=>{
@@ -111,20 +111,20 @@ test('settings cancel and invalid apply leave current result and applied input c
 test('a pending clipboard denial cannot take focus from a newly opened modal',async()=>{const f=await setup();f.input.value='32';f.form.fire('submit');await settle();let rejectCopy;f.doc.defaultView.navigator.clipboard={writeText:()=>new Promise((resolve,reject)=>{rejectCopy=reject;})};f.action('copy').fire('click');f.action('examples').fire('click');const focused=f.doc.activeElement;rejectCopy(Error('denied'));await settle();assert.equal(f.doc.activeElement,focused);assert.equal(focused.tagName,'H2');f.app.dispose();});
 
 test('ready, sample selection and completion leave no stale input announcement or duplicate completion',async t=>{
- const f=await setup(),status=f.find(n=>n.attrs['class']==='bt-status');t.after(()=>f.app.dispose());assert.equal(status.textContent,'');
+ const f=await setup(),status=f.find(n=>n.attrs['class']==='bt-status');t.after(()=>f.app.dispose());assert.equal(status.textContent,'待機中');
  f.action('examples').fire('click');f.find(n=>n.attrs['data-sample-value']==='9007199254740993').fire('click');
  assert.equal(f.input.value,'9007199254740993');assert.equal(f.app.getState().phase,'ready');
  assert.equal(nodes(f.root).some(n=>/を入力しました|まだ実行していません|入力を用意して/.test(n.textContent??'')),false);
- f.form.fire('submit');await settle();assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');const summary=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(summary.textContent,/分解完了/);assert.equal(summary.attrs.role,'status');assert.equal(summary.attrs['aria-live'],'polite');
+ f.form.fire('submit');await settle();assert.equal(status.textContent,'処理終了');assert.equal(status.attrs['aria-live'],'off');const summary=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(summary.textContent,/分解完了/);assert.equal(summary.attrs.role,'status');assert.equal(summary.attrs['aria-live'],'polite');
  assert.equal(nodes(f.root).some(n=>/計算が終了しました|中止処理が完了しました/.test(n.textContent??'')),false);
- f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);f.form.fire('submit');await settle();assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');
- f.action('reset').fire('click');await settle();assert.equal(status.textContent,'');assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,true);f.app.dispose();
+ f.input.value='32';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);f.form.fire('submit');await settle();assert.equal(status.textContent,'処理終了');assert.equal(status.attrs['aria-live'],'off');
+ f.input.value='';f.input.fire('input');assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,false);f.app.dispose();
 });
 
 test('necessary live progress and cancellation transfer focus to one qualified final status',async t=>{
  let finish;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:input=>new Promise(resolve=>{finish=()=>resolve({...finished(input),origin:'host',traceAvailable:false,stages:null,grants:null,status:'cancelled',reason:'cancelled',factors:[],remaining:input,primality:'unknown'});})})});t.after(()=>f.app.dispose());
  const status=f.find(n=>n.attrs['class']==='bt-status');f.input.value='9007199254740993';f.form.fire('submit');await settle();assert.equal(status.textContent,'小入力の分解');assert.equal(status.attrs['aria-live'],'polite');assert.equal(f.doc.activeElement,status);f.action('cancel').focus();f.action('cancel').fire('click');assert.equal(status.textContent,'中止処理');assert.match(f.find(n=>n.attrs['class']==='bt-progress-summary').textContent,/解放/);finish();await settle();
- const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
+ const final=f.find(n=>n.attrs['class']==='bt-result-status');assert.match(final.textContent,/中止/);assert.equal(status.textContent,'処理終了');assert.equal(status.attrs['aria-live'],'off');assert.equal(f.doc.activeElement,final);assert.equal(final.attrs['aria-live'],'polite');f.app.dispose();
 });
 
 test('a certified stopped result stays visible and copyable while unsafe replacement is blocked',async()=>{
@@ -139,7 +139,39 @@ test('a certified stopped result stays visible and copyable while unsafe replace
  assert.equal(f.find(n=>n.attrs['class']==='bt-result').hidden,false);
  assert.match(f.find(n=>n.attrs['class']==='bt-equation').textContent,/2\^100.*5\^100/);
  assert.equal(f.action('copy').disabled,false);assert.equal(f.find(n=>n.attrs['class']==='bt-execution').hidden,false);assert.equal(f.action('start').disabled,true);
- assert.equal(f.action('reset').disabled,true);assert.equal(f.action('settings').disabled,true);assert.equal(f.input.readOnly,true);
+ assert.equal(f.action('reset'),undefined);assert.equal(f.action('settings').disabled,true);assert.equal(f.input.readOnly,true);
  f.action('copy').fire('click');await settle();assert.match(f.find(n=>(n.attrs['class']??'').includes('bt-copy-status')).textContent,/手動でコピー/);
  f.app.dispose();
+});
+
+test('three deliberate actions share one row and manual clearing keeps the prior result explicit',async()=>{
+ const f=await setup(),examples=f.action('examples'),settings=f.action('settings'),start=f.action('start');
+ assert.equal(f.action('reset'),undefined);
+ assert.ok(nodes(f.root).some(n=>n.children.includes(examples)&&n.children.includes(settings)&&n.children.includes(start)));
+ assert.equal(f.find(n=>n.attrs['class']==='bt-progress').hidden,false);
+ assert.equal(f.find(n=>n.attrs['class']==='bt-status').textContent,'待機中');
+ f.input.value='32';f.form.fire('submit');await settle();f.input.value='';f.input.fire('input');
+ assert.match(f.find(n=>n.attrs['class']==='bt-draft-note').textContent,/前回/);
+ assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*32/);
+ assert.equal(f.find(n=>n.attrs['class']==='bt-equation').textContent,'32 = 2^5');
+ f.input.value='64';f.input.fire('input');f.form.fire('submit');await settle();
+ assert.equal(f.find(n=>n.attrs['class']==='bt-equation').textContent,'64 = 2^6');
+ f.app.dispose();
+});
+
+test('sample selection uses the same standby and previous-result presentation as manual edits',async()=>{
+ let runs=0;const f=await setup({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async i=>{runs++;return finished(i);}})});
+ f.input.value='32';f.form.fire('submit');await settle();
+ const select=()=>{f.action('examples').fire('click');f.find(n=>n.attrs['data-sample-value']==='9007199254740993').fire('click');};
+ select();assert.equal(runs,1);assert.equal(f.find(n=>n.attrs['class']==='bt-status').textContent,'待機中');assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*32/);
+ f.input.value='2.5';f.input.fire('input');f.form.fire('submit');await settle();assert.equal(f.app.getState().errorField,'input');
+ select();assert.equal(runs,1);assert.equal(f.find(n=>n.attrs['class']==='bt-status').textContent,'待機中');assert.equal(f.find(n=>n.attrs['class']==='bt-input-limit').textContent,'309桁・1024bitまで');assert.equal(f.doc.activeElement,f.action('start'));
+ f.app.dispose();
+});
+
+test('a late clipboard denial cannot steal focus after input editing',async()=>{
+ const f=await setup();f.input.value='360';f.form.fire('submit');await settle();let reject;
+ f.doc.defaultView.navigator.clipboard={writeText:()=>new Promise((_,r)=>{reject=r;})};
+ f.action('copy').fire('click');await settle();f.input.focus();f.input.value='64';f.input.fire('input');reject(Error('denied'));await settle();
+ assert.equal(f.doc.activeElement,f.input);assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*360/);f.app.dispose();
 });

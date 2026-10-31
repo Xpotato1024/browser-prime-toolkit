@@ -54,7 +54,7 @@ test('mock DOM keeps the same progress nodes, labels indeterminate state, and ne
  const fixed=f.nodes.length;
  t.collect(1,{families:10,relations:250,target:1000});v.update(t.get());
  assert.equal(bar.attrs.value,'0.25');assert.equal(bar.attrs['aria-valuetext'],'関係収集 25.0%（計算全体の完了率ではありません）');
- assert.ok(f.nodes.some(n=>n.textContent==='250 / 1000 関係・10 family'));
+ assert.ok(f.nodes.some(n=>n.textContent==='250 / 1000 関係式'));
  for(let i=0;i<1000;i++)v.update(t.get());assert.equal(f.nodes.length,fixed);
  t.collect(1,{families:20,relations:1000,target:1000});v.update(t.get());assert.equal(bar.attrs.value,undefined);
  t.cancel(1);v.update(t.get());assert.equal(bar.attrs.value,undefined);assert.match(stage.textContent,/中止/);
@@ -68,7 +68,7 @@ test('reset clears presentation and old job identifiers cannot be restarted',()=
  const f=fixture(),v=createProgressView(f.doc,'done-');v.update(t.get());t.finish(5,'result');v.update(t.get());
  const bar=f.nodes.find(n=>n.tag==='progress'),stage=f.nodes.find(n=>n.attrs.id==='done-progress-stage');
  assert.equal(bar.attrs['data-terminal'],'true');assert.equal(stage.attrs['aria-live'],'off');
- v.update(null);assert.equal(v.root.hidden,true);
+ v.update(null);assert.equal(v.root.hidden,false);
 });
 
 test('a fraction just below the collection target is never rounded up to 100 percent',()=>{
@@ -82,7 +82,7 @@ test('host status can be the single named live heading without a duplicate node'
  t.begin(1);v.update(t.get());assert.equal(status.textContent,'計算中');assert.equal(status.attrs['aria-live'],'polite');
  assert.equal(f.nodes.filter(n=>n.attrs.id==='shared-progress-stage').length,1);assert.ok(!v.root.children.includes(status));
  t.cancel(1);v.update(t.get());assert.equal(status.textContent,'中止処理');assert.equal(status.attrs['aria-live'],'polite');
- t.finish(1,'result');v.update(t.get());assert.equal(status.textContent,'実行記録');assert.equal(status.attrs['aria-live'],'off');
+ t.finish(1,'result');v.update(t.get());assert.equal(status.textContent,'処理終了');assert.equal(status.attrs['aria-live'],'off');
 });
 
 test('shared status announces once per stage and preparation restores its live setting',()=>{
@@ -116,4 +116,16 @@ test('partial factor candidates persist across methods but never become prime cl
  assert.ok(f.nodes.some(n=>n.textContent.includes('2^3')));assert.ok(f.nodes.some(n=>n.textContent.includes('最終確認前')));
  t.cancel(1);assert.equal(t.prefix(1,[{value:'5',exponent:1}]),false);t.finish(1,'result');v.update(t.get());assert.equal(detail.hidden,true);
  t.begin(2);assert.equal(t.get().factorCandidates.length,0);assert.equal(t.prefix(1,[{value:'7',exponent:1}]),false);
+});
+
+test('the progress region starts visible and neutral without claiming work has begun',()=>{
+ const f=fixture(),v=createProgressView(f.doc,'idle-');
+ const bar=f.nodes.find(n=>n.tag==='progress'),stage=f.nodes.find(n=>n.attrs.id==='idle-progress-stage');
+ assert.equal(v.root.hidden,false);assert.equal(stage.textContent,'待機中');
+ assert.equal(bar.attrs.value,'0');assert.equal(bar.attrs['data-state'],'idle');assert.match(bar.attrs['aria-valuetext'],/待機/);
+ v.update(null,{phase:'loading'});assert.equal(v.root.hidden,false);assert.equal(bar.attrs.value,undefined);
+ v.update(null,{phase:'invalid'});assert.equal(bar.attrs.value,'0');assert.match(stage.textContent,/入力/);
+ v.update(null,{phase:'ready'});assert.equal(stage.textContent,'待機中');assert.equal(bar.attrs.value,'0');
+ const t=createProgressTracker();t.begin(1);t.collect(1,{families:1,relations:2,target:10});v.update(t.get());t.finish(1,'result');v.update(t.get());
+ assert.equal(v.root.hidden,false);assert.equal(bar.attrs.value,'0');assert.equal(bar.attrs['data-terminal'],'true');
 });

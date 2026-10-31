@@ -8,7 +8,7 @@
 .bt-prime-factorizer .bt-work { min-inline-size:0; }
 .bt-prime-factorizer .bt-input-area { min-inline-size:0; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); }
 .bt-prime-factorizer .bt-field .bt-input-area input { border:0; background:transparent; }
-.bt-prime-factorizer .bt-input-limit { margin:0; padding:.25rem .75rem .5rem; font-size:var(--bt-help-font-size,.9rem); color:var(--bt-muted,#514b5b); overflow-wrap:anywhere; }
+.bt-prime-factorizer .bt-input-limit { margin:0; padding:0; font-size:var(--bt-help-font-size,.9rem); color:var(--bt-muted,#514b5b); overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-draft-note { margin:.5rem 0; padding:.5rem; border-left:3px solid var(--bt-border,#736a7b); }
 .bt-prime-factorizer .bt-next-plan { margin:.5rem 0; font-size:var(--bt-help-font-size,.9rem); color:var(--bt-muted,#514b5b); }
 .bt-prime-factorizer .bt-result-title { margin:.5rem 0; font-family:inherit; font-size:var(--bt-heading-font-size,1.2rem); font-weight:500; }
@@ -18,16 +18,16 @@
 .bt-prime-factorizer .bt-field { display:flex; flex-direction:column; gap:.35rem; margin:0 0 .85rem; }
 .bt-prime-factorizer label { display:block; margin:0; font-weight:600; }
 .bt-prime-factorizer .bt-field input, .bt-prime-factorizer .bt-field select, .bt-prime-factorizer .bt-result textarea { display:block; width:100%; max-width:100%; min-width:0; min-height:max(var(--bt-control-min-size,2.75rem),44px); box-sizing:border-box; padding:.65rem .75rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(var(--bt-font-size,1rem),16px); line-height:1.5; }
+.bt-prime-factorizer input::placeholder { color:var(--bt-muted,#514b5b); opacity:1; }
 .bt-prime-factorizer select { appearance:auto; }
 .bt-prime-factorizer textarea { min-height:4rem; resize:vertical; white-space:pre-wrap; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-help { margin:.4rem 0 .9rem; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer details { margin:.9rem 0; padding:0; border:0; border-top:1px solid var(--bt-border,#736a7b); border-radius:0; background:transparent; }
 .bt-prime-factorizer summary { min-height:max(var(--bt-control-min-size,2.75rem),44px); box-sizing:border-box; padding:.55rem 0; font-size:var(--bt-summary-font-size,1rem); font-weight:var(--bt-summary-font-weight,600); line-height:var(--bt-line-height,1.6); cursor:pointer; }
 .bt-prime-factorizer details[open] summary { margin-bottom:.65rem; }
-.bt-prime-factorizer .bt-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin:.75rem 0 0; }
 .bt-prime-factorizer button[type] { min-height:max(var(--bt-control-min-size,2.75rem),44px); margin:0; padding:.6rem .85rem; border:1px solid var(--bt-border,#736a7b); border-radius:2px; background:var(--bt-surface,#fff); color:var(--bt-text,#24212b); font:inherit; font-size:max(var(--bt-font-size,1rem),16px); font-weight:500; line-height:1.4; cursor:pointer; }
 .bt-prime-factorizer button[data-action="start"], .bt-prime-factorizer button[data-action="apply-settings"] { background:var(--bt-accent,#62418b); color:var(--bt-on-accent,#fff); border-color:var(--bt-accent,#62418b); font-weight:600; }
-.bt-prime-factorizer button[data-action="reset"], .bt-prime-factorizer .bt-modal-header button[type] { background:var(--bt-surface,#fff); color:var(--bt-muted,#514b5b); border-color:transparent; }
+.bt-prime-factorizer .bt-modal-header button[type] { background:var(--bt-surface,#fff); color:var(--bt-muted,#514b5b); border-color:transparent; }
 .bt-prime-factorizer button[data-action="cancel"] { background:var(--bt-surface,#fff); color:var(--bt-danger,#a32232); border-color:var(--bt-danger,#a32232); }
 .bt-prime-factorizer button:disabled, .bt-prime-factorizer select:disabled, .bt-prime-factorizer input:disabled { opacity:.6; cursor:default; }
 .bt-prime-factorizer button[type]:enabled:hover, .bt-prime-factorizer button[type]:enabled:active { color:var(--bt-text,#24212b); background:var(--bt-surface,#fff); border-color:var(--bt-focus,#215fba); }
@@ -47,7 +47,7 @@
 .bt-prime-factorizer .bt-sample-list { display:grid; gap:.5rem; list-style:none; margin:.75rem 0 0; padding:0; }
 .bt-prime-factorizer .bt-sample-list li { min-inline-size:0; margin:0; }
 .bt-prime-factorizer button.bt-sample-choice { inline-size:100%; white-space:normal; text-align:start; overflow-wrap:anywhere; font-weight:400; }
-.bt-prime-factorizer .bt-menu { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; }
+.bt-prime-factorizer .bt-menu { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin:.5rem 0; }
 .bt-prime-factorizer dialog { inline-size:min(36rem,100%); max-inline-size:calc(100vw - 2rem); max-block-size:calc(100dvh - 2rem); margin:auto; padding:1rem; box-sizing:border-box; overflow:auto; overscroll-behavior:contain; border:1px solid var(--bt-border,#736a7b); border-radius:2px; color:var(--bt-text,#24212b); background:var(--bt-surface,#fff); font:inherit; }
 .bt-prime-factorizer dialog::backdrop { background:rgba(21,20,29,.45); }
 .bt-prime-factorizer .bt-modal-header { display:flex; flex-wrap:wrap; gap:.5rem .75rem; align-items:center; justify-content:space-between; margin-bottom:.75rem; padding-bottom:.5rem; border-bottom:1px solid var(--bt-border,#736a7b); }
@@ -79,12 +79,17 @@
 .bt-prime-factorizer .bt-guidance-list ul li { margin:.35rem 0; }
 
 /* A stable, flat progress region: counters never create cards or move focus. */
-.bt-prime-factorizer .bt-progress { min-block-size:8rem; margin:.75rem 0; overflow-wrap:anywhere; }
+.bt-prime-factorizer .bt-progress { min-block-size:3.7rem; margin:0 0 .4rem; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-progress-stage { min-block-size:1.6em; font-weight:600; }
 .bt-prime-factorizer .bt-progress progress { display:block; inline-size:100%; block-size:.65rem; margin:.5rem 0; accent-color:var(--bt-accent,#62418b); }
-.bt-prime-factorizer .bt-progress-counts { min-block-size:1.6em; font-variant-numeric:tabular-nums; }
-.bt-prime-factorizer .bt-progress-summary { min-block-size:3.2em; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
-.bt-prime-factorizer .bt-progress progress[data-terminal="true"] { visibility:hidden; }
-.bt-prime-factorizer .bt-actions button[data-action="cancel"][hidden] { display:block; visibility:hidden; pointer-events:none; }
+.bt-prime-factorizer .bt-progress-counts { margin:0; font-variant-numeric:tabular-nums; font-size:var(--bt-help-font-size,.9rem); }
+.bt-prime-factorizer .bt-progress-summary { margin:0; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
+.bt-prime-factorizer .bt-progress progress[data-terminal="true"] { accent-color:var(--bt-muted,#514b5b); }
+
 
 .bt-prime-factorizer .bt-progress-partial-value{overflow-wrap:anywhere;}
+
+.bt-prime-factorizer .bt-menu button { flex:0 1 auto; padding-inline:.65rem; white-space:nowrap; }
+.bt-prime-factorizer .bt-progress-heading { display:flex; align-items:center; justify-content:space-between; gap:.5rem; min-block-size:2.75rem; }
+.bt-prime-factorizer .bt-progress-heading .bt-status { margin:0; }
+.bt-prime-factorizer .bt-progress-readout { display:flex; flex-wrap:wrap; gap:0 .5rem; min-block-size:2.6em; align-content:start; }
