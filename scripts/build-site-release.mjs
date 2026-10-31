@@ -5,9 +5,11 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {createArtifactProvenance,localReferences,rewriteLocalReferences,releasePackage} from './artifact-provenance.mjs';
 import {SITE_CAPABILITIES} from '../src/site/capabilities.js';
+import {routingEcmModule} from './build-routing-ecm-worker.mjs';
 import {siteFontModule} from './site-font-text.mjs';
 const root=resolve(import.meta.dirname,'..'),out=resolve(process.argv[2]??'');
 if(await readFile(resolve(root,'src/site/font-text.js'),'utf8')!==await siteFontModule(root))throw Error('UI font corpus is stale');
+if(await readFile(resolve(root,'src/routing/ecm-source.js'),'utf8')!==routingEcmModule())throw Error('Routing ECM Worker source is stale');
 const inside=relative(root,out);
 if(process.argv.length!==3||inside===''||(!isAbsolute(inside)&&inside!=='..'&&!inside.startsWith('..'+sep)))throw Error('Fresh external output directory required');
 try{await stat(out);throw Error('Output already exists');}catch(e){if(e.code!=='ENOENT')throw e;}
@@ -40,7 +42,8 @@ const extraLicenseFiles=['licensing/artifact-index.json','licensing/site-release
 for(const path of extraLicenseFiles)await copy(path);
 const packageBytes=await readInput('package.json'),pkg=JSON.parse(packageBytes.toString('utf8'));
 files.set('package.json',releasePackage(packageBytes));origins.set('package.json',{sourcePath:'package.json',transform:'release-package'});
-const recipes=['scripts/build-site-release.mjs','scripts/artifact-provenance.mjs','scripts/site-font-text.mjs','src/site/capabilities.js'];
+const recipes=['scripts/build-site-release.mjs','scripts/artifact-provenance.mjs','scripts/site-font-text.mjs','src/site/capabilities.js',
+ 'scripts/build-routing-ecm-worker.mjs','src/routing/ecm-worker-runtime.js','src/engine/gmp.js','src/engine/gmp-bytes.js'];
 for(const path of recipes)await readInput(path);
 const sourceRevision=execFileSync('git',['rev-parse','--verify','HEAD^{commit}'],{cwd:root,encoding:'utf8',timeout:5000}).trim();
 const provenance=createArtifactProvenance({sourceRevision,nodeVersion:process.version,inputs,files,origins,recipes,sourceOffer:['SOURCE_OFFER.md','THIRD_PARTY_NOTICES.md','LICENSING.md']});

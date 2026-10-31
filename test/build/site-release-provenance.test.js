@@ -35,7 +35,12 @@ test('real packager hashes provenance into manifest using only closed byte fixtu
   ['src/site/capabilities.js',b('// fixture capabilities')],
   ['package.json',b(JSON.stringify({name:'fixture-only',version:'0.0.0',license:'AGPL-3.0-only'}))],
   ['scripts/build-site-release.mjs',b(builder)],['scripts/artifact-provenance.mjs',b(helper)],
-  ['scripts/site-font-text.mjs',b('// fixture font recipe')]
+  ['scripts/site-font-text.mjs',b('// fixture font recipe')],
+  ['src/routing/ecm-source.js',b('// fixture generated ECM worker')],
+  ['scripts/build-routing-ecm-worker.mjs',b('// fixture ECM generation recipe')],
+  ['src/routing/ecm-worker-runtime.js',b('// fixture ECM runtime input')],
+  ['src/engine/gmp.js',b('// inert GMP source recipe, never imported')],
+  ['src/engine/gmp-bytes.js',b('// inert GMP bytes recipe, never decoded')]
  ]);
  const fileSystem={
   async readFile(path,encoding){
@@ -66,7 +71,8 @@ test('real packager hashes provenance into manifest using only closed byte fixtu
    assert.equal(options.cwd,fixtureRoot);return 'a'.repeat(40)+'\n';
   }})],
   ['../src/site/capabilities.js',synthetic({SITE_CAPABILITIES:{fixtureOnly:true}})],
-  ['./site-font-text.mjs',synthetic({siteFontModule:async()=> '// fixture font'})]
+  ['./site-font-text.mjs',synthetic({siteFontModule:async()=> '// fixture font'})],
+  ['./build-routing-ecm-worker.mjs',synthetic({routingEcmModule:()=> '// fixture generated ECM worker'})]
  ]);
  const auditedHelper=new vm.SourceTextModule(helper,{context});
  modules.set('./artifact-provenance.mjs',auditedHelper);
@@ -75,9 +81,13 @@ test('real packager hashes provenance into manifest using only closed byte fixtu
  await entry.evaluate();
  assert.equal(gitCalls.length,1);
  assert.ok(reads.every(p=>source.has(p)||licenses.has(p)));
- assert.ok(!reads.some(p=>p.endsWith('.wasm')||p.startsWith('src/engine/')||p.startsWith('src/optimized/')));
+ assert.ok(!reads.some(p=>p.endsWith('.wasm')||p.startsWith('src/optimized/')));
+ assert.deepEqual(reads.filter(p=>p.startsWith('src/engine/')),['src/engine/gmp.js','src/engine/gmp-bytes.js'],'Only the two closed inert GMP recipe fixtures are read');
  const provenance=JSON.parse(writes.get(resolve(fixtureOut,'artifact-provenance.json')));
  const manifest=JSON.parse(writes.get(resolve(fixtureOut,'browser-tool.json')));
+ for(const path of ['scripts/build-routing-ecm-worker.mjs','src/routing/ecm-worker-runtime.js','src/engine/gmp.js','src/engine/gmp-bytes.js']){
+  const recipe=provenance.recipes.find(r=>r.path===path);assert.ok(recipe);assert.equal(recipe.sha256,sha(source.get(path)));
+ }
  assert.equal(provenance.source.revision,'a'.repeat(40));assert.equal(provenance.source.cleanTree,'not-asserted');
  assert.equal(provenance.outputs.length,writes.size-2);
  assert.ok(!provenance.outputs.some(o=>['browser-tool.json','artifact-provenance.json'].includes(o.path)));
