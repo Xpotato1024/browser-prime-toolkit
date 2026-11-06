@@ -103,19 +103,22 @@ try{
     const hard=(((1n<<521n)-1n)*((1n<<127n)-1n)).toString();const before=await metrics();
     await input.fill(hard);await page.evaluate(()=>{document.querySelector('#tool form').requestSubmit();document.querySelector('[data-action=cancel]').click();});
     await phase('result');assert.match(await page.locator('.bt-result-status').textContent(),/中止/);
-    const state=await page.evaluate(()=>app.getState());assert.ok(state.view.pendingGroups.some(g=>g.value===hard&&g.exponent===1));assert.equal(state.view.groups.length,0);assert.match(state.view.copyText,/中止/);assert.match(state.view.copyText,/不明/);assert.ok(state.view.copyText.includes(hard));
+    const state=await page.evaluate(()=>app.getState());assert.ok(state.view.pendingGroups.some(g=>g.value===hard&&g.exponent===1));assert.equal(state.view.groups.length,0);assert.match(state.view.copyText,/中止/);assert.match(state.view.copyText,/未分解・未確認/);assert.match(await page.locator('.bt-factor-list').textContent(),/不明/);await page.evaluate(()=>{window.cancelCopyWrites=[];Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>cancelCopyWrites.push(text)}});});await page.locator('[data-action=copy]').click();await page.waitForFunction(()=>cancelCopyWrites.length===1);const copied=await page.evaluate(()=>cancelCopyWrites[0]);assert.match(copied,/不明/);assert.match(copied,/中止/);assert.ok(copied.includes(hard));assert.ok(state.view.copyText.includes(hard));
     assert.equal(state.resources.actualWasmBytes,0);const after=await metrics();assert.ok(after.created-before.created<=1);assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
     assert.equal(await run('32'),'32 = 2^5');
    });
-   await test('active common-route cancellation retires exactly one native Worker',async()=>{
+   await test('common-route cancellation after native run submission retires exactly one Worker',async()=>{
     await config({engine:'standard',time:'60000'});
     const hard=(((1n<<521n)-1n)*((1n<<127n)-1n)).toString(),before=await metrics();
-    await input.fill(hard);await start.click();await page.waitForFunction(n=>metric.created>n,before.created);
-    await page.locator('[data-action=cancel]').click();await phase('result');
+    await input.fill(hard);
+    // Cancel just after sending run to the real Worker, before stability waits
+    // can race the finite work budget. Keyboard cancellation is tested above.
+    await page.evaluate(()=>{window.nativeCancelTriggers=0;const post=Worker.prototype.postMessage;Worker.prototype.postMessage=function(message,...rest){const result=post.call(this,message,...rest);if(message?.type==='run'){Worker.prototype.postMessage=post;queueMicrotask(()=>{nativeCancelTriggers++;document.querySelector('[data-action=cancel]').click();});}return result;};});
+    await start.click();await phase('result');assert.equal(await page.evaluate(()=>nativeCancelTriggers),1);
     const s=await page.evaluate(()=>app.getState()),after=await metrics();
     assert.equal(s.view.status,'cancelled');assert.equal(after.created-before.created,1);
     assert.equal(after.created,after.terminated);assert.equal(after.urlsCreated,after.urlsRevoked);
-    assert.ok(s.view.copyText.includes(hard));assert.match(s.view.copyText,/中止/);assert.match(s.view.copyText,/不明/);
+    assert.ok(s.view.copyText.includes(hard));assert.match(s.view.copyText,/中止/);assert.match(s.view.copyText,/未分解・未確認/);assert.match(await page.locator('.bt-factor-list').textContent(),/不明/);
     assert.equal(await run('32'),'32 = 2^5');
    });
    await test('extended unmount holds retirement boundary before a fresh mount',async()=>{
