@@ -4,11 +4,11 @@
 
 ## 表示契約
 
-sessionが検算したview.statusをprogressの終端へ渡す。phase=resultだけでは成功とみなさない。completeとneitherだけを満杯のaccent色とし、probable・incomplete・cancelled・blocked・例外・未知の状態は空の終端にする。再実行、入力検証失敗、準備、入力編集では前回の完了ゲージを消す。既存の結果本文と前回表示・コピーの対応は保持する。
+sessionが検算したview.statusをprogressの終端へ渡す。phase=resultだけでは成功とみなさない。検算と資源解放が正常終了したcomplete・probable・neitherを満杯のaccent色とし、incomplete・cancelled・blocked・例外・未知の状態は空の終端にする。ゲージは処理の完了であり、素数証明の確度ではない。エラー／時間上限の後で完全な因子snapshotを検算できても、因子の確度を維持したままゲージは停止扱いにする。再実行、入力検証失敗、準備、入力編集では前回の完了ゲージを消す。既存の結果本文と前回表示・コピーの対応は保持する。
 
 因子は1項1状態として「素数（確定）」「素数判定を通過（未証明）」「不明」、検算済み合成数は「合成数（未分解）」と表示する。長い判定理由の反復を画面・コピーから除き、全桁・指数・未解決項・停止理由は保持する。pendingGroupsの未確認値を素数扱いにしない。
 
-数学的根拠は変更しない。SMALL_PRIMESとの照合または既存固定基底Miller-Rabinの2^64未満のprovenのみ確定。それ以上のprobableに素数証明はない。verifyRoutingResultの時間・操作量上限、取消、検算失敗は既存のunknown扱いを維持する。
+数学的根拠は変更しない。SMALL_PRIMESとの照合または既存固定基底Miller-Rabinの2^64未満のprovenのみ確定。それ以上のprobableは固定7基底をすべて通過した判定で、独立な乱数検査でも素数証明でもない。任意の64bit以上の入力に4^-7等の誤判定確率を適用できず、入力の分布も制限していない。「ほぼ確定」の保証や確率数値は加えず、候補文言は検査の事実を示す「素数判定を通過（未証明）」とした。verifyRoutingResultの時間・操作量上限、取消、検算失敗は既存のunknown扱いを維持する。
 
 native progressのvalue・aria-valuetextと色を揃え、終端通知は既存の結果statusへ委ねる。DOM順・focus・スクロール・Worker／WASM・資源予算は変更しない。
 

@@ -116,3 +116,12 @@ test('proof timeout, computation failure and cancellation keep a non-success ter
  assert.equal(cancelled.getState().view.status,'cancelled');assert.equal(cancelled.getState().progress.resultStatus,'cancelled');
  await cancelled.start('2.5');assert.equal(cancelled.getState().progress,null);
 });
+
+test('a complete verified prefix after Worker error keeps its factors without normal completion',async()=>{
+ const port={start(r,ctx){const packet={version:1,jobId:r.jobId,stage:r.stage,input:r.input,seq:1,work:1,snapshot:{factors:[{value:'2',exponent:5}],remaining:'1'},reportedPrimality:'unknown'};
+ ctx.onSnapshot(packet);return{result:Promise.resolve({reason:'worker-error',packet:{...packet,seq:2,work:2}}),dispose:()=>({allWorkersDisposed:true,allWorkerSourcesReleased:true})};}};
+ const s=createSiteSession({now:()=>0,loadLight:async()=>({}),loadHeavy:async()=>({}),createRouter:({scope,now})=>createVerifiedRoutingSession({scope,now,ports:{staged128:port}})});
+ await s.prepare();await s.start('32');const state=s.getState();
+ assert.equal(state.view.status,'complete');assert.deepEqual(state.view.groups,[{base:'2',exponent:5,certainty:'proven'}]);assert.match(state.view.reasonText,/Worker異常/);
+ assert.equal(state.progress.completedNormally,false);
+});
