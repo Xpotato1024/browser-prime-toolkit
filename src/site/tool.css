@@ -68,7 +68,6 @@
 .bt-prime-factorizer .bt-factor-list { margin:.35rem 0; padding-inline-start:1.25rem; list-style:disc; }
 .bt-prime-factorizer .bt-factor-list li { margin-top:.25rem; }
 .bt-prime-factorizer .bt-factor-list li:first-child { margin-top:0; }
-.bt-prime-factorizer .bt-factor-reason { margin:.15rem 0 .5rem; font-size:var(--bt-help-font-size,.9rem); color:var(--bt-muted,#514b5b); }
 .bt-prime-factorizer .bt-residual, .bt-prime-factorizer .bt-stop-reason, .bt-prime-factorizer .bt-estimate { margin:.35rem 0; }
 .bt-prime-factorizer .bt-limits { font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer .bt-limits p { margin:.4rem 0; }
@@ -84,7 +83,7 @@
 .bt-prime-factorizer .bt-progress progress { display:block; inline-size:100%; block-size:.65rem; margin:.5rem 0; accent-color:var(--bt-accent,#62418b); }
 .bt-prime-factorizer .bt-progress-counts { margin:0; font-variant-numeric:tabular-nums; font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer .bt-progress-summary { margin:0; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
-.bt-prime-factorizer .bt-progress progress[data-terminal="true"] { accent-color:var(--bt-muted,#514b5b); }
+.bt-prime-factorizer .bt-progress progress[data-terminal="true"][data-complete="false"] { accent-color:var(--bt-muted,#514b5b); }
 
 
 .bt-prime-factorizer .bt-progress-partial-value{overflow-wrap:anywhere;}

@@ -37,7 +37,7 @@ export function createProgressTracker(){
   },
   verify(job){if(!current(job)||!['running','collecting'].includes(state.stage))return false;state={...state,stage:'verifying'};return true;},
   cancel(job){if(!current(job)||state.stage==='cancelling')return false;state={...state,stage:'cancelling'};return true;},
-  finish(job,outcome){if(!current(job))return false;state={...state,stage:outcome==='result'?'settled':'stopped'};return true;},
+  finish(job,outcome,resultStatus=null){if(!current(job))return false;state={...state,stage:outcome==='result'?'settled':'stopped',resultStatus:outcome==='result'?resultStatus:null};return true;},
   reset(){if(!closed)state=null;},
   close(){closed=true;state=null;}
  };

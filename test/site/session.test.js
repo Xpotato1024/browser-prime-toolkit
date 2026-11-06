@@ -93,3 +93,26 @@ test('elapsed time excludes asset preparation, retains fractions and freezes aft
  await s.prepare();await s.start('32');assert.equal(s.getState().resources.elapsedMs,12.25);
  at=900;assert.equal(s.getElapsedMs(),12.25);assert.equal(s.getState().resources.actualTimeBudgetMs,1000);
 });
+
+test('terminal progress uses verified status and clears completion before a rejected retry',async()=>{
+ const {s}=fixture();await s.prepare();await s.start('360');
+ assert.equal(s.getState().progress.resultStatus,'complete');
+ await s.start('2.5');assert.equal(s.getState().phase,'invalid');assert.equal(s.getState().progress,null);
+ await s.start('0');assert.equal(s.getState().progress.resultStatus,'neither');
+ const p=(1n<<127n)-1n,{s:probable}=fixture();await probable.prepare();await probable.start(p.toString());
+ assert.equal(probable.getState().view.status,'probable');assert.equal(probable.getState().progress.resultStatus,'probable');
+});
+test('proof timeout, computation failure and cancellation keep a non-success terminal progress',async()=>{
+ const p=(1n<<127n)-1n,input=(3n*p).toString();let at=0;
+ const {s:late}=fixture({now:()=>at,loadHeavy:async()=>({runRusqsieve:async()=>{at+=1001;return{input,kind:'probable',factors:[{value:'3',certainty:'proven'},{value:p.toString(),certainty:'probable'}],remaining:'1',allWorkersDisposed:true,allWorkerSourcesReleased:true};}})});
+ await late.prepare('optimized');await late.start(input);
+ assert.equal(late.getState().view.status,'incomplete');assert.equal(late.getState().progress.resultStatus,'incomplete');assert.equal(late.getState().view.groups.length,0);
+ const {sitePresentation}=await import('../../src/site/presentation.js');
+ const rows=sitePresentation(late.getState().view).factorRows;assert.ok(rows.length);assert.ok(rows.every(r=>r.certainty==='unknown'&&r.text.endsWith(': 不明')));
+ const {s:failed}=fixture({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:async()=>{throw Error('controlled computation error');}})});
+ await failed.prepare();await failed.start('32');assert.notEqual(failed.getState().progress.resultStatus,'complete');
+ let finish;const {s:cancelled}=fixture({loadLight:async()=>({selectValidatedStagedPlan,runSelectedStagedRequest:i=>new Promise(r=>finish=()=>r(finished(i)))})});
+ await cancelled.prepare();const pending=cancelled.start('32');await Promise.resolve();await Promise.resolve();cancelled.cancel();finish();await pending;
+ assert.equal(cancelled.getState().view.status,'cancelled');assert.equal(cancelled.getState().progress.resultStatus,'cancelled');
+ await cancelled.start('2.5');assert.equal(cancelled.getState().progress,null);
+});

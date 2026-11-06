@@ -175,3 +175,14 @@ test('a late clipboard denial cannot steal focus after input editing',async()=>{
  f.action('copy').fire('click');await settle();f.input.focus();f.input.value='64';f.input.fire('input');reject(Error('denied'));await settle();
  assert.equal(f.doc.activeElement,f.input);assert.match(f.find(n=>n.attrs['class']==='bt-result-title').textContent,/前回.*360/);f.app.dispose();
 });
+
+test('completion bar, editing and retry match the result and factor list contains states only',async t=>{
+ const f=await setup();t.after(()=>f.app.dispose());const bar=f.find(n=>n.tagName==='PROGRESS');
+ f.input.value='360';f.form.fire('submit');await settle();
+ assert.equal(bar.attrs.value,'1');assert.equal(bar.attrs['data-complete'],'true');
+ const list=f.find(n=>n.attrs['class']==='bt-factor-list');
+ assert.ok(list.children.every(n=>n.children.length===1&&n.children[0].textContent.endsWith(': 素数（確定）')));
+ f.input.value='64';f.input.fire('input');assert.equal(bar.attrs.value,'0');assert.equal(bar.attrs['data-complete'],'false');
+ f.form.fire('submit');assert.notEqual(bar.attrs.value,'1');await settle();assert.equal(bar.attrs.value,'1');
+ f.input.value='2.5';f.form.fire('submit');await settle();assert.equal(bar.attrs.value,'0');assert.equal(bar.attrs['data-complete'],'false');
+});
