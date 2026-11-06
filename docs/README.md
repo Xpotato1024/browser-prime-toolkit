@@ -155,3 +155,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 [ECM Workerのhost bundle回帰](operations/ecm-host-bundle-regression.md)は、minify後のWorker初期化と既知入力の停止を検証します。
 
 [0.2.2 ECM Worker修正版の配布](operations/release-v0.2.2.md)は、最終ソース・生成入力・host minify受入と配布物の対応を確認します。
+
+[0.2.3 結果表示修正版の配布](operations/release-v0.2.3.md)は、正常終了の進捗保持、因子判定、対応ソースと配布検証を確認します。
