@@ -39,3 +39,15 @@ benchmark:siqs は固定17問・2方式・100/1000ms・seed1/11の136試行を�
 Linuxでは専用Chromeの全taskのchildrenからprocess treeを標本化し、RSS/PSSを合計します。
 目標25msの標本は瞬間peakの保証ではありません。RSS共有重複、PSS、GC待ち、
 WASM hard cap、管理heapとその実測peakを分けます。詳細は[実測](../benchmarks/llm01-bounded-siqs.md)を参照してください。
+
+## 共通リセット下の進捗ゲージ（2026-11-06）
+
+ホストの `border: 0 solid` が native progress の描画に干渉すると、`accent-color` の計算値が紫でも実ピクセルは緑になる。ゲージ規則の `border: revert` で UA の境界指定へ戻し、ネイティブの外観・アクセシビリティ・強制色への追従を維持する。`border: none` や `border-style: none` は代替にならなかった。計算・状態・文言は変更しない。
+
+```sh
+CHROME_BIN=google-chrome node scripts/verify-progress-rendering.mjs --out /tmp/prime-progress-pixels/report.json
+```
+
+出力先のJSONは未使用のパスを指定する。追加依存なしで実際の `createProgressView` とCSSを読み、standalone／共通リセット相当host、幅320／1200、正常完了／未証明／取消／時間切れ／新入力を検査する。PNGのゲージ内部ピクセルで色を判定し、強制色は無着色のnative progressと比較する。状態snapshotを渡す描画回帰であり、計算engineの統合検査とは区別する。CIのprivate-ui jobでも実行する。
+
+修正前のChromium 149.0.7827.55ではhostの正常完了がRGB(0,128,0)となり、この検査が失敗した。修正後は同じ検査でhostがRGB(116,83,153)、standaloneがRGB(98,65,139)となった。実機モバイル・Firefox・OSの実際のハイコントラスト設定の確認とは区別し、強制色はブラウザーのemulationとして記録する。

@@ -80,7 +80,7 @@
 /* A stable, flat progress region: counters never create cards or move focus. */
 .bt-prime-factorizer .bt-progress { min-block-size:3.7rem; margin:0 0 .4rem; overflow-wrap:anywhere; }
 .bt-prime-factorizer .bt-progress-stage { min-block-size:1.6em; font-weight:600; }
-.bt-prime-factorizer .bt-progress progress { display:block; inline-size:100%; block-size:.65rem; margin:.5rem 0; accent-color:var(--bt-accent,#62418b); }
+.bt-prime-factorizer .bt-progress progress { display:block; inline-size:100%; block-size:.65rem; margin:.5rem 0; border:revert; accent-color:var(--bt-accent,#62418b); }
 .bt-prime-factorizer .bt-progress-counts { margin:0; font-variant-numeric:tabular-nums; font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer .bt-progress-summary { margin:0; color:var(--bt-muted,#514b5b); font-size:var(--bt-help-font-size,.9rem); }
 .bt-prime-factorizer .bt-progress progress[data-terminal="true"][data-complete="false"] { accent-color:var(--bt-muted,#514b5b); }

@@ -151,6 +151,10 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
       - run: npm run check:private-ui
+      - name: Native progress pixels with host reset and forced colors
+        run: node scripts/verify-progress-rendering.mjs --out "$RUNNER_TEMP/progress-rendering/report.json"
+        env:
+          CHROME_BIN: google-chrome
       - name: Exact decimal UI, copy, lifecycle and quiet browser integration
         run: node scripts/verify-private-ui-ci.mjs --out "$RUNNER_TEMP/private-ui.json"
         env:
