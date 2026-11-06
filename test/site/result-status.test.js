@@ -52,7 +52,7 @@ test('unknown future certainty is never promoted to prime',()=>{
 
 test('normal probable completion fills the bar without asserting a prime proof',()=>{
  const t=createProgressTracker(),{view,bar}=fixture();t.begin(1);t.finish(1,'result','probable',true);view.update(t.get());
- assert.equal(bar.attrs.value,'1');assert.equal(bar.attrs['data-complete'],'true');assert.match(bar.attrs['aria-valuetext'],/処理完了.*未証明/);assert.doesNotMatch(bar.attrs['aria-valuetext'],/すべて.*確定/);
+ assert.equal(bar.attrs.value,'1');assert.equal(bar.attrs['data-complete'],'true');assert.match(bar.attrs['aria-valuetext'],/処理完了.*未証明/);assert.equal(bar.attrs['aria-label'],bar.attrs['aria-valuetext']);assert.equal(bar.attrs['aria-labelledby'],undefined);assert.doesNotMatch(bar.attrs['aria-valuetext'],/すべて.*確定/);
 });
 for(const status of ['complete','probable','neither'])test('abnormal execution cannot fill a mathematically '+status+' result',()=>{
  const t=createProgressTracker(),{view,bar}=fixture();t.begin(1);t.finish(1,'result',status,false);view.update(t.get());
