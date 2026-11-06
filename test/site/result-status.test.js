@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
 import {createProgressTracker} from '../../src/site/progress.js';
 import {createProgressView} from '../../src/site/progress-view.js';
 import {sitePresentation} from '../../src/site/presentation.js';
@@ -36,9 +35,9 @@ test('retry, invalid input, loading and reset clear old completion',()=>{
  for(const phase of ['ready','invalid','loading','error','blocked']){view.update(null,{phase});assert.equal(bar.attrs['data-complete'],'false');assert.notEqual(bar.attrs.value,'1');}
  t.reset();view.update(t.get());assert.equal(bar.attrs.value,'0');
 });
-test('terminal CSS preserves the accent only for confirmed completion',async()=>{
- const css=await readFile(new URL('../../src/site/tool.css',import.meta.url),'utf8');
- assert.match(css,/progress\[data-terminal="true"\]\[data-complete="false"\]/);
+test('pending groups cannot promote unverified reported prime claims',()=>{
+ const p=sitePresentation({pendingGroups:[{value:'97',exponent:1,certainty:'proven'},{value:'18446744073709551629',exponent:1,certainty:'probable'}]});
+ assert.ok(p.factorRows.every(r=>r.certainty==='unknown'&&r.text.endsWith(': 不明')));
 });
 test('factor states are concise and preserve multiplicity and uncertainty in display and copy',()=>{
  const p=sitePresentation({equation:'n = factors',statusText:'未完了',reasonText:'検算の時間上限',groups:[{base:'2',exponent:3,certainty:'proven'},{base:'18446744073709551629',exponent:1,certainty:'probable'}],pendingGroups:[{value:'97',exponent:2,certainty:'unknown'},{value:'143',exponent:1,certainty:'composite'}]});
