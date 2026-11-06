@@ -11,8 +11,10 @@ export function createProgressView(doc,prefix,{stageElement=null}={}){
  readout.append(counts,summary);root.append(...(stageElement?[]:[stage]),bar,readout,partial);root.hidden=false;let closed=false;
  const text=(node,value)=>{if(node.textContent!==value)node.textContent=value;};
  function update(snapshot,{phase='ready'}={}){
-  if(closed)return;root.hidden=false;
+  if(closed)return;root.hidden=false;bar.removeAttribute('aria-label');bar.setAttribute('aria-labelledby',prefix+'progress-stage');
   const terminal=!!snapshot&&['settled','stopped'].includes(snapshot.stage);
+  const complete=snapshot?.stage==='settled'&&snapshot.completedNormally===true&&['complete','probable','neither'].includes(snapshot.resultStatus);
+  bar.setAttribute('data-complete',String(complete));
   const state=snapshot?.stage??(phase==='loading'?'preparing':['error','blocked'].includes(phase)?'stopped':phase==='invalid'?'invalid':'idle');
   root.setAttribute('data-state',state);bar.setAttribute('data-state',state);bar.setAttribute('data-terminal',String(terminal||state==='stopped'));
   stage.setAttribute('aria-live',terminal?'off':'polite');
@@ -29,7 +31,10 @@ export function createProgressView(doc,prefix,{stageElement=null}={}){
   if(terminal){text(counts,'');text(summary,'');}
   const candidates=snapshot.factorCandidates??[];partial.hidden=terminal||!candidates.length;
   text(partialTitle,'因子候補 '+candidates.length+'項（最終確認前）');text(partialText,candidates.map(f=>f.value+(f.exponent===1?'':'^'+f.exponent)).join(' × ')+' — 素数性は最終確認で判定します。');
-  if(terminal){bar.setAttribute('value','0');bar.setAttribute('aria-valuetext',snapshot.stage==='settled'?'処理終了。結果を確認してください。':snapshot.summary);}
+  if(terminal){
+   const finalText=snapshot.stage==='stopped'?snapshot.summary:!snapshot.completedNormally&&['complete','probable','neither'].includes(snapshot.resultStatus)?'処理は停止しました。検算済みの結果と停止理由を確認してください。':snapshot.resultStatus==='complete'?'分解完了（すべての因子を確定）。':snapshot.resultStatus==='neither'?'判定完了（素数でも合成数でもありません）。':snapshot.resultStatus==='probable'?'処理完了。未証明の因子を含む分解結果です。':snapshot.resultStatus==='cancelled'?'中止しました。':snapshot.resultStatus==='incomplete'?'未完了です。':'処理終了。結果を確認してください。';
+   bar.setAttribute('value',complete?'1':'0');bar.setAttribute('aria-valuetext',finalText);bar.removeAttribute('aria-labelledby');bar.setAttribute('aria-label',finalText);
+  }
   else if(snapshot.value===null){bar.removeAttribute('value');bar.setAttribute('aria-valuetext',snapshot.summary);}
   else{bar.setAttribute('value',String(snapshot.value));bar.setAttribute('aria-valuetext','関係収集 '+(Math.floor(snapshot.value*1000)/10).toFixed(1)+'%（計算全体の完了率ではありません）');}
  }

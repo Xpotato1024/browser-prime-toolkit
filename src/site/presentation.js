@@ -9,12 +9,12 @@ export function formatElapsed(ms){
  return (ms/1000).toFixed(2)+' 秒';
 }
 export function sitePresentation(view){
- const factorRows=(view.groups??[]).map(g=>({value:g.base,exponent:g.exponent,certainty:g.certainty,
-  text:g.base+(g.exponent===1?'':'（'+g.exponent+'乗）')+': '+(g.certainty==='proven'?'確定判定':g.certainty==='probable'?'未証明（probable）':'判定未確認'),
-  reason:g.certainty==='proven'?'小素数との照合、または64bit未満で確定できる素数判定の対象です。':g.certainty==='probable'?'固定基底の判定に通った素数候補です。素数証明はしていません。':'素数であることを確認できていません。'}));
+ const factors=[...(view.groups??[]),...(view.pendingGroups??[]).map(g=>({base:g.value,exponent:g.exponent,certainty:g.certainty==='composite'?'composite':'unknown'}))];
+ const factorRows=factors.map(g=>({value:g.base,exponent:g.exponent,certainty:g.certainty,
+  text:g.base+(g.exponent===1?'':'（'+g.exponent+'乗）')+': '+(g.certainty==='proven'?'素数（確定）':g.certainty==='probable'?'素数と判定（未証明）':g.certainty==='composite'?'合成数（未分解）':'不明')}));
  const residual=view.residual??null,reasonText=stopReasonPresentation(view.reasonCode)?.text??view.reasonText??'';
  return {equation:view.equation,reasonText,details:view.certaintyText??'',factorRows,residual,
-  copyText:[view.equation,view.statusText,reasonText,factorRows.length?'因子の判定:\n'+factorRows.map(r=>r.text+' — '+r.reason).join('\n'):view.certaintyText?'因子の確度: '+view.certaintyText:'',residual!==null?'未解決の余因子: '+residual:''].filter(Boolean).join('\n')};
+  copyText:[view.equation,view.statusText,reasonText,factorRows.length?'因子の判定:\n'+factorRows.map(r=>r.text).join('\n'):view.certaintyText?'因子の確度: '+view.certaintyText:'',residual!==null?'未解決の余因子: '+residual:''].filter(Boolean).join('\n')};
 }
 export function executionPresentation(resources,elapsedMs){
  if(!resources)return null;

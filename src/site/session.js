@@ -30,14 +30,14 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
   },
   async start(raw,settings={}){
    if(closed||blocked||active||preparing||!light||!heavy)return false;
-   let input,plan,router,options;
+   progress.reset();let input,plan,router,options;
    try{input=validateSiteInput(raw,engine);}catch(error){emit({...state,phase:'invalid',input:null,view:null,resources:null,error:siteInputErrorMessage(error,engine),errorField:'input'});return false;}
    try{plan=selectSitePlan(engine,settings,hints);options=siteRoutingOptions(engine,plan);router=createRouter({scope,now,engine,light,extended,heavy,experimental});}
    catch{emit({...state,phase:'invalid',input:null,view:null,resources:null,error:'Worker数・WASM予算・時間上限の設定の組み合わせを見直してください。',errorField:'settings'});return false;}
    const probeToken={};if(!scope.acquire(probeToken)){blocked=scope.isQuarantined();emit({phase:blocked?'blocked':'invalid',engine,input:null,view:null,resources:null,errorField:'runtime',error:blocked?'資源解放を確認できません。ページを再読み込みしてください。':'同じページの別の計算が終了してから実行してください。'});return false;}scope.release(probeToken);
    const id=++generation,control=new AbortController(),startedAt=now();
    const resources={configuredPlan:plan,plan,route:'共通ルーティング',actualWorkers:0,actualWasmBytes:0,actualTimeBudgetMs:options.jobTimeMs,elapsedMs:0,experimental400:engine==='wide'&&BigInt(input).toString(2).length>332};
-   progress.begin(id);active={id,control,router,startedAt};emit({phase:'running',engine,input,view:null,error:null,errorField:null,resources});let terminal;
+   progress.begin(id);active={id,control,router,startedAt};emit({phase:'running',engine,input,view:null,error:null,errorField:null,resources});let terminal,completedNormally=false;
    try{
     const rawResult=await router.run(input,{...options,signal:control.signal,onChange:event=>{
      if(closed||active?.id!==id||control.signal.aborted)return;
@@ -52,11 +52,12 @@ export function createSiteSession({scope=makeComputeScope(),hints={},loadLight=a
     else{
      progress.verify(id);if(!closed)emit({...state});
      const result=verifyRoutingResult(rawResult,{now,signal:control.signal});blocked=rawResult.status==='blocked'||!rawResult.allStagesDisposed||scope.isQuarantined();
+     completedNormally=!blocked&&result.certaintyVerified===true&&['complete','probable','neither'].includes(result.status)&&['factor-proof-required','neither'].includes(result.executionStatus)&&[null,'factor-proof-required'].includes(result.executionReason);
      const view=makeRoutingView(result,input);resources.trace=rawResult.trace;resources.workRemaining=rawResult.workRemaining;
      terminal={phase:blocked?'blocked':'result',engine,input,view,error:blocked?'Workerまたは生成資源の解放を確認できないため、再読み込みが必要です。':null,errorField:blocked?'runtime':null,resources};
     }
    }catch{blocked=true;scope.quarantine();terminal={phase:'blocked',engine,input,view:null,errorField:'runtime',error:'計算結果と資源解放を確認できませんでした。ページを再読み込みしてください。',resources};}
-   finally{progress.finish(id,terminal?.phase);resources.elapsedMs=Math.max(0,now()-startedAt);if(!closed&&id===generation){active=null;emit(terminal);}}
+   finally{progress.finish(id,terminal?.phase,terminal?.view?.status,completedNormally);resources.elapsedMs=Math.max(0,now()-startedAt);if(!closed&&id===generation){active=null;emit(terminal);}}
    return true;
   },
   cancel(){if(closed||!active||active.control.signal.aborted)return false;progress.cancel(active.id);emit({...state,phase:'cancelling'});active.control.abort();active.router.cancel();return true;},
