@@ -5,6 +5,8 @@ on:
 permissions:
   contents: read
 jobs:
+  # Full unit coverage runs once in test for this exact checkout.
+  # Other jobs retain rebuilt-artifact equality and focused native/browser gates.
   test:
     runs-on: ubuntu-latest
     # Two offline engine rebuilds plus native/browser regressions exceeded 15m.
@@ -77,8 +79,9 @@ jobs:
       - run: node scripts/build-supplement.mjs
       - run: git diff --exit-code -- src/engine/supplement-bytes.js native/gmp/supplement-build.json
       - run: node scripts/build-supplement.mjs --native
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: node scripts/check-supplement.mjs
-      - run: npm test
       - run: node scripts/verify-supplement-ci.mjs --out "$RUNNER_TEMP/supplement.json"
         env:
           CHROME_BIN: google-chrome
@@ -100,7 +103,8 @@ jobs:
       - run: node scripts/build-siqs-v2.mjs --lanczos --check
       - run: node scripts/build-siqs-v2.mjs --native
       - run: node scripts/build-siqs-v2.mjs --lanczos --native
-      - run: npm test
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: node scripts/check-counted.mjs
       - run: |
           for variant in legacy clock-gated dense lanczos; do
@@ -123,7 +127,6 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: npm test
       - run: node scripts/check-staged.mjs
       - run: node scripts/report-staged.mjs --check
       - run: node scripts/generate-staged-ci.mjs --check
@@ -149,7 +152,6 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: npm test
       - run: npm run check:private-ui
       - name: Native progress pixels with host reset and forced colors
         run: node scripts/verify-progress-rendering.mjs --out "$RUNNER_TEMP/progress-rendering/report.json"
@@ -175,8 +177,9 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: npm test
       - run: npm run build:rsa-worker -- --check
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: npm run check:rsa-profile
       - name: RSA native profile contracts and offline Worker lifecycle
         run: npm run verify:rsa-profile -- --out "$RUNNER_TEMP/rsa-profile.json"
@@ -203,7 +206,8 @@ jobs:
       - run: npm run fetch:reviewed-full-siqs
       - run: npm run build:full-siqs -- --check
       - run: npm run verify:full-siqs-native
-      - run: npm test
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: npm run check:full-siqs
       - run: npm run verify:full-siqs -- --out "$RUNNER_TEMP/full-siqs.json"
         env:
@@ -231,7 +235,8 @@ jobs:
       - run: node scripts/build-siqs-lab.mjs --check
       - run: node scripts/build-siqs-lab-worker.mjs --check
       - run: npm run verify:siqs-lab-native
-      - run: npm test
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: npm run check:siqs-lab
       - name: Bounded profiling and shared relation graph contracts offline
         run: npm run verify:siqs-lab -- --out "$RUNNER_TEMP/siqs-lab.json"
@@ -259,7 +264,8 @@ jobs:
       - run: node scripts/build-siqs-tuned.mjs --check
       - run: node scripts/build-siqs-tuned-worker.mjs --check
       - run: node scripts/build-siqs-tuned.mjs --native
-      - run: npm test
+      - name: Reject tracked changes after rebuild and native verification
+        run: git diff --exit-code --
       - run: npm run check:siqs-tuned
       - name: Fixed-memory baseline and LTO lifecycle, proof and quiet runtime
         run: |
