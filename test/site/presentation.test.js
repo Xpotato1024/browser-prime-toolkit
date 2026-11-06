@@ -48,3 +48,8 @@ test('allocation failure report keeps its uncertainty in both display and copy',
  assert.match(p.reasonText,/割当失敗.*報告/);assert.match(p.copyText,/直接原因.*未確定/);assert.ok(p.copyText.includes('未解決の余因子: 35'));
  assert.doesNotMatch(p.copyText,/メモリ上限に達しました/);
 });
+
+test('routing probable summary states the unproven verdict without repeated explanation',async()=>{
+ const {readFile}=await import('node:fs/promises');const source=await readFile(new URL('../../src/site/routing-view.js',import.meta.url),'utf8');
+ assert.ok(source.includes('素数判定を通過（未証明）。'));assert.ok(!source.includes('probable判定は素数証明ではありません。'));
+});
