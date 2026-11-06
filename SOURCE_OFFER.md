@@ -60,3 +60,7 @@ Use the exact v0.2.1 tag target, complete tracked source ZIP and RELEASE-PROVENA
 ## ECM host-bundle fix release 0.2.2
 
 The exact v0.2.2 tag target, complete tracked source ZIP and RELEASE-PROVENANCE.json identify this distribution. The ECM Blob Worker is generated before host bundling by scripts/build-routing-ecm-worker.mjs from the preserved GMP splitter/bytes and src/routing/ecm-worker-runtime.js. These inputs are bound by the adapter provenance recipes and generation checks; no new numerical kernel or upstream dependency is introduced. Existing GMP/ECM terms, source archives, patches and rebuild/relink directions remain in force. The runtime ZIP preserves the required license/source notices. Earlier v0.2.1 and older tags/assets/source records are not overwritten. Site adoption and deployment remain separate from publishing this toolkit release.
+
+## 結果表示修正版 0.2.3
+
+配布物は v0.2.3 の正確なタグ対象、完全な追跡ソース ZIP、RELEASE-PROVENANCE.json に対応します。正常終了した計算の進捗保持と因子の判定表示を修正しています。数値カーネル、固定基数の素数検査、入力・資源上限、依存、ライセンス条件は変更していません。既存のソース索引、第三者通知、再ビルド・再リンク手順と過去のタグ・配布物を保持します。サイトへの採用・配信は別工程です。
