@@ -75,3 +75,25 @@ test('runtime capability probing is finite and missing SIMD/WASM is passed to ro
  assert.deepEqual(detectRoutingCapabilities({WebAssembly:{validate(){throw Error('unsupported');}}}),{wasmSupported:true,simdSupported:false});
  assert.deepEqual(detectRoutingCapabilities(),{wasmSupported:true,simdSupported:true});
 });
+
+test('mixed-certainty decomposition labels factors without declaring the composite input prime',async()=>{
+ const {sitePresentation}=await import('../../src/site/presentation.js');
+ const {createProgressView}=await import('../../src/site/progress-view.js');
+ const p=((1n<<127n)-1n).toString(),input=(3n*BigInt(p)).toString();
+ for(const reason of ['exhausted','worker-error']){
+  const f=fixture({action:r=>({result:Promise.resolve({reason,packet:packet(r,{factors:[{value:'3',exponent:1}],remaining:p})}),dispose:()=>retired})});
+  await f.session.prepare();await f.session.start(input);const s=f.session.getState(),shown=sitePresentation(s.view);
+  assert.equal(s.view.status,'probable');assert.equal(s.view.statusText,'分解結果（未証明の因子あり）。');
+  assert.deepEqual(shown.factorRows.map(r=>r.text),['3: 素数（確定）',p+': 素数と判定（未証明）']);
+  assert.equal(shown.equation,input+' = 3 × '+p);assert.ok(shown.copyText.includes(s.view.statusText));assert.ok(shown.copyText.includes(p+': 素数と判定（未証明）'));
+  assert.ok(!shown.copyText.includes(input+': 素数'));assert.ok(!s.view.statusText.includes('素数と判定'));
+  const nodes=[],doc={createElement(tag){const n={tag,attrs:{},children:[],textContent:'',setAttribute(k,v){this.attrs[k]=String(v);},removeAttribute(k){delete this.attrs[k];},append(...xs){this.children.push(...xs);}};nodes.push(n);return n;}};
+  const progress=createProgressView(doc,'mixed-');progress.update(s.progress);const bar=nodes.find(n=>n.tag==='progress');
+  if(reason==='exhausted'){
+   assert.equal(bar.attrs.value,'1');assert.equal(bar.attrs['aria-label'],'処理完了。未証明の因子を含む分解結果です。');
+  }else{
+   assert.equal(bar.attrs.value,'0');assert.match(bar.attrs['aria-label'],/停止/);assert.match(shown.reasonText,/Worker異常/);
+  }
+  assert.ok(!bar.attrs['aria-label'].includes('素数と判定'));f.session.dispose();
+ }
+});

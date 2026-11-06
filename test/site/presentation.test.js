@@ -21,7 +21,7 @@ test('measured elapsed is separate from route limits, never measured memory or w
 });
 test('factor rows preserve multiplicities, probable status, residual and stop reason in copy',()=>{
  const value='9'.repeat(100),p=sitePresentation({equation:'input = result',statusText:'未完了',reasonText:'時間制限',groups:[{base:'2',exponent:12,certainty:'proven'},{base:value,exponent:1,certainty:'probable'}],residual:'35'});
- assert.equal(p.factorRows.length,2);assert.equal(p.factorRows[0].text,'2（12乗）: 素数（確定）');assert.equal(p.factorRows[1].value,value);assert.match(p.factorRows[1].text,/素数判定を通過（未証明）/);assert.equal(p.residual,'35');
+ assert.equal(p.factorRows.length,2);assert.equal(p.factorRows[0].text,'2（12乗）: 素数（確定）');assert.equal(p.factorRows[1].value,value);assert.match(p.factorRows[1].text,/素数と判定（未証明）/);assert.equal(p.residual,'35');
  assert.match(p.copyText,/時間制限\n因子の判定:\n2（12乗）: 素数（確定）/);assert.ok(p.copyText.includes(value));assert.match(p.copyText,/未解決の余因子: 35/);assert.equal(p.factorRows[1].reason,undefined);
 });
 test('many groups stay separate and neither-prime-nor-composite has no invented factor',()=>{

@@ -100,7 +100,7 @@ test('terminal progress uses verified status and clears completion before a reje
  await s.start('2.5');assert.equal(s.getState().phase,'invalid');assert.equal(s.getState().progress,null);
  await s.start('0');assert.equal(s.getState().progress.resultStatus,'neither');
  const p=(1n<<127n)-1n,{s:probable}=fixture();await probable.prepare();await probable.start(p.toString());
- assert.equal(probable.getState().view.status,'probable');assert.equal(probable.getState().view.statusText,'素数判定を通過（未証明）。');assert.equal(probable.getState().progress.resultStatus,'probable');
+ assert.equal(probable.getState().view.status,'probable');assert.equal(probable.getState().view.statusText,'分解結果（未証明の因子あり）。');assert.equal(probable.getState().progress.resultStatus,'probable');
 });
 test('proof timeout, computation failure and cancellation keep a non-success terminal progress',async()=>{
  const p=(1n<<127n)-1n,input=(3n*p).toString();let at=0;

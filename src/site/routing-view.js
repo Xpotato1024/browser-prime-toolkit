@@ -11,7 +11,7 @@ export function makeRoutingView(result,input){
  const terms=groups.map(f=>f.base+(f.exponent===1?'':'^'+f.exponent));
  for(const f of pending)terms.push('[未分解・未確認: '+f.value+(f.exponent===1?'':'^'+f.exponent)+']');
  if(!terms.length)terms.push(input);
- const statusText=result.status==='neither'?input+'は素数でも合成数でもありません。':result.status==='complete'?'分解完了（すべて確定判定）。':result.status==='probable'?'素数判定を通過（未証明）。':result.status==='cancelled'?'中止しました。受理済みの部分結果を表示しています。':'未完了です。未分解・未確認の項を含みます。';
+ const statusText=result.status==='neither'?input+'は素数でも合成数でもありません。':result.status==='complete'?'分解完了（すべて確定判定）。':result.status==='probable'?'分解結果（未証明の因子あり）。':result.status==='cancelled'?'中止しました。受理済みの部分結果を表示しています。':'未完了です。未分解・未確認の項を含みます。';
  const stops=[['計算',result.executionReason],['検算',result.verificationReason]].filter(([,code])=>code&&code!=='factor-proof-required');
  const reasonText=stops.map(([label,code])=>label+'：'+stopReasonPresentation(code).text).join(' ');
  const equation=input+' = '+terms.join(' × ');

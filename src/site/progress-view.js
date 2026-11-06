@@ -32,7 +32,7 @@ export function createProgressView(doc,prefix,{stageElement=null}={}){
   const candidates=snapshot.factorCandidates??[];partial.hidden=terminal||!candidates.length;
   text(partialTitle,'因子候補 '+candidates.length+'項（最終確認前）');text(partialText,candidates.map(f=>f.value+(f.exponent===1?'':'^'+f.exponent)).join(' × ')+' — 素数性は最終確認で判定します。');
   if(terminal){
-   const finalText=snapshot.stage==='stopped'?snapshot.summary:!snapshot.completedNormally&&['complete','probable','neither'].includes(snapshot.resultStatus)?'処理は停止しました。検算済みの結果と停止理由を確認してください。':snapshot.resultStatus==='complete'?'分解完了（すべての因子を確定）。':snapshot.resultStatus==='neither'?'判定完了（素数でも合成数でもありません）。':snapshot.resultStatus==='probable'?'処理完了。素数判定を通過（未証明）の因子を含みます。':snapshot.resultStatus==='cancelled'?'中止しました。':snapshot.resultStatus==='incomplete'?'未完了です。':'処理終了。結果を確認してください。';
+   const finalText=snapshot.stage==='stopped'?snapshot.summary:!snapshot.completedNormally&&['complete','probable','neither'].includes(snapshot.resultStatus)?'処理は停止しました。検算済みの結果と停止理由を確認してください。':snapshot.resultStatus==='complete'?'分解完了（すべての因子を確定）。':snapshot.resultStatus==='neither'?'判定完了（素数でも合成数でもありません）。':snapshot.resultStatus==='probable'?'処理完了。未証明の因子を含む分解結果です。':snapshot.resultStatus==='cancelled'?'中止しました。':snapshot.resultStatus==='incomplete'?'未完了です。':'処理終了。結果を確認してください。';
    bar.setAttribute('value',complete?'1':'0');bar.setAttribute('aria-valuetext',finalText);bar.removeAttribute('aria-labelledby');bar.setAttribute('aria-label',finalText);
   }
   else if(snapshot.value===null){bar.removeAttribute('value');bar.setAttribute('aria-valuetext',snapshot.summary);}

@@ -41,7 +41,7 @@ test('pending groups cannot promote unverified reported prime claims',()=>{
 });
 test('factor states are concise and preserve multiplicity and uncertainty in display and copy',()=>{
  const p=sitePresentation({equation:'n = factors',statusText:'未完了',reasonText:'検算の時間上限',groups:[{base:'2',exponent:3,certainty:'proven'},{base:'18446744073709551629',exponent:1,certainty:'probable'}],pendingGroups:[{value:'97',exponent:2,certainty:'unknown'},{value:'143',exponent:1,certainty:'composite'}]});
- assert.deepEqual(p.factorRows.map(r=>r.text),['2（3乗）: 素数（確定）','18446744073709551629: 素数判定を通過（未証明）','97（2乗）: 不明','143: 合成数（未分解）']);
+ assert.deepEqual(p.factorRows.map(r=>r.text),['2（3乗）: 素数（確定）','18446744073709551629: 素数と判定（未証明）','97（2乗）: 不明','143: 合成数（未分解）']);
  assert.ok(p.factorRows.every(r=>!r.reason));assert.match(p.copyText,/97（2乗）: 不明/);assert.match(p.copyText,/検算の時間上限/);assert.doesNotMatch(p.copyText,/固定基底|判定の対象|素数証明はしていません/);
 });
 test('unknown future certainty is never promoted to prime',()=>{
