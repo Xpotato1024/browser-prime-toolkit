@@ -51,3 +51,23 @@ CHROME_BIN=google-chrome node scripts/verify-progress-rendering.mjs --out /tmp/p
 出力先のJSONは未使用のパスを指定する。追加依存なしで実際の `createProgressView` とCSSを読み、standalone／共通リセット相当host、幅320／1200、正常完了／未証明／取消／時間切れ／新入力を検査する。PNGのゲージ内部ピクセルで色を判定し、強制色は無着色のnative progressと比較する。状態snapshotを渡す描画回帰であり、計算engineの統合検査とは区別する。CIのprivate-ui jobでも実行する。
 
 修正前のChromium 149.0.7827.55ではhostの正常完了がRGB(0,128,0)となり、この検査が失敗した。修正後は同じ検査でhostがRGB(116,83,153)、standaloneがRGB(98,65,139)となった。実機モバイル・Firefox・OSの実際のハイコントラスト設定の確認とは区別し、強制色はブラウザーのemulationとして記録する。
+
+## Chrome起動確認と失敗時の後処理
+
+`verify-browser-ci.mjs`（`verify:browser`／`verify:candidate-browser`）は、fresh profileの
+`DevToolsActivePort` とloopbackの `/json/version` が同じendpointを示すことを確認します。
+stderrのバナーは診断だけに使い、単独では起動成功としません。
+従来の15秒を起動確認とWebSocket接続の共通期限とし、計算予算やCDPの通常要求期限は変更しません。
+起動・接続前の失敗でページ評価を試みず、未接続のCDP要求をpendingへ登録しません。
+transportのerror／closeはpendingを即時拒否・解放します。接続済みページの失敗診断は1秒以内に制限します。
+成功・失敗とも所有Chromeのprocess group、接続、HTTP server、一時profileを終了・解放します。
+診断には起動stateと有限traceを記録し、CDPのcapability URLは秘匿します。
+
+既存の固定測定receiptは書き換えません。新しいreceiptのsourceFilesには
+起動処理・終了処理のhelper hashを追加し、測定に使ったソースを区別します。
+CSP、offline、取消・再起動、検出器の正検出、数値・資源・因子検算の条件は維持します。
+
+変更前は通知なしのconsumer回帰が失敗し、未接続の `Runtime.evaluate` がpendingに残りました。
+原本は比較保全manifestのbyte固定対象のため、そのまま保持します。
+`generate-browser-ci.mjs` が原本hashと一意anchorを検査し、CI専用adapterを導出します。
+`check` でadapterの生成一致を検査し、通常の `benchmark:browser` は原本を参照し続けます。
