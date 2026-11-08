@@ -163,3 +163,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [CIの全件単体試験と再ビルド後の保証](operations/ci-unit-coverage.md)
 
 - [結果コピー記号・結果詳細と一般ヘルプの整理](operations/result-layout-20261109.md)
+
+- [SIQS lab CI の起動と期限検査](contracts/siqs-lab-ci.md)、[失敗の観測・決定的回帰・配布境界](operations/siqs-lab-ci-20261109.md)。過去の実測原本とproduction runtimeは変更しません。
