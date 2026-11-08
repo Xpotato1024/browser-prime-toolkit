@@ -161,3 +161,5 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 [0.2.4 ネイティブ進捗描画の修正版](operations/release-v0.2.4.md)は、共通リセット下の紫ゲージ、対応ソースと公開配布物の検証手順を定めます。
 
 - [CIの全件単体試験と再ビルド後の保証](operations/ci-unit-coverage.md)
+
+- [結果コピー記号・結果詳細と一般ヘルプの整理](operations/result-layout-20261109.md)

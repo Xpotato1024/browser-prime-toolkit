@@ -36,19 +36,27 @@ export function mountSiteFactorizer(root,{hints={hardwareConcurrency:globalThis.
  const start=el('button',{type:'submit',text:'分解する','data-action':'start'});menu.append(start);
  const work=el('section',{'class':'bt-work','aria-label':'実行状況と結果'}),status=el('p',{role:'status','aria-live':'polite','aria-atomic':'true','class':'bt-status',tabindex:'-1'}),cancel=el('button',{type:'button',text:'計算を中止','data-action':'cancel'}),runtimeError=el('p',{role:'alert','class':'bt-error'}),retry=el('button',{type:'button',text:'ファイルの準備をやり直す','data-action':'retry'});
  const result=el('section',{'class':'bt-result','aria-label':'計算結果'}),resultTitle=el('h3',{'class':'bt-result-title'}),resultStatus=el('p',{'class':'bt-result-status',role:'status','aria-live':'off','aria-atomic':'true',tabindex:'-1'}),equation=el('p',{'class':'bt-equation'}),residualText=el('p',{'class':'bt-residual'}),reasonText=el('p',{'class':'bt-stop-reason'});
- const copy=el('button',{type:'button',text:'結果をコピー','data-action':'copy'}),copyActions=el('div',{'class':'bt-copy-actions'}),copyStatus=el('p',{role:'status','class':'bt-help bt-copy-status'}),resultBody=el('div',{'class':'bt-result-body',role:'group',tabindex:'-1','aria-label':'結果本文（全桁・計算状態・因子判定）'});copyActions.append(copy);copyStatus.hidden=true;
+ const copy=el('button',{type:'button','aria-label':'結果をコピー',title:'結果をコピー','data-action':'copy'}),equationFrame=el('div',{'class':'bt-equation-frame'}),copyStatus=el('p',{role:'status','aria-live':'polite','aria-atomic':'true','class':'bt-help bt-copy-status'}),resultBody=el('div',{'class':'bt-result-body',role:'group',tabindex:'-1','aria-label':'結果本文（全桁・計算状態・因子判定）'});copy.append(el('span',{'class':'bt-copy-icon','aria-hidden':'true'}));equationFrame.append(equation,copy);copyStatus.hidden=true;
 
  const progressHeading=el('div',{'class':'bt-progress-heading'});progressHeading.append(status,cancel);
  const progressView=createProgressView(doc,prefix,{stageElement:status});
  const proof=el('details',{'class':'bt-proof'}),factorList=el('ul',{'class':'bt-factor-list'});proof.append(el('summary',{text:'因子ごとの判定'}),factorList);
  const metrics=el('section',{'class':'bt-metrics','aria-label':'実測結果'}),metricList=el('dl'),metricRow=el('div'),elapsedLabel=el('dt',{id:'elapsed-label',text:'実経過'}),elapsed=el('dd',{'data-elapsed':'','aria-labelledby':elapsedLabel.id});metricRow.append(elapsedLabel,elapsed);metricList.append(metricRow);metrics.append(metricList);
  const execution=el('details',{'class':'bt-execution'}),measurementNote=el('p',{'class':'bt-help'}),limits=el('dl',{'class':'bt-execution-limits'}),limitsNote=el('p',{'class':'bt-help'});execution.append(el('summary',{text:'計算の詳細'}),measurementNote,limits,limitsNote);
- resultBody.append(resultStatus,equation,residualText,reasonText,proof);result.append(resultTitle,resultBody,copyActions,copyStatus,execution);work.append(progressHeading,progressView.root,runtimeError,retry,metrics,draftNote,result);form.append(work);layout.append(form);
+ const resultDetails=el('section',{'class':'bt-result-details','aria-label':'結果の詳細'});resultDetails.append(el('h4',{'class':'bt-section-title',text:'結果の詳細'}),proof,execution);
+ resultBody.append(resultStatus,equationFrame,residualText,reasonText,resultDetails);result.append(resultTitle,resultBody,copyStatus);work.append(progressHeading,progressView.root,runtimeError,retry,metrics,draftNote,result);form.append(work);layout.append(form);
  const note=el('details',{id:'input-rules','class':'bt-limits'}),guidanceList=el('ul',{'class':'bt-guidance-list'});note.append(el('summary',{text:'使い方・計算の範囲'}),guidanceList);
  for(const group of inputGuidance){const item=el('li');item.append(el('strong',{text:group.title}));if(group.items){const list=el('ul');list.append(...group.items.map(text=>el('li',{text})));item.append(list);}item.append(el('p',{text:group.text}));guidanceList.append(item);}
 
+ const help=el('section',{'class':'bt-help-area','aria-label':'使い方・ヘルプ'}),resultHelp=el('details',{'class':'bt-result-help'}),resultHelpList=el('ul',{'class':'bt-guidance-list'});
+ resultHelp.append(el('summary',{text:'結果が未完了・未証明のとき'}),resultHelpList);
+ for(const[title,text]of [
+  ['未完了・未解決の余因子','まだ素因数に分け切れていない残りで、素数とは限りません。時間切れなら「実行条件」の時間上限を見直して再計算できます。ただし前の続きではなく、最初からの計算です。上限を延ばしても完了するとは限りません。'],
+  ['未証明','素数判定を通過した候補ですが、素数であることの証明はしていません。「未分解」とは別の意味です。各因子の判定は、結果の「因子ごとの判定」で確認できます。']
+ ]){const item=el('li');item.append(el('strong',{text:title}),el('p',{text}));resultHelpList.append(item);}
+ help.append(el('h3',{'class':'bt-section-title',text:'使い方・ヘルプ'}),note,resultHelp);
  input.setAttribute('aria-details',note.id);
- root.replaceChildren(layout,note,samples,details);
+ root.replaceChildren(layout,help,samples,details);
  let disposed=false,busy=false,prepared=false,session,clock=null,compositionEndTimer=null,currentResources=null,currentCopy='',copyGeneration=0,limitsKey='',lastOutcome=null,activeJob=null,navigateStart=false,composing=false,finishingComposition=false,suppressSubmit=false;
  const samplesModal=createModal(samples),settingsModal=createModal(details,{onClose:reason=>{if(disposed)return;if(reason!=='apply')settingsState.cancel();updateControls();}});
  const clearCompositionTimer=()=>{if(compositionEndTimer!==null){doc.defaultView.clearTimeout(compositionEndTimer);compositionEndTimer=null;}};
