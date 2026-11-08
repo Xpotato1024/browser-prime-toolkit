@@ -12,6 +12,8 @@
 
 凍結したoriginalから生成するstartup adapterと共通lifecycle helperを使う。registry、変換anchor、生成物一致、workflow/package到達入口をcheckで検査し、入口の脱落も拒否する。9workflowとverify aliasを合わせた35入口を検査対象とする。
 
+到達検査は現行のnode/npm/matrix呼出しを対象とする正規表現であり、任意のshell wrapperを完全解析しない。将来wrapperやflagなど呼出し構文を変更する場合は、対応するinventory検査と回帰試験を追加する。今回の独立reviewでも、この範囲を超える静的解析の保証はしていない。
+
 旧driver・実測raw・receiptは保持する。新receiptのciExecutionはCI契約検査であることを明記し、originalだけでなく実行adapter/registry/generator/transform/helperのhashを保存する。新経路を旧driverの性能実測として解釈しない。
 
 計測再現用benchmark alias6本は変更していない。歴史的driverを直接指定する経路も維持する。新しいverify aliasはCI契約用とし、registryに列挙した限定case/familyだけを許可する。optimized low-capやsustained fixed-familyなど、CIが従来使う限定検査は削らない。

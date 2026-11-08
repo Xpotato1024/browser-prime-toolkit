@@ -9,5 +9,6 @@
 - 新receiptはci-contract-only/performanceMeasurement:falseを明示し、originalと実行adapter、registry、generator、transform、helperのhashを記録する。旧driver hashだけで新経路の実行を証明したことにしない。
 - adapterはregistryに列挙した契約用argsだけを受け付ける。CIが既に使う限定case/familyは保持し、長時間の性能campaignを新adapterへ紛れ込ませない。--caseを一律に禁止して既存検査を削らない。
 - checkは生成物一致・凍結source・到達入口を検査する。既存push/PR両イベント、実checkout identity、独立ビルドと全ての数値gateを維持する。
+- 到達検査は現行のnode/npm/matrix構文を対象とする正規表現であり、任意のshellを解析するものではない。wrapperやflagなど呼出し構文を変更するときは、到達先を失わない対応と回帰試験を同時に追加する。
 - stderr通知を取り除いた実Chrome、起動前後のrace、接続不能、切断、pending、cleanupの回帰を含める。DBus出力や通知喪失を過去の個別失敗の確定原因とはしない。
 - production srcとサイト配布graphは変更しない。固定9cf/0.2.5のサイトpinはCI修正のために置換しない。
