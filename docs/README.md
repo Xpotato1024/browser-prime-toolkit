@@ -165,3 +165,7 @@ Stage44: [小幅改善2候補の均衡32反復](benchmarks/llm01-hotpath-repeat.
 - [結果コピー記号・結果詳細と一般ヘルプの整理](operations/result-layout-20261109.md)
 
 - [SIQS lab CI の起動と期限検査](contracts/siqs-lab-ci.md)、[失敗の観測・決定的回帰・配布境界](operations/siqs-lab-ci-20261109.md)。過去の実測原本とproduction runtimeは変更しません。
+
+- [CI原本共有の契約](contracts/ci-source-archives.md)、[通信失敗・供給元pin・consumer検証](operations/ci-source-archives-20261109.md)。原本を共有しても各jobの独立ビルドと数値検査は保持します。
+
+- [CI browser起動の共通契約](contracts/ci-browser-startup.md)、[到達入口・生成来歴・回帰](operations/ci-browser-startup-20261109.md)、[反復回数を固定した受入条件](operations/ci-reliability-acceptance-20261109.md)。歴史的driver/receiptと計算の上限は保持します。

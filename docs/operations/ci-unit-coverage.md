@@ -2,7 +2,7 @@
 
 同一workflow実行の同一checkoutでは、全件の `npm test` を `CI / test` で1回実行します。
 このjobは必須の通常jobとして残し、他jobの成功や変更pathを条件にして省略しません。
-他jobは並列のまま、固有の検査に失敗すると従来どおり失敗します。
+原本取得を専用jobで共有した後、consumerは並列で従来の固有検査を実行します。取得・固有検査の失敗は成功扱いにしません。
 
 ## 再ビルド後の検査
 
@@ -33,3 +33,9 @@ mainとtagの同commit実行も今回まとめません。取消設定やretry�
 `test/ci-unit-coverage.test.js` は全件試験の重複と、再ビルド後のtracked差分拒否を検査します。
 変更前は2件失敗、変更後は既存の実checkout identity試験を含め10件成功しました。
 全件試験／checkとHosted CIの時間・結果は、対象HEADに結び付けた引渡し証跡で報告します。
+
+## 原本共有jobへの依存
+
+CI安定化で追加した `reviewed-source-archives` だけをtestの依存先として許可します。他の検証結果やpath条件で全件試験を省略しません。
+既存5consumer名を維持し、各jobを `always()` で開始して最初にproducer成功を要求します。原本取得失敗時にrequired名がskipped=pass扱いになることを避け、明示failureにします。
+成功時だけ同じ実行のartifact IDを検査し、各checkoutのsize/SHAでraw archiveを再検証して、既存build・native・browserの全chainへ進みます。詳細は[原本共有契約](../contracts/ci-source-archives.md)を参照してください。

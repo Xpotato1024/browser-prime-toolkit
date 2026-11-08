@@ -1,0 +1,12 @@
+# CI安定化の最終受入条件
+
+無変更の同じrunをgreenになるまで繰り返さない。失敗履歴と有効な既存証拠を残し、変更の影響範囲で検査を選ぶ。
+
+1. 統合後の最終commitでnpm testとnpm run checkを各1回実行する。途中の追加修正があれば、影響する試験と最終全体確認をやり直し、変更前の失敗を消さない。
+2. 事前に列挙した35ケースの実Chrome sweep（31種類の入口と限定case4件）を各1回行う。最終diffで共通CDP変更の影響が確認された未検証shared入口4種も各1回確認し、35種類の入口を覆う。これは異なる対象の初回検査であり、失敗runのretryではない。通知欠落・遅延・切断・cleanupは決定的回帰で補完する。Chrome確認中は重い全件検査を重ねて期限競合を作らない。
+3. sourceは実cold9archive、GMP両版の第3mirror実取得、networkを使えない5consumerの既存成功証拠を保持する。最終diffでsource pinsが不変であることと現行回帰で結合する。新規生成WASMや共有済みtest結果を信頼してビルドを省かない。
+4. 最終SHAを1回pushし、push HEADとPR synthetic mergeの全9workflowをそれぞれ1回確認する。失敗したら原因を特定して必要な修正を行う。無変更の外部CI再実行で失敗を隠さない。
+5. 固定9cf artifactとの95payload byte一致、provenance/manifestのみの差、remote SHA、Draft維持、mergeabilityを確認する。サイトのexact9cf source/review/pinは置き換えない。
+6. warm Hosted cacheのためだけの追加runは行わない。自然な実行で観測できなければ未実証と記す。ローカルcache-only成功をHosted cache復元成功と混同しない。
+
+browser起動変更はCI runner/generatorと到達経路、source変更は取得・検証・共有に限定する。元の計算期限・資源上限・数値assertion・独立build・歴史的実測原本は保持する。最終結果は実行SHAとrun URLに結び付けてPRで報告する。merge、tag、release、deployは別の承認が必要。

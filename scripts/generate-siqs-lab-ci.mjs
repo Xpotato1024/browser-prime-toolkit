@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import assert from 'node:assert/strict';
+import {transformChromeLifecycle} from './chrome-ci-transform.mjs';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
@@ -17,6 +18,8 @@ export function deriveSiqsLabCi(inputs){
  driver=replace(driver,"  assert.ok(requests.length > 3,","  console.log('SIQS_LAB_ENV '+JSON.stringify({browser,browserDevice,host:{platform:platform(),release:release(),cpu:cpus()[0]?.model,logicalCpus:cpus().length,memoryBytes:totalmem()}}));\n  assert.ok(requests.length > 3,");
  driver=replace(driver,"['scripts/verify-siqs-lab.mjs',","['scripts/verify-siqs-lab-ci.mjs','scripts/generate-siqs-lab-ci.mjs','scripts/siqs-lab-ci-asset-route.mjs','scripts/verify-siqs-lab.mjs',");
  driver=replace(driver,"const receipt={mode,","const receipt={ciHarness:{source:'scripts/verify-siqs-lab-ci.mjs',historicalDriverSha256:'58098e16a1155cd44085c1c21922669fe2ee5c0a2c9a9a23d020c3037aa4fa70',historicalHarnessSha256:'78d68aad37412d03ddea03ff63f81e09dc3fec4e09882b191ca188621c3e9b37',separateReadinessLimitMs:5000},mode,");
+ const entry=JSON.parse(readFileSync(new URL('./chrome-ci-entries.json',import.meta.url),'utf8')).find(e=>e.target==='scripts/verify-siqs-lab-ci.mjs');
+ driver=transformChromeLifecycle(driver,entry);
  return {'bench/siqs-lab-ci.js':'// Generated CI-only harness; original measurement harness remains frozen.\n'+harness,'scripts/verify-siqs-lab-ci.mjs':'// Generated CI-only driver; original comparison receipts remain frozen.\n'+driver,'scripts/siqs-lab-ci-asset-route.mjs':"// Generated CI-only route; original asset boundary remains frozen.\nimport {labAsset as original} from './siqs-lab-asset-route.mjs';\nconst extras=new Set(['bench/siqs-lab-ci.html','bench/siqs-lab-ci.js','bench/lab-deadline-probe.js']);\nexport function labAsset(path){try{const key=decodeURIComponent(path).slice(1);return extras.has(key)?key:original(path);}catch{return null;}}\n",'bench/siqs-lab-ci.html':"<!doctype html>\n<meta charset=\"utf-8\">\n<title>Private SIQS CI contracts</title>\n<script type=\"module\" src=\"./siqs-lab-ci.js\"></script>\n"};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){

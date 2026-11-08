@@ -24,14 +24,14 @@ jobs:
       - run: npm run check:sustained
       - name: Streaming audit and offline retirement contracts without timed performance trials
         run: |
-          node scripts/verify-sustained.mjs --coordinator combined --engine two-drop --out "$RUNNER_TEMP/sustained-contracts-combined2.json"
-          node scripts/verify-sustained.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/sustained-contracts-combined4.json"
+          node scripts/verify-sustained-startup-ci.mjs --coordinator combined --engine two-drop --out "$RUNNER_TEMP/sustained-contracts-combined2.json"
+          node scripts/verify-sustained-startup-ci.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/sustained-contracts-combined4.json"
           for engine in two-drop three-drop four-drop; do
-            node scripts/verify-sustained.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/sustained-contracts-dedicated-$engine.json"
+            node scripts/verify-sustained-startup-ci.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/sustained-contracts-dedicated-$engine.json"
           done
-          node scripts/verify-sustained.mjs --coordinator combined --engine two-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined2.json"
-          node scripts/verify-sustained.mjs --coordinator combined --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined4.json"
-          node scripts/verify-sustained.mjs --coordinator dedicated --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-dedicated4.json"
+          node scripts/verify-sustained-startup-ci.mjs --coordinator combined --engine two-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined2.json"
+          node scripts/verify-sustained-startup-ci.mjs --coordinator combined --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-combined4.json"
+          node scripts/verify-sustained-startup-ci.mjs --coordinator dedicated --engine four-drop --case RSA-100 --fixed-families 4 --out "$RUNNER_TEMP/sustained-fixed-dedicated4.json"
           node scripts/check-sustained-ci-results.mjs "$RUNNER_TEMP"
         env:
           CHROME_BIN: google-chrome

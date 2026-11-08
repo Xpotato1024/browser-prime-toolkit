@@ -123,3 +123,26 @@ test('expired original deadline cannot accept an already-open or queued transpor
  await assert.rejects(openChromeTransport(socket,{remainingMs:()=>0}),/startup timed out/);
  assert.equal(closed,2);
 });
+
+test('exit already observed before setup fails without waiting for startup timeout',async t=>{
+ const {profile,c}=await fixture(t);c.exitCode=7;
+ const o=observeChromeStartup(c,profile,{timeoutMs:800});t.after(()=>o.dispose());
+ await assert.rejects(o.ready,/exited before readiness/);assert.equal(o.diagnostics().state,'exited');
+});
+test('owned endpoint tolerates a finite delayed response within the original budget',async t=>{
+ const profile=await mkdtemp(join(tmpdir(),'prime-startup-test-'));let port;
+ const server=createServer((req,res)=>setTimeout(()=>res.end(JSON.stringify({webSocketDebuggerUrl:'ws://127.0.0.1:'+port+path})),30));
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));port=server.address().port;
+ t.after(async()=>{server.closeAllConnections();await new Promise(r=>server.close(r));await rm(profile,{recursive:true,force:true});});
+ await writeFile(join(profile,'DevToolsActivePort'),port+'\n'+path);
+ const o=observeChromeStartup(child(),profile,{timeoutMs:800,pollMs:5});t.after(()=>o.dispose());
+ assert.equal(await o.ready,'ws://127.0.0.1:'+port+path);assert.equal(o.diagnostics().bannerSeen,false);
+});
+
+for(const event of ['close','error'])test('shared sender releases calls and rejects new commands after transport '+event,async()=>{
+ const pending=new Map();let id=0;const socket=new EventTarget();socket.readyState=1;socket.send=()=>{};
+ const send=createCdpSender({getSocket:()=>socket,pending,nextId:()=>++id,timeoutForMethod:()=>10000});
+ const call=send('Runtime.evaluate'),rejected=assert.rejects(call,/CDP transport/);
+ socket.dispatchEvent(new Event(event));await rejected;assert.equal(pending.size,0);
+ await assert.rejects(send('Runtime.evaluate'),/not open/);assert.equal(pending.size,0);
+});

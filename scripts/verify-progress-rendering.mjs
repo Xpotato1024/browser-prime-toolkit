@@ -1,3 +1,6 @@
+import {createCiBrowserLifecycle,ciHarnessIdentity} from './chrome-ci-lifecycle.mjs';
+import {assertCiArguments} from './chrome-ci-transform.mjs';
+assertCiArguments(process.argv.slice(2),{args:{'--out':'path'}});
 // SPDX-License-Identifier: AGPL-3.0-only
 // Real Chromium/Edge pixels: no runtime or test dependencies are added.
 import assert from 'node:assert/strict';
@@ -18,10 +21,9 @@ const profile=await mkdtemp(join(tmpdir(),'prime-progress-'));
 const report={scope:'Actual createProgressView and CSS; synthetic state snapshots, not engine integration',cases:[]};
 let child,socket,server,session,sequence=0;
 const pending=new Map();
-function send(method,params={},sessionId=session){return new Promise((yes,no)=>{
- const id=++sequence,timer=setTimeout(()=>{pending.delete(id);no(Error('CDP timeout: '+method));},10000);
- pending.set(id,{yes,no,timer});socket.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));
-});}
+const ciHarness=ciHarnessIdentity(import.meta.url,null,null,null);
+const ciChrome=createCiBrowserLifecycle({getChrome:()=>child,getSocket:()=>socket,getServer:()=>server,getSession:()=>session,pending,nextId:()=>++sequence,timeoutForMethod:()=>10000,profile});
+function send(method,params={},sessionId=session){return ciChrome.send(method,params,sessionId);}
 async function evaluate(expression){const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});assert.ok(!r.exceptionDetails,JSON.stringify(r.exceptionDetails));return r.result.value;}
 // Decode only the browser's bounded 8-bit RGB/RGBA screenshot; reject other formats.
 function centerPixel(bytes){
@@ -61,13 +63,10 @@ try{
   res.writeHead(200,{'Content-Type':type+'; charset=utf-8','Cache-Control':'no-store'});res.end(body);
  }catch(e){res.writeHead(500).end(String(e));}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
- child=spawn(process.env.CHROME_BIN||'google-chrome',['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-background-networking','--no-first-run','--force-color-profile=srgb','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe'],windowsHide:true});
- const url=await new Promise((yes,no)=>{let text='';const timer=setTimeout(()=>no(Error('Browser startup timeout: '+text.slice(-1000))),15000);
-  child.once('error',e=>{clearTimeout(timer);no(e);});child.once('exit',c=>{clearTimeout(timer);no(Error('Browser exited '+c));});
-  child.stderr.on('data',b=>{text=(text+b).slice(-10000);const m=/DevTools listening on (ws:\/\/\S+)/.exec(text);if(m){clearTimeout(timer);yes(m[1]);}});
- });
- socket=new WebSocket(url);await new Promise((yes,no)=>{socket.addEventListener('open',yes,{once:true});socket.addEventListener('error',no,{once:true});});
- socket.addEventListener('message',({data})=>{const m=JSON.parse(String(data)),p=pending.get(m.id);if(p){clearTimeout(p.timer);pending.delete(m.id);m.error?p.no(Error(m.error.message)):p.yes(m.result);}});
+ child=spawn(process.env.CHROME_BIN||'google-chrome',['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-background-networking','--no-first-run','--force-color-profile=srgb','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{detached:true,stdio:['ignore','ignore','pipe'],windowsHide:true});
+ ciChrome.observe({timeoutMs:15000});
+ socket=new WebSocket(await ciChrome.ready());await ciChrome.connect(socket);
+ socket.addEventListener('message',({data})=>{const m=JSON.parse(String(data)),p=pending.get(m.id);if(p){clearTimeout(p.timer);pending.delete(m.id);m.error?p.reject(Error(m.error.message)):p.resolve(m.result);}});
  report.browser=await send('Browser.getVersion',{},null);
  const {targetId}=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId,flatten:true},null)).sessionId;
  await send('Page.enable');await send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/'});
@@ -97,12 +96,9 @@ try{
  const reference=await capture('forced-native-reference','#reference'),forced=await capture('forced-complete');
  assert.equal(forced.forced,true);assert.equal(forced.forcedColorAdjust,'auto');assert.deepEqual(forced.pixel,reference.pixel,'Forced colors must match an unbranded native progress control');assert.notDeepEqual(forced.pixel,[116,83,153]);
  report.pass=true;
-}catch(e){report.pass=false;report.failure=String(e.stack);process.exitCode=1;}
+}catch(e){ciChrome.noteFailure(e);report.pass=false;report.failure=String(e.stack);process.exitCode=1;}
 finally{
- if(socket?.readyState===WebSocket.OPEN){await send('Browser.close',{},null).catch(()=>{});socket.close();}
- if(child&&child.exitCode===null)await new Promise(r=>{const timer=setTimeout(()=>{child.kill();r();},3000);child.once('exit',()=>{clearTimeout(timer);r();});});
- for(const p of pending.values()){clearTimeout(p.timer);p.no(Error('Browser closed'));}pending.clear();
- if(server)await new Promise(r=>server.close(r));
- assert.ok(profile.startsWith(resolve(tmpdir())+sep+'prime-progress-'));await rm(profile,{recursive:true,force:true});
+ report.ciExecution={...ciHarness,chromeStartup:ciChrome.diagnostics()};
+ try{await ciChrome.cleanup();}catch(e){report.pass=false;report.failure=String(e.stack);process.exitCode=1;}
  await writeFile(output,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({pass:report.pass,browser:report.browser?.product,cases:report.cases.length,failure:report.failure}));
 }

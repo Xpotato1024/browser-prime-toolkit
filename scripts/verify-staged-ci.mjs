@@ -1,4 +1,7 @@
-// Generated CI-only lifecycle adapter; original benchmark/raw source remains frozen.
+// Generated CI-only lifecycle adapter. Historical measurement source and receipts remain frozen.
+import {createCiBrowserLifecycle,ciHarnessIdentity} from './chrome-ci-lifecycle.mjs';
+import {assertCiArguments} from './chrome-ci-transform.mjs';
+assertCiArguments(process.argv.slice(2),{"args":{"--out":"path","--mode":["lifecycle"],"--variant":["brent","ecm","siqs","p64"]},"required":{"--mode":"lifecycle"}});
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile, writeFile, access, mkdtemp, rm } from 'node:fs/promises';
@@ -10,28 +13,23 @@ import { makeCorpus } from '../bench/corpus.mjs';
 import { makeCandidateCorpus } from '../bench/candidate-corpus.mjs';
 import { makeAdvancedCorpus } from '../bench/advanced-corpus.mjs';
 import { BrowserMemorySampler } from './browser-memory.mjs';
-import {observeChromeStartup,openChromeTransport} from './chrome-startup.mjs';
 import { verifyStagedOutcome } from '../src/engine/staged-result.js';
 
 const root = resolve(import.meta.dirname, '..');
 const arg=(key,fallback)=>process.argv.includes(key)?process.argv[process.argv.indexOf(key)+1]:fallback;
 const output=resolve(arg('--out',join(tmpdir(),'staged-receipt.json')));
 try{await access(output);throw Error('Refusing to overwrite '+output);}catch(e){if(e.code!=='ENOENT')throw e;}
-assert.equal(arg('--mode','primary'),'lifecycle','CI contracts only; historical performance driver is frozen');
 const mode=arg('--mode','primary'),variant=arg('--variant','p64'),caseId=arg('--case','balanced-112bit-0');
 const group=arg('--group','train'),seed=Number(arg('--seed','1')),budgetMs=1000;
 if(!['brent','ecm','siqs','p64','p80'].includes(variant)||!['train','holdout'].includes(group)||!Number.isSafeInteger(seed))throw Error('Fixed experiment');
 const selected=JSON.parse(await readFile(join(root,'bench/staged-'+group+'.json')));
 const temporary = await mkdtemp(join(tmpdir(), 'prime-browser-'));
 const http = [], requests = [], badEvents = [], localBlobs = [], sessions = new Set(), fatal = [];
-let chrome, socket, server, pageSession, memory, startup, sequence = 0;
+let chrome, socket, server, pageSession, memory, sequence = 0;
 const pending = new Map(), attached = [];
-const send = (method, params = {}, sessionId) => new Promise((resolveCall, rejectCall) => {
-  const id = ++sequence;
-  const timer = setTimeout(() => { pending.delete(id); rejectCall(Error('CDP timeout: ' + method)); }, method === 'Runtime.evaluate' ? 65000 : 5000);
-  pending.set(id, { method, resolve: resolveCall, reject: rejectCall, timer });
-  socket.send(JSON.stringify({ id, method, params, ...(sessionId ? { sessionId } : {}) }));
-});
+const ciHarness=ciHarnessIdentity(import.meta.url,"scripts/benchmark-staged.mjs","8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd","scripts/generate-staged-ci.mjs");
+const ciChrome=createCiBrowserLifecycle({getChrome:()=>chrome,getSocket:()=>socket,getMemory:()=>memory,getServer:()=>server,getSession:()=>pageSession,pending,nextId:()=>++sequence,timeoutForMethod:method=>method === 'Runtime.evaluate' ? 65000 : 5000,profile:temporary});
+const send=(method,params={},sessionId)=>ciChrome.send(method,params,sessionId);
 const evaluate = async expression => {
   const value = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true, timeout: 65000 }, pageSession);
   if (value.exceptionDetails) throw Error(JSON.stringify(value.exceptionDetails));
@@ -72,14 +70,11 @@ try {
   chrome = spawn(process.env.CHROME_BIN || 'google-chrome', ['--headless=new', '--no-sandbox', '--disable-dev-shm-usage',
     '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-first-run',
     '--disable-background-timer-throttling', '--remote-debugging-port=0', '--user-data-dir=' + temporary, 'about:blank'],
-    { stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true });
-  // Observe ownership before the asynchronous memory sampler can yield.
-  const startupTimeoutMs = 15000, startupDeadline = performance.now() + startupTimeoutMs;
-  startup = observeChromeStartup(chrome, temporary, {timeoutMs: startupTimeoutMs});
-  memory = new BrowserMemorySampler(chrome.pid); await memory.start();
-  const debuggingUrl = await startup.ready;
-  socket = new WebSocket(debuggingUrl);
-  await openChromeTransport(socket,{timeoutMs:Math.max(1,startupDeadline-performance.now())});
+    { detached:true, stdio: ['ignore', 'ignore', 'pipe'], env: process.env, windowsHide: true });
+  ciChrome.observe({timeoutMs:15000});
+  memory = new BrowserMemorySampler(chrome.pid); await ciChrome.setup(()=>memory.start());
+  socket=new WebSocket(await ciChrome.ready());
+  await ciChrome.connect(socket);
   socket.addEventListener('message', ({ data }) => {
     const message = JSON.parse(String(data));
     if (message.id) {
@@ -171,8 +166,8 @@ try {
   const sourceFiles={};
   for(const path of ['scripts/benchmark-staged.mjs','bench/staged-'+group+'.json','scripts/browser-memory.mjs','native/siqs-v2/build-dense.json','native/siqs-v2/build-lanczos.json',...initialAssets.map(a=>a.path.slice(1))])
     sourceFiles[path]=createHash('sha256').update(await readFile(join(root,path))).digest('hex');
-  for(const path of ['scripts/verify-staged-ci.mjs','scripts/generate-staged-ci.mjs','scripts/chrome-startup.mjs'])sourceFiles[path]=createHash('sha256').update(await readFile(join(root,path))).digest('hex');
-  const receipt={ciHarness:{source:'scripts/verify-staged-ci.mjs',originalSha256:"8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",chromeStartup:startup.diagnostics()},mode,variant,caseId,group,seed,budgetMs,lifecycle,measuredHead:process.env.PRIME_MEASURED_HEAD??null,measuredAt:new Date().toISOString(),browser,browserDevice,
+  Object.assign(sourceFiles,ciHarness.sourceFiles);
+  const receipt={ciExecution:{...ciHarness,chromeStartup:ciChrome.diagnostics()},mode,variant,caseId,group,seed,budgetMs,lifecycle,measuredHead:process.env.PRIME_MEASURED_HEAD??null,measuredAt:new Date().toISOString(),browser,browserDevice,
     host:{platform:platform(),release:release(),cpu:cpus()[0]?.model,logicalCpus:cpus().length,memoryBytes:totalmem(),headless:true},
     coldReadyMs,initialAssets,sourceFiles,records,ownership,sampledRam:memory.summary(),
     quiet:{networkRequests:0,httpRequests:0,badEvents:0,assetServerStopped:true,cacheDisabled:true},
@@ -191,17 +186,12 @@ try {
   receipt.detectorSelfTest={blockedPageFetchCsp:true,pageCdpAndHttp:true,workerCdpAndHttp:true};
   await writeFile(output,JSON.stringify(receipt,null,2)+'\n');console.log('Receipt '+output);
 } catch (error) {
+  ciChrome.noteFailure(error);
+  console.error(JSON.stringify({chromeStartup:ciChrome.diagnostics(),ciExecution:ciHarness}));
   let diagnostic;
-  try { if(socket?.readyState===WebSocket.OPEN&&pageSession)diagnostic = await evaluate('({phase:globalThis.evaluationHarness?.controller.phase,violations:globalThis.evaluationHarness?.violations,errors:globalThis.evaluationHarness?.errors})'); } catch {}
-  console.error(JSON.stringify({startup:startup?.diagnostics(),fatal,badEvents,requests,diagnostic,attached,pending:[...pending.values()].map(v=>v.method)}));
+  try { diagnostic = await ciChrome.diagnostic('({phase:globalThis.evaluationHarness?.controller.phase,violations:globalThis.evaluationHarness?.violations,errors:globalThis.evaluationHarness?.errors})'); } catch {}
+  console.error(JSON.stringify({fatal,badEvents,requests,diagnostic,attached,pending:[...pending.values()].map(v=>v.method)}));
   throw error;
 } finally {
-  startup?.dispose();
-  if (memory?.running) await memory.stop();
-  if (socket?.readyState === WebSocket.OPEN) { try { await send('Browser.close'); } catch {} socket.close(); }
-  for (const call of pending.values()) { clearTimeout(call.timer); call.reject(Error('Browser closed')); }
-  chrome?.kill();
-  if (chrome && chrome.exitCode === null) await new Promise(resolveExit => { const timer=setTimeout(resolveExit,2000); chrome.once('exit',()=>{clearTimeout(timer);resolveExit();}); });
-  if (server) await new Promise(resolveClose => server.close(resolveClose));
-  if (temporary.startsWith(join(tmpdir(), 'prime-browser-'))) await rm(temporary, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  await ciChrome.cleanup();
 }

@@ -10,7 +10,7 @@ const receipts=[];
 for(const e of entries){
  const plan=transport.find(p=>p.file===e.file);
  if(plan&&(plan.bytes!==e.bytes||plan.sha256!==e.sha256||plan.urls[0]!==e.url))throw Error('Transport artifact identity');
- const receipt=fetchVerifiedSource(e,{directory,urls:plan?.urls??[e.url,e.url]});receipts.push(receipt);
+ const receipt=fetchVerifiedSource(e,{directory,urls:plan?.urls??[e.url,e.url],requireCache:process.argv.includes('--cache-only')});receipts.push(receipt);
  console.log(JSON.stringify(receipt));
 }
 if(transport.some(p=>!entries.some(e=>e.file===p.file)))throw Error('Unknown transport artifact');

@@ -1,0 +1,603 @@
+[
+  {
+    "original": "scripts/verify-full-siqs.mjs",
+    "target": "scripts/verify-full-siqs-startup-ci.mjs",
+    "sha256": "4dc0d4a440b857ef2ec059a9d466918a254fae48a70deb97c64d3c245fbb029d",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/benchmark-siqs.mjs",
+    "target": "scripts/benchmark-siqs-startup-ci.mjs",
+    "sha256": "cfd2369b9c15b4cfb393d0ce1e61f6b27548e7e713fbfde338d46c1ff47aba96",
+    "startupTimeoutMs": 15000,
+    "args": {
+      "--out": "path",
+      "--quick": true
+    },
+    "required": {
+      "--quick": true
+    },
+    "smokeArgs": [
+      "--quick"
+    ]
+  },
+  {
+    "original": "scripts/benchmark-selection.mjs",
+    "target": "scripts/benchmark-selection-startup-ci.mjs",
+    "sha256": "6c8eebd1ffe3cd4804c545bbc19f6fbfc522e1caf5257e56c2c8e11b82014be9",
+    "startupTimeoutMs": 15000,
+    "args": {
+      "--out": "path",
+      "--quick": true
+    },
+    "required": {
+      "--quick": true
+    },
+    "smokeArgs": [
+      "--quick"
+    ]
+  },
+  {
+    "original": "scripts/benchmark-counted.mjs",
+    "target": "scripts/benchmark-counted-startup-ci.mjs",
+    "sha256": "7222f66dde3ead7ac46d193367983f98053e8751da17151cf118443caffb7f9e",
+    "startupTimeoutMs": 15000,
+    "args": {
+      "--out": "path",
+      "--mode": [
+        "lifecycle"
+      ],
+      "--variant": [
+        "legacy",
+        "clock-gated",
+        "dense",
+        "lanczos"
+      ]
+    },
+    "required": {
+      "--mode": "lifecycle"
+    },
+    "smokeArgs": [
+      "--mode",
+      "lifecycle",
+      "--variant",
+      "lanczos"
+    ]
+  },
+  {
+    "original": "scripts/verify-supplement-ci.mjs",
+    "target": "scripts/verify-supplement-ci-startup-ci.mjs",
+    "sha256": "4aa9213c89a8ba1206e50417b0f256177b196062ccf3930ca6f3d6fe2613a910",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/verify-private-ui-ci.mjs",
+    "target": "scripts/verify-private-ui-ci-startup-ci.mjs",
+    "sha256": "813185cdae3d2028dbb8b2557b8aeedc1210d7f4ffba49987bda193bd6457e5d",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/verify-private-ui.mjs",
+    "target": "scripts/verify-private-ui-startup-ci.mjs",
+    "sha256": "4da41c0cbcfad7feecf598b236ddc8ca540478d0b11412d5c2e2c989a91a98c7",
+    "startupTimeoutMs": 15000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/verify-rsa-profile.mjs",
+    "target": "scripts/verify-rsa-profile-startup-ci.mjs",
+    "sha256": "aabb92cba1b320e3ca5687c35f7a152290ab528a147a9179a9f2bbc20b3b57b2",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/verify-resource-ui.mjs",
+    "target": "scripts/verify-resource-ui-startup-ci.mjs",
+    "sha256": "c4937ddfa7e57740f1d3be88fda35f02a195df78be3bc9e7c270587296953a91",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": []
+  },
+  {
+    "original": "scripts/verify-siqs-tuned.mjs",
+    "target": "scripts/verify-siqs-tuned-startup-ci.mjs",
+    "sha256": "db9853e8e9340891edb8bc35cdcf1179506eba469f09e88e69db85497d76f5bd",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--engine": [
+        "base",
+        "lto"
+      ]
+    },
+    "smokeArgs": [
+      "--engine",
+      "lto"
+    ]
+  },
+  {
+    "original": "scripts/verify-dlp.mjs",
+    "target": "scripts/verify-dlp-startup-ci.mjs",
+    "sha256": "a369314575e4b46f0316bd942754d5277f61adeb7c643a9feefa471447d2edb7",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--profile": [
+        "baseline",
+        "half",
+        "quarter"
+      ],
+      "--engine": [
+        "one-drop",
+        "two-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--profile",
+      "baseline",
+      "--engine",
+      "two-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-scheduler.mjs",
+    "target": "scripts/verify-scheduler-startup-ci.mjs",
+    "sha256": "9b6e1557d623ee21973ce1211e4d8b86c90c89eca196b0623ff9bef8d8e0a9a4",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--scheduler": [
+        "batch2",
+        "batch1",
+        "credit1"
+      ],
+      "--engine": [
+        "one-drop",
+        "two-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--scheduler",
+      "credit1",
+      "--engine",
+      "two-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-geometry.mjs",
+    "target": "scripts/verify-geometry-startup-ci.mjs",
+    "sha256": "11c33508568b017841a70bec98bb9c919d847edb5b8e96e353bae17e1562765c",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--profile": [
+        "b325-m524",
+        "b250-m524",
+        "b325-m262",
+        "b250-m262"
+      ],
+      "--engine": [
+        "two-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--profile",
+      "b325-m524",
+      "--engine",
+      "two-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-resources.mjs",
+    "target": "scripts/verify-resources-startup-ci.mjs",
+    "sha256": "21ca0c40b7a6f2fa0b2dffed74bf3c8e8586edeef0ed6bb98fefac8c1d71731c",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--engine": [
+        "one-drop",
+        "two-drop",
+        "three-drop",
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-coordinator-ci.mjs",
+    "target": "scripts/verify-coordinator-ci-startup-ci.mjs",
+    "sha256": "78ed693f1dc1985ddbc364d5a41dec0bfa1f0910b17d0e6fa0da82aaf1cc351b",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--coordinator": [
+        "combined",
+        "dedicated"
+      ],
+      "--engine": [
+        "one-drop",
+        "two-drop",
+        "three-drop",
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--coordinator",
+      "dedicated",
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-coordinator.mjs",
+    "target": "scripts/verify-coordinator-startup-ci.mjs",
+    "sha256": "3fb77b72f3bd2baf4b0fb751115cb622be6e6d3500442fe7818975f17a89a933",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--coordinator": [
+        "combined",
+        "dedicated"
+      ],
+      "--engine": [
+        "one-drop",
+        "two-drop",
+        "three-drop",
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--coordinator",
+      "dedicated",
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-score-unroll.mjs",
+    "target": "scripts/verify-score-unroll-startup-ci.mjs",
+    "sha256": "c16bf1f746ec217c402b3b097dfb425d16867e569232b1c1f7e08d8f07c5e689",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "unroll4"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "unroll4"
+    ]
+  },
+  {
+    "original": "scripts/verify-collection-profile.mjs",
+    "target": "scripts/verify-collection-profile-startup-ci.mjs",
+    "sha256": "7f9d06ad121070de77de32e05ba270a3c19156c357f6a56b5acae04810526625",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "instrumented",
+        "resieve4",
+        "sparse"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "instrumented"
+    ]
+  },
+  {
+    "original": "scripts/verify-graph-profile.mjs",
+    "target": "scripts/verify-graph-profile-startup-ci.mjs",
+    "sha256": "4f7c12e4775893bc5c9ffee3a9704ee5622e1af1e8a61bcb4de50862dc630575",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "compact"
+      ],
+      "--engine": [
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "compact",
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-graph-release.mjs",
+    "target": "scripts/verify-graph-release-startup-ci.mjs",
+    "sha256": "ff4ad70be3b865b0812d8767fa20a8605416b9587b221e1834ffb6d472273fff",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "release"
+      ],
+      "--engine": [
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "release",
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-graph-arena.mjs",
+    "target": "scripts/verify-graph-arena-startup-ci.mjs",
+    "sha256": "55b3522d4c8f8c56152ed06cb9d09ebffd18cbf298ab208901802e28000579b8",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "packed"
+      ],
+      "--engine": [
+        "four-drop"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "packed",
+      "--engine",
+      "four-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-graph-multicore.mjs",
+    "target": "scripts/verify-graph-multicore-startup-ci.mjs",
+    "sha256": "87b6cfdbde4667e40b56d639c6bda1c528661dd2237d87f66939964937bd4b1f",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "packed"
+      ],
+      "--engine": [
+        "six-drop"
+      ],
+      "--slots": [
+        "8"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "packed",
+      "--engine",
+      "six-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-graph-builtin.mjs",
+    "target": "scripts/verify-graph-builtin-startup-ci.mjs",
+    "sha256": "f0a547b3d92a69097abbdc0cc301d653be2ae4266cb235bc7e7feda29a1ef745",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "builtin"
+      ],
+      "--engine": [
+        "four-drop"
+      ],
+      "--slots": [
+        "8"
+      ]
+    },
+    "smokeArgs": [
+      "--graph",
+      "builtin",
+      "--engine",
+      "four-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-optimized-entry.mjs",
+    "target": "scripts/verify-optimized-entry-startup-ci.mjs",
+    "sha256": "c78dabdbe353b4c341b842fd932deb0653607338c918656ed60ff9d5ebb49649",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--graph": [
+        "optimized"
+      ],
+      "--engine": [
+        "five-drop",
+        "one-drop"
+      ],
+      "--slots": [
+        "8"
+      ],
+      "--memory-mib": [
+        "128"
+      ],
+      "--case": [
+        "full-balanced-64-1"
+      ]
+    },
+    "fixedCase": {
+      "--graph": "optimized",
+      "--engine": "one-drop",
+      "--memory-mib": "128",
+      "--case": "full-balanced-64-1"
+    },
+    "smokeArgs": [
+      "--graph",
+      "optimized",
+      "--engine",
+      "five-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-selected-wide.mjs",
+    "target": "scripts/verify-selected-wide-startup-ci.mjs",
+    "sha256": "7fb6d14da1f0f17a13add79795b72b056556333597084df2637df23da1bfd3b3",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--engine": [
+        "five-drop"
+      ],
+      "--slots": [
+        "8"
+      ]
+    },
+    "smokeArgs": [
+      "--engine",
+      "five-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-long-window.mjs",
+    "target": "scripts/verify-long-window-startup-ci.mjs",
+    "sha256": "6332e8eb8d2c48dec12fac0056a357ae737949113d535e429b0d69c5dc63a0ff",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--engine": [
+        "five-drop"
+      ],
+      "--slots": [
+        "8"
+      ]
+    },
+    "smokeArgs": [
+      "--engine",
+      "five-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-wide-window.mjs",
+    "target": "scripts/verify-wide-window-startup-ci.mjs",
+    "sha256": "8a08a93372a5e0ca0ee5d64a5a483f122739dc68fe8c18948c1844435b4b7dde",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--engine": [
+        "five-drop"
+      ],
+      "--slots": [
+        "8"
+      ]
+    },
+    "smokeArgs": [
+      "--engine",
+      "five-drop",
+      "--slots",
+      "8"
+    ]
+  },
+  {
+    "original": "scripts/verify-sustained.mjs",
+    "target": "scripts/verify-sustained-startup-ci.mjs",
+    "sha256": "3a6760d9077c31d8a2ceec8394081a69f44647c5e910c4434d46308d12911526",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path",
+      "--coordinator": [
+        "combined",
+        "dedicated"
+      ],
+      "--engine": [
+        "two-drop",
+        "three-drop",
+        "four-drop"
+      ],
+      "--case": [
+        "RSA-100"
+      ],
+      "--fixed-families": [
+        "4"
+      ]
+    },
+    "fixedCase": {
+      "--case": "RSA-100",
+      "--fixed-families": "4"
+    },
+    "smokeArgs": [
+      "--coordinator",
+      "combined",
+      "--engine",
+      "two-drop"
+    ]
+  },
+  {
+    "original": "scripts/verify-siqs-lab.mjs",
+    "target": "scripts/verify-siqs-lab-ci.mjs",
+    "sha256": "58098e16a1155cd44085c1c21922669fe2ee5c0a2c9a9a23d020c3037aa4fa70",
+    "startupTimeoutMs": 30000,
+    "args": {
+      "--out": "path"
+    },
+    "smokeArgs": [],
+    "producer": "scripts/generate-siqs-lab-ci.mjs"
+  },
+  {
+    "original": "scripts/benchmark-staged.mjs",
+    "target": "scripts/verify-staged-ci.mjs",
+    "sha256": "8fd69abba55c4826c434fec512650cf8e4578772ab3e6e97b774e72bd63a47dd",
+    "startupTimeoutMs": 15000,
+    "producer": "scripts/generate-staged-ci.mjs",
+    "args": {
+      "--out": "path",
+      "--mode": [
+        "lifecycle"
+      ],
+      "--variant": [
+        "brent",
+        "ecm",
+        "siqs",
+        "p64"
+      ]
+    },
+    "required": {
+      "--mode": "lifecycle"
+    },
+    "smokeArgs": [
+      "--mode",
+      "lifecycle",
+      "--variant",
+      "p64"
+    ]
+  }
+]

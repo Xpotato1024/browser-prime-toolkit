@@ -5,14 +5,64 @@ on:
 permissions:
   contents: read
 jobs:
+  reviewed-source-archives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      artifact-id: ${{ steps.archives.outputs.artifact-id }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - name: Record event, actual checkout and pinned Node
+        run: node scripts/ci-execution-identity.mjs
+      - name: Compute exact raw-source identity
+        id: source-key
+        run: node scripts/ci-reviewed-sources.mjs key
+      - name: Restore raw archives without trusting the cache
+        id: source-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/reviewed-source-archives
+          key: ${{ steps.source-key.outputs.key }}
+      - name: Verify exact cache or fetch and verify once
+        run: node scripts/ci-reviewed-sources.mjs restore "$RUNNER_TEMP/reviewed-source-archives"
+        env:
+          SOURCE_CACHE_MATCHED_KEY: ${{ steps.source-cache.outputs.cache-matched-key }}
+          SOURCE_CACHE_HIT: ${{ steps.source-cache.outputs.cache-hit }}
+      - name: Share only verified raw archives in this run
+        id: archives
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: reviewed-source-archives
+          path: ${{ runner.temp }}/reviewed-source-archives/*
+          if-no-files-found: error
+          overwrite: false
+          compression-level: 0
+          retention-days: 1
+      - name: Save verified raw archives for later push runs
+        if: ${{ github.event_name == 'push' && steps.source-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/reviewed-source-archives
+          key: ${{ steps.source-key.outputs.key }}
   # Full unit coverage runs once in test for this exact checkout.
   # Other jobs retain rebuilt-artifact equality and focused native/browser gates.
   test:
+    needs: reviewed-source-archives
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     # Two offline engine rebuilds plus native/browser regressions exceeded 15m.
     # This finite job budget does not change individual calculation/retirement limits.
     timeout-minutes: 20
     steps:
+      - name: Fail this required job if source preparation failed
+        run: test "$SOURCE_JOB_RESULT" = success
+        env:
+          SOURCE_JOB_RESULT: ${{ needs.reviewed-source-archives.result }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
@@ -28,10 +78,21 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Rebuild reviewed WASM twice without network
         run: npm run build:wasm -- --check
-      - name: Set isolated candidate source cache
-        run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
+      - name: Require one same-run source artifact
+        run: node scripts/ci-reviewed-sources.mjs artifact-id "$SOURCE_ARTIFACT_ID"
+        env:
+          SOURCE_ARTIFACT_ID: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+          path: ${{ runner.temp }}/reviewed-source-archives
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Reverify raw source bytes in this consumer
+        run: node scripts/ci-reviewed-sources.mjs verify "$RUNNER_TEMP/reviewed-source-archives"
+      - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/reviewed-source-archives" >> "$GITHUB_ENV"
       - name: Fetch and verify fixed candidate source and build tools
-        run: node scripts/fetch-reviewed-candidates.mjs
+        run: node scripts/fetch-reviewed-candidates.mjs --cache-only
       - name: Rebuild GMP and ECM twice offline; compile true SIQS objects
         run: npm run build:candidates -- --check
       - name: Rebuild bounded SIQS twice offline
@@ -61,9 +122,15 @@ jobs:
         env:
           CHROME_BIN: google-chrome
   supplementary-evaluation:
+    needs: reviewed-source-archives
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Fail this required job if source preparation failed
+        run: test "$SOURCE_JOB_RESULT" = success
+        env:
+          SOURCE_JOB_RESULT: ${{ needs.reviewed-source-archives.result }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
@@ -74,15 +141,27 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/prime-upstreams" >> "$GITHUB_ENV"
-      - run: node scripts/fetch-reviewed-candidates.mjs
+      - name: Require one same-run source artifact
+        run: node scripts/ci-reviewed-sources.mjs artifact-id "$SOURCE_ARTIFACT_ID"
+        env:
+          SOURCE_ARTIFACT_ID: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+          path: ${{ runner.temp }}/reviewed-source-archives
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Reverify raw source bytes in this consumer
+        run: node scripts/ci-reviewed-sources.mjs verify "$RUNNER_TEMP/reviewed-source-archives"
+      - run: echo "PRIME_UPSTREAM_DIR=$RUNNER_TEMP/reviewed-source-archives" >> "$GITHUB_ENV"
+      - run: node scripts/fetch-reviewed-candidates.mjs --cache-only
       - run: node scripts/build-supplement.mjs
       - run: git diff --exit-code -- src/engine/supplement-bytes.js native/gmp/supplement-build.json
       - run: node scripts/build-supplement.mjs --native
       - name: Reject tracked changes after rebuild and native verification
         run: git diff --exit-code --
       - run: node scripts/check-supplement.mjs
-      - run: node scripts/verify-supplement-ci.mjs --out "$RUNNER_TEMP/supplement.json"
+      - run: node scripts/verify-supplement-ci-startup-ci.mjs --out "$RUNNER_TEMP/supplement.json"
         env:
           CHROME_BIN: google-chrome
   counted-siqs-evaluation:
@@ -108,7 +187,7 @@ jobs:
       - run: node scripts/check-counted.mjs
       - run: |
           for variant in legacy clock-gated dense lanczos; do
-            node scripts/benchmark-counted.mjs --mode lifecycle --variant "$variant" --out "$RUNNER_TEMP/counted-$variant.json"
+            node scripts/benchmark-counted-startup-ci.mjs --mode lifecycle --variant "$variant" --out "$RUNNER_TEMP/counted-$variant.json"
           done
         env:
           CHROME_BIN: google-chrome
@@ -158,7 +237,7 @@ jobs:
         env:
           CHROME_BIN: google-chrome
       - name: Exact decimal UI, copy, lifecycle and quiet browser integration
-        run: node scripts/verify-private-ui-ci.mjs --out "$RUNNER_TEMP/private-ui.json"
+        run: node scripts/verify-private-ui-ci-startup-ci.mjs --out "$RUNNER_TEMP/private-ui.json"
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
@@ -189,9 +268,15 @@ jobs:
       - run: git diff --check
 
   full-siqs:
+    needs: reviewed-source-archives
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Fail this required job if source preparation failed
+        run: test "$SOURCE_JOB_RESULT" = success
+        env:
+          SOURCE_JOB_RESULT: ${{ needs.reviewed-source-archives.result }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
@@ -202,8 +287,20 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/full-siqs" >> "$GITHUB_ENV"
-      - run: npm run fetch:reviewed-full-siqs
+      - name: Require one same-run source artifact
+        run: node scripts/ci-reviewed-sources.mjs artifact-id "$SOURCE_ARTIFACT_ID"
+        env:
+          SOURCE_ARTIFACT_ID: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+          path: ${{ runner.temp }}/reviewed-source-archives
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Reverify raw source bytes in this consumer
+        run: node scripts/ci-reviewed-sources.mjs verify "$RUNNER_TEMP/reviewed-source-archives"
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/reviewed-source-archives" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs -- --cache-only
       - run: npm run build:full-siqs -- --check
       - run: npm run verify:full-siqs-native
       - name: Reject tracked changes after rebuild and native verification
@@ -216,9 +313,15 @@ jobs:
       - run: git diff --check
 
   siqs-lab:
+    needs: reviewed-source-archives
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Fail this required job if source preparation failed
+        run: test "$SOURCE_JOB_RESULT" = success
+        env:
+          SOURCE_JOB_RESULT: ${{ needs.reviewed-source-archives.result }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
@@ -229,8 +332,20 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-lab" >> "$GITHUB_ENV"
-      - run: npm run fetch:reviewed-full-siqs
+      - name: Require one same-run source artifact
+        run: node scripts/ci-reviewed-sources.mjs artifact-id "$SOURCE_ARTIFACT_ID"
+        env:
+          SOURCE_ARTIFACT_ID: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+          path: ${{ runner.temp }}/reviewed-source-archives
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Reverify raw source bytes in this consumer
+        run: node scripts/ci-reviewed-sources.mjs verify "$RUNNER_TEMP/reviewed-source-archives"
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/reviewed-source-archives" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs -- --cache-only
       - run: node scripts/generate-siqs-lab-runtime.mjs --check
       - run: node scripts/build-siqs-lab.mjs --check
       - run: node scripts/build-siqs-lab-worker.mjs --check
@@ -246,9 +361,15 @@ jobs:
       - run: git diff --check
 
   siqs-tuned:
+    needs: reviewed-source-archives
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Fail this required job if source preparation failed
+        run: test "$SOURCE_JOB_RESULT" = success
+        env:
+          SOURCE_JOB_RESULT: ${{ needs.reviewed-source-archives.result }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
@@ -259,8 +380,20 @@ jobs:
         run: node scripts/ci-execution-identity.mjs
       - run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/siqs-tuned" >> "$GITHUB_ENV"
-      - run: npm run fetch:reviewed-full-siqs
+      - name: Require one same-run source artifact
+        run: node scripts/ci-reviewed-sources.mjs artifact-id "$SOURCE_ARTIFACT_ID"
+        env:
+          SOURCE_ARTIFACT_ID: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.reviewed-source-archives.outputs.artifact-id }}
+          path: ${{ runner.temp }}/reviewed-source-archives
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Reverify raw source bytes in this consumer
+        run: node scripts/ci-reviewed-sources.mjs verify "$RUNNER_TEMP/reviewed-source-archives"
+      - run: echo "PRIME_FULL_SOURCE_DIR=$RUNNER_TEMP/reviewed-source-archives" >> "$GITHUB_ENV"
+      - run: npm run fetch:reviewed-full-siqs -- --cache-only
       - run: node scripts/build-siqs-tuned.mjs --check
       - run: node scripts/build-siqs-tuned-worker.mjs --check
       - run: node scripts/build-siqs-tuned.mjs --native
@@ -270,7 +403,7 @@ jobs:
       - name: Fixed-memory baseline and LTO lifecycle, proof and quiet runtime
         run: |
           for engine in base lto; do
-            node scripts/verify-siqs-tuned.mjs --engine "$engine" --out "$RUNNER_TEMP/tuned-$engine.json"
+            node scripts/verify-siqs-tuned-startup-ci.mjs --engine "$engine" --out "$RUNNER_TEMP/tuned-$engine.json"
           done
         env:
           CHROME_BIN: google-chrome
@@ -298,7 +431,7 @@ jobs:
         run: |
           for profile in baseline half quarter; do
             for engine in one-drop two-drop; do
-              node scripts/verify-dlp.mjs --profile "$profile" --engine "$engine" --out "$RUNNER_TEMP/dlp-$profile-$engine.json"
+              node scripts/verify-dlp-startup-ci.mjs --profile "$profile" --engine "$engine" --out "$RUNNER_TEMP/dlp-$profile-$engine.json"
             done
           done
         env:
@@ -327,7 +460,7 @@ jobs:
         run: |
           for scheduler in batch2 batch1 credit1; do
             for engine in one-drop two-drop; do
-              node scripts/verify-scheduler.mjs --scheduler "$scheduler" --engine "$engine" --out "$RUNNER_TEMP/scheduler-$scheduler-$engine.json"
+              node scripts/verify-scheduler-startup-ci.mjs --scheduler "$scheduler" --engine "$engine" --out "$RUNNER_TEMP/scheduler-$scheduler-$engine.json"
             done
           done
         env:
@@ -355,7 +488,7 @@ jobs:
       - name: Named native geometry and bounded offline real Worker contracts
         run: |
           for profile in b325-m524 b250-m524 b325-m262 b250-m262; do
-            node scripts/verify-geometry.mjs --profile "$profile" --engine two-drop --out "$RUNNER_TEMP/geometry-$profile.json"
+            node scripts/verify-geometry-startup-ci.mjs --profile "$profile" --engine two-drop --out "$RUNNER_TEMP/geometry-$profile.json"
           done
         env:
           CHROME_BIN: google-chrome
@@ -381,9 +514,9 @@ jobs:
       - name: Finite1..4-owner real Worker contracts and private settings UI
         run: |
           for engine in one-drop two-drop three-drop four-drop; do
-            node scripts/verify-resources.mjs --engine "$engine" --out "$RUNNER_TEMP/resources-$engine.json"
+            node scripts/verify-resources-startup-ci.mjs --engine "$engine" --out "$RUNNER_TEMP/resources-$engine.json"
           done
-          node scripts/verify-resource-ui.mjs --out "$RUNNER_TEMP/resource-ui.json"
+          node scripts/verify-resource-ui-startup-ci.mjs --out "$RUNNER_TEMP/resource-ui.json"
         env:
           CHROME_BIN: google-chrome
       - run: git diff --check
@@ -410,9 +543,9 @@ jobs:
       - run: node scripts/check-resource-source-index.mjs
       - name: Dedicated coordinator offline contracts without performance trials
         run: |
-          node scripts/verify-coordinator-ci.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
+          node scripts/verify-coordinator-ci-startup-ci.mjs --coordinator combined --engine four-drop --out "$RUNNER_TEMP/coordinator-combined4.json"
           for engine in two-drop three-drop four-drop; do
-            node scripts/verify-coordinator-ci.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
+            node scripts/verify-coordinator-ci-startup-ci.mjs --coordinator dedicated --engine "$engine" --out "$RUNNER_TEMP/coordinator-$engine.json"
           done
         env:
           CHROME_BIN: google-chrome
