@@ -9,7 +9,9 @@ test('one unconditional full unit suite covers the exact workflow checkout',()=>
  const suites=[...jobs].filter(([,body])=>/^      - run: npm test$/m.test(body));
  assert.deepEqual(suites.map(([name])=>name),['test']);
  const body=jobs.get('test');
- assert.ok(!/^    (?:if|needs):/m.test(body),'full suite must run independently');
+ assert.match(body,/^    needs: reviewed-source-archives$/m);
+ assert.match(body,/^    if: \$\{\{ always\(\) \}\}$/m);
+ assert.ok(body.indexOf('run: test "$SOURCE_JOB_RESULT" = success')<body.indexOf('uses: actions/checkout@'),'source failure must fail the existing required job');
  assert.ok(!/^        if:/m.test(body),'full suite must remain unconditional');
  assert.ok(body.includes('run: node scripts/ci-execution-identity.mjs'));
  assert.ok(body.includes('run: npm run check'));

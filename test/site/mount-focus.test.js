@@ -186,3 +186,19 @@ test('completion bar, editing and retry match the result and factor list contain
  f.form.fire('submit');assert.notEqual(bar.attrs.value,'1');await settle();assert.equal(bar.attrs.value,'1');
  f.input.value='2.5';f.form.fire('submit');await settle();assert.equal(bar.attrs.value,'0');assert.equal(bar.attrs['data-complete'],'false');
 });
+
+
+test('one named icon copy control belongs to the equation, with separate result details and help',async t=>{
+ const f=await setup();t.after(()=>f.app.dispose());
+ const copy=f.action('copy'),frame=f.find(n=>n.attrs['class']==='bt-equation-frame'),equation=f.find(n=>n.attrs['class']==='bt-equation');
+ assert.ok(frame?.children.includes(copy));assert.ok(frame.children.includes(equation));
+ assert.equal(copy.attrs['aria-label'],'結果をコピー');assert.equal(copy.attrs.title,'結果をコピー');assert.equal(copy.textContent,undefined);
+ assert.equal(copy.children[0].attrs['aria-hidden'],'true');assert.equal(nodes(f.root).filter(n=>n.attrs['data-action']==='copy').length,1);
+ const group=f.find(n=>n.attrs['class']==='bt-result-details'),help=f.find(n=>n.attrs['class']==='bt-help-area');
+ assert.ok(group.children.includes(f.find(n=>n.attrs['class']==='bt-proof')));assert.ok(group.children.includes(f.find(n=>n.attrs['class']==='bt-execution')));
+ assert.ok(f.root.children.includes(help));assert.equal(nodes(help).filter(n=>n.tagName==='DETAILS').length,2);
+ assert.ok(nodes(help).some(n=>n.textContent?.includes('最初からの計算')));assert.ok(nodes(help).some(n=>n.textContent?.includes('素数であることの証明')));
+ f.doc.defaultView.navigator.clipboard={writeText:async()=>{}};f.input.value='360';f.form.fire('submit');await settle();copy.fire('click');await settle();
+ const status=f.find(n=>(n.attrs['class']??'').includes('bt-copy-status'));assert.equal(status.attrs.role,'status');assert.match(status.textContent,/コピーしました/);assert.equal(status.hidden,false);
+ f.input.value='64';f.form.fire('submit');await settle();assert.equal(status.hidden,true);
+});

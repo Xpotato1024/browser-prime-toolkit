@@ -31,6 +31,12 @@ jobs:
       - name: Actual browser protocol, port retirement and fresh recovery
         env:
           CHROME_BIN: google-chrome
+          CI_FOLLOWUP_PROFILE: ${{ matrix.profile }}
           PRIME_MEASURED_HEAD: ${{ github.sha }}
-        run: node scripts/verify-${{ matrix.profile }}.mjs --graph "${{ matrix.profile == 'resieve-prefix' && 'prefix' || 'unroll4' }}" --out "$RUNNER_TEMP/followup-contracts.json"
+        run: |
+          case "$CI_FOLLOWUP_PROFILE" in
+            resieve-prefix) node scripts/verify-resieve-prefix.mjs --graph prefix --out "$RUNNER_TEMP/followup-contracts.json" ;;
+            score-unroll) node scripts/verify-score-unroll-startup-ci.mjs --graph unroll4 --out "$RUNNER_TEMP/followup-contracts.json" ;;
+            *) echo "Unknown followup profile" >&2; exit 1 ;;
+          esac
       - run: git diff --check

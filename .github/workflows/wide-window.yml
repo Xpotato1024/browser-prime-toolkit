@@ -21,5 +21,5 @@ jobs:
       - name: Actual browser protocol, tiny refusal and recovery
         env:
           CHROME_BIN: google-chrome
-        run: node scripts/verify-wide-window.mjs --engine five-drop --slots 8 --out "$RUNNER_TEMP/wide-contracts.json"
+        run: node scripts/verify-wide-window-startup-ci.mjs --engine five-drop --slots 8 --out "$RUNNER_TEMP/wide-contracts.json"
       - run: git diff --check

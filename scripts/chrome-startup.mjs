@@ -75,10 +75,23 @@ export function observeChromeStartup(child,profile,{timeoutMs=30000,pollMs=50}={
  }};
 }
 
+const cdpTransports=new WeakMap();
+function observeCdpTransport(socket,pending){
+ let state=cdpTransports.get(socket);
+ if(!state){
+  state={failed:false,maps:new Set()};cdpTransports.set(socket,state);
+  const fail=event=>{
+   state.failed=true;
+   for(const calls of state.maps)for(const[id,call]of calls){clearTimeout(call.timer);calls.delete(id);call.reject(Error('CDP transport '+event.type));}
+  };
+  socket.addEventListener?.('error',fail);socket.addEventListener?.('close',fail);
+ }
+ state.maps.add(pending);return !state.failed;
+}
 export function createCdpSender({getSocket,pending,nextId,timeoutForMethod}){
  return (method,params={},sessionId)=>new Promise((resolve,reject)=>{
   const socket=getSocket();
-  if(!socket||socket.readyState!==1){reject(Error('CDP transport is not open: '+method));return;}
+  if(!socket||socket.readyState!==1||!observeCdpTransport(socket,pending)){reject(Error('CDP transport is not open: '+method));return;}
   const id=nextId();
   const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP timeout: '+method));},timeoutForMethod(method));
   pending.set(id,{sessionId,method,resolve,reject,timer});

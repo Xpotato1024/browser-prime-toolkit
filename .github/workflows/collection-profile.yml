@@ -39,5 +39,5 @@ jobs:
         env:
           CHROME_BIN: google-chrome
           PRIME_MEASURED_HEAD: ${{ github.sha }}
-        run: node scripts/verify-collection-profile.mjs --graph ${{ matrix.graph }} --out "$RUNNER_TEMP/collection-contracts.json"
+        run: node scripts/verify-collection-profile-startup-ci.mjs --graph ${{ matrix.graph }} --out "$RUNNER_TEMP/collection-contracts.json"
       - run: git diff --check
