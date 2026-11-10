@@ -118,3 +118,13 @@ TailwindはSiteのbuildだけが所有し、toolkitへ導入しない。toolkit�
 `src/site/capabilities.js`がadapterの入力範囲・対応モード・設定時間上限の固定定義で、policyと表示が同じ値を参照する。凍結parser/backendの境界とはテストで照合する。builderはこのobjectを配布manifestの任意`uiCapabilities`へ出力し、Siteは選択したmanifestのhash確認後だけ説明に使う。生の文字数と配布byte上限、入力可能範囲と完了保証、設定予算と実測を混同しない。旧manifestに情報が無ければ未提供として扱い、新しい候補の値を古い版へ補わない。
 
 これは未公開候補の契約追加であり、正式な新version/release、既存vendor/pinの置換やSite本番採用を行った記録ではない。
+
+### 2026-11-10 入力枠と区切り線の公開CSS API（未配布候補）
+
+Siteの共通APIに合わせ、`--bt-border-control`（入力領域・input/select/textarea・補助button）と `--bt-border-divider`（details・説明境界・結果の式枠・dialog外枠と内部区切り・注記）を独立して参照する。意味のある操作境界と装飾的な区切りを同色に固定しない。主操作・取消・focusの既存semantic色は維持する。
+
+各roleは `var(--bt-border-control,var(--bt-border,#736a7b))` またはdivider相当へfallbackする。新しいrole指定が優先し、旧hostの `--bt-border` だけの設定も保持する。単体の既定色は従来通り。rootでroleの既定値を再宣言せず、hostからの継承を遮断しない。
+
+`--bt-summary-padding-block` はsummaryの上下paddingを指定する（未指定 `.55rem`）。native marker、開閉、44px以上の最小操作領域を保持する。展開後の本文間隔 `.65rem` はtool固有のままにする。hostは公開変数で指定し、内部selectorの上書きや固定配布物の編集をしない。
+
+hostは入力枠と隣接背景の3:1以上のコントラスト、文字・focusのコントラスト、狭幅・200%文字拡大・keyboardの開閉を検証する。装飾的なdividerへ入力枠と同じコントラストを強制しない。この変更は数値・Worker・入力上限・release versionを変更せず、releaseとSite採用は別承認の対象とする。
