@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import assert from 'node:assert/strict';
-export const sharedBrowserEntrypoints=Object.freeze(['scripts/verify-progress-rendering.mjs','scripts/verify-browser-ci.mjs','scripts/verify-staged-ci.mjs','scripts/verify-resieve-followup.mjs','scripts/verify-resieve-prefix.mjs','scripts/verify-chrome-startup.mjs']);
+export const sharedBrowserEntrypoints=Object.freeze(['scripts/verify-style-roles.mjs','scripts/verify-progress-rendering.mjs','scripts/verify-browser-ci.mjs','scripts/verify-staged-ci.mjs','scripts/verify-resieve-followup.mjs','scripts/verify-resieve-prefix.mjs','scripts/verify-chrome-startup.mjs']);
 const shared=new Set(sharedBrowserEntrypoints);
 export function workflowBrowserInventory({workflows,scripts,read,entries}){
  const paths=new Map();
@@ -33,7 +33,7 @@ export function workflowBrowserInventory({workflows,scripts,read,entries}){
   if(!/--remote-debugging-port/.test(source)||!/\bspawn\s*\(/.test(source))continue;
   assert.ok(targets.has(path)||shared.has(path),'Workflow/package browser entry bypasses shared startup: '+path+' via '+[...via].join(', '));
   if(targets.has(path))assert.match(source,/ciChrome\.observe\(/,'CI adapter must observe its owned browser');
-  else if(path==='scripts/verify-progress-rendering.mjs')assert.match(source,/ciChrome\.observe\(\{timeoutMs:15000\}\)/);
+  else if(['scripts/verify-progress-rendering.mjs','scripts/verify-style-roles.mjs'].includes(path))assert.match(source,/ciChrome\.observe\(\{timeoutMs:15000\}\)/);
   else{
    assert.match(source,/observeChromeStartup/);assert.match(source,/openChromeTransport/);
    assert.ok(!source.includes('const debuggingUrl = await new Promise'),'Legacy readiness reintroduced: '+path);
